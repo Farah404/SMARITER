@@ -29,6 +29,10 @@ public class UserAccount extends Account{
     
     @ManyToMany
     private List <Service> services = new LinkedList<>();
+    
+    public UserAccount() {
+	super();
+    }
 
     public UserAccount(Long id, String username, String password, String profilePicturePath, boolean isActive,
 	    Date creationDate, AccountType accountType, ShoppingCart shoppingCart, BankDetails bankDetails,

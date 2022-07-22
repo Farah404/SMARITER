@@ -30,6 +30,10 @@ public abstract class Account {
     @Enumerated
     private AccountType accountType;
 
+    public Account() {
+	super();
+    }
+
     public Account(Long id, String username, String password, String profilePicturePath, boolean isActive,
 	    Date creationDate, AccountType accountType) {
 	super();

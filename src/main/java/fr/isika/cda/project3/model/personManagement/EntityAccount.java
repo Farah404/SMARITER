@@ -35,6 +35,10 @@ public class EntityAccount extends Account {
     
     @ManyToMany
     private List <Solution> solutions = new LinkedList<>();
+    
+    public EntityAccount() {
+	super();
+    }
 
     public EntityAccount(Long id, String username, String password, String profilePicturePath, boolean isActive,
 	    Date creationDate, AccountType accountType, String name, int siretNumber, boolean isPrivate,

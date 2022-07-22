@@ -11,6 +11,10 @@ public class Client extends Person{
     
     private String email;
 
+    public Client() {
+	super();
+    }
+
     public Client(Long id, String firstName, String lastName, int phoneNumber, String email) {
 	super(id, firstName, lastName);
 	this.phoneNumber = phoneNumber;

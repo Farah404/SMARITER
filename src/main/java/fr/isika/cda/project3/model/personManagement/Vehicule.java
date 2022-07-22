@@ -33,6 +33,10 @@ public class Vehicule {
     @OneToOne
     private Insurance insurance;
 
+    public Vehicule() {
+	super();
+    }
+
     public Vehicule(Long id, String brand, String registrationNumber, boolean isHybrid, boolean isElectric,
 	    boolean isManual, Date technicalTestExpiration, UserAccount userAccount, Insurance insurance) {
 	super();
