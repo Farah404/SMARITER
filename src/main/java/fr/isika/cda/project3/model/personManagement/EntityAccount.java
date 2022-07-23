@@ -12,6 +12,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import fr.isika.cda.project3.model.financialManagement.BankDetails;
 import fr.isika.cda.project3.model.financialManagement.BillingAddress;
 import fr.isika.cda.project3.model.financialManagement.ShoppingCart;
+import fr.isika.cda.project3.model.financialManagement.Wallet;
 import fr.isika.cda.project3.model.solutionManagement.Solution;
 
 @Entity
@@ -33,12 +34,19 @@ public class EntityAccount extends Account {
     @OneToOne
     private BillingAddress billingAddress;
     
+    @OneToOne
+    private Wallet wallet;
+    
     @ManyToMany
     private List <Solution> solutions = new LinkedList<>();
+    
+    public EntityAccount() {
+	super();
+    }
 
     public EntityAccount(Long id, String username, String password, String profilePicturePath, boolean isActive,
 	    Date creationDate, AccountType accountType, String name, int siretNumber, boolean isPrivate,
-	    ShoppingCart shoppingCart, BankDetails bankDetails, BillingAddress billingAddress,
+	    ShoppingCart shoppingCart, BankDetails bankDetails, BillingAddress billingAddress, Wallet wallet,
 	    List<Solution> solutions) {
 	super(id, username, password, profilePicturePath, isActive, creationDate, accountType);
 	this.name = name;
@@ -47,6 +55,7 @@ public class EntityAccount extends Account {
 	this.shoppingCart = shoppingCart;
 	this.bankDetails = bankDetails;
 	this.billingAddress = billingAddress;
+	this.wallet = wallet;
 	this.solutions = solutions;
     }
 
@@ -96,6 +105,14 @@ public class EntityAccount extends Account {
 
     public void setBillingAddress(BillingAddress billingAddress) {
         this.billingAddress = billingAddress;
+    }
+
+    public Wallet getWallet() {
+        return wallet;
+    }
+
+    public void setWallet(Wallet wallet) {
+        this.wallet = wallet;
     }
 
     public List<Solution> getSolutions() {

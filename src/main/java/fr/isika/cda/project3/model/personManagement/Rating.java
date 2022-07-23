@@ -22,6 +22,10 @@ public class Rating {
     @ManyToOne
     private Service service;
 
+    public Rating() {
+	super();
+    }
+
     public Rating(Long id, String comment, UserAccount userAccount, Service service) {
 	super();
 	this.id = id;

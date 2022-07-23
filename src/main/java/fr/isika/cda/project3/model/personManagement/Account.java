@@ -23,14 +23,18 @@ public abstract class Account {
     
     private String profilePicturePath;
     
-    private boolean isActive;
+    private Boolean isActive;
     
     private Date creationDate;
     
     @Enumerated
     private AccountType accountType;
 
-    public Account(Long id, String username, String password, String profilePicturePath, boolean isActive,
+    public Account() {
+	super();
+    }
+
+    public Account(Long id, String username, String password, String profilePicturePath, Boolean isActive,
 	    Date creationDate, AccountType accountType) {
 	super();
 	this.id = id;
@@ -66,7 +70,7 @@ public abstract class Account {
         this.profilePicturePath = profilePicturePath;
     }
 
-    public boolean isActive() {
+    public Boolean isActive() {
         return isActive;
     }
 

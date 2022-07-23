@@ -9,7 +9,10 @@ public class Administrator extends Person {
     
     private String employeeCode;
 
-
+   
+    public Administrator() {
+	super();
+    }
 
     public Administrator(Long id, String firstName, String lastName, String employeeCode) {
 	super(id, firstName, lastName);

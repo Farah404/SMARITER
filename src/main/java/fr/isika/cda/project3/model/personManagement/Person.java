@@ -18,6 +18,10 @@ public abstract class Person {
     
     private String lastName;
 
+    public Person() {
+	super();
+    }
+
     public Person(Long id, String firstName, String lastName) {
 	super();
 	this.id = id;

@@ -19,6 +19,10 @@ public class Insurance {
     
     private Date insuranceContractExpiration;
 
+    public Insurance() {
+	super();
+    }
+
     public Insurance(Long id, String insuranceAgencyName, String insuranceContractNumber,
 	    Date insuranceContractExpiration) {
 	super();

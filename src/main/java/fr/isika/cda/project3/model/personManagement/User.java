@@ -19,6 +19,10 @@ public class User extends Person{
     
     private int drivingPermitNumber;
 
+    public User() {
+	super();
+    }
+
     public User(Long id, String firstName, String lastName, String email, int phoneNumber, Date birthDate,
 	    int identityCardnumber, int drivingPermitNumber) {
 	super(id, firstName, lastName);
