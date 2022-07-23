@@ -19,11 +19,11 @@ public class Vehicule {
     
     private String registrationNumber;
     
-    private boolean isHybrid;
+    private Boolean isHybrid;
     
-    private boolean isElectric;
+    private Boolean isElectric;
     
-    private boolean isManual;
+    private Boolean isManual;
     
     private Date technicalTestExpiration;
     
@@ -37,8 +37,8 @@ public class Vehicule {
 	super();
     }
 
-    public Vehicule(Long id, String brand, String registrationNumber, boolean isHybrid, boolean isElectric,
-	    boolean isManual, Date technicalTestExpiration, UserAccount userAccount, Insurance insurance) {
+    public Vehicule(Long id, String brand, String registrationNumber, Boolean isHybrid, Boolean isElectric,
+	    Boolean isManual, Date technicalTestExpiration, UserAccount userAccount, Insurance insurance) {
 	super();
 	this.id = id;
 	this.brand = brand;
@@ -67,7 +67,7 @@ public class Vehicule {
         this.registrationNumber = registrationNumber;
     }
 
-    public boolean isHybrid() {
+    public Boolean isHybrid() {
         return isHybrid;
     }
 
@@ -75,7 +75,7 @@ public class Vehicule {
         this.isHybrid = isHybrid;
     }
 
-    public boolean isElectric() {
+    public Boolean isElectric() {
         return isElectric;
     }
 
@@ -83,7 +83,7 @@ public class Vehicule {
         this.isElectric = isElectric;
     }
 
-    public boolean isManual() {
+    public Boolean isManual() {
         return isManual;
     }
 
