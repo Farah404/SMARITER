@@ -3,274 +3,247 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
-	lang="en">
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
 <head>
-<title>WelcomePage</title>
+<title>WelcomePageELSM</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="resources/lightStyleSheet.css" />
 </head>
 <body>
-<!-- Beginnning NavBar -->
+	<!-- Beginnning NavBar -->
 
-<nav>
-  <ul class="menu">
-    <li class="logo"><a href="#">LOGO</a></li>
-    <li class="item"><a href="#">About</a></li>
-    <li class="item"><a href="#">Team</a></li>
-    <li class="item has-submenu">
-      <a tabindex="0">Services <i class="fa fa-caret-down"></i></a>
-      <ul class="submenu">
-        <li class="subitem"><a href="#">Design</a></li>
-        <li class="subitem"><a href="#">Development</a></li>
-        <li class="subitem"><a href="#">SEO</a></li>
-        <li class="subitem"><a href="#">Copywriting</a></li>
-      </ul>
-    </li>
-    <li class="item has-submenu">
-      <a >Pricing <i class="fa fa-caret-down"></i></a>
-      <ul class="submenu">
-        <li class="subitem"><a href="#">Freelancer</a></li>
-        <li class="subitem"><a href="#">Startup</a></li>
-        <li class="subitem"><a href="#">Enterprise</a></li>
-      </ul>
-    </li>
-    <li class="item"><a href="#">Blog</a></li>
-    <li class="item"><a href="#">Contact</a></li>
-    <li class="item"><a href="#"><i class="fa fa-moon-o"></i>DM</a></li>
-    <li class="item"><a href="#"><i class="fa fa-globe"></i>fr</a></li>
-    <li class="item button"><a href="#">Log In</a></li>
-    <li class="toggle"><a href="#"><i class="fa fa-bars"></i></a></li>
-  </ul>
-</nav>
-<!-- Ending NavBar -->
-<!-- Header with full-height video -->
-<video id="background-video" autoplay="autoplay" loop="loop"
-		muted="muted">
-		<source src="media/webm/videoplayback.webm" type="video/webm" />
-	</video>
-	<div class="main-content">
-		<div class="concept concept-three">
-			<div class="word">
-				<div class="hover">
-					<div></div>
-					<div></div>
-					<h1>S</h1>
+	<nav>
+		<ul class="menu">
+			<li class="logo"><a href="#">LOGO</a></li>
+			<li class="item"><a href="#">About</a></li>
+			<li class="item"><a href="team.xhtml">Team</a></li>
+			<li class="item has-submenu"><a tabindex="0">Services <i
+					class="fa fa-caret-down"></i></a>
+				<ul class="submenu">
+					<li class="subitem"><a href="#">Design</a></li>
+					<li class="subitem"><a href="#">Development</a></li>
+					<li class="subitem"><a href="#">SEO</a></li>
+					<li class="subitem"><a href="#">Copywriting</a></li>
+				</ul></li>
+			<li class="item has-submenu"><a>Pricing <i
+					class="fa fa-caret-down"></i></a>
+				<ul class="submenu">
+					<li class="subitem"><a href="#">Freelancer</a></li>
+					<li class="subitem"><a href="#">Startup</a></li>
+					<li class="subitem"><a href="#">Enterprise</a></li>
+				</ul></li>
+			<li class="item"><a href="#">Blog</a></li>
+			<li class="item"><a href="contactForm.xhtml">Contact</a></li>
+			<li class="item"><a href="#"><i class="fa fa-moon-o"></i>DM</a></li>
+			<li class="item"><a href="#"><i class="fa fa-globe"></i>fr</a></li>
+			<li class="item button"><a href="loginForm.xhtml">Log In</a></li>
+			<li class="toggle"><a href="#"><i class="fa fa-bars"></i></a></li>
+		</ul>
+	</nav>
+	<!-- Ending NavBar -->
+	<!-- Header with video & svg separator-->
+	<section class="wrapper">
+
+		<video class="wrapper__video" autoplay="autoplay" loop="loop"
+			muted="muted">
+			<source src="media/webm/videoplayback.webm" type="video/webm" />
+		</video>
+		<div class="wave-video">
+			<svg:svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 1200 120" preserveAspectRatio="none">
+				<svg:path
+					d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+					class="shape-fill" />
+			</svg:svg>
+		</div>
+	</section>
+	<!-- Ending header -->
+
+	<!-- HowItWorks section -->
+	<section class="container">
+		<div class="row-effort">
+			<div class="column-effort animate-zoom">
+				<img width="50%" src="media/gif/coding/step1.gif" />
+				<p>Enabling</p>
+			</div>
+			<div class="column-effort animate-zoom">
+				<img class="animate-zoom animate-zoom" width="50%" src="media/gif/coding/step2.gif" />
+				<p>Launching</p>
+			</div>
+			<div class="column-effort animate-zoom">
+				<img  width="50%" src="media/gif/coding/step3.gif" />
+				<p>Sharing</p>
+			</div>
+			<div class="column-effort animate-zoom">
+				<img width="50%" src="media/gif/coding/step4.gif" />
+				<p>Monitoring</p>
+			</div>
+
+		</div>
+	</section>
+	<!-- Ending HowItWorks section-->
+
+	<!--Beginning ServiceCounter Effort-->
+	<section class="container">
+		<div class="row-effort">
+			<div class="column-effort">
+				<div class="card-effort">
+					<p>
+						<i class="fa fa-effort fa-user"></i>
+					</p>
+					<h3>11+</h3>
+					<p>Partners</p>
 				</div>
-				<div class="hover">
-					<div></div>
-					<div></div>
-					<h1>M</h1>
+			</div>
+			<div class="column-effort">
+				<div class="card-effort">
+					<p>
+						<i class="fa fa-effort fa-check"></i>
+					</p>
+					<h3>55+</h3>
+					<p>Projects</p>
 				</div>
-				<div class="hover">
-					<div></div>
-					<div></div>
-					<h1>A</h1>
+			</div>
+			<div class="column-effort">
+				<div class="card-effort">
+					<p>
+						<i class="fa fa-effort fa-smile-o"></i>
+					</p>
+					<h3>100+</h3>
+					<p>Happy Clients</p>
 				</div>
-				<div class="hover">
-					<div></div>
-					<div></div>
-					<h1>R</h1>
-				</div>
-				<div class="hover">
-					<div></div>
-					<div></div>
-					<h1>I</h1>
-				</div>
-				<div class="hover">
-					<div></div>
-					<div></div>
-					<h1>T</h1>
-				</div>
-				<div class="hover">
-					<div></div>
-					<div></div>
-					<h1>E</h1>
-				</div>
-				<div class="hover">
-					<div></div>
-					<div></div>
-					<h1>R</h1>
+			</div>
+			<div class="column-effort">
+				<div class="card-effort">
+					<p>
+						<i class="fa fa-effort fa-coffee"></i>
+					</p>
+					<h3>100+</h3>
+					<p>Meetings</p>
 				</div>
 			</div>
 		</div>
-		<div class="typewriter">
-			<h1>J'aime pas du tout.</h1>
+	</section>
+	<!-- Ending ServiceCounter Effort -->
+	<!--Beginning Pricing Plans-->
+	<section class="container">
+<div class="background-price">
+  <div class="container-price">
+    <div class="panel pricing-table">
+      <div class="pricing-plan">
+        <img src="https://s22.postimg.cc/8mv5gn7w1/paper-plane.png" alt="" class="pricing-img" />
+        <h2 class="pricing-header">Personal</h2>
+        <ul class="pricing-features">
+          <li class="pricing-features-item">Custom domains</li>
+          <li class="pricing-features-item">Sleeps after 30 mins of inactivity</li>
+        </ul>
+        <span class="pricing-price">Free</span>
+        <a href="#/" class="pricing-button">Sign up</a>
+      </div>
+      <div class="pricing-plan">
+        <img src="https://s28.postimg.cc/ju5bnc3x9/plane.png" alt="" class="pricing-img" />
+        <h2 class="pricing-header">Small team</h2>
+        <ul class="pricing-features">
+          <li class="pricing-features-item">Never sleeps</li>
+          <li class="pricing-features-item">Multiple workers for more powerful apps</li>
+        </ul>
+        <span class="pricing-price">$150</span>
+        <a href="#/" class="pricing-button is-featured">Free trial</a>
+      </div>
+      <div class="pricing-plan">
+        <img src="https://s21.postimg.cc/tpm0cge4n/space-ship.png" alt="" class="pricing-img" />
+        <h2 class="pricing-header">Enterprise</h2>
+        <ul class="pricing-features">
+          <li class="pricing-features-item">Dedicated</li>
+          <li class="pricing-features-item">Simple horizontal scalability</li>
+        </ul>
+        <span class="pricing-price">$400</span>
+        <a href="#/" class="pricing-button">Free trial</a>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+	
+	<!-- Ending Pricing Plans -->
+	<!--Beginning not a PhotoBanner but a slider on one picture-->
+	<div class="container">
+		<div class="slider">
+			<div class="slider-row"></div>
 		</div>
 	</div>
-<!-- Ending header with full-height video -->
+	<!-- Ending not a PhotoBanner -->
+	<!--Beginning PhotoBanner-->
+	<section class="footer">
+		<div class="contain">
+			<div class="col">
+				<h1>Company</h1>
+				<ul>
+					<li>About</li>
+					<li>Mission</li>
+					<li>Services</li>
+					<li>Social</li>
+					<li>Get in touch</li>
+				</ul>
+			</div>
+			<div class="col">
+				<h1>Products</h1>
+				<ul>
+					<li>About</li>
+					<li>Mission</li>
+					<li>Services</li>
+					<li>Social</li>
+					<li>Get in touch</li>
+				</ul>
+			</div>
+			<div class="col">
+				<h1>Accounts</h1>
+				<ul>
+					<li>About</li>
+					<li>Mission</li>
+					<li>Services</li>
+					<li>Social</li>
+					<li>Get in touch</li>
+				</ul>
+			</div>
+			<div class="col">
+				<h1>Resources</h1>
+				<ul>
+					<li>Webmail</li>
+					<li>Redeem code</li>
+					<li>WHOIS lookup</li>
+					<li>Site map</li>
+					<li>Web templates</li>
+					<li>Email templates</li>
+				</ul>
+			</div>
+			<div class="col">
+				<h1>Support</h1>
+				<ul>
+					<li>Contact us</li>
+					<li>Web chat</li>
+					<li>Open ticket</li>
+				</ul>
+			</div>
+			<div class="col social">
+				<h1>Social</h1>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</section>
 
-<!-- About Section -->
-<div class="container-about">
-<br></br>
-<div class="about">
-  <div id="scene">
-    <div id="left-zone">
-      <ul class="list">
-        <li class="about-item">
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        
-          <input type="radio" id="radio_design" name="basic_carousel" checked="checked"/>
-          <label class="label_design" for="radio_design">Design</label>
-          <div class="content content_design"><span class="picto"></span>
-            <h1>Modern &amp; <br />Responsive Design</h1>
-            <p>Quality and very comfortable design, does not hurt the eyes and pleasant to use.</p>
-          </div>
-        </li>
-        <li class="about-item">
-          <input type="radio" id="radio_reliability" name="basic_carousel"/>
-          <label class="label_reliability" for="radio_reliability">Reliability</label>
-          <div class="content content_reliability"><span class="picto"></span>
-            <h1>Clean Code</h1>
-            <p>Quality and very comfortable design, does not hurt the eyes and pleasant to use.</p>
-          </div>
-        </li>
-        <li class="about-item">
-          <input type="radio" id="radio_support" name="basic_carousel"/>
-          <label class="label_support" for="radio_support">Support</label>
-          <div class="content content_support"><span class="picto"></span>
-            <h1>Free Updates &amp; <br />Support</h1>
-            <p>Quality and very comfortable design, does not hurt the eyes and pleasant to use.</p>
-          </div>
-          <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        </li>
-      </ul>  
-    </div>
-    <div id="middle-border"></div>
-    <div id="right-zone"></div>
-  </div>
-  </div>
- </div> 
-  <!-- Ending About Section -->
-
-<!--Beginning ServiceCounter Effort-->
-<div class="container">
-<div class="row-effort">
-  <div class="column-effort">
-    <div class="card-effort">
-      <p><i class="fa fa-effort fa-user"></i></p>
-      <h3>11+</h3>
-      <p>Partners</p>
-    </div>
-  </div>
-  <div class="column-effort">
-    <div class="card-effort">
-      <p><i class="fa fa-effort fa-check"></i></p>
-      <h3>55+</h3>
-      <p>Projects</p>
-    </div>
-  </div>
-  <div class="column-effort">
-    <div class="card-effort">
-      <p><i class="fa fa-effort fa-smile-o"></i></p>
-      <h3>100+</h3>
-      <p>Happy Clients</p>
-    </div>
-  </div>
-  <div class="column-effort">
-    <div class="card-effort">
-      <p><i class="fa fa-effort fa-coffee"></i></p>
-      <h3>100+</h3>
-      <p>Meetings</p>
-    </div>
-  </div>
-</div>
-</div>
-<!-- Ending ServiceCounter Effort -->
-<div class="slider">
-  <div class="slider-row"></div>
-</div>
-<!--Beginning PhotoBanner-->
-
-
-
-
-
-<!-- Ending PhotoBanner -->
-<div class="footer">
-  <div class="contain">
-  <div class="col">
-    <h1>Company</h1>
-    <ul>
-      <li>About</li>
-      <li>Mission</li>
-      <li>Services</li>
-      <li>Social</li>
-      <li>Get in touch</li>
-    </ul>
-  </div>
-  <div class="col">
-    <h1>Products</h1>
-    <ul>
-      <li>About</li>
-      <li>Mission</li>
-      <li>Services</li>
-      <li>Social</li>
-      <li>Get in touch</li>
-    </ul>
-  </div>
-  <div class="col">
-    <h1>Accounts</h1>
-    <ul>
-      <li>About</li>
-      <li>Mission</li>
-      <li>Services</li>
-      <li>Social</li>
-      <li>Get in touch</li>
-    </ul>
-  </div>
-  <div class="col">
-    <h1>Resources</h1>
-    <ul>
-      <li>Webmail</li>
-      <li>Redeem code</li>
-      <li>WHOIS lookup</li>
-      <li>Site map</li>
-      <li>Web templates</li>
-      <li>Email templates</li>
-    </ul>
-  </div>
-  <div class="col">
-    <h1>Support</h1>
-    <ul>
-      <li>Contact us</li>
-      <li>Web chat</li>
-      <li>Open ticket</li>
-    </ul>
-  </div>
-  <div class="col social">
-    <h1>Social</h1>
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-  </div>
-<div class="clearfix"></div>
-</div>
-</div>
-
-<!--Beginning footer-->
-	<div class="container-footer">
+	<!--Beginning footer-->
+	<section class="footer-last">
 		<footer class="new_footer_area bg_color">
 			<div class="new_footer_top">
 				<div class="footer_bg">
@@ -279,12 +252,12 @@
 				</div>
 			</div>
 		</footer>
-	</div>
-	
-	
+	</section>
 
-	
-<script>
+
+
+
+	<script>
 const toggle = document.querySelector(".toggle");
 const menu = document.querySelector(".menu");
 const items = document.querySelectorAll(".item");
