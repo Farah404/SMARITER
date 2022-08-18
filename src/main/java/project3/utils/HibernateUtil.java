@@ -9,7 +9,9 @@ public class HibernateUtil {
     private static EntityManagerFactory entityManagerFactory;
 
     static {
-        entityManagerFactory = Persistence.createEntityManagerFactory("tp-hibernate-basique");
+    	
+    	// correction de nomination de la base
+        entityManagerFactory = Persistence.createEntityManagerFactory("project3");
     }
 
     public static EntityManager createEntityManager() {

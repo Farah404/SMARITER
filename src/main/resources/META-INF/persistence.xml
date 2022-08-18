@@ -20,27 +20,29 @@
    xsi:schemaLocation="
         http://xmlns.jcp.org/xml/ns/persistence
         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-   <persistence-unit name="project3" >
+   <persistence-unit name="project3"  transaction-type="RESOURCE_LOCAL">
       <!-- If you are running in a production environment, add a managed 
          data source, this example data source is just for development and testing! -->
       <!-- The datasource is deployed as WEB-INF/project3-ds.xml, you
          can find it in the source at src/main/webapp/WEB-INF/project3-ds.xml -->
-         
-      <jta-data-source>java:jboss/datasources/project3DS</jta-data-source>
       
+   <!--  <jta-data-source>java:jboss/datasources/project3DS</jta-data-source> -->
+     
       <properties>
       
        <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-                <property name="javax.persistence.jdbc.url"
-                    value="jdbc:mysql://localhost:3306/project3?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;serverTimezone=Europe/Paris" />
-
-
-                <property name="javax.persistence.jdbc.user" value="root" />
-                <property name="javax.persistence.jdbc.password" value="rrrrr" />
+       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/project3?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;serverTimezone=Europe/Paris" />
+       <property name="javax.persistence.jdbc.user" value="root" />
+       <property name="javax.persistence.jdbc.password" value="rrrrr" />
          <!-- Properties for Hibernate -->
-          <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
-         <property name="hibernate.hbm2ddl.auto" value="create-drop" />
-         <property name="hibernate.show_sql" value="true" />
+                              <!-- change version of mysqldialect to 8 -->
+       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+       <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+       <property name="hibernate.show_sql" value="true" />
+       
+         <!--  add this line and change -->
+       <property name="javax.persistence.schema-generation.database.action" value="create"/>
+
       </properties>
    </persistence-unit>
 </persistence>
