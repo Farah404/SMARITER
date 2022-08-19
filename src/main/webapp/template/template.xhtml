@@ -3,33 +3,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
  xmlns:h="http://java.sun.com/jsf/html"
  xmlns:ui="http://java.sun.com/jsf/facelets">
-<head>
+<h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>WelcomePageELSM</title>
-<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Raleway" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="resources/lightStyleSheet.css" />
-</head>
-
+</h:head>
 <h:body>
- <ui:composition template="/template/template.xhtml">
- <ui:define name="content">
- 
-<div class="grid-container">
-  <div class="grid-item item1 animate-top"><a href="blogArticle.xhtml">Article 1</a></div>
-  <div class="grid-item item2 animate-right"><a href="blogArticle.xhtml">Article 2</a></div>
-  <div class="grid-item item3 animate-left"><a href="blogArticle.xhtml">Article 3</a></div>
-  <div class="grid-item item4 animate-zoom"><a href="blogArticle.xhtml">Article 4</a></div>
-  <div class="grid-item item5 animate-bottom"><a href="blogArticle.xhtml">Article 5</a></div>
-</div>
- 
- 
- </ui:define>
- </ui:composition>
- 
+ <div >
+ <div >
+ <ui:insert name="header">
+ <ui:include src="header.xhtml"></ui:include>
+ </ui:insert>
+ </div>
+ <div >
+ <ui:insert name="content">
+ </ui:insert>
+ </div>
+ <div >
+ <ui:insert name="footer">
+ <ui:include src="footer.xhtml"></ui:include>
+ </ui:insert>
+ </div>
+ </div>
 </h:body>
 </html>
