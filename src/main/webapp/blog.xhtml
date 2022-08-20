@@ -1,30 +1,37 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
- xmlns:h="http://java.sun.com/jsf/html"
- xmlns:ui="http://java.sun.com/jsf/facelets">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>WelcomePageELSM</title>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Raleway" />
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="resources/lightStyleSheet.css" />
-</head>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+
+<h:head>
+	<title>Blog</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Raleway" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="resources/css/lightStyleSheet.css" />
+</h:head>
 
 <h:body>
  <ui:composition template="/template/template.xhtml">
  <ui:define name="content">
- 
+
 <div class="grid-container">
-  <div class="grid-item item1 animate-top"><a href="blogArticle.xhtml">Article 1</a></div>
-  <div class="grid-item item2 animate-right"><a href="blogArticle.xhtml">Article 2</a></div>
-  <div class="grid-item item3 animate-left"><a href="blogArticle.xhtml">Article 3</a></div>
-  <div class="grid-item item4 animate-zoom"><a href="blogArticle.xhtml">Article 4</a></div>
-  <div class="grid-item item5 animate-bottom"><a href="blogArticle.xhtml">Article 5</a></div>
+  <div class="grid-item item1 animate-top"><a href="blogArticle1.xhtml">
+  <img src="media/img/GettyImages-1291886933-e1624308433688.webp" style="width:100%" />How Modern Code Generation Works</a>
+  </div>
+  <div class="grid-item item2 animate-right"><a href="blogArticle2.xhtml">
+  <img src="media/img/Moralis.png" style="width:100%" />Is JavaScript problematic?</a></div>
+  <div class="grid-item item3 animate-left"><a href="blogArticle3.xhtml">
+  <img src="media/img/Blogpost-1.png" style="width:100%" />Create a Chatbot for Your Website</a></div>
+  <div class="grid-item item4 animate-zoom"><a href="blogArticle4.xhtml">
+  <img src="media/img/Ethical-Problem-of-Artificial-Intelligence-4.jpg" style="width:100%" />The future of web development</a></div>
+  <div class="grid-item item5 animate-bottom"><a href="blogArticle5.xhtml">
+  <img src="media/img/team.png" style="width:100%" />Obstacles to working with your offshore team</a></div>
 </div>
  
  

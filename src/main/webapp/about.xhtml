@@ -1,70 +1,95 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
- xmlns:h="http://java.sun.com/jsf/html"
- xmlns:ui="http://java.sun.com/jsf/facelets">
-<head>
-<title>WelcomePageELSM</title>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Raleway" />
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="resources/lightStyleSheet.css" />
-</head>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+
+<h:head>
+	<title>SmarIter</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Raleway" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="resources/lightStyleSheet.css" />
+</h:head>
+
 
 <h:body>
- <ui:composition template="/template/template.xhtml">
- <ui:define name="content">
-<div class="container">	
-<div class="row">
-  <div class="column-team">
-    <div class="card-team animate-top">
-      <img src="media/gif/profilePictures/ProfileGif10.gif" alt="Jane" style="width:100%" />
-      <div class="container-team">
-        <h2>Jane Doe</h2>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+			<!--Video & SVG separator-->
+			<section class="wrapper"> <video
+				class="wrapper__video" autoplay="autoplay" loop="loop" muted="muted">
+			<source src="media/webm/videoplayback.webm" type="video/webm" /> </video>
+			<div class="wave-video">
+				<svg:svg data-name="Layer 1" viewBox="0 0 1200 120"
+					preserveAspectRatio="none">
+					<svg:path
+						d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+						class="shape-fill" />
+				</svg:svg>
+			</div>
+			</section>
+			<!-- Ending video -->
 
-  <div class="column-team">
-    <div class="card-team animate-bottom">
-      <img src="media/gif/profilePictures/ProfileGif18.gif" alt="Mike" style="width:100%" />
-      <div class="container-team">
-        <h2>Mike Ross</h2>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="column-team">
-    <div class="card-team animate-top">
-      <img src="media/gif/profilePictures/ProfileGif8.gif" alt="John" style="width:100%" />
-      <div class="container-team">
-        <h2>John Doe</h2>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="column-team">
-    <div class="card-team animate-bottom">
-      <img src="media/gif/profilePictures/ProfileGif6.gif" alt="John" style="width:100%" />
-      <div class="container-team">
-        <h2>John Doe</h2>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-</div>
-</div>	
+		</ui:define>
+	</ui:composition>
 
-<div class="container animate-bottom">	
-	<center><img width="100%" src="media/gif/coding/frontend2.gif"/></center>
-	</div>	
- </ui:define>
- </ui:composition>
+<script>
+const toggle = document.querySelector(".toggle");
+const menu = document.querySelector(".menu");
+const items = document.querySelectorAll(".item");
+
+/* Toggle mobile menu */
+function toggleMenu() {
+  if (menu.classList.contains("active")) {
+    menu.classList.remove("active");
+    toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
+  } else {
+    menu.classList.add("active");
+    toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
+  }
+}
+
+/* Activate Submenu */
+function toggleItem() {
+  if (this.classList.contains("submenu-active")) {
+    this.classList.remove("submenu-active");
+  } else if (menu.querySelector(".submenu-active")) {
+    menu.querySelector(".submenu-active").classList.remove("submenu-active");
+    this.classList.add("submenu-active");
+  } else {
+    this.classList.add("submenu-active");
+  }
+}
+
+/* Close Submenu From Anywhere */
+function closeSubmenu(e) {
+  if (menu.querySelector(".submenu-active")) {
+    let isClickInside = menu
+      .querySelector(".submenu-active")
+      .contains(e.target);
+
+    if (!isClickInside &amp;&amp; menu.querySelector(".submenu-active")) {
+      menu.querySelector(".submenu-active").classList.remove("submenu-active");
+    }
+  }
+}
+/* Event Listeners */
+toggle.addEventListener("click", toggleMenu, false);
+for (let item of items) {
+  if (item.querySelector(".submenu")) {
+    item.addEventListener("click", toggleItem, false);
+  }
+  item.addEventListener("keypress", toggleItem, false);
+}
+document.addEventListener("click", closeSubmenu, false);
+
+
+</script>
+
 </h:body>
 </html>

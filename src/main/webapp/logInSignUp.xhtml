@@ -1,18 +1,21 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
- xmlns:h="http://java.sun.com/jsf/html"
- xmlns:ui="http://java.sun.com/jsf/facelets">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>WelcomePageELSM</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Raleway" />
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="resources/lightStyleSheet.css" />
-</head>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+
+<h:head>
+	<title>SmarIter</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Raleway" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="resources/lightStyleSheet.css" />
+</h:head>
+
 <h:body>
  <ui:composition template="/template/templatewithoutHeader.xhtml">
  <ui:define name="content">
@@ -24,6 +27,7 @@
 			<source src="media/webm/videoplayback.webm" type="video/webm" />
 		</video>
 </section>
+
 	<section class="signin">
 	
 <div class="container animate-zoom" id="container">
@@ -78,7 +82,8 @@
  </ui:define>
  </ui:composition>
  
- 	<script>
+ 
+ <script>
 	const signUpButton = document.getElementById('signUp');
 	const signInButton = document.getElementById('signIn');
 	const container = document.getElementById('container');
@@ -90,7 +95,7 @@
 	signInButton.addEventListener('click', () => {
 	    container.classList.remove('right-panel-active');
 	});
-	</script>
+ </script>
  
 </h:body>
 </html>

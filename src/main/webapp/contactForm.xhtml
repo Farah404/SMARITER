@@ -1,53 +1,56 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
- xmlns:h="http://java.sun.com/jsf/html"
- xmlns:ui="http://java.sun.com/jsf/facelets">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>WelcomePageELSM</title>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Raleway" />
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="resources/lightStyleSheet.css" />
-</head>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+
+<h:head>
+	<title>Contact Us</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Raleway" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="resources/lightStyleSheet.css" />
+</h:head>
+
 <h:body>
- <ui:composition template="/template/template.xhtml">
- <ui:define name="content">
-<div class="contact animate-top">
-    <div class="contact-form">
-      <div class="first-container">
-      
-      </div>
-      <div class="second-container">
-        <h2>Send Us A Message</h2>
-        <form>
-          <div class="form-group">
-            <label for="firsname-input">Tell us your name*</label>
-            <input id="firstname-input" type="text" placeholder="First name" required="required"/>
-             <input id="name-input" type="text" placeholder="Last name" required="required"/>
-          </div>
-          <div class="form-group">
-            <label for="email-input">Enter your email*</label>
-            <input id="email-input" type="text" placeholder="Eg. example@email.com" required="required"/>
-          </div>
-          <div class="form-group">
-            <label for="phone-input">Enter phone number*</label>
-            <input id="phone-input" type="text" placeholder="Eg. +1 800 000000" required="required"/>
-          </div>
-          <div class="form-group">
-            <label for="message-textarea">Message</label>
-            <textarea id="message-textarea" placeholder="Write us a message"></textarea>
-          </div>
-          <button>Send message</button>
-        </form>
-      </div>
-    </div>
-    </div>
- </ui:define>
- </ui:composition>
+	<ui:composition template="/template/template.xhtml">
+		<ui:define name="content">
+			<div class="contact animate-top">
+				<div class="contact-form">
+					<div class="first-container"></div>
+					<div class="second-container">
+						<h2>Send Us A Message</h2>
+						<form>
+							<div class="form-group">
+								<label for="firsname-input">Tell us your name*</label> <input
+									id="firstname-input" type="text" placeholder="First name"
+									required="required" /> <input id="name-input" type="text"
+									placeholder="Last name" required="required" />
+							</div>
+							<div class="form-group">
+								<label for="email-input">Enter your email*</label> <input
+									id="email-input" type="text"
+									placeholder="Eg. example@email.com" required="required" />
+							</div>
+							<div class="form-group">
+								<label for="phone-input">Enter phone number*</label> <input
+									id="phone-input" type="text" placeholder="Eg. +1 800 000000"
+									required="required" />
+							</div>
+							<div class="form-group">
+								<label for="message-textarea">Message</label>
+								<textarea id="message-textarea" placeholder="Write us a message"></textarea>
+							</div>
+							<button>Send message</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>
