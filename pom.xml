@@ -90,13 +90,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.19</version>
-		</dependency>
-		<!-- Dépendance envers les libs de Hibernate -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>5.3.7.Final</version>
+			<version>8.0.27</version>
 		</dependency>
 		<!-- API, java.xml.bind module -->
 		<dependency>
