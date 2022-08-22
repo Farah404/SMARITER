@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+
+<h:head>
+	<title>SmarIter</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Raleway" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="resources/lightStyleSheet.css" />
+</h:head>
+
+<h:body>
+	<ui:composition template="/template/template.xhtml">
+		<ui:define name="content">
+			<div class="container">
+				<div class="header-article animate-zoom">
+					<h2>How Modern Code Generation Works</h2>
+				</div>
+
+				<div class="row-article">
+					<div class="leftcolumn-article animate-left">
+						<div class="card-article">
+							<h2>7 Things to Look for in a Code Generator</h2>
+							<br />
+							<p>Before jumping into the critical attributes of a code
+								generator for your project, let us start by answering the “why”
+								you would use one.</p>
+							<br /> <img width="100%" src="media/gif/coding/coding.gif" /> <br />
+							<div class="block-blog">
+								<h2>Benefits and pitfalls of code generation</h2>
+								<br />
+								<p>The key benefits expected by using code generation are
+									the following:</p>
+								<br />
+								<ul>
+									<li>Productivity: by writing less code, especially
+										repetitive code, you save time.</li>
+									<li>Maintainability: less manually written code means
+										fewer bugs and less maintenance.</li>
+									<li>Quality: homogenizing the code increases overall
+										quality, especially with a team of developers with different
+										levels of experience.</li>
+									<li>Evolution: abstracting from lower layers can help in
+										the portability dimension toward various platforms or versions
+										in the long run, increasing the evolution capability.</li>
+								</ul>
+								<br />
+								<p>Though there are expected benefits, there are pitfalls in
+									using code generation:</p>
+								<ul>
+									<br />
+									<li>Complexity: by adding a level of abstraction,
+										complexity is increased and often much beyond what has been
+										expected at the beginning once you extend the generation
+										perimeter in terms of technology and functionality.</li>
+									<li>Evolution: though this point is mentioned as a
+										benefit, it is also a potential pitfall, as one can also be
+										slowed by using a generator that does not follow innovation at
+										a sufficient pace or does not evolve to support a technology
+										becoming critical for your project.</li>
+								</ul>
+								<br />
+								<p>Those challenges are quite well explained in this
+									valuable article about code generation from Federico Tomasetti.
+									Here is also an introductory article to the principles of code
+									generation.</p>
+							</div>
+							<div class="block-blog">
+								<h2>Writing your own generator?</h2>
+								<br />
+								<p>Though it is very tempting to write your own code
+									generator, as many developers love to solve complex problems
+									and as it is also a way to fully master your architectural
+									choices (see, for example, Kathleen Dollard’s point of view in
+									this article about principles of code generation), it is also a
+									risky decision. The thing is that complexity is often
+									underestimated by semi-experienced developers, confident enough
+									while gaining some benefits in the early stages of using their
+									own approach, but not anticipating how complexity will scale up
+									in a nonlinear way. You will end up spending your whole time
+									developing the generator instead of your project. Except if you
+									are part of a large enterprise with hundreds of developers,
+									which makes it relevant to build your own code generator for
+									the team, it is likely a bad idea to try to build one. You can
+									address the legitimate concerns about architecture by choosing
+									the appropriate code generator(s) for your environment and
+									technology stack.</p>
+
+							</div>
+
+							<br /> <img width="100%"
+								src="media/gif/coding/Untitled-design-1.gif" /> <br />
+							<div class="block-blog">
+								<h2>How to choose your code generator by checking 7
+									critical keys to success</h2>
+								<br />
+								<p>In our view, there are 7 critical keys to being
+									successful in your projects while using a code generator. Make
+									sure you get a good idea of these keys before it’s too late in
+									your project.</p>
+								<ul>
+
+									<li>Code reduction: Though it might seem obvious, the code
+										generator should reduce the number of manually written code
+										lines in a completed project. In our experience, this
+										reduction ends up taking care of 90% of the boilerplate code,
+										often counting from 30% to 50% of the total code. Bugs should
+										be reduced proportionately, as there should not be any bugs
+										(at least theoretically) coming from the generator.</li>
+									<li>Code performance: The code produced by the generator
+										should not impact performance negatively, except marginally.
+										As an example, it may consume a bit more resources, as the
+										generated code is usually a bit more verbose. The code
+										generator should have been designed with execution performance
+										as a focus to be viable over the long term.</li>
+									<li>Code quality: The code produced by the generator
+										should be very efficient at execution and it is also better
+										when it is developer-readable—though sometimes not strictly
+										necessary in fully-abstracted areas—but it is not required to
+										be identical to human-written code.</li>
+									<li>Open to custom code: Whatever the extensiveness of the
+										code generator and its broad spectrum of features, I do not
+										believe in complete generation of the code. And even if such a
+										powerful generator would exist, we would be outside of the
+										developer discussion.</li>
+									<li>Development tool integration: One should remember that
+										productivity is a key promise of code generation. Therefore,
+										it is critical that the code generator is properly integrated
+										in the development tool.</li>
+									<li>Generation speed: For the same reason, reasonable
+										generation time is critical. If the speed of the generation
+										process is too slow, not only does the developer lose time, he
+										loses a bit of concentration of focus.</li>
+									<li>Technology evolution support: Last but not least, the
+										technology support of a generator is a key element in your
+										final decision if you have to choose one. Of course, it has to
+										support your current target architecture and technologies,
+										potentially with portability to different platforms or
+										databases.</li>
+								</ul>
+							</div>
+							<div class="block-blog">
+								<h2>Conclusion</h2>
+								<br />
+								<p>Choosing a code generator is not so easy and it is
+									critical to consider the elements discussed here, knowing there
+									are numerous tools available as one can see on the Wikipedia
+									page. If you evaluate one for your project, keep our 7
+									recommendations in mind. At SoftFluent, we have a long history
+									of selling our own code generator, with a recent version now
+									called SoftFluent Code Modeler (full link to documentation
+									directly available on the website). It basically helps you
+									build a powerful portable business layer from a design model.
+									Syncfusion provides more than 1,500 custom controls to ease the
+									work of developers on various platforms. Please have a look and
+									use them in your application development:</p>
+								<ul>
+									<li>ASP.NET Core</li>
+									<li>ASP.NET MVC</li>
+									<li>Angular</li>
+									<li>Blazor</li>
+									<li>React</li>
+									<li>Vue</li>
+									<li>JavaScript</li>
+									<li>Flutter</li>
+									<li>Xamarin</li>
+									<li>WPF</li>
+									<li>UWP</li>
+									<li>WinForms</li>
+									<li>WinUI</li>
+								</ul>
+							</div>
+						</div>
+
+
+
+					</div>
+					<div class="rightcolumn-article animate-right">
+						<div class="card-article">
+							<h2>Author</h2>
+							<br /> <img width="100%"
+								src="media/img/Falak-Sher-Web-Designer-and-Developer-IBT.png" />
+							<br />
+							<br />
+							<h5>SoftFluent President &amp; CEO Daniel has about 30 years
+								of experience in the professional development field, creating
+								and managing SoftFluent group, a company with strong custom
+								development experience, both for customer projects and as an
+								ISV. SoftFluent is also the company behind RowShare, a powerful
+								secured collaborative online spreadsheet.</h5>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

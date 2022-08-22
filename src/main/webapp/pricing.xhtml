@@ -1,55 +1,448 @@
-<!-- Pricing Section -->
-<div class="w3-container w3-center w3-dark-grey" style="padding:128px 16px" id="pricing">
-  <h3>PRICING</h3>
-  <p class="w3-large">Choose a pricing plan that fits your needs.</p>
-  <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-third w3-section">
-      <ul class="w3-ul w3-white w3-hover-shadow">
-        <li class="w3-black w3-xlarge w3-padding-32">Basic</li>
-        <li class="w3-padding-16"><b>10GB</b> Storage</li>
-        <li class="w3-padding-16"><b>10</b> Emails</li>
-        <li class="w3-padding-16"><b>10</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 10</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-    <div class="w3-third">
-      <ul class="w3-ul w3-white w3-hover-shadow">
-        <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
-        <li class="w3-padding-16"><b>25GB</b> Storage</li>
-        <li class="w3-padding-16"><b>25</b> Emails</li>
-        <li class="w3-padding-16"><b>25</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 25</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-    <div class="w3-third w3-section">
-      <ul class="w3-ul w3-white w3-hover-shadow">
-        <li class="w3-black w3-xlarge w3-padding-32">Premium</li>
-        <li class="w3-padding-16"><b>50GB</b> Storage</li>
-        <li class="w3-padding-16"><b>50</b> Emails</li>
-        <li class="w3-padding-16"><b>50</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 50</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+
+<h:head>
+	<title>Blog</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Raleway" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="resources/css/lightStyleSheet.css" />
+</h:head>
+
+<h:body>
+ <ui:composition template="/template/template.xhtml">
+ <ui:define name="content">
+
+ 
+  <div class="container">
+ <div class="plan-container">
+  <!-- Plan 1 -->
+  <div class="plan">
+    <table class="table-1">
+      <thead>
+        <tr>
+          <th class="features"></th>
+          <th class="lead">Business VIP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="features">
+            <strong>Secure online payments </strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">5</span>
+            <small class="text-muted">/day</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Plans &amp; recurring payments</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">2</span>
+            <small class="text-muted">/max</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Customer accounts</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">22</span>
+            <small class="text-muted">/month</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Custom domain</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">1</span>
+            <small class="text-muted">/max</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Free domain for 1 year</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">1</span>
+            <small class="text-muted">/max</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Remove Smariter ads</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">NO</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Bandwidth</strong>
+          </td>
+          <td class="data">on-site chat</td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Storage space</strong>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Video hours</strong>
+          </td>
+          <td class="data"><i class="fa fa-check"></i></td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Mobile Apps included</strong>
+          </td>
+          <td class="data">-</td>
+        </tr>
+        <tr>
+          <td class="features">Customer care</td>
+          <td class="data">Free 30-day trial</td>
+        </tr>
+        <tr>
+          <td class="features">Billed monthly:</td>
+          <td class="data">Free 30-day trial</td>
+        </tr>
+        <tr>
+          <td class="features"></td>
+          <td class="data">
+            <button class="btn btn-primary" type="submit" value="Get Started" role="button">Get Started</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Plan 2 -->
+  <div class="plan">
+    <table class="table-2">
+      <thead>
+        <tr>
+          <th class="features"></th>
+          <th class="lead">Business Unlimited</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="features">
+            <strong>Sent/scheduled tweets </strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">50</span>
+            <small class="text-muted">/day</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Active Hashtag Alerts</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">10</span>
+            <small class="text-muted">/max</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Twitter Timeline Audits</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">210</span>
+            <small class="text-muted">/month</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Twitter accounts</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">1</span>
+            <small class="text-muted">/max</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Facebook accounts</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">1</span>
+            <small class="text-muted">/max</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Bit.ly account</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">NO</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Support</strong>
+          </td>
+          <td class="data">on-site chat</td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Color-coded hashtag &amp; tweet grading browser extensions</strong>
+          </td>
+          <td class="data">Twitter, Buffer, Hootsuite, Tweetdeck, SproutSocial &amp; SocialOomph</td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Hashtags analytics</strong>
+          </td>
+          <td class="data"><i class="fa fa-check"></i></td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Mobile Apps included</strong>
+          </td>
+          <td class="data">Android (iPhone soon)</td>
+        </tr>
+        <tr>
+          <td class="features">Billed yearly:</td>
+          <td class="data">10$/mo</td>
+        </tr>
+        <tr>
+          <td class="features">Billed monthly:</td>
+          <td class="data">15$/mo</td>
+        </tr>
+        <tr>
+          <td class="features"></td>
+          <td class="data">
+            <button class="btn btn-primary" type="submit" value="Get Started" role="button">Get Started</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
+<div class="plan-container">
+  <!-- Plan 3 -->
+  <div class="plan">
+    <table class="table-3">
+      <thead>
+        <tr>
+          <th class="features"></th>
+          <th class="lead">Business Basic</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="features">
+            <strong>Sent/scheduled tweets </strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">200</span>
+            <small class="text-muted">/day</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Active Hashtag Alerts</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">50</span>
+            <small class="text-muted">/max</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Twitter Timeline Audits</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">950</span>
+            <small class="text-muted">/month</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Twitter accounts</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">3</span>
+            <small class="text-muted">/max</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Facebook accounts</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">3</span>
+            <small class="text-muted">/max</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Bit.ly account</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">NO</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Support</strong>
+          </td>
+          <td class="data">email + on-site chat</td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Color-coded hashtag &amp; tweet grading browser extensions</strong>
+          </td>
+          <td class="data">Twitter, Buffer, Hootsuite, Tweetdeck, SproutSocial &amp; SocialOomph</td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Hashtags analytics</strong>
+          </td>
+          <td class="data"><i class="fa fa-check"></i></td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Mobile Apps included</strong>
+          </td>
+          <td class="data">Android (iPhone soon)</td>
+        </tr>
+        <tr>
+          <td class="features">Billed yearly:</td>
+          <td class="data">25$/mo</td>
+        </tr>
+        <tr>
+          <td class="features">Billed monthly:</td>
+          <td class="data">35$/mo</td>
+        </tr>
+        <tr>
+          <td class="features"></td>
+          <td class="data">
+            <button class="btn btn-primary" type="submit" value="Get Started" role="button">Get Started</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Plan 4 -->
+  <div class="plan">
+    <table class="table-4">
+      <thead>
+        <tr>
+          <th class="features"></th>
+          <th class="lead">Agency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="features">
+            <strong>Sent/scheduled tweets</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">∞ Unlimited</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Active Hashtag Alerts</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">∞ Unlimited</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Twitter Timeline Audits</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">∞ Unlimited</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Twitter accounts</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">25</span>
+            <small class="text-muted">/max</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Facebook accounts</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">25</span>
+            <small class="text-muted">/max</small>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Bit.ly account</strong>
+          </td>
+          <td class="data">
+            <span class="bignumber">NO</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Support</strong>
+          </td>
+          <td class="data">on-site chat, email, SKYPE</td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Color-coded hashtag &amp; tweet grading browser extensions</strong>
+          </td>
+          <td class="data">Twitter, Buffer, Hootsuite, Tweetdeck, SproutSocial &amp; SocialOomph</td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Hashtags analytics</strong>
+          </td>
+          <td class="data"><i class="fa fa-check"></i></td>
+        </tr>
+        <tr>
+          <td class="features">
+            <strong>Mobile Apps included</strong>
+          </td>
+          <td class="data">Android (iPhone soon)</td>
+        </tr>
+        <tr>
+          <td class="features">Billed yearly:</td>
+          <td class="data">99$/mo</td>
+        </tr>
+        <tr>
+          <td class="features">Billed monthly:</td>
+          <td class="data">139$/mo</td>
+        </tr>
+        <tr>
+          <td class="features"></td>
+          <td class="data">
+            <button class="btn btn-primary" type="submit" value="Get Started" role="button">Get Started</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+ 
+ 
+ </ui:define>
+ </ui:composition>
+ 
+</h:body>
+</html>
