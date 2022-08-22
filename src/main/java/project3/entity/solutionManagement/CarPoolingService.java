@@ -1,10 +1,14 @@
 package project3.entity.solutionManagement;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+import project3.entity.personManagement.UserAccount;
 import project3.entity.personManagement.Vehicule;
 
 @Entity
@@ -34,20 +38,23 @@ public class CarPoolingService extends Service{
 	super();
     }
 
-    public CarPoolingService(CarPoolingType carPoolingType, int availableSeats, Boolean isPetAllowed,
-	    Boolean isSmokingAllowed, Boolean isMusicAllowed, Boolean isChattingAllowed, Vehicule vehicule, Trajectory trajectory) {
-	super();
-	this.carPoolingType = carPoolingType;
-	this.availableSeats = availableSeats;
-	this.isPetAllowed = isPetAllowed;
-	this.isSmokingAllowed = isSmokingAllowed;
-	this.isMusicAllowed = isMusicAllowed;
-	this.isChattingAllowed = isChattingAllowed;
-	this.vehicule = vehicule;
-	this.trajectory = trajectory;
-    }
+    public CarPoolingService(Long id, Date publicationDate, Date expirationDate, Date startDate, Date endDate,
+			int referenceNumber, Boolean isRequest, double price, ServiceType servicetype,
+			List<UserAccount> userAccounts, CarPoolingType carPoolingType, int availableSeats, Boolean isPetAllowed,
+		    Boolean isSmokingAllowed, Boolean isMusicAllowed, Boolean isChattingAllowed, Vehicule vehicule, Trajectory trajectory) {
+		super(id, publicationDate, expirationDate, startDate, endDate, referenceNumber, isRequest, price, servicetype,
+				userAccounts);
+		this.carPoolingType = carPoolingType;
+		this.availableSeats = availableSeats;
+		this.isPetAllowed = isPetAllowed;
+		this.isSmokingAllowed = isSmokingAllowed;
+		this.isMusicAllowed = isMusicAllowed;
+		this.isChattingAllowed = isChattingAllowed;
+		this.vehicule = vehicule;
+		this.trajectory = trajectory;
+	}
 
-    public CarPoolingType getCarPoolingType() {
+	public CarPoolingType getCarPoolingType() {
         return carPoolingType;
     }
 
