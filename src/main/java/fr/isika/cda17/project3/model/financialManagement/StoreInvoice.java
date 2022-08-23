@@ -6,11 +6,13 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 import fr.isika.cda17.project3.model.personManagement.UserAccount;
 
 @Entity
-public class StoreInvoice {
+@PrimaryKeyJoinColumn(name="id")
+public class StoreInvoice extends Invoice{
     
     @Id
     @GeneratedValue
