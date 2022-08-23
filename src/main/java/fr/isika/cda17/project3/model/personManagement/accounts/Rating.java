@@ -1,40 +1,45 @@
-package fr.isika.cda17.project3.model.messagingManagement;
-
+package fr.isika.cda17.project3.model.personManagement.accounts;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
-import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.serviceManagement.Service;
 
 @Entity
-public class MessageBetweenUsers {
+public class Rating {
     
     @Id
     @GeneratedValue
     private Long id;
     
+    private String comment;
+    
     @ManyToOne
     private UserAccount userAccount;
     
-    @OneToOne
+    @ManyToOne
     private Service service;
-    
-    private String messageContent;
 
-    public MessageBetweenUsers() {
+    public Rating() {
 	super();
     }
 
-    public MessageBetweenUsers(Long id, UserAccount userAccount, Service service, String messageContent) {
+    public Rating(Long id, String comment, UserAccount userAccount, Service service) {
 	super();
 	this.id = id;
+	this.comment = comment;
 	this.userAccount = userAccount;
 	this.service = service;
-	this.messageContent = messageContent;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public UserAccount getUserAccount() {
@@ -53,17 +58,8 @@ public class MessageBetweenUsers {
         this.service = service;
     }
 
-    public String getMessageContent() {
-        return messageContent;
-    }
-
-    public void setMessageContent(String messageContent) {
-        this.messageContent = messageContent;
-    }
-
     public Long getId() {
         return id;
     }
 
-    
 }

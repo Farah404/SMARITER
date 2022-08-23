@@ -9,7 +9,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 
-import fr.isika.cda17.project3.model.personManagement.UserAccount;
+import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
 @Entity
 @Inheritance (strategy = InheritanceType.JOINED)

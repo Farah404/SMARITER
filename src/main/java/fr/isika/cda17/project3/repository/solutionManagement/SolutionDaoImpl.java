@@ -6,7 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import fr.isika.cda17.project3.model.personManagement.Administrator;
+import fr.isika.cda17.project3.model.personManagement.accounts.Administrator;
 import fr.isika.cda17.project3.model.solutionManagement.Solution;
 
 @Stateless

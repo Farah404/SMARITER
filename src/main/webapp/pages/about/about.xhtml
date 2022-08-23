@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+
+<h:head>
+	<title>SmarIter</title>
+</h:head>
+
+
+<h:body>
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+			<br />
+			<br />
+			<div style="text-align: center">
+				<h2>Create a website without limits</h2>
+				<p>Discover the platform that gives you the freedom to create, design, manage and develop your web presence exactly the way you want.</p>
+			</div>
+
+			<!-- The App Section -->
+			<div class="container">
+				<div class="row-about">
+					<div class="column-66">
+						<h1 class="xlarge-font">
+							<b>SMARITER</b>
+						</h1>
+						<h1 class="large-font" style="color: MediumSeaGreen;">
+							<b>The Freedom to Create the Websites You Want</b>
+						</h1>
+						<p>
+							<span style="font-size: 36px">Design and build your own
+								high-quality websites. Whether you’re promoting your business,
+								showcasing your work, opening your store or starting a blog—you
+								can do it all with the Wix website builder.</span>
+
+						</p>
+						<button class="button button-about">Get Started</button>
+					</div>
+					<div class="column-33">
+						<img src="/w3images/img_app.jpg" width="335" height="471" />
+					</div>
+				</div>
+			</div>
+
+			<!-- Clarity Section -->
+			<div class="container" style="background-color: #f1f1f1">
+				<div class="row-about">
+					<div class="column-33">
+						<img src="/w3images/app5.jpg" alt="App" width="335" height="471" />
+					</div>
+					<div class="column-66">
+						<h1 class="xlarge-font">
+							<b>Build Your Unique Online Presence </b>
+						</h1>
+						<h1 class="large-font" style="color: red;">
+							<b>To create your own website, follow these steps: </b>
+						</h1>
+						<p>
+							<span style="font-size: 24px">Customize your site</span>
+							Pick a template and customize anything, or answer a few questions and get a free website designed just for you.
+						</p>
+						<p>
+							<span style="font-size: 24px">Add advanced features</span>
+							Start your own blog, add an online store and accept bookings online. You can always add more features as you grow.
+						</p>
+						<p>
+							<span style="font-size: 24px">Edit your mobile view</span>
+							Check out the mobile-optimized version of your site. Switch to the Mobile Editor to personalize it even more. 
+						</p>
+						<p>
+							<span style="font-size: 24px">Optimize for search engines</span>
+							Answer a few questions about your website, location and keywords and get a personalized SEO plan to get found online. 
+						</p>
+						<button class="button button-about" style="background-color: red">Start Now</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- The App Section -->
+			<div class="container">
+				<div class="row-about">
+					<div class="column-66">
+						<h1 class="xlarge-font">
+							<b>The App</b>
+						</h1>
+						<h1 class="large-font" style="color: MediumSeaGreen;">
+							<b>Why buy it?</b>
+						</h1>
+						<p>
+							<span style="font-size: 36px">Professionally Designed
+								Website Templates</span> Choose from 500+ customizable website
+							templates that are built to meet your business needs.
+						</p>
+						<button class="button  button-about">See All Website Templates</button>
+					</div>
+					<div class="column-33">
+						<img class="img-about" src="/w3images/img_app.jpg" width="335"
+							height="471" />
+					</div>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+
+	<script>
+const toggle = document.querySelector(".toggle");
+const menu = document.querySelector(".menu");
+const items = document.querySelectorAll(".item");
+
+/* Toggle mobile menu */
+function toggleMenu() {
+  if (menu.classList.contains("active")) {
+    menu.classList.remove("active");
+    toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
+  } else {
+    menu.classList.add("active");
+    toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
+  }
+}
+
+/* Activate Submenu */
+function toggleItem() {
+  if (this.classList.contains("submenu-active")) {
+    this.classList.remove("submenu-active");
+  } else if (menu.querySelector(".submenu-active")) {
+    menu.querySelector(".submenu-active").classList.remove("submenu-active");
+    this.classList.add("submenu-active");
+  } else {
+    this.classList.add("submenu-active");
+  }
+}
+
+/* Close Submenu From Anywhere */
+function closeSubmenu(e) {
+  if (menu.querySelector(".submenu-active")) {
+    let isClickInside = menu
+      .querySelector(".submenu-active")
+      .contains(e.target);
+
+    if (!isClickInside &amp;&amp; menu.querySelector(".submenu-active")) {
+      menu.querySelector(".submenu-active").classList.remove("submenu-active");
+    }
+  }
+}
+/* Event Listeners */
+toggle.addEventListener("click", toggleMenu, false);
+for (let item of items) {
+  if (item.querySelector(".submenu")) {
+    item.addEventListener("click", toggleItem, false);
+  }
+  item.addEventListener("keypress", toggleItem, false);
+}
+document.addEventListener("click", closeSubmenu, false);
+
+
+</script>
+
+</h:body>
+</html>

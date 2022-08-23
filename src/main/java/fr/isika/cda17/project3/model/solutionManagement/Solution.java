@@ -10,8 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
-import fr.isika.cda17.project3.model.financialManagement.ClientInvoice;
-import fr.isika.cda17.project3.model.personManagement.EntityAccount;
+import fr.isika.cda17.project3.model.financialManagement.invoice.CustomerInvoice;
+import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 
 @Entity
 public class Solution {
@@ -45,7 +45,7 @@ public class Solution {
     private List <EntityAccount> entityAccounts = new LinkedList<>();
     
     @OneToOne
-    private ClientInvoice clientInvoice;
+    private CustomerInvoice customerInvoice;
     
     @OneToOne
     private CarPoolingSolution carPoolingSolution;
@@ -61,7 +61,7 @@ public class Solution {
 	    PriceDeal priceDeal, Boolean isRatingSystemIncluded, Boolean isCarPoolingsolutionIncluded,
 	    Boolean isCarRentalSolutionIncluded, Boolean isParcelSolutionIncluded,
 	    Boolean isPersonalAssistanceSolutionIncluded, Boolean isPrivate, List<EntityAccount> entityAccounts,
-	    ClientInvoice clientInvoice, CarPoolingSolution carPoolingSolution, ParcelSolution parcelSolution) {
+	    CustomerInvoice customerInvoice, CarPoolingSolution carPoolingSolution, ParcelSolution parcelSolution) {
 	super();
 	this.id = id;
 	this.paymentSystemChoice = paymentSystemChoice;
@@ -74,7 +74,7 @@ public class Solution {
 	this.isPersonalAssistanceSolutionIncluded = isPersonalAssistanceSolutionIncluded;
 	this.isPrivate = isPrivate;
 	this.entityAccounts = entityAccounts;
-	this.clientInvoice = clientInvoice;
+	this.customerInvoice = customerInvoice;
 	this.carPoolingSolution = carPoolingSolution;
 	this.parcelSolution = parcelSolution;
     }
@@ -159,12 +159,12 @@ public class Solution {
         this.entityAccounts = entityAccounts;
     }
 
-    public ClientInvoice getClientInvoice() {
-        return clientInvoice;
+    public CustomerInvoice getClientInvoice() {
+        return customerInvoice;
     }
 
-    public void setClientInvoice(ClientInvoice clientInvoice) {
-        this.clientInvoice = clientInvoice;
+    public void setClientInvoice(CustomerInvoice customerInvoice) {
+        this.customerInvoice = customerInvoice;
     }
 
     public CarPoolingSolution getCarPoolingSolution() {

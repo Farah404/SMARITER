@@ -6,7 +6,7 @@ import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import fr.isika.cda17.project3.model.personManagement.User;
+import fr.isika.cda17.project3.model.personManagement.accounts.User;
 
 @Singleton
 @Startup

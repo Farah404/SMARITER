@@ -1,5 +1,4 @@
-package fr.isika.cda17.project3.model.messagingManagement;
-
+package fr.isika.cda17.project3.model.financialManagement.invoice;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +10,7 @@ import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.serviceManagement.Service;
 
 @Entity
-public class MessageBetweenUsers {
+public class ServiceInvoice {
     
     @Id
     @GeneratedValue
@@ -22,19 +21,16 @@ public class MessageBetweenUsers {
     
     @OneToOne
     private Service service;
-    
-    private String messageContent;
 
-    public MessageBetweenUsers() {
+    public ServiceInvoice() {
 	super();
     }
 
-    public MessageBetweenUsers(Long id, UserAccount userAccount, Service service, String messageContent) {
+    public ServiceInvoice(Long id, UserAccount userAccount, Service service) {
 	super();
 	this.id = id;
 	this.userAccount = userAccount;
 	this.service = service;
-	this.messageContent = messageContent;
     }
 
     public UserAccount getUserAccount() {
@@ -53,17 +49,12 @@ public class MessageBetweenUsers {
         this.service = service;
     }
 
-    public String getMessageContent() {
-        return messageContent;
-    }
-
-    public void setMessageContent(String messageContent) {
-        this.messageContent = messageContent;
-    }
-
     public Long getId() {
         return id;
     }
 
     
+    
+    
+
 }

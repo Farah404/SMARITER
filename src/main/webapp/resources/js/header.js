@@ -1,23 +1,17 @@
 window.addEventListener('load', function () {
-
 /* Toggle DM */
-	const btn = document.querySelector(".btn-toggle)");
-    const theme = document.querySelector("#theme-link");
-      btn.addEventListener("click", function() {
-        // Swap out the URL for the different stylesheets
-        if (theme.getAttribute("href") == "lighStyleSheet.css") {
-          theme.href = "darkStyleSheet.css";
-        } else {
-          theme.href = "lightStyleSheet.css";
-        }
-      });	
-	
-	
-
+const btn = document.querySelector(".btn-toggle");
+const theme = document.querySelector("#theme-link");
+btn.addEventListener("click", function() {
+	if (theme.getAttribute("href") == "resources/css/light-mode.css") {
+    theme.href = "resources/css/dark-mode.css";
+  } else {
+    theme.href = "resources/css/light-mode.css";
+  }
+});
 const toggle = document.querySelector(".toggle");
 const menu = document.querySelector(".menu");
 const items = document.querySelectorAll(".item");
-
 /* Toggle mobile menu */
 function toggleMenu() {
   if (menu.classList.contains("active")) {
@@ -28,7 +22,6 @@ function toggleMenu() {
     toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
   }
 }
-
 /* Activate Submenu */
 function toggleItem() {
   if (this.classList.contains("submenu-active")) {
@@ -40,14 +33,12 @@ function toggleItem() {
     this.classList.add("submenu-active");
   }
 }
-
 /* Close Submenu From Anywhere */
 function closeSubmenu(e) {
   if (menu.querySelector(".submenu-active")) {
     let isClickInside = menu
       .querySelector(".submenu-active")
       .contains(e.target);
-
     if (!isClickInside && menu.querySelector(".submenu-active")) {
       menu.querySelector(".submenu-active").classList.remove("submenu-active");
     }
