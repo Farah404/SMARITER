@@ -40,10 +40,10 @@ public class LogInCustomerBean implements Serializable {
 	if (optional.isPresent()) {
 	    EntityAccount account = optional.get();
 	    if(account.getName().equals(name) && account.getPassword().equals(password)) {
-		HttpSession connectedEntityAccount = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		connectedEntityAccount.setAttribute("id", account.getId());
-		connectedEntityAccount.setAttribute("name", account.getName());
-		System.out.println("LoginBean.customerLogin(): "+ connectedEntityAccount.getAttribute("name"));
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		session.setAttribute("id", account.getId());
+		session.setAttribute("name", account.getName());
+		System.out.println("LoginBean.customerLogin(): "+ session.getAttribute("name"));
 		return "index?faces-redirect=true";
 	    }
 	    else {
@@ -54,6 +54,15 @@ public class LogInCustomerBean implements Serializable {
 	    System.out.println("Wrong authentification");
 	}
 	return "logInSignUp";
+    }
+    
+    
+    public void logout() {
+	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	// vider la session des infos mémorisées
+	session.invalidate();
+	
+	// TODO : redirect to index plus tard
     }
     
     public String getName() {

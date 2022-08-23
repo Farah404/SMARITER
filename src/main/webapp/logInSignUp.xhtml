@@ -33,10 +33,10 @@
 								href="#" class="social"><i class="fa fa-facebook"></i></a>
 						</div>
 						<span>or use your email for registration</span>
-						<h:inputText a:placeholder="Lastname" value="#{createCustomerBean.customer.lastName}"/>
+						<h:inputText id="lastNameTxt" a:placeholder="Lastname" value="#{createCustomerBean.customer.lastName}"/>
 						<h:inputText a:placeholder="Email" value="#{createCustomerBean.customer.email}"/>
 						<h:inputSecret a:placeholder="Password" value="#{createCustomerBean.customer.firstName}"/>
-						<h:commandButton class="btn-signup" action="#{createCustomerBean.create()}">Sign Up</h:commandButton>
+						<h:commandButton class="btn-signup" value="Sign Up" action="#{createCustomerBean.create()}"></h:commandButton>
 					</h:form>
 				</div>
 				<div class="form-container sign-in-container">
@@ -48,10 +48,14 @@
 								href="#" class="social"><i class="fa fa-facebook"></i></a>
 						</div>
 						<span>or use your account</span> 
-						<h:inputText a:placeholder="Name" value="#{logInCustomerBean.name}" /> 
-							<h:inputSecret a:placeholder="Password" value="#{logInCustomerBean.password}" /> 
-							<a href="#">Forgot your password?</a>
-						<h:commandButton class="btn-signin" action="#{logInCustomerBean.customerLogin()}">Sign In</h:commandButton>
+						<h:inputText a:placeholder="Name" id="nameTxt" value="#{logInCustomerBean.name}" />
+						<h:message for="nameTxt"/>
+						
+						<h:inputSecret a:placeholder="Password" id="passwordTxt" value="#{logInCustomerBean.password}" />
+						<h:message for="passwordTxt"/>
+						
+						<a href="#">Forgot your password?</a>
+						<h:commandButton class="btn-signin" action="#{logInCustomerBean.customerLogin()}" value="Sign In"></h:commandButton>
 					</h:form>
 				</div>
 				<div class="overlay-container">

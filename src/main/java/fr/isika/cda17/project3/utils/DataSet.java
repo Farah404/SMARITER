@@ -19,7 +19,7 @@ public class DataSet {
     private void initData() {
 
 	EntityAccount ea = new EntityAccount();
-	ea.setName("EcoCar");
+	ea.setName("EcoCar@test.com");
 	ea.setPassword("123");
 
 	em.persist(ea);
