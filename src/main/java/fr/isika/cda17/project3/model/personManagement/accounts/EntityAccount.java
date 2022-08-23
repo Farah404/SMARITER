@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -17,6 +18,7 @@ import fr.isika.cda17.project3.model.solutionManagement.Solution;
 
 @Entity
 @PrimaryKeyJoinColumn(name="id")
+@NamedQuery(name = "EntityAccount.findByName", query = "SELECT ea FROM EntityAccount ea WHERE ea.name = :name_param")
 public class EntityAccount extends Account {
     
     private String name;

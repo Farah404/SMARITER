@@ -166,11 +166,11 @@
 		
 		<!-- https://mvnrepository.com/artifact/org.jboss.spec.javax.servlet/jboss-servlet-api_3.1_spec -->
         <dependency>
-            <groupId>org.jboss.spec.javax.servlet</groupId>
-            <artifactId>jboss-servlet-api_3.1_spec</artifactId>
-            <version>1.0.0.Final</version>
-            <scope>provided</scope>
-        </dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
 		
 		<!-- Now we declare any tools needed -->
 		<!-- Annotation processor to generate the JPA 2.0 metamodel classes for
