@@ -23,9 +23,9 @@ public class User extends Person{
 	super();
     }
 
-    public User(Long id, String firstName, String lastName, String email, int phoneNumber, Date birthDate,
+    public User(Long id, String firstName, String lastName, Account account, String email, int phoneNumber, Date birthDate,
 	    int identityCardnumber, int drivingPermitNumber) {
-	super(id, firstName, lastName);
+	super(id, firstName, lastName, account);
 	this.email = email;
 	this.phoneNumber = phoneNumber;
 	this.birthDate = birthDate;

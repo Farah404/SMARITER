@@ -14,8 +14,8 @@ public class Administrator extends Person {
 	super();
     }
 
-    public Administrator(Long id, String firstName, String lastName, String employeeCode) {
-	super(id, firstName, lastName);
+    public Administrator(Long id, String firstName, String lastName, Account account, String employeeCode) {
+	super(id, firstName, lastName, account);
 	this.employeeCode = employeeCode;
     }
 

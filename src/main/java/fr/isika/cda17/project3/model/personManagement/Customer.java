@@ -15,8 +15,8 @@ public class Customer extends Person{
 	super();
     }
 
-    public Customer(Long id, String firstName, String lastName, int phoneNumber, String email) {
-	super(id, firstName, lastName);
+    public Customer(Long id, String firstName, String lastName, Account account, int phoneNumber, String email) {
+	super(id, firstName, lastName, account);
 	this.phoneNumber = phoneNumber;
 	this.email = email;
     }

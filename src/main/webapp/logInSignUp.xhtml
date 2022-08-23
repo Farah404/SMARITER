@@ -40,9 +40,9 @@
 								href="#" class="social"><i class="fa fa-facebook"></i></a>
 						</div>
 						<span>or use your email for registration</span>
-						<h:inputText a:placeholder="Lastname" />
-						<h:inputText a:placeholder="Email" />
-						<h:inputSecret a:placeholder="Password" />
+						<h:inputText a:placeholder="Lastname" value="#{createCustomerBean.customer.lastName}"/>
+						<h:inputText a:placeholder="Email" value="#{createCustomerBean.customer.email}"/>
+						<h:inputSecret a:placeholder="Password" value="#{createCustomerBean.customer.firstName}"/>
 						<h:commandButton class="btn-signup" action="#{createCustomerBean.create()}">Sign Up</h:commandButton>
 					</h:form>
 				</div>
@@ -55,10 +55,10 @@
 								href="#" class="social"><i class="fa fa-facebook"></i></a>
 						</div>
 						<span>or use your account</span> 
-						<h:inputText a:placeholder="Email" /> 
-							<h:inputSecret a:placeholder="Password" /> 
+						<h:inputText a:placeholder="Email" value="#{createCustomerBean.customer.email}" /> 
+							<h:inputSecret a:placeholder="Password" value="{#{createCustomerBean.customer.account.password}" /> 
 							<a href="#">Forgot your password?</a>
-						<h:commandButton class="btn-signin">Sign In</h:commandButton>
+						<h:commandButton class="btn-signin" action="#{createCustomerBean.create()}">Sign In</h:commandButton>
 					</h:form>
 				</div>
 				<div class="overlay-container">

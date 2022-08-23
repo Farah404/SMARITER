@@ -1,5 +1,19 @@
 window.addEventListener('load', function () {
 
+/* Toggle DM */
+	const btn = document.querySelector(".btn-toggle)");
+    const theme = document.querySelector("#theme-link");
+      btn.addEventListener("click", function() {
+        // Swap out the URL for the different stylesheets
+        if (theme.getAttribute("href") == "lighStyleSheet.css") {
+          theme.href = "darkStyleSheet.css";
+        } else {
+          theme.href = "lightStyleSheet.css";
+        }
+      });	
+	
+	
+
 const toggle = document.querySelector(".toggle");
 const menu = document.querySelector(".menu");
 const items = document.querySelectorAll(".item");

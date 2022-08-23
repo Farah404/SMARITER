@@ -33,6 +33,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	    updatedCustomer.setLastName(customer.getLastName());
 	    updatedCustomer.setPhoneNumber(customer.getPhoneNumber());
 	    updatedCustomer.setEmail(customer.getEmail());
+	    updatedCustomer.setAccount(customer.getAccount());
 	    entityManager.persist(updatedCustomer);
 	} catch (Exception e) {
 	    System.out.println("ClientDao.create() - Failed : " + e.getMessage());
