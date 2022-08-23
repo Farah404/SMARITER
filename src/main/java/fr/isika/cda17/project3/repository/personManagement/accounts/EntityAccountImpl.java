@@ -68,13 +68,13 @@ public class EntityAccountImpl implements EntityAccountDao{
 	    }
 
 	    @Override
-	    public Optional<EntityAccount> findByEmail(String email) {
+	    public Optional<EntityAccount> findByName(String name) {
 		 try {
-		     EntityAccount entityAccount = this.entityManager.createNamedQuery("EntityAccount.findByEmail", EntityAccount.class)
-		                    .setParameter("email_param", email).getSingleResult();
+		     EntityAccount entityAccount = this.entityManager.createNamedQuery("EntityAccount.findByName", EntityAccount.class)
+		                    .setParameter("name_param", name).getSingleResult();
 		            return Optional.ofNullable(entityAccount);
 		        } catch (NoResultException ex) {
-		            System.out.println("EntityAccountDaoImpl.findByEmail() - not found : " + email);
+		            System.out.println("EntityAccountDaoImpl.findByEmail() - not found : " + name);
 		        }
 		        return Optional.empty();
 	    }

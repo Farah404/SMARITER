@@ -1,5 +1,7 @@
 package fr.isika.cda17.project3.presentation;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
@@ -9,8 +11,13 @@ import fr.isika.cda17.project3.repository.personManagement.accounts.CustomerDao;
 
 @ManagedBean
 @ViewScoped
-public class CreateCustomerBean {
+public class CreateCustomerBean implements Serializable {
     
+    /**
+     *
+     */
+    private static final long serialVersionUID = -8688644566487799148L;
+
     @Inject
     private CustomerDao customerDao;
 
