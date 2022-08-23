@@ -3,7 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+      xmlns:f="http://java.sun.com/jsf/core">
+<f:metadata>
+<f:event type="listener=#{createCustomerBean.init()}">
+</f:event>
+</f:metadata>
 
 <h:head>
 	<title>SmarIter</title>
@@ -24,22 +29,16 @@
 	<section class="signup">
 	
 <div class="signupform-container animate-right" id="container">
-		<form action="#" class="sigup-form">
+		<h:form action="#" class="sigup-form">
 			<h1>Create Account</h1>
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Email" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<button class="btn-signin">Sign Up</button>
-		</form>
+			<h:inputText id="firsName" value="#{createCustomerBean.customer.firstName}"/>
+			<h:inputText id="lastName" value="#{createCustomerBean.customer.lastName}"/>
+			<h:inputText id="email" value="#{createCustomerBean.customer.email}"/>
+			<h:inputText id="phoneNumber" value="#{createCustomerBean.customer.phoneNumber}"/>
+			<h:inputText id="username" value="#{createCustomerBean.customer.account.username}"/>
+			<h:inputText id="password" value="#{createCustomerBean.customer.account.password}"/>
+			<h:commandButton value="S'enregistrer" action="#{createCustomerBean.create()}"/>
+		</h:form>
 </div>
 </section>
  

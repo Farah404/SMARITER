@@ -1,9 +1,11 @@
 package fr.isika.cda17.project3.presentation;
 
 import java.io.Serializable;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
@@ -27,6 +29,30 @@ public class CreateCustomerBean implements Serializable {
 	Customer created = customerDao.create(customer);
 	System.out.println(created);
     }
+    
+    public String createStepOne() {
+    	customerDao.create(customer);
+    	System.err.println(customer.getId());
+    	return "signUp.xhtml?customerId=" + customer.getId();
+    }
+    
+    
+    public void init() {
+		Map<String,String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+		if(map.containsKey("customerId")) {
+			String customerIdParamValue = map.get("customerId");
+			Long id = Long.valueOf(customerIdParamValue);
+			
+			// TODO : si pas de id => message d'erreur
+			if(id != null) {
+				customer = customerDao.findById(id);
+			} else {	
+				//TODO: error
+				return ;
+				
+			}
+		}
+	}
     
     public Customer getCustomer() {
 	return customer;

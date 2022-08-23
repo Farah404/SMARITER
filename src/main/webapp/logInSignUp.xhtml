@@ -4,7 +4,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+     >
 
 <h:head>
 	<title>SmarIter</title>
@@ -36,7 +37,7 @@
 						<h:inputText id="lastNameTxt" a:placeholder="Lastname" value="#{createCustomerBean.customer.lastName}"/>
 						<h:inputText a:placeholder="Email" value="#{createCustomerBean.customer.email}"/>
 						<h:inputSecret a:placeholder="Password" value="#{createCustomerBean.customer.firstName}"/>
-						<h:commandButton class="btn-signup" value="Sign Up" action="#{createCustomerBean.create()}"></h:commandButton>
+						<h:commandButton class="btn-signup" value="Sign Up" action="#{createCustomerBean.createStepOne()}"></h:commandButton>
 					</h:form>
 				</div>
 				<div class="form-container sign-in-container">
