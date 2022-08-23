@@ -26,41 +26,74 @@ html {
 .container{
 	background-color: #fff;
 	padding:2%;
-	margin-left:15%;
-	margin-right:15%;
+	margin-left:10%;
+	margin-right:10%;
 	align-content: center;	
 }
 
+.headerText{
+	position:absolute;
+    top:10%;
+    right:15%;
+    z-index:10;
+    font-family: sans-serif;
+  font-size: 50px;
+}
+
+.headerSubtext{
+	position:absolute;
+    top:18%;
+    right:15%;
+    z-index:10;
+    font-family: sans-serif;
+  	font-size: 25px;
+}
+
+.headerButton{
+	position:absolute;
+    top:25%;
+    right:15%;
+    z-index:10;
+    font-family: sans-serif;
+  	font-size: 20px;
+  	background: #a9d0cc;
+  	border-color: #a9d0cc;
+    border-radius: 12px;
+    padding: 15px 5px;
+}
+.headerButton::hover{
+	background: #d9d5d4;
+  	border-color: #d9d5d4;
+    border-radius: 12px;
+
+	}
 /*Animations*/	
 .animate-zoom {animation:animatezoom 0.6s}@keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
-.animate-top{position:relative;animation:animatetop 0.4s}@keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}	
-.animate-left{position:relative;animation:animateleft 0.4s}@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}		
-.animate-right{position:relative;animation:animateright 0.4s}@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
-.animate-bottom{position:relative;animation:animatebottom 0.4s}@keyframes animatebottom{from{bottom:-300px;opacity:0} to{bottom:0;opacity:1}}
+.animate-top{position:relative;animation:animatetop 1.5s}@keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}	
+.animate-left{position:relative;animation:animateleft 1.5s}@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}		
+.animate-right{position:relative;animation:animateright 1.5s}@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
+.animate-bottom{position:relative;animation:animatebottom 1.5s}@keyframes animatebottom{from{bottom:-300px;opacity:0} to{bottom:0;opacity:1}}
 .animate-spin{animation:w3-spin 2s infinite linear}@keyframes w3-spin{0%{transform:rotate(0deg)}100%{transform:rotate(359deg)}}
 .animate-fading{animation:fading 10s infinite}@keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
-.animate-opacity{animation:opac 0.8s}@keyframes opac{from{opacity:0} to{opacity:1}}
+.animate-opacity{animation:opac 1.5s}@keyframes opac{from{opacity:0} to{opacity:1}}
 
 
 /*===============================*/
 /*Beginnning NavBar*/
 
 nav {
-  background: #222;
+  background: #7b667a;
   padding: 0 15px;
   position:fixed;
   width:100%;
-  z-index: 10;
+  z-index: 11;
 }
 a {
-  color: white;
+  color: black;
   text-decoration: none;
   position: relative;
 }
 
-.item a{
-	text-transform: uppercase;
-}
 .item a::before {
   content: '';
   position: absolute;
@@ -96,7 +129,8 @@ a {
 }
 .item:not(.button) a:hover,
 .item a:hover::after {
-  color: #ccc;
+  color: #ffffff;
+  transform: scale(1.2); 
 }
 /* Mobile menu */
 .menu {
@@ -149,14 +183,15 @@ a {
   padding: 10px 15px;
 }
 .submenu-active {
-  background-color: #111;
+  background-color: #ffffff;
   border-radius: 3px;
+  z-index: 10;
 }
 
 /* Tablet menu */
 @media all and (min-width: 700px) {
   .menu {
-    justify-content: center;
+    justify-content: left;
   }
   .logo {
     flex: 1;
@@ -165,6 +200,7 @@ a {
     width: auto;
     order: 1;
     display: block;
+    
   }
   .toggle {
     flex: 1;
@@ -177,15 +213,17 @@ a {
     margin: 5px 0;
   }
   .button a {
-    background: #0080ff;
-    border: 1px royalblue solid;
+    background: #a9d0cc;
+    border: 1px #a9d0cc;
+    border-radius: 12px;
+    width:100px;
   }
   .button a:hover {
     text-decoration: none;
   }
   .button:not(.secondary) a:hover {
-    background: royalblue;
-    border-color: darkblue;
+    background: #d9d5d4;
+    border-color: #d9d5d4;
   }
 }
 /* Desktop menu */
@@ -212,7 +250,7 @@ a {
     position: absolute;
     left: 0;
     top: 68px;
-    background: #111;
+    background: #ffffff;
   }
   .toggle {
     display: none;
@@ -221,6 +259,8 @@ a {
     border-radius: 0;
   }
 }
+
+
 /*Ending NavBar*/
 /*===============================*/
 /*===============================*/
@@ -232,7 +272,7 @@ a {
   overflow: hidden;
   position: relative;
   text-align : center;
-  z-index: -1;
+  z-index: 0;
 }
 .wrapper .wrapper__video{
   object-fit: cover;
@@ -304,7 +344,7 @@ h1 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
-  background-color: #444;
+  background-color: #7b667a;
   color: white;
 }
 
@@ -362,7 +402,7 @@ h1 {
 @media (min-width: 900px) {
   .pricing-plan {
     border-bottom: none;
-    border-right: 1px solid #E1F1FF;
+    border-right: 1px solid #d0b9cd;
     flex-basis: 100%;
     padding: 25px 50px;
   }
@@ -375,35 +415,36 @@ h1 {
   max-width: 100%;
 }
 .pricing-header {
-  color: #888;
+  color: #7b667a;
   font-weight: 600;
   letter-spacing: 1px;
 }
 .pricing-features {
-  color: #016FF9;
+  color: #7b667a;
   font-weight: 600;
   letter-spacing: 1px;
   margin: 50px 0 25px;
 }
 .pricing-features-item {
-  border-top: 1px solid #E1F1FF;
+  border-top: 1px solid #d0b9cd;
   font-size: 12px;
   line-height: 1.5;
   padding: 15px 0;
 }
 .pricing-features-item:last-child {
-  border-bottom: 1px solid #E1F1FF;
+  border-bottom: 1px solid #d0b9cd;
 }
 .pricing-price {
-  color: #016FF9;
+  color: #7b667a;
   display: block;
   font-size: 32px;
   font-weight: 700;
 }
 .pricing-button {
-  border: 1px solid #9DD1FF;
+  border: 1px solid #aeb4c8;
+  background-color: #aeb4c8;
   border-radius: 10px;
-  color: #348EFE;
+  color: #ffffff;
   display: inline-block;
   margin: 25px 0;
   padding: 15px 35px;
@@ -412,15 +453,18 @@ h1 {
 }
 .pricing-button:hover,
 .pricing-button:focus {
-  background-color: #E1F1FF;
+  background-color: #d0b9cd;
+  border-color:#d0b9cd;
 }
 .pricing-button.is-featured {
-  background-color: #48AAFF;
+  background-color: #7b667a;
+  border-color:#7b667a;
   color: #fff;
 }
 .pricing-button.is-featured:hover,
 .pricing-button.is-featured:active {
-  background-color: #269AFF;
+  background-color: #d0b9cd;
+  border-color:#d0b9cd;
 }
 
 
@@ -1205,9 +1249,6 @@ h5{
   width: 100%;
 }
 
-.button:hover {
-  background-color: #555;
-}
 
 /*===================================================================*/
 /*===================================================================*/
