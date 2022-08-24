@@ -7,19 +7,17 @@
 
 <h:head>
 	<title>SmarIter</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css?family=Raleway" />
-	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="resources/lightStyleSheet.css" />
 </h:head>
 
 
 <h:body>
 	<ui:composition template="template/template.xhtml">
 		<ui:define name="content">
+		
+		<div class="headerText animate-opacity">Create a website without limits</div>
+		<div class="headerSubtext animate-opacity">Discover the platform that gives you the freedom to create, design, <br />manage and develop your web presence exactly the way you want.</div>
+		<div class="button headerButton animate-opacity"><a href="logInSignUp.xhtml">Get Started</a></div> 
+		
 		<!-- HowItWorks section -->
 			<section class="container">
 			<div class="row-effort">
@@ -94,37 +92,34 @@
 				<div class="container-price">
 					<div class="panel pricing-table">
 						<div class="pricing-plan">
-							<img src="https://s22.postimg.cc/8mv5gn7w1/paper-plane.png"
+							<img src="media/img/space-ship.png"
 								alt="" class="pricing-img" />
-							<h2 class="pricing-header">Personal</h2>
+							<h2 class="pricing-header">Business VIP</h2>
 							<ul class="pricing-features">
-								<li class="pricing-features-item">Custom domains</li>
-								<li class="pricing-features-item">Sleeps after 30 mins of
-									inactivity</li>
+								<li class="pricing-features-item">50 GB storage space</li>
+								<li class="pricing-features-item">Priority customer care</li>
 							</ul>
-							<span class="pricing-price">Free</span> <a href="#/"
+							<span class="pricing-price">$150</span> <a href="#/"
 								class="pricing-button">Sign up</a>
 						</div>
 						<div class="pricing-plan">
-							<img src="https://s28.postimg.cc/ju5bnc3x9/plane.png" alt=""
+							<img src="media/img/plane.png" alt=""
 								class="pricing-img" />
-							<h2 class="pricing-header">Small team</h2>
+							<h2 class="pricing-header">Business Unlimited</h2>
 							<ul class="pricing-features">
-								<li class="pricing-features-item">Never sleeps</li>
-								<li class="pricing-features-item">Multiple workers for more
-									powerful apps</li>
+								<li class="pricing-features-item">35 GB storage space</li>
+								<li class="pricing-features-item">24/7 customer care</li>
 							</ul>
 							<span class="pricing-price">$150</span> <a href="#/"
-								class="pricing-button is-featured">Free trial</a>
+								class="pricing-button is-featured">Sign Up</a>
 						</div>
 						<div class="pricing-plan">
-							<img src="https://s21.postimg.cc/tpm0cge4n/space-ship.png" alt=""
+							<img src="media/img/paper-plane.png" alt=""
 								class="pricing-img" />
-							<h2 class="pricing-header">Enterprise</h2>
+							<h2 class="pricing-header">Business Basic</h2>
 							<ul class="pricing-features">
-								<li class="pricing-features-item">Dedicated</li>
-								<li class="pricing-features-item">Simple horizontal
-									scalability</li>
+								<li class="pricing-features-item">20 GB storage space</li>
+								<li class="pricing-features-item">24/7 customer care</li>
 							</ul>
 							<span class="pricing-price">$400</span> <a href="#/"
 								class="pricing-button">Free trial</a>
@@ -145,58 +140,7 @@
 		</ui:define>
 	</ui:composition>
 
-<script>
-const toggle = document.querySelector(".toggle");
-const menu = document.querySelector(".menu");
-const items = document.querySelectorAll(".item");
 
-/* Toggle mobile menu */
-function toggleMenu() {
-  if (menu.classList.contains("active")) {
-    menu.classList.remove("active");
-    toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
-  } else {
-    menu.classList.add("active");
-    toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
-  }
-}
-
-/* Activate Submenu */
-function toggleItem() {
-  if (this.classList.contains("submenu-active")) {
-    this.classList.remove("submenu-active");
-  } else if (menu.querySelector(".submenu-active")) {
-    menu.querySelector(".submenu-active").classList.remove("submenu-active");
-    this.classList.add("submenu-active");
-  } else {
-    this.classList.add("submenu-active");
-  }
-}
-
-/* Close Submenu From Anywhere */
-function closeSubmenu(e) {
-  if (menu.querySelector(".submenu-active")) {
-    let isClickInside = menu
-      .querySelector(".submenu-active")
-      .contains(e.target);
-
-    if (!isClickInside &amp;&amp; menu.querySelector(".submenu-active")) {
-      menu.querySelector(".submenu-active").classList.remove("submenu-active");
-    }
-  }
-}
-/* Event Listeners */
-toggle.addEventListener("click", toggleMenu, false);
-for (let item of items) {
-  if (item.querySelector(".submenu")) {
-    item.addEventListener("click", toggleItem, false);
-  }
-  item.addEventListener("keypress", toggleItem, false);
-}
-document.addEventListener("click", closeSubmenu, false);
-
-
-</script>
 
 </h:body>
 </html>

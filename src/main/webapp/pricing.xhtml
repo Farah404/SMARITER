@@ -7,442 +7,218 @@
 
 <h:head>
 	<title>Blog</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css?family=Raleway" />
-	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="resources/css/lightStyleSheet.css" />
 </h:head>
 
 <h:body>
- <ui:composition template="/template/template.xhtml">
- <ui:define name="content">
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+		<div class="headerText animate-opacity">Pricng</div>
+ <h:outputScript library="js" name = "faq.js"/>
+			<div class="container">
+				<p>Business &amp; eCommerce plans Grow and manage your online
+					business with a custom storefront, catalog and order management,
+					shipping and taxes, integrated sales channels and more.</p>
+				<table class="styled-table">
 
- 
-  <div class="container">
- <div class="plan-container">
-  <!-- Plan 1 -->
-  <div class="plan">
-    <table class="table-1">
-      <thead>
-        <tr>
-          <th class="features"></th>
-          <th class="lead">Business VIP</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="features">
-            <strong>Secure online payments </strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">5</span>
-            <small class="text-muted">/day</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Plans &amp; recurring payments</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">2</span>
-            <small class="text-muted">/max</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Customer accounts</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">22</span>
-            <small class="text-muted">/month</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Custom domain</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">1</span>
-            <small class="text-muted">/max</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Free domain for 1 year</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">1</span>
-            <small class="text-muted">/max</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Remove Smariter ads</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">NO</span>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Bandwidth</strong>
-          </td>
-          <td class="data">on-site chat</td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Storage space</strong>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Video hours</strong>
-          </td>
-          <td class="data"><i class="fa fa-check"></i></td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Mobile Apps included</strong>
-          </td>
-          <td class="data">-</td>
-        </tr>
-        <tr>
-          <td class="features">Customer care</td>
-          <td class="data">Free 30-day trial</td>
-        </tr>
-        <tr>
-          <td class="features">Billed monthly:</td>
-          <td class="data">Free 30-day trial</td>
-        </tr>
-        <tr>
-          <td class="features"></td>
-          <td class="data">
-            <button class="btn btn-primary" type="submit" value="Get Started" role="button">Get Started</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- Plan 2 -->
-  <div class="plan">
-    <table class="table-2">
-      <thead>
-        <tr>
-          <th class="features"></th>
-          <th class="lead">Business Unlimited</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="features">
-            <strong>Sent/scheduled tweets </strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">50</span>
-            <small class="text-muted">/day</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Active Hashtag Alerts</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">10</span>
-            <small class="text-muted">/max</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Twitter Timeline Audits</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">210</span>
-            <small class="text-muted">/month</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Twitter accounts</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">1</span>
-            <small class="text-muted">/max</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Facebook accounts</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">1</span>
-            <small class="text-muted">/max</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Bit.ly account</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">NO</span>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Support</strong>
-          </td>
-          <td class="data">on-site chat</td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Color-coded hashtag &amp; tweet grading browser extensions</strong>
-          </td>
-          <td class="data">Twitter, Buffer, Hootsuite, Tweetdeck, SproutSocial &amp; SocialOomph</td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Hashtags analytics</strong>
-          </td>
-          <td class="data"><i class="fa fa-check"></i></td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Mobile Apps included</strong>
-          </td>
-          <td class="data">Android (iPhone soon)</td>
-        </tr>
-        <tr>
-          <td class="features">Billed yearly:</td>
-          <td class="data">10$/mo</td>
-        </tr>
-        <tr>
-          <td class="features">Billed monthly:</td>
-          <td class="data">15$/mo</td>
-        </tr>
-        <tr>
-          <td class="features"></td>
-          <td class="data">
-            <button class="btn btn-primary" type="submit" value="Get Started" role="button">Get Started</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-<div class="plan-container">
-  <!-- Plan 3 -->
-  <div class="plan">
-    <table class="table-3">
-      <thead>
-        <tr>
-          <th class="features"></th>
-          <th class="lead">Business Basic</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="features">
-            <strong>Sent/scheduled tweets </strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">200</span>
-            <small class="text-muted">/day</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Active Hashtag Alerts</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">50</span>
-            <small class="text-muted">/max</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Twitter Timeline Audits</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">950</span>
-            <small class="text-muted">/month</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Twitter accounts</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">3</span>
-            <small class="text-muted">/max</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Facebook accounts</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">3</span>
-            <small class="text-muted">/max</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Bit.ly account</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">NO</span>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Support</strong>
-          </td>
-          <td class="data">email + on-site chat</td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Color-coded hashtag &amp; tweet grading browser extensions</strong>
-          </td>
-          <td class="data">Twitter, Buffer, Hootsuite, Tweetdeck, SproutSocial &amp; SocialOomph</td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Hashtags analytics</strong>
-          </td>
-          <td class="data"><i class="fa fa-check"></i></td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Mobile Apps included</strong>
-          </td>
-          <td class="data">Android (iPhone soon)</td>
-        </tr>
-        <tr>
-          <td class="features">Billed yearly:</td>
-          <td class="data">25$/mo</td>
-        </tr>
-        <tr>
-          <td class="features">Billed monthly:</td>
-          <td class="data">35$/mo</td>
-        </tr>
-        <tr>
-          <td class="features"></td>
-          <td class="data">
-            <button class="btn btn-primary" type="submit" value="Get Started" role="button">Get Started</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- Plan 4 -->
-  <div class="plan">
-    <table class="table-4">
-      <thead>
-        <tr>
-          <th class="features"></th>
-          <th class="lead">Agency</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="features">
-            <strong>Sent/scheduled tweets</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">∞ Unlimited</span>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Active Hashtag Alerts</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">∞ Unlimited</span>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Twitter Timeline Audits</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">∞ Unlimited</span>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Twitter accounts</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">25</span>
-            <small class="text-muted">/max</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Facebook accounts</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">25</span>
-            <small class="text-muted">/max</small>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Bit.ly account</strong>
-          </td>
-          <td class="data">
-            <span class="bignumber">NO</span>
-          </td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Support</strong>
-          </td>
-          <td class="data">on-site chat, email, SKYPE</td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Color-coded hashtag &amp; tweet grading browser extensions</strong>
-          </td>
-          <td class="data">Twitter, Buffer, Hootsuite, Tweetdeck, SproutSocial &amp; SocialOomph</td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Hashtags analytics</strong>
-          </td>
-          <td class="data"><i class="fa fa-check"></i></td>
-        </tr>
-        <tr>
-          <td class="features">
-            <strong>Mobile Apps included</strong>
-          </td>
-          <td class="data">Android (iPhone soon)</td>
-        </tr>
-        <tr>
-          <td class="features">Billed yearly:</td>
-          <td class="data">99$/mo</td>
-        </tr>
-        <tr>
-          <td class="features">Billed monthly:</td>
-          <td class="data">139$/mo</td>
-        </tr>
-        <tr>
-          <td class="features"></td>
-          <td class="data">
-            <button class="btn btn-primary" type="submit" value="Get Started" role="button">Get Started</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-</div>
- 
- 
- </ui:define>
- </ui:composition>
- 
+					<thead>
+						<tr>
+							<th></th>
+							<th>Business VIP <br /> Get the Full Suite <br />Price
+								includes VAT<br />
+								<button class="btn">Select</button></th>
+							<th>Business Unlimited<br /> Grow Your Business<br />Price
+								includes VAT<br />
+								<button class="btn">Select</button></th>
+							<th>Business Basic<br /> Accept Online Payments<br />Price
+								includes VAT<br />
+								<button class="btn">Select</button></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Secure online payments</td>
+							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span>&#10003;</span></td>
+						</tr>
+						<tr>
+							<td>Plans &amp; recurring payments</td>
+							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span>&#10003;</span></td>
+						</tr>
+
+						<tr>
+							<td>Customer accounts</td>
+							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span>&#10003;</span></td>
+						</tr>
+
+						<tr>
+							<td>Custom domain</td>
+							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span>&#10003;</span></td>
+						</tr>
+
+
+						<tr>
+							<td>Free domain for 1 year</td>
+							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span>&#10003;</span></td>
+						</tr>
+
+						<tr>
+							<td>Remove Smariter ads</td>
+							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span>&#10003;</span></td>
+						</tr>
+
+						<tr>
+							<td>Bandwidth</td>
+							<td class="center-row">Unlimited</td>
+							<td class="center-row">Unlimited</td>
+							<td class="center-row">Unlimited</td>
+						</tr>
+
+						<tr>
+							<td>Storage space</td>
+							<td class="center-row">50 GB</td>
+							<td class="center-row">35 GB</td>
+							<td class="center-row">20 GB</td>
+						</tr>
+
+						<tr>
+							<td>Video hours</td>
+							<td class="center-row">Unlimited</td>
+							<td class="center-row">10 hours</td>
+							<td class="center-row">5 hours</td>
+						</tr>
+
+						<tr>
+							<td>Customer accounts</td>
+
+							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span>&#10003;</span></td>
+						</tr>
+
+						<tr>
+							<td>Customized reports</td>
+
+							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span>--</span></td>
+							<td class="center-row"><span>--</span></td>
+						</tr>
+
+						<tr>
+							<td>Customer care</td>
+							<td class="center-row">Priority customer care</td>
+							<td class="center-row">24/7 customer care</td>
+							<td class="center-row">24/7 customer care</td>
+						</tr>
+
+
+						<!-- and so on... -->
+					</tbody>
+				</table>
+				<p>Displayed prices are for yearly subscriptions, paid in full
+					at the time of purchase. Additional subscription periods are
+					available. The Ad Vouchers are third party services and products
+					and therefore are subject to the Terms of Use of such providers.</p>
+
+				<hr />
+				<div class="row-pricing">
+					<div class="column-pricing">
+						<h2>ACCEPTED PAYMENT METHODS</h2>
+						<p>Some text..</p>
+					</div>
+					<div class="column-pricing">
+						<h2>MONEY BACK GUARANTEE</h2>
+						<p>14 day money back guarantee on all Premium plans when you
+							pay with a credit card.</p>
+					</div>
+					<div class="column-pricing">
+						<h2>SSL SECURE PAYMENT</h2>
+						<p>Your information is protected by 256-bit SSL encryption.</p>
+					</div>
+				</div>
+
+				<div class="row-faq">
+					<div class="column-faq-left">
+						<h2>Frequently Asked Questions</h2>
+						<p>Haven’t found what you’re looking for? Contact Us</p>
+					</div>
+					<div class="column-faq-right">
+						<button type="button" class="collapsible">What is a
+							Premium Plan?</button>
+						<div class="content-collapse">
+							<p>You can create a website for free, and with a Premium plan
+								you can connect your own domain, remove Wix ads from your site,
+								and more. With most Premium plans, you'll receive a 1 year free
+								domain voucher and vouchers for advertising on Google and Bing.
+								For best value, we recommend our yearly or multi-year plans.</p>
+						</div>
+						<button type="button" class="collapsible">Can I try a Wix
+							Premium Plan for free?</button>
+						<div class="content-collapse">
+							<p>Yes. Try any Wix Premium Plan and if you decide it's not
+								for you, you can cancel within 14 days and receive a full
+								refund—no questions asked. This applies to the initial upgrade
+								to a Premium Plan.</p>
+						</div>
+						<button type="button" class="collapsible">How do I get my
+							free domain?</button>
+						<div class="content-collapse">
+							<p>Most Yearly or Multi-Year Premium Plans come with a 1 year
+								free domain voucher. You can choose your own domain name with
+								suffixes such as .com, .net, .org and more. Once you find the
+								perfect domain for your site, your voucher will be waiting for
+								you at checkout.</p>
+						</div>
+						<button type="button" class="collapsible">Why do I need a
+							custom domain?</button>
+						<div class="content-collapse">
+							<p>A custom domain, like mystunningwebsite.com, is a great
+								way to get found online and promote your brand. Replace your
+								free Wix URL (username.wixsite.com/sitename) with a custom
+								domain you purchased from Wix, or one you already own.</p>
+						</div>
+						<button type="button" class="collapsible">How can I get
+							my own personalized email address?</button>
+						<div class="content-collapse">
+							<p>Once you have your own domain, you can purchase a Google
+								Workspace plan and get a custom email address using your domain,
+								like info@mystunningwebsite.com. We've partnered with Google to
+								give you 30GB of Drive storage, as well as Google Calendar,
+								Docs, Sheets and Slides.</p>
+						</div>
+						<button type="button" class="collapsible">Which plans
+							come with Ad Vouchers?</button>
+						<div class="content-collapse">
+							<p>Some of our Yearly or Multi-Year Premium Plans come with
+								vouchers for promotional ads on Google and Bing to advertise
+								your website. Read the legal terms of use for Wix Vouchers and
+								Google Ads.</p>
+						</div>
+						<button type="button" class="collapsible">What online
+							payments are accepted?</button>
+						<div class="content-collapse">
+							<p>Wix accepts all major credit cards and debit cards,
+								including Visa, Mastercard, American Express, Discover, JCB and
+								Diners. Additional payment options may be available in your
+								specific location.</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</ui:define>
+	</ui:composition>
+
 </h:body>
 </html>

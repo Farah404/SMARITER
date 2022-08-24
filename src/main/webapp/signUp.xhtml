@@ -3,50 +3,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+      xmlns:f="http://java.sun.com/jsf/core">
+
 
 <h:head>
 	<title>SmarIter</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css?family=Raleway" />
-	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="resources/lightStyleSheet.css" />
 </h:head>
 
 <h:body>
- <ui:composition template="/template/templatewithoutHeader.xhtml">
+ <ui:composition template="template/templatewithoutHeader.xhtml">
  <ui:define name="content">
  
-<section class="wrapper-signin">
-
-		<video class="background-video" autoplay="autoplay" loop="loop"
-			muted="muted">
-			<source src="media/webm/videoplayback.webm" type="video/webm" />
-		</video>
-</section>
+<section class="wrapper-signin"> <img width="100%" src="media/gif/coding/abstract.gif" /> </section>
 
 	<section class="signup">
 	
 <div class="signupform-container animate-right" id="container">
-		<form action="#" class="sigup-form">
+		<h:form action="#" class="sigup-form">
 			<h1>Create Account</h1>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Name" />
-			<button class="btn-signin">Sign Up</button>
-		</form>
+			<h:inputText id="firsName" value="#{createCustomerBean.customer.firstName}"/>
+			<h:inputText id="lastName" value="#{createCustomerBean.customer.lastName}"/>
+			<h:inputText id="email" value="#{createCustomerBean.customer.email}"/>
+			<h:inputText id="phoneNumber" value="#{createCustomerBean.customer.phoneNumber}"/>
+			<h:inputText id="username" value="#{createCustomerBean.customer.account.username}"/>
+			<h:inputText id="password" value="#{createCustomerBean.customer.account.password}"/>
+			<h:commandButton value="S'enregistrer" action="#{createCustomerBean.create()}"/>
+		</h:form>
 </div>
 </section>
  

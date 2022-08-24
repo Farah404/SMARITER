@@ -90,13 +90,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.19</version>
-		</dependency>
-		<!-- Dépendance envers les libs de Hibernate -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>5.3.7.Final</version>
+			<version>8.0.27</version>
 		</dependency>
 		<!-- API, java.xml.bind module -->
 		<dependency>
@@ -168,6 +162,16 @@
 			<artifactId>jboss-jsf-api_2.2_spec</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		
+		
+		<!-- https://mvnrepository.com/artifact/org.jboss.spec.javax.servlet/jboss-servlet-api_3.1_spec -->
+        <dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		
 		<!-- Now we declare any tools needed -->
 		<!-- Annotation processor to generate the JPA 2.0 metamodel classes for
             typesafe criteria queries -->

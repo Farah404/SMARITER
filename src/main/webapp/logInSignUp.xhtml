@@ -3,99 +3,84 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+     >
 
 <h:head>
 	<title>SmarIter</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css?family=Raleway" />
-	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="resources/lightStyleSheet.css" />
 </h:head>
 
 <h:body>
- <ui:composition template="/template/templatewithoutHeader.xhtml">
- <ui:define name="content">
- 
-<section class="wrapper-signin">
+	<ui:composition template="template/templatewithoutHeader.xhtml">
+		<ui:define name="content">
 
-		<video class="background-video" autoplay="autoplay" loop="loop"
-			muted="muted">
-			<source src="media/webm/videoplayback.webm" type="video/webm" />
-		</video>
-</section>
+			<h:outputScript library="js" name = "signup.js"/>
 
-	<section class="signin">
-	
-<div class="container animate-zoom" id="container">
-	<div class="form-container sign-up-container">
-		<form action="#">
-			<h1>Create Account</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fa fa-linkedin"></i></a>
-				<a href="#" class="social"><i class="fa fa-google-plus"></i></a>
-				<a href="#" class="social"><i class="fa fa-facebook"></i></a>
-			</div>
-			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button class="btn-signin">Sign Up</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		<form action="#">
-			<h1>Sign in</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fa fa-linkedin"></i></a>
-				<a href="#" class="social"><i class="fa fa-google-plus"></i></a>
-				<a href="#" class="social"><i class="fa fa-facebook"></i></a>
-			</div>
-			<span>or use your account</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-			<button class="btn-signin">Sign In</button>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1><br /><br />
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="btn-signin ghost" id="signIn">Sign In</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1><br /><br />
-				<p>Enter your personal details and start journey with us</p>
-				<button class="btn-signin ghost" id="signUp">Sign Up</button>
-			</div>
-		</div>
-	</div>
-</div>
-</section>
- 
- 
- </ui:define>
- </ui:composition>
- 
- 
- <script>
-	const signUpButton = document.getElementById('signUp');
-	const signInButton = document.getElementById('signIn');
-	const container = document.getElementById('container');
+			<section class="wrapper-signin"> <img width="100%" src="media/gif/coding/abstract.gif" /> </section>
 
-	signUpButton.addEventListener('click', () => {
-	    container.classList.add('right-panel-active');
-	});
+			<section class="signin">
 
-	signInButton.addEventListener('click', () => {
-	    container.classList.remove('right-panel-active');
-	});
- </script>
- 
+			<div class="container animate-zoom" id="container">
+				<div class="form-container sign-up-container">
+					<h:form>
+						<h1>Create Account</h1>
+						<div class="social-container">
+							<a href="#" class="social"><i class="fa fa-linkedin"></i></a> <a
+								href="#" class="social"><i class="fa fa-google-plus"></i></a> <a
+								href="#" class="social"><i class="fa fa-facebook"></i></a>
+						</div>
+						<span>or use your email for registration</span>
+						<h:inputText id="lastNameTxt" a:placeholder="Lastname" value="#{createCustomerBean.customer.lastName}"/>
+						<h:inputText a:placeholder="Email" value="#{createCustomerBean.customer.email}"/>
+						<h:inputSecret a:placeholder="Password" value="#{createCustomerBean.customer.firstName}"/>
+						<h:commandButton class="btn-signup" value="Sign Up" action="#{createCustomerBean.createStepOne()}"></h:commandButton>
+					</h:form>
+				</div>
+				<div class="form-container sign-in-container">
+					<h:form>
+						<h1>Sign in</h1>
+						<div class="social-container">
+							<a href="#" class="social"><i class="fa fa-linkedin"></i></a> <a
+								href="#" class="social"><i class="fa fa-google-plus"></i></a> <a
+								href="#" class="social"><i class="fa fa-facebook"></i></a>
+						</div>
+						<span>or use your account</span> 
+						<h:inputText a:placeholder="Name" id="nameTxt" value="#{logInCustomerBean.name}" />
+						<h:message for="nameTxt"/>
+						
+						<h:inputSecret a:placeholder="Password" id="passwordTxt" value="#{logInCustomerBean.password}" />
+						<h:message for="passwordTxt"/>
+						
+						<a href="#">Forgot your password?</a>
+						<h:commandButton class="btn-signin" action="#{logInCustomerBean.customerLogin()}" value="Sign In"></h:commandButton>
+					</h:form>
+				</div>
+				<div class="overlay-container">
+					<div class="overlay">
+						<div class="overlay-panel overlay-left">
+							<h1>Welcome Back!</h1>
+							<br />
+							<br />
+							<p>To keep connected with us please login with your personal
+								info</p>
+							<button class="btn-signin ghost" id="signIn">Sign In</button>
+						</div>
+						<div class="overlay-panel overlay-right">
+							<h1>Hello, Friend!</h1>
+							<br />
+							<br />
+							<p>Enter your personal details and start journey with us</p>
+							<button class="btn-signin ghost" id="signUp" type="button">Sign Up</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			</section>
+
+
+		</ui:define>
+	</ui:composition>
+
 </h:body>
 </html>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>List</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+			<h:outputScript library="js" name="faq.js" />
+			<div class="container">
+
+				<hr />
+				<hr />
+				<hr />
+
+				<h:form>
+
+					<h:dataTable class="styled-table" id="listeAccount"
+						value="#{entityAccountManagementBean.entityAccountList}"
+						var="account">
+
+						<h:column>
+							<f:facet name="header">Id</f:facet>
+							<h:outputText value="#{account.id}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"> Name</f:facet>
+							<h:outputText value="#{account.name}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">User Name</f:facet>
+							<h:outputText value="#{account.username}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Password</f:facet>
+							<h:outputText value="#{account.password}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Update</f:facet>
+							<h:panelGrid>
+								<h:commandButton value="Edit"
+									action="#{entityAccountManagementBean.showUpdate(account.id)}">
+									<f:param name="accountId" value="#{account.id}"></f:param>
+								</h:commandButton>
+							</h:panelGrid>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Delete</f:facet>
+							<h:panelGrid>
+								<h:commandButton
+									action="#{entityAccountManagementBean.delete(account.id)}"
+									value="Delete" />
+							</h:panelGrid>
+						</h:column>
+					</h:dataTable>
+
+				</h:form>
+
+
+
+			</div>
+
+			<hr />
+			<hr />
+			<hr />
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>
