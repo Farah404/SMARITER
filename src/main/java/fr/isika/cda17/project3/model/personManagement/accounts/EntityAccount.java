@@ -46,11 +46,11 @@ public class EntityAccount extends Account {
 	super();
     }
 
-    public EntityAccount(Long id, String username, String password, String profilePicturePath, boolean isActive,
+    public EntityAccount(Long id, String username, String email, String password, String profilePicturePath, boolean isActive,
 	    Date creationDate, AccountType accountType, String name, int siretNumber, boolean isPrivate,
 	    ShoppingCart shoppingCart, BankDetails bankDetails, BillingAddress billingAddress, Wallet wallet,
 	    List<Solution> solutions) {
-	super(id, username, password, profilePicturePath, isActive, creationDate, accountType);
+	super(id, username, email, password, profilePicturePath, isActive, creationDate, accountType);
 	this.name = name;
 	this.siretNumber = siretNumber;
 	this.isPrivate = isPrivate;
