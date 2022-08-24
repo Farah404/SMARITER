@@ -3,6 +3,7 @@ package fr.isika.cda17.project3.model.solutionManagement;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -29,28 +30,28 @@ public class Solution {
     @Enumerated
     private PriceDeal priceDeal;
     
-    private Boolean isRatingSystemIncluded;
+    private boolean isRatingSystemIncluded;
     
-    private Boolean isCarPoolingsolutionIncluded;
+    private boolean isCarPoolingsolutionIncluded;
     
-    private Boolean isCarRentalSolutionIncluded;
+    private boolean isCarRentalSolutionIncluded;
     
-    private Boolean isParcelSolutionIncluded;
+    private boolean isParcelSolutionIncluded;
     
-    private Boolean isPersonalAssistanceSolutionIncluded;
+    private boolean isPersonalAssistanceSolutionIncluded;
     
-    private Boolean isPrivate;
+    private boolean isPrivate;
     
     @ManyToMany
     private List <EntityAccount> entityAccounts = new LinkedList<>();
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.PERSIST)
     private CustomerInvoice customerInvoice;
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.PERSIST)
     private CarPoolingSolution carPoolingSolution;
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.PERSIST)
     private ParcelSolution parcelSolution;
 
     public Solution() {
@@ -58,9 +59,9 @@ public class Solution {
     }
 
     public Solution(Long id, PaymentSystemChoice paymentSystemChoice, MessagingSystemChoice messagingSystemChoice,
-	    PriceDeal priceDeal, Boolean isRatingSystemIncluded, Boolean isCarPoolingsolutionIncluded,
-	    Boolean isCarRentalSolutionIncluded, Boolean isParcelSolutionIncluded,
-	    Boolean isPersonalAssistanceSolutionIncluded, Boolean isPrivate, List<EntityAccount> entityAccounts,
+	    PriceDeal priceDeal, boolean isRatingSystemIncluded, boolean isCarPoolingsolutionIncluded,
+	    boolean isCarRentalSolutionIncluded, boolean isParcelSolutionIncluded,
+	    boolean isPersonalAssistanceSolutionIncluded, boolean isPrivate, List<EntityAccount> entityAccounts,
 	    CustomerInvoice customerInvoice, CarPoolingSolution carPoolingSolution, ParcelSolution parcelSolution) {
 	super();
 	this.id = id;
@@ -107,7 +108,7 @@ public class Solution {
         return isRatingSystemIncluded;
     }
 
-    public void setRatingSystemIncluded(Boolean isRatingSystemIncluded) {
+    public void setRatingSystemIncluded(boolean isRatingSystemIncluded) {
         this.isRatingSystemIncluded = isRatingSystemIncluded;
     }
 
@@ -115,7 +116,7 @@ public class Solution {
         return isCarPoolingsolutionIncluded;
     }
 
-    public void setCarPoolingsolutionIncluded(Boolean isCarPoolingsolutionIncluded) {
+    public void setCarPoolingsolutionIncluded(boolean isCarPoolingsolutionIncluded) {
         this.isCarPoolingsolutionIncluded = isCarPoolingsolutionIncluded;
     }
 
@@ -123,7 +124,7 @@ public class Solution {
         return isCarRentalSolutionIncluded;
     }
 
-    public void setCarRentalSolutionIncluded(Boolean isCarRentalSolutionIncluded) {
+    public void setCarRentalSolutionIncluded(boolean isCarRentalSolutionIncluded) {
         this.isCarRentalSolutionIncluded = isCarRentalSolutionIncluded;
     }
 
@@ -131,7 +132,7 @@ public class Solution {
         return isParcelSolutionIncluded;
     }
 
-    public void setParcelSolutionIncluded(Boolean isParcelSolutionIncluded) {
+    public void setParcelSolutionIncluded(boolean isParcelSolutionIncluded) {
         this.isParcelSolutionIncluded = isParcelSolutionIncluded;
     }
 
@@ -139,7 +140,7 @@ public class Solution {
         return isPersonalAssistanceSolutionIncluded;
     }
 
-    public void setPersonalAssistanceSolutionIncluded(Boolean isPersonalAssistanceSolutionIncluded) {
+    public void setPersonalAssistanceSolutionIncluded(boolean isPersonalAssistanceSolutionIncluded) {
         this.isPersonalAssistanceSolutionIncluded = isPersonalAssistanceSolutionIncluded;
     }
 
@@ -147,7 +148,7 @@ public class Solution {
         return isPrivate;
     }
 
-    public void setPrivate(Boolean isPrivate) {
+    public void setPrivate(boolean isPrivate) {
         this.isPrivate = isPrivate;
     }
 
@@ -159,11 +160,11 @@ public class Solution {
         this.entityAccounts = entityAccounts;
     }
 
-    public CustomerInvoice getClientInvoice() {
+    public CustomerInvoice getCustomerInvoice() {
         return customerInvoice;
     }
 
-    public void setClientInvoice(CustomerInvoice customerInvoice) {
+    public void setCustomerInvoice(CustomerInvoice customerInvoice) {
         this.customerInvoice = customerInvoice;
     }
 

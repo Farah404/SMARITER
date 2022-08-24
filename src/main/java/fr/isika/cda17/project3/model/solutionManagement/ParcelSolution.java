@@ -11,18 +11,18 @@ public class ParcelSolution {
     @GeneratedValue
     private Long id;
     
-    private Boolean atypicalVolumeOption;
+    private boolean atypicalVolumeOption;
     
-    private Boolean fragileOoption;
+    private boolean fragileOoption;
     
-    private Boolean weightKilogrammesOption;
+    private boolean weightKilogrammesOption;
 
     public ParcelSolution() {
 	super();
     }
 
-    public ParcelSolution(Long id, Boolean atypicalVolumeOption, Boolean fragileOoption,
-	    Boolean weightKilogrammesOption) {
+    public ParcelSolution(Long id, boolean atypicalVolumeOption, boolean fragileOoption,
+	    boolean weightKilogrammesOption) {
 	super();
 	this.id = id;
 	this.atypicalVolumeOption = atypicalVolumeOption;
@@ -30,27 +30,27 @@ public class ParcelSolution {
 	this.weightKilogrammesOption = weightKilogrammesOption;
     }
 
-    public Boolean getAtypicalVolumeOption() {
+    public boolean getAtypicalVolumeOption() {
         return atypicalVolumeOption;
     }
 
-    public void setAtypicalVolumeOption(Boolean atypicalVolumeOption) {
+    public void setAtypicalVolumeOption(boolean atypicalVolumeOption) {
         this.atypicalVolumeOption = atypicalVolumeOption;
     }
 
-    public Boolean getFragileOoption() {
+    public boolean getFragileOoption() {
         return fragileOoption;
     }
 
-    public void setFragileOoption(Boolean fragileOoption) {
+    public void setFragileOoption(boolean fragileOoption) {
         this.fragileOoption = fragileOoption;
     }
 
-    public Boolean getWeightKilogrammesOption() {
+    public boolean getWeightKilogrammesOption() {
         return weightKilogrammesOption;
     }
 
-    public void setWeightKilogrammesOption(Boolean weightKilogrammesOption) {
+    public void setWeightKilogrammesOption(boolean weightKilogrammesOption) {
         this.weightKilogrammesOption = weightKilogrammesOption;
     }
 

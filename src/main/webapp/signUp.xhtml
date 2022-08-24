@@ -6,7 +6,10 @@
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
       xmlns:f="http://java.sun.com/jsf/core">
 
-
+<f:metadata>
+<f:event listener="#{createCustomerBean.init()}" type="preRenderView">
+</f:event>
+</f:metadata>
 <h:head>
 	<title>SmarIter</title>
 </h:head>
