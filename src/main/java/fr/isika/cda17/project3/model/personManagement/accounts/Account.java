@@ -19,6 +19,8 @@ public abstract class Account {
     
     private String username;
     
+    private String email;
+    
     private String password;
     
     private String profilePicturePath;
@@ -34,16 +36,25 @@ public abstract class Account {
 	super();
     }
 
-    public Account(Long id, String username, String password, String profilePicturePath, Boolean isActive,
+    public Account(Long id, String username, String email, String password, String profilePicturePath, Boolean isActive,
 	    Date creationDate, AccountType accountType) {
 	super();
 	this.id = id;
 	this.username = username;
+	this.email = email;
 	this.password = password;
 	this.profilePicturePath = profilePicturePath;
 	this.isActive = isActive;
 	this.creationDate = creationDate;
 	this.accountType = accountType;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -52,6 +63,14 @@ public abstract class Account {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -70,11 +89,11 @@ public abstract class Account {
         this.profilePicturePath = profilePicturePath;
     }
 
-    public Boolean isActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(boolean isActive) {
+    public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
     }
 
@@ -93,12 +112,5 @@ public abstract class Account {
     public void setAccountType(AccountType accountType) {
         this.accountType = accountType;
     }
-
-    public Long getId() {
-        return id;
-    }
-    
-    
-    
 
 }

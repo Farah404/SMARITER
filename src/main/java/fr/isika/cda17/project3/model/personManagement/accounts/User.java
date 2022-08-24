@@ -9,8 +9,6 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @PrimaryKeyJoinColumn(name="id")
 public class User extends Person{
     
-    private String email;
-    
     private int phoneNumber;
     
     private Date birthDate;
@@ -23,22 +21,13 @@ public class User extends Person{
 	super();
     }
 
-    public User(Long id, String firstName, String lastName, Account account, String email, int phoneNumber, Date birthDate,
+    public User(Long id, String firstName, String lastName, Account account, int phoneNumber, Date birthDate,
 	    int identityCardnumber, int drivingPermitNumber) {
 	super(id, firstName, lastName, account);
-	this.email = email;
 	this.phoneNumber = phoneNumber;
 	this.birthDate = birthDate;
 	this.identityCardnumber = identityCardnumber;
 	this.drivingPermitNumber = drivingPermitNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public int getPhoneNumber() {

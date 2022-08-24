@@ -9,16 +9,15 @@ public class Customer extends Person{
     
     private int phoneNumber;
     
-    private String email;
 
     public Customer() {
 	super();
     }
 
-    public Customer(Long id, String firstName, String lastName, Account account, int phoneNumber, String email) {
+    public Customer(Long id, String firstName, String lastName, Account account, int phoneNumber) {
 	super(id, firstName, lastName, account);
 	this.phoneNumber = phoneNumber;
-	this.email = email;
+
     }
 
     public int getPhoneNumber() {
@@ -28,15 +27,5 @@ public class Customer extends Person{
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    
-    
 
 }
