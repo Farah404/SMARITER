@@ -23,6 +23,19 @@ public class DataSet {
 	ea.setPassword("123");
 
 	em.persist(ea);
+	
+	EntityAccount eb = new EntityAccount();
+	eb.setName("EcoCar2@test.com");
+	eb.setPassword("1234");
+
+	em.persist(eb);
+	
+	EntityAccount ec = new EntityAccount();
+	ec.setName("EcoCar3@test.com");
+	ec.setPassword("12365");
+
+	em.persist(ec);
+	
     }
 
 }

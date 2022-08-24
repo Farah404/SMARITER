@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import fr.isika.cda17.project3.model.financialManagement.invoice.CustomerInvoice;
 import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
 import fr.isika.cda17.project3.model.solutionManagement.ParcelSolution;
-
+import fr.isika.cda17.project3.model.solutionManagement.PaymentSystemChoice;
 import fr.isika.cda17.project3.model.solutionManagement.Solution;
 import fr.isika.cda17.project3.repository.solutionManagement.SolutionDao;
 
@@ -30,7 +30,10 @@ public class CreateSolutionBean implements Serializable{
 	private CarPoolingSolution carPoolingSolution= new CarPoolingSolution();
 	private ParcelSolution parcelSolution = new ParcelSolution();
 	private CustomerInvoice customerInvoice = new CustomerInvoice();
-
+	
+	public PaymentSystemChoice[] paymentSystemValue() {
+		return PaymentSystemChoice.values();
+	}
 	
 	public void create() {
 		solution.setCarPoolingSolution(carPoolingSolution);
@@ -72,6 +75,7 @@ public class CreateSolutionBean implements Serializable{
 	public void setCustomerInvoice(CustomerInvoice customerInvoice) {
 		this.customerInvoice = customerInvoice;
 	}
+
 	
 
 }

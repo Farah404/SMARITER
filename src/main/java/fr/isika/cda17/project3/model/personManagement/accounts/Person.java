@@ -23,18 +23,13 @@ public abstract class Person {
     public Person() {
 	super();
     }
-
-    @OneToOne(cascade=CascadeType.ALL)
-    private Account account;
-    
    
 
-    public Person(Long id, String firstName, String lastName, Account account) {
+    public Person(Long id, String firstName, String lastName) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.account = account;
 	}
 
 	public Long getId() {
@@ -57,12 +52,5 @@ public abstract class Person {
         this.lastName = lastName;
     }
 
-	public Account getAccount() {
-		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
-	}
      
 }

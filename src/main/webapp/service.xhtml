@@ -33,11 +33,17 @@
     <div>
     <h:form class="form-solution">
       <h:inputText id="solutionName" value="#{createSolutionBean.solution.solutionName}" class="form-solution-field animation a3" a:placeholder="Give a name to your Website" />
-      <h:selectOneMenu id="paymentchoice" value="#{createSolutionBean.solution.paymentSystemChoice}" class="form-solution-field animation a3">
-       <f:selectItem itemValue ="0" itemLabel = "Chose your solution payment plan" />
-       <f:selectItem itemValue = "1" itemLabel = "I don't need one" />
-   		<f:selectItem itemValue = "2" itemLabel = "I want a monetary payment system" />
-   		<f:selectItem itemValue = "3" itemLabel = "I want an internal currency" />
+   		<h:selectOneMenu value="#{createSolutionBean.solution.paymentSystemChoice}">
+							<f:selectItem itemLabel="Chose your solution payment plan" itemValue="null"/>
+							<f:selectItems value="#{createSolutionBean.paymentSystemValue()}"
+								var="#{paymentSystemChoiceBean}"
+								itemLabel="#{paymentSystemChoice}" itemValue="#{paymentSystemChoice}"></f:selectItems>
+		</h:selectOneMenu>
+   		
+   		
+
+      <h:selectOneMenu id="paymentchoiceTrue" value="#{createSolutionBean.solution.paymentSystemChoice}" class="form-solution-field animation a3">
+      <f:selectItems value="#{createSolutionBean}" itemLabel="Chose your solution payment plan" />
       </h:selectOneMenu>
       <h:selectOneMenu id="princingDeal" value="#{createSolutionBean.solution.priceDeal}" class="form-solution-field animation a3" >
        <f:selectItem itemValue ="0" itemLabel = "Which pricing plan fits the most your website?" />
