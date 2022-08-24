@@ -42,6 +42,8 @@ public class Solution {
     
     private boolean isPrivate;
     
+    private String solutionName;
+    
     @ManyToMany
     private List <EntityAccount> entityAccounts = new LinkedList<>();
     
@@ -59,28 +61,38 @@ public class Solution {
     }
 
     public Solution(Long id, PaymentSystemChoice paymentSystemChoice, MessagingSystemChoice messagingSystemChoice,
-	    PriceDeal priceDeal, boolean isRatingSystemIncluded, boolean isCarPoolingsolutionIncluded,
-	    boolean isCarRentalSolutionIncluded, boolean isParcelSolutionIncluded,
-	    boolean isPersonalAssistanceSolutionIncluded, boolean isPrivate, List<EntityAccount> entityAccounts,
-	    CustomerInvoice customerInvoice, CarPoolingSolution carPoolingSolution, ParcelSolution parcelSolution) {
-	super();
-	this.id = id;
-	this.paymentSystemChoice = paymentSystemChoice;
-	this.messagingSystemChoice = messagingSystemChoice;
-	this.priceDeal = priceDeal;
-	this.isRatingSystemIncluded = isRatingSystemIncluded;
-	this.isCarPoolingsolutionIncluded = isCarPoolingsolutionIncluded;
-	this.isCarRentalSolutionIncluded = isCarRentalSolutionIncluded;
-	this.isParcelSolutionIncluded = isParcelSolutionIncluded;
-	this.isPersonalAssistanceSolutionIncluded = isPersonalAssistanceSolutionIncluded;
-	this.isPrivate = isPrivate;
-	this.entityAccounts = entityAccounts;
-	this.customerInvoice = customerInvoice;
-	this.carPoolingSolution = carPoolingSolution;
-	this.parcelSolution = parcelSolution;
-    }
+			PriceDeal priceDeal, boolean isRatingSystemIncluded, boolean isCarPoolingsolutionIncluded,
+			boolean isCarRentalSolutionIncluded, boolean isParcelSolutionIncluded,
+			boolean isPersonalAssistanceSolutionIncluded, boolean isPrivate, String solutionName,
+			List<EntityAccount> entityAccounts, CustomerInvoice customerInvoice, CarPoolingSolution carPoolingSolution,
+			ParcelSolution parcelSolution) {
+		super();
+		this.id = id;
+		this.paymentSystemChoice = paymentSystemChoice;
+		this.messagingSystemChoice = messagingSystemChoice;
+		this.priceDeal = priceDeal;
+		this.isRatingSystemIncluded = isRatingSystemIncluded;
+		this.isCarPoolingsolutionIncluded = isCarPoolingsolutionIncluded;
+		this.isCarRentalSolutionIncluded = isCarRentalSolutionIncluded;
+		this.isParcelSolutionIncluded = isParcelSolutionIncluded;
+		this.isPersonalAssistanceSolutionIncluded = isPersonalAssistanceSolutionIncluded;
+		this.isPrivate = isPrivate;
+		this.solutionName = solutionName;
+		this.entityAccounts = entityAccounts;
+		this.customerInvoice = customerInvoice;
+		this.carPoolingSolution = carPoolingSolution;
+		this.parcelSolution = parcelSolution;
+	}
 
-    public PaymentSystemChoice getPaymentSystemChoice() {
+    public String getSolutionName() {
+		return solutionName;
+	}
+
+	public void setSolutionName(String solutionName) {
+		this.solutionName = solutionName;
+	}
+
+	public PaymentSystemChoice getPaymentSystemChoice() {
         return paymentSystemChoice;
     }
 
