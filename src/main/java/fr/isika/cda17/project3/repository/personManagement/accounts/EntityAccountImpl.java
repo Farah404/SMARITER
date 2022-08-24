@@ -12,9 +12,9 @@ import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 
 @Stateless
-public class EntityAccountImpl implements EntityAccountDao{
+    public class EntityAccountImpl implements EntityAccountDao{
 
-    
+	    
 	 @PersistenceContext
 	    private EntityManager entityManager;
 	    
@@ -39,7 +39,7 @@ public class EntityAccountImpl implements EntityAccountDao{
 		     updatedEntityAccount.setName(entityAccount.getName());
 		     updatedEntityAccount.setSiretNumber(entityAccount.getSiretNumber());
 		     updatedEntityAccount.setPrivate(entityAccount.isPrivate());
-		          entityManager.persist(updatedEntityAccount);
+		          entityManager.merge(updatedEntityAccount);
 		        } catch (Exception e) {
 		            System.out.println("EntityAccountDaoImpl.update() - Failed : " + e.getMessage());
 		        }
@@ -71,13 +71,28 @@ public class EntityAccountImpl implements EntityAccountDao{
 	    public Optional<EntityAccount> findByName(String name) {
 		 try {
 		     EntityAccount entityAccount = this.entityManager.createNamedQuery("EntityAccount.findByName", EntityAccount.class)
-		                    .setParameter("name_param", name).getSingleResult();
+		                    .setParameter("name_param", name)
+		                    .getSingleResult();
 		            return Optional.ofNullable(entityAccount);
 		        } catch (NoResultException ex) {
 		            System.out.println("EntityAccountDaoImpl.findByEmail() - not found : " + name);
 		        }
 		        return Optional.empty();
 	    }
+
+		@Override
+		public Optional<EntityAccount> findByEmail(String email) {
+			try {
+				EntityAccount entityAccount = this.entityManager
+						.createNamedQuery("EntityAccount.findByEmail", EntityAccount.class)
+						.setParameter("name_param", email)
+						.getSingleResult();
+				return Optional.ofNullable(entityAccount);
+			} catch (NoResultException ex) {
+				System.out.println("EntityAccountDaoImpl.findByEmail() - not found : " + email);
+			}
+			return Optional.empty();
+		}
 
 	    
 	    

@@ -235,6 +235,11 @@ a {
   text-align : center;
   z-index: -1;
 }
+
+.wrapper img {
+	filter: grayscale(85%);
+}
+
 .wrapper .wrapper__video{
   object-fit: cover;
   width: 100%;

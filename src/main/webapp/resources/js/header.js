@@ -1,14 +1,31 @@
 window.addEventListener('load', function () {
 /* Toggle DM */
-const btn = document.querySelector(".btn-toggle");
+const link = document.querySelector("#dm-switch");
 const theme = document.querySelector("#theme-link");
-btn.addEventListener("click", function() {
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+const currentTheme = localStorage.getItem("theme");
+
+if(currentTheme=="resources/css/dark-mode.css"){
+	theme.href="resources/css/dark-mode.css";
+	}else{
+	theme.href="resources/css/light-mode.css";
+}
+
+//if (prefersDarkScheme.matches) {
+//  theme.href = "resources/css/dark-mode.css";
+//} else {
+//  theme.href = "resources/css/light-mode.css";
+//}
+
+link.addEventListener("click", function() {
 	if (theme.getAttribute("href") == "resources/css/light-mode.css") {
     theme.href = "resources/css/dark-mode.css";
   } else {
     theme.href = "resources/css/light-mode.css";
   }
+  localStorage.setItem("theme", theme)
 });
+
 const toggle = document.querySelector(".toggle");
 const menu = document.querySelector(".menu");
 const items = document.querySelectorAll(".item");
