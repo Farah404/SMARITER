@@ -11,25 +11,25 @@ public class CarPoolingSolution {
     @GeneratedValue
     private Long id;
     
-    private Boolean carPoolingTypeOption;
+    private boolean carPoolingTypeOption;
     
-    private Boolean availableSeatsOption;
+    private boolean availableSeatsOption;
 
-    private Boolean petAllowedOption;
+    private boolean petAllowedOption;
     
-    private Boolean smokingAllowedOption;
+    private boolean smokingAllowedOption;
     
-    private Boolean musicAllowedOption;
+    private boolean musicAllowedOption;
     
-    private Boolean chattingAllowedOption;
+    private boolean chattingAllowedOption;
 
     public CarPoolingSolution() {
 	super();
     }
 
-    public CarPoolingSolution(Long id, Boolean carPoolingTypeOption, Boolean availableSeatsOption,
-	    Boolean petAllowedOption, Boolean smokingAllowedOption, Boolean musicAllowedOption,
-	    Boolean chattingAllowedOption) {
+    public CarPoolingSolution(Long id, boolean carPoolingTypeOption, boolean availableSeatsOption,
+	    boolean petAllowedOption, boolean smokingAllowedOption, boolean musicAllowedOption,
+	    boolean chattingAllowedOption) {
 	super();
 	this.id = id;
 	this.carPoolingTypeOption = carPoolingTypeOption;
@@ -44,7 +44,7 @@ public class CarPoolingSolution {
         return carPoolingTypeOption;
     }
 
-    public void setCarPoolingTypeOption(Boolean carPoolingTypeOption) {
+    public void setCarPoolingTypeOption(boolean carPoolingTypeOption) {
         this.carPoolingTypeOption = carPoolingTypeOption;
     }
 
@@ -52,7 +52,7 @@ public class CarPoolingSolution {
         return availableSeatsOption;
     }
 
-    public void setAvailableSeatsOption(Boolean availableSeatsOption) {
+    public void setAvailableSeatsOption(boolean availableSeatsOption) {
         this.availableSeatsOption = availableSeatsOption;
     }
 
@@ -60,7 +60,7 @@ public class CarPoolingSolution {
         return petAllowedOption;
     }
 
-    public void setPetAllowedOption(Boolean petAllowedOption) {
+    public void setPetAllowedOption(boolean petAllowedOption) {
         this.petAllowedOption = petAllowedOption;
     }
 
@@ -68,7 +68,7 @@ public class CarPoolingSolution {
         return smokingAllowedOption;
     }
 
-    public void setSmokingAllowedOption(Boolean smokingAllowedOption) {
+    public void setSmokingAllowedOption(boolean smokingAllowedOption) {
         this.smokingAllowedOption = smokingAllowedOption;
     }
 
@@ -76,7 +76,7 @@ public class CarPoolingSolution {
         return musicAllowedOption;
     }
 
-    public void setMusicAllowedOption(Boolean musicAllowedOption) {
+    public void setMusicAllowedOption(boolean musicAllowedOption) {
         this.musicAllowedOption = musicAllowedOption;
     }
 
@@ -84,7 +84,7 @@ public class CarPoolingSolution {
         return chattingAllowedOption;
     }
 
-    public void setChattingAllowedOption(Boolean chattingAllowedOption) {
+    public void setChattingAllowedOption(boolean chattingAllowedOption) {
         this.chattingAllowedOption = chattingAllowedOption;
     }
 

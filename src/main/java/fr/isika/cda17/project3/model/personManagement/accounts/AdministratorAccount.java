@@ -13,6 +13,10 @@ public class AdministratorAccount extends Account{
 	super();
     }
     
-  
+
+    public AdministratorAccount(Long id, String username, String email, String password, String profilePicturePath, boolean isActive,
+	    Date creationDate, AccountType accountType) {
+	super(id, username, email, password, profilePicturePath, isActive, creationDate, accountType);
+    }
 
 }

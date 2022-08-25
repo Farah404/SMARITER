@@ -1,5 +1,6 @@
 package fr.isika.cda17.project3.model.personManagement.accounts;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,9 +20,9 @@ import fr.isika.cda17.project3.model.solutionManagement.Solution;
 @Entity
 @PrimaryKeyJoinColumn(name="id")
 @NamedQuery(name = "EntityAccount.findByName", query = "SELECT ea FROM EntityAccount ea WHERE ea.name = :name_param")
-public class EntityAccount extends Account {
-    
-    private String name;
+public class EntityAccount extends Account{
+
+	private String name;
     
     private int siretNumber;
     
@@ -45,24 +46,22 @@ public class EntityAccount extends Account {
     public EntityAccount() {
 	super();
     }
+    public EntityAccount(Long id, String username, String email, String password, String profilePicturePath, boolean isActive,
+	    Date creationDate, AccountType accountType, String name, int siretNumber, boolean isPrivate,
+	    ShoppingCart shoppingCart, BankDetails bankDetails, BillingAddress billingAddress, Wallet wallet,
+	    List<Solution> solutions) {
+	super(id, username, email, password, profilePicturePath, isActive, creationDate, accountType);
+	this.name = name;
+	this.siretNumber = siretNumber;
+	this.isPrivate = isPrivate;
+	this.shoppingCart = shoppingCart;
+	this.bankDetails = bankDetails;
+	this.billingAddress = billingAddress;
+	this.wallet = wallet;
+	this.solutions = solutions;
+    }
 
- 
-
-    public EntityAccount(String name, int siretNumber, boolean isPrivate, ShoppingCart shoppingCart,
-			BankDetails bankDetails, BillingAddress billingAddress, Wallet wallet, List<Solution> solutions) {
-		super();
-		this.name = name;
-		this.siretNumber = siretNumber;
-		this.isPrivate = isPrivate;
-		this.shoppingCart = shoppingCart;
-		this.bankDetails = bankDetails;
-		this.billingAddress = billingAddress;
-		this.wallet = wallet;
-		this.solutions = solutions;
-	}
-
-
-	public String getName() {
+    public String getName() {
         return name;
     }
 
