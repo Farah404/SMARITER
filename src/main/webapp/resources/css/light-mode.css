@@ -6,25 +6,26 @@
 body {
   font-family: sans-serif;
   font-size: 16px;
+  background-color: #F6F6F8;
 }
 html {
   scroll-behavior: smooth;
 }
 
 .container-about{
-	 background-color: #fff;
+	 background-color: #F6F6F8;
 	 justify-content: center!important;
 	 	margin-left:15%;
 	margin-right:15%;
 }
 
 .footer-last{
-	 background-color: #fff;
+	 background-color: #f1f1ef;
 
 }
 
 .container{
-	background-color: #fff;
+	background-color: #F6F6F8;
 	padding:2%;
 	margin-left:10%;
 	margin-right:10%;
@@ -37,7 +38,7 @@ html {
     right:15%;
     z-index:10;
     font-family: sans-serif;
-  font-size: 50px;
+  	font-size: 5vh;
 }
 
 .headerSubtext{
@@ -46,7 +47,7 @@ html {
     right:15%;
     z-index:10;
     font-family: sans-serif;
-  	font-size: 25px;
+  	font-size: 2.5vh;
 }
 
 .headerButton{
@@ -55,7 +56,7 @@ html {
     right:15%;
     z-index:10;
     font-family: sans-serif;
-  	font-size: 20px;
+  	font-size: 2.5vh;
   	background: #a9d0cc;
   	border-color: #a9d0cc;
     border-radius: 12px;
@@ -514,7 +515,7 @@ h1 {
 /* Footer Section */
 
 .new_footer_area {
-    background: #fbfbfd;
+    background: #f1f1ef;
 }
 
 
@@ -596,11 +597,15 @@ h1 {
   }
 }
 
+.footer > .container{
+	background-color: #f1f1ef;
+}
+
 .footer {
   width: 100%;
   position: relative;
   height: auto;
-  background-color: #fff;
+  background-color: #f1f1ef;
 }
 .footer .col {
   width: 25%;
