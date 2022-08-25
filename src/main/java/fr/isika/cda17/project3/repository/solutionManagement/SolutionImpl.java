@@ -7,10 +7,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.Administrator;
+import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 import fr.isika.cda17.project3.model.solutionManagement.Solution;
 
 @Stateless
-public class SolutionDaoImpl implements SolutionDao{
+public class SolutionImpl implements SolutionDao{
     
     @PersistenceContext
     private EntityManager entityManager;
@@ -29,20 +30,16 @@ public class SolutionDaoImpl implements SolutionDao{
     @Override
     public void update(Solution solution) {
 	try {
-	    Solution updatedSolution = entityManager.find(Solution.class, solution.getId());
-	    updatedSolution.setPaymentSystemChoice(solution.getPaymentSystemChoice());
-	    updatedSolution.setMessagingSystemChoice(solution.getMessagingSystemChoice());
-	    updatedSolution.setPriceDeal(solution.getPriceDeal());
-	    updatedSolution.setRatingSystemIncluded(solution.isRatingSystemIncluded());
-	    updatedSolution.setCarPoolingsolutionIncluded(solution.isCarPoolingsolutionIncluded());
-	    updatedSolution.setCarRentalSolutionIncluded(solution.isCarRentalSolutionIncluded());
-	    updatedSolution.setParcelSolutionIncluded(solution.isParcelSolutionIncluded());
-	    updatedSolution.setPersonalAssistanceSolutionIncluded(solution.isPersonalAssistanceSolutionIncluded());
-	    updatedSolution.setPrivate(solution.isPrivate());
+		Solution updateSolution = entityManager.find(Solution.class, solution.getId());
+		updateSolution.setIsCarPoolingsolutionIncluded(solution.getIsCarPoolingsolutionIncluded());;
+		updateSolution.setIsCarRentalSolutionIncluded(solution.getIsCarRentalSolutionIncluded());
+		updateSolution.setIsPersonalAssistanceSolutionIncluded(solution.getIsPersonalAssistanceSolutionIncluded());
+		updateSolution.setIsParcelSolutionIncluded(solution.getIsParcelSolutionIncluded());
+		updateSolution.setIsRatingSystemIncluded(solution.getIsRatingSystemIncluded());
 	    
-	    entityManager.persist(solution);
+	    entityManager.merge(updateSolution);
 	} catch (Exception e) {
-	    System.out.println("AdministratorDao.update() - Failed : " + e.getMessage());
+	    System.out.println("SolutionImpl.update() - Failed : " + e.getMessage());
 	}
 	
     }
@@ -53,7 +50,7 @@ public class SolutionDaoImpl implements SolutionDao{
 	    Solution deletedSolution = entityManager.find(Solution.class, id);
 	    entityManager.remove(deletedSolution);
 	} catch (Exception e) {
-	    System.out.println("UserDao.delete() - Failed : " + e.getMessage());
+	    System.out.println("SolutionImpl.delete() - Failed : " + e.getMessage());
 	}
     }
     
@@ -67,7 +64,11 @@ public class SolutionDaoImpl implements SolutionDao{
     @Override
     public List<Solution> findAll() {
 	// TODO Auto-generated method stub
-	return null;
+    return this.entityManager.createQuery("select ea from Solution ea", Solution.class).getResultList();
     }
+    
+    
+    
+   
 
 }

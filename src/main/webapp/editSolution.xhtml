@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<f:metadata>
+	<f:event listener="#{editSolutionBean.init()}"
+		type="preRenderView"></f:event>
+</f:metadata>
+
+<h:head>
+	<title>SmarIter</title>
+</h:head>
+
+<h:body>
+ <ui:composition template="template/templatewithoutHeader.xhtml">
+ <ui:define name="content">
+ 
+<section class="wrapper-signin">
+
+		<video class="background-video" autoplay="autoplay" loop="loop"
+			muted="muted">
+			<source src="media/webm/videoplayback.webm" type="video/webm" />
+		</video>
+</section>
+	
+<section class="signup">
+	
+<div class="signupform-container animate-right" id="container">
+		<h:form action="#" class="sigup-form">
+		<fieldset>
+		<legend>Update Solution</legend>
+		<h:outputLabel value="car pool" />	<h:selectBooleanCheckbox id="isCarPoolingSolution" value="#{editSolutionBean.solution.isCarPoolingsolutionIncluded}" />
+		<h:outputLabel value="car rental" />  <h:selectBooleanCheckbox id="isCarRentalSolution" value="#{editSolutionBean.solution.isCarRentalSolutionIncluded}" />
+		<h:outputLabel value="Rating system" />  <h:selectBooleanCheckbox id="IsRatingSystem" value="#{editSolutionBean.solution.isRatingSystemIncluded}" />
+		
+<!-- 			<h:selectBooleanCheckbox id="ParcelSolution" value="#{createSolutionBean.solution.parcelSolutionIncluded}" />
+			<h:selectBooleanCheckbox id="PersonalAssistance" value="#{createSolutionBean.solution.personalAssistanceSolutionIncluded}" />
+			<h:selectBooleanCheckbox id="Private" value="#{createSolutionBean.solution.private}" /> -->
+			<!-- <h:selectOneMenu>
+				<f:selectItem itemValue="#{createSolutionBean.solution.paymentSystemChoice.valueOf(1)}" itemLabel="#{createSolutionBean.solution.paymentSystemChoice.toString()}"/>
+			</h:selectOneMenu> -->
+			<h:commandButton class="btn-signin" action="#{editSolutionBean.updapte()}" value="Valide your Update"/>
+			</fieldset>
+		</h:form>
+</div>
+</section>
+
+ </ui:define>
+ </ui:composition>
+ 
+</h:body>
+</html>

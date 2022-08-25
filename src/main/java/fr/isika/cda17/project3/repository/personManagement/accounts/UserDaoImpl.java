@@ -31,7 +31,7 @@ public class UserDaoImpl implements UserDao {
 	    User updatedUser = entityManager.find(User.class, user.getId());
 	    updatedUser.setFirstName(user.getFirstName());
 	    updatedUser.setLastName(user.getLastName());
-	    updatedUser.setEmail(user.getEmail());
+	    
 	    updatedUser.setPhoneNumber(user.getPhoneNumber());
 	    updatedUser.setBirthDate(user.getBirthDate());
 	    updatedUser.setIdentityCardnumber(user.getDrivingPermitNumber());

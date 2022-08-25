@@ -46,22 +46,23 @@ public class EntityAccount extends Account {
 	super();
     }
 
-    public EntityAccount(Long id, String username, String password, String profilePicturePath, boolean isActive,
-	    Date creationDate, AccountType accountType, String name, int siretNumber, boolean isPrivate,
-	    ShoppingCart shoppingCart, BankDetails bankDetails, BillingAddress billingAddress, Wallet wallet,
-	    List<Solution> solutions) {
-	super(id, username, password, profilePicturePath, isActive, creationDate, accountType);
-	this.name = name;
-	this.siretNumber = siretNumber;
-	this.isPrivate = isPrivate;
-	this.shoppingCart = shoppingCart;
-	this.bankDetails = bankDetails;
-	this.billingAddress = billingAddress;
-	this.wallet = wallet;
-	this.solutions = solutions;
-    }
+ 
 
-    public String getName() {
+    public EntityAccount(String name, int siretNumber, boolean isPrivate, ShoppingCart shoppingCart,
+			BankDetails bankDetails, BillingAddress billingAddress, Wallet wallet, List<Solution> solutions) {
+		super();
+		this.name = name;
+		this.siretNumber = siretNumber;
+		this.isPrivate = isPrivate;
+		this.shoppingCart = shoppingCart;
+		this.bankDetails = bankDetails;
+		this.billingAddress = billingAddress;
+		this.wallet = wallet;
+		this.solutions = solutions;
+	}
+
+
+	public String getName() {
         return name;
     }
 

@@ -22,36 +22,44 @@
 
 				<h:form>
 
-					<h:dataTable class="styled-table" id="listeAccount"
-						value="#{entityAccountManagementBean.entityAccountList}"
-						var="account">
+					<h:dataTable class="styled-table" id="listeSolution"
+						value="#{solutionManagementBean.solutiontList}"
+						var="solution">
 
 						<h:column>
 							<f:facet name="header">Id</f:facet>
-							<h:outputText value="#{account.id}" />
+							<h:outputText value="#{solution.id}" />
 						</h:column>
 						<h:column>
-							<f:facet name="header"> Name</f:facet>
-							<h:outputText value="#{account.name}" />
+							<f:facet name="header"> Car pool</f:facet>
+							<h:outputText value="#{solution.isCarPoolingsolutionIncluded}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Car rental</f:facet>
+							<h:outputText value="#{solution.isCarRentalSolutionIncluded}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Messaging system</f:facet>
+							<h:outputText value="#{solution.messagingSystemChoice}" />
 						</h:column>
 							<h:column>
-							<f:facet name="header"> Email</f:facet>
-							<h:outputText value="#{account.email}" />
+							<f:facet name="header">Payment package</f:facet>
+							<h:outputText value="#{solution.priceDeal}" />
 						</h:column>
 						<h:column>
-							<f:facet name="header">User Name</f:facet>
-							<h:outputText value="#{account.username}" />
+							<f:facet name="header">Payment system</f:facet>
+							<h:outputText value="#{solution.paymentSystemChoice}" />
 						</h:column>
 						<h:column>
-							<f:facet name="header">Password</f:facet>
-							<h:outputText value="#{account.password}" />
+							<f:facet name="header">Rating system</f:facet>
+							<h:outputText value="#{solution.isRatingSystemIncluded}" />
 						</h:column>
 						<h:column>
 							<f:facet name="header">Update</f:facet>
 							<h:panelGrid>
 								<h:commandButton value="Edit"
-									action="#{entityAccountManagementBean.showUpdate(account.id)}">
-									<f:param name="accountId" value="#{account.id}"></f:param>
+									action="#{solutionManagementBean.showUpdate(solution.id)}">
+									<f:param name="solutionId" value="#{solution.id}"></f:param>
 								</h:commandButton>
 							</h:panelGrid>
 						</h:column>
@@ -59,7 +67,7 @@
 							<f:facet name="header">Delete</f:facet>
 							<h:panelGrid>
 								<h:commandButton
-									action="#{entityAccountManagementBean.delete(account.id)}"
+									action="#{solutionManagementBean.delete(solution.id)}"
 									value="Delete" />
 							</h:panelGrid>
 						</h:column>

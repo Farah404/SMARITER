@@ -7,6 +7,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
+import fr.isika.cda17.project3.model.solutionManagement.MessagingSystemChoice;
+import fr.isika.cda17.project3.model.solutionManagement.PaymentSystemChoice;
+import fr.isika.cda17.project3.model.solutionManagement.PriceDeal;
+import fr.isika.cda17.project3.model.solutionManagement.Solution;
 
 @Singleton
 @Startup
@@ -23,6 +27,39 @@ public class DataSet {
 	ea.setPassword("123");
 
 	em.persist(ea);
+	
+	Solution so = new Solution();
+	so.setIsCarRentalSolutionIncluded(true);
+	so.setIsCarPoolingsolutionIncluded(false);
+	so.setMessagingSystemChoice(MessagingSystemChoice.NO_RESTRICTION_MESSAGING);
+	so.setPaymentSystemChoice(PaymentSystemChoice.NONE);
+	so.setIsRatingSystemIncluded(false);
+	so.setPriceDeal(PriceDeal.REDUCED_PRICE);
+	
+	em.persist(so);
+	
+	Solution sa = new Solution();
+
+	sa.setIsCarRentalSolutionIncluded(false);
+	sa.setIsCarPoolingsolutionIncluded(true);
+	sa.setMessagingSystemChoice(MessagingSystemChoice.SERVICE_RELATED_MESSAGING);
+	sa.setPaymentSystemChoice(PaymentSystemChoice.MONETARY);
+	sa.setIsRatingSystemIncluded(true);
+	sa.setPriceDeal(PriceDeal.FULL_PRICE);
+	
+	em.persist(sa);
+	
+	Solution si = new Solution();
+
+	si.setIsCarRentalSolutionIncluded(false);
+	si.setIsCarPoolingsolutionIncluded(true);
+	si.setMessagingSystemChoice(MessagingSystemChoice.NONE);
+	si.setPaymentSystemChoice(PaymentSystemChoice.INTERNAL_CURRENCY);
+	si.setIsRatingSystemIncluded(true);
+	si.setPriceDeal(PriceDeal.FULL_PRICE);
+	
+	em.persist(si);
+	
     }
 
 }

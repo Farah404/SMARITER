@@ -20,9 +20,7 @@ public class CreateSolutionBean {
 		Solution created = solutionDao.create(solution);
 		System.out.println(created);
 	}
-	
-
-	
+		
 	
 	public Solution getSolution() {
 		return solution;

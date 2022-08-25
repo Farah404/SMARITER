@@ -12,11 +12,11 @@ import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 
 @Stateless
-    public class EntityAccountImpl implements EntityAccountDao{
+public class EntityAccountImpl implements EntityAccountDao{
 
 	    
-	 @PersistenceContext
-	    private EntityManager entityManager;
+@PersistenceContext
+private EntityManager entityManager;
 	    
 	    @Override
 	    public EntityAccount create (EntityAccount entityAccount) {
@@ -34,6 +34,7 @@ import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 		 try {
 		     EntityAccount updatedEntityAccount = entityManager.find(EntityAccount.class, entityAccount.getId());
 		     updatedEntityAccount.setUsername(entityAccount.getUsername());
+		     updatedEntityAccount.setEmail(entityAccount.getEmail());
 		     updatedEntityAccount.setPassword(entityAccount.getPassword());
 		     updatedEntityAccount.setProfilePicturePath(entityAccount.getProfilePicturePath());
 		     updatedEntityAccount.setName(entityAccount.getName());
