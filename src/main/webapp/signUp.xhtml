@@ -26,14 +26,31 @@
 	
 <div class="signupform-container animate-right" id="container">
 		<h:form action="#" class="sigup-form">
-			<h1>Create Account</h1>
+			<h1>Create your account</h1>
+			<br/>
+			<fieldset>
+			<legend>Credentials</legend>
 			<h:inputText id="email" a:placeholder="#{createCustomerBean.customer.entityAccount.email}" value="#{createCustomerBean.customer.entityAccount.email}" />
 			<h:inputText id="password" a:placeholder="#{createCustomerBean.customer.entityAccount.password}" value="#{createCustomerBean.customer.entityAccount.password}"/>
-			<h:inputText id="username" a:placeholder="enter your username" value="#{createCustomerBean.customer.entityAccount.username}"/>
-			<h:inputText id="firstName" a:placeholder="enter your firstName" value="#{createCustomerBean.customer.firstName}"/>
-			<h:inputText id="lastName" a:placeholder="enter your lastName" value="#{createCustomerBean.customer.lastName}"/>
-			<h:inputText id="phoneNumber" a:placeholder="enter your phoneNumber" value="#{createCustomerBean.customer.phoneNumber}"/>
-			<h:inputText id="siretNumber" a:placeholder="enter your Siret/Siren Number" value="#{createCustomerBean.customer.entityAccount.siretNumber}"/>
+			<h:inputText id="username" a:placeholder="Enter your username" value="#{createCustomerBean.customer.entityAccount.username}"/>
+			</fieldset>
+			<br/>
+			<fieldset>
+			<legend>Entity details</legend>
+			<h:inputText id="entityName" a:placeholder="Your Entity Name" value="#{createCustomerBean.customer.entityAccount.name}"/>
+			<h:inputText id="siretNumber" a:placeholder="Its Siret/Siren Number" value="#{createCustomerBean.customer.entityAccount.siretNumber}"/>
+			<h:inputText id="billingAddress" a:placeholder="Its billing address" value="#{createCustomerBean.customer.entityAccount.billingAddress}"/>
+			<h:inputText id="bankingDetails" a:placeholder="Its banking details" value="#{createCustomerBean.customer.entityAccount.bankDetails}"/>
+			<h:selectBooleanCheckbox id="isPrivate" value="#{createCustomerBean.customer.entityAccount.private}"> My entity is private</h:selectBooleanCheckbox> 
+			</fieldset>
+			<br/>
+			<fieldset>
+			<legend>Personal identity</legend>
+			<h:inputText id="firstName" a:placeholder="Enter your firstName" value="#{createCustomerBean.customer.firstName}"/>
+			<h:inputText id="lastName" a:placeholder="Enter your lastName" value="#{createCustomerBean.customer.lastName}"/>
+			<h:inputText id="phoneNumber" a:placeholder="Enter your phoneNumber" value="#{createCustomerBean.customer.phoneNumber}"/>
+			</fieldset>
+			<br/>
 			<h:commandButton value="S'enregistrer" action="#{createCustomerBean.update()}"/>
 		</h:form>
 </div>
