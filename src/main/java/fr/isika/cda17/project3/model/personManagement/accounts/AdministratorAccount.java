@@ -3,10 +3,12 @@ package fr.isika.cda17.project3.model.personManagement.accounts;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @PrimaryKeyJoinColumn(name="id")
+@NamedQuery(name = "AdministratorAccount.findByEmail", query = "SELECT ea FROM AdministratorAccount ea WHERE ea.email = :email_param")
 public class AdministratorAccount extends Account{
     
     public AdministratorAccount() {

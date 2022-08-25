@@ -8,7 +8,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
-import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 
 @Stateless
@@ -86,7 +85,7 @@ private EntityManager entityManager;
 			try {
 				EntityAccount entityAccount = this.entityManager
 						.createNamedQuery("EntityAccount.findByEmail", EntityAccount.class)
-						.setParameter("name_param", email)
+						.setParameter("email_param", email)
 						.getSingleResult();
 				return Optional.ofNullable(entityAccount);
 			} catch (NoResultException ex) {

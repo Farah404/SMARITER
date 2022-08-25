@@ -6,25 +6,26 @@
 body {
   font-family: sans-serif;
   font-size: 16px;
+  background-color: #F6F6F8;
 }
 html {
   scroll-behavior: smooth;
 }
 
 .container-about{
-	 background-color: #fff;
+	 background-color: #F6F6F8;
 	 justify-content: center!important;
 	 	margin-left:15%;
 	margin-right:15%;
 }
 
 .footer-last{
-	 background-color: #fff;
+	 background-color: #f1f1ef;
 
 }
 
 .container{
-	background-color: #fff;
+	background-color: #F6F6F8;
 	padding:2%;
 	margin-left:10%;
 	margin-right:10%;
@@ -36,17 +37,19 @@ html {
     top:10%;
     right:15%;
     z-index:10;
-    font-family: sans-serif;
-  font-size: 50px;
-}
+  	font-size: 5vh;
+  	font-family: Spectral, serif;
+  	font-weight: bold;
+  	
+  	}
 
 .headerSubtext{
 	position:absolute;
     top:18%;
     right:15%;
     z-index:10;
-    font-family: sans-serif;
-  	font-size: 25px;
+    font-family: Rubik, sans-serif;
+  	font-size: 2.5vh;
 }
 
 .headerButton{
@@ -54,8 +57,8 @@ html {
     top:25%;
     right:15%;
     z-index:10;
-    font-family: sans-serif;
-  	font-size: 20px;
+    font-family: Spectral, serif;
+  	font-size: 2.5vh;
   	background: #a9d0cc;
   	border-color: #a9d0cc;
     border-radius: 12px;
@@ -87,6 +90,7 @@ nav {
   position:fixed;
   width:100%;
   z-index: 11;
+  font-family: Rubik, sans-serif;
 }
 a {
   color: black;
@@ -118,8 +122,11 @@ a {
   list-style-type: none;
 }
 .logo {
-  font-size: 20px;
+  font-size: 3vh;;
   padding: 7.5px 10px 7.5px 0;
+  font-family: Spectral, serif;
+  font-weight: bold;
+  
 }
 .item {
   padding: 10px;
@@ -260,6 +267,43 @@ a {
   }
 }
 
+/* .block-a{ */
+/* 	background-color: #c6abbc; */
+/* 	padding:5%; */
+	
+/* } */
+/* .blockText{ */
+/* 	font-size: 5vh; */
+/*   	font-family: Spectral, serif; */
+/*   	font-weight: bold; */
+/*   	text-align: center; */
+  	
+/* } */
+/* .blockSubText{ */
+/*   	font-family: Rubik, sans-serif; */
+/*   	font-size: 2.5vh; */
+/*   	text-align: center; */
+/* } */
+/* .block-a .blockButton{ */
+/* 	width:10%; */
+/* 	align-content:center; */
+/* 	z-index:10; */
+/*     font-family: Spectral, serif; */
+/*   	font-size: 2.5vh; */
+/*   	text-decoration:underline; */
+/*     border-radius: 12px; */
+/*     padding: 15px 5px; */
+/*     margin-left: 70%; */
+/* } */
+
+/* .steps-text > .blockSubText{ */
+	
+/* 	text-align: left; */
+/* } */
+
+/* .underline{ */
+/* 	text-decoration: underline; */
+/* } */
 
 /*Ending NavBar*/
 /*===============================*/
@@ -314,6 +358,13 @@ h1 {
 /*======================================================================*/
 /* About & ServiceCounter Section */
 /* Float four columns side by side */
+
+.effort-text{
+	font-family: Rubik, sans-serif;
+	font-size:2vh;
+}
+
+
 .column-effort {
   float: left;
   width: 25%;
@@ -345,11 +396,17 @@ h1 {
   padding: 16px;
   text-align: center;
   background-color: #7b667a;
-  color: white;
+  color: #d9d5d4;
+}
+
+.card-effort::hover{
+	transform: scale(1.5);
+	background-color: #c6abbc;
+	
 }
 
 .fa-effort {font-size:50px;}
-
+.fa-color > .card-effort{background-color: black;}
 
 /*======================================================================*/
 /*======================================================================*/
@@ -514,7 +571,7 @@ h1 {
 /* Footer Section */
 
 .new_footer_area {
-    background: #fbfbfd;
+    background: #f1f1ef;
 }
 
 
@@ -596,11 +653,15 @@ h1 {
   }
 }
 
+.footer > .container{
+	background-color: #f1f1ef;
+}
+
 .footer {
   width: 100%;
   position: relative;
   height: auto;
-  background-color: #fff;
+  background-color: #f1f1ef;
 }
 .footer .col {
   width: 25%;
@@ -1108,10 +1169,60 @@ button.ghost {
 .grid-container {
   display: grid;
   gap: 10px;
-  background-color:#ffffff;
+  background-color:#F6F6F8;
   color:black;
-  padding: 10%;
+  padding-bottom: 10%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
 }
+
+.blogtext-page{
+  font-family: "Lucida Console", "Courier New", monospace;
+text-align:center;
+  font-size: 10vh;
+  background: -webkit-linear-gradient(
+      left,
+      #0ff 0%,
+      #7b667a 25%,
+      #d0b9cd 50%,
+      #a9d0cc 100%
+    )
+    repeat;
+  -webkit-background-clip: text;
+  -ms-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -ms-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  animation: masked 5s linear infinite, fadeInDown 2s both 1;
+  -webkit-animation: masked 5s linear infinite, fadeInDown 2 both 1;
+  -moz-animation:masked 5s linear infinite, fadeInDown 2s both 1;
+  -o-animation: masked 5s linear infinite, fadeInDown 2s both 1;
+}
+
+@keyframes masked{
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -10000px 5000px;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translatey(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translatey(0px);
+  }
+}
+
 
 .grid-item {
   background-color: #ffffff;
@@ -1123,8 +1234,8 @@ button.ghost {
 }
 
 .title-blog{
+	 font-family:Rubik, sans-serif;
 	color: black;
-	font: 900 60px Montserrat;
 	text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 	cursor: pointer;
 	align-content: center;
@@ -1132,6 +1243,7 @@ button.ghost {
 
 h5{
 	color: black;
+	 font-family:Rubik, sans-serif;
 }
 
 .item1 {
@@ -1173,7 +1285,7 @@ h5{
 
 /* Fake image */
 .block-blog {
-	background-color:gray;
+	background-color:transparent;
 	opacity:0.8;
   width: 100%;
   height: auto;
@@ -1188,12 +1300,22 @@ h5{
    margin-bottom: 16px;
 }
 
+.card-article p {
+	font-family: Verdana, sans-serif;
+	
+}
+
+.card-article h2{
+	font-family: Georgia, serif;
+	text-decoration: underline;
+}
 /* Clear floats after the columns */
 .row-article:after {
   content: "";
   display: table;
   clear: both;
 }
+
 
 
 /*===================================================================*/
@@ -1323,7 +1445,7 @@ h5{
     width:100%;
 }
 .styled-table thead tr {
-    background-color: #009879;
+    background-color: #d0b9cd;
     color: #ffffff;
     text-align: center;
 }
@@ -1346,7 +1468,7 @@ h5{
 }
 
 .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #d0b9cd;
 }
 .center-row {
     text-align: center;
@@ -1355,6 +1477,7 @@ h5{
   float: left;
   width: 33.33%;
   padding: 10px;
+  border-left: solid black;
 }
 
 /* Clear floats after the columns */
@@ -1383,8 +1506,13 @@ h5{
   clear: both;
 }
 
+.collapsible > button {
+	 background-color: linear-gradient(to right, #d9d5d4 0%, #d9d5d4 50%,#d0b9cd 100%);
+	
+}
+
 .collapsible {
-  background-color: #777;
+ background: linear-gradient(to right, #7b667a 0%, #d0b9cd 100%);
   color: white;
   cursor: pointer;
   padding: 18px;
@@ -1590,71 +1718,22 @@ h5{
 /*Customer profile*/
 
 .container-cusProfile{
+	margin-top:5%;
 	font-size: 18px;
 	font-family: 'Raleway', sans-serif;
 	border-radius: 0.5em;
 	box-shadow: 0 0 1em 0 rgba(51,51,51,0.25);
 	display: block;
-	max-width: 480px;
 	overflow: hidden;
-	-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
 	padding: 2em;
-	position: relative;
-		top: 50%;
-		left: 50%;
 		z-index: 1;
 	width: 100%;
 }
-.container-cusProfile:before{
-	background: url('http://tfgms.com/sandbox/dailyui/bg-1.jpg') center no-repeat;
-	background-size: cover;
-	content: '';
-	-webkit-filter: blur(10px);
-	filter: blur(10px);
-	height: 100vh;
-	position: absolute;
-		top: 50%;
-		left: 50%;
-		z-index: -1;
-	-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	width: 100vw;
-}
-.container-cusProfile:after{
-	background: rgba(255,255,255,0.6);
-	content: '';
-	display: block;
-	height: 100%;
-	position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
-	width: 100%;
-}
 
-@-webkit-keyframes spin{
-	from{ transform: rotate(0deg); }
-	to{ transform: rotate(360deg); }
-}
-@keyframes spin{
-	from{ transform: rotate(0deg); }
-	to{ transform: rotate(360deg); }
-}
 
-.label-cusProfile{
-	border-bottom: 1px solid #333;
-	display: block;
-	font-size: 1.25em;
-	margin-bottom: 0.5em;
-	-webkit-transition: all 0.25s;
-	transition: all 0.25s;
-}
 .col-one-half-cusProfile{
 	float: left;
-	width: 33.33%;
+	width: 50%;
 }
 
 .input-text-cusProfile{
@@ -1672,7 +1751,16 @@ h5{
 	background-color: transparent !important;
 }
 .text-center-cusProfile{
-	text-align: center;
+	text-align: left;
+	font-family: "Rubik", sans-serif;
 }
 
+.customer-img{
+	border-radius: 50%;
+	clip-path: circle();
+	width: 50%;
+}
 
+.label-text-cusProfile{
+font-family: "Rubik", sans-serif;
+}

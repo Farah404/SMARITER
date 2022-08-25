@@ -39,14 +39,14 @@
 								href="#" class="social"><i class="fa fa-facebook"></i></a>
 						</div>
 						<span>or use your account</span> 
-						<h:inputText a:placeholder="Name" id="nameTxt" value="#{logInCustomerBean.name}" />
+						<h:inputText a:placeholder="Email" id="nameTxt" value="#{logInAccountBean.email}" />
 						<h:message for="nameTxt"/>
 						
-						<h:inputSecret a:placeholder="Password" id="passwordTxt" value="#{logInCustomerBean.password}" />
+						<h:inputSecret a:placeholder="Password" id="passwordTxt" value="#{logInAccountBean.password}" />
 						<h:message for="passwordTxt"/>
 						
 						<a href="#">Forgot your password?</a>
-						<h:commandButton class="btn-signin" action="#{logInCustomerBean.customerLogin()}" value="Sign In"></h:commandButton>
+						<h:commandButton class="btn-signin" action="#{logInAccountBean.accountLogin()}" value="Sign In"></h:commandButton>
 					</h:form>
 				</div>
 				<div class="overlay-container">
