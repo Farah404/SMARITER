@@ -8,56 +8,58 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-
 import javax.inject.Inject;
 
+import fr.isika.cda17.project3.model.solutionManagement.MessagingSystemChoice;
+import fr.isika.cda17.project3.model.solutionManagement.PaymentSystemChoice;
+import fr.isika.cda17.project3.model.solutionManagement.PriceDeal;
 import fr.isika.cda17.project3.model.solutionManagement.Solution;
 import fr.isika.cda17.project3.repository.solutionManagement.SolutionDao;
 
 @ManagedBean
 @ViewScoped
-public class EditSolutionBean implements Serializable{
-	
+public class EditSolutionBean implements Serializable {
+
+	private static final String LIST_SOLUTION_XHTML = "listSolution.xhtml";
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private SolutionDao solutionDao;
-	
+
 	private Solution solution;
 	
-	
 	public void init() throws IOException {
-		
 		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		if (map.containsKey("solutionId")) {
 			String solutionIdParamValue = map.get("solutionId");
 			System.err.println(solutionIdParamValue);
-
-			if (!solutionIdParamValue.isEmpty()) {
-				try {
+			if (solutionIdParamValue != null && !solutionIdParamValue.isBlank()) {
 				Long id = Long.valueOf(solutionIdParamValue);
-
-				// TODO : si pas de id => message d'erreur
-
-				solution = solutionDao.findById(id); 
-
-				if (solution == null) {
+				if(id != null) {
+					solution = solutionDao.findById(id);
+					if (solution == null) {
+						redirectError();
+					}
+				} else {
 					redirectError();
 				}
-				
-				} catch (NumberFormatException e) {
-					System.err.println("erreur : "+solutionIdParamValue);
-					redirectError();
-				}
-
 			} else {
-
 				redirectError();
-
 			}
 		}
-	
-}
+	}
+
+	public void redirectError() throws IOException {
+		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+		ec.redirect(LIST_SOLUTION_XHTML);
+	}
+
+	public String updapte() {
+		solutionDao.update(solution);
+		System.out.println((solution));
+		return LIST_SOLUTION_XHTML;
+	}
 	
 	public Solution getSolution() {
 		return solution;
@@ -67,14 +69,15 @@ public class EditSolutionBean implements Serializable{
 		this.solution = solution;
 	}
 
+	public PaymentSystemChoice[] paymentSystemChoice() {
+		return PaymentSystemChoice.values();
+	}
 
-public void redirectError() throws IOException{
-	ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-	ec.redirect("listSolution.xhtml");
-}
-	public String updapte() {
-		solutionDao.update(solution);
-		System.out.println((solution));
-		return "listSolution.xhtml";
+	public MessagingSystemChoice[] messagingSystemChoice() {
+		return MessagingSystemChoice.values();
+	}
+
+	public PriceDeal[] priceDeals() {
+		return PriceDeal.values();
 	}
 }

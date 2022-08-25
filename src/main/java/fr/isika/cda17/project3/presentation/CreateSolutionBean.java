@@ -4,6 +4,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
+import fr.isika.cda17.project3.model.solutionManagement.MessagingSystemChoice;
+import fr.isika.cda17.project3.model.solutionManagement.PaymentSystemChoice;
+import fr.isika.cda17.project3.model.solutionManagement.PriceDeal;
 import fr.isika.cda17.project3.model.solutionManagement.Solution;
 import fr.isika.cda17.project3.repository.solutionManagement.SolutionDao;
 
@@ -28,5 +31,7 @@ public class CreateSolutionBean {
 	public void setSolution(Solution solution) {
 		this.solution=solution;
 	}
+	
+
 
 }

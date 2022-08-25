@@ -32,19 +32,46 @@
 	
 <div class="signupform-container animate-right" id="container">
 		<h:form action="#" class="sigup-form">
-		<fieldset>
-		<legend>Update Solution</legend>
-		<h:outputLabel value="car pool" />	<h:selectBooleanCheckbox id="isCarPoolingSolution" value="#{editSolutionBean.solution.isCarPoolingsolutionIncluded}" />
-		<h:outputLabel value="car rental" />  <h:selectBooleanCheckbox id="isCarRentalSolution" value="#{editSolutionBean.solution.isCarRentalSolutionIncluded}" />
-		<h:outputLabel value="Rating system" />  <h:selectBooleanCheckbox id="IsRatingSystem" value="#{editSolutionBean.solution.isRatingSystemIncluded}" />
-		
-<!-- 			<h:selectBooleanCheckbox id="ParcelSolution" value="#{createSolutionBean.solution.parcelSolutionIncluded}" />
-			<h:selectBooleanCheckbox id="PersonalAssistance" value="#{createSolutionBean.solution.personalAssistanceSolutionIncluded}" />
-			<h:selectBooleanCheckbox id="Private" value="#{createSolutionBean.solution.private}" /> -->
-			<!-- <h:selectOneMenu>
-				<f:selectItem itemValue="#{createSolutionBean.solution.paymentSystemChoice.valueOf(1)}" itemLabel="#{createSolutionBean.solution.paymentSystemChoice.toString()}"/>
-			</h:selectOneMenu> -->
-			<h:commandButton class="btn-signin" action="#{editSolutionBean.updapte()}" value="Valide your Update"/>
+			<fieldset>
+				<legend>Update Solution</legend>
+				<h:outputLabel value="Car Pool" />
+				<h:selectBooleanCheckbox id="isCarPoolingSolution" value="#{editSolutionBean.solution.isCarPoolingsolutionIncluded}" />
+				
+				<h:outputLabel value="Car Rental" />
+				<h:selectBooleanCheckbox id="isCarRentalSolution" value="#{editSolutionBean.solution.isCarRentalSolutionIncluded}" />
+				
+				<h:outputLabel value="Rating System" />
+				<h:selectBooleanCheckbox id="IsRatingSystem" value="#{editSolutionBean.solution.isRatingSystemIncluded}" />
+				
+				<h:outputLabel value="Personnal Assistance" />
+				<h:selectBooleanCheckbox id="isPersonalAssistanceSolutionIncluded" value="#{editSolutionBean.solution.isPersonalAssistanceSolutionIncluded}" />
+				
+				<h:outputLabel value="Parcel Solution" />
+				<h:selectBooleanCheckbox id="isParcelSolutionIncluded" value="#{editSolutionBean.solution.isParcelSolutionIncluded}" />
+				<h:outputLabel value="Package Price" />
+				<h:selectOneMenu value="#{editSolutionBean.solution.priceDeal}">
+					<f:selectItem itemLabel="Selection" itemValue="null"/>
+					<f:selectItems value="#{editSolutionBean.priceDeals()}" var="priceDeal" 
+						itemLabel="#{priceDeal}" itemValue="#{priceDeal}" ></f:selectItems>
+				</h:selectOneMenu>
+				<br />
+				<br />
+					<h:outputLabel value="Payment System" />
+				<h:selectOneMenu value="#{editSolutionBean.solution.paymentSystemChoice}">
+					<f:selectItem itemLabel="Selection" itemValue="null"/>
+					<f:selectItems value="#{editSolutionBean.paymentSystemChoice()}" var="payementSystemChoice}" 
+						itemLabel="#{payementSystemChoice}" itemValue="#{payementSystemChoice}" ></f:selectItems>
+				</h:selectOneMenu>
+				<br />
+				<br />
+					<h:outputLabel value="Messaging System" />
+				<h:selectOneMenu value="#{editSolutionBean.solution.messagingSystemChoice}">
+					<f:selectItem itemLabel="Selection" itemValue="null"/>
+					<f:selectItems value="#{editSolutionBean.messagingSystemChoice()}" var="messagingSystemChoice}" 
+						itemLabel="#{messagingSystemChoice}" itemValue="#{messagingSystemChoice}" ></f:selectItems>
+				</h:selectOneMenu>
+				
+				<h:commandButton class="btn-signin" action="#{editSolutionBean.updapte()}" value="Valide your Update"/>
 			</fieldset>
 		</h:form>
 </div>

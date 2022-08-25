@@ -6,6 +6,11 @@
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
 	xmlns:f="http://java.sun.com/jsf/core">
 
+
+	<f:metadata>
+		<f:event listener="#{solutionManagementBean.init()}" type="preRenderView"></f:event>
+	</f:metadata>
+
 <h:head>
 	<title>List</title>
 </h:head>
@@ -53,6 +58,14 @@
 						<h:column>
 							<f:facet name="header">Rating system</f:facet>
 							<h:outputText value="#{solution.isRatingSystemIncluded}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Personnal Assistance</f:facet>
+							<h:outputText value="#{solution.isPersonalAssistanceSolutionIncluded}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Parcel Solution</f:facet>
+							<h:outputText value="#{solution.isParcelSolutionIncluded}" />
 						</h:column>
 						<h:column>
 							<f:facet name="header">Update</f:facet>

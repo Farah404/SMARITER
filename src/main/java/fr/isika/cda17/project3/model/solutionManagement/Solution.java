@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,13 +21,14 @@ public class Solution {
     @GeneratedValue
     private Long id;
     
-    @Enumerated
+    
+    @Enumerated(EnumType.STRING)
     private PaymentSystemChoice paymentSystemChoice;
     
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private MessagingSystemChoice messagingSystemChoice;
     
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private PriceDeal priceDeal;
     
     private Boolean isRatingSystemIncluded;
@@ -41,8 +43,7 @@ public class Solution {
     
     private Boolean isPrivate;
     
-   
-    
+      
     @ManyToMany
     private List <EntityAccount> entityAccounts = new LinkedList<>();
     
@@ -55,19 +56,11 @@ public class Solution {
     @OneToOne
     private ParcelSolution parcelSolution;
     
-    private Boolean parcelSolutionIncluded;
-    
-//    private Boolean RatingSystemIncluded;
-    
-//    private Boolean CarPoolingsolutionIncluded;
+//    private Boolean parcelSolutionIncluded;
+//       
+//    private Boolean PersonalAssistanceSolutionIncluded;
 //    
-//    private Boolean CarRentalSolutionIncluded;
-//    
-  
-    
-    private Boolean PersonalAssistanceSolutionIncluded;
-    
-    private Boolean Private;
+//    private Boolean Private;
 
     public Solution() {
 	super();
@@ -93,12 +86,8 @@ public class Solution {
 	this.customerInvoice = customerInvoice;
 	this.carPoolingSolution = carPoolingSolution;
 	this.parcelSolution = parcelSolution;
-	
-	
-	
-	
-	this.parcelSolutionIncluded= parcelSolutionIncluded;
-	this.PersonalAssistanceSolutionIncluded=PersonalAssistanceSolutionIncluded;
+	//this.parcelSolutionIncluded= parcelSolutionIncluded;
+	//this.PersonalAssistanceSolutionIncluded=PersonalAssistanceSolutionIncluded;
 	
     }
 
@@ -223,30 +212,30 @@ public class Solution {
 	public Boolean getIsCarRentalSolutionIncluded() {
 		return isCarRentalSolutionIncluded;
 	}
+//
+//	public Boolean getParcelSolutionIncluded() {
+//		return parcelSolutionIncluded;
+//	}
+//
+//	public void setParcelSolutionIncluded(Boolean parcelSolutionIncluded) {
+//		this.parcelSolutionIncluded = parcelSolutionIncluded;
+//	}
+//
+//	public Boolean getPersonalAssistanceSolutionIncluded() {
+//		return PersonalAssistanceSolutionIncluded;
+//	}
+//
+//	public void setPersonalAssistanceSolutionIncluded(Boolean personalAssistanceSolutionIncluded) {
+//		PersonalAssistanceSolutionIncluded = personalAssistanceSolutionIncluded;
+//	}
+//
+//	public Boolean getPrivate() {
+//		return Private;
+//	}
 
-	public Boolean getParcelSolutionIncluded() {
-		return parcelSolutionIncluded;
-	}
-
-	public void setParcelSolutionIncluded(Boolean parcelSolutionIncluded) {
-		this.parcelSolutionIncluded = parcelSolutionIncluded;
-	}
-
-	public Boolean getPersonalAssistanceSolutionIncluded() {
-		return PersonalAssistanceSolutionIncluded;
-	}
-
-	public void setPersonalAssistanceSolutionIncluded(Boolean personalAssistanceSolutionIncluded) {
-		PersonalAssistanceSolutionIncluded = personalAssistanceSolutionIncluded;
-	}
-
-	public Boolean getPrivate() {
-		return Private;
-	}
-
-	public void setPrivate(Boolean private1) {
-		Private = private1;
-	}
+//	public void setPrivate(Boolean private1) {
+//		Private = private1;
+//	}
 
 	
 }

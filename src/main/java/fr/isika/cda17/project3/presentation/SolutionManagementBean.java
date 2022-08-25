@@ -24,7 +24,7 @@ public class SolutionManagementBean implements Serializable {
 	private List<Solution> solutiontList;
 
 	@PostConstruct
-	private void init() {
+	public void init() {
 		refresh();
 	}
 

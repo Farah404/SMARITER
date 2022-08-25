@@ -35,6 +35,8 @@ public class DataSet {
 	so.setPaymentSystemChoice(PaymentSystemChoice.NONE);
 	so.setIsRatingSystemIncluded(false);
 	so.setPriceDeal(PriceDeal.REDUCED_PRICE);
+	so.setIsPersonalAssistanceSolutionIncluded(true);
+	so.setIsParcelSolutionIncluded(true);
 	
 	em.persist(so);
 	
@@ -46,6 +48,8 @@ public class DataSet {
 	sa.setPaymentSystemChoice(PaymentSystemChoice.MONETARY);
 	sa.setIsRatingSystemIncluded(true);
 	sa.setPriceDeal(PriceDeal.FULL_PRICE);
+	sa.setIsPersonalAssistanceSolutionIncluded(false);
+	sa.setIsParcelSolutionIncluded(true);
 	
 	em.persist(sa);
 	
@@ -57,6 +61,8 @@ public class DataSet {
 	si.setPaymentSystemChoice(PaymentSystemChoice.INTERNAL_CURRENCY);
 	si.setIsRatingSystemIncluded(true);
 	si.setPriceDeal(PriceDeal.FULL_PRICE);
+	si.setIsPersonalAssistanceSolutionIncluded(true);
+	si.setIsParcelSolutionIncluded(true);
 	
 	em.persist(si);
 	
