@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,13 +22,14 @@ public class Solution {
     @GeneratedValue
     private Long id;
     
-    @Enumerated
+    
+    @Enumerated(EnumType.STRING)
     private PaymentSystemChoice paymentSystemChoice;
     
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private MessagingSystemChoice messagingSystemChoice;
     
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private PriceDeal priceDeal;
     
     private boolean isRatingSystemIncluded;
@@ -44,6 +46,7 @@ public class Solution {
     
     private String solutionName;
     
+      
     @ManyToMany
     private List <EntityAccount> entityAccounts = new LinkedList<>();
     
@@ -55,7 +58,7 @@ public class Solution {
     
     @OneToOne(cascade=CascadeType.PERSIST)
     private ParcelSolution parcelSolution;
-
+    
     public Solution() {
 	super();
     }
@@ -84,7 +87,87 @@ public class Solution {
 		this.parcelSolution = parcelSolution;
 	}
 
-    public String getSolutionName() {
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public PaymentSystemChoice getPaymentSystemChoice() {
+		return paymentSystemChoice;
+	}
+
+	public void setPaymentSystemChoice(PaymentSystemChoice paymentSystemChoice) {
+		this.paymentSystemChoice = paymentSystemChoice;
+	}
+
+	public MessagingSystemChoice getMessagingSystemChoice() {
+		return messagingSystemChoice;
+	}
+
+	public void setMessagingSystemChoice(MessagingSystemChoice messagingSystemChoice) {
+		this.messagingSystemChoice = messagingSystemChoice;
+	}
+
+	public PriceDeal getPriceDeal() {
+		return priceDeal;
+	}
+
+	public void setPriceDeal(PriceDeal priceDeal) {
+		this.priceDeal = priceDeal;
+	}
+
+	public boolean isRatingSystemIncluded() {
+		return isRatingSystemIncluded;
+	}
+
+	public void setRatingSystemIncluded(boolean isRatingSystemIncluded) {
+		this.isRatingSystemIncluded = isRatingSystemIncluded;
+	}
+
+	public boolean isCarPoolingsolutionIncluded() {
+		return isCarPoolingsolutionIncluded;
+	}
+
+	public void setCarPoolingsolutionIncluded(boolean isCarPoolingsolutionIncluded) {
+		this.isCarPoolingsolutionIncluded = isCarPoolingsolutionIncluded;
+	}
+
+	public boolean isCarRentalSolutionIncluded() {
+		return isCarRentalSolutionIncluded;
+	}
+
+	public void setCarRentalSolutionIncluded(boolean isCarRentalSolutionIncluded) {
+		this.isCarRentalSolutionIncluded = isCarRentalSolutionIncluded;
+	}
+
+	public boolean isParcelSolutionIncluded() {
+		return isParcelSolutionIncluded;
+	}
+
+	public void setParcelSolutionIncluded(boolean isParcelSolutionIncluded) {
+		this.isParcelSolutionIncluded = isParcelSolutionIncluded;
+	}
+
+	public boolean isPersonalAssistanceSolutionIncluded() {
+		return isPersonalAssistanceSolutionIncluded;
+	}
+
+	public void setPersonalAssistanceSolutionIncluded(boolean isPersonalAssistanceSolutionIncluded) {
+		this.isPersonalAssistanceSolutionIncluded = isPersonalAssistanceSolutionIncluded;
+	}
+
+	public boolean isPrivate() {
+		return isPrivate;
+	}
+
+	public void setPrivate(boolean isPrivate) {
+		this.isPrivate = isPrivate;
+	}
+
+	public String getSolutionName() {
 		return solutionName;
 	}
 
@@ -92,112 +175,38 @@ public class Solution {
 		this.solutionName = solutionName;
 	}
 
-	public PaymentSystemChoice getPaymentSystemChoice() {
-        return paymentSystemChoice;
-    }
+	public List<EntityAccount> getEntityAccounts() {
+		return entityAccounts;
+	}
 
-    public void setPaymentSystemChoice(PaymentSystemChoice paymentSystemChoice) {
-        this.paymentSystemChoice = paymentSystemChoice;
-    }
+	public void setEntityAccounts(List<EntityAccount> entityAccounts) {
+		this.entityAccounts = entityAccounts;
+	}
 
-    public MessagingSystemChoice getMessagingSystemChoice() {
-        return messagingSystemChoice;
-    }
+	public CustomerInvoice getCustomerInvoice() {
+		return customerInvoice;
+	}
 
-    public void setMessagingSystemChoice(MessagingSystemChoice messagingSystemChoice) {
-        this.messagingSystemChoice = messagingSystemChoice;
-    }
+	public void setCustomerInvoice(CustomerInvoice customerInvoice) {
+		this.customerInvoice = customerInvoice;
+	}
 
-    public PriceDeal getPriceDeal() {
-        return priceDeal;
-    }
+	public CarPoolingSolution getCarPoolingSolution() {
+		return carPoolingSolution;
+	}
 
-    public void setPriceDeal(PriceDeal priceDeal) {
-        this.priceDeal = priceDeal;
-    }
+	public void setCarPoolingSolution(CarPoolingSolution carPoolingSolution) {
+		this.carPoolingSolution = carPoolingSolution;
+	}
 
-    public boolean isRatingSystemIncluded() {
-        return isRatingSystemIncluded;
-    }
+	public ParcelSolution getParcelSolution() {
+		return parcelSolution;
+	}
 
-    public void setRatingSystemIncluded(boolean isRatingSystemIncluded) {
-        this.isRatingSystemIncluded = isRatingSystemIncluded;
-    }
+	public void setParcelSolution(ParcelSolution parcelSolution) {
+		this.parcelSolution = parcelSolution;
+	}
 
-    public boolean isCarPoolingsolutionIncluded() {
-        return isCarPoolingsolutionIncluded;
-    }
-
-    public void setCarPoolingsolutionIncluded(boolean isCarPoolingsolutionIncluded) {
-        this.isCarPoolingsolutionIncluded = isCarPoolingsolutionIncluded;
-    }
-
-    public boolean isCarRentalSolutionIncluded() {
-        return isCarRentalSolutionIncluded;
-    }
-
-    public void setCarRentalSolutionIncluded(boolean isCarRentalSolutionIncluded) {
-        this.isCarRentalSolutionIncluded = isCarRentalSolutionIncluded;
-    }
-
-    public boolean isParcelSolutionIncluded() {
-        return isParcelSolutionIncluded;
-    }
-
-    public void setParcelSolutionIncluded(boolean isParcelSolutionIncluded) {
-        this.isParcelSolutionIncluded = isParcelSolutionIncluded;
-    }
-
-    public boolean isPersonalAssistanceSolutionIncluded() {
-        return isPersonalAssistanceSolutionIncluded;
-    }
-
-    public void setPersonalAssistanceSolutionIncluded(boolean isPersonalAssistanceSolutionIncluded) {
-        this.isPersonalAssistanceSolutionIncluded = isPersonalAssistanceSolutionIncluded;
-    }
-
-    public boolean isPrivate() {
-        return isPrivate;
-    }
-
-    public void setPrivate(boolean isPrivate) {
-        this.isPrivate = isPrivate;
-    }
-
-    public List<EntityAccount> getEntityAccounts() {
-        return entityAccounts;
-    }
-
-    public void setEntityAccounts(List<EntityAccount> entityAccounts) {
-        this.entityAccounts = entityAccounts;
-    }
-
-    public CustomerInvoice getCustomerInvoice() {
-        return customerInvoice;
-    }
-
-    public void setCustomerInvoice(CustomerInvoice customerInvoice) {
-        this.customerInvoice = customerInvoice;
-    }
-
-    public CarPoolingSolution getCarPoolingSolution() {
-        return carPoolingSolution;
-    }
-
-    public void setCarPoolingSolution(CarPoolingSolution carPoolingSolution) {
-        this.carPoolingSolution = carPoolingSolution;
-    }
-
-    public ParcelSolution getParcelSolution() {
-        return parcelSolution;
-    }
-
-    public void setParcelSolution(ParcelSolution parcelSolution) {
-        this.parcelSolution = parcelSolution;
-    }
-
-    public Long getId() {
-        return id;
-    }
+    
     
 }

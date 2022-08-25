@@ -1,5 +1,6 @@
 package fr.isika.cda17.project3.model.personManagement.accounts;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -45,7 +46,6 @@ public class EntityAccount extends Account {
     public EntityAccount() {
 	super();
     }
-
     public EntityAccount(Long id, String username, String email, String password, String profilePicturePath, boolean isActive,
 	    Date creationDate, AccountType accountType, String name, int siretNumber, boolean isPrivate,
 	    ShoppingCart shoppingCart, BankDetails bankDetails, BillingAddress billingAddress, Wallet wallet,

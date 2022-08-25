@@ -8,9 +8,10 @@
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <f:metadata>
-<f:event listener="#{createCustomerBean.init()}" type="preRenderView">
-</f:event>
+	<f:event listener="#{createCustomerBean.init()}" type="preRenderView">
+	</f:event>
 </f:metadata>
+
 <h:head>
 	<title>SmarIter</title>
 </h:head>
@@ -28,12 +29,12 @@
 			<h1>Create Account</h1>
 			<h:inputText id="email" a:placeholder="#{createCustomerBean.customer.entityAccount.email}" value="#{createCustomerBean.customer.entityAccount.email}" />
 			<h:inputText id="password" a:placeholder="#{createCustomerBean.customer.entityAccount.password}" value="#{createCustomerBean.customer.entityAccount.password}"/>
-			<h:inputText id="username" a:placeholder="#{createCustomerBean.customer.entityAccount.username}" value="#{createCustomerBean.customer.entityAccount.username}"/>
-			<h:inputText id="firstName" a:placeholder="enter firstName" value="#{createCustomerBean.customer.firstName}"/>
-			<h:inputText id="lastName" a:placeholder="enter lastName" value="#{createCustomerBean.customer.lastName}"/>
-			<h:inputText id="phoneNumber" a:placeholder="enter phoneNumber" value="#{createCustomerBean.customer.phoneNumber}"/>
-			<h:inputText id="siretNumber" a:placeholder="enter Siret Siren Number" value="#{createCustomerBean.customer.entityAccount.siretNumber}"/>
-			<h:commandButton value="S'enregistrer" action="#{createCustomerBean.create()}"/>
+			<h:inputText id="username" a:placeholder="enter your username" value="#{createCustomerBean.customer.entityAccount.username}"/>
+			<h:inputText id="firstName" a:placeholder="enter your firstName" value="#{createCustomerBean.customer.firstName}"/>
+			<h:inputText id="lastName" a:placeholder="enter your lastName" value="#{createCustomerBean.customer.lastName}"/>
+			<h:inputText id="phoneNumber" a:placeholder="enter your phoneNumber" value="#{createCustomerBean.customer.phoneNumber}"/>
+			<h:inputText id="siretNumber" a:placeholder="enter your Siret/Siren Number" value="#{createCustomerBean.customer.entityAccount.siretNumber}"/>
+			<h:commandButton value="S'enregistrer" action="#{createCustomerBean.update()}"/>
 		</h:form>
 </div>
 </section>

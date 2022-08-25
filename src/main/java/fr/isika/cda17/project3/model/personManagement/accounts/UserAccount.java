@@ -44,7 +44,7 @@ public class UserAccount extends Account{
 	super();
     }
 
-    public UserAccount(Long id, String username, String email, String password, String profilePicturePath, boolean isActive,
+  public UserAccount(Long id, String username, String email, String password, String profilePicturePath, boolean isActive,
 	    Date creationDate, AccountType accountType, ShoppingCart shoppingCart, BankDetails bankDetails,
 	    BillingAddress billingAddress, Wallet wallet, List<Service> services, List<Reservation> reservations) {
 	super(id, username, email, password, profilePicturePath, isActive, creationDate, accountType);
@@ -56,9 +56,7 @@ public class UserAccount extends Account{
 	this.reservations = reservations;
     }
 
-    
-    
-    public UserAccount(ShoppingCart shoppingCart, BankDetails bankDetails, BillingAddress billingAddress, Wallet wallet,
+	public UserAccount(ShoppingCart shoppingCart, BankDetails bankDetails, BillingAddress billingAddress, Wallet wallet,
 			List<Service> services, List<Reservation> reservations) {
 		super();
 		this.shoppingCart = shoppingCart;

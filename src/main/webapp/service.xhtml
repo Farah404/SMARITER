@@ -33,33 +33,26 @@
     <div>
     <h:form class="form-solution">
       <h:inputText id="solutionName" value="#{createSolutionBean.solution.solutionName}" class="form-solution-field animation a3" a:placeholder="Give a name to your Website" />
-   		<h:selectOneMenu value="#{createSolutionBean.solution.paymentSystemChoice}">
-							<f:selectItem itemLabel="Chose your solution payment plan" itemValue="null"/>
-							<f:selectItems value="#{createSolutionBean.paymentSystemValue()}"
-								var="#{paymentSystemChoiceBean}"
-								itemLabel="#{paymentSystemChoice}" itemValue="#{paymentSystemChoice}"></f:selectItems>
-		</h:selectOneMenu>
-   		
-   		
-
-      <h:selectOneMenu id="paymentchoiceTrue" value="#{createSolutionBean.solution.paymentSystemChoice}" class="form-solution-field animation a3">
-      <f:selectItems value="#{createSolutionBean}" itemLabel="Chose your solution payment plan" />
+      
+      <h:selectOneMenu id="paymentchoiceTrue" value="#{createSolutionBean.solution.paymentSystemChoice}" Label="Chose your solution payment plan" class="form-solution-field animation a3">
+      	<f:selectItem itemLabel="Select payment system" itemValue="null"/>
+      	<f:selectItems value="#{createSolutionBean.paymentSystemValue()}" var="ps" itemLabel="#{ps.label}" itemValue="#{ps}"/>
       </h:selectOneMenu>
-      <h:selectOneMenu id="princingDeal" value="#{createSolutionBean.solution.priceDeal}" class="form-solution-field animation a3" >
-       <f:selectItem itemValue ="0" itemLabel = "Which pricing plan fits the most your website?" />
-       <f:selectItem itemValue = "1" itemLabel = "Business VIP" />
-   		<f:selectItem itemValue = "2" itemLabel = "Business Unlimited" />
-   		<f:selectItem itemValue = "3" itemLabel = "Business Basic" />
+      
+      <h:selectOneMenu id="pricingDeal" value="#{createSolutionBean.solution.priceDeal}" Label="Chose your price deal" class="form-solution-field animation a3">
+      	<f:selectItem itemLabel="Select price deal" itemValue="null"/>
+      	<f:selectItems value="#{createSolutionBean.priceDeal()}" var="pd" itemLabel="#{pd.label}" itemValue="#{pd}"/>
       </h:selectOneMenu>
-      <h:selectOneMenu id="messagingSystem" value="#{createSolutionBean.solution.messagingSystemChoice}" class="form-solution-field animation a3" >
-       <f:selectItem itemValue ="0" itemLabel = "How do you want your users to communicate?" />
-       <f:selectItem itemValue = "1" itemLabel = "No, thanks" />
-   		<f:selectItem itemValue = "2" itemLabel = "Only service related messaging" />
-   		<f:selectItem itemValue = "3" itemLabel = "No restricted messaging" />
+      
+       <h:selectOneMenu id="messagingSystem" value="#{createSolutionBean.solution.messagingSystemChoice}" Label="How do you want your users to communicate?" class="form-solution-field animation a3">
+      	<f:selectItem itemLabel="How do you want your users to communicate?" itemValue="null"/>
+      	<f:selectItems value="#{createSolutionBean.messagingSystemChoicesValues()}" var="ms" itemLabel="#{ms.label}" itemValue="#{ms}"/>
       </h:selectOneMenu>
+      
+   
 		<button type="button" class="collapsible animation a3">Do you want to include a carpooling solution in your website?</button>
 		<div class="content-collapse">
-			<h:selectBooleanCheckbox id="bollCarPooling"  value="#{createSolutionBean.solution.carPoolingsolutionIncluded}">I WANT A CP
+			<h:selectBooleanCheckbox id="bollCarPooling"  value="#{createSolutionBean.solution.carPoolingsolutionIncluded}">Yes, i want a CP
 			</h:selectBooleanCheckbox><br />
 			<h:selectBooleanCheckbox id="typeOption"  value="#{createSolutionBean.carPoolingSolution.carPoolingTypeOption}">Carpooling type option
 			</h:selectBooleanCheckbox><br />
@@ -77,6 +70,8 @@
 		
 		<button type="button" class="collapsible animation a3">Do you want to include a parcel solution in your website?</button>
 		<div class="content-collapse">
+			<h:selectBooleanCheckbox id="boolPS"  value="#{createSolutionBean.solution.parcelSolutionIncluded}">Yes, i want a PS
+			</h:selectBooleanCheckbox><br />
 			<h:selectBooleanCheckbox id="volumeOption"  value="#{createSolutionBean.parcelSolution.atypicalVolumeOption}">Atypical volume option
 			</h:selectBooleanCheckbox><br />
 			<h:selectBooleanCheckbox id="fragileOption" value="#{createSolutionBean.parcelSolution.fragileOoption}">Fragile option
@@ -85,7 +80,18 @@
 			</h:selectBooleanCheckbox><br />
 		</div>
 		<button type="button" class="collapsible animation a3">Do you want to include a car rental in your website?</button>
+		<div class="content-collapse">
+			<h:selectBooleanCheckbox id="boolCR"  value="#{createSolutionBean.solution.carRentalSolutionIncluded}">Yes, i want a CR
+			</h:selectBooleanCheckbox><br />
+		</div>
 		<button type="button" class="collapsible animation a3">Do you want to include a personal assistance in your website?</button>
+		<div class="content-collapse">
+			<h:selectBooleanCheckbox id="boolPA"  value="#{createSolutionBean.solution.personalAssistanceSolutionIncluded}">Yes, i want a PA
+			</h:selectBooleanCheckbox><br />
+		</div>
+		<br/>
+	
+
 		
       <h:commandButton class="animation a6" action="#{createSolutionBean.create()}" value="I am ready to chose my template"/>
       </h:form>

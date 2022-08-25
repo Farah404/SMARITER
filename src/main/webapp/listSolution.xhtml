@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<f:metadata>
+		<f:event listener="#{solutionManagementBean.init()}" type="preRenderView"></f:event>
+	</f:metadata>
+
+<h:head>
+	<title>List</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+			<h:outputScript library="js" name="faq.js" />
+			<div class="container">
+
+				<hr />
+				<hr />
+				<hr />
+
+				<h:form>
+
+					<h:dataTable class="styled-table" id="listeSolution"
+						value="#{solutionManagementBean.solutiontList}"
+						var="solution">
+
+						<h:column>
+							<f:facet name="header">Id</f:facet>
+							<h:outputText value="#{solution.id}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"> Car pool</f:facet>
+							<h:outputText value="#{solution.carPoolingsolutionIncluded}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Car rental</f:facet>
+							<h:outputText value="#{solution.carRentalSolutionIncluded}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Messaging system</f:facet>
+							<h:outputText value="#{solution.messagingSystemChoice}" />
+						</h:column>
+							<h:column>
+							<f:facet name="header">Payment package</f:facet>
+							<h:outputText value="#{solution.priceDeal}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Payment system</f:facet>
+							<h:outputText value="#{solution.paymentSystemChoice}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Rating system</f:facet>
+							<h:outputText value="#{solution.ratingSystemIncluded}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Personnal Assistance</f:facet>
+							<h:outputText value="#{solution.personalAssistanceSolutionIncluded}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Parcel Solution</f:facet>
+							<h:outputText value="#{solution.parcelSolutionIncluded}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Update</f:facet>
+							<h:panelGrid>
+								<h:commandButton value="Edit"
+									action="#{solutionManagementBean.showUpdate(solution.id)}">
+									<f:param name="solutionId" value="#{solution.id}"></f:param>
+								</h:commandButton>
+							</h:panelGrid>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Delete</f:facet>
+							<h:panelGrid>
+								<h:commandButton
+									action="#{solutionManagementBean.delete(solution.id)}"
+									value="Delete" />
+							</h:panelGrid>
+						</h:column>
+					</h:dataTable>
+
+				</h:form>
+
+
+
+			</div>
+
+			<hr />
+			<hr />
+			<hr />
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

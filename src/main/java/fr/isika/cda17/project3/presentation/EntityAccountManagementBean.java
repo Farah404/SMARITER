@@ -1,13 +1,10 @@
 package fr.isika.cda17.project3.presentation;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 import fr.isika.cda17.project3.repository.personManagement.accounts.EntityAccountDao;

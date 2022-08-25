@@ -11,7 +11,7 @@ public class Customer extends Person{
     
     private int phoneNumber;
     
-    @OneToOne(cascade=CascadeType.PERSIST)
+    @OneToOne(cascade=CascadeType.ALL)
     private EntityAccount entityAccount;
 
     public Customer() {

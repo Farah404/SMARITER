@@ -11,11 +11,11 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 
 @Stateless
-    public class EntityAccountImpl implements EntityAccountDao{
+public class EntityAccountImpl implements EntityAccountDao{
 
 	    
-	 @PersistenceContext
-	    private EntityManager entityManager;
+@PersistenceContext
+private EntityManager entityManager;
 	    
 	    @Override
 	    public EntityAccount create (EntityAccount entityAccount) {

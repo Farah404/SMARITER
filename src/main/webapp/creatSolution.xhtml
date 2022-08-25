@@ -9,11 +9,6 @@
 	
 
 
-<f:metadata>
-	<f:event listener="#{editEntityAccountBean.init()}"
-		type="preRenderView"></f:event>
-</f:metadata>
-
 <h:head>
 	<title>SmarIter</title>
 </h:head>
@@ -30,16 +25,16 @@
 			<section class="signup">
 
 			<div class="signupform-container animate-right" id="container">
-				<h:form action="#" class="sigup-form">
-					<h1>Edit Account</h1>
-
-
-                    <h:inputText a:placeholder="#{editEntityAccountBean.entityAccount.username}" value="#{editEntityAccountBean.entityAccount.username}"/>
-					<h:inputText a:placeholder="#{editEntityAccountBean.entityAccount.name}" value="#{editEntityAccountBean.entityAccount.name}" />
-					<h:inputText a:placeholder="#{editEntityAccountBean.entityAccount.email}" value="#{editEntityAccountBean.entityAccount.email}"/>
-					<h:inputText a:placeholder="#{editEntityAccountBean.entityAccount.password}" value="#{editEntityAccountBean.entityAccount.password}"/>
-					             
-					<h:commandButton action="#{editEntityAccountBean.update()}"
+				<h:form action="#" >
+					<h1>Create Solution</h1>
+<h:selectBooleanCheckbox id="CarPoolingSolution" value="#{createSolutionBean.solution.isCarPoolingsolutionIncluded}" />
+			<h:selectBooleanCheckbox id="CarRentalSolution" value="#{createSolutionBean.solution.carRentalSolutionIncluded}" />
+			
+			<h:selectOneMenu>
+				<f:selectItem itemValue="#{createSolutionBean.solution.paymentSystemChoice.valueOf(1)}" itemLabel="#{createSolutionBean.solution.paymentSystemChoice.toString()}"/>
+			</h:selectOneMenu>
+			             
+					<h:commandButton action="#{solutionBean.create()}"
 						value="Save" />
 				</h:form>
 
