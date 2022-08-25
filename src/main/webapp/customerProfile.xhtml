@@ -11,31 +11,105 @@
 
 
 <h:body>
-	<ui:composition template="template/template.xhtml">
+	<ui:composition template="template/templateWhenConnected.xhtml">
 		<ui:define name="content">
 		<div class="container">
 <div class="container-cusProfile">
-	<h1 class="text-center-cusProfile">Customer Profile</h1>
+	<h1 class="text-center-cusProfile">Welcome back to your Dashboard, EcoCar</h1>
+	<br />
+	<div class="row">
 	<form class="cusProfile">
-		<label class="col-one-half-cusProfile">
-			<span class="label-text-cusProfile">First Name</span>
-			<input type="text" name="firstName" />
-		</label>
-		<label class="col-one-half-cusProfile">
-			<span class="label-text-cusProfile">First Name</span>
-			<input type="text" name="firstName" />
-		</label>
-		<label class="col-one-half-cusProfile">
-			<span class="label-text-cusProfile">First Name</span>
-			<input type="text" name="firstName" />
-		</label>
-		<label class="col-one-half-cusProfile">
-			<span class="label-text-cusProfile">First Name</span>
-			<input type="text" name="firstName" />
-		</label>
+		<div class="col-one-half-cusProfile">
+		<img class="customer-img" src="media/gif/profilePictures/ProfileGif3.gif" /><br />
+			<span class="label-text-cusProfile">EcoCar business info</span><br />
+			 <h:commandButton  value="Update profile"/><br />
+			  <h:commandButton value="Update payment plan"/><br />
+		</div>
+		<div class="col-one-half-cusProfile">
+			<span class="label-text-cusProfile"><i class="fa fa-envelope"> Email address:</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-inbox"> Postal address:</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-phone"> Phone number:</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-euro"> Payment plan:</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-hashtag"> Siret Number:</i></span><br /><br />
+		</div>
 	</form>
+	</div></div>
+	<div class="container-cusProfile">
+	<h1 class="text-center-cusProfile">Your current template</h1>
+	<br />
+		<div class="row">
+	<form class="cusProfile">
+		<div class="col-one-half-cusProfile">
+		<span class="label-text-cusProfile"><i class="fa fa-envelope"> Website name:</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-inbox"> Included solutions:</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-phone"> pricing plan:</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-euro"> Messaging choice:</i></span><br /><br />
+		</div>
+		<div class="col-one-half-cusProfile">
+			<img class="customer-img" src="media/gif/profilePictures/ProfileGif3.gif" /><br />
+			<span class="label-text-cusProfile">Your Logo</span><br />
+			 <h:commandButton  value="Preview template"/><br />
+			  <h:commandButton value="Update template"/><br />
+			  <h:commandButton value="Delete template"/><br />
+		</div>
+	</form>
+	</div>
 </div>
+
+	<div class="container-cusProfile">
+	<h1 class="text-center-cusProfile">Manage your website</h1>
+	<br />
+		<div class="row">
+	<form class="cusProfile">
+<div class="row-effort">
+				<div class="column-effort">
+					<div class="card-effort">
+						<p>
+							<i class="fa fa-effort fa-user"></i>
+						</p>
+						<h3>11+</h3>
+						<p>Posted services</p>
+					</div>
+				</div>
+				<div class="column-effort">
+					<div class="card-effort">
+						<p>
+							<i class="fa fa-effort fa-check"></i>
+						</p>
+						<h3>55+</h3>
+						<p>Posted requests</p>
+					</div>
+				</div>
+				<div class="column-effort">
+					<div class="card-effort">
+						<p>
+							<i class="fa fa-effort fa-smile-o"></i>
+						</p>
+						<h3>100+</h3>
+						<p>Reservations</p>
+					</div>
+				</div>
+				<div class="column-effort">
+					<div class="card-effort">
+						<p>
+							<i class="fa fa-effort fa-coffee"></i>
+						</p>
+						<h3>100+</h3>
+						<p>Happy Clients</p>
+					</div>
+				</div>
+				</div>
+				<span class="label-text-cusProfile"><i class="fa fa-inbox"> Invoices:</i></span><br /><br />
+				<span class="label-text-cusProfile"><i class="fa fa-inbox"> Users list:</i></span><br /><br />
+				<span class="label-text-cusProfile"><i class="fa fa-inbox"> List of services on website:</i></span><br /><br />
+				<span class="label-text-cusProfile"><i class="fa fa-inbox"> List of reservations on website:</i></span><br /><br />
+				
+	</form>
+	</div>
+</div>
+			
 			</div>
+			
 		</ui:define>
 	</ui:composition>
 
