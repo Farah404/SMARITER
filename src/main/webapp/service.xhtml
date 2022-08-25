@@ -3,16 +3,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
-
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+	      xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<title>SmarIter</title>
 </h:head>
-
-
 <h:body>
 	<ui:composition template="template/template.xhtml">
 		<ui:define name="content">
+		<h:outputScript library="js" name = "faq.js"/>
 			<div class="headerText animate-opacity">Create a website
 				without limits</div>
 			<div class="headerSubtext animate-opacity">
@@ -23,13 +23,82 @@
 			<div class="button headerButton animate-opacity">
 				<a href="logInSignUp.xhtml">Get Started</a>
 			</div>
-
-
 			<div class="container">
+			<div class="container-solution">
+  <div class="left-solution">
+    <div class="header-solution">
+      <h2 class="animation a1">Design and build your own high-quality websites. </h2>
+      <h4 class="animation a2">Answer a few questions and get a free website designed just for you. </h4>
+    </div>
+    <div>
+    <h:form class="form-solution">
+      <h:inputText id="solutionName" value="#{createSolutionBean.solution.solutionName}" class="form-solution-field animation a3" a:placeholder="Give a name to your Website" />
+   		<h:selectOneMenu value="#{createSolutionBean.solution.paymentSystemChoice}">
+							<f:selectItem itemLabel="Chose your solution payment plan" itemValue="null"/>
+							<f:selectItems value="#{createSolutionBean.paymentSystemValue()}"
+								var="#{paymentSystemChoiceBean}"
+								itemLabel="#{paymentSystemChoice}" itemValue="#{paymentSystemChoice}"></f:selectItems>
+		</h:selectOneMenu>
+   		
+   		
+
+      <h:selectOneMenu id="paymentchoiceTrue" value="#{createSolutionBean.solution.paymentSystemChoice}" class="form-solution-field animation a3">
+      <f:selectItems value="#{createSolutionBean}" itemLabel="Chose your solution payment plan" />
+      </h:selectOneMenu>
+      <h:selectOneMenu id="princingDeal" value="#{createSolutionBean.solution.priceDeal}" class="form-solution-field animation a3" >
+       <f:selectItem itemValue ="0" itemLabel = "Which pricing plan fits the most your website?" />
+       <f:selectItem itemValue = "1" itemLabel = "Business VIP" />
+   		<f:selectItem itemValue = "2" itemLabel = "Business Unlimited" />
+   		<f:selectItem itemValue = "3" itemLabel = "Business Basic" />
+      </h:selectOneMenu>
+      <h:selectOneMenu id="messagingSystem" value="#{createSolutionBean.solution.messagingSystemChoice}" class="form-solution-field animation a3" >
+       <f:selectItem itemValue ="0" itemLabel = "How do you want your users to communicate?" />
+       <f:selectItem itemValue = "1" itemLabel = "No, thanks" />
+   		<f:selectItem itemValue = "2" itemLabel = "Only service related messaging" />
+   		<f:selectItem itemValue = "3" itemLabel = "No restricted messaging" />
+      </h:selectOneMenu>
+		<button type="button" class="collapsible animation a3">Do you want to include a carpooling solution in your website?</button>
+		<div class="content-collapse">
+			<h:selectBooleanCheckbox id="bollCarPooling"  value="#{createSolutionBean.solution.carPoolingsolutionIncluded}">I WANT A CP
+			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox id="typeOption"  value="#{createSolutionBean.carPoolingSolution.carPoolingTypeOption}">Carpooling type option
+			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox id="seatsOption" value="#{createSolutionBean.carPoolingSolution.availableSeatsOption}">Available seats option
+			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox id="petsOption" value="#{createSolutionBean.carPoolingSolution.petAllowedOption}">Pets allowed option
+			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox id="smokingOption"  value="#{createSolutionBean.carPoolingSolution.smokingAllowedOption}">Smoking allowed option
+			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox id="musicOption"  value="#{createSolutionBean.carPoolingSolution.musicAllowedOption}">Music allowed option
+			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox id="chattingOption" value="#{createSolutionBean.carPoolingSolution.chattingAllowedOption}">Chatting option
+			</h:selectBooleanCheckbox><br />
+		</div>
+		
+		<button type="button" class="collapsible animation a3">Do you want to include a parcel solution in your website?</button>
+		<div class="content-collapse">
+			<h:selectBooleanCheckbox id="volumeOption"  value="#{createSolutionBean.parcelSolution.atypicalVolumeOption}">Atypical volume option
+			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox id="fragileOption" value="#{createSolutionBean.parcelSolution.fragileOoption}">Fragile option
+			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox id="weightOption" value="#{createSolutionBean.parcelSolution.weightKilogrammesOption}">Weight Kilogrammes option
+			</h:selectBooleanCheckbox><br />
+		</div>
+		<button type="button" class="collapsible animation a3">Do you want to include a car rental in your website?</button>
+		<button type="button" class="collapsible animation a3">Do you want to include a personal assistance in your website?</button>
+		
+      <h:commandButton class="animation a6" action="#{createSolutionBean.create()}" value="I am ready to chose my template"/>
+      </h:form>
+    </div>
+  </div>
+  <div class="right-solution"></div>
+</div>
+			
+			
+			
+			
 			</div>
 		</ui:define>
 	</ui:composition>
-
-
 </h:body>
 </html>

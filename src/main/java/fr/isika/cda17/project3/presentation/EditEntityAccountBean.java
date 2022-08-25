@@ -26,7 +26,6 @@ public class EditEntityAccountBean implements Serializable {
 
 	public void init() throws IOException {
 		
-
 			Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 			if (map.containsKey("accountId")) {
 				String accountIdParamValue = map.get("accountId");
@@ -57,10 +56,6 @@ public class EditEntityAccountBean implements Serializable {
 			}
 		
 	}
-	
-	
-
-
 	/*
 	 * methods
 	 */

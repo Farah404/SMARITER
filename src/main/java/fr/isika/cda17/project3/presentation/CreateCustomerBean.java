@@ -9,6 +9,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
+import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 import fr.isika.cda17.project3.repository.personManagement.accounts.CustomerDao;
 
 @ManagedBean
@@ -24,10 +25,11 @@ public class CreateCustomerBean implements Serializable {
     private CustomerDao customerDao;
 
     private Customer customer = new Customer();
-    
+    private EntityAccount entityAccount = new EntityAccount();
     public void create() {
-	Customer created = customerDao.create(customer);
-	System.out.println(created);
+    	customer.setEntityAccount(entityAccount);
+    	Customer created = customerDao.create(customer);
+    	System.out.println(created);
     }
     
     public String createStepOne() {

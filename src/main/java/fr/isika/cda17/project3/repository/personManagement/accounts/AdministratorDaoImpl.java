@@ -1,12 +1,15 @@
 package fr.isika.cda17.project3.repository.personManagement.accounts;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.Administrator;
+import fr.isika.cda17.project3.model.personManagement.accounts.AdministratorAccount;
 
 @Stateless
 public class AdministratorDaoImpl implements AdministratorDao{
@@ -60,5 +63,20 @@ public class AdministratorDaoImpl implements AdministratorDao{
 	// TODO Auto-generated method stub
 	return null;
     }
+
+	@Override
+	public Optional<AdministratorAccount> findByEmail(String email) {
+		// TODO Auto-generated method stub
+		try {
+			AdministratorAccount adminAccount = this.entityManager
+					.createNamedQuery("AdministratorAccount.findByEmail", AdministratorAccount.class)
+					.setParameter("email_param", email)
+					.getSingleResult();
+			return Optional.ofNullable(adminAccount);
+		} catch (NoResultException ex) {
+			System.out.println("administratorDaoImpl.findByEmail() - not found : " + email);
+		}
+		return Optional.empty();
+	}
 
 }

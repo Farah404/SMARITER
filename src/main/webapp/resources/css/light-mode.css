@@ -6,25 +6,26 @@
 body {
   font-family: sans-serif;
   font-size: 16px;
+  background-color: #F6F6F8;
 }
 html {
   scroll-behavior: smooth;
 }
 
 .container-about{
-	 background-color: #fff;
+	 background-color: #F6F6F8;
 	 justify-content: center!important;
 	 	margin-left:15%;
 	margin-right:15%;
 }
 
 .footer-last{
-	 background-color: #fff;
+	 background-color: #f1f1ef;
 
 }
 
 .container{
-	background-color: #fff;
+	background-color: #F6F6F8;
 	padding:2%;
 	margin-left:10%;
 	margin-right:10%;
@@ -36,17 +37,19 @@ html {
     top:10%;
     right:15%;
     z-index:10;
-    font-family: sans-serif;
-  font-size: 50px;
-}
+  	font-size: 5vh;
+  	font-family: Spectral, serif;
+  	font-weight: bold;
+  	
+  	}
 
 .headerSubtext{
 	position:absolute;
     top:18%;
     right:15%;
     z-index:10;
-    font-family: sans-serif;
-  	font-size: 25px;
+    font-family: Rubik, sans-serif;
+  	font-size: 2.5vh;
 }
 
 .headerButton{
@@ -54,8 +57,8 @@ html {
     top:25%;
     right:15%;
     z-index:10;
-    font-family: sans-serif;
-  	font-size: 20px;
+    font-family: Spectral, serif;
+  	font-size: 2.5vh;
   	background: #a9d0cc;
   	border-color: #a9d0cc;
     border-radius: 12px;
@@ -87,6 +90,7 @@ nav {
   position:fixed;
   width:100%;
   z-index: 11;
+  font-family: Rubik, sans-serif;
 }
 a {
   color: black;
@@ -118,8 +122,11 @@ a {
   list-style-type: none;
 }
 .logo {
-  font-size: 20px;
+  font-size: 3vh;;
   padding: 7.5px 10px 7.5px 0;
+  font-family: Spectral, serif;
+  font-weight: bold;
+  
 }
 .item {
   padding: 10px;
@@ -260,6 +267,43 @@ a {
   }
 }
 
+/* .block-a{ */
+/* 	background-color: #c6abbc; */
+/* 	padding:5%; */
+	
+/* } */
+/* .blockText{ */
+/* 	font-size: 5vh; */
+/*   	font-family: Spectral, serif; */
+/*   	font-weight: bold; */
+/*   	text-align: center; */
+  	
+/* } */
+/* .blockSubText{ */
+/*   	font-family: Rubik, sans-serif; */
+/*   	font-size: 2.5vh; */
+/*   	text-align: center; */
+/* } */
+/* .block-a .blockButton{ */
+/* 	width:10%; */
+/* 	align-content:center; */
+/* 	z-index:10; */
+/*     font-family: Spectral, serif; */
+/*   	font-size: 2.5vh; */
+/*   	text-decoration:underline; */
+/*     border-radius: 12px; */
+/*     padding: 15px 5px; */
+/*     margin-left: 70%; */
+/* } */
+
+/* .steps-text > .blockSubText{ */
+	
+/* 	text-align: left; */
+/* } */
+
+/* .underline{ */
+/* 	text-decoration: underline; */
+/* } */
 
 /*Ending NavBar*/
 /*===============================*/
@@ -314,6 +358,13 @@ h1 {
 /*======================================================================*/
 /* About & ServiceCounter Section */
 /* Float four columns side by side */
+
+.effort-text{
+	font-family: Rubik, sans-serif;
+	font-size:2vh;
+}
+
+
 .column-effort {
   float: left;
   width: 25%;
@@ -345,11 +396,17 @@ h1 {
   padding: 16px;
   text-align: center;
   background-color: #7b667a;
-  color: white;
+  color: #d9d5d4;
+}
+
+.card-effort::hover{
+	transform: scale(1.5);
+	background-color: #c6abbc;
+	
 }
 
 .fa-effort {font-size:50px;}
-
+.fa-color > .card-effort{background-color: black;}
 
 /*======================================================================*/
 /*======================================================================*/
@@ -514,7 +571,7 @@ h1 {
 /* Footer Section */
 
 .new_footer_area {
-    background: #fbfbfd;
+    background: #f1f1ef;
 }
 
 
@@ -596,11 +653,15 @@ h1 {
   }
 }
 
+.footer > .container{
+	background-color: #f1f1ef;
+}
+
 .footer {
   width: 100%;
   position: relative;
   height: auto;
-  background-color: #fff;
+  background-color: #f1f1ef;
 }
 .footer .col {
   width: 25%;
@@ -904,9 +965,7 @@ button.ghost {
 }
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: #d0b9cd;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -1249,7 +1308,12 @@ h5{
   width: 100%;
 }
 
-
+.column-cusprofile{
+	float: left;
+  width: 50%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
 /*===================================================================*/
 /*===================================================================*/
 
@@ -1401,4 +1465,235 @@ h5{
   display: none;
   overflow: hidden;
   background-color: #f1f1f1;
+}
+
+/*===================================================================*/
+/*===================================================================*/
+
+/*Service*/
+
+.container-solution {
+  display: flex;
+  height: 100vh;
+}
+
+.left-solution {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-animation-name: left;
+          animation-name: left;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.right-solution {
+  flex: 1;
+  background-color: black;
+  transition: 1s;
+  background-image: url("https://glasbans.com/assets/images/services/web-design-01.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.header-solution > h2 {
+  margin: 0;
+  color: #4f46a5;
+}
+
+.header-solution > h4 {
+  margin-top: 10px;
+  font-weight: normal;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.form-solution {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-solution > p {
+  text-align: right;
+}
+
+.form-solution > p > a {
+  color: #000;
+  font-size: 14px;
+}
+
+.form-solution-field {
+  height: 46px;
+  padding: 0 16px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-family: "Rubik", sans-serif;
+  outline: 0;
+  transition: 0.2s;
+  margin-top: 20px;
+}
+
+.form-solution-field:focus {
+  border-color: #0f7ef1;
+}
+
+.form-solution > button {
+  padding: 12px 10px;
+  border: 0;
+  background: linear-gradient(to right, #de48b5 0%, #0097ff 100%);
+  border-radius: 3px;
+  margin-top: 10px;
+  color: #fff;
+  letter-spacing: 1px;
+  font-family: "Rubik", sans-serif;
+}
+
+.animation {
+  -webkit-animation-name: move;
+          animation-name: move;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+.a1 {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+.a2 {
+  -webkit-animation-delay: 2.1s;
+          animation-delay: 2.1s;
+}
+
+.a3 {
+  -webkit-animation-delay: 2.2s;
+          animation-delay: 2.2s;
+}
+
+.a4 {
+  -webkit-animation-delay: 2.3s;
+          animation-delay: 2.3s;
+}
+
+.a5 {
+  -webkit-animation-delay: 2.4s;
+          animation-delay: 2.4s;
+}
+
+.a6 {
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
+}
+
+@-webkit-keyframes move {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+@keyframes move {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes left {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  100% {
+    opacity: 1;
+    padding: 20px 40px;
+    width: 440px;
+  }
+}
+@keyframes left {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  100% {
+    opacity: 1;
+    padding: 20px 40px;
+    width: 440px;
+  }
+}
+
+/*===================================================================*/
+/*===================================================================*/
+
+/*Customer profile*/
+
+.container-cusProfile{
+	margin-top:5%;
+	font-size: 18px;
+	font-family: 'Raleway', sans-serif;
+	border-radius: 0.5em;
+	box-shadow: 0 0 1em 0 rgba(51,51,51,0.25);
+	display: block;
+	overflow: hidden;
+	padding: 2em;
+		z-index: 1;
+	width: 100%;
+}
+
+
+.col-one-half-cusProfile{
+	float: left;
+	width: 50%;
+}
+
+.input-text-cusProfile{
+	background: none;
+	border: none;
+	line-height: 1em;
+	font-weight: 300;
+	padding: 0.125em 0.25em;
+	width: 100%;
+}
+.input-text-cusProfile:focus{
+	outline: none;
+}
+.input-text-cusProfile:-webkit-autofill{
+	background-color: transparent !important;
+}
+.text-center-cusProfile{
+	text-align: left;
+	font-family: "Rubik", sans-serif;
+}
+
+.customer-img{
+	border-radius: 50%;
+	clip-path: circle();
+	width: 50%;
+}
+
+.label-text-cusProfile{
+font-family: "Rubik", sans-serif;
 }

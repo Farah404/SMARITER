@@ -18,7 +18,7 @@ import fr.isika.cda17.project3.model.solutionManagement.Solution;
 
 @Entity
 @PrimaryKeyJoinColumn(name="id")
-@NamedQuery(name = "EntityAccount.findByName", query = "SELECT ea FROM EntityAccount ea WHERE ea.name = :name_param")
+@NamedQuery(name = "EntityAccount.findByEmail", query = "SELECT ea FROM EntityAccount ea WHERE ea.email = :email_param")
 public class EntityAccount extends Account {
     
     private String name;
@@ -124,5 +124,6 @@ public class EntityAccount extends Account {
     public void setSolutions(List<Solution> solutions) {
         this.solutions = solutions;
     }
-    
+
+
 }
