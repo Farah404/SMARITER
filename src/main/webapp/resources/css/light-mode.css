@@ -1169,10 +1169,60 @@ button.ghost {
 .grid-container {
   display: grid;
   gap: 10px;
-  background-color:#ffffff;
+  background-color:#F6F6F8;
   color:black;
-  padding: 10%;
+  padding-bottom: 10%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
 }
+
+.blogtext-page{
+  font-family: "Lucida Console", "Courier New", monospace;
+text-align:center;
+  font-size: 10vh;
+  background: -webkit-linear-gradient(
+      left,
+      #0ff 0%,
+      #7b667a 25%,
+      #d0b9cd 50%,
+      #a9d0cc 100%
+    )
+    repeat;
+  -webkit-background-clip: text;
+  -ms-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -ms-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  animation: masked 5s linear infinite, fadeInDown 2s both 1;
+  -webkit-animation: masked 5s linear infinite, fadeInDown 2 both 1;
+  -moz-animation:masked 5s linear infinite, fadeInDown 2s both 1;
+  -o-animation: masked 5s linear infinite, fadeInDown 2s both 1;
+}
+
+@keyframes masked{
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -10000px 5000px;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translatey(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translatey(0px);
+  }
+}
+
 
 .grid-item {
   background-color: #ffffff;
@@ -1184,8 +1234,8 @@ button.ghost {
 }
 
 .title-blog{
+	 font-family:Rubik, sans-serif;
 	color: black;
-	font: 900 60px Montserrat;
 	text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 	cursor: pointer;
 	align-content: center;
@@ -1193,6 +1243,7 @@ button.ghost {
 
 h5{
 	color: black;
+	 font-family:Rubik, sans-serif;
 }
 
 .item1 {
@@ -1234,7 +1285,7 @@ h5{
 
 /* Fake image */
 .block-blog {
-	background-color:gray;
+	background-color:transparent;
 	opacity:0.8;
   width: 100%;
   height: auto;
@@ -1249,12 +1300,22 @@ h5{
    margin-bottom: 16px;
 }
 
+.card-article p {
+	font-family: Verdana, sans-serif;
+	
+}
+
+.card-article h2{
+	font-family: Georgia, serif;
+	text-decoration: underline;
+}
 /* Clear floats after the columns */
 .row-article:after {
   content: "";
   display: table;
   clear: both;
 }
+
 
 
 /*===================================================================*/
@@ -1384,7 +1445,7 @@ h5{
     width:100%;
 }
 .styled-table thead tr {
-    background-color: #009879;
+    background-color: #d0b9cd;
     color: #ffffff;
     text-align: center;
 }
@@ -1407,7 +1468,7 @@ h5{
 }
 
 .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #d0b9cd;
 }
 .center-row {
     text-align: center;
@@ -1416,6 +1477,7 @@ h5{
   float: left;
   width: 33.33%;
   padding: 10px;
+  border-left: solid black;
 }
 
 /* Clear floats after the columns */
@@ -1444,8 +1506,13 @@ h5{
   clear: both;
 }
 
+.collapsible > button {
+	 background-color: linear-gradient(to right, #d9d5d4 0%, #d9d5d4 50%,#d0b9cd 100%);
+	
+}
+
 .collapsible {
-  background-color: #777;
+ background: linear-gradient(to right, #7b667a 0%, #d0b9cd 100%);
   color: white;
   cursor: pointer;
   padding: 18px;
