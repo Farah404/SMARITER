@@ -35,19 +35,19 @@
 			<fieldset>
 				<legend>Update Solution</legend>
 				<h:outputLabel value="Car Pool" />
-				<h:selectBooleanCheckbox id="isCarPoolingSolution" value="#{solutionManagementBean.solution.isCarPoolingsolutionIncluded}" />
+				<h:selectBooleanCheckbox id="isCarPoolingSolution" value="#{solutionManagementBean.solution.carPoolingsolutionIncluded}" />
 				
 				<h:outputLabel value="Car Rental" />
-				<h:selectBooleanCheckbox id="isCarRentalSolution" value="#{solutionManagementBean.solution.isCarRentalSolutionIncluded}" />
+				<h:selectBooleanCheckbox id="isCarRentalSolution" value="#{solutionManagementBean.solution.carRentalSolutionIncluded}" />
 				
 				<h:outputLabel value="Rating System" />
-				<h:selectBooleanCheckbox id="IsRatingSystem" value="#{solutionManagementBean.solution.isRatingSystemIncluded}" />
+				<h:selectBooleanCheckbox id="IsRatingSystem" value="#{solutionManagementBean.solution.ratingSystemIncluded}" />
 				
 				<h:outputLabel value="Personnal Assistance" />
-				<h:selectBooleanCheckbox id="isPersonalAssistanceSolutionIncluded" value="#{solutionManagementBean.solution.isPersonalAssistanceSolutionIncluded}" />
+				<h:selectBooleanCheckbox id="isPersonalAssistanceSolutionIncluded" value="#{solutionManagementBean.solution.personalAssistanceSolutionIncluded}" />
 				
 				<h:outputLabel value="Parcel Solution" />
-				<h:selectBooleanCheckbox id="isParcelSolutionIncluded" value="#{solutionManagementBean.solution.isParcelSolutionIncluded}" />
+				<h:selectBooleanCheckbox id="isParcelSolutionIncluded" value="#{solutionManagementBean.solution.parcelSolutionIncluded}" />
 				<h:outputLabel value="Package Price" />
 				<h:selectOneMenu value="#{solutionManagementBean.solution.priceDeal}">
 					<f:selectItem itemLabel="Selection" itemValue="null"/>

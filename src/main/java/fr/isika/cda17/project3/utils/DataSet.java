@@ -29,40 +29,40 @@ public class DataSet {
 	em.persist(ea);
 	
 	Solution so = new Solution();
-	so.setIsCarRentalSolutionIncluded(true);
-	so.setIsCarPoolingsolutionIncluded(false);
+	so.setCarRentalSolutionIncluded(true);
+	so.setCarPoolingsolutionIncluded(false);
 	so.setMessagingSystemChoice(MessagingSystemChoice.NO_RESTRICTION_MESSAGING);
 	so.setPaymentSystemChoice(PaymentSystemChoice.NONE);
-	so.setIsRatingSystemIncluded(false);
-	so.setPriceDeal(PriceDeal.REDUCED_PRICE);
-	so.setIsPersonalAssistanceSolutionIncluded(true);
-	so.setIsParcelSolutionIncluded(true);
+	so.setRatingSystemIncluded(false);
+	so.setPriceDeal(PriceDeal.BUSINESS_BASIC);
+	so.setPersonalAssistanceSolutionIncluded(true);
+	so.setParcelSolutionIncluded(true);
 	
 	em.persist(so);
 	
 	Solution sa = new Solution();
 
-	sa.setIsCarRentalSolutionIncluded(false);
-	sa.setIsCarPoolingsolutionIncluded(true);
+	sa.setCarRentalSolutionIncluded(false);
+	sa.setCarPoolingsolutionIncluded(true);
 	sa.setMessagingSystemChoice(MessagingSystemChoice.SERVICE_RELATED_MESSAGING);
 	sa.setPaymentSystemChoice(PaymentSystemChoice.MONETARY);
-	sa.setIsRatingSystemIncluded(true);
-	sa.setPriceDeal(PriceDeal.FULL_PRICE);
-	sa.setIsPersonalAssistanceSolutionIncluded(false);
-	sa.setIsParcelSolutionIncluded(true);
+	sa.setRatingSystemIncluded(true);
+	sa.setPriceDeal(PriceDeal.BUSINESS_VIP);
+	sa.setPersonalAssistanceSolutionIncluded(false);
+	sa.setParcelSolutionIncluded(true);
 	
 	em.persist(sa);
 	
 	Solution si = new Solution();
 
-	si.setIsCarRentalSolutionIncluded(false);
-	si.setIsCarPoolingsolutionIncluded(true);
+	si.setCarRentalSolutionIncluded(false);
+	si.setCarPoolingsolutionIncluded(true);
 	si.setMessagingSystemChoice(MessagingSystemChoice.NONE);
 	si.setPaymentSystemChoice(PaymentSystemChoice.INTERNAL_CURRENCY);
-	si.setIsRatingSystemIncluded(true);
-	si.setPriceDeal(PriceDeal.FULL_PRICE);
-	si.setIsPersonalAssistanceSolutionIncluded(true);
-	si.setIsParcelSolutionIncluded(true);
+	si.setRatingSystemIncluded(true);
+	si.setPriceDeal(PriceDeal.BUSINESS_UNLIMITED);
+	si.setPersonalAssistanceSolutionIncluded(true);
+	si.setParcelSolutionIncluded(true);
 	
 	em.persist(si);
   
