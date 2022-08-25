@@ -1,4 +1,5 @@
 package fr.isika.cda17.project3.repository.personManagement.accounts;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -9,7 +10,6 @@ import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.Administrator;
 import fr.isika.cda17.project3.model.personManagement.accounts.AdministratorAccount;
-import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 
 @Stateless
 public class AdministratorDaoImpl implements AdministratorDao{
