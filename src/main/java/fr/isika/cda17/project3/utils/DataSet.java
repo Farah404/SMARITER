@@ -77,14 +77,14 @@ public class DataSet {
 
 	em.persist(e);
 	
-	Solution so = new Solution();
+	Solution sosix = new Solution();
 	so.setCarPoolingsolutionIncluded(true);
     so.setCarPoolingsolutionIncluded(true);
     so.setCarRentalSolutionIncluded(false);
     so.setRatingSystemIncluded(true);
     so.setPaymentSystemChoice(PaymentSystemChoice.INTERNAL_CURRENCY);
     so.setMessagingSystemChoice(MessagingSystemChoice.NO_RESTRICTION_MESSAGING);
-	em.persist(so);
+	em.persist(sosix);
     }
 
 }
