@@ -267,6 +267,43 @@ a {
   }
 }
 
+/* .block-a{ */
+/* 	background-color: #c6abbc; */
+/* 	padding:5%; */
+	
+/* } */
+/* .blockText{ */
+/* 	font-size: 5vh; */
+/*   	font-family: Spectral, serif; */
+/*   	font-weight: bold; */
+/*   	text-align: center; */
+  	
+/* } */
+/* .blockSubText{ */
+/*   	font-family: Rubik, sans-serif; */
+/*   	font-size: 2.5vh; */
+/*   	text-align: center; */
+/* } */
+/* .block-a .blockButton{ */
+/* 	width:10%; */
+/* 	align-content:center; */
+/* 	z-index:10; */
+/*     font-family: Spectral, serif; */
+/*   	font-size: 2.5vh; */
+/*   	text-decoration:underline; */
+/*     border-radius: 12px; */
+/*     padding: 15px 5px; */
+/*     margin-left: 70%; */
+/* } */
+
+/* .steps-text > .blockSubText{ */
+	
+/* 	text-align: left; */
+/* } */
+
+/* .underline{ */
+/* 	text-decoration: underline; */
+/* } */
 
 /*Ending NavBar*/
 /*===============================*/
@@ -1660,6 +1697,3 @@ h5{
 .label-text-cusProfile{
 font-family: "Rubik", sans-serif;
 }
-
-
-
