@@ -1,5 +1,6 @@
 package fr.isika.cda17.project3.model.personManagement.accounts;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,9 +20,9 @@ import fr.isika.cda17.project3.model.solutionManagement.Solution;
 @Entity
 @PrimaryKeyJoinColumn(name="id")
 @NamedQuery(name = "EntityAccount.findByName", query = "SELECT ea FROM EntityAccount ea WHERE ea.name = :name_param")
-public class EntityAccount extends Account {
-    
-    private String name;
+public class EntityAccount extends Account{
+
+	private String name;
     
     private int siretNumber;
     
