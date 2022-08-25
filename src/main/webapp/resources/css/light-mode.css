@@ -37,16 +37,18 @@ html {
     top:10%;
     right:15%;
     z-index:10;
-    font-family: sans-serif;
   	font-size: 5vh;
-}
+  	font-family: Spectral, serif;
+  	font-weight: bold;
+  	
+  	}
 
 .headerSubtext{
 	position:absolute;
     top:18%;
     right:15%;
     z-index:10;
-    font-family: sans-serif;
+    font-family: Rubik, sans-serif;
   	font-size: 2.5vh;
 }
 
@@ -55,7 +57,7 @@ html {
     top:25%;
     right:15%;
     z-index:10;
-    font-family: sans-serif;
+    font-family: Spectral, serif;
   	font-size: 2.5vh;
   	background: #a9d0cc;
   	border-color: #a9d0cc;
@@ -88,6 +90,7 @@ nav {
   position:fixed;
   width:100%;
   z-index: 11;
+  font-family: Rubik, sans-serif;
 }
 a {
   color: black;
@@ -119,8 +122,11 @@ a {
   list-style-type: none;
 }
 .logo {
-  font-size: 20px;
+  font-size: 3vh;;
   padding: 7.5px 10px 7.5px 0;
+  font-family: Spectral, serif;
+  font-weight: bold;
+  
 }
 .item {
   padding: 10px;
@@ -315,6 +321,13 @@ h1 {
 /*======================================================================*/
 /* About & ServiceCounter Section */
 /* Float four columns side by side */
+
+.effort-text{
+	font-family: Rubik, sans-serif;
+	font-size:2vh;
+}
+
+
 .column-effort {
   float: left;
   width: 25%;
@@ -346,11 +359,17 @@ h1 {
   padding: 16px;
   text-align: center;
   background-color: #7b667a;
-  color: white;
+  color: #d9d5d4;
+}
+
+.card-effort::hover{
+	transform: scale(1.5);
+	background-color: #c6abbc;
+	
 }
 
 .fa-effort {font-size:50px;}
-
+.fa-color > .card-effort{background-color: black;}
 
 /*======================================================================*/
 /*======================================================================*/
@@ -1641,3 +1660,6 @@ h5{
 .label-text-cusProfile{
 font-family: "Rubik", sans-serif;
 }
+
+
+
