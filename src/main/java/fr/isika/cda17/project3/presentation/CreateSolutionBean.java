@@ -8,8 +8,10 @@ import javax.inject.Inject;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.CustomerInvoice;
 import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
+import fr.isika.cda17.project3.model.solutionManagement.MessagingSystemChoice;
 import fr.isika.cda17.project3.model.solutionManagement.ParcelSolution;
 import fr.isika.cda17.project3.model.solutionManagement.PaymentSystemChoice;
+import fr.isika.cda17.project3.model.solutionManagement.PriceDeal;
 import fr.isika.cda17.project3.model.solutionManagement.Solution;
 import fr.isika.cda17.project3.repository.solutionManagement.SolutionDao;
 
@@ -34,6 +36,12 @@ public class CreateSolutionBean implements Serializable{
 	public PaymentSystemChoice[] paymentSystemValue() {
 		return PaymentSystemChoice.values();
 	}
+	public PriceDeal[] priceDeal() {
+		return PriceDeal.values();
+	}
+	public MessagingSystemChoice[] messagingSystemChoicesValues() {
+		return MessagingSystemChoice.values();
+	}
 	
 	public void create() {
 		solution.setCarPoolingSolution(carPoolingSolution);
@@ -42,7 +50,6 @@ public class CreateSolutionBean implements Serializable{
 		Solution created = solutionDao.create(solution);
 		System.out.println(created);
 	}
-	
 	public Solution getSolution() {
 		return solution;
 	}
@@ -55,23 +62,15 @@ public class CreateSolutionBean implements Serializable{
 	public void setCarPoolingSolution(CarPoolingSolution carPoolingSolution) {
 		this.carPoolingSolution = carPoolingSolution;
 	}
-
 	public ParcelSolution getParcelSolution() {
 		return parcelSolution;
 	}
-
 	public void setParcelSolution(ParcelSolution parcelSolution) {
 		this.parcelSolution = parcelSolution;
 	}
-
-
 	public CustomerInvoice getCustomerInvoice() {
 		return customerInvoice;
 	}
-
-
-
-
 	public void setCustomerInvoice(CustomerInvoice customerInvoice) {
 		this.customerInvoice = customerInvoice;
 	}

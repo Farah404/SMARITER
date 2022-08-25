@@ -1,5 +1,6 @@
 package fr.isika.cda17.project3.presentation;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Map;
 
@@ -26,32 +27,36 @@ public class CreateCustomerBean implements Serializable {
 
     private Customer customer = new Customer();
     private EntityAccount entityAccount = new EntityAccount();
+    
     public void create() {
-    	customer.setEntityAccount(entityAccount);
+//    	customer.setEntityAccount(entityAccount);
     	Customer created = customerDao.create(customer);
     	System.out.println(created);
     }
     
     public String createStepOne() {
+    	customer.setEntityAccount(entityAccount);
     	customerDao.create(customer);
     	System.err.println(customer.getId());
-    	return "signUp.xhtml?customerId=" + customer.getId();
+    	return "signUp.xhtml?faces-redirect=true&customerId=" + customer.getId();
     }
     
+    public String update() {
+    	customerDao.update(customer);
+    	System.out.println(customer);
+    	return "index.xhtml?faces-redirect=true";
+    }
     
-    public void init() {
+    public void init(){
 		Map<String,String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		if(map.containsKey("customerId")) {
 			String customerIdParamValue = map.get("customerId");
 			Long id = Long.valueOf(customerIdParamValue);
-			
-			// TODO : si pas de id => message d'erreur
 			if(id != null) {
 				customer = customerDao.findById(id);
 			} else {	
-				//TODO: error
+				System.err.println("no customerId on page");
 				return ;
-				
 			}
 		}
 	}
@@ -62,5 +67,13 @@ public class CreateCustomerBean implements Serializable {
     public void setCustomer(Customer customer) {
 	this.customer = customer;
     }
+
+	public EntityAccount getEntityAccount() {
+		return entityAccount;
+	}
+
+	public void setEntityAccount(EntityAccount entityAccount) {
+		this.entityAccount = entityAccount;
+	}
     
 }

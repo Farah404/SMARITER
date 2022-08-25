@@ -25,15 +25,8 @@
 				<div class="form-container sign-up-container">
 					<h:form>
 						<h1>Create Account</h1>
-						<div class="social-container">
-							<a href="#" class="social"><i class="fa fa-linkedin"></i></a> <a
-								href="#" class="social"><i class="fa fa-google-plus"></i></a> <a
-								href="#" class="social"><i class="fa fa-facebook"></i></a>
-						</div>
-						<span>or use your email for registration</span>
-						<h:inputText id="lastNameTxt" a:placeholder="Lastname" value="#{createCustomerBean.customer.lastName}"/>
-						<h:inputText a:placeholder="Email"/>
-						<h:inputSecret a:placeholder="Password" value="#{createCustomerBean.customer.firstName}"/>
+						<h:inputText a:placeholder="Email" value="#{createCustomerBean.entityAccount.email}"/>
+						<h:inputSecret a:placeholder="Password" value="#{createCustomerBean.entityAccount.password}"/>
 						<h:commandButton class="btn-signup" value="Sign Up" action="#{createCustomerBean.createStepOne()}"></h:commandButton>
 					</h:form>
 				</div>
