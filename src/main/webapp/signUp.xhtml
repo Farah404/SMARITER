@@ -39,9 +39,21 @@
 			<legend>Entity details</legend>
 			<h:inputText id="entityName" a:placeholder="Your Entity Name" value="#{createCustomerBean.customer.entityAccount.name}"/>
 			<h:inputText id="siretNumber" a:placeholder="Its Siret/Siren Number" value="#{createCustomerBean.customer.entityAccount.siretNumber}"/>
-			<h:inputText id="billingAddress" a:placeholder="Its billing address" value="#{createCustomerBean.customer.entityAccount.billingAddress}"/>
-			<h:inputText id="bankingDetails" a:placeholder="Its banking details" value="#{createCustomerBean.customer.entityAccount.bankDetails}"/>
 			<h:selectBooleanCheckbox id="isPrivate" value="#{createCustomerBean.customer.entityAccount.private}"> My entity is private</h:selectBooleanCheckbox> 
+			</fieldset>
+			<fieldset>
+			<legend>Billing Address</legend>
+			<h:inputText id="addressLine" a:placeholder="AddressLine" value="#{createCustomerBean.customer.entityAccount.billingAddress.addressLine}"/>
+			<h:inputText id="postalCode" a:placeholder="PostalCode" value="#{createCustomerBean.customer.entityAccount.billingAddress.postalCode}"/>
+			<h:inputText id="city" a:placeholder="City" value="#{createCustomerBean.customer.entityAccount.billingAddress.city}"/>
+			<h:inputText id="region" a:placeholder="Region" value="#{createCustomerBean.customer.entityAccount.billingAddress.region}"/>
+			<h:inputText id="country" a:placeholder="Country" value="#{createCustomerBean.customer.entityAccount.billingAddress.country}"/>
+			</fieldset>
+			<fieldset>
+			<legend>Bank details</legend>
+			<h:inputText id="bankName" a:placeholder="BankName" value="#{createCustomerBean.customer.entityAccount.bankDetails.bankName}"/>
+			<h:inputText id="iban" a:placeholder="IBAN" value="#{createCustomerBean.customer.entityAccount.bankDetails.iban}"/>
+			<h:inputText id="swift" a:placeholder="SWIFT" value="#{createCustomerBean.customer.entityAccount.bankDetails.swift}"/>
 			</fieldset>
 			<br/>
 			<fieldset>
@@ -49,9 +61,10 @@
 			<h:inputText id="firstName" a:placeholder="Enter your firstName" value="#{createCustomerBean.customer.firstName}"/>
 			<h:inputText id="lastName" a:placeholder="Enter your lastName" value="#{createCustomerBean.customer.lastName}"/>
 			<h:inputText id="phoneNumber" a:placeholder="Enter your phoneNumber" value="#{createCustomerBean.customer.phoneNumber}"/>
+			<h:inputText id="role" a:placeholder="Who you are for your Company" value="#{createCustomerBean.customer.role}"/>
 			</fieldset>
 			<br/>
-			<h:commandButton value="S'enregistrer" action="#{createCustomerBean.update()}"/>
+			<h:commandButton value="Save my account" action="#{createCustomerBean.update()}"/>
 		</h:form>
 </div>
 </section>

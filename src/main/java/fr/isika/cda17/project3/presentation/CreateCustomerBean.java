@@ -11,6 +11,8 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
+import fr.isika.cda17.project3.model.financialManagement.invoice.BankDetails;
+import fr.isika.cda17.project3.model.financialManagement.invoice.BillingAddress;
 import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
 import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
@@ -30,6 +32,8 @@ public class CreateCustomerBean implements Serializable {
 
     private Customer customer = new Customer();
     private EntityAccount entityAccount = new EntityAccount();
+    private BankDetails bankDetails = new BankDetails();
+    private BillingAddress billingAddress = new BillingAddress();
     
     public void create() {
 //    	customer.setEntityAccount(entityAccount);
@@ -38,6 +42,8 @@ public class CreateCustomerBean implements Serializable {
     }
     
     public String createStepOne() {
+    	entityAccount.setBankDetails(bankDetails);
+    	entityAccount.setBillingAddress(billingAddress);
     	entityAccount.setCreationDate(LocalDateTime.now());
     	entityAccount.setAccountType(AccountType.ENTITY);
     	// set default values for Entity Account : isActive==true && profilePicturePath==basicOne
