@@ -1,5 +1,6 @@
 package fr.isika.cda17.project3.model.personManagement.accounts;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -27,7 +28,7 @@ public abstract class Account {
     
     private Boolean isActive;
     
-    private Date creationDate;
+    private LocalDateTime creationDate;
     
     @Enumerated
     private AccountType accountType;
@@ -37,7 +38,7 @@ public abstract class Account {
     }
 
     public Account(Long id, String username, String email, String password, String profilePicturePath, Boolean isActive,
-	    Date creationDate, AccountType accountType) {
+    		LocalDateTime creationDate, AccountType accountType) {
 	super();
 	this.id = id;
 	this.username = username;
@@ -97,11 +98,11 @@ public abstract class Account {
         this.isActive = isActive;
     }
 
-    public Date getCreationDate() {
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
     }
 

@@ -1,6 +1,6 @@
 package fr.isika.cda17.project3.model.personManagement.accounts;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.NamedQuery;
@@ -17,7 +17,7 @@ public class AdministratorAccount extends Account{
     
 
     public AdministratorAccount(Long id, String username, String email, String password, String profilePicturePath, boolean isActive,
-	    Date creationDate, AccountType accountType) {
+    		LocalDateTime creationDate, AccountType accountType) {
 	super(id, username, email, password, profilePicturePath, isActive, creationDate, accountType);
     }
 

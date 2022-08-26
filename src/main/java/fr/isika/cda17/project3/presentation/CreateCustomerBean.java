@@ -2,6 +2,8 @@ package fr.isika.cda17.project3.presentation;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
@@ -9,6 +11,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
+import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
 import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 import fr.isika.cda17.project3.repository.personManagement.accounts.CustomerDao;
@@ -35,6 +38,11 @@ public class CreateCustomerBean implements Serializable {
     }
     
     public String createStepOne() {
+    	entityAccount.setCreationDate(LocalDateTime.now());
+    	entityAccount.setAccountType(AccountType.ENTITY);
+    	// set default values for Entity Account : isActive==true && profilePicturePath==basicOne
+    	entityAccount.setIsActive(true);
+    	entityAccount.setProfilePicturePath("media/gif/profilePictures/ProfileGif8.gif");
     	customer.setEntityAccount(entityAccount);
     	customerDao.create(customer);
     	System.err.println(customer.getId());

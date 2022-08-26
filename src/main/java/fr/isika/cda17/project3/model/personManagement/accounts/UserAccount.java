@@ -1,5 +1,6 @@
 package fr.isika.cda17.project3.model.personManagement.accounts;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -45,7 +46,7 @@ public class UserAccount extends Account{
     }
 
   public UserAccount(Long id, String username, String email, String password, String profilePicturePath, boolean isActive,
-	    Date creationDate, AccountType accountType, ShoppingCart shoppingCart, BankDetails bankDetails,
+		  LocalDateTime creationDate, AccountType accountType, ShoppingCart shoppingCart, BankDetails bankDetails,
 	    BillingAddress billingAddress, Wallet wallet, List<Service> services, List<Reservation> reservations) {
 	super(id, username, email, password, profilePicturePath, isActive, creationDate, accountType);
 	this.shoppingCart = shoppingCart;
