@@ -52,48 +52,48 @@
    
 		<button type="button" class="collapsible animation a3">Do you want to include a carpooling solution in your website?</button>
 		<div class="content-collapse">
-			<h:selectBooleanCheckbox id="bollCarPooling"  value="#{createSolutionBean.solution.carPoolingsolutionIncluded}">Yes, i want a CP
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="typeOption"  value="#{createSolutionBean.carPoolingSolution.carPoolingTypeOption}">Carpooling type option
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="seatsOption" value="#{createSolutionBean.carPoolingSolution.availableSeatsOption}">Available seats option
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="petsOption" value="#{createSolutionBean.carPoolingSolution.petAllowedOption}">Pets allowed option
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="smokingOption"  value="#{createSolutionBean.carPoolingSolution.smokingAllowedOption}">Smoking allowed option
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="musicOption"  value="#{createSolutionBean.carPoolingSolution.musicAllowedOption}">Music allowed option
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="chattingOption" value="#{createSolutionBean.carPoolingSolution.chattingAllowedOption}">Chatting option
-			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox id="bollCarPooling"  value="#{createSolutionBean.solution.carPoolingsolutionIncluded}">
+			</h:selectBooleanCheckbox> Yes, i want a CP<br />
+			<h:selectBooleanCheckbox id="typeOption"  value="#{createSolutionBean.carPoolingSolution.carPoolingTypeOption}">
+			</h:selectBooleanCheckbox> Carpooling type option<br />
+			<h:selectBooleanCheckbox id="seatsOption" value="#{createSolutionBean.carPoolingSolution.availableSeatsOption}">
+			</h:selectBooleanCheckbox> Available seats option<br />
+			<h:selectBooleanCheckbox id="petsOption" value="#{createSolutionBean.carPoolingSolution.petAllowedOption}">
+			</h:selectBooleanCheckbox> Pets allowed option<br />
+			<h:selectBooleanCheckbox id="smokingOption"  value="#{createSolutionBean.carPoolingSolution.smokingAllowedOption}">
+			</h:selectBooleanCheckbox> Smoking allowed option<br />
+			<h:selectBooleanCheckbox id="musicOption"  value="#{createSolutionBean.carPoolingSolution.musicAllowedOption}">
+			</h:selectBooleanCheckbox> Music allowed option<br />
+			<h:selectBooleanCheckbox id="chattingOption" value="#{createSolutionBean.carPoolingSolution.chattingAllowedOption}">
+			</h:selectBooleanCheckbox> Chatting option<br />
 		</div>
 		
 		<button type="button" class="collapsible animation a3">Do you want to include a parcel solution in your website?</button>
 		<div class="content-collapse">
-			<h:selectBooleanCheckbox id="boolPS"  value="#{createSolutionBean.solution.parcelSolutionIncluded}">Yes, i want a PS
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="volumeOption"  value="#{createSolutionBean.parcelSolution.atypicalVolumeOption}">Atypical volume option
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="fragileOption" value="#{createSolutionBean.parcelSolution.fragileOoption}">Fragile option
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="weightOption" value="#{createSolutionBean.parcelSolution.weightKilogrammesOption}">Weight Kilogrammes option
-			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox id="boolPS"  value="#{createSolutionBean.solution.parcelSolutionIncluded}">
+			</h:selectBooleanCheckbox> Yes, i want a PS<br />
+			<h:selectBooleanCheckbox id="volumeOption"  value="#{createSolutionBean.parcelSolution.atypicalVolumeOption}">
+			</h:selectBooleanCheckbox> Atypical volume option<br />
+			<h:selectBooleanCheckbox id="fragileOption" value="#{createSolutionBean.parcelSolution.fragileOoption}">
+			</h:selectBooleanCheckbox> Fragile option<br />
+			<h:selectBooleanCheckbox id="weightOption" value="#{createSolutionBean.parcelSolution.weightKilogrammesOption}">
+			</h:selectBooleanCheckbox> Weight Kilogrammes option<br />
 		</div>
 		<button type="button" class="collapsible animation a3">Do you want to include a car rental in your website?</button>
 		<div class="content-collapse">
-			<h:selectBooleanCheckbox id="boolCR"  value="#{createSolutionBean.solution.carRentalSolutionIncluded}">Yes, i want a CR
-			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox id="boolCR"  value="#{createSolutionBean.solution.carRentalSolutionIncluded}">
+			</h:selectBooleanCheckbox> Yes, i want a CR<br />
 		</div>
 		<button type="button" class="collapsible animation a3">Do you want to include a personal assistance in your website?</button>
 		<div class="content-collapse">
-			<h:selectBooleanCheckbox id="boolPA"  value="#{createSolutionBean.solution.personalAssistanceSolutionIncluded}">Yes, i want a PA
-			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox  id="boolPA"  value="#{createSolutionBean.solution.personalAssistanceSolutionIncluded}">
+			</h:selectBooleanCheckbox> Yes, i want a PA<br /><br/><br />
 		</div>
-		<br/>
+		
 	
 
 		
-      <h:commandButton class="animation a6" action="#{createSolutionBean.create()}" value="I am ready to chose my template"/>
+      <h:commandButton class="animation a6 button-shared" action="#{createSolutionBean.create()}" value="I am ready to chose my template"/>
       </h:form>
     </div>
   </div>
