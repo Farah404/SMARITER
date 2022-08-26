@@ -10,6 +10,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class Customer extends Person{
     
     private int phoneNumber;
+    private String role;
     
     @OneToOne(cascade=CascadeType.ALL)
     private EntityAccount entityAccount;
@@ -18,10 +19,11 @@ public class Customer extends Person{
 	super();
     }
 
-    public Customer(Long id, String firstName, String lastName, EntityAccount entityAccount, int phoneNumber) {
+    public Customer(Long id, String firstName, String lastName, EntityAccount entityAccount, int phoneNumber, String role) {
 	super(id, firstName, lastName);
 	this.phoneNumber = phoneNumber;
 	this.entityAccount=entityAccount;
+	this.role=role;
 
     }
 
@@ -39,6 +41,14 @@ public class Customer extends Person{
 
 	public void setEntityAccount(EntityAccount entityAccount) {
 		this.entityAccount = entityAccount;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 }

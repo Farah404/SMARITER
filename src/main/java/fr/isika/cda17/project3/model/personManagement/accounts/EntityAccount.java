@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
@@ -29,16 +30,16 @@ public class EntityAccount extends Account {
     
     private boolean isPrivate;
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private ShoppingCart shoppingCart;
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private BankDetails bankDetails;
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private BillingAddress billingAddress;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Wallet wallet;
     
     @ManyToMany
