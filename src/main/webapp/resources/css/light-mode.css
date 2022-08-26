@@ -1396,12 +1396,7 @@ h5{
   width: 100%;
 }
 
-.column-cusprofile{
-	float: left;
-  width: 50%;
-  margin-bottom: 16px;
-  padding: 0 8px;
-}
+
 /*===================================================================*/
 /*===================================================================*/
 
@@ -1803,10 +1798,17 @@ background-color: 	#F6F6F8;
 
 /*Customer profile*/
 
+.column-cusprofile{
+	float: left;
+  width: 50%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
 .container-cusProfile{
 	margin-top:5%;
 	font-size: 18px;
-	font-family: 'Raleway', sans-serif;
+	font-family: "Rubik", sans-serif;
 	border-radius: 0.5em;
 	box-shadow: 0 0 1em 0 rgba(51,51,51,0.25);
 	display: block;
@@ -1819,7 +1821,7 @@ background-color: 	#F6F6F8;
 
 .col-one-half-cusProfile{
 	float: left;
-	width: 50%;
+	width: 33.33%;
 }
 
 .input-text-cusProfile{
@@ -1839,6 +1841,9 @@ background-color: 	#F6F6F8;
 .text-center-cusProfile{
 	text-align: left;
 	font-family: "Rubik", sans-serif;
+	color: #7b667a;
+	font-size: 5vh;
+	font-weight: lighter;
 }
 
 .customer-img{
@@ -1849,4 +1854,10 @@ background-color: 	#F6F6F8;
 
 .label-text-cusProfile{
 font-family: "Rubik", sans-serif;
+float:left;
 }
+
+.fa-col-cus{
+	color: #7b667a;
+}
+

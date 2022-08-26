@@ -6,6 +6,7 @@ import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
 import fr.isika.cda17.project3.model.personManagement.accounts.AdministratorAccount;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 import fr.isika.cda17.project3.model.solutionManagement.MessagingSystemChoice;
@@ -22,12 +23,6 @@ public class DataSet {
 
     @PostConstruct
     private void initData() {
-
-	EntityAccount ea = new EntityAccount();
-	ea.setEmail("EcoCar@test.com");
-	ea.setPassword("123");
-
-	em.persist(ea);
 	
 	Solution so = new Solution();
 	so.setCarRentalSolutionIncluded(true);
@@ -68,14 +63,12 @@ public class DataSet {
 	em.persist(si);
   
 	EntityAccount eb = new EntityAccount();
-	eb.setName("EcoCar2@test.com");
+	eb.setName("EcoCar");
 	eb.setPassword("1234");
+	eb.setAccountType(AccountType.ENTITY);
+	eb.setEmail("ecocar@text.com");
 
-	AdministratorAccount e = new AdministratorAccount();
-	e.setEmail("Eco@test.com");
-	e.setPassword("123");
 
-	em.persist(e);
 	
 	Solution sosix = new Solution();
 	so.setCarPoolingsolutionIncluded(true);
