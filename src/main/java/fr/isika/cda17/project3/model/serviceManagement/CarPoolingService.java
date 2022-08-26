@@ -1,8 +1,10 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToOne;
@@ -20,28 +22,28 @@ public class CarPoolingService extends Service{
     
     private int availableSeats;
     
-    private Boolean isPetAllowed;
+    private boolean isPetAllowed;
     
-    private Boolean isSmokingAllowed;
+    private boolean isSmokingAllowed;
     
-    private Boolean isMusicAllowed;
+    private boolean isMusicAllowed;
     
-    private Boolean isChattingAllowed;
+    private boolean isChattingAllowed;
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private Vehicule vehicule;
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private Trajectory trajectory;
 
     public CarPoolingService() {
 	super();
     }
 
-    public CarPoolingService(Long id, Date publicationDate, Date expirationDate, Date startDate, Date endDate,
-			int referenceNumber, Boolean isRequest, double price, ServiceType servicetype,
-			List<UserAccount> userAccounts, CarPoolingType carPoolingType, int availableSeats, Boolean isPetAllowed,
-		    Boolean isSmokingAllowed, Boolean isMusicAllowed, Boolean isChattingAllowed, Vehicule vehicule, Trajectory trajectory) {
+    public CarPoolingService(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate, LocalDateTime endDate,
+			int referenceNumber, boolean isRequest, double price, ServiceType servicetype,
+			List<UserAccount> userAccounts, CarPoolingType carPoolingType, int availableSeats, boolean isPetAllowed,
+		    boolean isSmokingAllowed, boolean isMusicAllowed, boolean isChattingAllowed, Vehicule vehicule, Trajectory trajectory) {
 		super(id, publicationDate, expirationDate, startDate, endDate, referenceNumber, isRequest, price, servicetype,
 				userAccounts);
 		this.carPoolingType = carPoolingType;
@@ -70,7 +72,7 @@ public class CarPoolingService extends Service{
         this.availableSeats = availableSeats;
     }
 
-    public Boolean getIsPetAllowed() {
+    public boolean getIsPetAllowed() {
         return isPetAllowed;
     }
 
@@ -78,27 +80,27 @@ public class CarPoolingService extends Service{
         this.isPetAllowed = isPetAllowed;
     }
 
-    public Boolean getIsSmokingAllowed() {
+    public boolean getIsSmokingAllowed() {
         return isSmokingAllowed;
     }
 
-    public void setIsSmokingAllowed(Boolean isSmokingAllowed) {
+    public void setIsSmokingAllowed(boolean isSmokingAllowed) {
         this.isSmokingAllowed = isSmokingAllowed;
     }
 
-    public Boolean getIsMusicAllowed() {
+    public boolean getIsMusicAllowed() {
         return isMusicAllowed;
     }
 
-    public void setIsMusicAllowed(Boolean isMusicAllowed) {
+    public void setIsMusicAllowed(boolean isMusicAllowed) {
         this.isMusicAllowed = isMusicAllowed;
     }
 
-    public Boolean getIsChattingAllowed() {
+    public boolean getIsChattingAllowed() {
         return isChattingAllowed;
     }
 
-    public void setIsChattingAllowed(Boolean isChattingAllowed) {
+    public void setIsChattingAllowed(boolean isChattingAllowed) {
         this.isChattingAllowed = isChattingAllowed;
     }
 
