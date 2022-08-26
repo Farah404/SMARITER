@@ -52,7 +52,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	    Customer customerToDelete = this.entityManager.find(Customer.class, id);
 	    entityManager.remove(customerToDelete);
 	} catch (Exception e) {
-	    System.out.println("CustomerDaoImpl.delete() - Failed : " + e.getMessage());
+	    System.out.println("DaoImpl.delete() - Failed : " + e.getMessage());
 	}
 
     }

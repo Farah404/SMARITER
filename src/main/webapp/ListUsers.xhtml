@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>List</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+			<h:outputScript library="js" name="faq.js" />
+			<div class="container">
+
+				<hr />
+				<hr />
+				<hr />
+
+				<h:form>
+
+					<h:dataTable class="styled-table" id="listeUsers"
+						value="#{createUserBean.listUser}"
+						var="users">
+
+						<h:column>
+							<f:facet name="header">Id</f:facet>
+							<h:outputText value="#{users.id}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"> Email</f:facet>
+							<h:outputText value="#{users.userAccount.email}" />
+						</h:column>
+							<h:column>
+							<f:facet name="header"> Last Name</f:facet>
+							<h:outputText value="#{users.lastName}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Identity Card number</f:facet>
+							<h:outputText value="#{users.identityCardnumber}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Phone Number</f:facet>
+							<h:outputText value="#{users.phoneNumber}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Driving Permit Number</f:facet>
+							<h:outputText value="#{users.drivingPermitNumber}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Update</f:facet>
+							<h:panelGrid>
+								<h:commandButton value="Edit"
+									action="#{createUserBean.showUpdate(user.id)}">
+									<f:param name="userId" value="#user.id}"></f:param>
+								</h:commandButton>
+							</h:panelGrid>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Delete</f:facet>
+							<h:panelGrid>
+								<h:commandButton
+									action="#{createUserBean.delete(user.id)}"
+									value="Delete" />
+							</h:panelGrid>
+						</h:column>
+					</h:dataTable>
+
+				</h:form>
+
+
+
+			</div>
+
+			<hr />
+			<hr />
+			<hr />
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

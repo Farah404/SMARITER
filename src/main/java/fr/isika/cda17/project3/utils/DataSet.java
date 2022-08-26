@@ -6,8 +6,11 @@ import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.isika.cda17.project3.model.personManagement.accounts.Account;
 import fr.isika.cda17.project3.model.personManagement.accounts.AdministratorAccount;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
+import fr.isika.cda17.project3.model.personManagement.accounts.User;
+import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.solutionManagement.MessagingSystemChoice;
 import fr.isika.cda17.project3.model.solutionManagement.PaymentSystemChoice;
 import fr.isika.cda17.project3.model.solutionManagement.PriceDeal;
@@ -77,14 +80,26 @@ public class DataSet {
 
 	em.persist(e);
 	
-	Solution sosix = new Solution();
-	so.setCarPoolingsolutionIncluded(true);
-    so.setCarPoolingsolutionIncluded(true);
-    so.setCarRentalSolutionIncluded(false);
-    so.setRatingSystemIncluded(true);
-    so.setPaymentSystemChoice(PaymentSystemChoice.INTERNAL_CURRENCY);
-    so.setMessagingSystemChoice(MessagingSystemChoice.NO_RESTRICTION_MESSAGING);
-	em.persist(sosix);
+//	Solution sosix = new Solution();
+//	so.setCarPoolingsolutionIncluded(true);
+//    so.setCarPoolingsolutionIncluded(true);
+//    so.setCarRentalSolutionIncluded(false);
+//    so.setRatingSystemIncluded(true);
+//    so.setPaymentSystemChoice(PaymentSystemChoice.INTERNAL_CURRENCY);
+//    so.setMessagingSystemChoice(MessagingSystemChoice.NO_RESTRICTION_MESSAGING);
+//	em.persist(sosix);
+	
+	
+	User u = new User();
+	u.setFirstName("houda");
+	u.setLastName("madi");
+	u.setPhoneNumber(06666666);
+	u.setDrivingPermitNumber(123586);
+	em.persist(u);
+	
     }
+    
+    
+    
 
 }
