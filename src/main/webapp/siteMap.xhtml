@@ -13,8 +13,124 @@
 <h:body>
 	<ui:composition template="template/templateWhenConnected.xhtml">
 		<ui:define name="content">
+		<h:outputScript library="js" name = "iter.js"/>
+			<div class="container">
+				<div class="container-cusProfile">
+					<h1 class="text-center-cusProfile">Sitemap.</h1>
+					<br />
+
+					<div class="row">
+						<div class="col-one-half-cusProfile">
+
+							<ul>
+								<li><a href="patterns.xhtml">Main Website</a><br />
+									<ul>
+										<li><a href="patterns.xhtml">Solution Creation</a><br /></li>
+
+										<li><a href="service.xhtml">Accounts</a><br /></li>
+
+										<li><a href="customerProfile.xhtml">Banking
+												Authentification</a>
+											<ul>
+												<li><a href="pricing.xhtml">Invoices</a></li>
+											</ul></li>
 
 
+										<li><a href="onlineStore.xhtml">Sub-Website
+												Generation</a></li>
+
+										<li><a href="bookings.xhtml">Miscellaneous</a>
+											<ul>
+												<li><a href="bookings.xhtml">Dark Mode</a></li>
+												<li><a href="bookings.xhtml">Chat Bot</a></li>
+												<li><a href="bookings.xhtml">EN/FR</a></li>
+											</ul></li>
+									</ul></li>
+							</ul>
+						</div>
+
+
+
+						<div class="col-one-half-cusProfile">
+
+							<ul>
+								<li><a href="patterns.xhtml">Sub-Website</a><br />
+									<ul>
+										<li><a href="service.xhtml">Accounts</a><br /></li>
+										<li><a href="service.xhtml">Service Creation</a><br />
+											<ul>
+												<li><a href="service.xhtml">Carpooling Service</a><br /></li>
+												<li><a href="service.xhtml">Car Rental Service</a><br /></li>
+												<li><a href="service.xhtml">Parcel Service</a><br /></li>
+												<li><a href="service.xhtml">Personal Assistance
+														Service</a><br /></li>
+											</ul></li>
+
+										<li><a href="service.xhtml">Service Reservation</a><br />
+											<ul>
+												<li><a href="service.xhtml">As a provider</a><br /></li>
+												<li><a href="service.xhtml">As a consumer</a><br /></li>
+											</ul></li>
+
+										<li><a href="service.xhtml">Internal Currency
+												Transactions</a><br />
+											<ul>
+												<li><a href="service.xhtml">Invoices</a><br /></li>
+											</ul></li>
+
+										<li><a href="service.xhtml">Banking Authentification</a><br />
+											<ul>
+												<li><a href="service.xhtml">Invoices</a><br /></li>
+											</ul></li>
+
+										<li><a href="service.xhtml">Messaging System</a><br />
+											<ul>
+												<li><a href="service.xhtml">User to User</a><br /></li>
+												<li><a href="service.xhtml">User to Admin</a><br /></li>
+											</ul></li>
+
+										<li><a href="service.xhtml">Miscellaneous</a><br />
+											<ul>
+												<li><a href="bookings.xhtml">Dark Mode</a></li>
+												<li><a href="bookings.xhtml">Chat Bot</a></li>
+												<li><a href="bookings.xhtml">EN/FR</a></li>
+											</ul></li>
+
+									</ul></li>
+
+
+							</ul>
+
+						</div>
+
+						<div class="col-one-half-cusProfile"></div>
+					<img style="width:40vh" src="media/gif/productivity/animated-first-impression_4.gif" />
+					</div>
+				</div>
+
+			</div>
+<!-- chat bot -->
+			<div class="container container-chat">
+				<div id="chat-icon">
+					<img class="chat-logo" src="media/img/3649460.png" />
+				</div>
+
+				<div id="chat-box" class="">
+					<span id="chat-exit">x</span>
+					<div id="chat-header">
+						<img class="chat-logo" src="media/img/3649460.png" />
+					</div>
+					<div id="chat-history-wrapper">
+						<div id="chat-history"></div>
+					</div>
+					<div id="chat-user-inputs">
+						<!-- User form and submit button -->
+						<input type="text" id="chat-user-message" /> <img
+							src="media/gif/productivity/giphy.gif" id="send-msg-icon" />
+					</div>
+				</div>
+				<!-- end chat bot -->
+			</div>
 
 		</ui:define>
 	</ui:composition>

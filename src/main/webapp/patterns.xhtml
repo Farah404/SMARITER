@@ -12,7 +12,7 @@
 <h:body>
  <ui:composition template="template/template.xhtml">
  <ui:define name="content">
-
+<h:outputScript library="js" name = "iter.js"/>
 <div class="headerText animate-opacity">Our Team</div>
 			<div class="container">
 				<div class="row">
@@ -127,7 +127,28 @@
 					
 				</div>
 			</div>
- 
+ <!-- chat bot -->
+			<div class="container container-chat">
+				<div id="chat-icon">
+					<img class="chat-logo" src="media/img/3649460.png" />
+				</div>
+
+				<div id="chat-box" class="">
+					<span id="chat-exit">x</span>
+					<div id="chat-header">
+						<img class="chat-logo" src="media/img/3649460.png" />
+					</div>
+					<div id="chat-history-wrapper">
+						<div id="chat-history"></div>
+					</div>
+					<div id="chat-user-inputs">
+						<!-- User form and submit button -->
+						<input type="text" id="chat-user-message" /> <img
+							src="media/gif/productivity/giphy.gif" id="send-msg-icon" />
+					</div>
+				</div>
+				<!-- end chat bot -->
+			</div>
  </ui:define>
  </ui:composition>
  
