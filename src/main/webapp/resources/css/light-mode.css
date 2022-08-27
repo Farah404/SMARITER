@@ -1953,10 +1953,11 @@ float:left;
     margin: -5px 3px 0 0;
     cursor: pointer;
     display: none;
+    color:#7b667a;
 }
 #chat-header {
     height: 50px;
-    background-color: #7b667a;
+    background-color: #d0b9cd;
     border-radius: 15px 15px 0 0;
     display: none;
 }
@@ -2027,13 +2028,13 @@ float:left;
 
 #chat-user-inputs {
     height: 40px;
-    background-color: #7b667a;
+    background-color: #d0b9cd;
     border-radius: 0 0 15px 15px;
     border-top: 1px solid gray;
     display: none;
 }
 #chat-user-message {
-    background-color: #7b667a;
+    background-color: #d0b9cd;
     height: 30px;
     width: 270px;
     border: 0;

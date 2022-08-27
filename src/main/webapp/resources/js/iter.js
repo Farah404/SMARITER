@@ -126,7 +126,7 @@ function joke() {
 }
 
 function reply(message) {
-    let htmlReply = '<div class="chat-reply"><img src="https://image.flaticon.com/icons/png/512/1786/1786548.png" class="chat-reply-logo" /><p>'
+    let htmlReply = '<div class="chat-reply"><img src="media/img/3649460.png" class="chat-reply-logo" /><p>'
         + message
         + "</p></div>";
     
