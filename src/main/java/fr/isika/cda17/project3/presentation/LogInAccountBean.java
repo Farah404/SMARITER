@@ -86,10 +86,11 @@ public class LogInAccountBean implements Serializable {
 	
     
     
-    public void logout() {
+    public String logout() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	// vider la session des infos mémorisées
 	session.invalidate();
+	return "index?faces-redirect=true";
 	
 	// TODO : redirect to index plus tard
     }

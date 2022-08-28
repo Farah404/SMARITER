@@ -44,7 +44,6 @@ public class CustomerProfileBean implements Serializable {
 		}
 	}
 
-
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -54,5 +53,16 @@ public class CustomerProfileBean implements Serializable {
 		this.customer = customer;
 	}
 		
+	public String updateStepOne() {
+		return "updateCustomerProfile.xhtml?faces-redirect=true";
+	}
+	
+	public String update() {
+		customerDao.update(customer);
+		System.out.println(customer);
+		return "customerProfile.xhtml?faces-redirect=true";
+	}
+	
+	
 	
 }
