@@ -3,7 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<f:metadata>
+	<f:event listener="#{customerProfileBean.init()}" type="preRenderView">
+	</f:event>
+</f:metadata>
 
 <h:head>
 	<title>SmarIter</title>
@@ -15,10 +21,10 @@
 		<ui:define name="content">
 		<div class="container">
 <div class="container-cusProfile">
-	<h1 class="text-center-cusProfile">Welcome back to your Dashboard, EcoCar</h1>
+	<h1 class="text-center-cusProfile">Welcome back to your Dashboard, #{customerProfileBean.customer.entityAccount.username} </h1>
 	<br />
 	<div class="row">
-	<form class="cusProfile">
+	<h:form class="cusProfile">
 		<div class="col-one-half-cusProfile">
 		<img class="customer-img" src="media/img/EcoCarBig.png" /><br />
 		<h:commandButton  class="button-shared" value="Update profile"/><br />
@@ -29,6 +35,7 @@
 		</div>
 		<div class="col-one-half-cusProfile">
 		<br />
+		<h:outputText value="#{customerProfileBean.customer.firstName}" />
 		<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Email address:</i></span><br /><br />
 			<span class="label-text-cusProfile"><i class="fa fa-phone fa-col-cus"> Phone number:</i></span><br /><br />
 			<span class="label-text-cusProfile"><i class="fa fa-euro fa-col-cus"> Payment plan:</i></span><br /><br />
@@ -52,7 +59,7 @@
 			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Postal code:</i></span><br /><br />
 			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Country:</i></span><br /><br />
 		</div>
-	</form>
+	</h:form>
 	</div></div>
 
 	<div class="container-cusProfile">
