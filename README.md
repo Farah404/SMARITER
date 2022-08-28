@@ -4,7 +4,11 @@
 [![Issues][issues-shield]][issues-url]
 
 <!-- PROJECT LOGO -->
-<br />
+
+
+https://user-images.githubusercontent.com/96427557/187072009-1ae4fdb0-bc7d-4fd4-81e1-8a6f7631c6db.mp4
+
+
 <div align="center">
   <a href="">
 
@@ -13,8 +17,8 @@
 <h3 align="center">SMARITER</h3>
 
   <p align="center">
-   Our services offer our users the ability to easily create beautiful and highly functional online presence, to manage and promote businesses, content and ideas, and have an overall great experience doing so – without being tech-savvy or a design guru.<br/> <br />
-   we offer our users numerous tools and features for creating, publishing and use of stunning websites focusing on providing carpooling, car rental, parcel delivery and personal assistance services.
+   Our services offer our users the ability to easily create beautiful and highly functional online presence, to manage and promote businesses, content and ideas, and have an overall great experience doing so – without being tech-savvy.<br/> <br />
+   
    <br /> <br />
    This project is in keeping with our project 2 EcoCar.
     <br/> <br />
@@ -61,8 +65,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-You want to provide carpooling services to your members ?
-SMARITER provides you many options to define your own website. You can either choose every options from scratch or select a pre-defined website template.
+we offer our users numerous tools and features for creating, publishing and use of stunning websites focusing on providing carpooling, car rental, parcel delivery and personal assistance services.
+SMARITER provides you many options to define your own website. You can either choose every option from scratch or select a pre-defined website template.
 
 Options include : 
 * carpooling, car rental, parcel or personal assistance
