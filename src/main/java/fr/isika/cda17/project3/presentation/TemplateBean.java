@@ -19,16 +19,17 @@ public class TemplateBean implements Serializable{
 	private static final long serialVersionUID = -3690438985865445753L;
 	
 	private String templateToUse;
-		
+	
+	
 	public String templatePath() {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		if(session.getAttribute("email") == null){
 			templateToUse="template/template.xhtml";
-			System.out.println("session sans authentification :"+templateToUse);
+			System.out.println("authentification == None :"+templateToUse);
 			return templateToUse;
 		}else {
 			templateToUse ="template/templateWhenConnected.xhtml";
-			System.out.println("session authentifiee : "+templateToUse);
+			System.out.println("authentification == True : "+templateToUse);
 			return templateToUse;
 		}
 	}
