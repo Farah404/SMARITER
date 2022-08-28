@@ -34,6 +34,8 @@ public class LogInAccountBean implements Serializable {
     @NotEmpty(message = "Required")
     @NotNull(message = "Required")
     private String password;
+       
+    private String sessionAccountId;
     
     @Inject
     private EntityAccountDao entityAccountDao;
@@ -52,6 +54,7 @@ public class LogInAccountBean implements Serializable {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		session.setAttribute("id", account.getId());
 		session.setAttribute("email", account.getEmail());
+		sessionAccountId=session.getAttribute("id").toString();
 		System.out.println("LoginBean.accountLogin(): "+ session.getAttribute("email"));
 		return "index?faces-redirect=true";
 	     }
@@ -66,6 +69,7 @@ public class LogInAccountBean implements Serializable {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		session.setAttribute("id", administratorAccount.getId());
 		session.setAttribute("email", administratorAccount.getEmail());
+		sessionAccountId=session.getAttribute("id").toString();
 		System.out.println("LoginBean.accountLogin(): "+ session.getAttribute("email"));
 		return "index?faces-redirect=true";
 	       
@@ -82,10 +86,11 @@ public class LogInAccountBean implements Serializable {
 	
     
     
-    public void logout() {
+    public String logout() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	// vider la session des infos mémorisées
 	session.invalidate();
+	return "index?faces-redirect=true";
 	
 	// TODO : redirect to index plus tard
     }
@@ -105,4 +110,7 @@ public class LogInAccountBean implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+    public String getSessionAccountId() {
+		return sessionAccountId;
+	}
 }

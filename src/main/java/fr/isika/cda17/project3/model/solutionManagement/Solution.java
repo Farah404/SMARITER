@@ -47,8 +47,7 @@ public class Solution {
     private String solutionName;
     
       
-    @ManyToMany
-    private List <EntityAccount> entityAccounts = new LinkedList<>();
+
     
     @OneToOne(cascade=CascadeType.PERSIST)
     private CustomerInvoice customerInvoice;
@@ -67,7 +66,7 @@ public class Solution {
 			PriceDeal priceDeal, boolean isRatingSystemIncluded, boolean isCarPoolingsolutionIncluded,
 			boolean isCarRentalSolutionIncluded, boolean isParcelSolutionIncluded,
 			boolean isPersonalAssistanceSolutionIncluded, boolean isPrivate, String solutionName,
-			List<EntityAccount> entityAccounts, CustomerInvoice customerInvoice, CarPoolingSolution carPoolingSolution,
+			 CustomerInvoice customerInvoice, CarPoolingSolution carPoolingSolution,
 			ParcelSolution parcelSolution) {
 		super();
 		this.id = id;
@@ -81,7 +80,6 @@ public class Solution {
 		this.isPersonalAssistanceSolutionIncluded = isPersonalAssistanceSolutionIncluded;
 		this.isPrivate = isPrivate;
 		this.solutionName = solutionName;
-		this.entityAccounts = entityAccounts;
 		this.customerInvoice = customerInvoice;
 		this.carPoolingSolution = carPoolingSolution;
 		this.parcelSolution = parcelSolution;
@@ -173,14 +171,6 @@ public class Solution {
 
 	public void setSolutionName(String solutionName) {
 		this.solutionName = solutionName;
-	}
-
-	public List<EntityAccount> getEntityAccounts() {
-		return entityAccounts;
-	}
-
-	public void setEntityAccounts(List<EntityAccount> entityAccounts) {
-		this.entityAccounts = entityAccounts;
 	}
 
 	public CustomerInvoice getCustomerInvoice() {
