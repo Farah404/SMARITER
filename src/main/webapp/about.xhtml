@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+      xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
 	<title>SmarIter</title>
@@ -11,7 +12,7 @@
 
 
 <h:body>
-	<ui:composition template="template/template.xhtml">
+	<ui:composition template="#{templateBean.templatePath()}">
 		<ui:define name="content">
 		<h:outputScript library="js" name = "iter.js"/>
 		<div class="headerText animate-opacity">Create a website without limits</div>
