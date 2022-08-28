@@ -1,5 +1,6 @@
 package fr.isika.cda17.project3.presentation;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,7 @@ import fr.isika.cda17.project3.repository.personManagement.accounts.UserDao;
 
 @ManagedBean
 @SessionScoped
-public class CreateUserBean {
+public class CreateUserBean implements Serializable {
 
 	/**
 	*
@@ -35,7 +36,7 @@ public class CreateUserBean {
 	private UserAccount userAccount = new UserAccount();
 	private BankDetails bankDetails = new BankDetails();
 	private BillingAddress billingAddress = new BillingAddress();
-	private List<User> userList;
+	
 
 	/**
 	 * methodes
@@ -81,23 +82,13 @@ public class CreateUserBean {
 		}
 	}
 	
-	public String showUpdate(Long id) {
-		
-		System.err.println(id);
-		
-		return "signUp2.xhtml?faces-redirect=true&userId=" + id;
-	}
+	
 	
 
 	
-	public void delete(Long id) {
-		userDao.delete(id);
-		refresh();
-	}
 	
-	private void refresh() {
-		userList = userDao.findAll();
-	}
+	
+	
 
 	/**
 	 * getter et setters
@@ -119,11 +110,5 @@ public class CreateUserBean {
 		this.userAccount = userAccount;
 	}
 
-	public List<User> getListUser() {
-		return userList;
-	}
-
-	public void setListUser(List<User> listUser) {
-		this.userList = listUser;
-	}
+	
 }

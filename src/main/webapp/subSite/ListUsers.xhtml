@@ -11,7 +11,7 @@
 </h:head>
 
 <h:body>
-	<ui:composition template="template/template.xhtml">
+	<ui:composition template="/template/template.xhtml">
 		<ui:define name="content">
 			<h:outputScript library="js" name="faq.js" />
 			<div class="container">
@@ -23,7 +23,7 @@
 				<h:form>
 
 					<h:dataTable class="styled-table" id="listeUsers"
-						value="#{createUserBean.listUser}"
+						value="#{managementUserBean.userList}"
 						var="users">
 
 						<h:column>
@@ -54,7 +54,7 @@
 							<f:facet name="header">Update</f:facet>
 							<h:panelGrid>
 								<h:commandButton value="Edit"
-									action="#{createUserBean.showUpdate(user.id)}">
+									action="#{managementUserBean.showUpdate(users.id)}">
 									<f:param name="userId" value="#user.id}"></f:param>
 								</h:commandButton>
 							</h:panelGrid>
@@ -63,7 +63,7 @@
 							<f:facet name="header">Delete</f:facet>
 							<h:panelGrid>
 								<h:commandButton
-									action="#{createUserBean.delete(user.id)}"
+									action="#{managementUserBean.delete(users.id)}"
 									value="Delete" />
 							</h:panelGrid>
 						</h:column>

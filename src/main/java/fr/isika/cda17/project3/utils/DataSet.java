@@ -27,6 +27,7 @@ public class DataSet {
     private void initData() {
 
 	EntityAccount ea = new EntityAccount();
+
 	ea.setEmail("EcoCar@test.com");
 	ea.setPassword("123");
 
@@ -90,12 +91,16 @@ public class DataSet {
 //	em.persist(sosix);
 	
 	
-	User u = new User();
-	u.setFirstName("houda");
-	u.setLastName("madi");
-	u.setPhoneNumber(06666666);
-	u.setDrivingPermitNumber(123586);
-	em.persist(u);
+	UserAccount u = new UserAccount();
+	User ue = new User();
+	u.setEmail("houda@gmail.COM");
+	u.setUsername("houda");
+	u.setPassword("1234");
+	ue.setLastName("madi");
+	ue.setPhoneNumber(0612121212);
+	ue.setUserAccount(u);
+	em.persist(ue);
+	
 	
     }
     

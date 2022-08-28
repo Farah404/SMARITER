@@ -63,7 +63,10 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> findAll() {
-    	 return this.entityManager.createQuery("select ea from User ea", User.class).getResultList();
+    	
+    	List<User> u =  this.entityManager.createQuery("select ea from User ea", User.class).getResultList();
+    	 System.out.println( u);
+    	 return u;
 	
     }
 
