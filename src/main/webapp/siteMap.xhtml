@@ -11,7 +11,7 @@
 
 
 <h:body>
-	<ui:composition template="template/templateWhenConnected.xhtml">
+	<ui:composition template="#{templateBean.templatePath()}">
 		<ui:define name="content">
 		<h:outputScript library="js" name = "iter.js"/>
 			<div class="container">

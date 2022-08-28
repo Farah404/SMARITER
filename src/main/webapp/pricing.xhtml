@@ -6,11 +6,15 @@
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
 
 <h:body>
-	<ui:composition template="template/template.xhtml">
+	<ui:composition template="#{templateBean.templatePath()}">
 		<ui:define name="content">
 		<h:outputScript library="js" name = "iter.js"/>
+		 <h:outputScript library="js" name = "faq.js"/>
+			 <div class="wrapper"> <img width="100%" src="media/gif/coding/abstract.gif" />
+
+			</div>
 		<div class="headerText animate-opacity">Pricing</div>
- <h:outputScript library="js" name = "faq.js"/>
+
 			<div class="container">
 				<h2 class="pricing-page">Business &amp; eCommerce plans Grow and manage your online
 					business with a custom storefront, catalog and order management,

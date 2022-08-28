@@ -10,9 +10,12 @@
 </h:head>
 
 <h:body>
- <ui:composition template="template/template.xhtml">
+ <ui:composition template="#{templateBean.templatePath()}">
  <ui:define name="content">
 <h:outputScript library="js" name = "iter.js"/>
+	 <div class="wrapper"> <img width="100%" src="media/gif/coding/abstract.gif" />
+
+			</div>
 <div class="headerText animate-opacity">Our Team</div>
 			<div class="container">
 				<div class="row">

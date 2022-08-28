@@ -10,10 +10,10 @@
 </h:head>
 
 <h:body>
-	<ui:composition template="template/template.xhtml">
+	<ui:composition template="#{templateBean.templatePath()}">
 		<ui:define name="content">
 		<h:outputScript library="js" name = "iter.js"/>
-			<div class="container">
+			<div class="container" style="padding-top: 5%">
 				<div class="header-article animate-zoom">
 					<h2>Obstacles to working with your offshore dedicated
 								development team</h2>
