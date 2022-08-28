@@ -13,7 +13,10 @@
 <h3 align="center">SMARITER</h3>
 
   <p align="center">
-    A simple and efficient website to generate your own appropriate website to reserve and provide car pooling, car rental or parcel services.
+   Our services offer our users the ability to easily create beautiful and highly functional online presence, to manage and promote businesses, content and ideas, and have an overall great experience doing so – without being tech-savvy or a design guru.<br/>
+   we offer our users numerous tools and features for creating, publishing and use of stunning websites focusing on providing carpooling, car rental, parcel delivery and personal assistance services.
+   <br />
+   This project is in keeping with our project 2 EcoCar.
     <br/>
     ISIKA Project 3 specifications - CDA17 Group 1
     <br />
