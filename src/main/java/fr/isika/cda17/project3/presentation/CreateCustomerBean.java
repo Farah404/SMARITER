@@ -1,9 +1,7 @@
 package fr.isika.cda17.project3.presentation;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
