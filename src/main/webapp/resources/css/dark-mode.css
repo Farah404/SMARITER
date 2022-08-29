@@ -1577,7 +1577,7 @@ background-color: 	#383838;
 .styled-table thead tr {
     background-color: #383838;
     color: #d9d5d4;
-    text-align: center;
+    text-align: left;
 }
 .styled-table th,
 .styled-table td {
@@ -1600,6 +1600,8 @@ background-color: 	#383838;
 .styled-table tbody tr:last-of-type {
     border-bottom: 2px solid #d0b9cd;
 }
+
+
 .center-row {
     text-align: center;
     
