@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda17.project3.model.financialManagement.invoice.BankDetails;
 import fr.isika.cda17.project3.model.financialManagement.invoice.BillingAddress;
 import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
+import fr.isika.cda17.project3.model.personManagement.accounts.Administrator;
 import fr.isika.cda17.project3.model.personManagement.accounts.AdministratorAccount;
 import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
@@ -29,6 +30,19 @@ public class DataSet {
     @PostConstruct
     private void initData() {
 	
+	AdministratorAccount aa = new AdministratorAccount();
+	aa.setAccountType(AccountType.ADMINISTRATOR);
+	aa.setEmail("devTeam@smariter.com");
+	aa.setPassword("smariter123");
+	aa.setUsername("SmartAdmin");
+	em.persist(aa);
+	
+	Administrator a = new Administrator();
+	a.setEmployeeCode("EC102");
+	a.setFirstName("First");
+	a.setLastName("Last");
+	a.setAdministratorAccount(aa);
+	em.persist(a);
 	
 	BankDetails bd = new BankDetails();
 	bd.setBankName("BankTest");

@@ -3,178 +3,188 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core">
 
-<h:head>
-	<title>SmarIter</title>
-</h:head>
+<f:metadata>
+	<f:event listener="#{adminDashboardBean.init()}" type="preRenderView">
+	</f:event>
+</f:metadata>
 
 
 <h:body>
 	<ui:composition template="template/templateWhenConnected.xhtml">
 		<ui:define name="content">
-		<div class="container">
-<div class="container-cusProfile">
-	<h1 class="text-center-cusProfile">Welcome back to your Dashboard, EcoCar</h1>
-	<br />
-	<div class="row">
-	<form class="cusProfile">
-		<div class="col-one-half-cusProfile">
-		<img class="customer-img" src="media/img/EcoCarBig.png" /><br />
-		<h:commandButton  class="button-shared" value="Update profile"/><br />
-			  <h:commandButton class="button-shared" value="Update payment plan"/><br />
-			 <h:commandButton  class ="button-shared" value="View website"/><br />
-			  <h:commandButton class ="button-shared" value="Delete website"/><br />
-			
-		</div>
-		<div class="col-one-half-cusProfile">
-		<br />
-		<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Email address:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-phone fa-col-cus"> Phone number:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-euro fa-col-cus"> Payment plan:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-hashtag fa-col-cus"> Siret Number:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Website name:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-inbox fa-col-cus"> Included solutions:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-phone fa-col-cus"> Pricing plan:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-euro fa-col-cus"> Messaging choice:</i></span><br /><br />
-			
-		</div>
-		
-				<div class="col-one-half-cusProfile">
-		<br />
-		<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Banking details:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Bank name:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Swift number:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> IBAN:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-inbox fa-col-cus"> Billing Address:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Address line:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> City:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Postal code:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Country:</i></span><br /><br />
-		</div>
-	</form>
-	</div></div>
+			<div class="container">
+				<div class="container-cusProfile">
+					<h1 class="text-center-cusProfile">Welcome back to your
+						Dashboard,
+						#{adminDashboardBean.administrator.administratorAccount.username}</h1>
+					<br />
+					<div class="row">
+						<form class="cusProfile">
+							<div class="col-one-half-cusProfile">
+								<img class="customer-img"
+									src="media/gif/profilePictures/ProfileGif6.gif" /><br />
+<h:commandButton class="button-shared" action="#{logInAccountBean.logout()}" value="Log Out"></h:commandButton>
+							</div>
+							<div class="col-one-half-cusProfile">
+								<br /> <span class="label-text-cusProfile"><i
+									class="fa fa-envelope fa-col-cus"> Firstname:
+										#{adminDashboardBean.administrator.firstName}</i></span><br />
+								<br /> <span class="label-text-cusProfile"><i
+									class="fa fa-phone fa-col-cus"> Lastname:
+										#{adminDashboardBean.administrator.lastName}</i></span><br />
+								<br /> <span class="label-text-cusProfile"><i
+									class="fa fa-envelope fa-col-cus"> Email address:
+										#{adminDashboardBean.administrator.administratorAccount.email}</i></span><br />
+								<br /> <span class="label-text-cusProfile"><i
+									class="fa fa-phone fa-col-cus"> Employee Code:
+										#{adminDashboardBean.administrator.employeeCode}</i></span><br />
+								<br />
 
-	<div class="container-cusProfile">
-	<h1 class="text-center-cusProfile">Manage your website</h1>
-	<br />
-		<div class="row">
-	<form class="cusProfile">
-<div class="row-effort">
-				<div class="column-effort">
-					<div class="card-effort">
-						<p>
-							<i class="fa fa-effort fa-user"></i>
-						</p>
-						<h3>11+</h3>
-						<p>Users</p>
+							</div>
+
+							<div class="col-one-half-cusProfile"></div>
+						</form>
 					</div>
 				</div>
-				<div class="column-effort">
-					<div class="card-effort">
-						<p>
-							<i class="fa fa-effort fa-check"></i>
-						</p>
-						<h3>55+</h3>
-						<p>Posted requests</p>
+
+				<div class="container-cusProfile">
+					<h1 class="text-center-cusProfile">Manage your website</h1>
+					<br />
+					<div class="row">
+						<form class="cusProfile">
+							<div class="row-effort">
+								<div class="column-effort">
+									<div class="card-effort">
+										<p>
+											<i class="fa fa-effort fa-user"></i>
+										</p>
+										<h3>11+</h3>
+										<p>Users</p>
+									</div>
+								</div>
+								<div class="column-effort">
+									<div class="card-effort">
+										<p>
+											<i class="fa fa-effort fa-check"></i>
+										</p>
+										<h3>55+</h3>
+										<p>Posted requests</p>
+									</div>
+								</div>
+								<div class="column-effort">
+									<div class="card-effort">
+										<p>
+											<i class="fa fa-effort fa-smile-o"></i>
+										</p>
+										<h3>100+</h3>
+										<p>Posted services</p>
+									</div>
+								</div>
+								<div class="column-effort">
+									<div class="card-effort">
+										<p>
+											<i class="fa fa-effort fa-coffee"></i>
+										</p>
+										<h3>100+</h3>
+										<p>Reservations</p>
+									</div>
+								</div>
+							</div>
+							<br /> <span class="label-text-cusProfile"><i
+								class="fa fa-inbox fa-col-cus"> List of active Solutions:</i></span><br />
+							<br />
+
+							<h:dataTable class="styled-table" id="listeSolution"
+								value="#{solutionManagementBean.solutiontList}" var="solution">
+
+								<h:column>
+									<f:facet name="header">Solution Name</f:facet>
+									<h:outputText value="#{solution.solutionName}" />
+								</h:column>
+
+								<h:column>
+									<f:facet class="admin-table" name="header">Solution Owner</f:facet>
+									<h:outputText value="#{solution.customer.entityAccount.name}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header"> Car pool</f:facet>
+									<h:outputText value="#{solution.carPoolingsolutionIncluded}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Car rental</f:facet>
+									<h:outputText value="#{solution.carRentalSolutionIncluded}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Personnal Assistance</f:facet>
+									<h:outputText
+										value="#{solution.personalAssistanceSolutionIncluded}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Parcel Solution</f:facet>
+									<h:outputText value="#{solution.parcelSolutionIncluded}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Messaging system</f:facet>
+									<h:outputText value="#{solution.messagingSystemChoice}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Payment system</f:facet>
+									<h:outputText value="#{solution.paymentSystemChoice}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Rating system</f:facet>
+									<h:outputText value="#{solution.ratingSystemIncluded}" />
+								</h:column>
+							</h:dataTable>
+							<br /> <span class="label-text-cusProfile"><i
+								class="fa fa-inbox fa-col-cus"> List of Customers:</i></span><br />
+							<br />
+							<h:dataTable class="styled-table" id="listeSolution"
+								value="#{solutionManagementBean.solutiontList}" var="solution">
+
+								<h:column>
+									<f:facet name="header">Entity</f:facet>
+									<h:outputText value="#{solution.customer.entityAccount.name}" />
+								</h:column>
+
+								<h:column>
+									<f:facet class="admin-table" name="header">Solution</f:facet>
+									<h:outputText value="#{solution.solutionName}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Siret Number</f:facet>
+									<h:outputText
+										value="#{solution.customer.entityAccount.siretNumber}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header"> Email</f:facet>
+									<h:outputText value="#{solution.customer.entityAccount.email}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Phone Number</f:facet>
+									<h:outputText value="#{solution.customer.phoneNumber}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Pricing Deal</f:facet>
+									<h:outputText value="#{solution.priceDeal}" />
+								</h:column>
+							</h:dataTable>
+
+						</form>
 					</div>
 				</div>
-				<div class="column-effort">
-					<div class="card-effort">
-						<p>
-							<i class="fa fa-effort fa-smile-o"></i>
-						</p>
-						<h3>100+</h3>
-						<p>Posted services</p>
-					</div>
-				</div>
-				<div class="column-effort">
-					<div class="card-effort">
-						<p>
-							<i class="fa fa-effort fa-coffee"></i>
-						</p>
-						<h3>100+</h3>
-						<p>Reservations</p>
-					</div>
-				</div>
-				</div>
-				<br />
-				<span class="label-text-cusProfile"><i class="fa fa-inbox fa-col-cus"> Users list:</i></span><br /><br />
-				<table class="styled-table">
-					<thead>
-						<tr>
-							<th>Usernames</th>
-							<th>Lastname</th>
-							<th>Firstname</th>
-							<th>Email</th>
-							<th>Member since</th>
-							<th>Status</th>
-							<th>Suspend</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-						</tr>
-						<tr>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-						</tr>
-					</tbody>
-				</table>
-				<br />
-				<span class="label-text-cusProfile"><i class="fa fa-inbox fa-col-cus"> List of services on website:</i></span><br /><br />
-				<table class="styled-table">
-					<thead>
-						<tr>
-							<th>Start date</th>
-							<th>Service type</th>
-							<th>Reference number</th>
-							<th>Published by</th>
-							<th>Price</th>
-							<th>Status</th>
-							<th>Details</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-						</tr>
-						<tr>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-							<td class="center-row"><span class="green-check"></span></td>
-						</tr>
-					</tbody>
-				</table>
-				
-	</form>
-	</div>
-</div>
-			
+
 			</div>
-			
+
 		</ui:define>
 	</ui:composition>
 

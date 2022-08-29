@@ -13,6 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.CustomerInvoice;
+import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 
 @Entity
@@ -48,6 +49,8 @@ public class Solution {
     
       
 
+    @OneToOne(cascade=CascadeType.PERSIST)
+    private Customer customer;
     
     @OneToOne(cascade=CascadeType.PERSIST)
     private CustomerInvoice customerInvoice;
@@ -63,27 +66,28 @@ public class Solution {
     }
 
     public Solution(Long id, PaymentSystemChoice paymentSystemChoice, MessagingSystemChoice messagingSystemChoice,
-			PriceDeal priceDeal, boolean isRatingSystemIncluded, boolean isCarPoolingsolutionIncluded,
-			boolean isCarRentalSolutionIncluded, boolean isParcelSolutionIncluded,
-			boolean isPersonalAssistanceSolutionIncluded, boolean isPrivate, String solutionName,
-			 CustomerInvoice customerInvoice, CarPoolingSolution carPoolingSolution,
-			ParcelSolution parcelSolution) {
-		super();
-		this.id = id;
-		this.paymentSystemChoice = paymentSystemChoice;
-		this.messagingSystemChoice = messagingSystemChoice;
-		this.priceDeal = priceDeal;
-		this.isRatingSystemIncluded = isRatingSystemIncluded;
-		this.isCarPoolingsolutionIncluded = isCarPoolingsolutionIncluded;
-		this.isCarRentalSolutionIncluded = isCarRentalSolutionIncluded;
-		this.isParcelSolutionIncluded = isParcelSolutionIncluded;
-		this.isPersonalAssistanceSolutionIncluded = isPersonalAssistanceSolutionIncluded;
-		this.isPrivate = isPrivate;
-		this.solutionName = solutionName;
-		this.customerInvoice = customerInvoice;
-		this.carPoolingSolution = carPoolingSolution;
-		this.parcelSolution = parcelSolution;
-	}
+	    PriceDeal priceDeal, boolean isRatingSystemIncluded, boolean isCarPoolingsolutionIncluded,
+	    boolean isCarRentalSolutionIncluded, boolean isParcelSolutionIncluded,
+	    boolean isPersonalAssistanceSolutionIncluded, boolean isPrivate, String solutionName, Customer customer,
+	    CustomerInvoice customerInvoice, CarPoolingSolution carPoolingSolution, ParcelSolution parcelSolution) {
+	super();
+	this.id = id;
+	this.paymentSystemChoice = paymentSystemChoice;
+	this.messagingSystemChoice = messagingSystemChoice;
+	this.priceDeal = priceDeal;
+	this.isRatingSystemIncluded = isRatingSystemIncluded;
+	this.isCarPoolingsolutionIncluded = isCarPoolingsolutionIncluded;
+	this.isCarRentalSolutionIncluded = isCarRentalSolutionIncluded;
+	this.isParcelSolutionIncluded = isParcelSolutionIncluded;
+	this.isPersonalAssistanceSolutionIncluded = isPersonalAssistanceSolutionIncluded;
+	this.isPrivate = isPrivate;
+	this.solutionName = solutionName;
+	this.customer = customer;
+	this.customerInvoice = customerInvoice;
+	this.carPoolingSolution = carPoolingSolution;
+	this.parcelSolution = parcelSolution;
+    }
+
 
 	public Long getId() {
 		return id;
@@ -195,6 +199,14 @@ public class Solution {
 
 	public void setParcelSolution(ParcelSolution parcelSolution) {
 		this.parcelSolution = parcelSolution;
+	}
+
+	public Customer getCustomer() {
+	    return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+	    this.customer = customer;
 	}
 
     

@@ -1607,12 +1607,11 @@ background-color: 	#F6F6F8;
 .styled-table thead tr {
     background-color: #d0b9cd;
     color: #282828;
-    text-align: center;
+    text-align: left;
 }
 .styled-table th,
 .styled-table td {
     padding: 12px 15px;
-    
 }
 
 .styled-table td.span {

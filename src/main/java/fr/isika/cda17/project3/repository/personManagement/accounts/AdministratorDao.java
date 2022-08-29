@@ -10,6 +10,8 @@ import fr.isika.cda17.project3.repository.Dao;
 public interface AdministratorDao extends Dao <Administrator>{
     
 	 Optional<AdministratorAccount> findByEmail(final String email);
+
+	Administrator findByAdminAccountId(Long id);
     
 
 }
