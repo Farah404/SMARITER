@@ -23,9 +23,6 @@ import fr.isika.cda17.project3.repository.personManagement.accounts.UserDao;
 @SessionScoped
 public class CreateUserBean implements Serializable {
 
-	/**
-	*
-	*/
 	private static final long serialVersionUID = -8688644566487799148L;
 
 	@Inject
@@ -37,10 +34,6 @@ public class CreateUserBean implements Serializable {
 	private BillingAddress billingAddress = new BillingAddress();
 	private ShoppingCart shoppingCart = new ShoppingCart();
 	private Wallet wallet = new Wallet();
-
-	/**
-	 * methodes
-	 */
 
 	public String create() {
 		userAccount.setBankDetails(bankDetails);
