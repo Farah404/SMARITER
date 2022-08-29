@@ -2,22 +2,21 @@ package fr.isika.cda17.project3.presentation;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.BankDetails;
 import fr.isika.cda17.project3.model.financialManagement.invoice.BillingAddress;
+import fr.isika.cda17.project3.model.financialManagement.store.ShoppingCart;
+import fr.isika.cda17.project3.model.financialManagement.store.Wallet;
 import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.User;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
-
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserDao;
 
 @ManagedBean
@@ -36,16 +35,28 @@ public class CreateUserBean implements Serializable {
 	private UserAccount userAccount = new UserAccount();
 	private BankDetails bankDetails = new BankDetails();
 	private BillingAddress billingAddress = new BillingAddress();
-	
+	private ShoppingCart shoppingCart = new ShoppingCart();
+	private Wallet wallet = new Wallet();
 
 	/**
 	 * methodes
 	 */
 
-	public void create() {
-
+	public String create() {
+		userAccount.setBankDetails(bankDetails);
+		userAccount.setBillingAddress(billingAddress);
+		userAccount.setCreationDate(LocalDateTime.now());
+		userAccount.setAccountType(AccountType.USER);
+		userAccount.setShoppingCart(shoppingCart);
+		userAccount.setWallet(wallet);
+		userAccount.setIsActive(true);
+		user.setUserAccount(userAccount);
 		User created = userDao.create(user);
+		
+//		There is no list&&reservations set on userAccount 
+		
 		System.out.println(created);
+		return "subIndex.xhtml";
 	}
 
 	public String createStepOne() {
@@ -65,7 +76,7 @@ public class CreateUserBean implements Serializable {
 	public String update() {
 		userDao.update(user);
 		System.out.println(user);
-		return "index.xhtml?faces-redirect=true";
+		return "subIndex.xhtml?faces-redirect=true";
 	}
 
 	public void init() {
@@ -81,18 +92,6 @@ public class CreateUserBean implements Serializable {
 			}
 		}
 	}
-	
-	
-	
-
-	
-	
-	
-	
-
-	/**
-	 * getter et setters
-	 */
 
 	public User getUser() {
 		return user;
@@ -108,6 +107,22 @@ public class CreateUserBean implements Serializable {
 
 	public void setUserAccount(UserAccount userAccount) {
 		this.userAccount = userAccount;
+	}
+
+	public BankDetails getBankDetails() {
+		return bankDetails;
+	}
+
+	public void setBankDetails(BankDetails bankDetails) {
+		this.bankDetails = bankDetails;
+	}
+
+	public BillingAddress getBillingAddress() {
+		return billingAddress;
+	}
+
+	public void setBillingAddress(BillingAddress billingAddress) {
+		this.billingAddress = billingAddress;
 	}
 
 	

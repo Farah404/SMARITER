@@ -24,7 +24,7 @@ import fr.isika.cda17.project3.model.serviceManagement.Service;
 @NamedQuery(name = "UserAccount.findByEmail", query = "SELECT ua FROM UserAccount ua WHERE ua.email = :email_param")
 public class UserAccount extends Account{
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private ShoppingCart shoppingCart;
 
     @OneToOne(cascade=CascadeType.ALL)
@@ -36,10 +36,10 @@ public class UserAccount extends Account{
     @OneToOne(cascade=CascadeType.ALL)
     private Wallet wallet;
 
-    @ManyToMany
+    @ManyToMany(cascade=CascadeType.ALL)
     private List <Service> services = new LinkedList<>();
 
-    @ManyToMany
+    @ManyToMany(cascade=CascadeType.ALL)
     private List <Reservation> reservations = new LinkedList<>();
     
 
@@ -59,17 +59,6 @@ public class UserAccount extends Account{
 	this.services = services;
 	this.reservations = reservations;
     }
-
-//	public UserAccount(ShoppingCart shoppingCart, BankDetails bankDetails, BillingAddress billingAddress, Wallet wallet,
-//			List<Service> services, List<Reservation> reservations) {
-//		super();
-//		this.shoppingCart = shoppingCart;
-//		this.bankDetails = bankDetails;
-//		this.billingAddress = billingAddress;
-//		this.wallet = wallet;
-//		this.services = services;
-//		this.reservations = reservations;
-//	}
 
 	public ShoppingCart getShoppingCart() {
 	return shoppingCart;
