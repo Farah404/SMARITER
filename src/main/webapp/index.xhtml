@@ -21,7 +21,7 @@
 			</div>
 		<div class="headerText animate-opacity">Create a website without limits</div>
 		<div class="headerSubtext animate-opacity">Discover the platform that gives you the freedom to create, design, <br />manage and develop your web presence exactly the way you want.</div>
-		<div class="button headerButton animate-opacity"><a href="logInSignUp.xhtml">Get Started</a></div> 
+		<div class="button headerButton animate-opacity"><h:outputLink value="#{urlPathBean.goToStartService()}">Get Started</h:outputLink></div> 
 		
 		<!-- HowItWorks section -->
 			<div class="container" style="padding-top:5%">
@@ -135,8 +135,8 @@
 								<li class="pricing-features-item">50 GB storage space</li>
 								<li class="pricing-features-item">Priority customer care</li>
 							</ul>
-							<span class="pricing-price">$150</span> <a href="#/"
-								class="pricing-button">Sign up</a>
+							<span class="pricing-price">$150</span> 
+							<h:outputLink value="#{urlPathBean.goToStartService()}" class="pricing-button">More details</h:outputLink>
 						</div>
 						<div class="pricing-plan">
 							<img src="media/img/plane.png" alt=""
@@ -146,8 +146,8 @@
 								<li class="pricing-features-item">35 GB storage space</li>
 								<li class="pricing-features-item">24/7 customer care</li>
 							</ul>
-							<span class="pricing-price">$150</span> <a href="#/"
-								class="pricing-button is-featured">Sign Up</a>
+							<span class="pricing-price">$150</span> 
+								<h:outputLink value="#{urlPathBean.goToStartService()}" class="pricing-button is-featured">More details</h:outputLink>
 						</div>
 						<div class="pricing-plan">
 							<img src="media/img/paper-plane.png" alt=""
@@ -157,8 +157,8 @@
 								<li class="pricing-features-item">20 GB storage space</li>
 								<li class="pricing-features-item">24/7 customer care</li>
 							</ul>
-							<span class="pricing-price">$400</span> <a href="#/"
-								class="pricing-button">Free trial</a>
+							<span class="pricing-price">$400</span> 
+							<h:outputLink value="#{urlPathBean.goToStartService()}" class="pricing-button">More details</h:outputLink>
 						</div>
 					</div>
 				</div>

@@ -49,11 +49,12 @@ public class LogInAccountBean implements Serializable {
 	Optional<AdministratorAccount> optional1 = administratorDao.findByEmail(email);
 	if (optional.isPresent()) {
 		
-	    EntityAccount account = optional.get();
-	    if(account.getEmail().equals(email) && account.getPassword().equals(password)) {
+	    EntityAccount entityAccount = optional.get();
+	    if(entityAccount.getEmail().equals(email) && entityAccount.getPassword().equals(password)) {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		session.setAttribute("id", account.getId());
-		session.setAttribute("email", account.getEmail());
+		session.setAttribute("id", entityAccount.getId());
+		session.setAttribute("email", entityAccount.getEmail());
+		session.setAttribute("accountType",entityAccount.getAccountType());
 		sessionAccountId=session.getAttribute("id").toString();
 		System.out.println("LoginBean.accountLogin(): "+ session.getAttribute("email"));
 		return "index?faces-redirect=true";
@@ -69,6 +70,7 @@ public class LogInAccountBean implements Serializable {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		session.setAttribute("id", administratorAccount.getId());
 		session.setAttribute("email", administratorAccount.getEmail());
+		session.setAttribute("accountType", administratorAccount.getAccountType());
 		sessionAccountId=session.getAttribute("id").toString();
 		System.out.println("LoginBean.accountLogin(): "+ session.getAttribute("email"));
 		return "index?faces-redirect=true";
