@@ -20,9 +20,6 @@ import fr.isika.cda17.project3.repository.personManagement.accounts.CustomerDao;
 @ViewScoped
 public class CreateCustomerBean implements Serializable {
     
-    /**
-     *
-     */
     private static final long serialVersionUID = -8688644566487799148L;
 
     @Inject

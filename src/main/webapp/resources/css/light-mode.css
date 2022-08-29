@@ -934,21 +934,100 @@ button.ghost {
 }
 
 .signup-form{
-	width: 50%;
+	width: 100%;
 	z-index: 1;
 	left: 25%;
 	height: 100%;
 }
 
 .signupform-container{
-	background-color: transparent;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	height: auto;
-	text-align: center;
+	font-family: Rubik, sans-serif;
+  font-size: 16px;
+  color: #7b667a;
+  height:100%;
+  width:100%;
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top:8%;
 }
+
+.signupform-container p{
+  font-size: 12px;
+  margin-left: 18px;
+}
+
+.signupform-container h1{
+  font-size: 32px;
+  font-weight: 300;
+  color: #4c4c4c;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+.signupform-container hr{
+ color: #a9a9a9;
+  opacity: 0.3;
+}
+.signupbox{
+  width:30%;
+  height:80%;
+  -webkit-border-radius: 8px/7px; 
+  -moz-border-radius: 8px/7px; 
+  border-radius: 8px/7px; 
+  background-color: #d0b9cd; 
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  border: solid 1px #cbc9c9;
+}
+
+#icon {
+  width: 50px;
+  display: inline-block;
+  background-color: transparent;
+  padding: 8px 0px 8px 15px;
+  margin-left: 15px;
+  -webkit-border-radius: 4px 0px 0px 4px; 
+  -moz-border-radius: 4px 0px 0px 4px; 
+  border-radius: 4px 0px 0px 4px;
+  color: #7b667a;
+ 
+}
+
+.register-button{
+font-size: 14px;
+  font-weight: 600;
+  color: #7b667a;
+  text-decoration: none;
+  width: 150px; height: 50px; 
+  -webkit-border-radius: 5px; 
+  -moz-border-radius: 5px; 
+  border-radius: 5px; 
+  background-color: #a9d0cc;
+  top: 0px;
+  position: relative;
+  cursor: pointer;
+  float: right;
+  padding-right: 2%;
+}
+
+.register-button:hover{
+	top: 3px;
+  background-color:#d9d5d4;
+	}
+	
+	.col-signup{
+	float: left;
+  width: 50%;
+  padding: 10px;
+	}
+		.row-signup{
+		content: "";
+  display: table;
+  clear: both;
+	}
 
 .signup{
 	background: transparent;
