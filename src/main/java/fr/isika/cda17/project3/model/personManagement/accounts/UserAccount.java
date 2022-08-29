@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -20,6 +21,7 @@ import fr.isika.cda17.project3.model.serviceManagement.Service;
 
 @Entity
 @PrimaryKeyJoinColumn(name="id")
+@NamedQuery(name = "UserAccount.findByEmail", query = "SELECT ua FROM UserAccount ua WHERE ua.email = :email_param")
 public class UserAccount extends Account{
 
     @OneToOne

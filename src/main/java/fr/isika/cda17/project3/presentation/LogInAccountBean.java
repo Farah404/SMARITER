@@ -18,8 +18,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.AdministratorAccount;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
+import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.repository.personManagement.accounts.AdministratorDao;
 import fr.isika.cda17.project3.repository.personManagement.accounts.EntityAccountDao;
+import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
 
 @ManagedBean
 @SessionScoped
@@ -42,6 +44,27 @@ public class LogInAccountBean implements Serializable {
     
     @Inject
     private AdministratorDao administratorDao;
+    
+    @Inject
+    private UserAccountsDao userAccountDao;
+    
+    public String userAccountLogin() throws ServletException{
+    	Optional<UserAccount> optional= userAccountDao.findByEmail(email);
+    	if(optional.isPresent()) {
+    		UserAccount userAccount = optional.get();
+    		if(userAccount.getEmail().equals(email) && userAccount.getPassword().equals(password)){
+    			HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+    			session.setAttribute("id",userAccount.getId());
+    			session.setAttribute("email", userAccount.getEmail());
+    			session.setAttribute("accountType", userAccount.getAccountType());
+    			return "subIndex.xhtml?faces-redirect=true";
+    		} 
+    		else {
+    			System.out.println("Wrong authentification");
+    		}
+    	}
+		return "subLogin";
+    }
     
 
 	public String accountLogin() throws ServletException {
@@ -86,8 +109,6 @@ public class LogInAccountBean implements Serializable {
 	return "logInSignUp";
     }
 	
-    
-    
     public String logout() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	// vider la session des infos mémorisées

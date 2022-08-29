@@ -36,14 +36,6 @@ public class DataSet {
     private void initData() {
     
 
-	EntityAccount ea = new EntityAccount();
-
-	ea.setEmail("EcoCar@test.com");
-	ea.setPassword("123");
-
-	em.persist(ea);
-
-	
 	AdministratorAccount aa = new AdministratorAccount();
 	aa.setAccountType(AccountType.ADMINISTRATOR);
 	aa.setEmail("devTeam@smariter.com");
@@ -107,12 +99,13 @@ public class DataSet {
 
 	UserAccount u = new UserAccount();
 	User ue = new User();
-	u.setEmail("houda@gmail.COM");
+	u.setEmail("houda@gmail.com");
 	u.setUsername("houda");
 	u.setPassword("1234");
 	ue.setLastName("madi");
 	ue.setPhoneNumber(0612121212);
 	ue.setUserAccount(u);
+	u.setAccountType(AccountType.USER);
 	em.persist(ue);
     }
     
