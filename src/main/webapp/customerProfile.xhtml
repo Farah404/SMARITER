@@ -29,6 +29,9 @@
 		<img class="customer-img" src="media/img/EcoCarBig.png" /><br />
 		<h:commandButton  action="#{customerProfileBean.updateStepOne()}" class="button-shared" value="Update profile"/><br />
 			 <h:commandButton  class ="button-shared" value="View my website"/><br />
+			 <h:form>
+				<h:commandButton class="button-shared" action="#{logInAccountBean.logout()}" value="Log Out"></h:commandButton>
+				</h:form>
 			
 		</div>
 		<div class="col-one-half-cusProfile">

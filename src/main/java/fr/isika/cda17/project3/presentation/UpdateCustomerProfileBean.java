@@ -15,7 +15,7 @@ import fr.isika.cda17.project3.repository.personManagement.accounts.CustomerDao;
 
 @ManagedBean
 @ViewScoped
-public class updateCustomerProfileBean implements Serializable {
+public class UpdateCustomerProfileBean implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
