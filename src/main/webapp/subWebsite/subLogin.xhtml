@@ -27,17 +27,17 @@
 											<h:form>
 												<div class="form-floating mb-3">
 													<h:inputText a:placeholder="Email" id="nameTxt"
-														value="#{logInAccountBean.email}" />
+														value="#{logInAccountBean.email}" class = "form-control"/>
 													<h:message for="nameTxt" />
 												</div>
 												<br />
 												<div class="form-floating mb-3">
 													<h:inputSecret a:placeholder="Password" id="passwordTxt"
-														value="#{logInAccountBean.password}" />
+														value="#{logInAccountBean.password}" class = "form-control"/>
 													<h:message for="passwordTxt" />
 												</div>
 												<br />
-												<h:commandButton class="btn-signin"
+												<h:commandButton class="btn btn-success btn-xl"
 													action="#{logInAccountBean.userAccountLogin()}" value="Sign In"></h:commandButton>
 											</h:form>
 										</center>
@@ -45,7 +45,7 @@
                                 <div>
                                     <a class="text-muted" href="LoginAdministrator">Je me connecte en tant qu'admin</a><br />
                                     <a class="text-muted" href="ForgotPassword">J'ai oublié mon mot de passe</a><br />
-                                    <a class="text-muted" href="CreatePerson"> Je ne possède pas un compte EcoCar</a>
+                                    <a class="text-muted" href="subSignup.xhtml"> Je ne possède pas un compte EcoCar</a>
                                 </div>
                             </div>
                         </div>
