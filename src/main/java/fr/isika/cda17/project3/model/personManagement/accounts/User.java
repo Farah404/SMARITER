@@ -2,7 +2,9 @@ package fr.isika.cda17.project3.model.personManagement.accounts;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
@@ -16,18 +18,24 @@ public class User extends Person{
     private int identityCardnumber;
     
     private int drivingPermitNumber;
+    
+    
+    @OneToOne(cascade=CascadeType.ALL)
+    private UserAccount userAccount;
 
-    public User() {
+   
+	public User() {
 	super();
     }
 
     public User(Long id, String firstName, String lastName, int phoneNumber, Date birthDate,
-	    int identityCardnumber, int drivingPermitNumber) {
+	    int identityCardnumber, int drivingPermitNumber, UserAccount userAccount) {
 	super(id, firstName, lastName);
 	this.phoneNumber = phoneNumber;
 	this.birthDate = birthDate;
 	this.identityCardnumber = identityCardnumber;
 	this.drivingPermitNumber = drivingPermitNumber;
+	this.userAccount = userAccount;
     }
 
     public int getPhoneNumber() {
@@ -61,5 +69,13 @@ public class User extends Person{
     public void setDrivingPermitNumber(int drivingPermitNumber) {
         this.drivingPermitNumber = drivingPermitNumber;
     }
+    public UserAccount getUserAccount() {
+		return userAccount;
+	}
+
+	public void setUserAccount(UserAccount userAccount) {
+		this.userAccount = userAccount;
+	}
+
 
 }

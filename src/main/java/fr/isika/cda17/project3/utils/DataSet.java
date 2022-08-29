@@ -6,15 +6,20 @@ import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.isika.cda17.project3.model.personManagement.accounts.Account;
 import fr.isika.cda17.project3.model.financialManagement.invoice.BankDetails;
 import fr.isika.cda17.project3.model.financialManagement.invoice.BillingAddress;
 import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
 import fr.isika.cda17.project3.model.personManagement.accounts.Administrator;
+
 import fr.isika.cda17.project3.model.personManagement.accounts.AdministratorAccount;
 import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
+import fr.isika.cda17.project3.model.personManagement.accounts.User;
+import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.accounts.Person;
 import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
+
 import fr.isika.cda17.project3.model.solutionManagement.MessagingSystemChoice;
 import fr.isika.cda17.project3.model.solutionManagement.PaymentSystemChoice;
 import fr.isika.cda17.project3.model.solutionManagement.PriceDeal;
@@ -29,6 +34,15 @@ public class DataSet {
 
     @PostConstruct
     private void initData() {
+    
+
+	EntityAccount ea = new EntityAccount();
+
+	ea.setEmail("EcoCar@test.com");
+	ea.setPassword("123");
+
+	em.persist(ea);
+
 	
 	AdministratorAccount aa = new AdministratorAccount();
 	aa.setAccountType(AccountType.ADMINISTRATOR);
@@ -90,6 +104,19 @@ public class DataSet {
 	em.persist(test);
 	
 	
+
+	UserAccount u = new UserAccount();
+	User ue = new User();
+	u.setEmail("houda@gmail.COM");
+	u.setUsername("houda");
+	u.setPassword("1234");
+	ue.setLastName("madi");
+	ue.setPhoneNumber(0612121212);
+	ue.setUserAccount(u);
+	em.persist(ue);
     }
+    
+    
+    
 
 }

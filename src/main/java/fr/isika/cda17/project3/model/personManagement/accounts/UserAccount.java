@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
@@ -24,13 +25,13 @@ public class UserAccount extends Account{
     @OneToOne
     private ShoppingCart shoppingCart;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private BankDetails bankDetails;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private BillingAddress billingAddress;
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private Wallet wallet;
 
     @ManyToMany
@@ -57,16 +58,16 @@ public class UserAccount extends Account{
 	this.reservations = reservations;
     }
 
-	public UserAccount(ShoppingCart shoppingCart, BankDetails bankDetails, BillingAddress billingAddress, Wallet wallet,
-			List<Service> services, List<Reservation> reservations) {
-		super();
-		this.shoppingCart = shoppingCart;
-		this.bankDetails = bankDetails;
-		this.billingAddress = billingAddress;
-		this.wallet = wallet;
-		this.services = services;
-		this.reservations = reservations;
-	}
+//	public UserAccount(ShoppingCart shoppingCart, BankDetails bankDetails, BillingAddress billingAddress, Wallet wallet,
+//			List<Service> services, List<Reservation> reservations) {
+//		super();
+//		this.shoppingCart = shoppingCart;
+//		this.bankDetails = bankDetails;
+//		this.billingAddress = billingAddress;
+//		this.wallet = wallet;
+//		this.services = services;
+//		this.reservations = reservations;
+//	}
 
 	public ShoppingCart getShoppingCart() {
 	return shoppingCart;

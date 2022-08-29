@@ -6,7 +6,9 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 import fr.isika.cda17.project3.model.personManagement.accounts.User;
+import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
 @Stateless
 public class UserDaoImpl implements UserDao {
@@ -28,15 +30,15 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void update(User user) {
 	try {
-	    User updatedUser = entityManager.find(User.class, user.getId());
+	    User updatedUser = this.entityManager.find(User.class, user.getId());
 	    updatedUser.setFirstName(user.getFirstName());
 	    updatedUser.setLastName(user.getLastName());
 	    updatedUser.setPhoneNumber(user.getPhoneNumber());
 	    updatedUser.setBirthDate(user.getBirthDate());
-	    updatedUser.setIdentityCardnumber(user.getDrivingPermitNumber());
+	    updatedUser.setIdentityCardnumber(user.getIdentityCardnumber());
 	    updatedUser.setDrivingPermitNumber(user.getDrivingPermitNumber());
-	    
-	    entityManager.persist(updatedUser);
+	    updatedUser.setUserAccount(user.getUserAccount());
+	    entityManager.merge(updatedUser);
 	} catch (Exception e) {
 	    System.out.println("UserDao.update() - Failed : " + e.getMessage());
 	}
@@ -61,8 +63,11 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> findAll() {
-	// TODO Auto-generated method stub
-	return null;
+    	
+    	List<User> u =  this.entityManager.createQuery("select ea from User ea", User.class).getResultList();
+    	 System.out.println( u);
+    	 return u;
+	
     }
 
 }
