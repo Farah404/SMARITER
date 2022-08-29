@@ -1,8 +1,6 @@
 package fr.isika.cda17.project3.model.personManagement.accounts;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -42,8 +40,8 @@ public class EntityAccount extends Account {
     @OneToOne(cascade = CascadeType.ALL)
     private Wallet wallet;
     
-    @ManyToMany
-    private List <Solution> solutions = new LinkedList<>();
+    @OneToOne(cascade = CascadeType.ALL)
+    private Solution solution;
     
     public EntityAccount() {
 	super();
@@ -51,7 +49,7 @@ public class EntityAccount extends Account {
     public EntityAccount(Long id, String username, String email, String password, String profilePicturePath, boolean isActive,
     		LocalDateTime creationDate, AccountType accountType, String name, int siretNumber, boolean isPrivate,
 	    ShoppingCart shoppingCart, BankDetails bankDetails, BillingAddress billingAddress, Wallet wallet,
-	    List<Solution> solutions) {
+	    Solution solution) {
 	super(id, username, email, password, profilePicturePath, isActive, creationDate, accountType);
 	this.name = name;
 	this.siretNumber = siretNumber;
@@ -60,7 +58,7 @@ public class EntityAccount extends Account {
 	this.bankDetails = bankDetails;
 	this.billingAddress = billingAddress;
 	this.wallet = wallet;
-	this.solutions = solutions;
+	this.solution = solution;
     }
 
     public String getName() {
@@ -118,14 +116,11 @@ public class EntityAccount extends Account {
     public void setWallet(Wallet wallet) {
         this.wallet = wallet;
     }
-
-    public List<Solution> getSolutions() {
-        return solutions;
+    public Solution getSolution() {
+        return solution;
     }
-
-    public void setSolutions(List<Solution> solutions) {
-        this.solutions = solutions;
+    public void setSolution(Solution solution) {
+        this.solution = solution;
     }
-
 
 }

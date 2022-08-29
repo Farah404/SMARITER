@@ -1,13 +1,14 @@
 package fr.isika.cda17.project3.repository.personManagement.accounts;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
-import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 
 @Stateless
 public class CustomerDaoImpl implements CustomerDao {
@@ -67,5 +68,19 @@ public class CustomerDaoImpl implements CustomerDao {
 	// TODO Auto-generated method stub
 	return null;
     }
+
+	@Override
+	public Customer findByEntityAccountId(Long id) {		
+		try {
+			Customer customer = this.entityManager
+					.createNamedQuery("customer.findByEntityAccountId", Customer.class)
+					.setParameter("c_param", id)
+					.getSingleResult();
+			return customer;
+		} catch (NoResultException ex) {
+			System.out.println("EntityAccountDaoImpl.findByEntityAccountId() - not found : " + id);
+		}
+		return null;
+	}
 
 }

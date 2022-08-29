@@ -12,21 +12,17 @@
  
 	<nav>
 		<ul class="menu">
-			<li class="logo"><a href="index.xhtml">SMARITER</a></li>
-			<li class="item"><a href="about.xhtml">About</a></li>
-			<li class="item"><a href="team.xhtml">Team</a></li>
-			<li class="item has-submenu"><a href="service.xhtml">Services</a></li>
-			<li class="item has-submenu"><a href="pricing.xhtml">Pricing </a>
-				</li>
-			<li class="item"><a href="blog.xhtml">Blog</a></li>
-			<li class="item"><a href="contactForm.xhtml">Contact</a></li>
+			<li class="logo"><h:outputLink value="#{urlPathBean.goToIndex()}">SMARITER</h:outputLink></li>
+			<li class="item"><h:outputLink value="#{urlPathBean.goToAbout()}">About </h:outputLink></li>
+			<li class="item"><h:outputLink value="#{urlPathBean.goToTeam()}">Team</h:outputLink></li>
+			<li class="item"><h:outputLink value="#{urlPathBean.goToServices()}">Services</h:outputLink></li>
+			<li class="item"><h:outputLink value="#{urlPathBean.goToPricing()}">Pricing </h:outputLink></li>
+			<li class="item"><h:outputLink value="#{urlPathBean.goToBlog()}">Blog</h:outputLink></li>
+			<li class="item"><h:outputLink value="#{urlPathBean.goToContact()}">Contact</h:outputLink></li>
 		
 			<li class="item"><a href="#" id="dm-switch"><i class="fa fa-moon-o"></i></a></li>
 			<li class="item"><a href="#"><i class="fa fa-globe"></i></a></li>
-			<li class="item"><a href="#" id="dm-switch"><i class="fa fa-user"></i></a></li>
-			<li class="item"><a href="#" id="dm-switch"><i class="fa fa-inbox"></i></a></li>
-			
-			<li class="item button"><a href="logInSignUp.xhtml">Log Out</a></li>
+			<li class="item"><h:outputLink value="#{urlPathBean.goToDashBoard()}"><i class="fa fa-user"></i> </h:outputLink></li>
 			<li class="toggle"><a href="#"><i class="fa fa-bars"></i></a></li>
 		</ul>
 	</nav>

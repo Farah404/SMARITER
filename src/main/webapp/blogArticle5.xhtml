@@ -6,13 +6,14 @@
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
 
 <h:head>
-	<title>SmarIter</title>
+	<h:title>SmarIter</h:title>
 </h:head>
 
 <h:body>
-	<ui:composition template="template/template.xhtml">
+	<ui:composition template="#{templateBean.templatePath()}">
 		<ui:define name="content">
-			<div class="container">
+		<h:outputScript library="js" name = "iter.js"/>
+			<div class="container" style="padding-top: 5%">
 				<div class="header-article animate-zoom">
 					<h2>Obstacles to working with your offshore dedicated
 								development team</h2>
@@ -37,7 +38,7 @@
 								supportive tools to help you with all offshore-related problems.
 								Without further ado, let’s get into them!</p>
 							<br /> <img width="100%"
-								src="media/img/offshore-toolss.png" /> <br /> <br />
+								src="media/gif/productivity/vr_2.gif" /> <br /> <br />
 							<div class="block-blog">
 								<h2>Performance control</h2>
 								<br />
@@ -72,7 +73,7 @@
 							</div>
 
 							<br /> <img width="100%"
-								src="media/img/offshore-toolss-1.png" /> <br /> <br />
+								src="media/gif/productivity/1 CR_7fqiMqBINdBbDuKhauQ.gif" /> <br /> <br />
 							<div class="block-blog">
 								<h2>Differences</h2>
 								<br />
@@ -102,22 +103,38 @@
 					</div>
 					<div class="rightcolumn-article animate-right">
 						<div class="card-article">
-							<h2>Author</h2>
+							<h2>Jayden Nguyen</h2>
 							<br /> <img width="100%"
-								src="media/img/Falak-Sher-Web-Designer-and-Developer-IBT.png" />
+								src="media/gif/profilePictures/ProfileGif10.gif" />
 							<br /> <br />
-							<p>SoftFluent President &amp; CEO Daniel has about 30 years
-								of experience in the professional development field, creating
-								and managing SoftFluent group, a company with strong custom
-								development experience, both for customer projects and as an
-								ISV. SoftFluent is also the company behind RowShare, a powerful
-								secured collaborative online spreadsheet.</p>
+							<p>Content creator focusing on helping small to medium businesses to be an expert in the field by sharing content and turning their fans into customers.</p>
 						</div>
 
 					</div>
 				</div>
 			</div>
+<!-- chat bot -->
+			<div class="container container-chat">
+				<div id="chat-icon">
+					<img class="chat-logo" src="media/img/3649460.png" />
+				</div>
 
+				<div id="chat-box" class="">
+					<span id="chat-exit">x</span>
+					<div id="chat-header">
+						<img class="chat-logo" src="media/img/3649460.png" />
+					</div>
+					<div id="chat-history-wrapper">
+						<div id="chat-history"></div>
+					</div>
+					<div id="chat-user-inputs">
+						<!-- User form and submit button -->
+						<input type="text" id="chat-user-message" /> <img
+							src="media/gif/productivity/giphy.gif" id="send-msg-icon" />
+					</div>
+				</div>
+				<!-- end chat bot -->
+			</div>
 
 		</ui:define>
 	</ui:composition>

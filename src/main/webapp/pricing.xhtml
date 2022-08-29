@@ -5,17 +5,18 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
 
-<h:head>
-	<title>Blog</title>
-</h:head>
-
 <h:body>
-	<ui:composition template="template/template.xhtml">
+	<ui:composition template="#{templateBean.templatePath()}">
 		<ui:define name="content">
-		<div class="headerText animate-opacity">Pricng</div>
- <h:outputScript library="js" name = "faq.js"/>
+		<h:outputScript library="js" name = "iter.js"/>
+		 <h:outputScript library="js" name = "faq.js"/>
+			 <div class="wrapper"> <img width="100%" src="media/gif/coding/abstract.gif" />
+
+			</div>
+		<div class="headerText animate-opacity">Pricing</div>
+
 			<div class="container">
-				<h2>Business &amp; eCommerce plans Grow and manage your online
+				<h2 class="pricing-page">Business &amp; eCommerce plans Grow and manage your online
 					business with a custom storefront, catalog and order management,
 					shipping and taxes, integrated sales channels and more.</h2><br />
 				<table class="styled-table">
@@ -25,56 +26,56 @@
 							<th></th>
 							<th>Business VIP <br /> Get the Full Suite <br />Price
 								includes VAT<br />
-								<button class="btn">Select</button></th>
+								<br/><button class="pricing-button-page btn">Select</button></th>
 							<th>Business Unlimited<br /> Grow Your Business<br />Price
 								includes VAT<br />
-								<button class="btn">Select</button></th>
+									<br/><button class="pricing-button-page btn">Select</button></th>
 							<th>Business Basic<br /> Accept Online Payments<br />Price
 								includes VAT<br />
-								<button class="btn">Select</button></th>
+									<br/><button class="pricing-button-page btn">Select</button></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>Secure online payments</td>
-							<td class="center-row"><span>&#10003;</span></td>
-							<td class="center-row"><span>&#10003;</span></td>
-							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
 						</tr>
 						<tr>
 							<td>Plans &amp; recurring payments</td>
-							<td class="center-row"><span>&#10003;</span></td>
-							<td class="center-row"><span>&#10003;</span></td>
-							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
 						</tr>
 
 						<tr>
 							<td>Customer accounts</td>
-							<td class="center-row"><span>&#10003;</span></td>
-							<td class="center-row"><span>&#10003;</span></td>
-							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
 						</tr>
 
 						<tr>
 							<td>Custom domain</td>
-							<td class="center-row"><span>&#10003;</span></td>
-							<td class="center-row"><span>&#10003;</span></td>
-							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
 						</tr>
 
 
 						<tr>
 							<td>Free domain for 1 year</td>
-							<td class="center-row"><span>&#10003;</span></td>
-							<td class="center-row"><span>&#10003;</span></td>
-							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
 						</tr>
 
 						<tr>
 							<td>Remove Smariter ads</td>
-							<td class="center-row"><span>&#10003;</span></td>
-							<td class="center-row"><span>&#10003;</span></td>
-							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
 						</tr>
 
 						<tr>
@@ -101,17 +102,17 @@
 						<tr>
 							<td>Customer accounts</td>
 
-							<td class="center-row"><span>&#10003;</span></td>
-							<td class="center-row"><span>&#10003;</span></td>
-							<td class="center-row"><span>&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
 						</tr>
 
 						<tr>
 							<td>Customized reports</td>
 
-							<td class="center-row"><span>&#10003;</span></td>
-							<td class="center-row"><span>--</span></td>
-							<td class="center-row"><span>--</span></td>
+							<td class="center-row"><span class="green-check">&#10003;</span></td>
+							<td class="center-row"><span class="gray-n-a">--</span></td>
+							<td class="center-row"><span class="gray-n-a">--</span></td>
 						</tr>
 
 						<tr>
@@ -125,101 +126,125 @@
 						<!-- and so on... -->
 					</tbody>
 				</table>
-				<p><i class="fa fa-info"></i> Displayed prices are for yearly subscriptions, paid in full
+				<p class="pricing-page"><i class="fa fa-info"></i> Displayed prices are for yearly subscriptions, paid in full
 					at the time of purchase. Additional subscription periods are
 					available. The Ad Vouchers are third party services and products
 					and therefore are subject to the Terms of Use of such providers.</p>
 <br /><br />
-				<hr />
 				<br /><br />
 				<div class="row-pricing">
 					<div class="column-pricing">
-						<h2>ACCEPTED PAYMENT METHODS</h2>
-						<p>Credit card, PayPal</p>
+						<h2 class="pricing-page">ACCEPTED PAYMENT METHODS</h2><br />
+						<p class="pricing-page"> Credit card, PayPal</p><br />
+						<img style="width:50vh" src="media/gif/productivity/1277496697001345024.gif" />
 					</div>
 					<div class="column-pricing">
-						<h2>MONEY BACK GUARANTEE</h2>
-						<p>14 day money back guarantee on all premium plans.</p>
+						<h2 class="pricing-page">MONEY BACK GUARANTEE</h2><br />
+						<p class="pricing-page">14 day money back guarantee on all premium plans.</p><br />
+						<img style="width:50vh" src="media/gif/productivity/output-onlinegiftools_6.gif" />
+						
 					</div>
 					<div class="column-pricing">
-						<h2>SSL SECURE PAYMENT</h2>
-						<p>Your information is protected by 256-bit SSL encryption.</p>
+						<h2 class="pricing-page">SSL SECURE PAYMENT</h2><br />
+						<p class="pricing-page">Your information is protected by 256-bit SSL encryption.</p><br />
+						<img style="width:50vh" src="media/gif/productivity/455-credit-card-bank-outline.gif" />
 					</div>
 				</div>
 				<br /><br />
-				<hr />
+
 <br /><br />
 				<div class="row-faq">
 					<div class="column-faq-left">
-						<h2>Frequently Asked Questions</h2>
-						<p>Haven’t found what you’re looking for? <br />
-						<a style="text-decoration:underline" href="contactForm.xhtml">Contact Us</a></p>
+						<h2 class="pricing-page">Frequently Asked Questions</h2>
+						<p class="pricing-page">Haven’t found what you’re looking for? <br />
+						<a style="text-decoration:underline" href="contactForm.xhtml">Contact Us or chat with ITER</a></p>
 					</div>
 					<div class="column-faq-right">
 						<button type="button" class="collapsible">What is a
 							Premium Plan?</button>
 						<div class="content-collapse">
-							<p>You can create a website for free, and with a Premium plan
+							<p><br />You can create a website for free, and with a Premium plan
 								you can connect your own domain, remove Wix ads from your site,
 								and more. With most Premium plans, you'll receive a 1 year free
 								domain voucher and vouchers for advertising on Google and Bing.
-								For best value, we recommend our yearly or multi-year plans.</p>
+								For best value, we recommend our yearly or multi-year plans.<br /></p><br />
 						</div>
 						<button type="button" class="collapsible">Can I try a Wix
 							Premium Plan for free?</button>
 						<div class="content-collapse">
-							<p>Yes. Try any Wix Premium Plan and if you decide it's not
+							<p><br />Yes. Try any Wix Premium Plan and if you decide it's not
 								for you, you can cancel within 14 days and receive a full
 								refund—no questions asked. This applies to the initial upgrade
-								to a Premium Plan.</p>
+								to a Premium Plan.<br /></p><br />
 						</div>
 						<button type="button" class="collapsible">How do I get my
 							free domain?</button>
 						<div class="content-collapse">
-							<p>Most Yearly or Multi-Year Premium Plans come with a 1 year
+							<p><br />Most Yearly or Multi-Year Premium Plans come with a 1 year
 								free domain voucher. You can choose your own domain name with
 								suffixes such as .com, .net, .org and more. Once you find the
 								perfect domain for your site, your voucher will be waiting for
-								you at checkout.</p>
+								you at checkout.<br /></p><br />
 						</div>
 						<button type="button" class="collapsible">Why do I need a
 							custom domain?</button>
 						<div class="content-collapse">
-							<p>A custom domain, like mystunningwebsite.com, is a great
+							<p><br />A custom domain, like mystunningwebsite.com, is a great
 								way to get found online and promote your brand. Replace your
 								free Wix URL (username.wixsite.com/sitename) with a custom
-								domain you purchased from Wix, or one you already own.</p>
+								domain you purchased from Wix, or one you already own.<br /></p><br />
 						</div>
 						<button type="button" class="collapsible">How can I get
 							my own personalized email address?</button>
 						<div class="content-collapse">
-							<p>Once you have your own domain, you can purchase a Google
+							<p><br />Once you have your own domain, you can purchase a Google
 								Workspace plan and get a custom email address using your domain,
 								like info@mystunningwebsite.com. We've partnered with Google to
 								give you 30GB of Drive storage, as well as Google Calendar,
-								Docs, Sheets and Slides.</p>
+								Docs, Sheets and Slides.<br /></p><br />
 						</div>
 						<button type="button" class="collapsible">Which plans
 							come with Ad Vouchers?</button>
 						<div class="content-collapse">
-							<p>Some of our Yearly or Multi-Year Premium Plans come with
+							<p><br />Some of our Yearly or Multi-Year Premium Plans come with
 								vouchers for promotional ads on Google and Bing to advertise
 								your website. Read the legal terms of use for Wix Vouchers and
-								Google Ads.</p>
+								Google Ads.<br /></p><br />
 						</div>
 						<button type="button" class="collapsible">What online
 							payments are accepted?</button>
 						<div class="content-collapse">
-							<p>Wix accepts all major credit cards and debit cards,
+							<p><br />Smariter accepts all major credit cards and debit cards,
 								including Visa, Mastercard, American Express, Discover, JCB and
 								Diners. Additional payment options may be available in your
-								specific location.</p>
+								specific location.<br /></p><br />
 						</div>
 					</div>
 				</div>
 
 			</div>
+<!-- chat bot -->
+			<div class="container container-chat">
+				<div id="chat-icon">
+					<img class="chat-logo" src="media/img/3649460.png" />
+				</div>
 
+				<div id="chat-box" class="">
+					<span id="chat-exit">x</span>
+					<div id="chat-header">
+						<img class="chat-logo" src="media/img/3649460.png" />
+					</div>
+					<div id="chat-history-wrapper">
+						<div id="chat-history"></div>
+					</div>
+					<div id="chat-user-inputs">
+						<!-- User form and submit button -->
+						<input type="text" id="chat-user-message" /> <img
+							src="media/gif/productivity/giphy.gif" id="send-msg-icon" />
+					</div>
+				</div>
+				<!-- end chat bot -->
+			</div>
 		</ui:define>
 	</ui:composition>
 
