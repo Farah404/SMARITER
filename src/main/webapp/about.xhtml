@@ -20,7 +20,7 @@
 			</div>
 		<div class="headerText animate-opacity">Create a website without limits</div>
 		<div class="headerSubtext animate-opacity">Discover the platform that gives you the freedom to create, design, <br />manage and develop your web presence exactly the way you want.</div>
-		<div class="button headerButton animate-opacity"><a href="logInSignUp.xhtml">Get Started</a></div>
+		<div class="button headerButton animate-opacity"><h:outputLink value="#{urlPathBean.goToStartService()}">Get Started</h:outputLink></div>
 
 
 			<!-- The App Section -->
@@ -40,7 +40,7 @@
 								can do it all with the Smariter website builder.</span>
 
 						</p><br />
-						<button class="button button-about">Get Started</button>
+						<button class="button button-about"><h:outputLink value="#{urlPathBean.goToStartService()}">Get Started</h:outputLink></button>
 					</div>
 					<div class="column-33">
 						<img src="media/gif/productivity/header.gif" width="140%" />
@@ -77,7 +77,7 @@
 							<span style="font-size: 24px ; color:#aeb4c8">Optimize for search engines</span>
 							<span style="color:#aeb4c8">Answer a few questions about your website, location and keywords and get a personalized SEO plan to get found online. 
 						</span></p><br />
-						<button class="button button-about-b">Start Now</button>
+						<button class="button button-about-b"><h:outputLink value="#{urlPathBean.goToStartService()}">Start Now</h:outputLink></button>
 					</div>
 				</div>
 			</div>
@@ -98,7 +98,7 @@
 								Choose from 500+ customizable website
 							templates that are built to meet your business needs.
 						</span></p><br />
-						<button class="button  button-about">See All Website Templates</button>
+						<button class="button  button-about"><h:outputLink value="#{urlPathBean.goToPatterns()}">See All Website Templates</h:outputLink></button>
 					</div>
 					<div class="column-33">
 						<img src="media/gif/productivity/intro1.gif" width="120%"/>

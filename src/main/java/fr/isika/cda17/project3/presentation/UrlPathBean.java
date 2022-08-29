@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+
+import fr.isika.cda17.project3.model.personManagement.accounts.Account;
+import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
 
 @ManagedBean
 @ViewScoped
@@ -12,34 +17,75 @@ public class UrlPathBean implements Serializable{
     private static final long serialVersionUID = 1L;
 
     public String goToIndex() {
-	return "index.xhtml?faces-redirect=true";
+	return "index.xhtml";
     }
     
     public String goToAbout() {
-	return "about.xhtml?faces-redirect=true";
+	return "about.xhtml";
     }
     
     public String goToTeam() {
-	return "team.xhtml?faces-redirect=true";
+	return "team.xhtml";
     }
     
     public String goToServices() {
-	return "service.xhtml?faces-redirect=true";
+	return "service.xhtml";
     }
     
     public String goToPricing() {
-	return "pricing.xhtml?faces-redirect=true";
+	return "pricing.xhtml";
     }
     
     public String goToBlog() {
-	return "blog.xhtml?faces-redirect=true";
+	return "blog.xhtml";
     }
     
     public String goToContact() {
-	return "contactForm.xhtml?faces-redirect=true";
+	return "contactForm.xhtml";
     }
     
     public String goToSignIn() {
-	return "logInSignUp.xhtml?faces-redirect=true";
+	return "logInSignUp.xhtml";
+    }
+    
+    public String goToPatterns() {
+    	return "patterns.xhtml";
+    }
+    
+    public String goToOnlineStore() {
+    	return "onlineStore.xhtml";
+    }
+    public String goToBookings() {
+    	return "onlineStore.xhtml";
+    }
+    public String goToInvestors() {
+    	return "partners.xhtml";
+    }
+    public String goToTermsOfUse() {
+    	return "termsOfUse.xhtml";
+    }
+    public String goToSiteMap() {
+    	return "siteMap.xhtml";
+    }
+    public String goToStartService() {
+    	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+    	if(session.getAttribute("accountType")== AccountType.ADMINISTRATOR || session.getAttribute("accountType")== AccountType.ENTITY) {
+    		return "service.xhtml";
+    	}else {
+    		return "logInSignUp.xhtml";
+    	}
+    }
+    
+    public String goToDashBoard() {
+    	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+    	if(session.getAttribute("accountType")==AccountType.ADMINISTRATOR) {
+    		return "adminBoard.xhtml";
+    	}else {
+    		if(session.getAttribute("accountType")==AccountType.ENTITY){
+    			return "customerProfile.xhtml";
+    		}else {
+    			return "index.xhtml";
+    		}
+    	}
     }
 }

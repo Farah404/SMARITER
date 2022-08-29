@@ -86,7 +86,7 @@
    </div>
    </div>
     <br /><br />
-   <p>By creating your account, you agree on our <a href="termsOfUse.xhtml">terms and condition</a>.</p> <br />
+   <p>By creating your account, you agree on our <h:outputLink value="#{urlPathBean.goToTermsOfUse()}">terms and conditions</h:outputLink>.</p> <br />
    <h:commandButton class="register-button" value="Create account" action="#{createCustomerBean.update()}"/>
    <br /><br/>
 		</h:form>

@@ -22,11 +22,11 @@
 						#{adminDashboardBean.administrator.administratorAccount.username}</h1>
 					<br />
 					<div class="row">
-						<form class="cusProfile">
+						<h:form class="cusProfile">
 							<div class="col-one-half-cusProfile">
 								<img class="customer-img"
 									src="media/gif/profilePictures/ProfileGif6.gif" /><br />
-<h:commandButton class="button-shared" action="#{logInAccountBean.logout()}" value="Log Out"></h:commandButton>
+								<h:commandButton class="button-shared" action="#{logInAccountBean.logout()}" value="Log Out"></h:commandButton>
 							</div>
 							<div class="col-one-half-cusProfile">
 								<br /> <span class="label-text-cusProfile"><i
@@ -46,7 +46,7 @@
 							</div>
 
 							<div class="col-one-half-cusProfile"></div>
-						</form>
+						</h:form>
 					</div>
 				</div>
 
@@ -54,7 +54,7 @@
 					<h1 class="text-center-cusProfile">Manage your website</h1>
 					<br />
 					<div class="row">
-						<form class="cusProfile">
+						<h:form class="cusProfile">
 							<div class="row-effort">
 								<div class="column-effort">
 									<div class="card-effort">
@@ -97,7 +97,7 @@
 								class="fa fa-inbox fa-col-cus"> List of active Solutions:</i></span><br />
 							<br />
 
-							<h:dataTable class="styled-table" id="listeSolution"
+							<h:dataTable class="styled-table" id="solutionList"
 								value="#{solutionManagementBean.solutiontList}" var="solution">
 
 								<h:column>
@@ -146,7 +146,7 @@
 							<br /> <span class="label-text-cusProfile"><i
 								class="fa fa-inbox fa-col-cus"> List of Customers:</i></span><br />
 							<br />
-							<h:dataTable class="styled-table" id="listeSolution"
+							<h:dataTable class="styled-table" id="solutionListEntities"
 								value="#{solutionManagementBean.solutiontList}" var="solution">
 
 								<h:column>
@@ -179,7 +179,7 @@
 								</h:column>
 							</h:dataTable>
 
-						</form>
+						</h:form>
 					</div>
 				</div>
 

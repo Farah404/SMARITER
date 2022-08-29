@@ -12,31 +12,30 @@
 			<div class="col">
 				<h1>PRODUCT</h1>
 				<ul>
-					<li><a href="patterns.xhtml">Templates</a></li>
-					<li><a href="service.xhtml">Website Builder</a></li>
-					<li><a href="customerProfile.xhtml">My Sites</a></li>
-					<li><a href="pricing.xhtml">Premium Plans</a></li>
-					<li><a href="onlineStore.xhtml">Online Store</a></li>
-					<li><a href="bookings.xhtml">Bookings</a></li>
-
+					<li><h:outputLink value="#{urlPathBean.goToPatterns()}">Templates</h:outputLink></li>
+					<li><h:outputLink value="#{urlPathBean.goToServices()}">Website Builder</h:outputLink></li>
+					<li><h:outputLink value="#{urlPathBean.goToDashBoard()}">My Sites</h:outputLink></li>
+					<li><h:outputLink value="#{urlPathBean.goToPricing()}">Premium Plans </h:outputLink></li>
+					<li><h:outputLink value="#{urlPathBean.goToOnlineStore()}">Online Store</h:outputLink></li>
+					<li><h:outputLink value="#{urlPathBean.goToBookings()}">Bookings</h:outputLink></li>
 				</ul>
 			</div>
 			<div class="col">
 				<h1>Company</h1>
 				<ul>
-					<li><a href="about.xhtml">About Smariter</a></li>
-					<li><a href="partners.xhtml">Investors</a></li>
-					<li><a href="termsOfUse.xhtml">Terms of Use</a></li>
-					<li><a href="contactForm.xhtml">Contact Us</a></li>
-					<li><a href="siteMap.xhtml">Sitemap</a></li>
+					<li><h:outputLink value="#{urlPathBean.goToAbout()}">About </h:outputLink></li>
+					<li><h:outputLink value="#{urlPathBean.goToInvestors()}">Investors</h:outputLink></li>
+					<li><h:outputLink value="#{urlPathBean.goToTermsOfUse()}">Terms of Use</h:outputLink></li>
+					<li><h:outputLink value="#{urlPathBean.goToContact()}">Contact Us</h:outputLink></li>
+					<li><h:outputLink value="#{urlPathBean.goToSiteMap()}">Sitemap</h:outputLink></li>
 				</ul>
 			</div>
 			<div class="col">
 				<h1>Community</h1>
 				<ul>
-					<li><a href="blog.xhtml">Smariter Blog</a></li>
-					<li><a href="service.xhtml">Services</a></li>
-					<li><a href="contactForm.xhtml">Get in touch</a></li>
+					<li><h:outputLink value="#{urlPathBean.goToBlog()}">Smariter Blog</h:outputLink></li>
+					<li><h:outputLink value="#{urlPathBean.goToServices()}">Services</h:outputLink></li>
+					<li><h:outputLink value="#{urlPathBean.goToContact()}">Get in touch</h:outputLink></li>
 				</ul>
 			</div>
 			<div class="col">
