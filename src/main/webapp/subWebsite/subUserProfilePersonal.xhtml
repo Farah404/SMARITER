@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+<script src="subResources/scripts/jquery-3.3.1.js"></script>
+<script src="subResources/scripts/jquery.validate-vsdoc.js"></script>
+<script src="subResources/scripts/jquery.validate.unobtrusive.js"></script>
+</h:head>
+
+<h:body>
+	<ui:composition template="subTemplate/subTemplate.xhtml">
+<ui:define name="subcontent">
+<div class="container bootstrap snippets bootdey">
+    <div class="panel-body inf-content">
+        <div class="row">
+            <div class="col-md-4">
+                <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" />
+                <ul title="Username" class="list-inline ratings text-center">
+
+                    <h3>User.Account.Username</h3>
+
+                </ul>
+                <button class="btn btn-success center-block" type="submit">Modifier mon profil</button>
+                <br />
+                <button class="btn btn-success center-block" type="submit">Ajouter un véhicule</button>
+                <br />
+            </div>
+
+
+            <div class="container">
+                <div class="row my-2">
+                    <div class="col-md-8">
+
+
+                        <div class="portlet-body">
+                            <div>
+
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item">
+                                        <a href="" data-target="#general" data-toggle="tab" class="nav-link active text-success">Général</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="" data-target="#wallet" data-toggle="tab" class="nav-link text-success">EcoWallet</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="" data-target="#rib" data-toggle="tab" class="nav-link text-success">RIB &amp; Adresse de facturation</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="" data-target="#vehicule" data-toggle="tab" class="nav-link text-success">Véhicule &amp; Assurance</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="" data-target="#sms" data-toggle="tab" class="nav-link text-success">Messagerie</a>
+                                    </li>
+                                </ul>
+
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="general">
+                                        <table class="table table-user-information">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-user  text-success"></span>
+                                                        Nom et Prénom
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-tree-deciduous text-success"></span>
+                                                        EcoStatus
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-star text-success"></span>
+                                                        EcoRating
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-gift text-success"></span>
+                                                        Date de naissance
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-inbox text-success"></span>
+                                                        Email
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-phone text-success"></span>
+                                                        Numéro de téléphone
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-credit-card text-success"></span>
+                                                        Numéro de carte d'identité ou passeport
+
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-dashboard text-success"></span>
+                                                        Numéro de permis de conduire
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-calendar text-success"></span>
+                                                        EcoMembre depuis
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+
+                                    <div class="tab-pane" id="wallet">
+                                        <table class="table table-user-information">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-piggy-bank  text-success"></span>
+                                                        Montant EcoCoins
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+<tr>
+                                                        <td>
+                                                            <span class="glyphicon glyphicon-leaf text-success"></span>
+                                                            Abonnement
+                                                        </td>
+                                                        <td class="text-success">
+
+                                                            <p>Jusqu'au @Model.EcoWallet.SubscriptionExpiration.ToShortDateString()</p>
+                                                        </td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+
+                                    <div class="tab-pane" id="rib">
+                                        <table class="table table-user-information">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-font  text-success"></span>
+                                                        Nom de l'agence bancaire
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-sort-by-order-alt text-success"></span>
+                                                        Numéro SWIFT
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-sort-by-order text-success"></span>
+                                                        Numéro IBAN
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-map-marker  text-success"></span>
+                                                        Adresse
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-picture text-success"></span>
+                                                        Ville
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-tree-conifer text-success"></span>
+                                                        Région
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-globe text-success"></span>
+                                                        Pays
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-send text-success"></span>
+                                                        Code postal
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="tab-pane" id="vehicule">
+                                        <table class="table table-user-information">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-sort-by-alphabet  text-success"></span>
+                                                        Nom de l'assureur
+                                                    </td>
+                                                    <td class="text-success">
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-hourglass text-success"></span>
+                                                        Date de fin de validité de l'assurance
+                                                    </td>
+                                                    <td class="text-success">
+
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-dashboard text-success"></span>
+                                                        Numéro du contrat d'assurance
+                                                    </td>
+                                                    <td class="text-success">
+
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-wrench text-success"></span>
+                                                        Marque du véhicule
+                                                    </td>
+                                                    <td class="text-success">
+
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-sort-by-order text-success"></span>
+                                                        Plaque d'immatriculation
+                                                    </td>
+                                                    <td class="text-success">
+
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-modal-window text-success"></span>
+                                                        Modèle du véhicule
+                                                    </td>
+                                                    <td class="text-success">
+
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-grain text-success"></span>
+                                                        Hybride
+                                                    </td>
+                                                    <td class="text-success">
+
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-flash text-success"></span>
+                                                        100% Electrique
+                                                    </td>
+                                                    <td class="text-success">
+
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-briefcase text-success"></span>
+                                                        Date de fin de validité du contrôle technique
+                                                    </td>
+                                                    <td class="text-success">
+
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <span class="glyphicon glyphicon-user text-success"></span>
+                                                        Nombre de sièges disponibles
+                                                    </td>
+                                                    <td class="text-success">
+
+                                                        <p></p>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+                                    <div class="tab-pane" id="sms">
+                                        <div class="table-responsive">
+                                            <table class="table" id="userTable">
+                                                <thead>
+
+                                                    <tr class="header">
+                                                        <th>Expéditeur </th>
+                                                        <th>Prestation</th>
+                                                        <th>Contenu du message</th>
+                                                        <th>Répondre</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                   
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+
+
+<div id="services" class="container-fluid bg-grey">
+    @*Service List Display*@
+    <div class="table-responsive">
+        <p style="float:left;font-variant:small-caps;font-weight:bold;font-size:larger">Mon historique de prestations</p>
+        <input style="width:50%;float:right" type="text" id="searchInput" onkeyup="myFunction()" placeholder="Rechercher une de mes prestations..." />
+        <table class="table" id="userInvoices">
+            <thead>
+                <tr class="header">
+                    <th>Date de début</th>
+                    <th>Type de service</th>
+                    <th>Numéro de réference</th>
+                    <th>Prestation demandée</th>
+                    <th>Disponibilité</th>
+                    <th>Supprimer la prestation</th>
+                    <th>Consulter la facture</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+
+		</ui:define>
+	</ui:composition>
+
+
+</h:body>
+</html>
