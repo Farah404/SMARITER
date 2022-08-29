@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<ui:composition>
+	<body id="EcoCarPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+		<div id="main-text" class="jumbotron text-center">
+      <h1 id="title"><strong>Eco</strong>Car</h1>
+        <p>Optimiser les déplacements dans une optique éco-vertueuse et conviviale</p>
+        <!--Add a form with an input field and a button-->
+        <form class="form-inline">
+            <div class="formHalf headForms  floatLeft inlineElements">
+                <button  type="button" class="btn btn-success">Liste des prestations</button>
+                <button  type="button" class="btn btn-success">Proposer une prestation</button>
+                <button  type="button" class="btn btn-success">Déposer une demande</button>
+
+            </div>
+            
+        <div class="moving-car"><img src="subMedia/Images/EcoCarBig.png" class="moving-car" /></div>
+        </form>
+
+        <div class="eco-store"><img src="subMedia/Images/city.png" class="eco-store"/></div>
+        <div class="eco-scape"><img src="subMedia/Images/landcape2.png" class="eco-scape"/></div>
+        <div class="eco-cloud-right"><img src="subMedia/Images/clouds.png" class="eco-cloud"/></div>
+        <div class="eco-cloud-left"><img src="subMedia/Images/cloud2.png" class="eco-cloud"/></div>
+       
+    </div>
+     
+    <div class="main-layout">
+        
+         <!-- NavigationBar-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    
+                    <span class="icon-bar"></span>
+                </button>
+<!--                             <a class="navbar-brand" href="/">EcoHome</a> -->
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#pricing"><bold>ECO</bold>STORE</a></li>
+                    <li><a href="#services">SERVICES</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                    <li><h:outputLink value="subUserProfilePersonal.xhtml">COMPTE</h:outputLink></li>
+                     <li><h:outputLink value="#{logInAccountBean.subLogout()}">DECONNEXION</h:outputLink></li>
+                     </ul>
+
+            </div>
+        </div>
+        </div>
+    </nav>
+    </div>
+    </body>
+	</ui:composition>
+</html>
