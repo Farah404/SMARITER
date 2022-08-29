@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+
+</h:head>
+
+<h:body>
+	<ui:composition template="subTemplate/subTemplate.xhtml">
+		<ui:define name="subcontent">
+
+<br />
+<br />
+<br />
+<br />
+<div class="container bootstrap snippets bootdey">
+    <div class="panel-body inf-content">
+        <div class="row">
+            <div class="col-md-4">
+                <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" />
+                <ul title="username" class="list-inline ratings text-center">
+                    <h3>User.Account.Username</h3>
+                </ul>
+                <center>
+                    <a class="btn btn-success" data-toggle="modal" data-target="#basicModal">Signaler User.Account.Username</a>
+                    <br />  <br />
+                    <a class="btn btn-success" data-toggle="modal" data-target="#basicModalSms">Contacter User.Account.Username</a>
+                </center>
+            </div>
+            <div class="col-md-6">
+                <strong>Information</strong><br />
+                <div class="table-responsive">
+                    <table class="table table-user-information">
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-user  text-success"></span>
+                                        Nom et prénom
+                                    </strong>
+                                </td>
+                                <td class="text-success">
+                                    <p></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-tree-deciduous text-success"></span>
+                                        EcoStatus
+                                    </strong>
+                                </td>
+                                <td class="text-success">
+                                    <p></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-star text-success"></span>
+                                        EcoRating
+                                    </strong>
+                                </td>
+                                <td class="text-success">
+                                    <p></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-gift  text-success"></span>
+                                        Date de naissance
+                                    </strong>
+                                </td>
+                                <td class="text-success">
+                                    <p></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-ok text-success"></span>
+                                        Email et numéro de téléphone vérifiés
+                                    </strong>
+                                </td>
+                                <td class="text-success">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-calendar text-success"></span>
+                                        EcoMembre depuis
+                                    </strong>
+                                </td>
+                                <td class="text-success">
+                                    <p></p>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="services" class="container-fluid bg-grey">
+
+    <div class="table-responsive">
+        <p style="float:left;font-variant:small-caps;font-weight:bold;font-size:larger">Prestations de @Model.User.Account.Username en cours</p><input style="width:50%;float:right" type="text" id="searchInput" onkeyup="myFunction()" placeholder="Prestations de @Model.User.Account.Username en cours..." />
+        <table class="table" id="userInvoices">
+            <thead>
+                <tr class="header">
+                    <th>Date de début</th>
+                    <th>Type de service</th>
+                    <th>Numéro de réference</th>
+                    <th>Prestation demandée</th>
+                    <th>Consulter la prestation</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                    <tr>
+                        <td></td>
+                       
+
+                        
+                        <td></td>
+                        <td></td>
+                        <td> <a href="/Service/ReserveCarPoolingService/@carPoolingService.Id"><span class="glyphicon glyphicon-info-sign   text-success"></span></a></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        
+                        
+
+                        
+                        <td></td>
+                        <td></td>
+                        <td> <a href="/Service/ReserveCarRentalService/@carRentalService.Id"><span class="glyphicon glyphicon-info-sign   text-success"></span></a></td>
+                    </tr>
+<tr>
+                        <td></td>
+                        
+                        
+                            <td></td>
+                        
+                        <td></td>
+                        <td></td>
+                        <td> <a href="/Service/ReserveParcelService/@parcelService.Id"><span class="glyphicon glyphicon-info-sign   text-success"></span></a></td>
+                    </tr>
+
+
+
+</tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+<!-- The Modal SMS -->
+<div class="modal fade" id="basicModalSms" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer</button>
+                    <h4 class="modal-title" id="myModalLabel">Contacter @Model.User.Account.Username</h4>
+                </div>
+                <div class="modal-body">
+                    <center><img src="subMedia/Images/MessageUser.png" style="width:50%;" /></center>
+                    <div class="form-outline mb-3">
+                          <br />
+                    </div>
+                    <div class="form-outline mb-3">
+                       
+                        <br />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default pull-right" type="submit" formaction="UserProfile">Envoyer</button>
+                </div>
+            </div>
+
+    </div>
+</div>
+
+<!-- The Modal Report -->
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fermer</button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+
+                <div class="modal-body">
+                    <center><img src="subMedia/Images/reporting.png" style="width:50%;" /></center>
+                    <div class="form-outline mb-3">
+                        <br />
+                    </div>
+                    <div class="form-floating mb-3">
+
+                        <br />
+                    </div>
+                </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn-default pull-right" type="submit">Envoyez</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+		</ui:define>
+	</ui:composition>
+
+
+</h:body>
+</html>
