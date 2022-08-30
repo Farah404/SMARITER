@@ -1,6 +1,7 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,9 +29,9 @@ public abstract class Service {
     
     private LocalDateTime expirationDate;
     
-    private LocalDateTime startDate;
+    private Date startDate;
     
-    private LocalDateTime endDate;
+    private Date endDate;
     
     private int referenceNumber;
     
@@ -54,7 +55,7 @@ public abstract class Service {
 	super();
     }
 
-    public Service(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate, LocalDateTime endDate,
+    public Service(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, Date startDate, Date endDate,
 	    int referenceNumber, boolean isRequest, double price, ServiceType servicetype,
 	    List<UserAccount> userAccounts) {
 	super();
@@ -103,19 +104,19 @@ public abstract class Service {
         this.expirationDate = expirationDate;
     }
 
-    public LocalDateTime getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDateTime startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDateTime getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDateTime endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 

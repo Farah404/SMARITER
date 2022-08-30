@@ -42,7 +42,7 @@
 									Adresse de départ
 									<h:inputText class="form-control" id="pickUpAddress"
 										a:placeholder="Adresse de départ"
-										value="#{createCarPoolingServiceBean.cps.trajectory.pickUpAddress}" />
+										value="#{createCarPoolingServiceBean.trajectory.pickUpAddress}" />
 									<br />
 								</div>
 
@@ -60,7 +60,7 @@
 									Adresse d'arrivée
 									<h:inputText class="form-control" id="deliveryAddress"
 										a:placeholder="Adresse d'arrivée"
-										value="#{createCarPoolingServiceBean.cps.trajectory.deliveryAddress}" />
+										value="#{createCarPoolingServiceBean.trajectory.deliveryAddress}" />
 									<br />
 								</div>
 
@@ -92,7 +92,7 @@
 								</div>
 
 								<h:commandLink class="btn btn-success"
-									action="#{createCarPoolingServiceBean.createCarPoolingService()}"
+									action="#{createCarPoolingServiceBean.create()}"
 									value="Je publie ma prestation" />
 							</div>
 
@@ -102,7 +102,7 @@
 									Durée trajet approximative en heure
 									<h:inputText class="form-control" id="duration"
 										a:placeholder="Durée trajet approximative en heure"
-										value="#{createCarPoolingServiceBean.cps.trajectory.durationHours}" />
+										value="#{createCarPoolingServiceBean.trajectory.durationHours}" />
 									<br />
 								</div>
 							
@@ -110,7 +110,7 @@
 									Nombre d'arrêt
 									<h:inputText class="form-control" id="stopsNb"
 										a:placeholder="Nombre d'arrêt"
-										value="#{createCarPoolingServiceBean.cps.trajectory.stopNumber}" />
+										value="#{createCarPoolingServiceBean.trajectory.stopNumber}" />
 									<br />
 								</div>
 								
@@ -118,7 +118,7 @@
 									Durée arret en minute
 									<h:inputText class="form-control" id="stopsDuration"
 										a:placeholder="Durée arret en minute"
-										value="#{createCarPoolingServiceBean.cps.trajectory.stopDurationMinutes}" />
+										value="#{createCarPoolingServiceBean.trajectory.stopDurationMinutes}" />
 									<br />
 								</div>
 								
@@ -126,7 +126,7 @@
 									Arret 1
 									<h:inputText class="form-control" id="firstStop"
 										a:placeholder="Arret 1"
-										value="#{createCarPoolingServiceBean.cps.trajectory.itinerary.firstStopAddress}" />
+										value="#{createCarPoolingServiceBean.itinerary.firstStopAddress}" />
 									<br />
 								</div>
 								
@@ -134,7 +134,7 @@
 									Arret 2
 									<h:inputText class="form-control" id="secondStop"
 										a:placeholder="Arret 2"
-										value="#{createCarPoolingServiceBean.cps.trajectory.itinerary.secondStopAddress}" />
+										value="#{createCarPoolingServiceBean.itinerary.secondStopAddress}" />
 									<br />
 								</div>
 								
@@ -142,14 +142,14 @@
 									Arret 3
 									<h:inputText class="form-control" id="thirdStop"
 										a:placeholder="Arret 3"
-										value="#{createCarPoolingServiceBean.cps.trajectory.itinerary.thirdStopAddress}" />
+										value="#{createCarPoolingServiceBean.itinerary.thirdStopAddress}" />
 									<br />
 								</div>
 								
 								<div class="form-outline mb-3">
 									Type du trajet<br />
 									<h:selectOneMenu id="trajectoryType" class="form-control"
-										value="#{createCarPoolingServiceBean.cps.trajectory.trajectoryType}">
+										value="#{createCarPoolingServiceBean.trajectory.trajectoryType}">
 										<f:selectItems
 											value="#{createCarPoolingServiceBean.trajectoryTypeValues()}"
 											var="s" itemLabel="#{s.label}" itemValue="#{s}" />
@@ -159,25 +159,25 @@
 							
 								<div class="form-floating mb-3">
 									<h:selectBooleanCheckbox
-										value="#{createServiceBean.cps.isPetAllowed}" />
+										value="#{createServiceBean.cps.petAllowed}" />
 									Animaux de compagnie <br />
 								</div>
 
 								<div class="form-floating mb-3">
 									<h:selectBooleanCheckbox
-										value="#{createServiceBean.cps.isSmokingAllowed}" />
+										value="#{createServiceBean.cps.smokingAllowed}" />
 									 Autorisation de fumer <br />
 								</div>
 
 								<div class="form-floating mb-3">
 									<h:selectBooleanCheckbox
-										value="#{createServiceBean.cps.isMusicAllowed}" />
+										value="#{createServiceBean.cps.musicAllowed}" />
 									Musique forte <br />
 								</div>
 
 								<div class="form-floating mb-3">
 									<h:selectBooleanCheckbox
-										value="#{createServiceBean.cps.isChattingAllowed}" />
+										value="#{createServiceBean.cps.chattingAllowed}" />
 									Discussion <br />
 								</div>
 

@@ -22,13 +22,13 @@ public class CarPoolingService extends Service{
     
     private int availableSeats;
     
-    private boolean isPetAllowed;
+    private boolean petAllowed;
     
-    private boolean isSmokingAllowed;
+    private boolean smokingAllowed;
     
-    private boolean isMusicAllowed;
+    private boolean musicAllowed;
     
-    private boolean isChattingAllowed;
+    private boolean chattingAllowed;
     
     @OneToOne(cascade=CascadeType.ALL)
     private Vehicule vehicule;
@@ -40,7 +40,7 @@ public class CarPoolingService extends Service{
 	super();
     }
 
-    public CarPoolingService(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate, LocalDateTime endDate,
+    public CarPoolingService(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, Date startDate, Date endDate,
 			int referenceNumber, boolean isRequest, double price, ServiceType servicetype,
 			List<UserAccount> userAccounts, CarPoolingType carPoolingType, int availableSeats, boolean isPetAllowed,
 		    boolean isSmokingAllowed, boolean isMusicAllowed, boolean isChattingAllowed, Vehicule vehicule, Trajectory trajectory) {
@@ -48,10 +48,10 @@ public class CarPoolingService extends Service{
 				userAccounts);
 		this.carPoolingType = carPoolingType;
 		this.availableSeats = availableSeats;
-		this.isPetAllowed = isPetAllowed;
-		this.isSmokingAllowed = isSmokingAllowed;
-		this.isMusicAllowed = isMusicAllowed;
-		this.isChattingAllowed = isChattingAllowed;
+		this.petAllowed = isPetAllowed;
+		this.smokingAllowed = isSmokingAllowed;
+		this.musicAllowed = isMusicAllowed;
+		this.chattingAllowed = isChattingAllowed;
 		this.vehicule = vehicule;
 		this.trajectory = trajectory;
 	}
@@ -64,60 +64,62 @@ public class CarPoolingService extends Service{
         this.carPoolingType = carPoolingType;
     }
 
-    public int getAvailableSeats() {
-        return availableSeats;
-    }
+	public int getAvailableSeats() {
+		return availableSeats;
+	}
 
-    public void setAvailableSeats(int availableSeats) {
-        this.availableSeats = availableSeats;
-    }
+	public void setAvailableSeats(int availableSeats) {
+		this.availableSeats = availableSeats;
+	}
 
-    public boolean getIsPetAllowed() {
-        return isPetAllowed;
-    }
+	public boolean isPetAllowed() {
+		return petAllowed;
+	}
 
-    public void setIsPetAllowed(Boolean isPetAllowed) {
-        this.isPetAllowed = isPetAllowed;
-    }
+	public void setPetAllowed(boolean petAllowed) {
+		this.petAllowed = petAllowed;
+	}
 
-    public boolean getIsSmokingAllowed() {
-        return isSmokingAllowed;
-    }
+	public boolean isSmokingAllowed() {
+		return smokingAllowed;
+	}
 
-    public void setIsSmokingAllowed(boolean isSmokingAllowed) {
-        this.isSmokingAllowed = isSmokingAllowed;
-    }
+	public void setSmokingAllowed(boolean smokingAllowed) {
+		this.smokingAllowed = smokingAllowed;
+	}
 
-    public boolean getIsMusicAllowed() {
-        return isMusicAllowed;
-    }
+	public boolean isMusicAllowed() {
+		return musicAllowed;
+	}
 
-    public void setIsMusicAllowed(boolean isMusicAllowed) {
-        this.isMusicAllowed = isMusicAllowed;
-    }
+	public void setMusicAllowed(boolean musicAllowed) {
+		this.musicAllowed = musicAllowed;
+	}
 
-    public boolean getIsChattingAllowed() {
-        return isChattingAllowed;
-    }
+	public boolean isChattingAllowed() {
+		return chattingAllowed;
+	}
 
-    public void setIsChattingAllowed(boolean isChattingAllowed) {
-        this.isChattingAllowed = isChattingAllowed;
-    }
+	public void setChattingAllowed(boolean chattingAllowed) {
+		this.chattingAllowed = chattingAllowed;
+	}
 
-    public Vehicule getVehicule() {
-        return vehicule;
-    }
+	public Vehicule getVehicule() {
+		return vehicule;
+	}
 
-    public void setVehicule(Vehicule vehicule) {
-        this.vehicule = vehicule;
-    }
+	public void setVehicule(Vehicule vehicule) {
+		this.vehicule = vehicule;
+	}
 
-    public Trajectory getTrajectory() {
-        return trajectory;
-    }
+	public Trajectory getTrajectory() {
+		return trajectory;
+	}
 
-    public void setTrajectory(Trajectory trajectory) {
-        this.trajectory = trajectory;
-    }
+	public void setTrajectory(Trajectory trajectory) {
+		this.trajectory = trajectory;
+	}
+
+    
     
 }
