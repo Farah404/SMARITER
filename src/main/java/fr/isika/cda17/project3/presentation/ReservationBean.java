@@ -3,6 +3,7 @@ package fr.isika.cda17.project3.presentation;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -56,22 +57,35 @@ public class ReservationBean implements Serializable {
 		serviceInvoice.setService(carPooling);
 		// TODO : pour contourner on utilise l'email qui sera remplacé par l'id plus
 		// tard une fois le login/logout mergé
-		serviceInvoice.setUserAccount(userAccontDao.findByEmail());
-
-		if (carPooling.getAvailableSeats() > 0) {
-			// reservationDao.create(reservation);
-
-			reservation.setServiceinvoice(serviceInvoiceDao.create(serviceInvoice));
-			carPooling.getReservations().add(reservation);
-			carPooling.setAvailableSeats(carPooling.getAvailableSeats() - 1);
-
-			carPoolingServiceDao.update(carPooling);
-			System.out.println(reservation.getId());
-
+		
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		String email = (String) session.getAttribute("email");
+		
+		
+		if(email != null && !email.isBlank()) {
+			Optional<UserAccount> optional = userAccontDao.findByEmail(email);
+			if(optional.isPresent()) {
+				serviceInvoice.setUserAccount(optional.get());
+				
+				if (carPooling.getAvailableSeats() > 0) {
+					// reservationDao.create(reservation);
+		
+					reservation.setServiceinvoice(serviceInvoiceDao.create(serviceInvoice));
+					carPooling.getReservations().add(reservation);
+					carPooling.setAvailableSeats(carPooling.getAvailableSeats() - 1);
+		
+					carPoolingServiceDao.update(carPooling);
+					System.out.println(reservation.getId());
+		
+				} else {
+					System.out.println("reservation failed, no seats available");
+				}
+			} else {
+				System.out.println("reservation failed, no user with email : " + email);
+			}
 		} else {
-			System.out.println("reservation failed, no seats available");
+			System.out.println("reservation failed, email unknown : " + email);
 		}
-
 	}
 
 	public CarPoolingService getCarPooling() {
