@@ -47,6 +47,10 @@ public class CreateUserBean implements Serializable {
 		userAccount.setShoppingCart(shoppingCart);
 		userAccount.setWallet(wallet);
 		userAccount.setIsActive(true);
+		
+//TODO	parse String into LTD
+//		set.(LTD)
+		
 		vehicule.setInsurance(insurance);
 		userAccount.setVehicule(vehicule);
 		user.setUserAccount(userAccount);

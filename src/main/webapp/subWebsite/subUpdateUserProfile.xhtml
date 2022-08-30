@@ -266,7 +266,9 @@
                                         Date de fin de validité de l'assurance
                                     </td>
                                     <td class="text-success">
-                                        <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractExpiration}" value="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractExpiration}" />
+                                        <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractExpiration}" value="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractExpiration}">
+                                        <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                        </h:inputText>
                                    </td>
                                 </tr>
                                 
@@ -305,7 +307,9 @@
                                         Hybride
                                     </td>
                                     <td class="text-success">
-                                        <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.vehicule.isHybrid()}" value="#{userProfileBean.user.userAccount.vehicule.isHybrid()}" />
+<!--                                     <h:selectBooleanCheckbox value="#{userProfileBean.user.userAccount.vehicule.isHybrid()}"/> -->
+                                    <h:selectBooleanCheckbox value="#{userProfileBean.user.userAccount.vehicule.hybrid}" />
+<!--                                         <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.vehicule.isHybrid()}" value="#}" /> -->
                                    </td>
                                 </tr>
                                  <tr>
@@ -314,7 +318,8 @@
                                         100% electrique
                                     </td>
                                     <td class="text-success">
-                                        <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.vehicule.isElectric()}" value="#{userProfileBean.user.userAccount.vehicule.isElectric()}" />
+                                    	<h:selectBooleanCheckbox value="#{userProfileBean.user.userAccount.vehicule.electric}"/>
+<!--                                         <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.vehicule.isElectric()}" value="" /> -->
                                    </td>
                                 </tr>
                                 <tr>
@@ -323,7 +328,10 @@
                                         Date de fin de validité du contrôle technique
                                     </td>
                                     <td class="text-success">
-                                        <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.vehicule.technicalTestExpiration}" value="#{userProfileBean.user.userAccount.vehicule.technicalTestExpiration}" />
+                                        <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.vehicule.technicalTestExpiration}" value="#{userProfileBean.user.userAccount.vehicule.technicalTestExpiration}">
+                                        <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                        
+                                        </h:inputText>
                                    </td>
                                 </tr>
                                 <tr>
