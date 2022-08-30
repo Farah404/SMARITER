@@ -4,13 +4,16 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
@@ -36,10 +39,15 @@ public abstract class Service {
     
     private double price;
     
+    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    private List <Reservation> reservations = new LinkedList<>();
+    
     @Enumerated
     private ServiceType servicetype;
     
-    @ManyToMany
+    
+
+	@ManyToMany
     private List <UserAccount> userAccounts = new LinkedList<>();
 
     public Service() {
@@ -47,7 +55,7 @@ public abstract class Service {
     }
 
     public Service(Long id, Date publicationDate, Date expirationDate, Date startDate, Date endDate,
-	    int referenceNumber, Boolean isRequest, double price, ServiceType servicetype,
+	    int referenceNumber, Boolean isRequest, double price,List <Reservation> reservations, ServiceType servicetype,
 	    List<UserAccount> userAccounts) {
 	super();
 	this.id = id;
@@ -58,8 +66,10 @@ public abstract class Service {
 	this.referenceNumber = referenceNumber;
 	this.isRequest = isRequest;
 	this.price = price;
+	this.reservations = reservations;
 	this.servicetype = servicetype;
 	this.userAccounts = userAccounts;
+	
     }
 
     public Date getPublicationDate() {
@@ -137,5 +147,11 @@ public abstract class Service {
     public Long getId() {
         return id;
     }
+    public List<Reservation> getReservations() {
+		return reservations;
+	}
 
+	public void setReservations(List<Reservation> reservation) {
+		this.reservations = reservation;
+	}
 }

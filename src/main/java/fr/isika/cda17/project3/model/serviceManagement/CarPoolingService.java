@@ -1,10 +1,13 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -28,10 +31,13 @@ public class CarPoolingService extends Service{
     
     private Boolean isChattingAllowed;
     
-    @OneToOne
+    @ManyToMany
+    private List <CarPoolingService> carPoolingServiceList = new ArrayList<CarPoolingService>();
+    
+    @OneToOne(cascade=CascadeType.ALL)
     private Vehicule vehicule;
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private Trajectory trajectory;
 
     public CarPoolingService() {
@@ -39,10 +45,10 @@ public class CarPoolingService extends Service{
     }
 
     public CarPoolingService(Long id, Date publicationDate, Date expirationDate, Date startDate, Date endDate,
-			int referenceNumber, Boolean isRequest, double price, ServiceType servicetype,
+			int referenceNumber, Boolean isRequest, double price, List<Reservation> reservations, ServiceType servicetype,
 			List<UserAccount> userAccounts, CarPoolingType carPoolingType, int availableSeats, Boolean isPetAllowed,
 		    Boolean isSmokingAllowed, Boolean isMusicAllowed, Boolean isChattingAllowed, Vehicule vehicule, Trajectory trajectory) {
-		super(id, publicationDate, expirationDate, startDate, endDate, referenceNumber, isRequest, price, servicetype,
+		super(id, publicationDate, expirationDate, startDate, endDate, referenceNumber, isRequest, price,reservations, servicetype,
 				userAccounts);
 		this.carPoolingType = carPoolingType;
 		this.availableSeats = availableSeats;
@@ -117,6 +123,14 @@ public class CarPoolingService extends Service{
     public void setTrajectory(Trajectory trajectory) {
         this.trajectory = trajectory;
     }
+
+	public List <CarPoolingService> getCarPoolingServiceList() {
+		return carPoolingServiceList;
+	}
+
+	public void setCarPoolingServiceList(List <CarPoolingService> carPoolingServiceList) {
+		this.carPoolingServiceList = carPoolingServiceList;
+	}
 
 	
     

@@ -45,7 +45,7 @@ public class CarPoolingServiceDaoImpl implements CarPoolingServiceDao{
 	    updatedCarPoolingService.setIsMusicAllowed(carPoolingService.getIsMusicAllowed());
 	    updatedCarPoolingService.setIsChattingAllowed(carPoolingService.getIsChattingAllowed());
 	    
-	    entityManager.persist(carPoolingService);
+	    entityManager.merge(carPoolingService);
 	} catch (Exception e) {
 	    System.out.println("CarPoolingServiceDao.update() - Failed : " + e.getMessage());
 	}
@@ -71,8 +71,10 @@ public class CarPoolingServiceDaoImpl implements CarPoolingServiceDao{
 
     @Override
     public List<CarPoolingService> findAll() {
-	// TODO Auto-generated method stub
-	return null;
+    	List<CarPoolingService> c =  this.entityManager.createQuery("select ea from CarPoolingService ea", CarPoolingService.class).getResultList();
+   	 System.out.println( c);
+   	 return c;
+	
     }
 
 }

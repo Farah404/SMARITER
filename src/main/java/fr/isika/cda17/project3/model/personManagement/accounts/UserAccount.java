@@ -23,6 +23,7 @@ import fr.isika.cda17.project3.model.serviceManagement.Service;
 @Entity
 @PrimaryKeyJoinColumn(name="id")
 @NamedQuery(name = "UserAccount.findByEmail", query = "SELECT ua FROM UserAccount ua WHERE ua.email = :email_param")
+
 public class UserAccount extends Account{
     
     @OneToOne(cascade=CascadeType.ALL)

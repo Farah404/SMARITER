@@ -17,6 +17,13 @@ import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 import fr.isika.cda17.project3.model.personManagement.accounts.User;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
+import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
+import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
+import fr.isika.cda17.project3.model.serviceManagement.CarPoolingType;
+import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
+import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
+import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
+import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
 import fr.isika.cda17.project3.model.personManagement.accounts.Person;
 import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
 
@@ -107,9 +114,25 @@ public class DataSet {
 	ue.setUserAccount(u);
 	u.setAccountType(AccountType.USER);
 	em.persist(ue);
+    
+    //Pour list
+	 CarPoolingService ca = new CarPoolingService();
+	 Trajectory t = new Trajectory();
+	 Vehicule v = new Vehicule();
+	 Itinerary i = new Itinerary();
+	 UserAccount ua = new UserAccount();
+	 ca.setAvailableSeats(3);
+	 ca.setIsChattingAllowed(false);
+	 ca.setTrajectory(t);
+	 ca.setVehicule(v);
+	 v.setBrand("BMW");
+	 t.setPickUpAddress("poissy");
+	 v.setUserAccount(ua);
+	 t.setItinerary(i);
+	 ua.setUsername("hou");
+	 i.setFirstStopAddress("poissy");
+	 
+	 em.persist(ca);
+    
     }
-    
-    
-    
-
 }

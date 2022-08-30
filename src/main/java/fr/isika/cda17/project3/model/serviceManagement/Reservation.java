@@ -3,6 +3,7 @@ package fr.isika.cda17.project3.model.serviceManagement;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,13 +21,13 @@ public class Reservation {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.MERGE)
     private Service service;
 
     @ManyToMany
     private List <UserAccount> Useraccounts = new LinkedList<>();
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private ServiceInvoice serviceinvoice;
 
     public Reservation() {
