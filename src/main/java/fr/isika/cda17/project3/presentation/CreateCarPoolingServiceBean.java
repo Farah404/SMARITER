@@ -10,6 +10,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+
 import fr.isika.cda17.project3.model.personManagement.accounts.User;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
@@ -18,6 +19,7 @@ import fr.isika.cda17.project3.model.serviceManagement.CarPoolingType;
 import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
+import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
 import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserDao;
@@ -49,13 +51,11 @@ public class CreateCarPoolingServiceBean {
 	public CarPoolingType[] carPoolingTypeValues() {
 		return CarPoolingType.values();
 	}
-	
-	public TrajectoryType[] trajectoryTypeValues() {
+  public TrajectoryType[] trajectoryTypeValues() {
 		return TrajectoryType.values();
-	}
+  }
 		
-	public void createCarPoolingService() {
-		
+	public void create() {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Long id = Long.valueOf(session.getAttribute("id").toString());
 		userAccount = userAccountsDao.findById(id);
@@ -70,8 +70,7 @@ public class CreateCarPoolingServiceBean {
 		System.out.println(created);
 	}
 	
-public void createCarPoolingServiceRequest() {
-		
+public void createRequest() {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Long id = Long.valueOf(session.getAttribute("id").toString());
 		userAccount = userAccountsDao.findById(id);
@@ -106,8 +105,16 @@ public void createCarPoolingServiceRequest() {
 		return trajectory;
 	}
 
+	public Itinerary getItinerary() {
+		return itinerary;
+	}
+
+	public void setItinerary(Itinerary itinerary) {
+		this.itinerary = itinerary;
+	}
+
 	public void setTrajectory(Trajectory trajectory) {
 		this.trajectory = trajectory;
 	}
-	
 }
+

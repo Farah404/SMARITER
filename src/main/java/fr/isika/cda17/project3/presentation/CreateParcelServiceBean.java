@@ -12,13 +12,21 @@ import javax.servlet.http.HttpSession;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
+import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
+import fr.isika.cda17.project3.model.serviceManagement.CarPoolingType;
+import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
 import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
 import fr.isika.cda17.project3.model.serviceManagement.ParcelService;
+import fr.isika.cda17.project3.model.serviceManagement.PersonalAssistanceType;
+import fr.isika.cda17.project3.model.serviceManagement.Service;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
-import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
+import fr.isika.cda17.project3.repository.serviceManagement.CarPoolingServiceDao;
+import fr.isika.cda17.project3.repository.serviceManagement.CarRentalServiceDao;
 import fr.isika.cda17.project3.repository.serviceManagement.ParcelServiceDao;
+import fr.isika.cda17.project3.repository.serviceManagement.PersonalAssistanceServiceDao;
+import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
 
 @ManagedBean
 @ViewScoped
@@ -107,6 +115,5 @@ public class CreateParcelServiceBean {
 	public void setItinerary(Itinerary itinerary) {
 		this.itinerary = itinerary;
 	}
-
-	
 }
+

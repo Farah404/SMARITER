@@ -14,4 +14,5 @@ public enum CarPoolingType {
 	public String getLabel() {
 		return label;
 	}
+
 }

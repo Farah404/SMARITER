@@ -24,11 +24,26 @@
 			      	<f:selectItems value="#{createServiceBean.serviceTypes()}" var="s" itemLabel="#{s.label}" itemValue="#{s}"/>
 			      </h:selectOneMenu>
                     <br /></div>
+<!--TODO MergingServiceCreation -->
+<!--                    <div class="form-outline mb-3"> -->
+<!--                    Type de Prestation  -->
+<!--                    <br /></div> <br /> -->
+<!--                    <div class="form-floating mb-3">  -->
+<!--                      Prix en EcoCoins  -->
+<!--                    <br /></div>  -->
+<!--                   <h:selectOneMenu id="serviceTypeTrue" value="#{createServiceBean.cps.servicetype}" Label="Select your service" class="form-solution-field animation a3"> -->
+<!--			      	<f:selectItems value="#{createServiceBean.serviceTypes()}" var="s" itemLabel="#{s.label}" itemValue="#{s}"/>  -->
+<!--			      </h:selectOneMenu>  -->
+<!--					<h:selectBooleanCheckbox value="#{createServiceBean.request}" />  -->
+<!--					<h:commandLink action="#{createServiceBean.chooseServiceType()}" value="Suivant" /> -->
+<!-- -->
+<!--TODO EndOFServiceCreation -->
 
                     <div class="form-floating mb-3">
                     <h:selectBooleanCheckbox value="#{createServiceBean.request}" /> Je dépose une demande.
                     <br /></div><br/>
 					<h:commandLink class="btn btn-success" action="#{createServiceBean.chooseServiceType()}" value="Suivant" />
+<!-- TODO EndOfMaster-->
                 
 
             </div>
