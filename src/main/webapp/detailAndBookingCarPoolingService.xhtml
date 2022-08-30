@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<!-- <f:metadata>
+	<f:event listener="#{carPoolingManagementBean.init()}"
+		type="preRenderView"></f:event>
+</f:metadata> -->
+
+<h:head>
+	<title>List</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+			<h:outputScript library="js" name="faq.js" />
+			<div class="container">
+
+				<hr />
+				<hr />
+				<hr />
+
+				<h:form>
+
+					 <h:dataTable class="styled-table" id="carPoolingService"
+						value="#{carPoolingManagementBean.carPoolingServiceList}"
+						var="carPoolingService">
+
+						<h:column>
+							<f:facet name="header">Id</f:facet>
+							<h:outputText value="#{carPoolingService.id}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"> Pick-Up Address</f:facet>
+							<h:outputText value="#{carPoolingService.trajectory.pickUpAddress}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"> Delivery Address </f:facet>
+							<h:outputText value="#{carPoolingService.trajectory.deliveryAddress}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"> Duration (in hour)</f:facet>
+							<h:outputText value="#{carPoolingService.trajectory.durationHours}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"> Stop Duration (in minute)</f:facet>
+							<h:outputText
+								value="#{carPoolingService.trajectory.stopDurationMinutes}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"> Stop Number</f:facet>
+							<h:outputText value="#{carPoolingService.trajectory.stopNumber}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"> Trajectory Type</f:facet>
+							<h:outputText
+								value="#{carPoolingService.trajectory.trajectoryType}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"> Seats Avaible</f:facet>
+							<h:outputText value="#{carPoolingService.availableSeats}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"> courtesy</f:facet>
+							<h:outputText value="#{carPoolingService.isChattingAllowed}" />
+							<h:outputText value="#{carPoolingService.isMusicAllowed}" />
+							<h:outputText value="#{carPoolingService.isPetAllowed}" />
+							<h:outputText value="#{carPoolingService.isSmokingAllowed}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"> About vehicule</f:facet>
+							<h:outputText value="#{carPoolingService.vehicule.brand}" />
+							<h:outputText value="#{carPoolingService.vehicule.isHybrid()}" />
+							<h:outputText value="#{carPoolingService.vehicule.isManual()}" />
+							<h:outputText value="#{carPoolingService.vehicule.isElectric()}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Conductor</f:facet>
+							<h:outputText
+								value="#{carPoolingService.vehicule.userAccount.username}" />
+						</h:column>
+					
+					<!-- 
+						<h:column>
+							<f:facet name="header">Back</f:facet>
+							<h:panelGrid>
+								<h:commandButton value="back"
+									action="#{carPoolingManagementBean.freshinit()}"
+									
+										value="back">
+								</h:commandButton>
+							</h:panelGrid>
+						</h:column> -->
+						<h:column>
+							<f:facet name="header">BOOK</f:facet>
+							<h:panelGrid>
+								<h:commandButton
+									action="#{carPoolingManagementBean.delete(carPoolingService.id)}"
+									value="Delete" />
+							</h:panelGrid>
+						</h:column>
+					 </h:dataTable>
+
+				</h:form>
+
+			</div>
+
+			<hr />
+			<hr />
+			<hr />
+
+		</ui:define>
+	</ui:composition>
+		
+
+</h:body>
+</html>

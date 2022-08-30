@@ -7,8 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.BankDetails;
-import fr.isika.cda17.project3.model.financialManagement.invoice.BillingAddress;
-import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 
 @Stateless
 public class BankDetailsDaoImpl implements BankDetailsDao{

@@ -25,7 +25,52 @@ public class SolutionManagementBean implements Serializable {
 	private SolutionDao solutionDao;
 
 	private List<Solution> solutiontList;
+<<<<<<< Updated upstream
 	
+=======
+
+	private Solution solution;
+	
+	public void init() throws IOException {
+		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+		if (map.containsKey("solutionId")) {
+			String solutionIdParamValue = map.get("solutionId");
+			System.err.println(solutionIdParamValue);
+			if (solutionIdParamValue != null && !solutionIdParamValue.isBlank()) {
+				Long id = Long.valueOf(solutionIdParamValue);
+				if(id != null) {
+					solution = solutionDao.findById(id);
+					if (solution == null) {
+						redirectError();
+					}
+				} else {
+					redirectError();
+				}
+			} else {
+				redirectError();
+			}
+		}
+	}
+
+	public void redirectError() throws IOException {
+		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+		ec.redirect(LIST_SOLUTION_XHTML);
+	}
+
+	public String updapte() {
+		solutionDao.update(solution);
+		System.out.println((solution));
+		return LIST_SOLUTION_XHTML;
+	}
+	
+	public Solution getSolution() {
+		return solution;
+	}
+
+	public void setSolution(Solution solution) {
+		this.solution = solution;
+	}
+>>>>>>> Stashed changes
 
 	public PaymentSystemChoice[] paymentSystemChoice() {
 		return PaymentSystemChoice.values();
@@ -39,6 +84,10 @@ public class SolutionManagementBean implements Serializable {
 		return PriceDeal.values();
 	}
 	
+<<<<<<< Updated upstream
+=======
+	
+>>>>>>> Stashed changes
 	@PostConstruct
 	public void feeshinit() {
 		refresh();

@@ -1,10 +1,14 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -15,62 +19,49 @@ import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 @PrimaryKeyJoinColumn(name="id")
 public class CarPoolingService extends Service{
     
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private CarPoolingType carPoolingType;
     
     private int availableSeats;
-    
-    private Boolean isPetAllowed;
-    
-    private Boolean isSmokingAllowed;
-    
-    private Boolean isMusicAllowed;
-    
-    private Boolean isChattingAllowed;
-    
-    @OneToOne
+
+    private boolean isPetAllowed;
+
+    private boolean isSmokingAllowed;
+
+    private boolean isMusicAllowed;
+
+    private boolean isChattingAllowed;
+
+    @OneToOne(cascade=CascadeType.ALL)
     private Vehicule vehicule;
-    
-    @OneToOne
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Trajectory trajectory;
+    
+    @ManyToMany
+    private List<CarPoolingService> carPoolingList = new ArrayList<CarPoolingService>();
 
     public CarPoolingService() {
 	super();
     }
 
-    public CarPoolingService(Long id, Date publicationDate, Date expirationDate, Date startDate, Date endDate,
-			int referenceNumber, Boolean isRequest, double price, ServiceType servicetype,
-			List<UserAccount> userAccounts, CarPoolingType carPoolingType, int availableSeats, Boolean isPetAllowed,
-		    Boolean isSmokingAllowed, Boolean isMusicAllowed, Boolean isChattingAllowed, Vehicule vehicule, Trajectory trajectory) {
-		super(id, publicationDate, expirationDate, startDate, endDate, referenceNumber, isRequest, price, servicetype,
-				userAccounts);
+    public CarPoolingService(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate, LocalDateTime endDate,
+			int referenceNumber, boolean isRequest, double price, ServiceType servicetype,
+			List<UserAccount> userAccounts, CarPoolingType carPoolingType, int availableSeats, boolean isPetAllowed,
+		    boolean isSmokingAllowed, boolean isMusicAllowed, boolean isChattingAllowed, Vehicule vehicule, Trajectory trajectory) {
+		super();
 		this.carPoolingType = carPoolingType;
 		this.availableSeats = availableSeats;
-		this.isPetAllowed = isPetAllowed;
-		this.isSmokingAllowed = isSmokingAllowed;
-		this.isMusicAllowed = isMusicAllowed;
-		this.isChattingAllowed = isChattingAllowed;
-		this.vehicule = vehicule;
-		this.trajectory = trajectory;
-	}
-
-	public CarPoolingType getCarPoolingType() {
-        return carPoolingType;
+		this.availableSeats=availableSeats;
+		this.isChattingAllowed=isChattingAllowed;
+		this.isMusicAllowed=isMusicAllowed;
+		this.isPetAllowed=isPetAllowed;
+		this.isSmokingAllowed=isSmokingAllowed;
+	
     }
+		
 
-    public void setCarPoolingType(CarPoolingType carPoolingType) {
-        this.carPoolingType = carPoolingType;
-    }
-
-    public int getAvailableSeats() {
-        return availableSeats;
-    }
-
-    public void setAvailableSeats(int availableSeats) {
-        this.availableSeats = availableSeats;
-    }
-
-    public Boolean getIsPetAllowed() {
+    public boolean getIsPetAllowed() {
         return isPetAllowed;
     }
 
@@ -78,46 +69,85 @@ public class CarPoolingService extends Service{
         this.isPetAllowed = isPetAllowed;
     }
 
-    public Boolean getIsSmokingAllowed() {
+    public boolean getIsSmokingAllowed() {
         return isSmokingAllowed;
     }
 
-    public void setIsSmokingAllowed(Boolean isSmokingAllowed) {
+    public void setIsSmokingAllowed(boolean isSmokingAllowed) {
         this.isSmokingAllowed = isSmokingAllowed;
     }
 
-    public Boolean getIsMusicAllowed() {
+    public boolean getIsMusicAllowed() {
         return isMusicAllowed;
     }
 
-    public void setIsMusicAllowed(Boolean isMusicAllowed) {
+    public void setIsMusicAllowed(boolean isMusicAllowed) {
         this.isMusicAllowed = isMusicAllowed;
     }
 
-    public Boolean getIsChattingAllowed() {
+    public boolean getIsChattingAllowed() {
         return isChattingAllowed;
     }
 
-    public void setIsChattingAllowed(Boolean isChattingAllowed) {
+    public void setIsChattingAllowed(boolean isChattingAllowed) {
         this.isChattingAllowed = isChattingAllowed;
     }
 
-    public Vehicule getVehicule() {
-        return vehicule;
-    }
+	public CarPoolingType getCarPoolingType() {
+		return carPoolingType;
+	}
 
-    public void setVehicule(Vehicule vehicule) {
-        this.vehicule = vehicule;
-    }
+	public void setCarPoolingType(CarPoolingType carPoolingType) {
+		this.carPoolingType = carPoolingType;
+	}
 
-    public Trajectory getTrajectory() {
-        return trajectory;
-    }
+	public int getAvailableSeats() {
+		return availableSeats;
+	}
 
-    public void setTrajectory(Trajectory trajectory) {
-        this.trajectory = trajectory;
-    }
+	public void setAvailableSeats(int availableSeats) {
+		this.availableSeats = availableSeats;
+	}
 
+	public Vehicule getVehicule() {
+		return vehicule;
+	}
+
+	public void setVehicule(Vehicule vehicule) {
+		this.vehicule = vehicule;
+	}
+
+	public Trajectory getTrajectory() {
+		return trajectory;
+	}
+
+	public void setTrajectory(Trajectory trajectory) {
+		this.trajectory = trajectory;
+	}
+
+	public void setPetAllowed(boolean isPetAllowed) {
+		this.isPetAllowed = isPetAllowed;
+	}
+
+	public void setSmokingAllowed(boolean isSmokingAllowed) {
+		this.isSmokingAllowed = isSmokingAllowed;
+	}
+
+	public void setMusicAllowed(boolean isMusicAllowed) {
+		this.isMusicAllowed = isMusicAllowed;
+	}
+
+	public void setChattingAllowed(boolean isChattingAllowed) {
+		this.isChattingAllowed = isChattingAllowed;
+	}
+
+	public List<CarPoolingService> getCarPoolingList() {
+		return carPoolingList;
+	}
+
+	public void setCarPoolingList(List<CarPoolingService> carPoolingList) {
+		this.carPoolingList = carPoolingList;
+	}
 	
     
     

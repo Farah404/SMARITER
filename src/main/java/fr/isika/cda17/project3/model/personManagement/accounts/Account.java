@@ -1,9 +1,9 @@
 package fr.isika.cda17.project3.model.personManagement.accounts;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -30,7 +30,7 @@ public abstract class Account {
     
     private LocalDateTime creationDate;
     
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private AccountType accountType;
 
     public Account() {

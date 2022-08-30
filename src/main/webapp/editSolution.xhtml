@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<f:metadata>
+	<f:event listener="#{solutionManagementBean.init()}"
+		type="preRenderView"></f:event>
+</f:metadata>
+
+<h:head>
+	<title>SmarIter</title>
+</h:head>
+
+<h:body>
+ <ui:composition template="template/templatewithoutHeader.xhtml">
+ <ui:define name="content">
+ 
+<section class="wrapper-signin">
+
+		<video class="background-video" autoplay="autoplay" loop="loop"
+			muted="muted">
+			<source src="media/webm/videoplayback.webm" type="video/webm" />
+		</video>
+</section>
+	
+<section class="signup">
+	
+<div class="signupform-container animate-right" id="container">
+		<h:form action="#" class="sigup-form">
+			<fieldset>
+				<legend>Update Solution</legend>
+				<h:outputLabel value="Car Pool" />
+				<h:selectBooleanCheckbox id="isCarPoolingSolution" value="#{solutionManagementBean.solution.carPoolingsolutionIncluded}" />
+				
+				<h:outputLabel value="Car Rental" />
+				<h:selectBooleanCheckbox id="isCarRentalSolution" value="#{solutionManagementBean.solution.carRentalSolutionIncluded}" />
+				
+				<h:outputLabel value="Rating System" />
+				<h:selectBooleanCheckbox id="IsRatingSystem" value="#{solutionManagementBean.solution.ratingSystemIncluded}" />
+				
+				<h:outputLabel value="Personnal Assistance" />
+				<h:selectBooleanCheckbox id="isPersonalAssistanceSolutionIncluded" value="#{solutionManagementBean.solution.personalAssistanceSolutionIncluded}" />
+				
+				<h:outputLabel value="Parcel Solution" />
+				<h:selectBooleanCheckbox id="isParcelSolutionIncluded" value="#{solutionManagementBean.solution.parcelSolutionIncluded}" />
+				<h:outputLabel value="Package Price" />
+				<h:selectOneMenu value="#{solutionManagementBean.solution.priceDeal}">
+					<f:selectItem itemLabel="Selection" itemValue="null"/>
+					<f:selectItems value="#{solutionManagementBean.priceDeals()}" var="priceDeal" 
+						itemLabel="#{priceDeal}" itemValue="#{priceDeal}" ></f:selectItems>
+				</h:selectOneMenu>
+				<br />
+				<br />
+					<h:outputLabel value="Payment System" />
+				<h:selectOneMenu value="#{solutionManagementBean.solution.paymentSystemChoice}">
+					<f:selectItem itemLabel="Selection" itemValue="null"/>
+					<f:selectItems value="#{solutionManagementBean.paymentSystemChoice()}" var="payementSystemChoice}" 
+						itemLabel="#{payementSystemChoice}" itemValue="#{payementSystemChoice}" ></f:selectItems>
+				</h:selectOneMenu>
+				
+				
+				
+				<br />
+				<br />
+					<h:outputLabel value="Messaging System" />
+				<h:selectOneMenu value="#{solutionManagementBean.solution.messagingSystemChoice}">
+					<f:selectItem itemLabel="Selection" itemValue="null"/>
+					<f:selectItems value="#{solutionManagementBean.messagingSystemChoice()}" var="messagingSystemChoice}" 
+						itemLabel="#{messagingSystemChoice}" itemValue="#{messagingSystemChoice}" ></f:selectItems>
+				</h:selectOneMenu>
+				
+				<h:commandButton class="btn-signin" action="#{solutionManagementBean.updapte()}" value="Valide your Update"/>
+			</fieldset>
+		</h:form>
+</div>
+</section>
+
+ </ui:define>
+ </ui:composition>
+ 
+</h:body>
+</html>

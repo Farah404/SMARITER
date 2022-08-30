@@ -3,6 +3,7 @@ package fr.isika.cda17.project3.model.financialManagement.invoice;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,7 +22,7 @@ public abstract class Invoice {
     
     private Date invoiceIssueDate;
     
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private InvoiceType invoiceType;
 
     public Invoice() {

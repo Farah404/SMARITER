@@ -1,10 +1,11 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,21 +23,22 @@ public abstract class Service {
     @GeneratedValue
     private Long id;
     
-    private Date publicationDate;
+    private LocalDateTime publicationDate;
+
+    private String expirationDate;
+
+    private String startDate;
     
-    private Date expirationDate;
-    
-    private Date startDate;
-    
-    private Date endDate;
-    
+
+    private String endDate;
+
     private int referenceNumber;
-    
-    private Boolean isRequest;
-    
+
+    private boolean isRequest;
+
     private double price;
     
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private ServiceType servicetype;
     
     @ManyToMany
@@ -46,7 +48,7 @@ public abstract class Service {
 	super();
     }
 
-    public Service(Long id, Date publicationDate, Date expirationDate, Date startDate, Date endDate,
+    public Service(Long id, LocalDateTime publicationDate, String expirationDate, String startDate, String endDate,
 	    int referenceNumber, Boolean isRequest, double price, ServiceType servicetype,
 	    List<UserAccount> userAccounts) {
 	super();
@@ -62,39 +64,45 @@ public abstract class Service {
 	this.userAccounts = userAccounts;
     }
 
-    public Date getPublicationDate() {
+    public LocalDateTime getPublicationDate() {
         return publicationDate;
     }
 
-    public void setPublicationDate(Date publicationDate) {
+    public void setPublicationDate(LocalDateTime publicationDate) {
         this.publicationDate = publicationDate;
     }
 
-    public Date getExpirationDate() {
+    public String getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;
     }
 
-    public Date getStartDate() {
-        return startDate;
-    }
+ 
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
+    public String getStartDate() {
+		return startDate;
+	}
 
-    public Date getEndDate() {
-        return endDate;
-    }
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
+	public String getEndDate() {
+		return endDate;
+	}
 
-    public int getReferenceNumber() {
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+	public void setRequest(boolean isRequest) {
+		this.isRequest = isRequest;
+	}
+
+	public int getReferenceNumber() {
         return referenceNumber;
     }
 

@@ -1,6 +1,8 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,10 +25,10 @@ public class Trajectory {
     
     private String deliveryAddress;
     
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private TrajectoryType trajectoryType;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Itinerary itinerary;
 
     public Trajectory() {

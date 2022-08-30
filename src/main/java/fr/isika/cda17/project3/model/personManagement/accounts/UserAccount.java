@@ -22,9 +22,10 @@ import fr.isika.cda17.project3.model.serviceManagement.Service;
 @PrimaryKeyJoinColumn(name="id")
 public class UserAccount extends Account{
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private ShoppingCart shoppingCart;
 
+<<<<<<< Updated upstream
     @OneToOne(cascade=CascadeType.ALL)
     private BankDetails bankDetails;
 
@@ -32,6 +33,15 @@ public class UserAccount extends Account{
     private BillingAddress billingAddress;
     
     @OneToOne(cascade=CascadeType.ALL)
+=======
+    @OneToOne(cascade = CascadeType.ALL)
+    private BankDetails bankDetails;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private BillingAddress billingAddress;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+>>>>>>> Stashed changes
     private Wallet wallet;
 
     @ManyToMany

@@ -1,7 +1,6 @@
 package fr.isika.cda17.project3.model.personManagement.assets;
 
-import java.util.Date;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -27,12 +26,12 @@ public class Vehicule {
     
     private Boolean isManual;
     
-    private Date technicalTestExpiration;
+    private String technicalTestExpiration;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private UserAccount userAccount;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Insurance insurance;
 
     public Vehicule() {
@@ -40,7 +39,7 @@ public class Vehicule {
     }
 
     public Vehicule(Long id, String brand, String registrationNumber, Boolean isHybrid, Boolean isElectric,
-	    Boolean isManual, Date technicalTestExpiration, UserAccount userAccount, Insurance insurance) {
+	    Boolean isManual, String technicalTestExpiration, UserAccount userAccount, Insurance insurance) {
 	super();
 	this.id = id;
 	this.brand = brand;
@@ -93,11 +92,11 @@ public class Vehicule {
         this.isManual = isManual;
     }
 
-    public Date getTechnicalTestExpiration() {
+    public String getTechnicalTestExpiration() {
         return technicalTestExpiration;
     }
 
-    public void setTechnicalTestExpiration(Date technicalTestExpiration) {
+    public void setTechnicalTestExpiration(String technicalTestExpiration) {
         this.technicalTestExpiration = technicalTestExpiration;
     }
 
