@@ -13,7 +13,7 @@
 </f:metadata>
 
 <h:body>
-	<ui:composition template="subTemplate/subTemplateOnlyNav.xhtml">
+	<ui:composition template="#{templateBean.subtemplatePath()}">
 		<ui:define name="subcontent">
 
 <br />
@@ -35,17 +35,17 @@
 								<div class="row-usersignup">
 <div class="col-usersignup">
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="email" a:placeholder="Enter a valid email address" value="#{createUserBean.user.userAccount.email}" />
+									<h:inputText class = "form-control" id="email" a:placeholder="Enter a valid email address" value="#{createUserBean.userAccount.email}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputSecret class = "form-control" id="password" a:placeholder="Enter a strong password" value="#{createUserBean.user.userAccount.username}" />
+									<h:inputSecret class = "form-control" id="password" a:placeholder="Enter a strong password" value="#{createUserBean.userAccount.username}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="username" a:placeholder="Enter a username" value="#{createUserBean.user.userAccount.password}" />
+									<h:inputText class = "form-control" id="username" a:placeholder="Enter a username" value="#{createUserBean.userAccount.password}" />
                                     </div>
                                     <br />
                                     
@@ -65,7 +65,7 @@
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="addressLine" a:placeholder="Enter your address line" value="#{createUserBean.user.userAccount.billingAddress.addressLine}" />
+									<h:inputText class = "form-control" id="addressLine" a:placeholder="Enter your address line" value="#{createUserBean.billingAddress.addressLine}" />
                                     </div>
                                     <br />
                                    </div> 
@@ -73,39 +73,39 @@
                                     
                                     <div class="col-usersignup">
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="postalCode" a:placeholder="Enter your postal code" value="#{createUserBean.user.userAccount.billingAddress.postalCode}" />
+									<h:inputText class = "form-control" id="postalCode" a:placeholder="Enter your postal code" value="#{createUserBean.billingAddress.postalCode}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="city" a:placeholder="Enter your city" value="#{createUserBean.user.userAccount.billingAddress.city}" />
+									<h:inputText class = "form-control" id="city" a:placeholder="Enter your city" value="#{createUserBean.billingAddress.city}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="country" a:placeholder="Enter your country" value="#{createUserBean.user.userAccount.billingAddress.country}" />
+									<h:inputText class = "form-control" id="country" a:placeholder="Enter your country" value="#{createUserBean.billingAddress.country}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="bankNAme" a:placeholder="Enter your bank name" value="#{createUserBean.user.userAccount.bankDetails.bankName}" />
+									<h:inputText class = "form-control" id="bankNAme" a:placeholder="Enter your bank name" value="#{createUserBean.bankDetails.bankName}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="swift" a:placeholder="Enter your swift code" value="#{createUserBean.user.userAccount.bankDetails.swift}" />
+									<h:inputText class = "form-control" id="swift" a:placeholder="Enter your swift code" value="#{createUserBean.bankDetails.swift}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="iban" a:placeholder="Enter your IBAN" value="#{createUserBean.user.userAccount.bankDetails.iban}" />
+									<h:inputText class = "form-control" id="iban" a:placeholder="Enter your IBAN" value="#{createUserBean.bankDetails.iban}" />
                                     </div>
                                     <br />
                                     
                                     
                                     
                                      <h:commandButton class="btn btn-success btn-xl" value="S'enregistrer"
-						action="#{createUserBean.update()}" />
+						action="#{createUserBean.create()}" />
                                     </div>
                                 </div>  
                                 </div>

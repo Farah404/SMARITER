@@ -63,6 +63,7 @@ public class LogInAccountBean implements Serializable {
     			System.out.println("Wrong authentification");
     		}
     	}
+   
 		return "subLogin";
     }
     
@@ -111,13 +112,16 @@ public class LogInAccountBean implements Serializable {
 	
     public String logout() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-	// vider la session des infos mémorisées
 	session.invalidate();
 	return "index?faces-redirect=true";
-	
-	// TODO : redirect to index plus tard
     }
     
+    public String subLogout() {
+    	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+    	session.invalidate();
+    	return "subIndex.xhtml";
+    }
+  
     public String getEmail() {
         return email;
     }
