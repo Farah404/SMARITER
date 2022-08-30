@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
@@ -38,6 +40,12 @@ public abstract class Service {
     
     @Enumerated
     private ServiceType servicetype;
+
+    @OneToOne
+    private UserAccount userAccountProvider;
+    
+    @OneToMany
+    private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
     
     @ManyToMany
     private List <UserAccount> userAccounts = new LinkedList<>();
@@ -62,7 +70,24 @@ public abstract class Service {
 	this.userAccounts = userAccounts;
     }
 
-    public LocalDateTime getPublicationDate() {
+    
+    public UserAccount getUserAccountProvider() {
+		return userAccountProvider;
+	}
+
+	public void setUserAccountProvider(UserAccount userAccountProvider) {
+		this.userAccountProvider = userAccountProvider;
+	}
+
+	public List<UserAccount> getUserAccountsPurchasers() {
+		return userAccountsPurchasers;
+	}
+
+	public void setUserAccountsPurchasers(List<UserAccount> userAccountsPurchasers) {
+		this.userAccountsPurchasers = userAccountsPurchasers;
+	}
+
+	public LocalDateTime getPublicationDate() {
         return publicationDate;
     }
 
