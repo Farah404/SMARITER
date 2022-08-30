@@ -7,8 +7,6 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.validator.internal.constraintvalidators.NullValidator;
-
 import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
 
 @ManagedBean

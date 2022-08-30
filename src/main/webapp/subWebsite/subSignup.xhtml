@@ -17,9 +17,6 @@
 		<ui:define name="subcontent">
 
 <br />
-<div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">10%</div>
-</div>
 <div class="sign-in-form" style="background-color: white;">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -33,88 +30,96 @@
                                     <h4 class="mt-1 mb-5 pb-1">Je crée mon compte EcoCar</h4>
                                 </div>
 								<div class="row-usersignup">
-<div class="col-usersignup">
+									<div class="col-usersignup">
+									Personal Details
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="email" a:placeholder="Enter a valid email address" value="#{createUserBean.userAccount.email}" />
+									<h:inputText class = "form-control" id="email" a:placeholder="Email address" value="#{createUserBean.userAccount.email}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputSecret class = "form-control" id="password" a:placeholder="Enter a strong password" value="#{createUserBean.userAccount.username}" />
+									<h:inputSecret class = "form-control" id="password" a:placeholder="Password" value="#{createUserBean.userAccount.username}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="username" a:placeholder="Enter a username" value="#{createUserBean.userAccount.password}" />
+									<h:inputText class = "form-control" id="username" a:placeholder="Username" value="#{createUserBean.userAccount.password}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="firstname" a:placeholder="Enter your firstname" value="#{createUserBean.user.firstName}" />
+									<h:inputText class = "form-control" id="firstname" a:placeholder="Firstname" value="#{createUserBean.user.firstName}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="lastname" a:placeholder="Enter your lastname" value="#{createUserBean.user.lastName}" />
+									<h:inputText class = "form-control" id="lastname" a:placeholder="Lastname" value="#{createUserBean.user.lastName}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="phoneNumber" a:placeholder="Enter your phone number" value="#{createUserBean.user.phoneNumber}" />
+									<h:inputText class = "form-control" id="phoneNumber" a:placeholder="Phone Number" value="#{createUserBean.user.phoneNumber}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="addressLine" a:placeholder="Enter your address line" value="#{createUserBean.billingAddress.addressLine}" />
+									<h:inputText class = "form-control" id="dd/mm/yyyy" a:placeholder="Birthday" value="#{createUserBean.user.birthDate}" />
                                     </div>
                                     <br />
                                    </div> 
                                     
                                     
                                     <div class="col-usersignup">
+                                    Billing Details
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="postalCode" a:placeholder="Enter your postal code" value="#{createUserBean.billingAddress.postalCode}" />
+									<h:inputText class = "form-control" id="addressLine" a:placeholder="Address Line" value="#{createUserBean.billingAddress.addressLine}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="city" a:placeholder="Enter your city" value="#{createUserBean.billingAddress.city}" />
+									<h:inputText class = "form-control" id="postalCode" a:placeholder="Postal Code" value="#{createUserBean.billingAddress.postalCode}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="country" a:placeholder="Enter your country" value="#{createUserBean.billingAddress.country}" />
+									<h:inputText class = "form-control" id="city" a:placeholder="City" value="#{createUserBean.billingAddress.city}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="bankNAme" a:placeholder="Enter your bank name" value="#{createUserBean.bankDetails.bankName}" />
+									<h:inputText class = "form-control" id="country" a:placeholder="Country" value="#{createUserBean.billingAddress.country}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="swift" a:placeholder="Enter your swift code" value="#{createUserBean.bankDetails.swift}" />
+									<h:inputText class = "form-control" id="bankNAme" a:placeholder="Bank Name" value="#{createUserBean.bankDetails.bankName}" />
                                     </div>
                                     <br />
                                     
                                     <div class="form-outline mb-4">
-									<h:inputText class = "form-control" id="iban" a:placeholder="Enter your IBAN" value="#{createUserBean.bankDetails.iban}" />
+									<h:inputText class = "form-control" id="swift" a:placeholder="Swift Code" value="#{createUserBean.bankDetails.swift}" />
+                                    </div>
+                                    <br />
+                                    
+                                    <div class="form-outline mb-4">
+									<h:inputText class = "form-control" id="iban" a:placeholder="IBAN" value="#{createUserBean.bankDetails.iban}" />
                                     </div>
                                     <br />
                                     
                                     
                                     
-                                     <h:commandButton class="btn btn-success btn-xl" value="S'enregistrer"
+                                     
+                                    </div>
+                                </div>
+                                  <h:commandButton style="width:100%" class="btn btn-success btn-xl" value="S'enregistrer"
 						action="#{createUserBean.create()}" />
-                                    </div>
-                                </div>  
                                 </div>
                         </div>
   </h:form>
                         <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                             <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                                 <div>
-                                 <img src="subMedia/Images/CityEcoCar.png" width="120%" />
+                                 <img src="subMedia/Images/CityEcoCar.png" width="180%" />
                                  </div>
                             </div>
                         </div>
