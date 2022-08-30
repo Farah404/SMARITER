@@ -43,7 +43,7 @@ public class UserProfileBean implements Serializable{
 	}
     }
     public String updateStepOne() {
-	return "updateuserProfile.xhtml?faces-redirect=true";
+	return "subUpdateUserProfile.xhtml?faces-redirect=true";
     }
     public String update() {
 	userDao.update(user);

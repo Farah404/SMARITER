@@ -31,9 +31,7 @@
                     <h3>#{userProfileBean.user.userAccount.username}</h3>
 
                 </ul>
-                <button class="btn btn-success center-block" type="submit">Modifier mon profil</button>
-                <br />
-                <button class="btn btn-success center-block" type="submit">Ajouter un véhicule</button>
+                <h:commandButton class="btn btn-success center-block" action="#{userProfileBean.updateStepOne()}" value="Modifier mon profil" />
                 <br />
             </div>
 
