@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.Administrator;
 import fr.isika.cda17.project3.model.personManagement.accounts.AdministratorAccount;
+import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
 
 @Stateless
 public class AdministratorDaoImpl implements AdministratorDao{
@@ -77,6 +78,20 @@ public class AdministratorDaoImpl implements AdministratorDao{
 			System.out.println("administratorDaoImpl.findByEmail() - not found : " + email);
 		}
 		return Optional.empty();
+	}
+
+	@Override
+	public Administrator findByAdminAccountId(Long id) {	
+		try {
+		    Administrator administrator = this.entityManager
+					.createNamedQuery("administrator.findByAdminAccountId", Administrator.class)
+					.setParameter("c_param", id)
+					.getSingleResult();
+			return administrator;
+		} catch (NoResultException ex) {
+			System.out.println("administratorDaoImpl.findByAdminAccountId() - not found : " + id);
+		}
+		return null;
 	}
 
 }

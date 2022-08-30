@@ -10,9 +10,10 @@
 </h:head>
 
 <h:body>
-	<ui:composition template="template/template.xhtml">
+	<ui:composition template="#{templateBean.templatePath()}">
 		<ui:define name="content">
-			<div class="container">
+		<h:outputScript library="js" name = "iter.js"/>
+			<div class="container" style="padding-top: 5%">
 				<div class="header-article animate-zoom">
 					<h2>How Modern Code Generation Works ?</h2>
 				</div>
@@ -179,20 +180,7 @@
 						<div class="card-article">
 							<h2>Author</h2>
 							<br /> <img width="100%"
-								src="media/img/Falak-Sher-Web-Designer-and-Developer-IBT.png" />
-							<br />
-							<br />
-							<p>SoftFluent President &amp; CEO Daniel has about 30 years
-								of experience in the professional development field, creating
-								and managing SoftFluent group, a company with strong custom
-								development experience, both for customer projects and as an
-								ISV. SoftFluent is also the company behind RowShare, a powerful
-								secured collaborative online spreadsheet.</p>
-						</div>
-						<div class="card-article">
-							<h2>Author</h2>
-							<br /> <img width="100%"
-								src="media/img/Falak-Sher-Web-Designer-and-Developer-IBT.png" />
+								src="media/gif/profilePictures/ProfileGif3.gif" />
 							<br />
 							<br />
 							<p>SoftFluent President &amp; CEO Daniel has about 30 years
@@ -206,7 +194,28 @@
 					</div>
 				</div>
 			</div>
+<!-- chat bot -->
+			<div class="container container-chat">
+				<div id="chat-icon">
+					<img class="chat-logo" src="media/img/3649460.png" />
+				</div>
 
+				<div id="chat-box" class="">
+					<span id="chat-exit">x</span>
+					<div id="chat-header">
+						<img class="chat-logo" src="media/img/3649460.png" />
+					</div>
+					<div id="chat-history-wrapper">
+						<div id="chat-history"></div>
+					</div>
+					<div id="chat-user-inputs">
+						<!-- User form and submit button -->
+						<input type="text" id="chat-user-message" /> <img
+							src="media/gif/productivity/giphy.gif" id="send-msg-icon" />
+					</div>
+				</div>
+				<!-- end chat bot -->
+			</div>
 
 		</ui:define>
 	</ui:composition>

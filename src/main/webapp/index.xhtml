@@ -5,22 +5,26 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
 
-<h:head>
+<head>
 	<title>SmarIter</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral|Rubik" />
-</h:head>
+
+</head>
 
 
 <h:body>
-	<ui:composition template="template/template.xhtml">
+	<ui:composition template="#{templateBean.templatePath()}">
 		<ui:define name="content">
-		
+		<h:outputScript library="js" name = "iter.js"/>
+					 <div class="wrapper"> <img width="100%" src="media/gif/coding/abstract.gif" />
+
+			</div>
 		<div class="headerText animate-opacity">Create a website without limits</div>
 		<div class="headerSubtext animate-opacity">Discover the platform that gives you the freedom to create, design, <br />manage and develop your web presence exactly the way you want.</div>
-		<div class="button headerButton animate-opacity"><a href="logInSignUp.xhtml">Get Started</a></div> 
+		<div class="button headerButton animate-opacity"><h:outputLink value="#{urlPathBean.goToStartService()}">Get Started</h:outputLink></div> 
 		
 		<!-- HowItWorks section -->
-			<div class="container">
+			<div class="container" style="padding-top:5%">
 			<div class="row-effort">
 				<div class="column-effort animate-left">
 					<img width="50%" src="media/gif/coding/step1.gif" />
@@ -92,32 +96,7 @@
 			</div>
 			</div>
 			<!-- Ending ServiceCounter Effort -->
-			
-<!-- 			<div class="container"> -->
-<!-- 			<div class= "block-a"> -->
-<!-- 			<div class="blockText"> -->
-<!-- 			How to Create a Free Website ?</div><br /> -->
-<!-- 			<div class="blockSubText">Follow these 5 simple steps to create a website today: -->
-			
-<!-- 			<div class="steps-text"> -->
-<!-- 			<br /> -->
-<!-- 			<p>1. Sign up for a free website builder. Choose what kind of website you want to create. -->
-<!-- 			 </p><br /> -->
-<!-- 			<p>2. Customize a template or get a website made for you. Choose your starting point </p><br /> -->
-<!-- 			<p>3. Get ready for business. Add an online store, booking system, members area and blog. -->
-<!-- 			</p><br /> -->
-<!-- 			<p>4. Publish your website and go live. Start building your professional online presence. -->
-<!-- 			 </p><br /> -->
-<!-- 			<p>5. Drive traffic to your site. Use advanced SEO tools and integrated marketing solutions. -->
-<!-- 			</p><br /> -->
-<!-- 			<div class="steps-text underline"><a href="logInSignUp.xhtml">Get Started</a></div> -->
-<!-- 			<div class="steps-text underline"><a href="blog.xhtml">Follow the latest trends, improve your skills with how-tos and get inspired by case studies, explore our blog!</a></div>  -->
-<!-- 			</div> -->
-<!-- 			</div> -->
-<!-- 			</div> -->
-<!-- 			</div> -->
-
-
+	
 			<!--Beginning Pricing Plans-->
 			<div class="container">
 			<div class="background-price">
@@ -131,8 +110,8 @@
 								<li class="pricing-features-item">50 GB storage space</li>
 								<li class="pricing-features-item">Priority customer care</li>
 							</ul>
-							<span class="pricing-price">$150</span> <a href="#/"
-								class="pricing-button">Sign up</a>
+							<span class="pricing-price">$150</span> 
+							<h:outputLink value="#{urlPathBean.goToStartService()}" class="pricing-button">More details</h:outputLink>
 						</div>
 						<div class="pricing-plan">
 							<img src="media/img/plane.png" alt=""
@@ -142,8 +121,8 @@
 								<li class="pricing-features-item">35 GB storage space</li>
 								<li class="pricing-features-item">24/7 customer care</li>
 							</ul>
-							<span class="pricing-price">$150</span> <a href="#/"
-								class="pricing-button is-featured">Sign Up</a>
+							<span class="pricing-price">$150</span> 
+								<h:outputLink value="#{urlPathBean.goToStartService()}" class="pricing-button is-featured">More details</h:outputLink>
 						</div>
 						<div class="pricing-plan">
 							<img src="media/img/paper-plane.png" alt=""
@@ -153,8 +132,8 @@
 								<li class="pricing-features-item">20 GB storage space</li>
 								<li class="pricing-features-item">24/7 customer care</li>
 							</ul>
-							<span class="pricing-price">$400</span> <a href="#/"
-								class="pricing-button">Free trial</a>
+							<span class="pricing-price">$400</span> 
+							<h:outputLink value="#{urlPathBean.goToStartService()}" class="pricing-button">More details</h:outputLink>
 						</div>
 					</div>
 				</div>
@@ -169,6 +148,30 @@
 				</div>
 			</div>
 			<!-- Ending not a PhotoBanner -->
+
+
+			<!-- chat bot -->
+			<div class="container container-chat">
+				<div id="chat-icon">
+					<img class="chat-logo" src="media/img/3649460.png" />
+				</div>
+
+				<div id="chat-box" class="">
+					<span id="chat-exit">x</span>
+					<div id="chat-header">
+						<img class="chat-logo" src="media/img/3649460.png" />
+					</div>
+					<div id="chat-history-wrapper">
+						<div id="chat-history"></div>
+					</div>
+					<div id="chat-user-inputs">
+						<!-- User form and submit button -->
+						<input type="text" id="chat-user-message" /> <img
+							src="media/gif/productivity/giphy.gif" id="send-msg-icon" />
+					</div>
+				</div>
+				<!-- end chat bot -->
+			</div>
 		</ui:define>
 	</ui:composition>
 

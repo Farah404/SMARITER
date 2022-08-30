@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:body>
+	<ui:composition>
+ <div id="contact" class="container-fluid">
+        <h2 class="text-center">CONTACT</h2>
+        <div class="row">
+            <div class="col-sm-5">
+                <p>Contactez nous et nous vous répondrons dans les plus brefs délais</p>
+                <p><span class="glyphicon glyphicon-map-marker"></span> 3 Rue EcoRoad, EcoCity, FR</p>
+                <p><span class="glyphicon glyphicon-phone"></span> +33 06 35 24 46 01</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> ecocardevteam@gmail.com</p>
+            </div>
+            <form action="mailto:ecocardevteam@gmail.com" method="post" enctype="text/plain">
+            <div class="col-sm-7">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="name" name="name" />
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="email" name="email" />
+                    </div>
+                </div>
+                <textarea class="form-control" id="comments" name="comments" ></textarea><br />
+                <div class="row">
+                    <div class="col-sm-12 form-group">
+                        <button class="btn btn-default pull-right" type="submit">Envoyer</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+  <footer class="container-fluid text-center">
+            <a href="#EcoCarPage" title="To Top">
+                <span class="glyphicon glyphicon-chevron-up"></span>
+            </a>
+            <p>© EcoCar 2022 Powered by Smariter<a href="https://github.com/Farah404/EcoCar">GitHub</a></p>
+        </footer>
+	</ui:composition>
+</h:body>
+</html>

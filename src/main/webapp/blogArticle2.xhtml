@@ -10,9 +10,10 @@
 </h:head>
 
 <h:body>
-	<ui:composition template="template/template.xhtml">
+	<ui:composition template="#{templateBean.templatePath()}">
 		<ui:define name="content">
-			<div class="container">
+		<h:outputScript library="js" name = "iter.js"/>
+			<div class="container" style="padding-top: 5%">
 				<div class="header-article animate-zoom">
 					<h2>Is JavaScript problematic?</h2>
 				</div>
@@ -112,22 +113,38 @@
 					</div>
 					<div class="rightcolumn-article animate-right">
 						<div class="card-article">
-							<h2>Author</h2>
+							<h2>Matthew Newman</h2>
 							<br /> <img width="100%"
-								src="media/img/Falak-Sher-Web-Designer-and-Developer-IBT.png" />
+								src="media/gif/profilePictures/ProfileGif23.gif" />
 							<br /> <br />
-							<p>Ryan is a top architect, entrepreneur, and developer. He
-								boasts a proven competency in building cloud-scalable,
-								extensible software and systems. He writes code that can be
-								maintained and expanded over time as business systems and
-								requirements adapt to market demands or pivots in core business
-								direction.</p>
+							<p>Matthew Newman Matthew has over 15 years of experience in database management and software development, with a strong focus on full-stack web applications. He specializes in Django and Vue.js with expertise deploying to both server and serverless environments on AWS. He also works with relational databases and large datasets</p>
 						</div>
 
 					</div>
 				</div>
 			</div>
+<!-- chat bot -->
+			<div class="container container-chat">
+				<div id="chat-icon">
+					<img class="chat-logo" src="media/img/3649460.png" />
+				</div>
 
+				<div id="chat-box" class="">
+					<span id="chat-exit">x</span>
+					<div id="chat-header">
+						<img class="chat-logo" src="media/img/3649460.png" />
+					</div>
+					<div id="chat-history-wrapper">
+						<div id="chat-history"></div>
+					</div>
+					<div id="chat-user-inputs">
+						<!-- User form and submit button -->
+						<input type="text" id="chat-user-message" /> <img
+							src="media/gif/productivity/giphy.gif" id="send-msg-icon" />
+					</div>
+				</div>
+				<!-- end chat bot -->
+			</div>
 
 		</ui:define>
 	</ui:composition>

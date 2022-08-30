@@ -1,3 +1,16 @@
+/*Used shades
+Black:#282828
+Grey:#303030
+Lighter-grey:#383838
+Lightest-grey:#505050
+Offwhite:#d9d5d4
+dark-mauve:#7b667a;
+Vomit-green:#a9d0cc
+OffPink:#d0b9cd
+background-color: #F6F6F8;
+*/
+
+
 /* Basic styling */
 * {
   box-sizing: border-box;
@@ -68,8 +81,19 @@ html {
 	background: #d9d5d4;
   	border-color: #d9d5d4;
     border-radius: 12px;
-
 	}
+	
+.button-shared{
+ padding: 12px 10px;
+  border: 0;
+  background: linear-gradient(to right, #de48b5 0%, #0097ff 100%);
+  border-radius: 3px;
+  margin-top: 10px;
+  color: #fff;
+  letter-spacing: 1px;
+  font-family: "Rubik", sans-serif;
+  cursor: pointer;
+}
 /*Animations*/	
 .animate-zoom {animation:animatezoom 0.6s}@keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
 .animate-top{position:relative;animation:animatetop 1.5s}@keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}	
@@ -910,21 +934,100 @@ button.ghost {
 }
 
 .signup-form{
-	width: 50%;
+	width: 100%;
 	z-index: 1;
 	left: 25%;
 	height: 100%;
 }
 
 .signupform-container{
-	background-color: transparent;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	height: auto;
-	text-align: center;
+	font-family: Rubik, sans-serif;
+  font-size: 16px;
+  color: #7b667a;
+  height:100%;
+  width:100%;
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top:8%;
 }
+
+.signupform-container p{
+  font-size: 12px;
+  margin-left: 18px;
+}
+
+.signupform-container h1{
+  font-size: 32px;
+  font-weight: 300;
+  color: #4c4c4c;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+.signupform-container hr{
+ color: #a9a9a9;
+  opacity: 0.3;
+}
+.signupbox{
+  width:30%;
+  height:80%;
+  -webkit-border-radius: 8px/7px; 
+  -moz-border-radius: 8px/7px; 
+  border-radius: 8px/7px; 
+  background-color: #d0b9cd; 
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  border: solid 1px #cbc9c9;
+}
+
+#icon {
+  width: 50px;
+  display: inline-block;
+  background-color: transparent;
+  padding: 8px 0px 8px 15px;
+  margin-left: 15px;
+  -webkit-border-radius: 4px 0px 0px 4px; 
+  -moz-border-radius: 4px 0px 0px 4px; 
+  border-radius: 4px 0px 0px 4px;
+  color: #7b667a;
+ 
+}
+
+.register-button{
+font-size: 14px;
+  font-weight: 600;
+  color: #7b667a;
+  text-decoration: none;
+  width: 150px; height: 50px; 
+  -webkit-border-radius: 5px; 
+  -moz-border-radius: 5px; 
+  border-radius: 5px; 
+  background-color: #a9d0cc;
+  top: 0px;
+  position: relative;
+  cursor: pointer;
+  float: right;
+  padding-right: 2%;
+}
+
+.register-button:hover{
+	top: 3px;
+  background-color:#d9d5d4;
+	}
+	
+	.col-signup{
+	float: left;
+  width: 50%;
+  padding: 10px;
+	}
+		.row-signup{
+		content: "";
+  display: table;
+  clear: both;
+	}
 
 .signup{
 	background: transparent;
@@ -1038,14 +1141,14 @@ button.ghost {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background: #f2f2f2;
+  background: #F6F6F8;;
 }
 
 .contact-form {
   width: 80vw;
   display: flex;
   justify-content: space-between;
-  background: #fff;
+  background: #d0b9cd;
   margin: 50px 0;
 }
 .contact-form > * {
@@ -1131,8 +1234,6 @@ button.ghost {
 .contact-form .second-container form button {
   width: 200px;
   height: 50px;
-  background: #00ad5f;
-  color: #fff;
   font-size: 17px;
   font-weight: 600;
   text-transform: uppercase;
@@ -1174,19 +1275,19 @@ button.ghost {
   padding-bottom: 10%;
   padding-left: 10%;
   padding-right: 10%;
-  padding-top: 5%;
+  padding-top: 0%;
 }
 
 .blogtext-page{
-  font-family: "Lucida Console", "Courier New", monospace;
+  font-family: Rubik, sans-serif, monospace;
 text-align:center;
   font-size: 10vh;
   background: -webkit-linear-gradient(
       left,
       #0ff 0%,
-      #7b667a 25%,
+      #de48b5 25%,
       #d0b9cd 50%,
-      #a9d0cc 100%
+      #0097ff 100%
     )
     repeat;
   -webkit-background-clip: text;
@@ -1225,7 +1326,7 @@ text-align:center;
 
 
 .grid-item {
-  background-color: #ffffff;
+  background-color: #d0b9cd;
   text-align: center;
   padding: 20px;
   font-size: 30px;
@@ -1329,6 +1430,11 @@ h5{
   padding: 0 8px;
 }
 
+.column-team h2{
+	text-align: center;
+	color:#7b667a;
+}
+
 @media screen and (max-width: 650px) {
   .column {
     width: 100%;
@@ -1345,6 +1451,7 @@ h5{
   padding-right: 15%;
   padding-top: 10%;
   padding-bottom: 10%;
+  max-height: 100vh;
 }
 
 .container-team::after, .row::after {
@@ -1362,23 +1469,27 @@ h5{
   outline: 0;
   display: inline-block;
   padding: 8px;
-  color: white;
-  background-color: #000;
+  color: #d9d5d4;
+  background-color: #7b667a;
   text-align: center;
   cursor: pointer;
   width: 100%;
 }
 
-.column-cusprofile{
-	float: left;
-  width: 50%;
-  margin-bottom: 16px;
-  padding: 0 8px;
-}
+
 /*===================================================================*/
 /*===================================================================*/
 
 /*About*/
+
+.container-about-a{
+background-color: 	#F6F6F8;
+}
+
+.container-about-b{
+background-color: 	#F6F6F8;
+}
+
 .row-about:after {
   content: "";
   display: table;
@@ -1407,12 +1518,24 @@ h5{
 
 .button-about {
   border: none;
-  color: white;
+  border-radius:12px;
+  color: #d9d5d4;
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
-  background-color: #04AA6D;
+  background-color: #7b667a;
 }
+
+.button-about-b {
+  border: none;
+  border-radius:12px;
+  color: #7b667a;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #d9d5d4;
+}
+
 
 .img-about {
   display: block;
@@ -1436,6 +1559,43 @@ h5{
 
 /*Pricing*/
 
+.pricing-page{
+	color:#7b667a;
+}
+
+.pricing-button-page {
+  border: 1px solid #a9d0cc;
+  background-color: #a9d0cc;
+  border-radius: 10px;
+  color: #282828;
+  display: inline-block;
+  padding: 10px 30px;
+  text-decoration: none;
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
+  font-weight: bold;
+}
+.pricing-button-page:hover,
+.pricing-button-page:focus {
+  background-color: #7b667a;
+  border-color:#7b667a;
+}
+
+.green-check{
+	color:green;
+	font-weight: bold;
+	font-size: 2vh;
+}
+
+.gray-n-a{
+	color:gray;
+	font-weight: bold;
+	font-size: 2vh;
+}
+
+.styled-table td {
+	font-size: 1.8vh;
+	}
 .styled-table {
     border-collapse: collapse;
     font-size: 0.9em;
@@ -1446,13 +1606,12 @@ h5{
 }
 .styled-table thead tr {
     background-color: #d0b9cd;
-    color: #ffffff;
-    text-align: center;
+    color: #282828;
+    text-align: left;
 }
 .styled-table th,
 .styled-table td {
     padding: 12px 15px;
-    
 }
 
 .styled-table td.span {
@@ -1464,7 +1623,7 @@ h5{
 }
 
 .styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+    background-color: #d0b9cd;
 }
 
 .styled-table tbody tr:last-of-type {
@@ -1472,12 +1631,13 @@ h5{
 }
 .center-row {
     text-align: center;
+    
 }
 .column-pricing {
   float: left;
   width: 33.33%;
   padding: 10px;
-  border-left: solid black;
+  border-left: solid #7b667a;
 }
 
 /* Clear floats after the columns */
@@ -1512,7 +1672,7 @@ h5{
 }
 
 .collapsible {
- background: linear-gradient(to right, #7b667a 0%, #d0b9cd 100%);
+  background: linear-gradient(to right, #de48b5 0%, #0097ff 100%);
   color: white;
   cursor: pointer;
   padding: 18px;
@@ -1531,7 +1691,7 @@ h5{
   padding: 0 18px;
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: #d0b9cd
 }
 
 /*===================================================================*/
@@ -1717,10 +1877,17 @@ h5{
 
 /*Customer profile*/
 
+.column-cusprofile{
+	float: left;
+  width: 50%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
 .container-cusProfile{
 	margin-top:5%;
 	font-size: 18px;
-	font-family: 'Raleway', sans-serif;
+	font-family: "Rubik", sans-serif;
 	border-radius: 0.5em;
 	box-shadow: 0 0 1em 0 rgba(51,51,51,0.25);
 	display: block;
@@ -1733,7 +1900,7 @@ h5{
 
 .col-one-half-cusProfile{
 	float: left;
-	width: 50%;
+	width: 33.33%;
 }
 
 .input-text-cusProfile{
@@ -1753,6 +1920,9 @@ h5{
 .text-center-cusProfile{
 	text-align: left;
 	font-family: "Rubik", sans-serif;
+	color: #7b667a;
+	font-size: 5vh;
+	font-weight: lighter;
 }
 
 .customer-img{
@@ -1763,4 +1933,202 @@ h5{
 
 .label-text-cusProfile{
 font-family: "Rubik", sans-serif;
+float:left;
+}
+
+.fa-col-cus{
+	color: #7b667a;
+}
+
+
+/*===================================================================*/
+/*===================================================================*/
+
+/*ChatBot*/
+.container-chat{
+	z-index: 25;
+}
+
+#chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: transparent;
+    border-radius: 100%;
+    cursor: pointer;
+}
+#chat-icon .chat-logo {
+    height: 80px;
+    width: 80px;
+}
+
+#chat-box {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: white;
+    border-radius: 15px;
+    display: none;
+    color: black;
+}
+@-webkit-keyframes openbox {
+  0% {
+    height: 0px;
+    width: 0px;
+  }
+  100% {
+    height: 400px;
+    width: 330px;
+  }
+}
+@keyframes openbox {
+  0% {
+    height: 0px;
+    width: 0px;
+  }
+  100% {
+    height: 400px;
+    width: 330px;
+  }
+}
+@-webkit-keyframes closebox {
+  0% {
+    height: 400px;
+    width: 330px;
+  }
+  100% {
+    height: 0px;
+    width: 0px;
+  }
+}
+@keyframes closebox {
+  0% {
+    height: 400px;
+    width: 330px;
+  }
+  100% {
+    height: 0px;
+    width: 0px;
+  }
+}
+.hideBox {
+  -webkit-animation: closebox 0.25s ease-out;
+  animation: closebox 0.25s ease-out;
+  height: 0;
+  width: 0;
+}
+.showBox {
+  -webkit-animation: openbox 0.25s ease-in;
+  animation: openbox 0.25s ease-in;
+  height: 400px;
+  width: 330px;
+}
+
+#chat-exit {
+    position: absolute;
+    right: 0;
+    font-size: 35px;
+    padding: 5px 10px;
+    margin: -5px 3px 0 0;
+    cursor: pointer;
+    display: none;
+    color:#7b667a;
+}
+#chat-header {
+    height: 50px;
+    background-color: #d0b9cd;
+    border-radius: 15px 15px 0 0;
+    display: none;
+}
+.chat-logo {
+    height: 45px;
+    width: 45px;
+    padding: 7.5px;
+    margin-left: 5px;
+}
+
+#chat-history-wrapper {
+    height: 310px;
+    overflow-y: auto;
+    display: none;
+    background-color: #d9d5d4;
+}
+#chat-history-wrapper::-webkit-scrollbar {
+  width: 15px;
+  background-color: #d9d5d4;
+}
+#chat-history-wrapper::-webkit-scrollbar-track {
+  background: #d9d5d4;
+}
+#chat-history-wrapper::-webkit-scrollbar-thumb {
+  background-color: #7b667a;
+  border-radius: 5px;
+  border: 2px solid #7b667a;
+  background: #d9d5d4;
+}
+#chat-history {
+    /* height: 500px; */
+    background: #d9d5d4;
+}
+.chat-reply {
+    position: relative;
+    margin: 10px 20px 10px 10px;
+    border-radius: 20px 20px 20px 0;
+    background-color: #d0b9cd;
+    min-height: 60px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.chat-reply p {
+    font-size: 18px;
+    width: 215px;
+    display: inline-block;
+    margin: 5px 0 5px 65px;
+}
+.chat-reply-logo {
+    position: absolute;
+    top: 0;
+    height: 40px;
+    width: 40px;
+    margin: 10px 5px 5px 10px;
+    display: inline-block;
+}
+.user-msg {
+    margin: 10px 10px 10px 20px;
+    border-radius: 20px 20px 0 20px;
+    /*border: 1px solid gray;*/
+    background-color: #a9d0cc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.user-msg p {
+    font-size: 18px;
+    margin: 5px 5px 5px 20px;
+    padding: 5px;
+}
+
+#chat-user-inputs {
+    height: 40px;
+    background-color: #d0b9cd;
+    border-radius: 0 0 15px 15px;
+    border-top: 1px solid gray;
+    display: none;
+}
+#chat-user-message {
+    background-color: #d0b9cd;
+    height: 30px;
+    width: 270px;
+    border: 0;
+    margin: 0 0 0 10px;
+    font-size: 18px;
+}
+#chat-user-message:focus {
+    border: 0;
+    outline: none !important;
+    box-shadow: none;
+}
+#send-msg-icon {
+    float: right;
+    padding: 7px;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
 }

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:body>
+	<ui:composition template="#{templateBean.subtemplatePath()}">
+		<ui:define name="subcontent">
+<h:form>
+
+
+
+<div class="container bootstrap snippets bootdey">
+    <div class="panel-body inf-content">
+        <div class="row">
+
+            @*Profile picture Part with buttons*@
+            <div class="col-md-4">
+                <img alt="" style="width:100%;" class=" img-thumbnail" src="subMedia/Images/Covoit.png" />
+
+                @using (Html.BeginForm())
+                {
+                    <br />
+                    <button class="btn btn-success center-block" type="submit">Réserver la prestation pour @Model.CarPoolingService.Service.PriceEcoCoins EcoCoins</button>
+
+                }
+                <br />
+                <button class="btn btn-success center-block">Profil de l'EcoMembre prestataire</button>
+            </div>
+
+
+
+            <div class="col-md-6">
+                <div class="table-responsive">
+                    @*Information*@
+                    <span class="text-success"><strong>Information</strong><br></span>
+                    <table class="table table-user-information">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-play  text-success"></span>
+                                    Date et heure de départ
+                                </td>
+                                <td class="text-success">
+                                    <p>@Model.CarPoolingService.Service.Start</p>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-stop  text-success"></span>
+                                    Date et heure de d'arrivée
+                                </td>
+                                <td class="text-success">
+                                    <p>@Model.CarPoolingService.Service.End</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-road  text-success"></span>
+                                    Type de covoiturage
+                                </td>
+                                <td class="text-success">
+                                    @if(@Model.CarPoolingService.SelectCarPoolingType.ToString()=="HomeToWork")
+                                    {
+                                         <p>Domicile-travail</p>
+                                    }
+                                    @if(@Model.CarPoolingService.SelectCarPoolingType.ToString()=="HomeToSchool")
+                                    {
+                                         <p>Domicile-école/université</p>
+                                    }
+                                    @if(@Model.CarPoolingService.SelectCarPoolingType.ToString()=="Events")
+                                    {
+                                         <p>Evènements</p>
+                                    }
+                                    @if(@Model.CarPoolingService.SelectCarPoolingType.ToString()=="Travel")
+                                    {
+                                         <p>Voyage</p>
+                                    }
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-user text-success"></span>
+                                    Sièges disponibles
+                                </td>
+                                <td class="text-success">
+                                    <p>@Model.CarPoolingService.AvailableSeats</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-hourglass text-success"></span>
+                                    Durée du trajet en heure
+                                </td>
+                                <td class="text-success">
+                                    <p>@Model.CarPoolingService.Trajectory.DurationHours</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-pause text-success"></span>
+                                    Nombre d'arrêts
+                                </td>
+                                <td class="text-success">
+                                    <p>@Model.CarPoolingService.Trajectory.StopNumber</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-time text-success"></span>
+                                    Durée d'arrêt en minutes
+                                </td>
+                                <td class="text-success">
+                                    <p>@Model.CarPoolingService.Trajectory.StopsDurationMinutes</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-arrow-up text-success"></span>
+                                    Adresse de départ
+                                </td>
+                                <td class="text-success">
+                                    <p>@Model.CarPoolingService.Trajectory.PickUpAddress</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-arrow-down text-success"></span>
+                                    Adresse d'arrivée
+                                </td>
+                                <td class="text-success">
+                                    <p>@Model.CarPoolingService.Trajectory.DeliveryAddress</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-resize-small text-success"></span>
+                                    Type du trajet
+                                </td>
+                                <td class="text-success">
+                                    @if(@Model.CarPoolingService.Trajectory.SelectTrajectoryType.ToString()=="Regular")
+                                    {
+                                        <p>Régulier</p>
+                                    }
+                                    @if(@Model.CarPoolingService.Trajectory.SelectTrajectoryType.ToString()=="Punctual")
+                                    {
+                                        <p>Ponctuel</p>
+                                    }
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    @*Preferences*@
+                    <span class="text-success"><strong>Preferences</strong><br></span>
+                    <table class="table table-user-information">
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-heart  text-success"></span>
+                                    Animaux de compagnie
+                                </td>
+                                <td class="text-success">
+                                    <p>@(Model.CarPoolingService.PetsAllowed? "Oui":"Non")</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-fire text-success"></span>
+                                    Fumeur
+                                </td>
+                                <td class="text-success">
+                                    <p>@(Model.CarPoolingService.SmokingAllowed? "Oui":"Non")</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-headphones text-success"></span>
+                                    Musique
+                                </td>
+                                <td class="text-success">
+                                    <p>@(Model.CarPoolingService.MusicAllowed? "Oui":"Non")</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-bullhorn text-success"></span>
+                                    Discussion
+                                </td>
+                                <td class="text-success">
+                                    <p>@(Model.CarPoolingService.ChattingAllowed? "Oui":"Non")</p>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</h:form>
+		</ui:define>
+	</ui:composition>
+
+
+</h:body>
+</html>

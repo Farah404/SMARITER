@@ -10,18 +10,22 @@
 </h:head>
 
 <h:body>
-	<ui:composition template="template/template.xhtml">
+	<ui:composition template="#{templateBean.templatePath()}">
 		<ui:define name="content">
+		<h:outputScript library="js" name = "iter.js"/>
+			 <div class="wrapper"> <img width="100%" src="media/gif/coding/abstract.gif" />
+
+			</div>
 		<div class="headerText animate-opacity">Our Team</div>
 			<div class="container">
 				<div class="row">
 					<div class="column-team">
 						<div class="card-team animate-top">
-							<img src="media/gif/profilePictures/ProfileGif10.gif" alt="Jane"
+							<img src="media/gif/profilePictures/ProfileGIf21.gif"
 								style="width: 100%" />
 							<div class="container-team">
-								<h2>Jane Doe</h2>
-								<p>
+								<h2>Houda Madi</h2>
+								<p><br />
 									<button class="button">Contact</button>
 								</p>
 							</div>
@@ -30,11 +34,11 @@
 
 					<div class="column-team">
 						<div class="card-team animate-bottom">
-							<img src="media/gif/profilePictures/ProfileGif18.gif" alt="Mike"
+							<img src="media/gif/profilePictures/ProfileGif25.gif"
 								style="width: 100%" />
 							<div class="container-team">
-								<h2>Mike Ross</h2>
-								<p>
+								<h2>Farah Gauduin</h2>
+								<p><br />
 									<button class="button">Contact</button>
 								</p>
 							</div>
@@ -43,11 +47,11 @@
 
 					<div class="column-team">
 						<div class="card-team animate-top">
-							<img src="media/gif/profilePictures/ProfileGif8.gif" alt="John"
+							<img src="media/gif/profilePictures/ProfileGif5.gif"
 								style="width: 100%" />
 							<div class="container-team">
-								<h2>John Doe</h2>
-								<p>
+								<h2>François-Noël Bernal</h2>
+								<p><br />
 									<button class="button">Contact</button>
 								</p>
 							</div>
@@ -56,11 +60,11 @@
 
 					<div class="column-team">
 						<div class="card-team animate-bottom">
-							<img src="media/gif/profilePictures/ProfileGif6.gif" alt="John"
-								style="width: 100%" />
+							<img src="media/gif/productivity/Referent_SEPP-DURABLE.jpg"
+								style="width: 100%; height:10%" />
 							<div class="container-team">
-								<h2>John Doe</h2>
-								<p>
+								<h2>Jules Bias</h2>
+								<p><br />
 									<button class="button">Contact</button>
 								</p>
 							</div>
@@ -68,7 +72,28 @@
 					</div>
 				</div>
 			</div>
+<!-- chat bot -->
+			<div class="container container-chat">
+				<div id="chat-icon">
+					<img class="chat-logo" src="media/img/3649460.png" />
+				</div>
 
+				<div id="chat-box" class="">
+					<span id="chat-exit">x</span>
+					<div id="chat-header">
+						<img class="chat-logo" src="media/img/3649460.png" />
+					</div>
+					<div id="chat-history-wrapper">
+						<div id="chat-history"></div>
+					</div>
+					<div id="chat-user-inputs">
+						<!-- User form and submit button -->
+						<input type="text" id="chat-user-message" /> <img
+							src="media/gif/productivity/giphy.gif" id="send-msg-icon" />
+					</div>
+				</div>
+				<!-- end chat bot -->
+			</div>
 		</ui:define>
 	</ui:composition>
 </h:body>

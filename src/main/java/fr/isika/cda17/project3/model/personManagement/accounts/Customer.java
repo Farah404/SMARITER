@@ -2,11 +2,13 @@ package fr.isika.cda17.project3.model.personManagement.accounts;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @PrimaryKeyJoinColumn(name="id")
+@NamedQuery(name = "customer.findByEntityAccountId", query = "SELECT c FROM Customer c WHERE c.entityAccount.id = :c_param")
 public class Customer extends Person{
     
     private int phoneNumber;

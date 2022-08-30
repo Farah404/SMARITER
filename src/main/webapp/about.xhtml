@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+      xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
 	<title>SmarIter</title>
@@ -11,15 +12,19 @@
 
 
 <h:body>
-	<ui:composition template="template/template.xhtml">
+	<ui:composition template="#{templateBean.templatePath()}">
 		<ui:define name="content">
+		<h:outputScript library="js" name = "iter.js"/>
+			 <div class="wrapper"> <img width="100%" src="media/gif/coding/abstract.gif" />
+
+			</div>
 		<div class="headerText animate-opacity">Create a website without limits</div>
 		<div class="headerSubtext animate-opacity">Discover the platform that gives you the freedom to create, design, <br />manage and develop your web presence exactly the way you want.</div>
-		<div class="button headerButton animate-opacity"><a href="logInSignUp.xhtml">Get Started</a></div>
+		<div class="button headerButton animate-opacity"><h:outputLink value="#{urlPathBean.goToStartService()}">Get Started</h:outputLink></div>
 
 
 			<!-- The App Section -->
-			<div class="container">
+			<div class="container container-about-a">
 				<div class="row-about">
 					<div class="column-66">
 						<h1 class="xlarge-font" style="color: #7b667a;">
@@ -32,10 +37,10 @@
 							<span style="font-size: 36px; color:#aeb4c8">Design and build your own
 								high-quality websites. Whether you’re promoting your business,
 								showcasing your work, opening your store or starting a blog—you
-								can do it all with the Wix website builder.</span>
+								can do it all with the Smariter website builder.</span>
 
-						</p>
-						<button class="button button-about">Get Started</button>
+						</p><br />
+						<button class="button button-about"><h:outputLink value="#{urlPathBean.goToStartService()}">Get Started</h:outputLink></button>
 					</div>
 					<div class="column-33">
 						<img src="media/gif/productivity/header.gif" width="140%" />
@@ -44,7 +49,7 @@
 			</div>
 
 			<!-- Clarity Section -->
-			<div class="container" style="background-color: #f1f1f1">
+			<div class="container container-about-b">
 				<div class="row-about">
 					<div class="column-33">
 						<img src="media/gif/productivity/build.gif" width="120%" />
@@ -71,14 +76,14 @@
 						<p>
 							<span style="font-size: 24px ; color:#aeb4c8">Optimize for search engines</span>
 							<span style="color:#aeb4c8">Answer a few questions about your website, location and keywords and get a personalized SEO plan to get found online. 
-						</span></p>
-						<button class="button button-about" style="background-color: red">Start Now</button>
+						</span></p><br />
+						<button class="button button-about-b"><h:outputLink value="#{urlPathBean.goToStartService()}">Start Now</h:outputLink></button>
 					</div>
 				</div>
 			</div>
 
 			<!-- The App Section -->
-			<div class="container">
+			<div class="container container-about-a">
 				<div class="row-about">
 					<div class="column-66">
 						<h1 class="xlarge-font" style="color: #7b667a;">
@@ -92,13 +97,35 @@
 								Website Templates</span> <span style="color:#aeb4c8">
 								Choose from 500+ customizable website
 							templates that are built to meet your business needs.
-						</span></p>
-						<button class="button  button-about">See All Website Templates</button>
+						</span></p><br />
+						<button class="button  button-about"><h:outputLink value="#{urlPathBean.goToPatterns()}">See All Website Templates</h:outputLink></button>
 					</div>
 					<div class="column-33">
 						<img src="media/gif/productivity/intro1.gif" width="120%"/>
 					</div>
 				</div>
+			</div>
+			<!-- chat bot -->
+			<div class="container container-chat">
+				<div id="chat-icon">
+					<img class="chat-logo" src="media/img/3649460.png" />
+				</div>
+
+				<div id="chat-box" class="">
+					<span id="chat-exit">x</span>
+					<div id="chat-header">
+						<img class="chat-logo" src="media/img/3649460.png" />
+					</div>
+					<div id="chat-history-wrapper">
+						<div id="chat-history"></div>
+					</div>
+					<div id="chat-user-inputs">
+						<!-- User form and submit button -->
+						<input type="text" id="chat-user-message" /> <img
+							src="media/gif/productivity/giphy.gif" id="send-msg-icon" />
+					</div>
+				</div>
+				<!-- end chat bot -->
 			</div>
 		</ui:define>
 	</ui:composition>

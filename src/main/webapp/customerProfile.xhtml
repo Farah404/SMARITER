@@ -3,7 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<f:metadata>
+	<f:event listener="#{customerProfileBean.init()}" type="preRenderView">
+	</f:event>
+</f:metadata>
 
 <h:head>
 	<title>SmarIter</title>
@@ -11,50 +17,59 @@
 
 
 <h:body>
-	<ui:composition template="template/templateWhenConnected.xhtml">
+	<ui:composition template="#{templateBean.templatePath()}">
 		<ui:define name="content">
 		<div class="container">
 <div class="container-cusProfile">
-	<h1 class="text-center-cusProfile">Welcome back to your Dashboard, EcoCar</h1>
+	<h1 class="text-center-cusProfile">Welcome back to your Dashboard, #{customerProfileBean.customer.entityAccount.username} </h1>
 	<br />
 	<div class="row">
-	<form class="cusProfile">
+	<h:form class="cusProfile">
 		<div class="col-one-half-cusProfile">
-		<img class="customer-img" src="media/gif/profilePictures/ProfileGif3.gif" /><br />
-			<span class="label-text-cusProfile">EcoCar business info</span><br />
-			 <h:commandButton  value="Update profile"/><br />
-			  <h:commandButton value="Update payment plan"/><br />
+		<img class="customer-img" src="media/img/EcoCarBig.png" /><br />
+		<h:commandButton  action="#{customerProfileBean.updateStepOne()}" class="button-shared" value="Update profile"/><br />
+			 <h:commandButton  class ="button-shared" value="View my website"/><br />
+			 
+				<h:commandButton class="button-shared" action="#{logInAccountBean.logout()}" value="Log Out"></h:commandButton>
+			
+			
 		</div>
 		<div class="col-one-half-cusProfile">
-			<span class="label-text-cusProfile"><i class="fa fa-envelope"> Email address:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-inbox"> Postal address:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-phone"> Phone number:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-euro"> Payment plan:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-hashtag"> Siret Number:</i></span><br /><br />
+		<br />
+		<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Firstname: #{customerProfileBean.customer.firstName}</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Lastname: #{customerProfileBean.customer.lastName}</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Email address: #{customerProfileBean.customer.entityAccount.email}</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-phone fa-col-cus"> Phone number: #{customerProfileBean.customer.phoneNumber}</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-euro fa-col-cus"> Pricing plan: #{customerProfileBean.customer.entityAccount.solution.priceDeal}</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-hashtag fa-col-cus"> Siret Number: #{customerProfileBean.customer.entityAccount.siretNumber}</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Website name: #{customerProfileBean.customer.entityAccount.solution.solutionName}</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-inbox fa-col-cus"> 
+			Included solutions: #{customerProfileBean.customer.entityAccount.solution.carPoolingsolutionIncluded},
+			 #{customerProfileBean.customer.entityAccount.solution.carRentalSolutionIncluded},
+			  #{customerProfileBean.customer.entityAccount.solution.parcelSolutionIncluded}, 
+			   #{customerProfileBean.customer.entityAccount.solution.personalAssistanceSolutionIncluded}
+			
+			</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-phone fa-col-cus"> Payment Choice: #{customerProfileBean.customer.entityAccount.solution.paymentSystemChoice}</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-phone fa-col-cus"> Payment Choice: #{customerProfileBean.customer.entityAccount.solution.messagingSystemChoice}</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-euro fa-col-cus"> Messaging choice:</i></span><br /><br />
+			
 		</div>
-	</form>
+		
+				<div class="col-one-half-cusProfile">
+		<br />
+		<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Banking details:</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Bank name: #{customerProfileBean.customer.entityAccount.bankDetails.bankName}</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Swift number: #{customerProfileBean.customer.entityAccount.bankDetails.swift}</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> IBAN: #{customerProfileBean.customer.entityAccount.bankDetails.iban}</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-inbox fa-col-cus"> Billing Address:</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Address line: #{customerProfileBean.customer.entityAccount.billingAddress.addressLine}</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> City: #{customerProfileBean.customer.entityAccount.billingAddress.city}</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Postal code: #{customerProfileBean.customer.entityAccount.billingAddress.postalCode}</i></span><br /><br />
+			<span class="label-text-cusProfile"><i class="fa fa-envelope fa-col-cus"> Country: #{customerProfileBean.customer.entityAccount.billingAddress.country}</i></span><br /><br />
+		</div>
+	</h:form>
 	</div></div>
-	<div class="container-cusProfile">
-	<h1 class="text-center-cusProfile">Your current template</h1>
-	<br />
-		<div class="row">
-	<form class="cusProfile">
-		<div class="col-one-half-cusProfile">
-		<span class="label-text-cusProfile"><i class="fa fa-envelope"> Website name:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-inbox"> Included solutions:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-phone"> pricing plan:</i></span><br /><br />
-			<span class="label-text-cusProfile"><i class="fa fa-euro"> Messaging choice:</i></span><br /><br />
-		</div>
-		<div class="col-one-half-cusProfile">
-			<img class="customer-img" src="media/gif/profilePictures/ProfileGif3.gif" /><br />
-			<span class="label-text-cusProfile">Your Logo</span><br />
-			 <h:commandButton  value="Preview template"/><br />
-			  <h:commandButton value="Update template"/><br />
-			  <h:commandButton value="Delete template"/><br />
-		</div>
-	</form>
-	</div>
-</div>
 
 	<div class="container-cusProfile">
 	<h1 class="text-center-cusProfile">Manage your website</h1>
@@ -68,7 +83,7 @@
 							<i class="fa fa-effort fa-user"></i>
 						</p>
 						<h3>11+</h3>
-						<p>Posted services</p>
+						<p>Users</p>
 					</div>
 				</div>
 				<div class="column-effort">
@@ -86,7 +101,7 @@
 							<i class="fa fa-effort fa-smile-o"></i>
 						</p>
 						<h3>100+</h3>
-						<p>Reservations</p>
+						<p>Posted services</p>
 					</div>
 				</div>
 				<div class="column-effort">
@@ -95,14 +110,80 @@
 							<i class="fa fa-effort fa-coffee"></i>
 						</p>
 						<h3>100+</h3>
-						<p>Happy Clients</p>
+						<p>Reservations</p>
 					</div>
 				</div>
 				</div>
-				<span class="label-text-cusProfile"><i class="fa fa-inbox"> Invoices:</i></span><br /><br />
-				<span class="label-text-cusProfile"><i class="fa fa-inbox"> Users list:</i></span><br /><br />
-				<span class="label-text-cusProfile"><i class="fa fa-inbox"> List of services on website:</i></span><br /><br />
-				<span class="label-text-cusProfile"><i class="fa fa-inbox"> List of reservations on website:</i></span><br /><br />
+				<br />
+				<span class="label-text-cusProfile"><i class="fa fa-inbox fa-col-cus"> Users list:</i></span><br /><br />
+				<table class="styled-table">
+					<thead>
+						<tr>
+							<th>Usernames</th>
+							<th>Lastname</th>
+							<th>Firstname</th>
+							<th>Email</th>
+							<th>Member since</th>
+							<th>Status</th>
+							<th>Suspend</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+						</tr>
+						<tr>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+						</tr>
+					</tbody>
+				</table>
+				<br />
+				<span class="label-text-cusProfile"><i class="fa fa-inbox fa-col-cus"> List of services on website:</i></span><br /><br />
+				<table class="styled-table">
+					<thead>
+						<tr>
+							<th>Start date</th>
+							<th>Service type</th>
+							<th>Reference number</th>
+							<th>Published by</th>
+							<th>Price</th>
+							<th>Status</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+						</tr>
+						<tr>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+							<td class="center-row"><span class="green-check"></span></td>
+						</tr>
+					</tbody>
+				</table>
 				
 	</form>
 	</div>

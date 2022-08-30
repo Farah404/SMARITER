@@ -10,18 +10,19 @@
 	<title>SmarIter</title>
 </h:head>
 <h:body>
-	<ui:composition template="template/template.xhtml">
+	<ui:composition template="#{templateBean.templatePath()}">
 		<ui:define name="content">
+		<h:outputScript library="js" name = "iter.js"/>
 		<h:outputScript library="js" name = "faq.js"/>
+			 <div class="wrapper"> <img width="100%" src="media/gif/coding/abstract.gif" />
+
+			</div>
 			<div class="headerText animate-opacity">Create a website
 				without limits</div>
 			<div class="headerSubtext animate-opacity">
 				Discover the platform that gives you the freedom to create, design,
 				<br />manage and develop your web presence exactly the way you
 				want.
-			</div>
-			<div class="button headerButton animate-opacity">
-				<a href="logInSignUp.xhtml">Get Started</a>
 			</div>
 			<div class="container">
 			<div class="container-solution">
@@ -52,48 +53,48 @@
    
 		<button type="button" class="collapsible animation a3">Do you want to include a carpooling solution in your website?</button>
 		<div class="content-collapse">
-			<h:selectBooleanCheckbox id="bollCarPooling"  value="#{createSolutionBean.solution.carPoolingsolutionIncluded}">Yes, i want a CP
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="typeOption"  value="#{createSolutionBean.carPoolingSolution.carPoolingTypeOption}">Carpooling type option
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="seatsOption" value="#{createSolutionBean.carPoolingSolution.availableSeatsOption}">Available seats option
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="petsOption" value="#{createSolutionBean.carPoolingSolution.petAllowedOption}">Pets allowed option
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="smokingOption"  value="#{createSolutionBean.carPoolingSolution.smokingAllowedOption}">Smoking allowed option
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="musicOption"  value="#{createSolutionBean.carPoolingSolution.musicAllowedOption}">Music allowed option
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="chattingOption" value="#{createSolutionBean.carPoolingSolution.chattingAllowedOption}">Chatting option
-			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox id="bollCarPooling"  value="#{createSolutionBean.solution.carPoolingsolutionIncluded}">
+			</h:selectBooleanCheckbox> Yes, i want a CP<br />
+			<h:selectBooleanCheckbox id="typeOption"  value="#{createSolutionBean.carPoolingSolution.carPoolingTypeOption}">
+			</h:selectBooleanCheckbox> Carpooling type option<br />
+			<h:selectBooleanCheckbox id="seatsOption" value="#{createSolutionBean.carPoolingSolution.availableSeatsOption}">
+			</h:selectBooleanCheckbox> Available seats option<br />
+			<h:selectBooleanCheckbox id="petsOption" value="#{createSolutionBean.carPoolingSolution.petAllowedOption}">
+			</h:selectBooleanCheckbox> Pets allowed option<br />
+			<h:selectBooleanCheckbox id="smokingOption"  value="#{createSolutionBean.carPoolingSolution.smokingAllowedOption}">
+			</h:selectBooleanCheckbox> Smoking allowed option<br />
+			<h:selectBooleanCheckbox id="musicOption"  value="#{createSolutionBean.carPoolingSolution.musicAllowedOption}">
+			</h:selectBooleanCheckbox> Music allowed option<br />
+			<h:selectBooleanCheckbox id="chattingOption" value="#{createSolutionBean.carPoolingSolution.chattingAllowedOption}">
+			</h:selectBooleanCheckbox> Chatting option<br />
 		</div>
 		
 		<button type="button" class="collapsible animation a3">Do you want to include a parcel solution in your website?</button>
 		<div class="content-collapse">
-			<h:selectBooleanCheckbox id="boolPS"  value="#{createSolutionBean.solution.parcelSolutionIncluded}">Yes, i want a PS
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="volumeOption"  value="#{createSolutionBean.parcelSolution.atypicalVolumeOption}">Atypical volume option
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="fragileOption" value="#{createSolutionBean.parcelSolution.fragileOoption}">Fragile option
-			</h:selectBooleanCheckbox><br />
-			<h:selectBooleanCheckbox id="weightOption" value="#{createSolutionBean.parcelSolution.weightKilogrammesOption}">Weight Kilogrammes option
-			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox id="boolPS"  value="#{createSolutionBean.solution.parcelSolutionIncluded}">
+			</h:selectBooleanCheckbox> Yes, i want a PS<br />
+			<h:selectBooleanCheckbox id="volumeOption"  value="#{createSolutionBean.parcelSolution.atypicalVolumeOption}">
+			</h:selectBooleanCheckbox> Atypical volume option<br />
+			<h:selectBooleanCheckbox id="fragileOption" value="#{createSolutionBean.parcelSolution.fragileOoption}">
+			</h:selectBooleanCheckbox> Fragile option<br />
+			<h:selectBooleanCheckbox id="weightOption" value="#{createSolutionBean.parcelSolution.weightKilogrammesOption}">
+			</h:selectBooleanCheckbox> Weight Kilogrammes option<br />
 		</div>
 		<button type="button" class="collapsible animation a3">Do you want to include a car rental in your website?</button>
 		<div class="content-collapse">
-			<h:selectBooleanCheckbox id="boolCR"  value="#{createSolutionBean.solution.carRentalSolutionIncluded}">Yes, i want a CR
-			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox id="boolCR"  value="#{createSolutionBean.solution.carRentalSolutionIncluded}">
+			</h:selectBooleanCheckbox> Yes, i want a CR<br />
 		</div>
 		<button type="button" class="collapsible animation a3">Do you want to include a personal assistance in your website?</button>
 		<div class="content-collapse">
-			<h:selectBooleanCheckbox id="boolPA"  value="#{createSolutionBean.solution.personalAssistanceSolutionIncluded}">Yes, i want a PA
-			</h:selectBooleanCheckbox><br />
+			<h:selectBooleanCheckbox  id="boolPA"  value="#{createSolutionBean.solution.personalAssistanceSolutionIncluded}">
+			</h:selectBooleanCheckbox> Yes, i want a PA<br /><br/><br />
 		</div>
-		<br/>
+		
 	
 
 		
-      <h:commandButton class="animation a6" action="#{createSolutionBean.create()}" value="I am ready to chose my template"/>
+      <h:commandButton class="animation a6 button-shared" action="#{createSolutionBean.create()}" value="I am ready to chose my template"/>
       </h:form>
     </div>
   </div>
@@ -103,6 +104,28 @@
 			
 			
 			
+			</div>
+			<!-- chat bot -->
+			<div class="container container-chat">
+				<div id="chat-icon">
+					<img class="chat-logo" src="media/img/3649460.png" />
+				</div>
+
+				<div id="chat-box" class="">
+					<span id="chat-exit">x</span>
+					<div id="chat-header">
+						<img class="chat-logo" src="media/img/3649460.png" />
+					</div>
+					<div id="chat-history-wrapper">
+						<div id="chat-history"></div>
+					</div>
+					<div id="chat-user-inputs">
+						<!-- User form and submit button -->
+						<input type="text" id="chat-user-message" /> <img
+							src="media/gif/productivity/giphy.gif" id="send-msg-icon" />
+					</div>
+				</div>
+				<!-- end chat bot -->
 			</div>
 		</ui:define>
 	</ui:composition>

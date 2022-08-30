@@ -1,9 +1,7 @@
 package fr.isika.cda17.project3.presentation;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
@@ -22,9 +20,6 @@ import fr.isika.cda17.project3.repository.personManagement.accounts.CustomerDao;
 @ViewScoped
 public class CreateCustomerBean implements Serializable {
     
-    /**
-     *
-     */
     private static final long serialVersionUID = -8688644566487799148L;
 
     @Inject
