@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:body>
+	<ui:composition template="#{templateBean.subtemplatePath()}">
+		<ui:define name="subcontent">
+<h:form>
+
+
+
+<div class="progress">
+  <div class="progress-bar bg-success" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+</div>
+<div class="container bootstrap snippets bootdey">
+    <div class="panel-body inf-content">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Proposer un service: L'itinéraire</h4>
+
+                    <div class="form-floating mb-3">
+                      Première étape éventuelle
+                    <br /></div>
+
+                    <div class="form-floating mb-3">
+                       Deuxième étape éventuelle
+                    <br /></div>
+
+                    <div class="form-outline mb-3">
+                       Troisième étape éventuelle
+                    <br /></div>
+
+                      <a href="subServiceCreationTrajectory.xhtml"><button class="btn btn-success" type="submit">Suivant</button></a>
+                
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="verticalcenter">
+                <img style="width:100%;" src="subMedia/Images/Itinerary.png" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+</h:form>
+		</ui:define>
+	</ui:composition>
+
+
+</h:body>
+</html>

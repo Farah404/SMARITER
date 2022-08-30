@@ -11,17 +11,40 @@ public class Wallet {
     @GeneratedValue
     private Long id;
     
+    private int ecoCoinsAmmount;
+    
     @ManyToOne
     private Store store;
 
     public Wallet() {
 	super();
     }
+    
+    
 
-    public Wallet(Long id, Store store) {
+    public Wallet(Long id, int ecoCoinsAmmount, Store store) {
 	super();
 	this.id = id;
+	this.ecoCoinsAmmount = ecoCoinsAmmount;
 	this.store = store;
+    }
+
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getEcoCoinsAmmount() {
+        return ecoCoinsAmmount;
+    }
+
+    public void setEcoCoinsAmmount(int ecoCoinsAmmount) {
+        this.ecoCoinsAmmount = ecoCoinsAmmount;
     }
 
     public Store getStore() {
@@ -32,9 +55,7 @@ public class Wallet {
         this.store = store;
     }
 
-    public Long getId() {
-        return id;
-    }
+    
     
     
 

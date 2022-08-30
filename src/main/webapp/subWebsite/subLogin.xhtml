@@ -3,14 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
-      xmlns:f="http://java.sun.com/jsf/core">
-
-
+     >
 <h:body>
-	<ui:composition template="subTemplate/subTemplateOnlyNav.xhtml">
+	<ui:composition template="#{templateBean.subtemplatePath()}">
 		<ui:define name="subcontent">
-
 <section class="sign-in-form" style="background-color: white">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -25,27 +23,29 @@
                                          style="width: 185px;" alt="logo" />
                                     <h4 class="mt-1 mb-5 pb-1">Je me connecte à mon compte EcoCar</h4>
                                 </div>
-                                <center>
-<!--                                     @using (Html.BeginForm()) -->
-<!--                                     { -->
-                                        <div class="form-floating mb-3">
-<!--                                             @Html.TextBoxFor(model => model.Account.Username, new {@class = "form-control", placeholder = "Nom d'utilisateur",required="required" }) -->
-<!--                                             @Html.ValidationMessageFor(model =>model.Account.Username) -->
-                                        </div>
-                                        <br />
-                                        <div class="form-floating mb-3">
-<!--                                             @Html.TextBoxFor(model => model.Account.Password, new { @type="password", @class = "form-control", placeholder = "Mot de passe",required="required" }) -->
-<!--                                             @Html.ValidationMessageFor(model => model.Account.Password) -->
-                                        </div>
-                                        <br />
-                                        <!-- Submit Button-->
-                                        <button class="btn btn-success btn-xl" type="submit">Se Connecter</button>
-<!--                                     } -->
-                                </center><br />
+										<center>
+											<h:form>
+												<div class="form-floating mb-3">
+													<h:inputText a:placeholder="Email" id="nameTxt"
+														value="#{logInAccountBean.email}" class = "form-control"/>
+													<h:message for="nameTxt" />
+												</div>
+												<br />
+												<div class="form-floating mb-3">
+													<h:inputSecret a:placeholder="Password" id="passwordTxt"
+														value="#{logInAccountBean.password}" class = "form-control"/>
+													<h:message for="passwordTxt" />
+												</div>
+												<br />
+												<h:commandButton class="btn btn-success btn-xl"
+													action="#{logInAccountBean.userAccountLogin()}" value="Sign In"></h:commandButton>
+											</h:form>
+										</center>
+										<br />
                                 <div>
                                     <a class="text-muted" href="LoginAdministrator">Je me connecte en tant qu'admin</a><br />
                                     <a class="text-muted" href="ForgotPassword">J'ai oublié mon mot de passe</a><br />
-                                    <a class="text-muted" href="CreatePerson"> Je ne possède pas un compte EcoCar</a>
+                                    <a class="text-muted" href="subSignup.xhtml"> Je ne possède pas un compte EcoCar</a>
                                 </div>
                             </div>
                         </div>
@@ -63,10 +63,7 @@
     </div>
 </section>
 <br />
-
 		</ui:define>
 	</ui:composition>
-
-
 </h:body>
 </html>

@@ -7,7 +7,6 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-import fr.isika.cda17.project3.model.personManagement.accounts.Account;
 import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
 
 @ManagedBean
@@ -67,25 +66,27 @@ public class UrlPathBean implements Serializable{
     public String goToSiteMap() {
     	return "siteMap.xhtml";
     }
+
     public String goToStartService() {
-    	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-    	if(session.getAttribute("accountType")== AccountType.ADMINISTRATOR || session.getAttribute("accountType")== AccountType.ENTITY) {
-    		return "service.xhtml";
-    	}else {
-    		return "logInSignUp.xhtml";
-    	}
+	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	if (session.getAttribute("accountType") == AccountType.ADMINISTRATOR
+		|| session.getAttribute("accountType") == AccountType.ENTITY) {
+	    return "service.xhtml";
+	} else {
+	    return "logInSignUp.xhtml";
+	}
     }
-    
+
     public String goToDashBoard() {
-    	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-    	if(session.getAttribute("accountType")==AccountType.ADMINISTRATOR) {
-    		return "adminBoard.xhtml";
-    	}else {
-    		if(session.getAttribute("accountType")==AccountType.ENTITY){
-    			return "customerProfile.xhtml";
-    		}else {
-    			return "index.xhtml";
-    		}
-    	}
+	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	if (session.getAttribute("accountType") == AccountType.ADMINISTRATOR) {
+	    return "adminBoard.xhtml";
+	} else {
+	    if (session.getAttribute("accountType") == AccountType.ENTITY) {
+		return "customerProfile.xhtml";
+	    } else {
+		return "index.xhtml";
+	    }
+	}
     }
 }

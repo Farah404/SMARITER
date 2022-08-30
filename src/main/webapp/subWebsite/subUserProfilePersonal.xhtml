@@ -6,6 +6,10 @@
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
       xmlns:f="http://java.sun.com/jsf/core">
 
+<f:metadata>
+	<f:event listener="#{userProfileBean.init()}" type="preRenderView">
+	</f:event>
+</f:metadata>
 
 <h:head>
 <script src="subResources/scripts/jquery-3.3.1.js"></script>
@@ -14,8 +18,9 @@
 </h:head>
 
 <h:body>
-	<ui:composition template="subTemplate/subTemplate.xhtml">
+	<ui:composition template="#{templateBean.subtemplatePath()}">
 <ui:define name="subcontent">
+<h:form>
 <div class="container bootstrap snippets bootdey">
     <div class="panel-body inf-content">
         <div class="row">
@@ -23,12 +28,10 @@
                 <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" />
                 <ul title="Username" class="list-inline ratings text-center">
 
-                    <h3>User.Account.Username</h3>
+                    <h3>#{userProfileBean.user.userAccount.username}</h3>
 
                 </ul>
-                <button class="btn btn-success center-block" type="submit">Modifier mon profil</button>
-                <br />
-                <button class="btn btn-success center-block" type="submit">Ajouter un véhicule</button>
+                <h:commandButton class="btn btn-success center-block" action="#{userProfileBean.updateStepOne()}" value="Modifier mon profil" />
                 <br />
             </div>
 
@@ -68,10 +71,10 @@
                                                 <tr>
                                                     <td>
                                                         <span class="glyphicon glyphicon-user  text-success"></span>
-                                                        Nom et Prénom
+                                                       Nom et Prenom
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
+                                                        <p> #{userProfileBean.user.lastName} #{userProfileBean.user.firstName}</p>
                                                     </td>
                                                 </tr>
 
@@ -101,7 +104,7 @@
                                                         Date de naissance
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.birthDate}</p>
                                                     </td>
                                                 </tr>
 
@@ -111,17 +114,17 @@
                                                         Email
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.email}</p>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>
                                                         <span class="glyphicon glyphicon-phone text-success"></span>
-                                                        Numéro de téléphone
+                                                       Numéro de téléphone
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.phoneNumber}</p>
                                                     </td>
                                                 </tr>
 
@@ -132,27 +135,27 @@
 
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.identityCardnumber}</p>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>
                                                         <span class="glyphicon glyphicon-dashboard text-success"></span>
-                                                        Numéro de permis de conduire
+                                                         Numéro de permis de conduire
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.drivingPermitNumber}</p>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>
                                                         <span class="glyphicon glyphicon-calendar text-success"></span>
-                                                        EcoMembre depuis
+                                                        Date de création du compte
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.creationDate}</p>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -167,10 +170,10 @@
                                                 <tr>
                                                     <td>
                                                         <span class="glyphicon glyphicon-piggy-bank  text-success"></span>
-                                                        Montant EcoCoins
+                                                        Montant EcoCoins 
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.wallet.ecoCoinsAmmount}</p>
                                                     </td>
                                                 </tr>
 <tr>
@@ -195,28 +198,28 @@
                                                 <tr>
                                                     <td>
                                                         <span class="glyphicon glyphicon-font  text-success"></span>
-                                                        Nom de l'agence bancaire
+                                                        Nom de l'agence bancaire 
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.bankDetails.bankName}</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
                                                         <span class="glyphicon glyphicon-sort-by-order-alt text-success"></span>
-                                                        Numéro SWIFT
+                                                        Numéro SWIFT 
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.bankDetails.swift}</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
                                                         <span class="glyphicon glyphicon-sort-by-order text-success"></span>
-                                                        Numéro IBAN
+                                                        Numéro IBAN 
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.bankDetails.iban}</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -225,26 +228,16 @@
                                                         Adresse
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <span class="glyphicon glyphicon-picture text-success"></span>
-                                                        Ville
-                                                    </td>
-                                                    <td class="text-success">
-                                                        <p></p>
-
+                                                        <p>#{userProfileBean.user.userAccount.billingAddress.addressLine}</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
                                                         <span class="glyphicon glyphicon-tree-conifer text-success"></span>
-                                                        Région
+                                                        Ville
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.billingAddress.city}</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -253,16 +246,16 @@
                                                         Pays
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.billingAddress.country}</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
                                                         <span class="glyphicon glyphicon-send text-success"></span>
-                                                        Code postal
+                                                        Code Postale
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.billingAddress.postalCode}</p>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -275,10 +268,10 @@
                                                 <tr>
                                                     <td>
                                                         <span class="glyphicon glyphicon-sort-by-alphabet  text-success"></span>
-                                                        Nom de l'assureur
+                                                        Nom de l'assureur 
                                                     </td>
                                                     <td class="text-success">
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.vehicule.insurance.insuranceAgencyName}</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -288,7 +281,7 @@
                                                     </td>
                                                     <td class="text-success">
 
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractExpiration}</p>
                                                     </td>
                                                 </tr>
 
@@ -299,7 +292,7 @@
                                                     </td>
                                                     <td class="text-success">
 
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractNumber}</p>
                                                     </td>
                                                 </tr>
 
@@ -310,7 +303,7 @@
                                                     </td>
                                                     <td class="text-success">
 
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.vehicule.brand}</p>
                                                     </td>
                                                 </tr>
 
@@ -321,18 +314,7 @@
                                                     </td>
                                                     <td class="text-success">
 
-                                                        <p></p>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <span class="glyphicon glyphicon-modal-window text-success"></span>
-                                                        Modèle du véhicule
-                                                    </td>
-                                                    <td class="text-success">
-
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.vehicule.registrationNumber}</p>
                                                     </td>
                                                 </tr>
 
@@ -343,7 +325,7 @@
                                                     </td>
                                                     <td class="text-success">
 
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.vehicule.isHybrid()}</p>
                                                     </td>
                                                 </tr>
 
@@ -354,10 +336,9 @@
                                                     </td>
                                                     <td class="text-success">
 
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.vehicule.isElectric()}</p>
                                                     </td>
                                                 </tr>
-
                                                 <tr>
                                                     <td>
                                                         <span class="glyphicon glyphicon-briefcase text-success"></span>
@@ -365,7 +346,7 @@
                                                     </td>
                                                     <td class="text-success">
 
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.vehicule.technicalTestExpiration}</p>
                                                     </td>
                                                 </tr>
 
@@ -376,7 +357,7 @@
                                                     </td>
                                                     <td class="text-success">
 
-                                                        <p></p>
+                                                        <p>#{userProfileBean.user.userAccount.vehicule.availableSeats}</p>
                                                     </td>
                                                 </tr>
 
@@ -441,7 +422,7 @@
     </div>
 </div>
 <br />
-
+</h:form>
 		</ui:define>
 	</ui:composition>
 

@@ -1,7 +1,17 @@
-ï»¿/*Color green EcoCar body : #93bb83 */
+/*Color green EcoCar body : #93bb83 */
 /*Color green EcoCar wheels : #a1df86 */
 /*Color green EcoCar armature : #3e6a3e */
-
+	.col-usersignup{
+	float: left;
+  width: 50%;
+  padding: 10px;
+	}
+		.row-usersignup{
+		content: "";
+  display: table;
+  clear: both;
+	}
+	
 .jumbotron {
     background-color: #93bb83;
     color: #ffffff;
@@ -318,14 +328,14 @@ hr.solid {
 
 .Heading {
     font-size: 20px;
-    font-family: â€˜Open Sansâ€™;
+    font-family: ‘Open Sans’;
     font-weight: 700;
     color: #2F3841;
 }
 
 .Action {
     font-size: 14px;
-    font-family: â€˜Open Sansâ€™;
+    font-family: ‘Open Sans’;
     font-weight: 600;
     color: #E44C4C;
     cursor: pointer;

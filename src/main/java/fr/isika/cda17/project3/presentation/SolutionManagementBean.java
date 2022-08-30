@@ -54,7 +54,6 @@ public class SolutionManagementBean implements Serializable {
 		
 	}
 
-
 	public List<Solution> getSolutiontList() {
 		return solutiontList;
 	}
@@ -71,6 +70,4 @@ public class SolutionManagementBean implements Serializable {
 	    this.solutionDao = solutionDao;
 	}
 
-
-	
 }

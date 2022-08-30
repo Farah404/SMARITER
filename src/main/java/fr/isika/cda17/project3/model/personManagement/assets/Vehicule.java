@@ -2,13 +2,12 @@ package fr.isika.cda17.project3.model.personManagement.assets;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
 @Entity
 public class Vehicule {
@@ -29,10 +28,9 @@ public class Vehicule {
     
     private Date technicalTestExpiration;
     
-    @ManyToOne
-    private UserAccount userAccount;
+    private int availableSeats;
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private Insurance insurance;
 
     public Vehicule() {
@@ -40,7 +38,7 @@ public class Vehicule {
     }
 
     public Vehicule(Long id, String brand, String registrationNumber, Boolean isHybrid, Boolean isElectric,
-	    Boolean isManual, Date technicalTestExpiration, UserAccount userAccount, Insurance insurance) {
+	    Boolean isManual, Date technicalTestExpiration, Insurance insurance, int avilableSeats) {
 	super();
 	this.id = id;
 	this.brand = brand;
@@ -49,8 +47,8 @@ public class Vehicule {
 	this.isElectric = isElectric;
 	this.isManual = isManual;
 	this.technicalTestExpiration = technicalTestExpiration;
-	this.userAccount = userAccount;
 	this.insurance = insurance;
+	this.availableSeats = avilableSeats;
     }
 
     public String getBrand() {
@@ -101,13 +99,6 @@ public class Vehicule {
         this.technicalTestExpiration = technicalTestExpiration;
     }
 
-    public UserAccount getUserAccount() {
-        return userAccount;
-    }
-
-    public void setUserAccount(UserAccount userAccount) {
-        this.userAccount = userAccount;
-    }
 
     public Insurance getInsurance() {
         return insurance;
@@ -119,6 +110,14 @@ public class Vehicule {
 
     public Long getId() {
         return id;
+    }
+
+    public int getAvailableSeats() {
+        return availableSeats;
+    }
+
+    public void setAvailableSeats(int availableSeats) {
+        this.availableSeats = availableSeats;
     }
   
 }

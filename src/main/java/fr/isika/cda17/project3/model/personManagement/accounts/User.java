@@ -4,11 +4,14 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @PrimaryKeyJoinColumn(name="id")
+@NamedQuery(name = "user.findByUserAccountId", query = "SELECT u FROM User u WHERE u.userAccount.id = :u_param")
+
 public class User extends Person{
     
     private int phoneNumber;
