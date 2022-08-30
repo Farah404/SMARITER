@@ -20,11 +20,11 @@ public class Vehicule {
     
     private String registrationNumber;
     
-    private Boolean isHybrid;
+    private boolean hybrid;
     
-    private Boolean isElectric;
+    private boolean electric;
     
-    private Boolean isManual;
+    private boolean manual;
     
     private Date technicalTestExpiration;
     
@@ -37,15 +37,15 @@ public class Vehicule {
 	super();
     }
 
-    public Vehicule(Long id, String brand, String registrationNumber, Boolean isHybrid, Boolean isElectric,
-	    Boolean isManual, Date technicalTestExpiration, Insurance insurance, int avilableSeats) {
+    public Vehicule(Long id, String brand, String registrationNumber, boolean isHybrid, boolean isElectric,
+	    boolean isManual, Date technicalTestExpiration, Insurance insurance, int avilableSeats) {
 	super();
 	this.id = id;
 	this.brand = brand;
 	this.registrationNumber = registrationNumber;
-	this.isHybrid = isHybrid;
-	this.isElectric = isElectric;
-	this.isManual = isManual;
+	this.hybrid = isHybrid;
+	this.electric = isElectric;
+	this.manual = isManual;
 	this.technicalTestExpiration = technicalTestExpiration;
 	this.insurance = insurance;
 	this.availableSeats = avilableSeats;
@@ -67,28 +67,28 @@ public class Vehicule {
         this.registrationNumber = registrationNumber;
     }
 
-    public Boolean isHybrid() {
-        return isHybrid;
+    public boolean isHybrid() {
+        return hybrid;
     }
 
     public void setHybrid(boolean isHybrid) {
-        this.isHybrid = isHybrid;
+        this.hybrid = isHybrid;
     }
 
-    public Boolean isElectric() {
-        return isElectric;
+    public boolean isElectric() {
+        return electric;
     }
 
     public void setElectric(boolean isElectric) {
-        this.isElectric = isElectric;
+        this.electric = isElectric;
     }
 
-    public Boolean isManual() {
-        return isManual;
+    public boolean isManual() {
+        return manual;
     }
 
     public void setManual(boolean isManual) {
-        this.isManual = isManual;
+        this.manual = isManual;
     }
 
     public Date getTechnicalTestExpiration() {

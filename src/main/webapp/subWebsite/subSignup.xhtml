@@ -62,10 +62,12 @@
                                     </div>
                                     <br />
                                     
-<!--                                     <div class="form-outline mb-4"> -->
-<!-- 									<h:inputText class = "form-control" id="birthDate" a:placeholder="Birthday" type="datetime-local" value="#{createUserBean.user.birthDate}" /> -->
-<!--                                     </div> -->
-<!--                                     <br /> -->
+                                    <div class="form-outline mb-4">
+									<h:inputText class = "form-control" id="birthDate" a:placeholder="dd-MM-YYYY" type="datetime-local" value="#{createUserBean.user.birthDate}"> 
+										<f:convertDateTime pattern="dd-MM-yyyy"/>
+									</h:inputText>
+                                    </div>
+                                    <br />
                                    </div> 
           
                                     <div class="col-usersignup">
