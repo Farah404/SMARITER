@@ -17,6 +17,8 @@ import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.User;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
+import fr.isika.cda17.project3.model.personManagement.assets.Insurance;
+import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserDao;
 
 @ManagedBean
@@ -34,6 +36,8 @@ public class CreateUserBean implements Serializable {
 	private BillingAddress billingAddress = new BillingAddress();
 	private ShoppingCart shoppingCart = new ShoppingCart();
 	private Wallet wallet = new Wallet();
+	private Vehicule vehicule = new Vehicule();
+	private Insurance insurance = new Insurance();
 
 	public String create() {
 		userAccount.setBankDetails(bankDetails);
@@ -43,6 +47,8 @@ public class CreateUserBean implements Serializable {
 		userAccount.setShoppingCart(shoppingCart);
 		userAccount.setWallet(wallet);
 		userAccount.setIsActive(true);
+		vehicule.setInsurance(insurance);
+		userAccount.setVehicule(vehicule);
 		user.setUserAccount(userAccount);
 		User created = userDao.create(user);
 		
@@ -116,6 +122,38 @@ public class CreateUserBean implements Serializable {
 
 	public void setBillingAddress(BillingAddress billingAddress) {
 		this.billingAddress = billingAddress;
+	}
+
+	public Vehicule getVehicule() {
+		return vehicule;
+	}
+
+	public void setVehicule(Vehicule vehicule) {
+		this.vehicule = vehicule;
+	}
+
+	public Insurance getInsurance() {
+		return insurance;
+	}
+
+	public void setInsurance(Insurance insurance) {
+		this.insurance = insurance;
+	}
+
+	public ShoppingCart getShoppingCart() {
+		return shoppingCart;
+	}
+
+	public void setShoppingCart(ShoppingCart shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
+
+	public Wallet getWallet() {
+		return wallet;
+	}
+
+	public void setWallet(Wallet wallet) {
+		this.wallet = wallet;
 	}
 
 	
