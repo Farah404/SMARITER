@@ -4,52 +4,195 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
-      xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 
 <h:body>
 	<ui:composition template="#{templateBean.subtemplatePath()}">
 		<ui:define name="subcontent">
-<h:form>
+			<h:form>
+
+				<div class="container bootstrap snippets bootdey">
+					<div class="panel-body inf-content">
+					<h4>Proposer un service de covoiturage</h4>
+						<div class="row">
+							<div class="col-md-4">
+								
+								<div class="form-floating mb-3">
+									Date de publication de la prestation-Autogénérée <br />
+								</div>
+								<br />
+								<div class="form-floating mb-3">
+									Numero de reference de la prestation-Autogénéré <br />
+								</div>
+								<br />
+
+								<div class="form-outline mb-3">
+									Date de Debut
+									<h:inputText class="form-control" id="startDate"
+										a:placeholder="dd-MM-YYYY" type="datetime-local"
+										value="#{createCarPoolingServiceBean.cps.startDate}">
+										<f:convertDateTime pattern="dd-MM-yyyy" />
+									</h:inputText>
+									<br />
+								</div>
+
+								<div class="form-floating mb-3">
+									Adresse de départ
+									<h:inputText class="form-control" id="pickUpAddress"
+										a:placeholder="Adresse de départ"
+										value="#{createCarPoolingServiceBean.cps.trajectory.pickUpAddress}" />
+									<br />
+								</div>
+
+								<div class="form-outline mb-3">
+									Date de fin
+									<h:inputText class="form-control" id="endDate"
+										a:placeholder="dd-MM-YYYY" type="datetime-local"
+										value="#{createCarPoolingServiceBean.cps.endDate}">
+										<f:convertDateTime pattern="dd-MM-yyyy" />
+									</h:inputText>
+									<br />
+								</div>
+
+								<div class="form-floating mb-3">
+									Adresse d'arrivée
+									<h:inputText class="form-control" id="deliveryAddress"
+										a:placeholder="Adresse d'arrivée"
+										value="#{createCarPoolingServiceBean.cps.trajectory.deliveryAddress}" />
+									<br />
+								</div>
+
+								<div class="form-outline mb-3">
+									Type du covoiturage<br />
+									<h:selectOneMenu id="carpoolType" class="form-control"
+										value="#{createCarPoolingServiceBean.cps.carPoolingType}">
+										<f:selectItems
+											value="#{createCarPoolingServiceBean.carPoolingTypeValues()}"
+											var="s" itemLabel="#{s.label}" itemValue="#{s}" />
+									</h:selectOneMenu>
+									<br />
+								</div>
+
+								<div class="form-floating mb-3">
+									Prix en EcoCoins
+									<h:inputText class="form-control" id="price"
+										a:placeholder="Prix en EcoCoins"
+										value="#{createCarPoolingServiceBean.cps.price}" />
+									<br />
+								</div>
+
+								<div class="form-floating mb-3">
+									Nombre de sièges disponibles
+									<h:inputText class="form-control" id="seats"
+										a:placeholder="Nombre de sièges disponibles"
+										value="#{createCarPoolingServiceBean.cps.availableSeats}" />
+									<br />
+								</div>
+
+								<h:commandLink class="btn btn-success"
+									action="#{createCarPoolingServiceBean.createCarPoolingService()}"
+									value="Je publie ma prestation" />
+							</div>
+
+							<div class="col-md-4">
+							
+							<div class="form-floating mb-3">
+									Durée trajet approximative en heure
+									<h:inputText class="form-control" id="duration"
+										a:placeholder="Durée trajet approximative en heure"
+										value="#{createCarPoolingServiceBean.cps.trajectory.durationHours}" />
+									<br />
+								</div>
+							
+							<div class="form-floating mb-3">
+									Nombre d'arrêt
+									<h:inputText class="form-control" id="stopsNb"
+										a:placeholder="Nombre d'arrêt"
+										value="#{createCarPoolingServiceBean.cps.trajectory.stopNumber}" />
+									<br />
+								</div>
+								
+								<div class="form-floating mb-3">
+									Durée arret en minute
+									<h:inputText class="form-control" id="stopsDuration"
+										a:placeholder="Durée arret en minute"
+										value="#{createCarPoolingServiceBean.cps.trajectory.stopDurationMinutes}" />
+									<br />
+								</div>
+								
+								<div class="form-floating mb-3">
+									Arret 1
+									<h:inputText class="form-control" id="firstStop"
+										a:placeholder="Arret 1"
+										value="#{createCarPoolingServiceBean.cps.trajectory.itinerary.firstStopAddress}" />
+									<br />
+								</div>
+								
+								<div class="form-floating mb-3">
+									Arret 2
+									<h:inputText class="form-control" id="secondStop"
+										a:placeholder="Arret 2"
+										value="#{createCarPoolingServiceBean.cps.trajectory.itinerary.secondStopAddress}" />
+									<br />
+								</div>
+								
+								<div class="form-floating mb-3">
+									Arret 3
+									<h:inputText class="form-control" id="thirdStop"
+										a:placeholder="Arret 3"
+										value="#{createCarPoolingServiceBean.cps.trajectory.itinerary.thirdStopAddress}" />
+									<br />
+								</div>
+								
+								<div class="form-outline mb-3">
+									Type du trajet<br />
+									<h:selectOneMenu id="trajectoryType" class="form-control"
+										value="#{createCarPoolingServiceBean.cps.trajectory.trajectoryType}">
+										<f:selectItems
+											value="#{createCarPoolingServiceBean.trajectoryTypeValues()}"
+											var="s" itemLabel="#{s.label}" itemValue="#{s}" />
+									</h:selectOneMenu>
+									<br />
+								</div>
+							
+								<div class="form-floating mb-3">
+									<h:selectBooleanCheckbox
+										value="#{createServiceBean.cps.isPetAllowed}" />
+									Animaux de compagnie <br />
+								</div>
+
+								<div class="form-floating mb-3">
+									<h:selectBooleanCheckbox
+										value="#{createServiceBean.cps.isSmokingAllowed}" />
+									 Autorisation de fumer <br />
+								</div>
+
+								<div class="form-floating mb-3">
+									<h:selectBooleanCheckbox
+										value="#{createServiceBean.cps.isMusicAllowed}" />
+									Musique forte <br />
+								</div>
+
+								<div class="form-floating mb-3">
+									<h:selectBooleanCheckbox
+										value="#{createServiceBean.cps.isChattingAllowed}" />
+									Discussion <br />
+								</div>
 
 
 
-<div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
-</div>
-<div class="container bootstrap snippets bootdey">
-    <div class="panel-body inf-content">
-        <div class="row">
-            <div class="col-md-4">
-                <h4>Proposer un service: Covoiturage</h4>
 
-                    <div class="form-floating mb-3">
-                     Type de covoiturage
-                    <br /></div>
+							</div>
+						</div>
 
-                    <div class="form-floating mb-3">
-                      Sièges disponibles
-                    <br /></div>
-
-
-                    <button class="btn btn-success" type="submit">Suivant</button>
-                
-
-            </div>
-
-            <div class="col-md-6">
-                <div class="verticalcenter">
-                <img style="width:100%;" src="subMedia/Images/Covoiturage.png" />
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
+					</div>
+				</div>
 
 
 
-</h:form>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 

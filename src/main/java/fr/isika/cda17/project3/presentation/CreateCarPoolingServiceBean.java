@@ -10,6 +10,8 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+
+import fr.isika.cda17.project3.model.personManagement.accounts.User;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
@@ -18,6 +20,9 @@ import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
+import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
+import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
+import fr.isika.cda17.project3.repository.personManagement.accounts.UserDao;
 import fr.isika.cda17.project3.repository.serviceManagement.CarPoolingServiceDao;
 
 @ManagedBean
@@ -30,7 +35,7 @@ public class CreateCarPoolingServiceBean {
 	@Inject
 	private UserAccountsDao userAccountsDao;
 	
-	private UserAccount userAccount;	  
+	private UserAccount userAccount;
 	
 	private CarPoolingService cps = new CarPoolingService();
 	
@@ -46,6 +51,9 @@ public class CreateCarPoolingServiceBean {
 	public CarPoolingType[] carPoolingTypeValues() {
 		return CarPoolingType.values();
 	}
+  public TrajectoryType[] trajectoryTypeValues() {
+		return TrajectoryType.values();
+  }
 		
 	public void create() {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
@@ -108,5 +116,5 @@ public void createRequest() {
 	public void setTrajectory(Trajectory trajectory) {
 		this.trajectory = trajectory;
 	}
-	
 }
+

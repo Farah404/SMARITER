@@ -88,5 +88,4 @@ public class CreateCarRentalServiceBean {
 		this.vehicule = vehicule;
 	}
 
-	
 }

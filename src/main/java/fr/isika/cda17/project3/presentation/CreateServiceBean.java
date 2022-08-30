@@ -33,25 +33,25 @@ public class CreateServiceBean implements Serializable{
 					if(request==false){
 						return "subServiceCreationCarPooling.xhtml";
 					}else {
-						return "subServiceCreationCarPoolingRequest.xhtml";
+						return "subRequestCreationCarPooling.xhtml";
 					}
 				case CAR_RENTAL:
 					if(request==false) {
 						return "subServiceCreationCarRental.xhtml";
 					}else {
-						return "subServiceCreationCarRentalRequest.xhtml";
+						return "subRequestCreationCarRental.xhtml";
 					}
 				case PARCEL:
 					if(request==false) {
 						return "subServiceCreationParcel.xhtml";
 					}else {
-						return "subServiceCreationParcelRequest.xhtml";
+						return "subRequestCreationParcel.xhtml";
 					}
 				case PERSONAL_ASSISTANCE:
 					if(request==false) {
 						return "subServiceCreationPersonalAssistance.xhtml";
 					}else {
-						return "subServiceCreationPersonalAssistanceRequest.xhtml";
+						return "subRequestCreationPersonalAssistance.xhtml";
 					}
 			}
 			return "subServiceCreation.xhtml";
@@ -76,6 +76,3 @@ public class CreateServiceBean implements Serializable{
 		this.cps = cps;
 	}
 }
-
-	
-

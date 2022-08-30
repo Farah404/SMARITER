@@ -26,6 +26,7 @@ import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccounts
 import fr.isika.cda17.project3.repository.serviceManagement.CarPoolingServiceDao;
 import fr.isika.cda17.project3.repository.serviceManagement.CarRentalServiceDao;
 import fr.isika.cda17.project3.repository.serviceManagement.ParcelServiceDao;
+import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
 import fr.isika.cda17.project3.repository.serviceManagement.PersonalAssistanceServiceDao;
 
 @ManagedBean
@@ -48,6 +49,14 @@ public class CreatePersonalAssistanceServiceBean {
 	private Itinerary itinerary = new Itinerary();
 	
 	private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
+	
+	public PersonalAssistanceType[] personalAssistanceTypeValues() {
+		return PersonalAssistanceType.values();
+	}
+	
+	public TrajectoryType[] trajectoryTypeValues() {
+		return TrajectoryType.values();
+	}
 		
 	public void create() {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
@@ -101,6 +110,5 @@ public class CreatePersonalAssistanceServiceBean {
 	public void setPas(PersonalAssistanceService pas) {
 		this.pas = pas;
 	}
-
-	
 }
+

@@ -26,6 +26,7 @@ import fr.isika.cda17.project3.repository.serviceManagement.CarPoolingServiceDao
 import fr.isika.cda17.project3.repository.serviceManagement.CarRentalServiceDao;
 import fr.isika.cda17.project3.repository.serviceManagement.ParcelServiceDao;
 import fr.isika.cda17.project3.repository.serviceManagement.PersonalAssistanceServiceDao;
+import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
 
 @ManagedBean
 @ViewScoped
@@ -49,6 +50,10 @@ public class CreateParcelServiceBean {
 	private Itinerary itinerary = new Itinerary();
 	
 	private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
+	
+	public TrajectoryType[] trajectoryTypeValues() {
+		return TrajectoryType.values();
+	}
 			
 	public void create() {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
@@ -110,6 +115,5 @@ public class CreateParcelServiceBean {
 	public void setItinerary(Itinerary itinerary) {
 		this.itinerary = itinerary;
 	}
-
-	
 }
+

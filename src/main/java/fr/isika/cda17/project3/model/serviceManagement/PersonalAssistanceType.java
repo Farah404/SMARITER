@@ -13,4 +13,5 @@ public enum PersonalAssistanceType {
     public String getLabel() {
 		return label;
 	}
+
 }
