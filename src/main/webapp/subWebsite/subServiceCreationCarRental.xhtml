@@ -4,59 +4,140 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
-      xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 
 <h:body>
 	<ui:composition template="#{templateBean.subtemplatePath()}">
 		<ui:define name="subcontent">
-<h:form>
+			<h:form>
+
+				<div class="container bootstrap snippets bootdey">
+					<div class="panel-body inf-content">
+					<h4>Proposer un service de location de véhicule</h4>
+						<div class="row">
+							<div class="col-md-4">
+								
+								<div class="form-floating mb-3">
+									Date de publication de la prestation-Autogénérée <br />
+								</div>
+								<br />
+								<div class="form-floating mb-3">
+									Numero de reference de la prestation-Autogénéré <br />
+								</div>
+								<br />
+
+								<div class="form-outline mb-3">
+									Date de Debut
+									<h:inputText class="form-control" id="startDate"
+										a:placeholder="dd-MM-YYYY" type="datetime-local"
+										value="#{createCarRentalServiceBean.crs.startDate}">
+										<f:convertDateTime pattern="dd-MM-yyyy" />
+									</h:inputText>
+									<br />
+								</div>
+
+								<div class="form-floating mb-3">
+									Adresse de départ
+									<h:inputText class="form-control" id="pickUpAddress"
+										a:placeholder="Adresse de départ"
+										value="#{createCarRentalServiceBean.crs.keyPickUpAddress}" />
+									<br />
+								</div>
+
+								<div class="form-outline mb-3">
+									Date de fin
+									<h:inputText class="form-control" id="endDate"
+										a:placeholder="dd-MM-YYYY" type="datetime-local"
+										value="#{createCarRentalServiceBean.crs.endDate}">
+										<f:convertDateTime pattern="dd-MM-yyyy" />
+									</h:inputText>
+									<br />
+								</div>
+
+								<div class="form-floating mb-3">
+									Adresse d'arrivée
+									<h:inputText class="form-control" id="deliveryAddress"
+										a:placeholder="Adresse d'arrivée"
+										value="#{createCarRentalServiceBean.crs.keyDropOffAddress}" />
+									<br />
+								</div>
+								
+								<div class="form-floating mb-3">
+									Prix en EcoCoins
+									<h:inputText class="form-control" id="price"
+										a:placeholder="Prix en EcoCoins"
+										value="#{createCarRentalServiceBean.crs.price}" />
+									<br />
+								</div>
+
+								<h:commandLink class="btn btn-success"
+									action="#{createCarRentalServiceBean.create()}"
+									value="Je publie ma prestation" />
+							</div>
+
+							<div class="col-md-4">
+							
+							<div class="form-floating mb-3">
+									Brand
+									<h:inputText class="form-control" id="brancVehicule"
+										a:placeholder=""
+										value="#{createCarRentalServiceBean.crs.vehicule.brand}" />
+									<br />
+								</div>
+							
+							<div class="form-floating mb-3">
+									Registration Number
+									<h:inputText class="form-control" id="registrationNumber"
+										a:placeholder=""
+										value="#{createCarRentalServiceBean.crs.vehicule.registrationNumber}" />
+									<br />
+								</div>
+								
+								<div class="form-floating mb-3">
+									Test technique
+									<h:inputText class="form-control" id="stopsDuration"
+										a:placeholder=""
+										value="#{createCarRentalServiceBean.crs.vehicule.technicalTestExpiration}" />
+									<br />
+								</div>
+								
+								<div class="form-floating mb-3">
+									Agence assurance
+									<h:inputText class="form-control" id="insuranceAgency"
+										a:placeholder=""
+										value="#{createCarRentalServiceBean.crs.vehicule.insurance.insuranceAgencyName}" />
+									<br />
+								</div>
+								
+								<div class="form-floating mb-3">
+									Contract Expiration
+									<h:inputText class="form-control" id="insuranceExp"
+										a:placeholder="dd-MM-YYYY" type="datetime-local"
+										value="#{createCarRentalServiceBean.crs.vehicule.insurance.insuranceContractExpiration}">
+										<f:convertDateTime pattern="dd-MM-yyyy" />
+									</h:inputText>
+									<br />
+								</div>
+								
+								<div class="form-floating mb-3">
+									Contract Number
+									<h:inputText class="form-control" id="insuranceContract"
+										a:placeholder=""
+										value="#{createCarRentalServiceBean.crs.vehicule.insurance.insuranceContractNumber}" />
+									<br />
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
 
 
 
-<div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
-</div>
-<div class="container bootstrap snippets bootdey">
-    <div class="panel-body inf-content">
-        <div class="row">
-            <div class="col-md-4">
-                <h4>Proposer un service</h4>
-
-                    <div class="form-floating mb-3">
-                      Lieu de récupération initial des clés
-                    <br /></div>
-
-                    <div class="form-floating mb-3">
-                       Numero de reference de la prestation
-                    <br /></div>
-
-                    <div class="form-outline mb-3">
-                      Lieu de retour des clés
-                    <br /></div>
-
-                    <div class="form-outline mb-3">
-                      Vehicule en question
-                    <br /></div>
-
-                    <button class="btn btn-success" type="submit">Suivant</button>
-                
-
-            </div>
-
-            <div class="col-md-6">
-                <div class="verticalcenter">
-                <img style="width:100%;" src="subMedia/Images/CarRental.png" />
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-
-
-</h:form>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 

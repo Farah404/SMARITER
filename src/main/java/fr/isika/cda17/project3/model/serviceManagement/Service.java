@@ -1,6 +1,6 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
@@ -22,22 +24,28 @@ public abstract class Service {
     @GeneratedValue
     private Long id;
     
-    private Date publicationDate;
+    private LocalDateTime publicationDate;
     
-    private Date expirationDate;
+    private LocalDateTime expirationDate;
     
-    private Date startDate;
+    private LocalDateTime startDate;
     
-    private Date endDate;
+    private LocalDateTime endDate;
     
     private int referenceNumber;
     
-    private Boolean isRequest;
+    private boolean isRequest;
     
     private double price;
     
     @Enumerated
     private ServiceType servicetype;
+
+    @OneToOne
+    private UserAccount userAccountProvider;
+    
+    @OneToMany
+    private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
     
     @ManyToMany
     private List <UserAccount> userAccounts = new LinkedList<>();
@@ -46,8 +54,8 @@ public abstract class Service {
 	super();
     }
 
-    public Service(Long id, Date publicationDate, Date expirationDate, Date startDate, Date endDate,
-	    int referenceNumber, Boolean isRequest, double price, ServiceType servicetype,
+    public Service(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate, LocalDateTime endDate,
+	    int referenceNumber, boolean isRequest, double price, ServiceType servicetype,
 	    List<UserAccount> userAccounts) {
 	super();
 	this.id = id;
@@ -62,35 +70,52 @@ public abstract class Service {
 	this.userAccounts = userAccounts;
     }
 
-    public Date getPublicationDate() {
+    
+    public UserAccount getUserAccountProvider() {
+		return userAccountProvider;
+	}
+
+	public void setUserAccountProvider(UserAccount userAccountProvider) {
+		this.userAccountProvider = userAccountProvider;
+	}
+
+	public List<UserAccount> getUserAccountsPurchasers() {
+		return userAccountsPurchasers;
+	}
+
+	public void setUserAccountsPurchasers(List<UserAccount> userAccountsPurchasers) {
+		this.userAccountsPurchasers = userAccountsPurchasers;
+	}
+
+	public LocalDateTime getPublicationDate() {
         return publicationDate;
     }
 
-    public void setPublicationDate(Date publicationDate) {
+    public void setPublicationDate(LocalDateTime publicationDate) {
         this.publicationDate = publicationDate;
     }
 
-    public Date getExpirationDate() {
+    public LocalDateTime getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(LocalDateTime expirationDate) {
         this.expirationDate = expirationDate;
     }
 
-    public Date getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 
@@ -102,11 +127,11 @@ public abstract class Service {
         this.referenceNumber = referenceNumber;
     }
 
-    public Boolean getIsRequest() {
+    public boolean getIsRequest() {
         return isRequest;
     }
 
-    public void setIsRequest(Boolean isRequest) {
+    public void setIsRequest(boolean isRequest) {
         this.isRequest = isRequest;
     }
 

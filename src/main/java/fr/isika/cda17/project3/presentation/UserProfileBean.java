@@ -35,7 +35,7 @@ public class UserProfileBean implements Serializable{
 	if(id != null) {
 	    user = userDao.findByUserAccountId(id);
 	    if (user == null) {
-		System.out.println("this is bullshit");
+		System.out.println("not logical");
 	    }
 	}
 	else {
