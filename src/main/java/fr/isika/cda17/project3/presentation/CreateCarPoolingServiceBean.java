@@ -10,7 +10,6 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import fr.isika.cda17.project3.model.personManagement.accounts.User;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
@@ -19,7 +18,6 @@ import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
-import fr.isika.cda17.project3.repository.personManagement.accounts.UserDao;
 import fr.isika.cda17.project3.repository.serviceManagement.CarPoolingServiceDao;
 
 @ManagedBean
@@ -32,16 +30,7 @@ public class CreateCarPoolingServiceBean {
 	@Inject
 	private UserAccountsDao userAccountsDao;
 	
-	private UserAccount userAccount;
-	    
-//	@Inject
-//	private CarRentalServiceDao carRentalServiceDao;
-//	
-//	@Inject
-//	private ParcelServiceDao parcelServiceDao;
-//	
-//	@Inject
-//	private PersonalAssistanceServiceDao personalAssistanceServiceDao;
+	private UserAccount userAccount;	  
 	
 	private CarPoolingService cps = new CarPoolingService();
 	
@@ -57,15 +46,8 @@ public class CreateCarPoolingServiceBean {
 	public CarPoolingType[] carPoolingTypeValues() {
 		return CarPoolingType.values();
 	}
-//	public PersonalAssistanceType[] personalAssistanceTypeValues() {
-//		return PersonalAssistanceType.values();
-//	}
-//	public ServiceType[] serviceType() {
-//		return ServiceType.values();
-//	}
 		
-	public void createCarPoolingService() {
-		
+	public void create() {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Long id = Long.valueOf(session.getAttribute("id").toString());
 		userAccount = userAccountsDao.findById(id);
@@ -80,8 +62,7 @@ public class CreateCarPoolingServiceBean {
 		System.out.println(created);
 	}
 	
-public void createCarPoolingServiceRequest() {
-		
+public void createRequest() {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Long id = Long.valueOf(session.getAttribute("id").toString());
 		userAccount = userAccountsDao.findById(id);
@@ -114,6 +95,14 @@ public void createCarPoolingServiceRequest() {
 
 	public Trajectory getTrajectory() {
 		return trajectory;
+	}
+
+	public Itinerary getItinerary() {
+		return itinerary;
+	}
+
+	public void setItinerary(Itinerary itinerary) {
+		this.itinerary = itinerary;
 	}
 
 	public void setTrajectory(Trajectory trajectory) {

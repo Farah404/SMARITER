@@ -119,8 +119,5 @@ public class CarPoolingService extends Service{
     public void setTrajectory(Trajectory trajectory) {
         this.trajectory = trajectory;
     }
-
-	
-    
     
 }
