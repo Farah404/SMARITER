@@ -7,14 +7,13 @@
 	<ui:composition>
 	<body id="EcoCarPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 		<div id="main-text" class="jumbotron text-center">
-      <h1 id="title"><strong>Eco</strong>Car</h1>
+      <h1 id="title"><b>Eco</b>Car</h1>
         <p>Optimiser les déplacements dans une optique éco-vertueuse et conviviale</p>
         <!--Add a form with an input field and a button-->
         <form class="form-inline">
             <div class="formHalf headForms  floatLeft inlineElements">
-                <button  type="button" class="btn btn-success">Liste des prestations</button>
-                <button  type="button" class="btn btn-success">Proposer une prestation</button>
-                <button  type="button" class="btn btn-success">Déposer une demande</button>
+                <a href="../subWebsite/subServiceList.xhtml"><button  type="button" class="btn btn-success">Liste des prestations</button></a>
+                <a href="../subWebsite/subServiceCreation.xhtml"><button  type="button" class="btn btn-success">Créer une prestation</button></a>
 
             </div>
             
@@ -45,10 +44,11 @@
 
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#pricing"><bold>ECO</bold>STORE</a></li>
+                    <li><a href="../subWebsite/subIndex.xhtml"><b>ECO</b>Home</a></li>
+                    <li><a href="#pricing"><b>ECO</b>STORE</a></li>
                     <li><a href="#services">SERVICES</a></li>
                     <li><a href="#contact">CONTACT</a></li>
-                     <li><a href="subLogin.xhtml">ECOCONNEXION</a></li>
+                     <li><a href="subLogin.xhtml"><b>ECO</b>CONNEXION</a></li>
                      </ul>
 
             </div>

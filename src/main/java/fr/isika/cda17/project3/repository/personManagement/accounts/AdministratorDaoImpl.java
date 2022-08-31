@@ -81,8 +81,7 @@ public class AdministratorDaoImpl implements AdministratorDao{
 	}
 
 	@Override
-	public Administrator findByAdminAccountId(Long id) {
-	    {		
+	public Administrator findByAdminAccountId(Long id) {	
 		try {
 		    Administrator administrator = this.entityManager
 					.createNamedQuery("administrator.findByAdminAccountId", Administrator.class)
@@ -93,7 +92,6 @@ public class AdministratorDaoImpl implements AdministratorDao{
 			System.out.println("administratorDaoImpl.findByAdminAccountId() - not found : " + id);
 		}
 		return null;
-	}
 	}
 
 }

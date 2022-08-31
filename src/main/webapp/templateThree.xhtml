@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      
+      <h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+</style>
+</h:head>
+
+<body class="w3-light-grey">
+
+<!-- Navigation Bar -->
+<div class="w3-bar w3-white w3-large">
+  <a href="patterns.xhtml" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fa fa-car w3-margin-right"></i><b>Templates by Smariter</b></a>
+  <a href="#rooms" class="w3-bar-item w3-button w3-mobile">Car rentals &amp; Carpooling</a>
+  <a href="#about" class="w3-bar-item w3-button w3-mobile">About</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-mobile">Contact</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">Book Now</a>
+</div>
+<!-- Header -->
+<header class="w3-display-container w3-content" style="max-width:1500px;">
+  <img class="w3-image" src="subWebsite/subMedia/Images/roadtrip-preparer-son-sac-a-dos-de-voyage.jpg" alt="The Hotel" style="min-width:1000px" width="1500" height="800" />
+  <div class="w3-display-left w3-padding w3-col l6 m8">
+    <div class="w3-container w3-red">
+      <h2><i class="fa fa-car w3-margin-right"></i>Let's travel. Rent a car today!</h2>
+    </div>
+    <div class="w3-container w3-white w3-padding-16">
+      <form action="/action_page.php" target="_blank">
+        <div class="w3-row-padding" style="margin:0 -16px;">
+          <div class="w3-half w3-margin-bottom">
+            <label><i class="fa fa-calendar-o"></i> Start date</label>
+            <input class="w3-input w3-border" type="text" a:placeholder="DD MM YYYY" name="CheckIn"  />
+          </div>
+          <div class="w3-half">
+            <label><i class="fa fa-calendar-o"></i> End date</label>
+            <input class="w3-input w3-border" type="text" a:placeholder="DD MM YYYY" name="CheckOut"  />
+          </div>
+        </div>
+        <div class="w3-row-padding" style="margin:8px -16px;">
+          <div class="w3-half w3-margin-bottom">
+            <label><i class="fa fa-male"></i> How many seats?</label>
+            <input class="w3-input w3-border" type="number" value="1" name="Adults" min="1" max="6" />
+          </div>
+          <div class="w3-half">
+            <label><i class="fa fa-dog"></i> Do you have animals?</label>
+          <input class="w3-input w3-border" type="number" value="0" name="Kids" min="0" max="6" />
+          </div>
+        </div>
+        <button class="w3-button w3-dark-grey" type="submit"><i class="fa fa-search w3-margin-right"></i> Search availability</button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1532px;">
+
+  <div class="w3-container w3-margin-top" id="rooms">
+    <h3>Carpooling</h3>
+    <p>Make yourself at home is our slogan. We offer the best carpooling services in the industry.</p>
+  </div>
+  
+  <div class="w3-row-padding">
+    <div class="w3-col m3">
+      <label><i class="fa fa-calendar-o"></i> Start date</label>
+      <input class="w3-input w3-border" a:placeholder="DD MM YYYY" />
+    </div>
+    <div class="w3-col m3">
+      <label><i class="fa fa-calendar-o"></i> End Date</label>
+      <input class="w3-input w3-border" a:placeholder="DD MM YYYY" />
+    </div>
+    <div class="w3-col m2">
+      <label><i class="fa fa-male"></i> How many seats?</label>
+      <input class="w3-input w3-border" a:placeholder="1" />
+    </div>
+    <div class="w3-col m2">
+      <label><i class="fa fa-child"></i> Kids travelling along?</label>
+      <input class="w3-input w3-border"  a:placeholder="0" />
+    </div>
+    <div class="w3-col m2">
+      <label><i class="fa fa-search"></i> Search</label>
+      <button class="w3-button w3-block w3-black">Search</button>
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-padding-16">
+    <div class="w3-third w3-margin-bottom">
+      <img src="subWebsite/subMedia/Images/honda.webp" alt="Norway" style="width:100%" />
+      <div class="w3-container w3-white">
+        <h3>Land Rover</h3>
+        <h6 class="w3-opacity">From €99 /Week</h6>
+        <p></p>
+        <button class="w3-button w3-block w3-black w3-margin-bottom">Choose Car</button>
+      </div>
+    </div>
+    <div class="w3-third w3-margin-bottom">
+      <img src="subWebsite/subMedia/Images/15111-2023-audi-allroad.webp" alt="Norway" style="width:100%" />
+      <div class="w3-container w3-white">
+        <h3>Audi Allroad </h3>
+        <h6 class="w3-opacity">From €149 / Week</h6>
+        <button class="w3-button w3-block w3-black w3-margin-bottom">Choose Car</button>
+      </div>
+    </div>
+    <div class="w3-third w3-margin-bottom">
+      <img src="subWebsite/subMedia/Images/9299-2019-bmw-6-series.webp" alt="Norway" style="width:100%" />
+      <div class="w3-container w3-white">
+        <h3>BMW 6 Series </h3>
+        <h6 class="w3-opacity">From €199 / Week</h6>
+        <button class="w3-button w3-block w3-black w3-margin-bottom">Choose Car</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-row-padding" id="about">
+    <div class="w3-col l4 12">
+      <h3>About</h3>
+				<h6>
+					We work to create a fair and just marketplace for all. As a
+					mission-driven, independent, nonprofit member organization, CR
+					empowers and informs consumers, incentivizes corporations to act
+					responsibly, and helps policymakers prioritize the rights and
+					interests of consumers in order to shape a truly consumer-driven
+					marketplace.<br />Today, CR is still an independent nonprofit with
+					more than 6 million members who fight with their voices and choices
+					for a fair and just marketplace—one that is responsive and
+					resilient enough to deliver trust to consumers no matter what
+					changes come their way.
+				</h6>
+				<p>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></p>
+    </div>
+    <div class="w3-col l8 12">
+      <!-- Image of location/map -->
+      <img src="subWebsite/subMedia/Images/Carpooling1.png" class="w3-image" style="width:100%;" />
+    </div>
+  </div>
+  
+  <div class="w3-row-padding w3-large w3-center" style="margin:32px 0">
+    <div class="w3-third"><i class="fa fa-map-marker w3-text-red"></i> 423 Some adr, Chicago, US</div>
+    <div class="w3-third"><i class="fa fa-phone w3-text-red"></i> Phone: +00 151515</div>
+    <div class="w3-third"><i class="fa fa-envelope w3-text-red"></i> Email: mail@mail.com</div>
+  </div>
+
+  <div class="w3-panel w3-red w3-leftbar w3-padding-32">
+    <h6><i class="fa fa-info w3-deep-orange w3-padding w3-margin-right"></i> 
+    On demand, we can offer parcel delivery services.</h6>
+  </div>
+
+  <div class="w3-container w3-padding-32 w3-black w3-opacity w3-card w3-hover-opacity-off" style="margin:32px 0;">
+    <h2>Get the best offers first!</h2>
+    <p>Join our newsletter.</p>
+    <label>E-mail</label>
+    <input class="w3-input w3-border" type="text" a:placeholder="Your Email address" />
+    <button type="button" class="w3-button w3-red w3-margin-top">Subscribe</button>
+  </div>
+
+  <div class="w3-container" id="contact">
+    <h2>Contact</h2>
+    <p>If you have any questions, do not hesitate to ask them.</p>
+    <i class="fa fa-map-marker w3-text-red" style="width:30px"></i> Chicago, US<br />
+    <i class="fa fa-phone w3-text-red" style="width:30px"></i> Phone: +00 151515<br />
+    <i class="fa fa-envelope w3-text-red" style="width:30px"> </i> Email: mail@mail.com<br />
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" a:placeholder="Name"  name="Name" /></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" a:placeholder="Email"  name="Email" /></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" a:placeholder="Message"  name="Message" /></p>
+      <p><button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
+    </form>
+  </div>
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-padding-32 w3-black w3-center w3-margin-top">
+  <h5>Find Us On</h5>
+  <div class="w3-xlarge w3-padding-16">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+  <p>Powered by <a href="index.xhtml" target="_blank" class="w3-hover-text-green">SMARITER</a></p>
+</footer>
+
+
+
+</body>
+
+
+</html>

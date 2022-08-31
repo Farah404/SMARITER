@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+
+<h:body>
+	<ui:composition template="#{templateBean.subtemplatePath()}">
+		<ui:define name="subcontent">
+			<h:form>
+
+				<div class="container bootstrap snippets bootdey">
+					<div class="panel-body inf-content">
+					<h4>Proposer un service de transport de colis</h4>
+						<div class="row">
+							<div class="col-md-4">
+								
+								<div class="form-floating mb-3">
+									Date de publication de la prestation-Autogénérée <br />
+								</div>
+								<br />
+								<div class="form-floating mb-3">
+									Numero de reference de la prestation-Autogénéré <br />
+								</div>
+								<br />
+
+								<div class="form-outline mb-3">
+									Date de Debut
+									<h:inputText class="form-control" id="startDate"
+										a:placeholder="dd-MM-YYYY" type="datetime-local"
+										value="#{createParcelServiceBean.ps.startDate}">
+										<f:convertDateTime pattern="dd-MM-yyyy" />
+									</h:inputText>
+									<br />
+								</div>
+
+								<div class="form-floating mb-3">
+									Adresse de départ
+									<h:inputText class="form-control" id="pickUpAddress"
+										a:placeholder=""
+										value="#{createParcelServiceBean.ps.trajectory.pickUpAddress}" />
+									<br />
+								</div>
+
+								<div class="form-outline mb-3">
+									Date de fin
+									<h:inputText class="form-control" id="endDate"
+										a:placeholder="dd-MM-YYYY" type="datetime-local"
+										value="#{createParcelServiceBean.ps.endDate}">
+										<f:convertDateTime pattern="dd-MM-yyyy" />
+									</h:inputText>
+									<br />
+								</div>
+
+								<div class="form-floating mb-3">
+									Adresse d'arrivée
+									<h:inputText class="form-control" id="deliveryAddress"
+										a:placeholder=""
+										value="#{createParcelServiceBean.ps.trajectory.deliveryAddress}" />
+									<br />
+								</div>
+								
+								<div class="form-outline mb-3">
+									Poids en kilogrammes
+									<h:inputText class="form-control" id="poids"
+										a:placeholder=""
+										value="#{createParcelServiceBean.ps.weightKilogrammes}" />
+									<br />tText>
+									<br />
+								</div>
+
+								<div class="form-floating mb-3">
+									Prix en EcoCoins
+									<h:inputText class="form-control" id="price"
+										a:placeholder="Prix en EcoCoins"
+										value="#{createParcelServiceBean.ps.price}" />
+									<br />
+								</div>
+
+
+
+								<h:commandLink class="btn btn-success"
+									action="#{createParcelServiceBean.create()}"
+									value="Je publie ma prestation" />
+							</div>
+
+							<div class="col-md-4">
+								
+								<div class="form-floating mb-3">
+									Arret 1
+									<h:inputText class="form-control" id="firstStop"
+										a:placeholder=""
+										value="#{createParcelServiceBean.ps.trajectory.itinerary.firstStopAddress}" />
+									<br />
+								</div>
+								
+								<div class="form-floating mb-3">
+									Arret 2
+									<h:inputText class="form-control" id="secondStop"
+										a:placeholder=""
+										value="#{createParcelServiceBean.ps.trajectory.itinerary.secondStopAddress}" />
+									<br />
+								</div>
+								
+								<div class="form-floating mb-3">
+									Arret 3
+									<h:inputText class="form-control" id="thirdStop"
+										a:placeholder=""
+										value="#{createParcelServiceBean.ps.trajectory.itinerary.thirdStopAddress}" />
+									<br />
+								</div>
+								
+								<div class="form-outline mb-3">
+									Type du trajet<br />
+									<h:selectOneMenu id="trajectoryType" class="form-control"
+										value="#{createParcelServiceBean.ps.trajectory.trajectoryType}">
+										<f:selectItems
+											value="#{createParcelServiceBean.trajectoryTypeValues()}"
+											var="s" itemLabel="#{s.label}" itemValue="#{s}" />
+									</h:selectOneMenu>
+									<br />
+								</div>
+							
+								<div class="form-floating mb-3">
+									<h:selectBooleanCheckbox
+										value="#{createParcelServiceBean.ps.isAtypicalVolume}" />
+									Forme Atypique <br />
+								</div>
+
+								<div class="form-floating mb-3">
+									<h:selectBooleanCheckbox
+										value="#{createParcelServiceBean.ps.isFragile}" />
+									 Fragile <br />
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+
+</h:body>
+</html>

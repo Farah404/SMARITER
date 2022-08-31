@@ -28,7 +28,7 @@ public class Trajectory {
     @Enumerated(EnumType.STRING)
     private TrajectoryType trajectoryType;
     
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade=CascadeType.ALL)
     private Itinerary itinerary;
 
     public Trajectory() {

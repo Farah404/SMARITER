@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+     
+     <f:metadata>
+	<f:event listener="#{createUserBean.init()}" type="preRenderView">
+	</f:event>
+</f:metadata>
+
+<h:body>
+	<ui:composition template="#{templateBean.subtemplatePath()}">
+		<ui:define name="subcontent">
+
+<br />
+<div class="sign-in-form" style="background-color: white;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card rounded-3 text-black">
+                    <div class="row g-0">
+                    <h:form>
+                        <div class="col-lg-4">
+                            <div class="card-body p-md-5 mx-md-4">
+                                <div class="text-center">
+                                    <h4 class="mt-1 mb-5 pb-1">Je crée mon compte EcoCar</h4>
+                                </div>
+								<div class="row-usersignup">
+									<div class="col-usersignup">
+									Personal Details
+                                    <div class="form-outline mb-4">
+									<h:inputText class = "form-control" id="email" a:placeholder="Email address" value="#{createUserBean.userAccount.email}" />
+                                    </div>
+                                    <br />
+                                    
+                                    <div class="form-outline mb-4">
+									<h:inputSecret class = "form-control" id="password" a:placeholder="Password" value="#{createUserBean.userAccount.password}" />
+                                    </div>
+                                    <br />
+                                    
+                                    <div class="form-outline mb-4">
+									<h:inputText class = "form-control" id="username" a:placeholder="Username" value="#{createUserBean.userAccount.username}" />
+                                    </div>
+                                    <br />
+                                    
+                                    <div class="form-outline mb-4">
+									<h:inputText class = "form-control" id="firstname" a:placeholder="Firstname" value="#{createUserBean.user.firstName}" />
+                                    </div>
+                                    <br />
+                                    
+                                    <div class="form-outline mb-4">
+									<h:inputText class = "form-control" id="lastname" a:placeholder="Lastname" value="#{createUserBean.user.lastName}" />
+                                    </div>
+                                    <br />
+                                    
+                                    <div class="form-outline mb-4">
+									<h:inputText class = "form-control" id="phoneNumber" a:placeholder="Phone Number" value="#{createUserBean.user.phoneNumber}" />
+                                    </div>
+                                    <br />
+                                    
+                                    <div class="form-outline mb-4">
+									<h:inputText class = "form-control" id="birthDate" a:placeholder="dd-MM-YYYY" type="datetime-local" value="#{createUserBean.user.birthDate}"> 
+										<f:convertDateTime pattern="dd-MM-yyyy"/>
+									</h:inputText>
+                                    </div>
+                                    <br />
+                                   </div> 
+          
+                                    <div class="col-usersignup">
+                                    Billing Details
+                                    <div class="form-outline mb-4">
+									<h:inputText class = "form-control" id="addressLine" a:placeholder="Address Line" value="#{createUserBean.billingAddress.addressLine}" />
+                                    </div>
+                                    <br />
+                                    
+                                    <div class="form-outline mb-4">
+									<h:inputText class = "form-control" id="postalCode" a:placeholder="Postal Code" value="#{createUserBean.billingAddress.postalCode}" />
+                                    </div>
+                                    <br />
+                                    
+                                    <div class="form-outline mb-4">
+									<h:inputText class = "form-control" id="city" a:placeholder="City" value="#{createUserBean.billingAddress.city}" />
+                                    </div>
+                                    <br />
+                                    
+                                    <div class="form-outline mb-4">
+									<h:inputText class = "form-control" id="country" a:placeholder="Country" value="#{createUserBean.billingAddress.country}" />
+                                    </div>
+                                    <br />
+                                    
+                                    <div class="form-outline mb-4">
+									<h:inputText class = "form-control" id="bankNAme" a:placeholder="Bank Name" value="#{createUserBean.bankDetails.bankName}" />
+                                    </div>
+                                    <br />
+                                    
+                                    <div class="form-outline mb-4">
+									<h:inputText class = "form-control" id="swift" a:placeholder="Swift Code" value="#{createUserBean.bankDetails.swift}" />
+                                    </div>
+                                    <br />
+                                    
+                                    <div class="form-outline mb-4">
+									<h:inputText class = "form-control" id="iban" a:placeholder="IBAN" value="#{createUserBean.bankDetails.iban}" />
+                                    </div>
+                                    <br />
+                                    
+                                    
+                                    
+                                     
+                                    </div>
+                                </div>
+                                  <h:commandButton style="width:100%" class="btn btn-success btn-xl" value="S'enregistrer"
+						action="#{createUserBean.create()}" />
+                                </div>
+                        </div>
+  </h:form>
+                        <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                            <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                <div>
+                                 <img src="subMedia/Images/CityEcoCar.png" width="180%" />
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

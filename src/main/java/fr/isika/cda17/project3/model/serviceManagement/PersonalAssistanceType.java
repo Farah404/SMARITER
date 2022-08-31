@@ -6,7 +6,7 @@ public enum PersonalAssistanceType {
     GROCERY("Grocery");
 
 	private String label;
-
+	
 	private PersonalAssistanceType(String label) {
 		this.label=label;
 	}

@@ -1,19 +1,17 @@
 package fr.isika.cda17.project3.model.personManagement.assets;
 
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
 @Entity
 public class Vehicule {
-
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -134,7 +132,6 @@ public class Vehicule {
 	public Long getId() {
 		return id;
 	}
-
 
 
 }

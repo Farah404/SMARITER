@@ -22,12 +22,13 @@ public class Reservation {
     private Long id;
 
     @ManyToOne(cascade = CascadeType.ALL)
+
     private Service service;
 
     @ManyToMany
     private List <UserAccount> Useraccounts = new LinkedList<>();
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private ServiceInvoice serviceinvoice;
 
     public Reservation() {

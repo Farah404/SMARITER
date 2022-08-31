@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
+import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 import fr.isika.cda17.project3.model.personManagement.accounts.User;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
@@ -19,6 +21,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User create(User user) {
 	try {
+		
 	    entityManager.persist(user);
 	    return user;
 	} catch (Exception e) {
@@ -70,4 +73,17 @@ public class UserDaoImpl implements UserDao {
 	
     }
 
+    @Override
+    public User findByUserAccountId(Long id) {
+	try {
+		User user = this.entityManager
+				.createNamedQuery("user.findByUserAccountId", User.class)
+				.setParameter("u_param", id)
+				.getSingleResult();
+		return user;
+	} catch (NoResultException ex) {
+		System.out.println("UserDaoImpl.findByUserAccountId() - not found : " + id);
+	}
+	return null;
+}
 }
