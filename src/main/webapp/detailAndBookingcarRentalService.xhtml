@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<f:metadata>
+	<f:event listener="#{carRentalServiceManagementBean.init()}"
+		type="preRenderView"></f:event>
+</f:metadata>
+
+<h:head>
+	<title>List</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+			<h:outputScript library="js" name="faq.js" />
+			<div class="container">
+
+				<br /> <br />
+				<h1>SERVICE DETAIL -- BOOKING</h1>
+				<br />
+				<h:form id="carRentalService"
+					value="#{carRentalServiceManagementBean.carRentalService}"
+					var="carRentalService">
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="key Pick-Up Address:  	" />
+					<h:outputText
+						value="#{carRentalServiceManagementBean.carRentalService.keyPickUpAddress}" />
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="publication Date:  	" />
+					<h:outputText
+						value="#{carRentalServiceManagementBean.carRentalService.publicationDate}" />
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="start Date:  	" />
+					<h:outputText
+						value="#{carRentalServiceManagementBean.carRentalService.startDate}" />
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="End Date:  	" />
+					<h:outputText
+						value="#{carRentalServiceManagementBean.carRentalService.endDate}" />
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="key Drop-Off Address: 	 " />
+					<h:outputText
+						value="#{carRentalServiceManagementBean.carRentalService.keyDropOffAddress}" />		
+												
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="vehicule Type : 		" />
+					<h:outputText
+						value="#{carRentalServiceManagementBean.carRentalService.vehicule.vehiculeType.name()}" />
+
+					<br />
+					<br />
+					<hr />
+
+					<h:outputLabel value="vehicule brand: 	" />
+					<h:outputText
+						value="#{carRentalServiceManagementBean.carRentalService.vehicule.brand}" />
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="price: 	" />
+					<h:outputText
+						value="#{carRentalServiceManagementBean.carRentalService.price}	" />
+					<h:outputLabel value="€ " />	
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="Owner: 	" />
+					<h:outputText
+						value="#{carRentalServiceManagementBean.carRentalService.vehicule.userAccount.username}	" />
+					
+					<br />
+					<br />
+					<hr />
+
+
+					<h:column>
+						<f:facet name="header">CANCEL</f:facet>
+						<h:panelGrid>
+							<h:commandButton
+								action="#{carPoolingManagementBean.delete(carPoolingService.id)}"
+								value="Back" />
+						</h:panelGrid>
+					</h:column>
+					<hr />
+					<hr />
+
+				</h:form>
+				<h:column>
+					<f:facet name="header">BOOK</f:facet>
+					<h:panelGrid>
+						<h:commandButton
+							action="#{carPoolingManagementBean.delete(carPoolingService.id)}"
+							value="Book" />
+					</h:panelGrid>
+				</h:column>
+
+			</div>
+
+
+			<hr />
+
+		</ui:define>
+	</ui:composition>
+
+
+</h:body>
+</html>

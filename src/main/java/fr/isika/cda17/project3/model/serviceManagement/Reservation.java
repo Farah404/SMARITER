@@ -21,7 +21,8 @@ public class Reservation {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne(cascade=CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.ALL)
+
     private Service service;
 
     @ManyToMany

@@ -87,5 +87,4 @@ public class CreateCarRentalServiceBean {
 	public void setVehicule(Vehicule vehicule) {
 		this.vehicule = vehicule;
 	}
-
 }

@@ -1,7 +1,6 @@
 package fr.isika.cda17.project3.model.personManagement.accounts;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,8 +27,10 @@ public class UserAccount extends Account{
     @OneToOne(cascade=CascadeType.ALL)
     private Vehicule vehicule;
 
+
     @OneToOne(cascade=CascadeType.ALL)
     private ShoppingCart shoppingCart;
+
 
     @OneToOne(cascade=CascadeType.ALL)
     private BankDetails bankDetails;
@@ -37,7 +38,7 @@ public class UserAccount extends Account{
     @OneToOne(cascade=CascadeType.ALL)
     private BillingAddress billingAddress;
     
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private Wallet wallet;
 
     @ManyToMany(cascade=CascadeType.ALL)
@@ -72,7 +73,6 @@ public class UserAccount extends Account{
 	    public void setVehicule(Vehicule vehicule) {
 	        this.vehicule = vehicule;
 	    }
-
 
 	public ShoppingCart getShoppingCart() {
 	return shoppingCart;

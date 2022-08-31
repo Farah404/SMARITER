@@ -1,5 +1,4 @@
 package fr.isika.cda17.project3.presentation;
-
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
@@ -31,7 +30,6 @@ import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
 @ManagedBean
 @ViewScoped
 public class CreateParcelServiceBean {
-
 	
 	@Inject
 	private ParcelServiceDao parcelServiceDao;
@@ -116,4 +114,3 @@ public class CreateParcelServiceBean {
 		this.itinerary = itinerary;
 	}
 }
-

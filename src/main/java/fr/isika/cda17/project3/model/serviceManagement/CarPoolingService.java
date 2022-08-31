@@ -1,10 +1,12 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
@@ -53,13 +55,17 @@ public class CarPoolingService extends Service{
 	this.trajectory = trajectory;
     }
 
-	public CarPoolingType getCarPoolingType() {
-        return carPoolingType;
-    }
+	public Boolean getIsPetAllowed() {
+		return isPetAllowed;
+	}
 
-    public void setCarPoolingType(CarPoolingType carPoolingType) {
-        this.carPoolingType = carPoolingType;
-    }
+	public void setIsPetAllowed(Boolean isPetAllowed) {
+		this.isPetAllowed = isPetAllowed;
+	}
+
+	public Boolean getIsSmokingAllowed() {
+		return isSmokingAllowed;
+	}
 
 	public int getAvailableSeats() {
 		return availableSeats;

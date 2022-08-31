@@ -1,5 +1,6 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.LinkedList;
@@ -7,6 +8,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -35,6 +37,9 @@ public abstract class Service {
     
     private LocalDateTime endDate;
     
+
+    private String endDate;
+
     private int referenceNumber;
     
     private boolean isRequest;
@@ -44,7 +49,8 @@ public abstract class Service {
     @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private List <Reservation> reservations = new LinkedList<>();
     
-    @Enumerated
+    @Enumerated(EnumType.STRING)
+
     private ServiceType servicetype;
 
     @OneToOne
@@ -77,8 +83,6 @@ public abstract class Service {
 	this.userAccountsPurchasers = userAccountsPurchasers;
 	this.userAccounts = userAccounts;
     }
-
-
     public UserAccount getUserAccountProvider() {
 		return userAccountProvider;
 	}
@@ -127,7 +131,7 @@ public abstract class Service {
         this.endDate = endDate;
     }
 
-    public int getReferenceNumber() {
+	public int getReferenceNumber() {
         return referenceNumber;
     }
 

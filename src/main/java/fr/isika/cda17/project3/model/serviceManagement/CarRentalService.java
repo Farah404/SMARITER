@@ -1,6 +1,11 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -14,9 +19,13 @@ public class CarRentalService extends Service {
     
     private String keyDropOffAddress;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Vehicule vehicule;
+    
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<CarRentalService>carRentalServiceList =new ArrayList<CarRentalService>();
 
+    
     public CarRentalService() {
 	super();
     }
@@ -51,6 +60,14 @@ public class CarRentalService extends Service {
     public void setVehicule(Vehicule vehicule) {
         this.vehicule = vehicule;
     }
+
+	public List<CarRentalService> getCarRentalServiceList() {
+		return carRentalServiceList;
+	}
+
+	public void setCarRentalServiceList(List<CarRentalService> carRentalServiceList) {
+		this.carRentalServiceList = carRentalServiceList;
+	}
     
     
 
