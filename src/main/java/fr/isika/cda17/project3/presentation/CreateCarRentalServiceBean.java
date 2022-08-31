@@ -29,12 +29,12 @@ public class CreateCarRentalServiceBean {
 //	}
 
 	public void create() {
-		crs.setVehicule(vehicule);
-		crs.setServicetype(ServiceType.CAR_RENTAL);
-		crs.setPublicationDate(LocalDateTime.now());
-		crs.setIsRequest(false);
-		CarRentalService created = carRentalServiceDao.create(crs);
-		System.out.println(created);
+//		crs.setVehicule(vehicule);
+//		crs.setServicetype(ServiceType.CAR_RENTAL);
+//		crs.setPublicationDate(LocalDateTime.now());
+//		crs.setIsRequest(false);
+//		CarRentalService created = carRentalServiceDao.create(crs);
+//		System.out.println(created);
 	}
 
 	public CarRentalService getCrs() {

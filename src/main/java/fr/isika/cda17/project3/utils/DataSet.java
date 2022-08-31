@@ -6,27 +6,11 @@ import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-<<<<<<< Updated upstream
-import fr.isika.cda17.project3.model.personManagement.accounts.Account;
 import fr.isika.cda17.project3.model.financialManagement.invoice.BankDetails;
-import fr.isika.cda17.project3.model.financialManagement.invoice.BillingAddress;
-import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
-import fr.isika.cda17.project3.model.personManagement.accounts.Administrator;
-
-import fr.isika.cda17.project3.model.personManagement.accounts.AdministratorAccount;
-import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
-import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
-import fr.isika.cda17.project3.model.personManagement.accounts.User;
-import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
-import fr.isika.cda17.project3.model.personManagement.accounts.Person;
-import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
-
-=======
-import fr.isika.cda17.project3.model.financialManagement.invoice.BankDetails;
-import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
-import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
+import fr.isika.cda17.project3.model.personManagement.assets.VehiculePowerType;
+import fr.isika.cda17.project3.model.personManagement.assets.VehiculeType;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingType;
 import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
@@ -34,11 +18,6 @@ import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
 import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
->>>>>>> Stashed changes
-import fr.isika.cda17.project3.model.solutionManagement.MessagingSystemChoice;
-import fr.isika.cda17.project3.model.solutionManagement.PaymentSystemChoice;
-import fr.isika.cda17.project3.model.solutionManagement.PriceDeal;
-import fr.isika.cda17.project3.model.solutionManagement.Solution;
 
 @Singleton
 @Startup
@@ -49,136 +28,22 @@ public class DataSet {
 
     @PostConstruct
     private void initData() {
-    
-
-	EntityAccount ea = new EntityAccount();
-
-<<<<<<< Updated upstream
-	ea.setEmail("EcoCar@test.com");
-	ea.setPassword("123");
-
-	em.persist(ea);
-
-	
-	AdministratorAccount aa = new AdministratorAccount();
-	aa.setAccountType(AccountType.ADMINISTRATOR);
-	aa.setEmail("devTeam@smariter.com");
-	aa.setPassword("smariter123");
-	aa.setUsername("SmartAdmin");
-	em.persist(aa);
-	
-	Administrator a = new Administrator();
-	a.setEmployeeCode("EC102");
-	a.setFirstName("First");
-	a.setLastName("Last");
-	a.setAdministratorAccount(aa);
-	em.persist(a);
-	
-	BankDetails bd = new BankDetails();
-	bd.setBankName("BankTest");
-	bd.setIban("123456789");
-	bd.setSwift("456456");
-	em.persist(bd);
-	
-	BillingAddress ba = new BillingAddress();
-	ba.setAddressLine("3 rue isika");
-	ba.setCity("Paris");
-	ba.setCountry("France");
-	ba.setPostalCode(0000);
-	ba.setRegion("France");
-	em.persist(ba);
-	
-	Solution s = new Solution();
-	s.setCarPoolingsolutionIncluded(true);
-	s.setCarRentalSolutionIncluded(true);
-	s.setParcelSolutionIncluded(true);
-	s.setPersonalAssistanceSolutionIncluded(false);
-	s.setMessagingSystemChoice(MessagingSystemChoice.SERVICE_RELATED_MESSAGING);
-	s.setPaymentSystemChoice(PaymentSystemChoice.INTERNAL_CURRENCY);
-	s.setPriceDeal(PriceDeal.BUSINESS_UNLIMITED);
-	s.setSolutionName("EcoCar");
-	em.persist(s);
-	
-	EntityAccount ea = new EntityAccount();
-	ea.setAccountType(AccountType.ENTITY);
-	ea.setEmail("test@test.com");
-	ea.setPassword("123");
-	ea.setUsername("CustomerTest");
-	ea.setName("EcoCar");
-	ea.setSiretNumber(8);
-	ea.setBankDetails(bd);
-	ea.setBillingAddress(ba);
-	ea.setSolution(s);
-	em.persist(ea);	
-	
-	Customer test = new Customer();
-	test.setFirstName("firstName");
-	test.setLastName("lastName");
-	test.setPhoneNumber(0);
-	test.setRole("Customer");
-	test.setEntityAccount(ea);
-	em.persist(test);
-	
-	
-
-	UserAccount u = new UserAccount();
-	User ue = new User();
-	u.setEmail("houda@gmail.COM");
-	u.setUsername("houda");
-	u.setPassword("1234");
-	ue.setLastName("madi");
-	ue.setPhoneNumber(0612121212);
-	ue.setUserAccount(u);
-	em.persist(ue);
-    }
-    
-    
-    
-=======
-	si.setCarRentalSolutionIncluded(false);
-	si.setCarPoolingsolutionIncluded(true);
-	si.setMessagingSystemChoice(MessagingSystemChoice.NONE);
-	si.setPaymentSystemChoice(PaymentSystemChoice.INTERNAL_CURRENCY);
-	si.setRatingSystemIncluded(true);
-	si.setPriceDeal(PriceDeal.BUSINESS_UNLIMITED);
-	si.setPersonalAssistanceSolutionIncluded(true);
-	si.setParcelSolutionIncluded(true);
-	
-	em.persist(si);
-  
-	EntityAccount eb = new EntityAccount();
-	eb.setName("EcoCar");
-	eb.setPassword("1234");
-	eb.setAccountType(AccountType.ENTITY);
-	eb.setEmail("ecocar@text.com");
-	em.persist(eb);
-
-	
-	Solution sosix = new Solution();
-	so.setCarPoolingsolutionIncluded(true);
-    so.setCarPoolingsolutionIncluded(true);
-    so.setCarRentalSolutionIncluded(false);
-    so.setRatingSystemIncluded(true);
-    so.setPaymentSystemChoice(PaymentSystemChoice.INTERNAL_CURRENCY);
-    so.setMessagingSystemChoice(MessagingSystemChoice.NO_RESTRICTION_MESSAGING);
-	em.persist(sosix);
 	
 
 	
 	BankDetails b = new BankDetails();
 	b.setBankName("Socièté Générale");
 
-	UserAccount u = new UserAccount();
-	u.setBankDetails(b);
-	u.setUsername("BIASOO");
+	UserAccount uz = new UserAccount();
+	uz.setBankDetails(b);
+	uz.setUsername("BIASOO");
 
 	Vehicule v = new Vehicule();
 	v.setBrand("BMW");
 	v.setRegistrationNumber("A1234B");
-	v.setElectric(false);
-	v.setHybrid(false);
-	v.setManual(true);
-	v.setUserAccount(u);
+	v.setVehiculeType(VehiculeType.MANUAL);
+	v.setVehiculePowerType(VehiculePowerType.DIESEL);
+	v.setUserAccount(uz);
 
 	Itinerary i = new Itinerary();
 	i.setFirstStopAddress("gare de lyon part-dieu,69000");
@@ -202,23 +67,24 @@ public class DataSet {
 	c.setIsChattingAllowed(true);
 	c.setVehicule(v);
 	c.setTrajectory(t);
+	c.setPrice(10);
+
 	
 	em.persist(c);
 	
 	
-	BankDetails ba = new BankDetails();
-	ba.setBankName("Caisse d'épargne");
+	BankDetails baa = new BankDetails();
+	baa.setBankName("Caisse d'épargne");
 	
 	UserAccount ua = new UserAccount();
-	ua.setBankDetails(ba);
+	ua.setBankDetails(baa);
 	ua.setUsername("JULOOO");
 
 	Vehicule va = new Vehicule();
 	va.setBrand("BMW");
 	va.setRegistrationNumber("A4567B");
-	va.setElectric(true);
-	va.setHybrid(false);
-	va.setManual(false);
+	va.setVehiculeType(VehiculeType.MANUAL);
+	va.setVehiculePowerType(VehiculePowerType.DIESEL);
 	va.setUserAccount(ua);
 
 	Itinerary ia = new Itinerary();
@@ -242,6 +108,9 @@ public class DataSet {
 	ca.setIsChattingAllowed(false);
 	ca.setVehicule(va);
 	ca.setTrajectory(ta);
+	ca.setPrice(30);
+	ca.setStartDate("VehiculePowerType");
+	
 	
 	em.persist(ca);
 	
@@ -253,10 +122,9 @@ public class DataSet {
 	
 	Vehicule vi =new Vehicule();
 	vi.setBrand("Audi");
-	vi.setElectric(false);
+	vi.setVehiculeType(VehiculeType.MANUAL);
+	vi.setVehiculePowerType(VehiculePowerType.DIESEL);;
 	vi.setRegistrationNumber("ZAZA1234");
-	vi.setHybrid(false);
-	vi.setManual(false);
 	vi.setUserAccount(ui);
 	
 	CarRentalService cr =new CarRentalService();
@@ -274,10 +142,9 @@ public class DataSet {
 	
 	Vehicule via =new Vehicule();
 	via.setBrand("Mercedes");
-	via.setElectric(true);
+	via.setVehiculeType(VehiculeType.MANUAL);
+	via.setVehiculePowerType(VehiculePowerType.DIESEL);
 	via.setRegistrationNumber("WAWZA4321");
-	via.setHybrid(false);
-	via.setManual(false);
 	via.setUserAccount(uia);
 	
 	CarRentalService cra =new CarRentalService();
@@ -291,14 +158,11 @@ public class DataSet {
 	em.persist(cra);
 
 	
-	
-	
-	
-	
+
 	
     }
     
     
->>>>>>> Stashed changes
+
 
 }

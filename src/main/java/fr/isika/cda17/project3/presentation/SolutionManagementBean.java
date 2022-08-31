@@ -1,11 +1,15 @@
 package fr.isika.cda17.project3.presentation;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import fr.isika.cda17.project3.model.solutionManagement.MessagingSystemChoice;
@@ -19,15 +23,14 @@ import fr.isika.cda17.project3.repository.solutionManagement.SolutionDao;
 @ViewScoped
 public class SolutionManagementBean implements Serializable {
 	
+	private static final String LIST_SOLUTION_XHTML= "listSolution.xhtml";
+	
 	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private SolutionDao solutionDao;
 
 	private List<Solution> solutiontList;
-<<<<<<< Updated upstream
-	
-=======
 
 	private Solution solution;
 	
@@ -70,7 +73,7 @@ public class SolutionManagementBean implements Serializable {
 	public void setSolution(Solution solution) {
 		this.solution = solution;
 	}
->>>>>>> Stashed changes
+
 
 	public PaymentSystemChoice[] paymentSystemChoice() {
 		return PaymentSystemChoice.values();
@@ -84,10 +87,6 @@ public class SolutionManagementBean implements Serializable {
 		return PriceDeal.values();
 	}
 	
-<<<<<<< Updated upstream
-=======
-	
->>>>>>> Stashed changes
 	@PostConstruct
 	public void feeshinit() {
 		refresh();

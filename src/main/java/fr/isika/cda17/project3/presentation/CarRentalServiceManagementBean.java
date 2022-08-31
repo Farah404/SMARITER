@@ -12,15 +12,18 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
+import fr.isika.cda17.project3.model.personManagement.assets.VehiculePowerType;
+import fr.isika.cda17.project3.model.personManagement.assets.VehiculeType;
+import fr.isika.cda17.project3.model.serviceManagement.CarPoolingType;
 import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
-import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
 import fr.isika.cda17.project3.repository.serviceManagement.CarRentalServiceDao;
 
 @ManagedBean
 @ViewScoped
 public class CarRentalServiceManagementBean implements Serializable{
+	
+	private static final String LIST_CARRENTALSERVICE_XHTML = "listCarRentalService.xhtml";
 
 	/**
 	 * 
@@ -34,7 +37,6 @@ public class CarRentalServiceManagementBean implements Serializable{
 
 	private CarRentalService carRentalService = new CarRentalService();
 
-	private Vehicule vehicule =new Vehicule();
 
 	public void init() throws IOException {
 		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
@@ -59,16 +61,16 @@ public class CarRentalServiceManagementBean implements Serializable{
 	}
 	public void redirectError() throws IOException {
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-		ec.redirect("listCarPoolingService.xhtml");
+		ec.redirect(LIST_CARRENTALSERVICE_XHTML);
 	}
 	public String updapte() {
 		carRentalServiceDao.update(carRentalService);
 		System.out.println((carRentalService));
-		return "listcarRentalService.xhtml";
+		return LIST_CARRENTALSERVICE_XHTML;
 	}
 
 	public String detail(Long id) {
-		//carPoolingServiceDao.toString();
+		carRentalService = carRentalServiceDao.findById(id);
 
 		return "detailAndBookingcarRentalService.xhtml?faces-redirect=true&carRentalServiceId=" + id;
 	}
@@ -115,15 +117,15 @@ public class CarRentalServiceManagementBean implements Serializable{
 		this.carRentalService = carRentalService;
 	}
 
-	public Vehicule getVehicule() {
-		return vehicule;
+	public VehiculeType[] vehiculeType() {
+		return VehiculeType.values();
 	}
-
-	public void setVehicule(Vehicule vehicule) {
-		this.vehicule = vehicule;
+	public VehiculePowerType[] VehiculePowerType() {
+		return VehiculePowerType.values();
 	}
-
 	public ServiceType[] serviceType() {
 		return ServiceType.values();
+
 	}
+	
 }

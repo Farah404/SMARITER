@@ -22,7 +22,7 @@ public class CarRentalService extends Service {
     @OneToOne(cascade = CascadeType.ALL)
     private Vehicule vehicule;
     
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<CarRentalService>carRentalServiceList =new ArrayList<CarRentalService>();
 
     

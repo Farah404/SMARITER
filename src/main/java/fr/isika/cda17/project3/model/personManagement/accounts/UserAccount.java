@@ -1,7 +1,6 @@
 package fr.isika.cda17.project3.model.personManagement.accounts;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,23 +24,14 @@ public class UserAccount extends Account{
     @OneToOne(cascade = CascadeType.ALL)
     private ShoppingCart shoppingCart;
 
-<<<<<<< Updated upstream
+
     @OneToOne(cascade=CascadeType.ALL)
     private BankDetails bankDetails;
 
     @OneToOne(cascade=CascadeType.ALL)
     private BillingAddress billingAddress;
     
-    @OneToOne(cascade=CascadeType.ALL)
-=======
     @OneToOne(cascade = CascadeType.ALL)
-    private BankDetails bankDetails;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private BillingAddress billingAddress;
-    
-    @OneToOne(cascade = CascadeType.ALL)
->>>>>>> Stashed changes
     private Wallet wallet;
 
     @ManyToMany
@@ -68,16 +58,6 @@ public class UserAccount extends Account{
 	this.reservations = reservations;
     }
 
-//	public UserAccount(ShoppingCart shoppingCart, BankDetails bankDetails, BillingAddress billingAddress, Wallet wallet,
-//			List<Service> services, List<Reservation> reservations) {
-//		super();
-//		this.shoppingCart = shoppingCart;
-//		this.bankDetails = bankDetails;
-//		this.billingAddress = billingAddress;
-//		this.wallet = wallet;
-//		this.services = services;
-//		this.reservations = reservations;
-//	}
 
 	public ShoppingCart getShoppingCart() {
 	return shoppingCart;

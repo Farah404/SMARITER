@@ -2,6 +2,8 @@ package fr.isika.cda17.project3.model.personManagement.assets;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -11,113 +13,128 @@ import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
 @Entity
 public class Vehicule {
-    
-    @Id
-    @GeneratedValue
-    private Long id;
-    
-    private String brand;
-    
-    private String registrationNumber;
-    
-    private Boolean isHybrid;
-    
-    private Boolean isElectric;
-    
-    private Boolean isManual;
-    
-    private String technicalTestExpiration;
-    
-    @ManyToOne(cascade = CascadeType.ALL)
-    private UserAccount userAccount;
-    
-    @OneToOne(cascade = CascadeType.ALL)
-    private Insurance insurance;
 
-    public Vehicule() {
-	super();
-    }
+	@Id
+	@GeneratedValue
+	private Long id;
 
-    public Vehicule(Long id, String brand, String registrationNumber, Boolean isHybrid, Boolean isElectric,
-	    Boolean isManual, String technicalTestExpiration, UserAccount userAccount, Insurance insurance) {
-	super();
-	this.id = id;
-	this.brand = brand;
-	this.registrationNumber = registrationNumber;
-	this.isHybrid = isHybrid;
-	this.isElectric = isElectric;
-	this.isManual = isManual;
-	this.technicalTestExpiration = technicalTestExpiration;
-	this.userAccount = userAccount;
-	this.insurance = insurance;
-    }
+	private String brand;
 
-    public String getBrand() {
-        return brand;
-    }
+	private String registrationNumber;
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
+	@Enumerated(EnumType.STRING)
+	private VehiculeType vehiculeType;
 
-    public String getRegistrationNumber() {
-        return registrationNumber;
-    }
+	@Enumerated(EnumType.STRING)
+	private VehiculePowerType vehiculePowerType;
 
-    public void setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
-    }
+	private String technicalTestExpiration;
 
-    public Boolean isHybrid() {
-        return isHybrid;
-    }
+	@ManyToOne(cascade = CascadeType.ALL)
+	private UserAccount userAccount;
 
-    public void setHybrid(boolean isHybrid) {
-        this.isHybrid = isHybrid;
-    }
+	@OneToOne(cascade = CascadeType.ALL)
+	private Insurance insurance;
 
-    public Boolean isElectric() {
-        return isElectric;
-    }
+	public Vehicule() {
+		super();
+	}
 
-    public void setElectric(boolean isElectric) {
-        this.isElectric = isElectric;
-    }
+	public Vehicule(Long id, String brand, String registrationNumber, String technicalTestExpiration, UserAccount userAccount, Insurance insurance) {
+		super();
+		this.id = id;
+		this.brand = brand;
+		this.registrationNumber = registrationNumber;
+		this.technicalTestExpiration = technicalTestExpiration;
+		this.userAccount = userAccount;
+		this.insurance = insurance;
+	}
 
-    public Boolean isManual() {
-        return isManual;
-    }
+	public String getBrand() {
+		return brand;
+	}
 
-    public void setManual(boolean isManual) {
-        this.isManual = isManual;
-    }
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
 
-    public String getTechnicalTestExpiration() {
-        return technicalTestExpiration;
-    }
+	public String getRegistrationNumber() {
+		return registrationNumber;
+	}
 
-    public void setTechnicalTestExpiration(String technicalTestExpiration) {
-        this.technicalTestExpiration = technicalTestExpiration;
-    }
+	public void setRegistrationNumber(String registrationNumber) {
+		this.registrationNumber = registrationNumber;
+	}
 
-    public UserAccount getUserAccount() {
-        return userAccount;
-    }
+	public VehiculeType getVehiculeType() {
+		return vehiculeType;
+	}
+	public void setVehiculeType(VehiculeType vehiculeType) {
+		this.vehiculeType = vehiculeType;
+	}
 
-    public void setUserAccount(UserAccount userAccount) {
-        this.userAccount = userAccount;
-    }
+	public Boolean isAutomatic() {
+		return VehiculeType.AUTOMATIC.equals(vehiculeType);
+	}
 
-    public Insurance getInsurance() {
-        return insurance;
-    }
+	public Boolean isManual() {
+		return VehiculeType.MANUAL.equals(vehiculeType);
+	}
 
-    public void setInsurance(Insurance insurance) {
-        this.insurance = insurance;
-    }
 
-    public Long getId() {
-        return id;
-    }
-  
+	public VehiculePowerType getVehiculePowerType() {
+		return vehiculePowerType;
+	}
+
+	public void setVehiculePowerType(VehiculePowerType vehiculePowerType) {
+		this.vehiculePowerType = vehiculePowerType;
+	}
+
+	public Boolean isPetrol() {
+		return vehiculePowerType.equals(vehiculePowerType);
+	}
+	public Boolean isElectric() {
+		return vehiculePowerType.equals(vehiculePowerType);
+	}
+	public Boolean isHybrid() {
+		return vehiculePowerType.equals(vehiculePowerType);
+	}
+	public Boolean isDiesel() {
+		return vehiculePowerType.equals(vehiculePowerType);
+	}
+
+
+
+
+
+	public String getTechnicalTestExpiration() {
+		return technicalTestExpiration;
+	}
+
+	public void setTechnicalTestExpiration(String technicalTestExpiration) {
+		this.technicalTestExpiration = technicalTestExpiration;
+	}
+
+	public UserAccount getUserAccount() {
+		return userAccount;
+	}
+
+	public void setUserAccount(UserAccount userAccount) {
+		this.userAccount = userAccount;
+	}
+
+	public Insurance getInsurance() {
+		return insurance;
+	}
+
+	public void setInsurance(Insurance insurance) {
+		this.insurance = insurance;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+
+
 }

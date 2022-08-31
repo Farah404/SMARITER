@@ -36,13 +36,13 @@ public class CreateParcelServiceBean {
 //	}
 
 	public void create() {
-		ps.setVehicule(vehicule);
-		ps.setTrajectory(trajectory);
-		ps.setServicetype(ServiceType.PARCEL);
-		ps.setPublicationDate(LocalDateTime.now());
-		ps.setIsRequest(false);
-		ParcelService created = parcelServiceDao.create(ps);
-		System.out.println(created);
+//		ps.setVehicule(vehicule);
+//		ps.setTrajectory(trajectory);
+//		ps.setServicetype(ServiceType.PARCEL);
+//		ps.setPublicationDate(LocalDateTime.now());
+//		ps.setIsRequest(false);
+//		ParcelService created = parcelServiceDao.create(ps);
+//		System.out.println(created);
 	}
 
 	public ParcelService getPs() {

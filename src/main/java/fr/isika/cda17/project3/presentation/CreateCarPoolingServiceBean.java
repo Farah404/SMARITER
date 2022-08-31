@@ -47,11 +47,11 @@ public class CreateCarPoolingServiceBean {
 //	}
 
 	public void create() {
-		cps.setVehicule(vehicule);
-		cps.setTrajectory(trajectory);
-		cps.setServicetype(ServiceType.CAR_POOLING);
-		cps.setPublicationDate(LocalDateTime.now());
-		cps.setIsRequest(false);
+//		cps.setVehicule(vehicule);
+//		cps.setTrajectory(trajectory);
+//		cps.setServicetype(ServiceType.CAR_POOLING);
+//		cps.setPublicationDate(LocalDateTime.now());
+//		cps.setIsRequest(false);
 		CarPoolingService created = carPoolingServiceDao.create(cps);
 		System.out.println(created);
 	}

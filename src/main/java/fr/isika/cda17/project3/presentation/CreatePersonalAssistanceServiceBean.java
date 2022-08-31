@@ -34,12 +34,12 @@ public class CreatePersonalAssistanceServiceBean {
 //	}
 
 	public void create() {
-		pas.setTrajectory(trajectory);
-		pas.setServicetype(ServiceType.PERSONAL_ASSISTANCE);
-		pas.setPublicationDate(LocalDateTime.now());
-		pas.setIsRequest(false);
-		PersonalAssistanceService created = personalAssistanceServiceDao.create(pas);
-		System.out.println(created);
+//		pas.setTrajectory(trajectory);
+//		pas.setServicetype(ServiceType.PERSONAL_ASSISTANCE);
+//		pas.setPublicationDate(LocalDateTime.now());
+//		pas.setIsRequest(false);
+//		PersonalAssistanceService created = personalAssistanceServiceDao.create(pas);
+//		System.out.println(created);
 	}
 
 	public PersonalAssistanceService getPas() {

@@ -16,82 +16,82 @@ import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 
 @Entity
-@PrimaryKeyJoinColumn(name="id")
-public class CarPoolingService extends Service{
-    
-    @Enumerated(EnumType.STRING)
-    private CarPoolingType carPoolingType;
-    
-    private int availableSeats;
+@PrimaryKeyJoinColumn(name = "id")
+public class CarPoolingService extends Service {
 
-    private boolean isPetAllowed;
+	@Enumerated(EnumType.STRING)
+	private CarPoolingType carPoolingType;
 
-    private boolean isSmokingAllowed;
+	private int availableSeats;
 
-    private boolean isMusicAllowed;
+	private Boolean isPetAllowed;
 
-    private boolean isChattingAllowed;
+	private Boolean isSmokingAllowed;
 
-    @OneToOne(cascade=CascadeType.ALL)
-    private Vehicule vehicule;
+	private Boolean isMusicAllowed;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Trajectory trajectory;
-    
-    @ManyToMany
-    private List<CarPoolingService> carPoolingList = new ArrayList<CarPoolingService>();
+	private Boolean isChattingAllowed;
 
-    public CarPoolingService() {
-	super();
-    }
+	@OneToOne(cascade = CascadeType.ALL)
+	private Vehicule vehicule;
 
-    public CarPoolingService(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate, LocalDateTime endDate,
-			int referenceNumber, boolean isRequest, double price, ServiceType servicetype,
-			List<UserAccount> userAccounts, CarPoolingType carPoolingType, int availableSeats, boolean isPetAllowed,
-		    boolean isSmokingAllowed, boolean isMusicAllowed, boolean isChattingAllowed, Vehicule vehicule, Trajectory trajectory) {
+	@OneToOne(cascade = CascadeType.ALL)
+	private Trajectory trajectory;
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<CarPoolingService> carPoolingList = new ArrayList<CarPoolingService>();
+
+	public CarPoolingService() {
+		super();
+	}
+
+	public CarPoolingService(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate,
+			LocalDateTime startDate, LocalDateTime endDate, int referenceNumber, boolean isRequest, double price,
+			ServiceType servicetype, List<UserAccount> userAccounts, CarPoolingType carPoolingType, int availableSeats,
+			boolean isPetAllowed, boolean isSmokingAllowed, boolean isMusicAllowed, boolean isChattingAllowed,
+			Vehicule vehicule, Trajectory trajectory) {
 		super();
 		this.carPoolingType = carPoolingType;
 		this.availableSeats = availableSeats;
-		this.availableSeats=availableSeats;
-		this.isChattingAllowed=isChattingAllowed;
-		this.isMusicAllowed=isMusicAllowed;
-		this.isPetAllowed=isPetAllowed;
-		this.isSmokingAllowed=isSmokingAllowed;
-	
-    }
-		
+		this.availableSeats = availableSeats;
+		this.isChattingAllowed = isChattingAllowed;
+		this.isMusicAllowed = isMusicAllowed;
+		this.isPetAllowed = isPetAllowed;
+		this.isSmokingAllowed = isSmokingAllowed;
 
-    public boolean getIsPetAllowed() {
-        return isPetAllowed;
-    }
+	}
 
-    public void setIsPetAllowed(Boolean isPetAllowed) {
-        this.isPetAllowed = isPetAllowed;
-    }
+	public Boolean getIsPetAllowed() {
+		return isPetAllowed;
+	}
 
-    public boolean getIsSmokingAllowed() {
-        return isSmokingAllowed;
-    }
+	public void setIsPetAllowed(Boolean isPetAllowed) {
+		this.isPetAllowed = isPetAllowed;
+	}
 
-    public void setIsSmokingAllowed(boolean isSmokingAllowed) {
-        this.isSmokingAllowed = isSmokingAllowed;
-    }
+	public Boolean getIsSmokingAllowed() {
+		return isSmokingAllowed;
+	}
 
-    public boolean getIsMusicAllowed() {
-        return isMusicAllowed;
-    }
+	public void setIsSmokingAllowed(Boolean isSmokingAllowed) {
+		this.isSmokingAllowed = isSmokingAllowed;
+	}
 
-    public void setIsMusicAllowed(boolean isMusicAllowed) {
-        this.isMusicAllowed = isMusicAllowed;
-    }
+	public Boolean getIsMusicAllowed() {
+		return isMusicAllowed;
+	}
 
-    public boolean getIsChattingAllowed() {
-        return isChattingAllowed;
-    }
+	public void setIsMusicAllowed(Boolean isMusicAllowed) {
+		this.isMusicAllowed = isMusicAllowed;
+	}
 
-    public void setIsChattingAllowed(boolean isChattingAllowed) {
-        this.isChattingAllowed = isChattingAllowed;
-    }
+	public Boolean getIsChattingAllowed() {
+		return isChattingAllowed;
+	}
+
+	public void setIsChattingAllowed(Boolean isChattingAllowed) {
+		this.isChattingAllowed = isChattingAllowed;
+	}
 
 	public CarPoolingType getCarPoolingType() {
 		return carPoolingType;
@@ -125,22 +125,6 @@ public class CarPoolingService extends Service{
 		this.trajectory = trajectory;
 	}
 
-	public void setPetAllowed(boolean isPetAllowed) {
-		this.isPetAllowed = isPetAllowed;
-	}
-
-	public void setSmokingAllowed(boolean isSmokingAllowed) {
-		this.isSmokingAllowed = isSmokingAllowed;
-	}
-
-	public void setMusicAllowed(boolean isMusicAllowed) {
-		this.isMusicAllowed = isMusicAllowed;
-	}
-
-	public void setChattingAllowed(boolean isChattingAllowed) {
-		this.isChattingAllowed = isChattingAllowed;
-	}
-
 	public List<CarPoolingService> getCarPoolingList() {
 		return carPoolingList;
 	}
@@ -148,7 +132,5 @@ public class CarPoolingService extends Service{
 	public void setCarPoolingList(List<CarPoolingService> carPoolingList) {
 		this.carPoolingList = carPoolingList;
 	}
-	
-    
-    
+
 }

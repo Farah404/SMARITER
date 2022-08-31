@@ -7,10 +7,10 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 
- <f:metadata>
+<f:metadata>
 	<f:event listener="#{carRentalServiceManagementBean.init()}"
 		type="preRenderView"></f:event>
-</f:metadata> 
+</f:metadata>
 
 <h:head>
 	<title>List</title>
@@ -28,58 +28,57 @@
 
 				<h:form>
 
-					<h:dataTable class="styled-table" id="carPoolingService"
-						value="#{carPoolingManagementBean.carPoolingServiceList}"
-						var="carPoolingService">
+					<h:dataTable class="styled-table" id="carRentalService"
+						value="#{carRentalServiceManagementBean.carRentalService}"
+						var="carRentalService">
 
 						<h:column>
 							<f:facet name="header"> Key Pick-Up Address</f:facet>
-							<h:outputText value="#{carRentalServiceManagementBean.carRentalService.keyPickUpAddress}" />
+							<h:outputText value="#{carRentalService.keyPickUpAddress}" />
 						</h:column>
 						<h:column>
 							<f:facet name="header"> Key Drop-Off Address </f:facet>
-							<h:outputText value="#{carRentalServiceManagementBean.carRentalService.keyDropOffAddress}" />
+							<h:outputText value="#{carRentalService.keyDropOffAddress}" />
 						</h:column>
 						<h:column>
 							<f:facet name="header"> Price</f:facet>
-							<h:outputText value="#{carRentalServiceManagementBean.carRentalService.price}" />
+							<h:outputText value="#{carRentalService.price}" />
 						</h:column>
 						<h:column>
 							<f:facet name="header"> Publication Date</f:facet>
-							<h:outputText
-								value="#{carRentalServiceManagementBean.carRentalService.publicationDate}" />
+							<h:outputText value="#{carRentalService.publicationDate}" />
 						</h:column>
 						<h:column>
 							<f:facet name="header"> start Date</f:facet>
-							<h:outputText
-								value="#{carRentalServiceManagementBean.carRentalService.startDate}" />
+							<h:outputText value="#{carRentalService.startDate}" />
 						</h:column>
 						<h:column>
 							<f:facet name="header"> End Date</f:facet>
-							<h:outputText value="#{carRentalServiceManagementBean.carRentalService.endDate}" />
+							<h:outputText value="#{carRentalService.endDate}" />
 						</h:column>
-						
+
 						<h:column>
 							<f:facet name="header"> Service type</f:facet>
-							<h:outputText value="#{carRentalServiceManagementBean.carRentalService.servicetype}" />
+							<h:outputText value="#{carRentalService.servicetype}" />
 						</h:column>
-						
+
 						<h:column>
-							<f:facet name="header">Conductor</f:facet>
-							<h:outputText value="#{carRentalServiceManagementBean.carRentalService.vehicule.userAccount.username}" />
+							<f:facet name="header">Owner</f:facet>
+							<h:outputText
+								value="#{carRentalService.vehicule.userAccount.username}" />
 						</h:column>
 						<h:column>
 							<f:facet name="header">Price</f:facet>
-							<h:outputText value="#{carRentalServiceManagementBean.carRentalService.vehicule.brand}" />
+							<h:outputText value="#{carRentalService.vehicule.brand}" />
 						</h:column>
-												
+
 						<h:column>
 							<f:facet name="header">Details</f:facet>
 							<h:panelGrid>
 								<h:commandButton value="Detail"
 									action="#{carPoolingManagementBean.detail()}">
-									 <f:param name="carPoolingServiceId"
-										value="#{carPoolingService}"></f:param> 
+									<f:param name="carPoolingServiceId"
+										value="#{carPoolingService}"></f:param>
 								</h:commandButton>
 							</h:panelGrid>
 						</h:column>
@@ -95,13 +94,14 @@
 							<f:facet name="header">Update</f:facet>
 							<h:panelGrid>
 								<h:commandButton value="Edit"
-									action="#{carRentalServiceManagementBean.updapte(carRentalServiceManagementBean.carRentalService.id)}">
-									<f:param name="carRentalServiceId" value="#{carRentalService.id}"></f:param>
+									action="#{carRentalServiceManagementBean.showUpdate(carRentalService.id)}">
+									<f:param name="carRentalServiceId"
+										value="#{carRentalService.id}"></f:param>
 								</h:commandButton>
 							</h:panelGrid>
 						</h:column>
-						
-						
+
+
 					</h:dataTable>
 
 				</h:form>

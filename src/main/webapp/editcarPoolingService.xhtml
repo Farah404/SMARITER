@@ -77,7 +77,7 @@
 							<h:outputLabel value="CarPooling Type" />
 							<h:selectOneMenu
 								value="#{carPoolingManagementBean.carPoolingService.carPoolingType}">
-								<f:selectItem itemLabel="Selection" itemValue="" />
+								<f:selectItem itemLabel="Selection" itemValue="null" />
 								<f:selectItems
 									value="#{carPoolingManagementBean.carPoolingType()}"
 									var="carPoolingType" itemLabel="#{carPoolingType}"
@@ -116,25 +116,19 @@
 								value="#{carPoolingManagementBean.carPoolingService.isChattingAllowed}" />
 	
 							<h:selectOneRadio
-								value="#{carPoolingManagementBean.carPoolingService.vehicule}"> 
-								<f:selectItem
-									itemValue="#{carPoolingManagementBean.carPoolingService.vehicule.isElectric()}"
-									itemLabel="Electric vehicule" />
-								<f:selectItem
-									itemValue="#{carPoolingManagementBean.carPoolingService.vehicule.isHybrid()}"
-									itemLabel="Hybrid vehicule" />
-								<f:selectItem
-									itemValue="#{carPoolingManagementBean.carPoolingService.vehicule.isManual()}"
-									itemLabel="Manual vehicule" />
+								value="#{carPoolingManagementBean.carPoolingService.vehicule.vehiculeType}"> 
+								<f:selectItems value="#{carPoolingManagementBean.vehiculeTypes()}"
+									var="vehiculeType"
+									itemValue="#{vehiculeType}"
+									itemLabel="#{vehiculeType}" />
 							</h:selectOneRadio>
 
 							<br />
-
+							
 						<h:commandButton class="btn-signin"
-							action="#{carPoolingManagementBean.updapte()}"
+							action="#{carPoolingManagementBean.update()}"
 							value="Valide your Update" />
-							
-							
+														
 						</h:panelGrid >	
 					</fieldset>
 					

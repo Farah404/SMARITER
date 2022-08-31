@@ -12,7 +12,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
+import fr.isika.cda17.project3.model.personManagement.assets.VehiculePowerType;
+import fr.isika.cda17.project3.model.personManagement.assets.VehiculeType;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingType;
 import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
@@ -35,8 +36,8 @@ public class CarPoolingManagementBean implements Serializable {
 
 	private CarPoolingService carPoolingService = new CarPoolingService();
 	
-	private TrajectoryType trajectoryType;
-	private Vehicule vehicule =new Vehicule();
+//	private TrajectoryType trajectoryType;
+//	private Vehicule vehicule =new Vehicule();
 
 
 
@@ -65,14 +66,14 @@ public class CarPoolingManagementBean implements Serializable {
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 		ec.redirect(LIST_CARPOOLINGSERVICE_XHTML);
 	}
-	public String updapte() {
+	public String update() {
 		carPoolingServiceDao.update(carPoolingService);
 		System.out.println((carPoolingService));
 		return LIST_CARPOOLINGSERVICE_XHTML;
 	}
 	
 	public String detail(Long id) {
-		//carPoolingServiceDao.toString();
+		carPoolingService = carPoolingServiceDao.findById(id);
 		
 		return "detailAndBookingCarPoolingService.xhtml?faces-redirect=true&carPoolingServiceId=" + id;
 	}
@@ -115,17 +116,11 @@ public class CarPoolingManagementBean implements Serializable {
 	public void setCarPoolingService(CarPoolingService carPoolingService) {
 		this.carPoolingService = carPoolingService;
 	}
-	public TrajectoryType getTrajectoryType() {
-		return trajectoryType;
+	public VehiculeType[] vehiculeTypes() {
+		return VehiculeType.values();
 	}
-	public void setTrajectoryType(TrajectoryType trajectoryType) {
-		this.trajectoryType = trajectoryType;
-	}
-	public Vehicule getVehicule() {
-		return vehicule;
-	}
-	public void setVehicule(Vehicule vehicule) {
-		this.vehicule = vehicule;
+	public VehiculePowerType[] VehiculePowerTypes() {
+		return VehiculePowerType.values();
 	}
 	
 
