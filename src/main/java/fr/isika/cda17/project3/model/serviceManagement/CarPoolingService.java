@@ -1,20 +1,11 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-
-import java.util.Date;
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
-
-import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
@@ -126,7 +117,7 @@ public class CarPoolingService extends Service {
 	public String toString() {
 		return "CarPoolingService [carPoolingType=" + carPoolingType + ", availableSeats=" + availableSeats
 				+ ", petAllowed=" + petAllowed + ", smokingAllowed=" + smokingAllowed + ", musicAllowed=" + musicAllowed
-				+ ", chattingAllowed=" + chattingAllowed + ", carPoolingServiceList=" 
+				+ ", chattingAllowed=" + chattingAllowed + ", carPoolingServiceList="
 //				+ carPoolingServiceList
 				+ ", trajectory=" + trajectory + "]";
 	}

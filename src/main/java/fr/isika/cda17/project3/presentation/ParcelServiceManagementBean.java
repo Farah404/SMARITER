@@ -2,6 +2,7 @@ package fr.isika.cda17.project3.presentation;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +30,7 @@ public class ParcelServiceManagementBean implements Serializable {
 
     private ParcelService parcelService = new ParcelService();
 
-    private List<ParcelService> parcelServiceList;
+    private List<ParcelService> parcelServiceList = new ArrayList<ParcelService>();
 
     public TrajectoryType[] trajectoryType() {
 	return TrajectoryType.values();

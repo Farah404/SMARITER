@@ -21,90 +21,90 @@ import fr.isika.cda17.project3.repository.serviceManagement.PersonalAssistanceSe
 @ViewScoped
 public class PersonalAssistanceServiceManagementBean implements Serializable {
 
-    private static final String SERVICE_LIST_XHTML = "subServiceList.xhtml";
+	private static final String SERVICE_LIST_XHTML = "subServiceList.xhtml";
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private PersonalAssistanceServiceDao assistanceServiceDao;
-	
+	private PersonalAssistanceServiceDao personalAssistanceServiceDao;
+
 	private PersonalAssistanceService personalAssistanceService = new PersonalAssistanceService();
-	
+
 	private TrajectoryType trajectoryType;
-	
-	 private List<PersonalAssistanceService> personnalAssistanceServiceList;
-	 
-	 private PersonalAssistanceType personalAssistanceType;
-	
-	
-	 public void init() throws IOException {
-			Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-			
-			if (map.containsKey("personalAssistanceServiceId")) {
-				String personalAssistanceServiceIdParamValue = map.get("personalAssistanceServiceId");
-				System.err.println(personalAssistanceServiceIdParamValue);
-				if (personalAssistanceServiceIdParamValue != null && !personalAssistanceServiceIdParamValue.isBlank()) {
-					Long id = Long.valueOf(personalAssistanceServiceIdParamValue);
-					if(id != null) {
-						personalAssistanceService = assistanceServiceDao.findById(id);
-						if (personalAssistanceService == null) {
-							redirectError();
-						}
-					} else {
+
+	private List<PersonalAssistanceService> personnalAssistanceServiceList ;
+
+	private PersonalAssistanceType personalAssistanceType;
+
+	public void init() throws IOException {
+		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+
+		if (map.containsKey("personalAssistanceServiceId")) {
+			String personalAssistanceServiceIdParamValue = map.get("personalAssistanceServiceId");
+			System.err.println(personalAssistanceServiceIdParamValue);
+			if (personalAssistanceServiceIdParamValue != null && !personalAssistanceServiceIdParamValue.isBlank()) {
+				Long id = Long.valueOf(personalAssistanceServiceIdParamValue);
+				if (id != null) {
+					personalAssistanceService = personalAssistanceServiceDao.findById(id);
+					if (personalAssistanceService == null) {
 						redirectError();
 					}
 				} else {
 					redirectError();
 				}
+			} else {
+				redirectError();
 			}
 		}
-		public void redirectError() throws IOException {
-			ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-			ec.redirect(SERVICE_LIST_XHTML);
-		}
-		public String updapte() {
-			assistanceServiceDao.update(personalAssistanceService);
-			System.out.println((personalAssistanceService));
-			return SERVICE_LIST_XHTML;
-		}
-		
-		public String detail(Long id) {
-			assistanceServiceDao.toString();
-			
-			return "reservePersonalAssistanceService.xhtml?faces-redirect=true&personalAssistanceServiceId=" + id;
-		}
-			
-		private void refresh() {
-			personnalAssistanceServiceList = assistanceServiceDao.findAll();
+	}
 
-		}
-		@PostConstruct
-		public void freshinit() {
-			refresh();
-		}
-		
-		public String showUpdate(Long id) {
-			System.err.println(id);
-			return "editcarPoolingService.xhtml?faces-redirect=true&carPoolingServiceId=" + id;
-		}
-	
-	
+	public void redirectError() throws IOException {
+		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+		ec.redirect(SERVICE_LIST_XHTML);
+	}
+
+	public String updapte() {
+		personalAssistanceServiceDao.update(personalAssistanceService);
+		System.out.println((personalAssistanceService));
+		return SERVICE_LIST_XHTML;
+	}
+
+	public String detail(Long id) {
+		personalAssistanceServiceDao.toString();
+
+		return "reservePersonalAssistanceService.xhtml?faces-redirect=true&personalAssistanceServiceId=" + id;
+	}
+
+	private void refresh() {
+		personnalAssistanceServiceList = personalAssistanceServiceDao.findAll();
+
+	}
+
+	@PostConstruct
+	public void freshinit() {
+		refresh();
+	}
+
+	public String showUpdate(Long id) {
+		System.err.println(id);
+		return "editcarPoolingService.xhtml?faces-redirect=true&carPoolingServiceId=" + id;
+	}
 
 	public PersonalAssistanceType[] personalAssistanceType() {
 		return PersonalAssistanceType.values();
 	}
-	
+
 	public TrajectoryType[] trajectoryType() {
 		return TrajectoryType.values();
 	}
+
 	public PersonalAssistanceServiceDao getAssistanceServiceDao() {
-		return assistanceServiceDao;
+		return personalAssistanceServiceDao;
 	}
 
 	public void setAssistanceServiceDao(PersonalAssistanceServiceDao assistanceServiceDao) {
-		this.assistanceServiceDao = assistanceServiceDao;
+		this.personalAssistanceServiceDao = assistanceServiceDao;
 	}
-
 
 	public TrajectoryType getTrajectoryType() {
 		return trajectoryType;
@@ -113,23 +113,28 @@ public class PersonalAssistanceServiceManagementBean implements Serializable {
 	public void setTrajectoryType(TrajectoryType trajectoryType) {
 		this.trajectoryType = trajectoryType;
 	}
+
 	public List<PersonalAssistanceService> getPersonnalAssistanceServiceList() {
 		return personnalAssistanceServiceList;
 	}
+
 	public void setPersonnalAssistanceServiceList(List<PersonalAssistanceService> personnalAssistanceServiceList) {
 		this.personnalAssistanceServiceList = personnalAssistanceServiceList;
 	}
+
 	public PersonalAssistanceType getPersonalAssistanceType() {
 		return personalAssistanceType;
 	}
+
 	public void setPersonalAssistanceType(PersonalAssistanceType personalAssistanceType) {
 		this.personalAssistanceType = personalAssistanceType;
 	}
+
 	public PersonalAssistanceService getPersonalAssistanceService() {
 		return personalAssistanceService;
 	}
+
 	public void setPersonalAssistanceService(PersonalAssistanceService personalAssistanceService) {
 		this.personalAssistanceService = personalAssistanceService;
 	}
 }
-	

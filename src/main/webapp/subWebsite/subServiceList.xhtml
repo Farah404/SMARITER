@@ -19,7 +19,7 @@
 		<f:event listener="#{parcelServiceManagementBean.init()}"
 			type="preRenderView"></f:event>
 	</f:metadata>
-		<f:metadata>
+	<f:metadata>
 		<f:event listener="#{personalAssistanceServiceManagementBean.init()}"
 			type="preRenderView"></f:event>
 	</f:metadata>
@@ -191,7 +191,8 @@
 								<h:panelGrid>
 									<h:commandButton value="Detail"
 										action="#{carRentalServiceManagementBean.detail(carRentalService.id)}">
-										<f:param name="carRentalServiceId" value="#{carRentalService.id}"></f:param>
+										<f:param name="carRentalServiceId"
+											value="#{carRentalService.id}"></f:param>
 									</h:commandButton>
 								</h:panelGrid>
 							</h:column>
@@ -287,16 +288,16 @@
 								<h:outputText value="#{parcelService.price}" />
 							</h:column>
 
-							<h:column>
-								<f:facet name="header">Membre EcoCar Prestatire</f:facet>
-								<h:outputText
-									value="#{parcelService.userAccountProvider.username}" />
+							<!-- 							<h:column> -->
+							<!-- 								<f:facet name="header">Membre EcoCar Prestatire</f:facet> -->
+							<!-- 								<h:outputText -->
+							<!-- 									value="#{parcelService.userAccountProvider.username}" /> -->
 
-							</h:column>
-							<h:column>
-								<f:facet name="header">Prix</f:facet>
-								<h:outputText value="#{parcelService.price}" />
-							</h:column>
+							<!-- 							</h:column> -->
+							<!-- 							<h:column> -->
+							<!-- 								<f:facet name="header">Prix</f:facet> -->
+							<!-- 								<h:outputText value="#{parcelService.price}" /> -->
+							<!-- 							</h:column> -->
 
 							<h:column>
 								<f:facet name="header">Details</f:facet>
@@ -347,53 +348,55 @@
 							var="personalAssistance">
 							<h:column>
 								<f:facet name="header"> Numéro de référence </f:facet>
-								<h:outputText value="#{personnalAssistanceService.referenceNumber}" />
+								<h:outputText value="#{personalAssistance.referenceNumber}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Adresse de départ  </f:facet>
-								<h:outputText value="#{personnalAssistanceService.trajectory.pickUpAddress}" />
+								<h:outputText
+									value="#{personalAssistance.trajectory.pickUpAddress}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Date et heure de départ</f:facet>
-								<h:outputText value="#{personnalAssistanceService.startDate}" />
+								<h:outputText value="#{personalAssistance.startDate}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Adresse d'arrivée </f:facet>
 								<h:outputText
-									value="#{personnalAssistanceService.trajectory.deliveryAddress}" />
+									value="#{personalAssistance.trajectory.deliveryAddress}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Date et heure d'arrivée</f:facet>
-								<h:outputText value="#{personnalAssistanceService.endDate}" />
+								<h:outputText value="#{personalAssistance.endDate}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Membre EcoCar Prestataire</f:facet>
 								<h:outputText
-									value="#{personnalAssistanceService.userAccountProvider.username}" />
+									value="#{personalAssistance.userAccountProvider.username}" />
 							</h:column>
 
 							<h:column>
 								<f:facet name="header">Prix</f:facet>
-								<h:outputText value="#{personnalAssistanceService.price}" />
+								<h:outputText value="#{personalAssistance.price}" />
 							</h:column>
 
-							<h:column>
-								<f:facet name="header">Membre EcoCar Prestatire</f:facet>
-								<h:outputText
-									value="#{parcelService.userAccountProvider.username}" />
+							<!-- 							<h:column> -->
+							<!-- 								<f:facet name="header">Membre EcoCar Prestatire</f:facet> -->
+							<!-- 								<h:outputText -->
+							<!-- 									value="#{personalAssistance.userAccountProvider.username}" /> -->
 
-							</h:column>
-							<h:column>
-								<f:facet name="header">Prix</f:facet>
-								<h:outputText value="#{parcelService.price}" />
-							</h:column>
+							<!-- 							</h:column> -->
+							<!-- 							<h:column> -->
+							<!-- 								<f:facet name="header">Prix</f:facet> -->
+							<!-- 								<h:outputText value="#{personalAssistance.price}" /> -->
+							<!-- 							</h:column> -->
 
 							<h:column>
 								<f:facet name="header">Details</f:facet>
 								<h:panelGrid>
 									<h:commandButton value="Detail"
-										action="#{personnalAssistanceServiceManagementBean.detail(personnalAssistanceService.id)}">
-										<f:param name="personnalAssistanceServiceId" value="#{personnalAssistanceService.id}"></f:param>
+										action="#{personalAssistanceServiceManagementBean.detail(personalAssistance.id)}">
+										<f:param name="personalAssistanceServiceId"
+											value="#{personalAssistance.id}"></f:param>
 									</h:commandButton>
 								</h:panelGrid>
 							</h:column>

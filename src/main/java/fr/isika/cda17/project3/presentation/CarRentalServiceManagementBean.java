@@ -31,7 +31,7 @@ public class CarRentalServiceManagementBean implements Serializable{
 	@Inject
 	private CarRentalServiceDao carRentalServiceDao;
 
-	private List<CarRentalService>carRentalServiceList;
+	private List<CarRentalService> carRentalServiceList;
 
 	private CarRentalService carRentalService = new CarRentalService();
 
