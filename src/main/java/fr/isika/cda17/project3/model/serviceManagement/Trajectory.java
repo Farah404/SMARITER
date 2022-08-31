@@ -27,7 +27,7 @@ public class Trajectory {
     @Enumerated
     private TrajectoryType trajectoryType;
     
-    @OneToOne(cascade=CascadeType.MERGE)
+    @OneToOne(cascade=CascadeType.ALL)
     private Itinerary itinerary;
 
     public Trajectory() {

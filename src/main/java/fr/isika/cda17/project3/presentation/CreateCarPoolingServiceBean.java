@@ -63,7 +63,7 @@ public class CreateCarPoolingServiceBean {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Long id = Long.valueOf(session.getAttribute("id").toString());
 		userAccount = userAccountsDao.findById(id);
-		cps.setVehicule(userAccount.getVehicule());
+//		cps.setVehicule(userAccount.getVehicule());
 		trajectory.setItinerary(itinerary);
 		cps.setStartDate(LocalDateTime.parse(startDate));
 		cps.setEndDate(LocalDateTime.parse(startDate));
