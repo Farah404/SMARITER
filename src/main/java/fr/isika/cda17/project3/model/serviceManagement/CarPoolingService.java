@@ -18,10 +18,18 @@ import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 @PrimaryKeyJoinColumn(name="id")
 public class CarPoolingService extends Service{
     
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private CarPoolingType carPoolingType;
     
-    private int availableSeats;
+    public CarPoolingType getCarPoolingType() {
+		return carPoolingType;
+	}
+
+	public void setCarPoolingType(CarPoolingType carPoolingType) {
+		this.carPoolingType = carPoolingType;
+	}
+
+	private int availableSeats;
     
     private boolean petAllowed;
     
@@ -54,18 +62,6 @@ public class CarPoolingService extends Service{
 	this.carPoolingServiceList = carPoolingServiceList;
 	this.trajectory = trajectory;
     }
-
-	public Boolean getIsPetAllowed() {
-		return isPetAllowed;
-	}
-
-	public void setIsPetAllowed(Boolean isPetAllowed) {
-		this.isPetAllowed = isPetAllowed;
-	}
-
-	public Boolean getIsSmokingAllowed() {
-		return isSmokingAllowed;
-	}
 
 	public int getAvailableSeats() {
 		return availableSeats;

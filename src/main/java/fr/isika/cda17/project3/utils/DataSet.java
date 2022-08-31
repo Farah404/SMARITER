@@ -28,11 +28,7 @@ import fr.isika.cda17.project3.model.personManagement.accounts.AdministratorAcco
 import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 import fr.isika.cda17.project3.model.personManagement.accounts.User;
-import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Insurance;
-import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
-import fr.isika.cda17.project3.model.personManagement.accounts.Person;
-import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
 
 import fr.isika.cda17.project3.model.solutionManagement.MessagingSystemChoice;
 import fr.isika.cda17.project3.model.solutionManagement.PaymentSystemChoice;
@@ -78,15 +74,15 @@ public class DataSet {
 		CarPoolingService c = new CarPoolingService();
 		c.setCarPoolingType(CarPoolingType.HOME_TO_SCHOOL);
 		c.setAvailableSeats(3);
-		c.setIsPetAllowed(true);
-		c.setIsSmokingAllowed(false);
-		c.setIsMusicAllowed(false);
-		c.setIsChattingAllowed(true);
-		c.setVehicule(v);
+		c.setPetAllowed(true);
+		c.setSmokingAllowed(false);
+		c.setMusicAllowed(false);
+		c.setChattingAllowed(true);
 		c.setTrajectory(t);
 		c.setPrice(10);
-		c.setEndDate("22/09/1011");
-		c.setStartDate("23/09/2022");
+		c.setUserAccountProvider(uz);
+//TODO		c.setEndDate("22/09/1011");
+//TODO		c.setStartDate("23/09/2022");
 
 		em.persist(c);
 
@@ -120,15 +116,15 @@ public class DataSet {
 		CarPoolingService ca = new CarPoolingService();
 		ca.setCarPoolingType(CarPoolingType.EVENTS);
 		ca.setAvailableSeats(2);
-		ca.setIsPetAllowed(false);
-		ca.setIsSmokingAllowed(true);
-		ca.setIsMusicAllowed(true);
-		ca.setIsChattingAllowed(false);
-		ca.setVehicule(va);
+		ca.setPetAllowed(false);
+		ca.setSmokingAllowed(true);
+		ca.setMusicAllowed(true);
+		ca.setChattingAllowed(false);
 		ca.setTrajectory(ta);
 		ca.setPrice(30);
-		ca.setStartDate("23/10/2022");
-		ca.setEndDate("23/10/2022");
+		ca.setUserAccountProvider(ua);
+//TODO		ca.setStartDate("23/10/2022");
+//TODO		ca.setEndDate("23/10/2022");
 
 		em.persist(ca);
 
@@ -149,10 +145,11 @@ public class DataSet {
 		cr.setKeyPickUpAddress("26 rue de la martine,Brest");
 		cr.setKeyDropOffAddress("5 bis des rue de la joie, Brest");
 		cr.setPrice(50);
-		cr.setEndDate("03/09/2022");
-		cr.setStartDate("01/09/2022");
+//TODO		cr.setEndDate("03/09/2022");
+//TODO		cr.setStartDate("01/09/2022");
 		cr.setServicetype(ServiceType.CAR_RENTAL);
 		cr.setVehicule(vi);
+		cr.setUserAccountProvider(ui);
 		em.persist(cr);
 
 		UserAccount uia =new UserAccount();
@@ -169,21 +166,12 @@ public class DataSet {
 		cra.setKeyPickUpAddress("26 rue de la martine,Marseille");
 		cra.setKeyDropOffAddress("5 bis des rue de la joie, Marseille");
 		cra.setPrice(25);
-		cra.setEndDate("09/09/2022");
-		cra.setStartDate("05/09/2022");
+//TODO		cra.setEndDate("09/09/2022");
+//TODO		cra.setStartDate("05/09/2022");
 		cra.setServicetype(ServiceType.CAR_RENTAL);
 		cra.setVehicule(via);
+		cra.setUserAccountProvider(uia);
 		em.persist(cra);
-
-
-	}
-
-    @PersistenceContext
-    private EntityManager em;
-
-    @PostConstruct
-    private void initData() {
-    
 
 	AdministratorAccount aa = new AdministratorAccount();
 	aa.setAccountType(AccountType.ADMINISTRATOR);
@@ -269,10 +257,9 @@ public class DataSet {
 	Vehicule vU = new Vehicule();
 	vU.setAvailableSeats(4);
 	vU.setBrand("Brand");
-	vU.setHybrid(true);
-	vU.setElectric(false);
+	vU.setVehiculePowerType(VehiculePowerType.HYBRID);
+	vU.setVehiculeType(VehiculeType.MANUAL);
 	vU.setInsurance(iU);
-	vU.setManual(true);
 	vU.setRegistrationNumber("AA-404-ZZ");
 //TODO	vU.setTechnicalTestExpiration(null);
 	em.persist(vU);

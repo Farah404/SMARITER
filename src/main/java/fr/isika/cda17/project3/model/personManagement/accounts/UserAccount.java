@@ -27,7 +27,6 @@ public class UserAccount extends Account{
     @OneToOne(cascade=CascadeType.ALL)
     private Vehicule vehicule;
 
-
     @OneToOne(cascade=CascadeType.ALL)
     private ShoppingCart shoppingCart;
 

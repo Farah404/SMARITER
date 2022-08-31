@@ -36,9 +36,6 @@ public abstract class Service {
     private LocalDateTime startDate;
     
     private LocalDateTime endDate;
-    
-
-    private String endDate;
 
     private int referenceNumber;
     
@@ -50,10 +47,9 @@ public abstract class Service {
     private List <Reservation> reservations = new LinkedList<>();
     
     @Enumerated(EnumType.STRING)
-
     private ServiceType servicetype;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private UserAccount userAccountProvider;
     
     @OneToMany

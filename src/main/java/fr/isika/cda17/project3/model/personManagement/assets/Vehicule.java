@@ -7,7 +7,10 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
+import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
 
 @Entity
@@ -19,7 +22,9 @@ public class Vehicule {
 	private String brand;
 
 	private String registrationNumber;
-
+	
+	private int availableSeats;
+	
 	@Enumerated(EnumType.STRING)
 	private VehiculeType vehiculeType;
 
@@ -38,7 +43,7 @@ public class Vehicule {
 		super();
 	}
 
-	public Vehicule(Long id, String brand, String registrationNumber, String technicalTestExpiration, UserAccount userAccount, Insurance insurance) {
+	public Vehicule(Long id, String brand, String registrationNumber, String technicalTestExpiration, UserAccount userAccount, Insurance insurance, int availableSeats) {
 		super();
 		this.id = id;
 		this.brand = brand;
@@ -46,6 +51,7 @@ public class Vehicule {
 		this.technicalTestExpiration = technicalTestExpiration;
 		this.userAccount = userAccount;
 		this.insurance = insurance;
+		this.availableSeats=availableSeats;
 	}
 
 	public String getBrand() {
@@ -100,11 +106,7 @@ public class Vehicule {
 	public Boolean isDiesel() {
 		return vehiculePowerType.equals(vehiculePowerType);
 	}
-
-
-
-
-
+	
 	public String getTechnicalTestExpiration() {
 		return technicalTestExpiration;
 	}
@@ -132,6 +134,16 @@ public class Vehicule {
 	public Long getId() {
 		return id;
 	}
+
+	public int getAvailableSeats() {
+		return availableSeats;
+	}
+
+	public void setAvailableSeats(int availableSeats) {
+		this.availableSeats = availableSeats;
+	}
+
+	
 
 
 }
