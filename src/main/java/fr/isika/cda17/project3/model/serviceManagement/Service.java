@@ -59,7 +59,7 @@ public abstract class Service {
     public Service() {
 	super();
     }
-    public Service(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, Date startDate, Date endDate,
+    public Service(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate, LocalDateTime endDate,
 	    int referenceNumber, boolean isRequest, double price, List<Reservation> reservations,
 	    ServiceType servicetype, UserAccount userAccountProvider, List<UserAccount> userAccountsPurchasers, List<UserAccount> userAccounts) {
 	super();

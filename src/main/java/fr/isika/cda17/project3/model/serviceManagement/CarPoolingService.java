@@ -33,9 +33,6 @@ public class CarPoolingService extends Service{
     private List <CarPoolingService> carPoolingServiceList = new ArrayList<CarPoolingService>();
     
     @OneToOne(cascade=CascadeType.ALL)
-    private Vehicule vehicule;
-    
-    @OneToOne(cascade=CascadeType.ALL)
     private Trajectory trajectory;
 
     public CarPoolingService() {
@@ -44,7 +41,7 @@ public class CarPoolingService extends Service{
 
 	public CarPoolingService(CarPoolingType carPoolingType, int availableSeats, boolean petAllowed,
 	    boolean smokingAllowed, boolean musicAllowed, boolean chattingAllowed,
-	    List<CarPoolingService> carPoolingServiceList, Vehicule vehicule, Trajectory trajectory) {
+	    List<CarPoolingService> carPoolingServiceList, Trajectory trajectory) {
 	super();
 	this.carPoolingType = carPoolingType;
 	this.availableSeats = availableSeats;
@@ -53,7 +50,6 @@ public class CarPoolingService extends Service{
 	this.musicAllowed = musicAllowed;
 	this.chattingAllowed = chattingAllowed;
 	this.carPoolingServiceList = carPoolingServiceList;
-	this.vehicule = vehicule;
 	this.trajectory = trajectory;
     }
 
@@ -103,14 +99,6 @@ public class CarPoolingService extends Service{
 
 	public void setChattingAllowed(boolean chattingAllowed) {
 		this.chattingAllowed = chattingAllowed;
-	}
-
-	public Vehicule getVehicule() {
-		return vehicule;
-	}
-
-	public void setVehicule(Vehicule vehicule) {
-		this.vehicule = vehicule;
 	}
 
 	public Trajectory getTrajectory() {
