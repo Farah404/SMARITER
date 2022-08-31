@@ -17,6 +17,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
 @Entity
@@ -53,15 +54,19 @@ public abstract class Service {
     @OneToMany
     private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
     
-    @ManyToMany
+    
+
+	@ManyToMany
     private List <UserAccount> userAccounts = new LinkedList<>();
 
     public Service() {
 	super();
     }
+
     public Service(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate, LocalDateTime endDate,
 	    int referenceNumber, boolean isRequest, double price, List<Reservation> reservations,
 	    ServiceType servicetype, UserAccount userAccountProvider, List<UserAccount> userAccountsPurchasers, List<UserAccount> userAccounts) {
+
 	super();
 	this.id = id;
 	this.publicationDate = publicationDate;
@@ -76,6 +81,7 @@ public abstract class Service {
 	this.userAccountProvider = userAccountProvider;
 	this.userAccountsPurchasers = userAccountsPurchasers;
 	this.userAccounts = userAccounts;
+	
     }
 
 
@@ -170,13 +176,15 @@ public abstract class Service {
     public Long getId() {
         return id;
     }
-    
-    public List<Reservation> getReservations() {
-	return reservations;
-}
 
-public void setReservations(List<Reservation> reservation) {
-	this.reservations = reservation;
-}
+    public List<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(List<Reservation> reservation) {
+		this.reservations = reservation;
+	}
+
+
 
 }

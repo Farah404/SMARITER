@@ -4,10 +4,14 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
 import javax.persistence.OneToOne;
 
+import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
 @Entity
 public class Vehicule {
@@ -20,16 +24,20 @@ public class Vehicule {
     
     private String registrationNumber;
     
-    private boolean hybrid;
+    @Enumerated(EnumType.STRING)
+    private VehiculeType vehiculeType;
     
-    private boolean electric;
+    @Enumerated(EnumType.STRING)
+   private VehiculePowerType vehiculePowerType;
     
-    private boolean manual;
+    private String technicalTestExpiration;
     
-    private Date technicalTestExpiration;
+
+    @OneToOne(cascade=CascadeType.ALL)
+    private UserAccount userAccount;
     
-    private int availableSeats;
     
+
     @OneToOne(cascade=CascadeType.MERGE)
     private Insurance insurance;
 
@@ -37,18 +45,16 @@ public class Vehicule {
 	super();
     }
 
-    public Vehicule(Long id, String brand, String registrationNumber, boolean isHybrid, boolean isElectric,
-	    boolean isManual, Date technicalTestExpiration, Insurance insurance, int avilableSeats) {
+    public Vehicule(Long id, String brand, String registrationNumber, String technicalTestExpiration, UserAccount userAccount, Insurance insurance) {
+
 	super();
 	this.id = id;
 	this.brand = brand;
 	this.registrationNumber = registrationNumber;
-	this.hybrid = isHybrid;
-	this.electric = isElectric;
-	this.manual = isManual;
-	this.technicalTestExpiration = technicalTestExpiration;
+	
+	this.setTechnicalTestExpiration(technicalTestExpiration);
+	this.userAccount = userAccount;
 	this.insurance = insurance;
-	this.availableSeats = avilableSeats;
     }
 
     public String getBrand() {
@@ -67,38 +73,14 @@ public class Vehicule {
         this.registrationNumber = registrationNumber;
     }
 
-    public boolean isHybrid() {
-        return hybrid;
+ 
+    public UserAccount getUserAccount() {
+        return userAccount;
     }
 
-    public void setHybrid(boolean isHybrid) {
-        this.hybrid = isHybrid;
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
     }
-
-    public boolean isElectric() {
-        return electric;
-    }
-
-    public void setElectric(boolean isElectric) {
-        this.electric = isElectric;
-    }
-
-    public boolean isManual() {
-        return manual;
-    }
-
-    public void setManual(boolean isManual) {
-        this.manual = isManual;
-    }
-
-    public Date getTechnicalTestExpiration() {
-        return technicalTestExpiration;
-    }
-
-    public void setTechnicalTestExpiration(Date technicalTestExpiration) {
-        this.technicalTestExpiration = technicalTestExpiration;
-    }
-
 
     public Insurance getInsurance() {
         return insurance;
@@ -111,13 +93,19 @@ public class Vehicule {
     public Long getId() {
         return id;
     }
+    public VehiculeType getVehiculeType() {
+		return vehiculeType;
+	}
+    public void setVehiculeType(VehiculeType vehiculeType) {
+		this.vehiculeType = vehiculeType;
+	}
 
-    public int getAvailableSeats() {
-        return availableSeats;
-    }
+	public String getTechnicalTestExpiration() {
+		return technicalTestExpiration;
+	}
 
-    public void setAvailableSeats(int availableSeats) {
-        this.availableSeats = availableSeats;
-    }
+	public void setTechnicalTestExpiration(String technicalTestExpiration) {
+		this.technicalTestExpiration = technicalTestExpiration;
+	}
   
 }
