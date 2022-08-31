@@ -17,24 +17,17 @@
         <div class="row">
             <div class="col-md-4">
                 <h4>Proposer ou demander un service</h4>
-
                     <div class="form-floating mb-3">
                       <p>Choisissez le type de votre prestations</p>
                       <h:selectOneMenu class="form-control" id="serviceTypeTrue" value="#{createServiceBean.cps.servicetype}" Label="Select your service">
 			      	<f:selectItems value="#{createServiceBean.serviceTypes()}" var="s" itemLabel="#{s.label}" itemValue="#{s}"/>
 			      </h:selectOneMenu>
                     <br /></div>
-
-
                     <div class="form-floating mb-3">
                     <h:selectBooleanCheckbox value="#{createServiceBean.request}" /> Je dépose une demande.
                     <br /></div><br/>
 					<h:commandLink class="btn btn-success" action="#{createServiceBean.chooseServiceType()}" value="Suivant" />
-
-                
-
             </div>
-
             <div class="col-md-6">
                 <div class="verticalcenter">
                 <img style="width:100%;" src="subMedia/Images/Ville.png" />

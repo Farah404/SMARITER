@@ -31,9 +31,9 @@ public abstract class Service {
     
     private LocalDateTime expirationDate;
     
-    private Date startDate;
+    private LocalDateTime startDate;
     
-    private Date endDate;
+    private LocalDateTime endDate;
     
     private int referenceNumber;
     
@@ -59,14 +59,9 @@ public abstract class Service {
     public Service() {
 	super();
     }
-
- 
-
-    
     public Service(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, Date startDate, Date endDate,
 	    int referenceNumber, boolean isRequest, double price, List<Reservation> reservations,
-	    ServiceType servicetype, UserAccount userAccountProvider, List<UserAccount> userAccountsPurchasers,
-	    List<UserAccount> userAccounts) {
+	    ServiceType servicetype, UserAccount userAccountProvider, List<UserAccount> userAccountsPurchasers, List<UserAccount> userAccounts) {
 	super();
 	this.id = id;
 	this.publicationDate = publicationDate;
@@ -116,19 +111,19 @@ public abstract class Service {
         this.expirationDate = expirationDate;
     }
 
-    public Date getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 

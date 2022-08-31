@@ -42,8 +42,6 @@ public class CarPoolingService extends Service{
 	super();
     }
 
-
-
 	public CarPoolingService(CarPoolingType carPoolingType, int availableSeats, boolean petAllowed,
 	    boolean smokingAllowed, boolean musicAllowed, boolean chattingAllowed,
 	    List<CarPoolingService> carPoolingServiceList, Vehicule vehicule, Trajectory trajectory) {
@@ -58,8 +56,6 @@ public class CarPoolingService extends Service{
 	this.vehicule = vehicule;
 	this.trajectory = trajectory;
     }
-
-
 
 	public CarPoolingType getCarPoolingType() {
         return carPoolingType;
