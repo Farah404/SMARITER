@@ -30,11 +30,16 @@
 
 								<div class="form-outline mb-3">
 									Date de Debut
-									<h:inputText class="form-control" id="startDate"
-										a:placeholder="dd-MM-YYYY" type="datetime-local"
-										value="#{createCarPoolingServiceBean.cps.startDate}">
-										<f:convertDateTime pattern="dd-MM-yyyy" />
-									</h:inputText>
+									
+									<h:inputText class="form-control" id="startDateString"
+										a:placeholder="2018-05-05T11:50:55"
+										value="#{createCarPoolingServiceBean.startDate}" />
+										
+<!-- 									<h:inputText class="form-control" id="startDate" a:placeholder="dd-MM-YYYY" type="datetime-local" value="#{createCarPoolingServiceBean.cps.startDate}"> -->
+<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+<!-- 									</h:inputText> -->
+								
+									
 									<br />
 								</div>
 
@@ -48,11 +53,16 @@
 
 								<div class="form-outline mb-3">
 									Date de fin
-									<h:inputText class="form-control" id="endDate"
-										a:placeholder="dd-MM-YYYY" type="datetime-local"
-										value="#{createCarPoolingServiceBean.cps.endDate}">
-										<f:convertDateTime pattern="dd-MM-yyyy" />
-									</h:inputText>
+									
+									<h:inputText class="form-control" id="endDateString"
+										a:placeholder="2018-05-05T11:50:55"
+										value="#{createCarPoolingServiceBean.endDate}" />
+										
+<!-- 									<h:inputText class="form-control" id="endDate" -->
+<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
+<!-- 										value="#{createCarPoolingServiceBean.cps.endDate}"> -->
+<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+<!-- 									</h:inputText> -->
 									<br />
 								</div>
 

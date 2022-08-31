@@ -40,7 +40,7 @@ public class CarPoolingService extends Service{
 	super();
     }
 
-    public CarPoolingService(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, Date startDate, Date endDate,
+    public CarPoolingService(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate, LocalDateTime endDate,
 			int referenceNumber, boolean isRequest, double price, ServiceType servicetype,
 			List<UserAccount> userAccounts, CarPoolingType carPoolingType, int availableSeats, boolean isPetAllowed,
 		    boolean isSmokingAllowed, boolean isMusicAllowed, boolean isChattingAllowed, Vehicule vehicule, Trajectory trajectory) {

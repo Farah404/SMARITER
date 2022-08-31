@@ -47,6 +47,10 @@ public class CreateCarPoolingServiceBean {
 	
 	private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
 	
+	private String startDate;
+	
+	private String endDate;
+	
 	
 	public CarPoolingType[] carPoolingTypeValues() {
 		return CarPoolingType.values();
@@ -61,6 +65,8 @@ public class CreateCarPoolingServiceBean {
 		userAccount = userAccountsDao.findById(id);
 		cps.setVehicule(userAccount.getVehicule());
 		trajectory.setItinerary(itinerary);
+		cps.setStartDate(LocalDateTime.parse(startDate));
+		cps.setEndDate(LocalDateTime.parse(startDate));
 		cps.setTrajectory(trajectory);
 		cps.setServicetype(ServiceType.CAR_POOLING);
 		cps.setPublicationDate(LocalDateTime.now());
@@ -116,5 +122,18 @@ public void createRequest() {
 	public void setTrajectory(Trajectory trajectory) {
 		this.trajectory = trajectory;
 	}
+	public String getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+	public String getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+	
 }
 
