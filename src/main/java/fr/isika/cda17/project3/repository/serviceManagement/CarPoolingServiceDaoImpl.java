@@ -40,10 +40,10 @@ public class CarPoolingServiceDaoImpl implements CarPoolingServiceDao{
 	    updatedCarPoolingService.setPrice(carPoolingService.getPrice());
 	    
 	    updatedCarPoolingService.setAvailableSeats(carPoolingService.getAvailableSeats());
-	    updatedCarPoolingService.setIsPetAllowed(carPoolingService.getIsPetAllowed());
-	    updatedCarPoolingService.setIsSmokingAllowed(carPoolingService.getIsSmokingAllowed());
-	    updatedCarPoolingService.setIsMusicAllowed(carPoolingService.getIsMusicAllowed());
-	    updatedCarPoolingService.setIsChattingAllowed(carPoolingService.getIsChattingAllowed());
+	    updatedCarPoolingService.setPetAllowed(carPoolingService.isPetAllowed());
+	    updatedCarPoolingService.setSmokingAllowed(carPoolingService.isSmokingAllowed());
+	    updatedCarPoolingService.setMusicAllowed(carPoolingService.isMusicAllowed());
+	    updatedCarPoolingService.setChattingAllowed(carPoolingService.isChattingAllowed());
 	    
 	    entityManager.persist(carPoolingService);
 	} catch (Exception e) {

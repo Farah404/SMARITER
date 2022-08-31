@@ -38,7 +38,7 @@ public class PersonalAssistanceServiceDaoImpl implements PersonalAssistanceServi
 	    updatedPersonalAssistanceService.setIsRequest(personalAssistanceService.getIsRequest());
 	    updatedPersonalAssistanceService.setPrice(personalAssistanceService.getPrice());
 	    
-	    updatedPersonalAssistanceService.setIsUrgent(personalAssistanceService.getIsUrgent());
+	    updatedPersonalAssistanceService.setUrgent(personalAssistanceService.isUrgent());
 	    updatedPersonalAssistanceService.setPersonalAssistanceType(personalAssistanceService.getPersonalAssistanceType());
 	    
 	    entityManager.persist(personalAssistanceService);

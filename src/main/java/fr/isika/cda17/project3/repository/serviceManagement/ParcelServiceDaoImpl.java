@@ -40,8 +40,8 @@ public class ParcelServiceDaoImpl implements ParcelServiceDao{
 	    
 	    updatedParcelService.setBarCode(parcelService.getBarCode());
 	    updatedParcelService.setWeightKilogrammes(parcelService.getWeightKilogrammes());
-	    updatedParcelService.setIsAtypicalVolume(parcelService.getIsAtypicalVolume());
-	    updatedParcelService.setIsFragile(parcelService.getIsFragile());
+	    updatedParcelService.setAtypicalVolume(parcelService.isAtypicalVolume());
+	    updatedParcelService.setFragile(parcelService.isFragile());
 	    
 	    entityManager.persist(parcelService);
 	} catch (Exception e) {
