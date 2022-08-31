@@ -32,8 +32,6 @@ import fr.isika.cda17.project3.repository.serviceManagement.PersonalAssistanceSe
 @ManagedBean
 @ViewScoped
 public class CreatePersonalAssistanceServiceBean {
-
-	
 	@Inject
 	private PersonalAssistanceServiceDao personalAssistanceServiceDao;
 	
@@ -134,4 +132,3 @@ public class CreatePersonalAssistanceServiceBean {
 	}
 	
 }
-

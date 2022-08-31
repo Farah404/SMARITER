@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<f:metadata>
+	<f:event listener="#{carPoolingManagementBean.init()}"
+		type="preRenderView"></f:event>
+</f:metadata>
+
+<h:head>
+	<title>SmarIter</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="template/templatewithoutHeader.xhtml">
+		<ui:define name="content">
+
+			<section class="wrapper-signin"> <video
+				class="background-video" autoplay="autoplay" loop="loop"
+				muted="muted"> <source src="media/webm/videoplayback.webm"
+				type="video/webm" /> </video> </section>
+
+
+			<div class="signupform-container animate-right" id="container">
+				<h:form action="#" class="sigup-form">
+				
+				
+					<fieldset>
+					
+					<h:panelGrid>
+					<br />
+							<f:facet name="header">
+							<br />
+								<h:outputText value="UPDATE SERVICE" />
+							</f:facet>
+							<br />
+
+					
+
+						<h:outputLabel value="Delivery Address" />
+						<h:inputText
+							a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.deliveryAddress}"
+							value="#{carPoolingManagementBean.carPoolingService.trajectory.deliveryAddress}" />
+
+						<h:outputLabel value="Journey Duration (in hour)" />
+						<h:inputText
+							a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.durationHours}"
+							value="#{carPoolingManagementBean.carPoolingService.trajectory.durationHours}" />
+
+						<h:outputLabel value="Stop Duration (in minute)" />
+						<h:inputText
+							a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.stopDurationMinutes}"
+							value="#{carPoolingManagementBean.carPoolingService.trajectory.stopDurationMinutes}" />
+
+						<h:outputLabel value="Stop Number" />
+						<h:inputText
+							a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.stopNumber}"
+							value="#{carPoolingManagementBean.carPoolingService.trajectory.stopNumber}" />
+
+						<h:outputLabel value="Seats Avaible" />
+						<h:inputText a:placeholder="#{carPoolingManagementBean.carPoolingService.availableSeats}"
+							value="#{carPoolingManagementBean.carPoolingService.availableSeats}" />
+
+						<h:outputLabel value="Price" />
+						<h:inputText a:placeholder="#{carPoolingManagementBean.carPoolingService.price}"
+							value="#{carPoolingManagementBean.carPoolingService.price}" />
+
+							<h:outputLabel value="CarPooling Type" />
+							<h:selectOneMenu
+								value="#{carPoolingManagementBean.carPoolingService.carPoolingType}">
+								<f:selectItem itemLabel="Selection" itemValue="null" />
+								<f:selectItems
+									value="#{carPoolingManagementBean.carPoolingType()}"
+									var="carPoolingType" itemLabel="#{carPoolingType}"
+									itemValue="#{carPoolingType}"></f:selectItems>
+							</h:selectOneMenu>	
+							
+							<br />
+							<h:outputLabel value="Trajetory Type" />
+							<h:selectOneMenu
+								value="#{carPoolingManagementBean.carPoolingService.trajectory.trajectoryType}">
+								<f:selectItem itemLabel="Selection" itemValue="" />
+								<f:selectItems
+									value="#{carPoolingManagementBean.trajectoryType()}"
+									var="trajectoryType" itemLabel="#{trajectoryType}"
+									itemValue="#{trajectoryType}"></f:selectItems>
+							</h:selectOneMenu>
+							<br />
+							<h:outputLabel value="vehicule brand" />
+						<h:inputText a:placeholder="#{carPoolingManagementBean.carPoolingService.vehicule.brand}"
+							value="#{carPoolingManagementBean.carPoolingService.vehicule.brand}" />
+
+
+							<h:outputLabel value="Pet Allowed" />
+							<h:selectBooleanCheckbox id="isPetAllowed"
+								value="#{carPoolingManagementBean.carPoolingService.isPetAllowed}" />		
+						
+						<h:outputLabel value="Music Allowed" />
+							<h:selectBooleanCheckbox id="isMusicAllowed"
+								value="#{carPoolingManagementBean.carPoolingService.isMusicAllowed}" />
+
+						<h:outputLabel value="Smoking Allowed" />
+							<h:selectBooleanCheckbox id="isSmokingAllowed"
+								value="#{carPoolingManagementBean.carPoolingService.isSmokingAllowed}" />
+								
+								<h:outputLabel value="Chatting Allowed" />
+							<h:selectBooleanCheckbox id="isChattingAllowed"
+								value="#{carPoolingManagementBean.carPoolingService.isChattingAllowed}" />
+	
+							<h:selectOneRadio
+								value="#{carPoolingManagementBean.carPoolingService.vehicule.vehiculeType}"> 
+								<f:selectItems value="#{carPoolingManagementBean.vehiculeTypes()}"
+									var="vehiculeType"
+									itemValue="#{vehiculeType}"
+									itemLabel="#{vehiculeType}" />
+							</h:selectOneRadio>
+
+							<br />
+							
+						<h:commandButton class="btn-signin"
+							action="#{carPoolingManagementBean.update()}"
+							value="Valide your Update" />
+														
+						</h:panelGrid >	
+					</fieldset>
+					
+				</h:form>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

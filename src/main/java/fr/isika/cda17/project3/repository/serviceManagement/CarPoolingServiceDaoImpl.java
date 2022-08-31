@@ -7,8 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
-import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
-import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
 
 @Stateless
 public class CarPoolingServiceDaoImpl implements CarPoolingServiceDao{
@@ -71,9 +69,11 @@ public class CarPoolingServiceDaoImpl implements CarPoolingServiceDao{
 
     @Override
     public List<CarPoolingService> findAll() {
+
+    	
     	List<CarPoolingService> c =  this.entityManager.createQuery("select ea from CarPoolingService ea", CarPoolingService.class).getResultList();
-   	 System.out.println( c);
-   	 return c;
+    	 return c;
+
 	
     }
 

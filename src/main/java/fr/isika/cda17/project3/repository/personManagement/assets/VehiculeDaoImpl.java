@@ -27,18 +27,13 @@ public class VehiculeDaoImpl implements VehiculeDao{
 
     @Override
     public void update(Vehicule vehicule) {
-	try {
-	    Vehicule updatedVehicule = entityManager.find(Vehicule.class, vehicule.getId());
-	    updatedVehicule.setBrand(vehicule.getBrand());
-	    updatedVehicule.setRegistrationNumber(vehicule.getRegistrationNumber());
+		try {
+			entityManager.merge(vehicule);
+		} catch (Exception e) {
+			System.out.println("VehiculeDao.update() - Failed : " + e.getMessage());
+		}
 
-	    
-	    entityManager.persist(updatedVehicule);
-	} catch (Exception e) {
-	    System.out.println("VehiculeDao.update() - Failed : " + e.getMessage());
 	}
-	
-    }
 
     @Override
     public void delete(Long id) {

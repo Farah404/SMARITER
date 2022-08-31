@@ -1,7 +1,9 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
 import java.util.ArrayList;
+
 import java.util.Date;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -24,8 +26,10 @@ public class CarRentalService extends Service {
     @OneToOne(cascade = CascadeType.ALL)
     private Vehicule vehicule;
     
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    private List<CarRentalService>carRentalServiceList =new ArrayList<CarRentalService>();
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<CarRentalService>carRentalServiceList =new ArrayList<CarRentalService>();
+
 
     
     public CarRentalService() {
@@ -68,12 +72,20 @@ public class CarRentalService extends Service {
 
 
 
+
 	@Override
 	public String toString() {
 		return "CarRentalService [keyPickUpAddress=" + keyPickUpAddress + ", keyDropOffAddress=" + keyDropOffAddress
 				+ ", vehicule=" + vehicule +  "ServiceId," +this.getId()+ "]";
+
+
+	public List<CarRentalService> getCarRentalServiceList() {
+		return carRentalServiceList;
 	}
-    
+
+	public void setCarRentalServiceList(List<CarRentalService> carRentalServiceList) {
+		this.carRentalServiceList = carRentalServiceList;
+
     
 
 }

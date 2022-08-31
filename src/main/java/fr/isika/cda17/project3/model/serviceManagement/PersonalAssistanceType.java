@@ -4,7 +4,7 @@ public enum PersonalAssistanceType {
 
     MEDICAL("Medical"),
     GROCERY("Grocery");
-	
+
 	private String label;
 	
 	private PersonalAssistanceType(String label) {
@@ -13,5 +13,4 @@ public enum PersonalAssistanceType {
     public String getLabel() {
 		return label;
 	}
-
 }

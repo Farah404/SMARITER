@@ -8,7 +8,9 @@
 
 
 <f:metadata>
+
 	<f:event listener="#{carPoolingReservationBean.init()}"
+
 		type="preRenderView"></f:event>
 </f:metadata>
 
@@ -21,6 +23,7 @@
 		<ui:define name="content">
 			<h:outputScript library="js" name="faq.js" />
 			<div class="container">
+
 				<br /> <br />
 				<h1>SERVICE DETAIL -- BOOKING</h1>
 				<br />
@@ -51,83 +54,99 @@
 					<h:outputLabel value="Stop Duration (in minute): 	 " />
 					<h:outputText
 						value="#{carPoolingToReserve.trajectory.stopDurationMinutes}" />
+
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Stop Number:  		" />
 					<h:outputText
+
 						value="#{carPoolingToReserve.trajectory.stopNumber}" />
+
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Trajectory Type: 		" />
 					<h:outputText
+
 						value="#{carPoolingReservationBean.carPooling.trajectory.trajectoryType}" />
+
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Seats Avaible: 		" />
 					<h:outputText
+
 						value="#{carPoolingReservationBean.carPooling.availableSeats}" />
+
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Chatting Allowed: 	" />
 					<h:outputText
+
 						value="#{carPoolingToReserve.isChattingAllowed}" />
+
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Pet Allowed: 		" />
 					<h:outputText
+
 						value="#{carPoolingReservationBean.carPooling.isPetAllowed}" />
+
 
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Smoking Allowed: 		" />
 					<h:outputText
+
 						value="#{carPoolingReservationBean.carPooling.isSmokingAllowed}" />
+
 
 					<br />
 					<br />
 					<hr />
+
 					<h:outputLabel value="Chatting Allowed: 	" />
 					<h:outputText
 						value="#{carPoolingReservationBean.carPooling.isMusicAllowed}" />
 
-					<br />
-					<br />
-					<hr />
-					<h:outputLabel value="vehicule vehiculeType: 		" />
-					<h:outputText value="#{carPoolingReservationBean.carPooling.vehicule.vehiculeType}" />
-					<br />
-					<br />
-					<hr />
-					<h:outputLabel value="Chatting Allowed: 	" />
-					<h:outputText
-						value="#{carPoolingReservationBean.carPooling.isChattingAllowed}" />
 
 					<br />
 					<br />
 					<hr />
-					<h:outputLabel value="vehicule isHybrid: 	" />
-					
+
+					<h:outputLabel value="vehicule Type : 		" />
+					<h:outputText
+						value="#{carPoolingRservationBean.carPooling.userAccountProvider.vehicule.vehiculeType.name()}"/>
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="vehicule Power Type : 		"/>
+					<h:outputText
+						value="#{carPoolingRservationBean.carPooling.userAccountProvider.vehicule.vehiculePowerType.name()}"/>
+					<br />
+					<br />
 					<hr />
 					<h:outputLabel value="vehicule brand: 	" />
 					<h:outputText
-						value="#{carPoolingReservationBean.carPooling.vehicule.brand}" />
+						value="#{carPoolingReservationBean.carPooling.userAccountProvider.vehicule.brand}"/>
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="price: 	" />
+					<h:outputText
+						value="#{carPoolingReservationBean.carPooling.price}	"/>
+					<h:outputLabel value="€ / Person" />
+
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Conductor: 	" />
 					<h:outputText
-						value="#{carPoolingReservationBean.carPooling.vehicule.userAccount.username}" />
-					<br />
-					<br />
 
-
-			
 
 				
 				<h:column>
@@ -145,6 +164,7 @@
 
 			<hr />
 			<hr />
+
 			<hr />
 
 		</ui:define>

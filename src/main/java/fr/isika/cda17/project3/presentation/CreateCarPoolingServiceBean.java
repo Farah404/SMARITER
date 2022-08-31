@@ -1,6 +1,14 @@
 package fr.isika.cda17.project3.presentation;
 
 import java.time.LocalDateTime;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
+import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
+import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
+import fr.isika.cda17.project3.model.serviceManagement.CarPoolingType;
+import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
+import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -136,4 +144,3 @@ public void createRequest() {
 	}
 	
 }
-

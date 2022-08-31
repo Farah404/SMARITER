@@ -1,8 +1,14 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -10,13 +16,16 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @PrimaryKeyJoinColumn(name="id")
 public class PersonalAssistanceService extends Service {
     
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private PersonalAssistanceType personalAssistanceType;
     
     private boolean urgent;
     
     @OneToOne(cascade = CascadeType.ALL)
     private Trajectory trajectory;
+    
+    @OneToMany
+    private List<PersonalAssistanceService> personnalAssistanceServiceList = new ArrayList<PersonalAssistanceService>();
 
     public PersonalAssistanceService() {
 	super();
@@ -54,6 +63,14 @@ public class PersonalAssistanceService extends Service {
     public void setTrajectory(Trajectory trajectory) {
         this.trajectory = trajectory;
     }
+
+	public List<PersonalAssistanceService> getPersonnalAssistanceServiceList() {
+		return personnalAssistanceServiceList;
+	}
+
+	public void setPersonnalAssistanceServiceList(List<PersonalAssistanceService> personnalAssistanceServiceList) {
+		this.personnalAssistanceServiceList = personnalAssistanceServiceList;
+	}
     
 
 }

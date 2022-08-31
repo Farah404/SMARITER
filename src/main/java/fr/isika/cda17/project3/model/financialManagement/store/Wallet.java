@@ -1,5 +1,6 @@
 package fr.isika.cda17.project3.model.financialManagement.store;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,7 +14,7 @@ public class Wallet {
     
     private int internalCurrencyAmount;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Store store;
 
     public Wallet() {

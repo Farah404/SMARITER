@@ -98,6 +98,7 @@ public class CreateCarRentalServiceBean {
 		this.vehicule = vehicule;
 	}
 
+
 	public UserAccount getUserAccount() {
 	    return userAccount;
 	}
@@ -117,5 +118,6 @@ public class CreateCarRentalServiceBean {
 	public String getEndDate() {
 	    return endDate;
 	}
+
 
 }
