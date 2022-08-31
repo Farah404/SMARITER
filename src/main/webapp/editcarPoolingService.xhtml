@@ -41,10 +41,6 @@
 							<br />
 
 					
-						<h:outputLabel value="Pick-Up Address" />
-						<h:inputText
-							a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.pickUpAddress}"
-							value="#{carPoolingManagementBean.carPoolingService.trajectory.pickUpAddress}" />
 
 						<h:outputLabel value="Delivery Address" />
 						<h:inputText
@@ -83,6 +79,7 @@
 									var="carPoolingType" itemLabel="#{carPoolingType}"
 									itemValue="#{carPoolingType}"></f:selectItems>
 							</h:selectOneMenu>	
+							
 							<br />
 							<h:outputLabel value="Trajetory Type" />
 							<h:selectOneMenu

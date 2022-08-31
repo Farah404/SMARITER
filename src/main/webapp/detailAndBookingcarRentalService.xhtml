@@ -8,7 +8,7 @@
 
 
 <f:metadata>
-	<f:event listener="#{carPoolingManagementBean.init()}"
+	<f:event listener="#{carRentalServiceManagementBean.init()}"
 		type="preRenderView"></f:event>
 </f:metadata>
 
@@ -25,102 +25,46 @@
 				<br /> <br />
 				<h1>SERVICE DETAIL -- BOOKING</h1>
 				<br />
-				<h:form id="carPoolingService"
-					value="#{carPoolingManagementBean.carPoolingService}"
-					var="carPoolingService">
+				<h:form id="carRentalService"
+					value="#{carRentalServiceManagementBean.carRentalService}"
+					var="carRentalService">
 					<br />
 					<br />
 					<hr />
-					<h:outputLabel value="Pick-Up Address:  	" />
+					<h:outputLabel value="key Pick-Up Address:  	" />
 					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.trajectory.pickUpAddress}" />
+						value="#{carRentalServiceManagementBean.carRentalService.keyPickUpAddress}" />
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="publication Date:  	" />
 					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.publicationDate}" />
+						value="#{carRentalServiceManagementBean.carRentalService.publicationDate}" />
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="start Date:  	" />
 					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.startDate}" />
+						value="#{carRentalServiceManagementBean.carRentalService.startDate}" />
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="End Date:  	" />
 					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.endDate}" />
+						value="#{carRentalServiceManagementBean.carRentalService.endDate}" />
 					<br />
 					<br />
 					<hr />
-					<h:outputLabel value="Delivery Address: 	 " />
+					<h:outputLabel value="key Drop-Off Address: 	 " />
 					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.trajectory.deliveryAddress}" />
-					<br />
-					<br />
-					<hr />
-					<h:outputLabel value="Duration (in hour):  	" />
-					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.trajectory.durationHours}" />
-					<br />
-					<br />
-					<hr />
-					<h:outputLabel value="Stop Duration (in minute): 	 " />
-					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.trajectory.stopDurationMinutes}" />
-					<br />
-					<br />
-					<hr />
-					<h:outputLabel value="Stop Number:  		" />
-					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.trajectory.stopNumber}" />
-					<br />
-					<br />
-					<hr />
-					<h:outputLabel value="Trajectory Type: 		" />
-					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.trajectory.trajectoryType}" />
-					<br />
-					<br />
-					<hr />
-					<h:outputLabel value="Seats Avaible: 		" />
-					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.availableSeats}" />
-					<br />
-					<br />
-					<hr />
-					<h:outputLabel value="Chatting Allowed: 	" />
-					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.isChattingAllowed}" />
-					<br />
-					<br />
-					<hr />
-					<h:outputLabel value="Pet Allowed: 		" />
-					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.isPetAllowed}" />
-
-					<br />
-					<br />
-					<hr />
-					<h:outputLabel value="Smoking Allowed: 		" />
-					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.isSmokingAllowed}" />
-
-					<br />
-					<br />
-					<hr />
-					<h:outputLabel value="Music Allowed: 	" />
-					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.isMusicAllowed}" />
-
+						value="#{carRentalServiceManagementBean.carRentalService.keyDropOffAddress}" />		
+												
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="vehicule Type : 		" />
 					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.vehicule.vehiculeType.name()}" />
+						value="#{carRentalServiceManagementBean.carRentalService.vehicule.vehiculeType.name()}" />
 
 					<br />
 					<br />
@@ -128,20 +72,21 @@
 
 					<h:outputLabel value="vehicule brand: 	" />
 					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.vehicule.brand}" />
+						value="#{carRentalServiceManagementBean.carRentalService.vehicule.brand}" />
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="price: 	" />
 					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.price}	" />
-					<h:outputLabel value="€ / Person" />
+						value="#{carRentalServiceManagementBean.carRentalService.price}	" />
+					<h:outputLabel value="€ " />	
 					<br />
 					<br />
 					<hr />
-					<h:outputLabel value="Conductor: 	" />
+					<h:outputLabel value="Owner: 	" />
 					<h:outputText
-						value="#{carPoolingManagementBean.carPoolingService.vehicule.userAccount.username}" />
+						value="#{carRentalServiceManagementBean.carRentalService.vehicule.userAccount.username}	" />
+					
 					<br />
 					<br />
 					<hr />

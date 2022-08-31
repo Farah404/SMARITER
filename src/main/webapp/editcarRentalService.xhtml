@@ -56,11 +56,7 @@
 							a:placeholder="#{carRentalServiceManagementBean.carRentalService.price}"
 							value="#{carRentalServiceManagementBean.carRentalService.price}" />
 
-						<h:outputLabel value="Publication Date" />
-						<h:inputText
-							a:placeholder="#{carRentalServiceManagementBean.carRentalService.publicationDate}"
-							value="#{carRentalServiceManagementBean.carRentalService.publicationDate}" />
-
+						
 						<h:outputLabel value="start Date" />
 						<h:inputText
 							a:placeholder="#{carRentalServiceManagementBean.carRentalService.startDate}"
@@ -88,22 +84,17 @@
 							value="#{carRentalServiceManagementBean.carRentalService.vehicule.brand}" />
 	
 							<h:selectOneRadio
-								value="#{carRentalServiceManagementBean.carRentalService.vehicule}"> 
-								<f:selectItem
-									itemValue="#{carRentalServiceManagementBean.carRentalService.vehicule.isElectric()}"
-									itemLabel="Electric vehicule" />
-								<f:selectItem
-									itemValue="#{carRentalServiceManagementBean.carRentalService.vehicule.isHybrid()}"
-									itemLabel="Hybrid vehicule" />
-								<f:selectItem
-									itemValue="#{carRentalServiceManagementBean.carRentalService.vehicule.isManual()}"
-									itemLabel="Manual vehicule" />
+								value="#{carRentalServiceManagementBean.carRentalService.vehicule.vehiculeType}"> 
+								<f:selectItems value="#{carRentalServiceManagementBean.vehiculeType()}"
+									var="vehiculeType"
+									itemValue="#{vehiculeType}"
+									itemLabel="#{vehiculeType}" />
 							</h:selectOneRadio>
 
 							<br />
 
 						<h:commandButton class="btn-signin"
-							action="#{carRentalServiceManagementBean.updapte()}"
+							action="#{carRentalServiceManagementBean.update()}"
 							value="Valide your Update" />
 							
 							

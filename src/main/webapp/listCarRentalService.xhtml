@@ -22,14 +22,16 @@
 			<h:outputScript library="js" name="faq.js" />
 			<div class="container">
 
-				<hr />
-				<hr />
+				<br />
+				<br />
+				<br />
+				<br />
 				<hr />
 
 				<h:form>
 
 					<h:dataTable class="styled-table" id="carRentalService"
-						value="#{carRentalServiceManagementBean.carRentalService}"
+						value="#{carRentalServiceManagementBean.carRentalServiceList}"
 						var="carRentalService">
 
 						<h:column>
@@ -76,9 +78,9 @@
 							<f:facet name="header">Details</f:facet>
 							<h:panelGrid>
 								<h:commandButton value="Detail"
-									action="#{carPoolingManagementBean.detail()}">
-									<f:param name="carPoolingServiceId"
-										value="#{carPoolingService}"></f:param>
+									action="#{carRentalServiceManagementBean.detail(carRentalService.id)}">
+									<f:param name="carRentalServiced"
+										value="#{carRentalService}"></f:param>
 								</h:commandButton>
 							</h:panelGrid>
 						</h:column>
@@ -86,7 +88,7 @@
 							<f:facet name="header">Delete</f:facet>
 							<h:panelGrid>
 								<h:commandButton
-									action="#{carRentalServiceManagementBean.delete(carRentalServiceManagementBean.carRentalService.id)}"
+									action="#{carRentalServiceManagementBean.delete(carRentalService.id)}"
 									value="Delete" />
 							</h:panelGrid>
 						</h:column>

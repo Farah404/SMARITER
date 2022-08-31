@@ -123,7 +123,7 @@ public class DataSet {
 	Vehicule vi =new Vehicule();
 	vi.setBrand("Audi");
 	vi.setVehiculeType(VehiculeType.MANUAL);
-	vi.setVehiculePowerType(VehiculePowerType.DIESEL);;
+	vi.setVehiculePowerType(VehiculePowerType.DIESEL);
 	vi.setRegistrationNumber("ZAZA1234");
 	vi.setUserAccount(ui);
 	

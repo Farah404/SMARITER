@@ -32,15 +32,10 @@ public class CarPoolingManagementBean implements Serializable {
 	@Inject
 	private CarPoolingServiceDao carPoolingServiceDao;
 
-	private List<CarPoolingService> carPoolingServiceList;
-
 	private CarPoolingService carPoolingService = new CarPoolingService();
 	
-//	private TrajectoryType trajectoryType;
-//	private Vehicule vehicule =new Vehicule();
-
-
-
+	private List<CarPoolingService> carPoolingServiceList;
+	
 	public void init() throws IOException {
 		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		
