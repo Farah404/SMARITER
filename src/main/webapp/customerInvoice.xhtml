@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>SmarIter</title>
+</h:head>
+
+
+<h:body>
+	<ui:composition template="#{templateBean.templatePath()}">
+		<ui:define name="content">
+		<h:outputScript library="js" name = "iter.js"/>
+			 <div class="wrapper"> <img width="100%" src="media/gif/coding/abstract.gif" />
+
+			</div>
+		<div class="headerText animate-opacity">Create a website without limits</div>
+		<div class="headerSubtext animate-opacity">Discover the platform that gives you the freedom to create, design, <br />manage and develop your web presence exactly the way you want.</div>
+		<div class="button headerButton animate-opacity"><h:outputLink value="#{urlPathBean.goToStartService()}">Get Started</h:outputLink></div>
+
+<div class="container invoice" style="border-color: black">
+
+  <h1>Invoice</h1>
+  
+  <div class="invoice-id"># 0002</div>
+
+  <img src="/images/logo/codepen-logo-black.svg" alt="CodePen Logo" class="invoice-logo" />
+
+  <div class="grid group invoice-parties invoice-grid">
+
+    <div class="grid-1-2">
+      <div class="invoice-module">
+        <h3>To</h3>
+        <pre>Some Company
+ 123 Street St
+ Madison, WI 53555</pre>
+      </div>
+    </div>
+
+    <div class="grid-1-2">
+      <div class="invoice-module">
+        <h3>From</h3>
+        CodePen<br />
+        1242 NW Colonial Dr<br />
+        Bend OR 97701
+      </div>
+    </div>
+
+  </div>
+
+  <div class="grid group invoice-paid-details invoice-grid">
+    <div class="grid-1-1">
+      <div class="invoice-module">
+        <h3>For</h3>
+        <div class="invoice-for">
+          Display advertising on codepen.io, running February 1, 2014 to February 28, 2014.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid group invoice-details invoice-grid">
+
+    <div class="grid-1-2">
+      <div class="invoice-module">
+        <h3>Amount Due</h3>
+        <div class="amount-due-amount">$125.00</div>
+      </div>
+    </div>
+
+    <div class="grid-1-2">
+      <div class="invoice-module">
+        <h3>Due Date</h3>
+        <div class="due-date-date">2014-02-15</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="paid-line">
+    <img src="/images/advertising/paid.svg" alt="Paid" class="paid-stamp" />
+    2014-01-31
+  </div>
+
+</div>
+
+		</ui:define>
+	</ui:composition>
+
+
+</h:body>
+</html>

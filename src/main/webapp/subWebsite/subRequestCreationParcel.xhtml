@@ -15,7 +15,7 @@
 
 				<div class="container bootstrap snippets bootdey">
 					<div class="panel-body inf-content">
-					<h4>Demander un service de transport de colis</h4>
+					<h4>Deposer une demande service de transport de colis</h4>
 						<div class="row">
 							<div class="col-md-4">
 								
@@ -30,46 +30,55 @@
 
 								<div class="form-outline mb-3">
 									Date de Debut
-									<h:inputText class="form-control" id="startDate"
-										a:placeholder="dd-MM-YYYY" type="datetime-local"
-										value="#{createParcelServiceBean.ps.startDate}">
-										<f:convertDateTime pattern="dd-MM-yyyy" />
-									</h:inputText>
+									
+									<h:inputText class="form-control" id="startDateString"
+										a:placeholder="2018-05-05T11:50:55"
+										value="#{createParcelServiceBean.startDate}" />
+									
+<!-- 									<h:inputText class="form-control" id="startDate" -->
+<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
+<!-- 										value="#{createParcelServiceBean.ps.startDate}"> -->
+<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+<!-- 									</h:inputText> -->
 									<br />
 								</div>
 
 								<div class="form-floating mb-3">
 									Adresse de départ
 									<h:inputText class="form-control" id="pickUpAddress"
-										a:placeholder="Prix en EcoCoins"
-										value="#{createParcelServiceBean.ps.trajectory.pickUpAddress}" />
+										a:placeholder=""
+										value="#{createParcelServiceBean.trajectory.pickUpAddress}" />
 									<br />
 								</div>
 
 								<div class="form-outline mb-3">
 									Date de fin
-									<h:inputText class="form-control" id="endDate"
-										a:placeholder="dd-MM-YYYY" type="datetime-local"
-										value="#{createParcelServiceBean.ps.endDate}">
-										<f:convertDateTime pattern="dd-MM-yyyy" />
-									</h:inputText>
+									<h:inputText class="form-control" id="endDateString"
+										a:placeholder="2018-05-05T11:50:55"
+										value="#{createParcelServiceBean.endDate}" />
+									
+<!-- 									<h:inputText class="form-control" id="endDate" -->
+<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
+<!-- 										value="#{createParcelServiceBean.ps.endDate}"> -->
+<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+<!-- 									</h:inputText> -->
 									<br />
 								</div>
 
 								<div class="form-floating mb-3">
 									Adresse d'arrivée
 									<h:inputText class="form-control" id="deliveryAddress"
-										a:placeholder="Prix en EcoCoins"
-										value="#{createParcelServiceBean.ps.trajectory.deliveryAddress}" />
+										a:placeholder=""
+										value="#{createParcelServiceBean.trajectory.deliveryAddress}" />
 									<br />
 								</div>
 								
 								<div class="form-outline mb-3">
 									Poids en kilogrammes
 									<h:inputText class="form-control" id="poids"
-										a:placeholder="Prix en EcoCoins"
+										a:placeholder=""
 										value="#{createParcelServiceBean.ps.weightKilogrammes}" />
-									<br />tText>
+									<br />
 									<br />
 								</div>
 
@@ -85,7 +94,7 @@
 
 								<h:commandLink class="btn btn-success"
 									action="#{createParcelServiceBean.createRequest()}"
-									value="Je depose ma demande prestation" />
+									value="Je depose ma demande de prestation" />
 							</div>
 
 							<div class="col-md-4">
@@ -93,31 +102,31 @@
 								<div class="form-floating mb-3">
 									Arret 1
 									<h:inputText class="form-control" id="firstStop"
-										a:placeholder="Nombre de sièges disponibles"
-										value="#{createParcelServiceBean.ps.trajectory.itinerary.firstStopAddress}" />
+										a:placeholder=""
+										value="#{createParcelServiceBean.itinerary.firstStopAddress}" />
 									<br />
 								</div>
 								
 								<div class="form-floating mb-3">
 									Arret 2
 									<h:inputText class="form-control" id="secondStop"
-										a:placeholder="Nombre de sièges disponibles"
-										value="#{createParcelServiceBean.ps.trajectory.itinerary.secondStopAddress}" />
+										a:placeholder=""
+										value="#{createParcelServiceBean.itinerary.secondStopAddress}" />
 									<br />
 								</div>
 								
 								<div class="form-floating mb-3">
 									Arret 3
 									<h:inputText class="form-control" id="thirdStop"
-										a:placeholder="Nombre de sièges disponibles"
-										value="#{createParcelServiceBean.ps.trajectory.itinerary.thirdStopAddress}" />
+										a:placeholder=""
+										value="#{createParcelServiceBean.itinerary.thirdStopAddress}" />
 									<br />
 								</div>
 								
 								<div class="form-outline mb-3">
 									Type du trajet<br />
 									<h:selectOneMenu id="trajectoryType" class="form-control"
-										value="#{ccreateParcelServiceBean.ps.trajectory.trajectoryType}">
+										value="#{createParcelServiceBean.trajectory.trajectoryType}">
 										<f:selectItems
 											value="#{createParcelServiceBean.trajectoryTypeValues()}"
 											var="s" itemLabel="#{s.label}" itemValue="#{s}" />

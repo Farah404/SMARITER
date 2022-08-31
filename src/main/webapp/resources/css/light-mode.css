@@ -2132,3 +2132,81 @@ float:left;
     width: 50px;
     cursor: pointer;
 }
+
+
+.invoice {
+  color: #222;
+  padding: 3rem 2rem 4rem 3rem;
+  width: 600px;
+  margin: 3rem auto;
+  position: relative;
+  border: 1px solid #ccc;
+}
+.invoice h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+.invoice h3 {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin: 0 0 1rem 0;
+  color: #999;
+}
+
+.invoice-id {
+  color: #999;
+  margin: 0 0 2rem 0;
+}
+
+.invoice-logo {
+  position: absolute;
+  top: 3.3rem;
+  right: 3rem;
+  width: 120px;
+}
+
+.invoice-grid {
+  margin: 0 0 2rem 0;
+}
+.invoice-grid > div {
+  padding-right: 1rem;
+}
+.invoice-grid pre {
+  margin: 0;
+  font-family: inherit;
+}
+
+.invoice-module {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  min-height: 100px;
+}
+
+.amount-due-amount, .due-date-date {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.paid-line {
+  padding: 2rem 0 1rem 0;
+  text-align: center;
+}
+.paid-line img {
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+
+.grid [class^=grid-] {
+  float: left;
+}
+.grid .grid-1-2 {
+  width: 50%;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}

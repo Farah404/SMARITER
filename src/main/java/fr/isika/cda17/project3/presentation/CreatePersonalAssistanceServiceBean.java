@@ -85,6 +85,8 @@ public class CreatePersonalAssistanceServiceBean {
 		pas.setServicetype(ServiceType.PERSONAL_ASSISTANCE);
 		pas.setPublicationDate(LocalDateTime.now());
 		pas.setIsRequest(true);
+		pas.setStartDate(LocalDateTime.parse(startDate));
+		pas.setEndDate(LocalDateTime.parse(endDate));
 		userAccountsPurchasers.add(userAccount);
 		pas.setUserAccountsPurchasers(userAccountsPurchasers);
 		PersonalAssistanceService created = personalAssistanceServiceDao.create(pas);

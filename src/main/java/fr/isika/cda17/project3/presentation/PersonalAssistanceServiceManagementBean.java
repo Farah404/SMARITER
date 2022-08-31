@@ -19,15 +19,12 @@ import fr.isika.cda17.project3.repository.serviceManagement.PersonalAssistanceSe
 
 @ManagedBean
 @ViewScoped
-public class PersonalAssistanceServiceBean implements Serializable{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class PersonalAssistanceServiceManagementBean implements Serializable {
 
-	private static final String LIST_PERSONALASSISTANCESERVICE_XHTML = "listPersonalAssistanceService.xhtml";
-	
+    private static final String SERVICE_LIST_XHTML = "subServiceList.xhtml";
+
+    private static final long serialVersionUID = 1L;
+
 	@Inject
 	private PersonalAssistanceServiceDao assistanceServiceDao;
 	
@@ -63,18 +60,18 @@ public class PersonalAssistanceServiceBean implements Serializable{
 		}
 		public void redirectError() throws IOException {
 			ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-			ec.redirect(LIST_PERSONALASSISTANCESERVICE_XHTML);
+			ec.redirect(SERVICE_LIST_XHTML);
 		}
 		public String updapte() {
 			assistanceServiceDao.update(personalAssistanceService);
 			System.out.println((personalAssistanceService));
-			return LIST_PERSONALASSISTANCESERVICE_XHTML;
+			return SERVICE_LIST_XHTML;
 		}
 		
 		public String detail(Long id) {
 			assistanceServiceDao.toString();
 			
-			return "detailAndBookingCarPoolingService.xhtml?faces-redirect=true&carPoolingServiceId=" + id;
+			return "reservePersonalAssistanceService.xhtml?faces-redirect=true&personalAssistanceServiceId=" + id;
 		}
 			
 		private void refresh() {
@@ -134,6 +131,5 @@ public class PersonalAssistanceServiceBean implements Serializable{
 	public void setPersonalAssistanceService(PersonalAssistanceService personalAssistanceService) {
 		this.personalAssistanceService = personalAssistanceService;
 	}
-	
-
 }
+	

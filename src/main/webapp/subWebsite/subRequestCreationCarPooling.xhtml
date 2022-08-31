@@ -15,7 +15,7 @@
 
 				<div class="container bootstrap snippets bootdey">
 					<div class="panel-body inf-content">
-					<h4>Proposer un service de covoiturage</h4>
+					<h4>Deposer une demande de service de covoiturage</h4>
 						<div class="row">
 							<div class="col-md-4">
 								
@@ -30,11 +30,16 @@
 
 								<div class="form-outline mb-3">
 									Date de Debut
-									<h:inputText class="form-control" id="startDate"
-										a:placeholder="dd-MM-YYYY" type="datetime-local"
-										value="#{createCarPoolingServiceBean.cps.startDate}">
-										<f:convertDateTime pattern="dd-MM-yyyy" />
-									</h:inputText>
+									
+									<h:inputText class="form-control" id="startDateString"
+										a:placeholder="2018-05-05T11:50:55"
+										value="#{createCarPoolingServiceBean.startDate}" />
+										
+<!-- 									<h:inputText class="form-control" id="startDate" a:placeholder="dd-MM-YYYY" type="datetime-local" value="#{createCarPoolingServiceBean.cps.startDate}"> -->
+<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+<!-- 									</h:inputText> -->
+								
+									
 									<br />
 								</div>
 
@@ -42,17 +47,22 @@
 									Adresse de départ
 									<h:inputText class="form-control" id="pickUpAddress"
 										a:placeholder="Adresse de départ"
-										value="#{createCarPoolingServiceBean.cps.trajectory.pickUpAddress}" />
+										value="#{createCarPoolingServiceBean.trajectory.pickUpAddress}" />
 									<br />
 								</div>
 
 								<div class="form-outline mb-3">
 									Date de fin
-									<h:inputText class="form-control" id="endDate"
-										a:placeholder="dd-MM-YYYY" type="datetime-local"
-										value="#{createCarPoolingServiceBean.cps.endDate}">
-										<f:convertDateTime pattern="dd-MM-yyyy" />
-									</h:inputText>
+									
+									<h:inputText class="form-control" id="endDateString"
+										a:placeholder="2018-05-05T11:50:55"
+										value="#{createCarPoolingServiceBean.endDate}" />
+										
+<!-- 									<h:inputText class="form-control" id="endDate" -->
+<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
+<!-- 										value="#{createCarPoolingServiceBean.cps.endDate}"> -->
+<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+<!-- 									</h:inputText> -->
 									<br />
 								</div>
 
@@ -60,7 +70,7 @@
 									Adresse d'arrivée
 									<h:inputText class="form-control" id="deliveryAddress"
 										a:placeholder="Adresse d'arrivée"
-										value="#{createCarPoolingServiceBean.cps.trajectory.deliveryAddress}" />
+										value="#{createCarPoolingServiceBean.trajectory.deliveryAddress}" />
 									<br />
 								</div>
 
@@ -92,10 +102,9 @@
 								</div>
 
 								<h:commandLink class="btn btn-success"
-									action="#{createCarPoolingServiceBean.createCarPoolingServiceRequest()}"
+									action="#{createCarPoolingServiceBean.createRequest()}"
 									value="Je depose ma demande de prestation" />
 							</div>
-
 
 							<div class="col-md-4">
 							
@@ -103,7 +112,7 @@
 									Durée trajet approximative en heure
 									<h:inputText class="form-control" id="duration"
 										a:placeholder="Durée trajet approximative en heure"
-										value="#{createCarPoolingServiceBean.cps.trajectory.durationHours}" />
+										value="#{createCarPoolingServiceBean.trajectory.durationHours}" />
 									<br />
 								</div>
 							
@@ -111,7 +120,7 @@
 									Nombre d'arrêt
 									<h:inputText class="form-control" id="stopsNb"
 										a:placeholder="Nombre d'arrêt"
-										value="#{createCarPoolingServiceBean.cps.trajectory.stopNumber}" />
+										value="#{createCarPoolingServiceBean.trajectory.stopNumber}" />
 									<br />
 								</div>
 								
@@ -119,7 +128,7 @@
 									Durée arret en minute
 									<h:inputText class="form-control" id="stopsDuration"
 										a:placeholder="Durée arret en minute"
-										value="#{createCarPoolingServiceBean.cps.trajectory.stopDurationMinutes}" />
+										value="#{createCarPoolingServiceBean.trajectory.stopDurationMinutes}" />
 									<br />
 								</div>
 								
@@ -127,7 +136,7 @@
 									Arret 1
 									<h:inputText class="form-control" id="firstStop"
 										a:placeholder="Arret 1"
-										value="#{createCarPoolingServiceBean.cps.trajectory.itinerary.firstStopAddress}" />
+										value="#{createCarPoolingServiceBean.itinerary.firstStopAddress}" />
 									<br />
 								</div>
 								
@@ -135,7 +144,7 @@
 									Arret 2
 									<h:inputText class="form-control" id="secondStop"
 										a:placeholder="Arret 2"
-										value="#{createCarPoolingServiceBean.cps.trajectory.itinerary.secondStopAddress}" />
+										value="#{createCarPoolingServiceBean.itinerary.secondStopAddress}" />
 									<br />
 								</div>
 								
@@ -143,14 +152,14 @@
 									Arret 3
 									<h:inputText class="form-control" id="thirdStop"
 										a:placeholder="Arret 3"
-										value="#{createCarPoolingServiceBean.cps.trajectory.itinerary.thirdStopAddress}" />
+										value="#{createCarPoolingServiceBean.itinerary.thirdStopAddress}" />
 									<br />
 								</div>
 								
 								<div class="form-outline mb-3">
 									Type du trajet<br />
 									<h:selectOneMenu id="trajectoryType" class="form-control"
-										value="#{createCarPoolingServiceBean.cps.trajectory.trajectoryType}">
+										value="#{createCarPoolingServiceBean.trajectory.trajectoryType}">
 										<f:selectItems
 											value="#{createCarPoolingServiceBean.trajectoryTypeValues()}"
 											var="s" itemLabel="#{s.label}" itemValue="#{s}" />

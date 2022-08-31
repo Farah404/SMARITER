@@ -19,55 +19,53 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
 @Entity
-@Inheritance (strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Service {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private LocalDateTime publicationDate;
-    
+
     private LocalDateTime expirationDate;
-    
+
     private LocalDateTime startDate;
-    
+
     private LocalDateTime endDate;
 
     private int referenceNumber;
-    
+
     private boolean isRequest;
-    
+
     private double price;
-    
-    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-    private List <Reservation> reservations = new LinkedList<>();
-    
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Reservation> reservations = new LinkedList<>();
+
     @Enumerated(EnumType.STRING)
     private ServiceType servicetype;
 
     @OneToOne
     private UserAccount userAccountProvider;
-    
-    @OneToMany
-    private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
-    
-    
 
-	@ManyToMany
-    private List <UserAccount> userAccounts = new LinkedList<>();
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
+
+    @ManyToMany
+    private List<UserAccount> userAccounts = new LinkedList<>();
 
     public Service() {
 	super();
     }
 
-    public Service(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate, LocalDateTime endDate,
-	    int referenceNumber, boolean isRequest, double price, List<Reservation> reservations,
-	    ServiceType servicetype, UserAccount userAccountProvider, List<UserAccount> userAccountsPurchasers, List<UserAccount> userAccounts) {
+    public Service(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate,
+	    LocalDateTime endDate, int referenceNumber, boolean isRequest, double price, List<Reservation> reservations,
+	    ServiceType servicetype, UserAccount userAccountProvider, List<UserAccount> userAccountsPurchasers,
+	    List<UserAccount> userAccounts) {
 
 	super();
 	this.id = id;
@@ -83,108 +81,107 @@ public abstract class Service {
 	this.userAccountProvider = userAccountProvider;
 	this.userAccountsPurchasers = userAccountsPurchasers;
 	this.userAccounts = userAccounts;
-	
+
     }
+
     public UserAccount getUserAccountProvider() {
-		return userAccountProvider;
-	}
+	return userAccountProvider;
+    }
 
-	public void setUserAccountProvider(UserAccount userAccountProvider) {
-		this.userAccountProvider = userAccountProvider;
-	}
+    public void setUserAccountProvider(UserAccount userAccountProvider) {
+	this.userAccountProvider = userAccountProvider;
+    }
 
-	public List<UserAccount> getUserAccountsPurchasers() {
-		return userAccountsPurchasers;
-	}
+    public List<UserAccount> getUserAccountsPurchasers() {
+	return userAccountsPurchasers;
+    }
 
-	public void setUserAccountsPurchasers(List<UserAccount> userAccountsPurchasers) {
-		this.userAccountsPurchasers = userAccountsPurchasers;
-	}
+    public void setUserAccountsPurchasers(List<UserAccount> userAccountsPurchasers) {
+	this.userAccountsPurchasers = userAccountsPurchasers;
+    }
 
-	public LocalDateTime getPublicationDate() {
-        return publicationDate;
+    public LocalDateTime getPublicationDate() {
+	return publicationDate;
     }
 
     public void setPublicationDate(LocalDateTime publicationDate) {
-        this.publicationDate = publicationDate;
+	this.publicationDate = publicationDate;
     }
 
     public LocalDateTime getExpirationDate() {
-        return expirationDate;
+	return expirationDate;
     }
 
     public void setExpirationDate(LocalDateTime expirationDate) {
-        this.expirationDate = expirationDate;
+	this.expirationDate = expirationDate;
     }
 
     public LocalDateTime getStartDate() {
-        return startDate;
+	return startDate;
     }
 
     public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
+	this.startDate = startDate;
     }
 
     public LocalDateTime getEndDate() {
-        return endDate;
+	return endDate;
     }
 
     public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
+	this.endDate = endDate;
     }
 
-	public int getReferenceNumber() {
-        return referenceNumber;
+    public int getReferenceNumber() {
+	return referenceNumber;
     }
 
     public void setReferenceNumber(int referenceNumber) {
-        this.referenceNumber = referenceNumber;
+	this.referenceNumber = referenceNumber;
     }
 
     public boolean getIsRequest() {
-        return isRequest;
+	return isRequest;
     }
 
     public void setIsRequest(boolean isRequest) {
-        this.isRequest = isRequest;
+	this.isRequest = isRequest;
     }
 
     public double getPrice() {
-        return price;
+	return price;
     }
 
     public void setPrice(double price) {
-        this.price = price;
+	this.price = price;
     }
 
     public ServiceType getServicetype() {
-        return servicetype;
+	return servicetype;
     }
 
     public void setServicetype(ServiceType servicetype) {
-        this.servicetype = servicetype;
+	this.servicetype = servicetype;
     }
 
     public List<UserAccount> getUserAccounts() {
-        return userAccounts;
+	return userAccounts;
     }
 
     public void setUserAccounts(List<UserAccount> userAccounts) {
-        this.userAccounts = userAccounts;
+	this.userAccounts = userAccounts;
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
 
     public List<Reservation> getReservations() {
-		return reservations;
-	}
+	return reservations;
+    }
 
-	public void setReservations(List<Reservation> reservation) {
-		this.reservations = reservation;
-	}
-
-
+    public void setReservations(List<Reservation> reservation) {
+	this.reservations = reservation;
+    }
 
 }

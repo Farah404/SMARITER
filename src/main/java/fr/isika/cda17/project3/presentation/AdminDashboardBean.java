@@ -36,7 +36,6 @@ public class AdminDashboardBean implements Serializable {
 		System.out.println(id);
 		if(id != null) {
 		    administrator = administratorDao.findByAdminAccountId(id);
-//		customer => entityAccount == id
 		if (administrator == null) {
 			System.out.println("this is bullshit");
 			}

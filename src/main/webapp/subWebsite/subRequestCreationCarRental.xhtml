@@ -8,6 +8,11 @@
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 
+<f:metadata>
+	<f:event listener="#{createCarRentalServiceBean.init()}" type="preRenderView">
+	</f:event>
+</f:metadata>
+
 <h:body>
 	<ui:composition template="#{templateBean.subtemplatePath()}">
 		<ui:define name="subcontent">
@@ -15,7 +20,7 @@
 
 				<div class="container bootstrap snippets bootdey">
 					<div class="panel-body inf-content">
-					<h4>Deposer une demande de location de véhicule</h4>
+					<h4>Deposer une demande de service de location de véhicule</h4>
 						<div class="row">
 							<div class="col-md-4">
 								
@@ -30,36 +35,46 @@
 
 								<div class="form-outline mb-3">
 									Date de Debut
-									<h:inputText class="form-control" id="startDate"
-										a:placeholder="dd-MM-YYYY" type="datetime-local"
-										value="#{createCarRentalServiceBean.crs.startDate}">
-										<f:convertDateTime pattern="dd-MM-yyyy" />
-									</h:inputText>
+									
+									<h:inputText class="form-control" id="startDateString"
+										a:placeholder="2018-05-05T11:50:55"
+										value="#{createCarRentalServiceBean.startDate}" />
+									
+<!-- 									<h:inputText class="form-control" id="startDate" -->
+<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
+<!-- 										value="#{createCarRentalServiceBean.crs.startDate}"> -->
+<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+<!-- 									</h:inputText> -->
 									<br />
 								</div>
 
 								<div class="form-floating mb-3">
 									Adresse de départ
 									<h:inputText class="form-control" id="pickUpAddress"
-										a:placeholder="Prix en EcoCoins"
+										a:placeholder="Adresse de départ"
 										value="#{createCarRentalServiceBean.crs.keyPickUpAddress}" />
 									<br />
 								</div>
 
 								<div class="form-outline mb-3">
 									Date de fin
-									<h:inputText class="form-control" id="endDate"
-										a:placeholder="dd-MM-YYYY" type="datetime-local"
-										value="#{createCarRentalServiceBean.crs.endDate}">
-										<f:convertDateTime pattern="dd-MM-yyyy" />
-									</h:inputText>
+									
+									<h:inputText class="form-control" id="endDateString"
+										a:placeholder="2018-05-05T11:50:55"
+										value="#{createCarRentalServiceBean.endDate}" />
+										
+<!-- 									<h:inputText class="form-control" id="endDate" -->
+<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
+<!-- 										value="#{createCarRentalServiceBean.crs.endDate}"> -->
+<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+<!-- 									</h:inputText> -->
 									<br />
 								</div>
 
 								<div class="form-floating mb-3">
 									Adresse d'arrivée
 									<h:inputText class="form-control" id="deliveryAddress"
-										a:placeholder="Prix en EcoCoins"
+										a:placeholder="Adresse d'arrivée"
 										value="#{createCarRentalServiceBean.crs.keyDropOffAddress}" />
 									<br />
 								</div>
@@ -74,59 +89,49 @@
 
 								<h:commandLink class="btn btn-success"
 									action="#{createCarRentalServiceBean.createRequest()}"
-									value="Je depose ma demande de prestation" />
+									value="Je depose ma demande prestation" />
 							</div>
 
 							<div class="col-md-4">
 							
 							<div class="form-floating mb-3">
-							<h4>Mon véhicule (remplir ou deja renseigné?)</h4>
 									Brand
-									<h:inputText class="form-control" id="brancVehicule"
-										a:placeholder="Nombre de sièges disponibles"
-										value="#{createCarRentalServiceBean.crs.vehicule.brand}" />
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.brand} </div>
 									<br />
 								</div>
 							
 							<div class="form-floating mb-3">
 									Registration Number
-									<h:inputText class="form-control" id="registrationNumber"
-										a:placeholder="Nombre de sièges disponibles"
-										value="#{createCarRentalServiceBean.crs.vehicule.registrationNumber}" />
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.registrationNumber} </div>
+									<br />
 									<br />
 								</div>
 								
 								<div class="form-floating mb-3">
 									Test technique
-									<h:inputText class="form-control" id="stopsDuration"
-										a:placeholder="Nombre de sièges disponibles"
-										value="#{createCarRentalServiceBean.crs.vehicule.technicalTestExpiration}" />
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.technicalTestExpiration} </div>
+									<br />
 									<br />
 								</div>
 								
 								<div class="form-floating mb-3">
 									Agence assurance
-									<h:inputText class="form-control" id="insuranceAgency"
-										a:placeholder="Nombre de sièges disponibles"
-										value="#{createCarRentalServiceBean.crs.vehicule.insurance.insuranceAgencyName}" />
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.insurance.insuranceAgencyName} </div>
+									<br />
 									<br />
 								</div>
 								
 								<div class="form-floating mb-3">
 									Contract Expiration
-									<h:inputText class="form-control" id="insuranceExp"
-										a:placeholder="dd-MM-YYYY" type="datetime-local"
-										value="#{createCarRentalServiceBean.crs.vehicule.insurance.insuranceContractExpiration}">
-										<f:convertDateTime pattern="dd-MM-yyyy" />
-									</h:inputText>
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.insurance.insuranceContractExpiration} </div>
+									<br />
 									<br />
 								</div>
 								
 								<div class="form-floating mb-3">
 									Contract Number
-									<h:inputText class="form-control" id="insuranceContract"
-										a:placeholder="Nombre de sièges disponibles"
-										value="#{createCarRentalServiceBean.crs.vehicule.insurance.insuranceContractNumber}" />
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.insurance.insuranceContractNumber} </div>
+									<br />
 									<br />
 								</div>
 

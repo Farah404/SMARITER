@@ -68,6 +68,8 @@ public class CreateCarRentalServiceBean {
 		crs.setIsRequest(false);
 		userAccountsPurchasers.add(userAccount);
 		crs.setUserAccountsPurchasers(userAccountsPurchasers);
+		crs.setStartDate(LocalDateTime.parse(startDate));
+		crs.setEndDate(LocalDateTime.parse(endDate));
 		CarRentalService created = carRentalServiceDao.create(crs);
 		System.out.println(created);
 	}

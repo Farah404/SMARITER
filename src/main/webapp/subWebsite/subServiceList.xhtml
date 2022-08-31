@@ -4,222 +4,423 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
-      xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core">
 
+<h:head>
+	<f:metadata>
+		<f:event listener="#{carPoolingServiceManagementBean.init()}"
+			type="preRenderView"></f:event>
+	</f:metadata>
+	<f:metadata>
+		<f:event listener="#{carRentalServiceManagementBean.init()}"
+			type="preRenderView"></f:event>
+	</f:metadata>
+	<f:metadata>
+		<f:event listener="#{parcelServiceManagementBean.init()}"
+			type="preRenderView"></f:event>
+	</f:metadata>
+		<f:metadata>
+		<f:event listener="#{personalAssistanceServiceManagementBean.init()}"
+			type="preRenderView"></f:event>
+	</f:metadata>
+</h:head>
 
 <h:body>
 	<ui:composition template="#{templateBean.subtemplatePath()}">
 		<ui:define name="subcontent">
-<h:form>
+			<h:form>
 
 
-<div class="container-fluid bg-grey">
-    @*Service List Display*@
-    <div class="table-responsive">
+				<div class="container-fluid bg-grey">
+					<div class="table-responsive">
 
-        <p style="float:left;font-variant:small-caps;font-weight:bold;font-size:larger">Propositions de prestations</p>
-        <input style="width:50%;float:right" type="text" id="serviceNoRequestInput" onkeyup="searchServiceNoRequest()" placeholder="Rechercher une proposition de prestation..." />
-        <br />
-        <br />
-        <table class="table" id="serviceNoRequestTable">
-            <thead>
-                <tr class="header">
-                    <th>Date de début</th>
-                    <th>Horaire de début</th>
-                    <th>Type de service</th>
-                    <th>Numéro de réference</th>
-                    <th>EcoMembre prestataire</th>
-                    <th>EcoPrix</th>
-                    <th>Disponibilité</th>
-                    <th>Réserver</th>
-                </tr>
-            </thead>
-            <tbody>
+						<p
+							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Covoiturage</p>
+						<input style="width: 50%; float: right" type="text"
+							id="serviceNoRequestInput" onkeyup="searchServiceNoRequest()"
+							placeholder="Rechercher une proposition de prestation..." /> <br />
+						<br />
+						<h:dataTable class="table"
+							value="#{carPoolingServiceManagementBean.carPoolingServiceList}"
+							var="carPoolingService">
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{carPoolingService.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Adresse de départ </f:facet>
+								<h:outputText
+									value="#{carPoolingService.trajectory.pickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Date et heure de départ</f:facet>
+								<h:outputText value="#{carPoolingService.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Adresse d'arrivée </f:facet>
+								<h:outputText
+									value="#{carPoolingService.trajectory.deliveryAddress}" />
+							</h:column>
 
-                    <tr class="content">
-                        <td>@carPoolingService.Service.Start.ToShortDateString()</td>
-                        <td>@carPoolingService.Service.Start.TimeOfDay</td>
+							<h:column>
+								<f:facet name="header"> Date et heure d'arrivée</f:facet>
+								<h:outputText value="#{carPoolingService.endDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Durée (heures)</f:facet>
+								<h:outputText
+									value="#{carPoolingService.trajectory.durationHours}" />
 
-                            <td>Covoiturage</td>
-                        
-                        <td>@carPoolingService.Service.ReferenceNumber</td>
-
-                            <td>@user.Account.Username</td>
-                        
-                        <td>@carPoolingService.Service.PriceEcoCoins</td>
-                        <td>@(carPoolingService.Service.IsAvailable ?"Disponible":"Terminé")</td>
-                        <td> <a href="/Service/ReserveCarPoolingService/@carPoolingService.Id"><span class="glyphicon glyphicon-info-sign  text-success"></span></a></td>
-                    </tr>
-
-                    <tr class="content">
-                        <td>@carRentalService.Service.Start.ToShortDateString()</td>
-                        <td>@carRentalService.Service.Start.TimeOfDay</td>
-
-                            <td>Location</td>
-
-                        <td>@carRentalService.Service.ReferenceNumber</td>
-
-                            <td>@user.Account.Username</td>
-
-                        <td>@carRentalService.Service.PriceEcoCoins</td>
-                        <td>@(carRentalService.Service.IsAvailable?"Disponible":"Terminé")</td>
-                        <td> <a href="/Service/ReserveCarRentalService/@carRentalService.Id"><span class="glyphicon glyphicon-info-sign  text-success"></span></a></td>
-                    </tr>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Nombre d'arrets</f:facet>
+								<h:outputText value="#{carPoolingService.trajectory.stopNumber}" />
+							</h:column>
+							<!-- 							<h:column> -->
+							<!-- 								<f:facet name="header">Durée d'arret (minutes)</f:facet> -->
+							<!-- 								<h:outputText -->
+							<!-- 									value="#{carPoolingService.trajectory.stopDurationMinutes}" /> -->
+							<!-- 							</h:column> -->
 
 
+							<h:column>
+								<f:facet name="header">Sièges disponibles</f:facet>
+								<h:outputText value="#{carPoolingService.availableSeats}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Membre EcoCar Prestataire</f:facet>
+								<h:outputText
+									value="#{carPoolingService.userAccountProvider.username}" />
+
+							</h:column>
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{carPoolingService.price}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Details</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{carPoolingManagementBean.detail(carPoolingService.id)}">
+
+										<f:param name="carPoolingServiceId"
+											value="#{carPoolingService.id}"></f:param>
+
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<!-- 							<h:column> -->
+							<!-- 								<f:facet name="header">Delete</f:facet> -->
+							<!-- 								<h:panelGrid> -->
+							<!-- 									<h:commandButton -->
+							<!-- 										action="#{carPoolingManagementBean.delete(carPoolingService.id)}" -->
+							<!-- 										value="Delete" /> -->
+							<!-- 								</h:panelGrid> -->
+							<!-- 							</h:column> -->
+							<!-- 							<h:column> -->
+							<!-- 								<f:facet name="header">Update</f:facet> -->
+							<!-- 								<h:panelGrid> -->
+							<!-- 									<h:commandButton value="Edit" -->
+							<!-- 										action="#{carPoolingManagementBean.showUpdate(carPoolingService.id)}"> -->
+
+							<!-- 										<f:param name="carPoolingServiceId" -->
+							<!-- 											value="#{carPoolingService.id}"></f:param> -->
+							<!-- 									</h:commandButton> -->
+							<!-- 								</h:panelGrid> -->
+							<!-- 							</h:column> -->
+
+						</h:dataTable>
+					</div>
+				</div>
+				<center>
+					<img src="subMedia/Images/lanscape.search.png" style="width: 80%" />
+				</center>
+				<div class="container-fluid bg-grey">
+					<div class="table-responsive">
+
+						<p
+							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Location
+							de Véhicule</p>
+						<input style="width: 50%; float: right" type="text"
+							id="serviceNoRequestInput" onkeyup="searchServiceNoRequest()"
+							placeholder="Rechercher une proposition de prestation..." /> <br />
+						<br />
+						<h:dataTable class="table" id="carRentalService"
+							value="#{carRentalServiceManagementBean.carRentalServiceList}"
+							var="carRentalService">
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{carRentalService.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Lieu de récupération des clés </f:facet>
+								<h:outputText value="#{carRentalService.keyPickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Lieu de remise des clés  </f:facet>
+								<h:outputText value="#{carRentalService.keyDropOffAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date de début</f:facet>
+								<h:outputText value="#{carRentalService.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date de fin</f:facet>
+								<h:outputText value="#{carRentalService.endDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Marque du véhicule</f:facet>
+								<h:outputText value="#{carRentalService.vehicule.brand}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Membre EcoCar Prestataire</f:facet>
+								<h:outputText
+									value="#{carRentalService.userAccountProvider.username}" />
+
+							</h:column>
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{carRentalService.price}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Details</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{carRentalServiceManagementBean.detail(carRentalService.id)}">
+										<f:param name="carRentalServiceId" value="#{carRentalService.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<!-- 							<h:column> -->
+							<!-- 								<f:facet name="header">Delete</f:facet> -->
+							<!-- 								<h:panelGrid> -->
+							<!-- 									<h:commandButton -->
+							<!-- 										action="#{carRentalServiceManagementBean.delete(carRentalService.id)}" -->
+							<!-- 										value="Delete" /> -->
+							<!-- 								</h:panelGrid> -->
+							<!-- 							</h:column> -->
+							<!-- 							<h:column> -->
+							<!-- 								<f:facet name="header">Update</f:facet> -->
+							<!-- 								<h:panelGrid> -->
+							<!-- 									<h:commandButton value="Edit" -->
+							<!-- 										action="#{carRentalServiceManagementBean.showUpdate(carRentalService.id)}"> -->
+							<!-- 										<f:param name="carRentalServiceId" -->
+							<!-- 											value="#{carRentalService.id}"></f:param> -->
+							<!-- 									</h:commandButton> -->
+							<!-- 								</h:panelGrid> -->
+							<!-- 							</h:column> -->
 
 
+						</h:dataTable>
 
-                    <tr class="content">
-                        <td>@parcelService.Service.Start.ToShortDateString()</td>
-                        <td>@parcelService.Service.Start.TimeOfDay</td>
+					</div>
+				</div>
+				<center>
+					<img src="subMedia/Images/lanscape.search.png" style="width: 80%" />
+				</center>
+				<div class="container-fluid bg-grey">
+					<div class="table-responsive">
 
-                            <td>Transport de colis</td>
+						<p
+							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Transport
+							de colis</p>
+						<input style="width: 50%; float: right" type="text"
+							id="serviceNoRequestInput" onkeyup="searchServiceNoRequest()"
+							placeholder="Rechercher une proposition de prestation..." /> <br />
+						<br />
+						<h:dataTable class="table" id="ParcelService"
+							value="#{parcelServiceManagementBean.parcelServiceList}"
+							var="parcelService">
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{parcelService.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse de départ  </f:facet>
+								<h:outputText value="#{parcelService.trajectory.pickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure de départ</f:facet>
+								<h:outputText value="#{parcelService.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse d'arrivée </f:facet>
+								<h:outputText
+									value="#{parcelService.trajectory.deliveryAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure d'arrivée</f:facet>
+								<h:outputText value="#{parcelService.endDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Code Barre</f:facet>
+								<h:outputText value="#{parcelService.barCode}" />
+							</h:column>
 
-                        <td>@parcelService.Service.ReferenceNumber</td>
+							<h:column>
+								<f:facet name="header">Fragile</f:facet>
+								<h:outputText value="#{parcelService.fragile}" />
+							</h:column>
 
-                            <td>@user.Account.Username</td>
+							<h:column>
+								<f:facet name="header">Volumineux</f:facet>
+								<h:outputText value="#{parcelService.atypicalVolume}" />
+							</h:column>
 
-                        <td>@parcelService.Service.PriceEcoCoins</td>
-                        <td>@(parcelService.Service.IsAvailable?"Disponible":"Terminé")</td>
-                        <td> <a href="/Service/ReserveParcelService/@parcelService.Id"><span class="glyphicon glyphicon-info-sign  text-success"></span></a></td>
-                    </tr>
+							<h:column>
+								<f:facet name="header">Poids</f:facet>
+								<h:outputText value="#{parcelService.weightKilogrammes}" />
+							</h:column>
 
-            </tbody>
-        </table>
-    </div>
-</div>
+							<h:column>
+								<f:facet name="header">Membre EcoCar Prestataire</f:facet>
+								<h:outputText
+									value="#{parcelService.userAccountProvider.username}" />
+							</h:column>
 
-<center><img src="subMedia/Images/lanscape.search.png" style="width:80%" /></center>
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{parcelService.price}" />
+							</h:column>
 
-<!-- Requested services list-->
-<div class="container-fluid bg-grey">
-    @*Service List Display*@
-    <div class="table-responsive">
-        <p style="float:left;font-variant:small-caps;font-weight:bold;font-size:larger">Demandes de prestations</p>
-        <input style="width:50%;float:right" type="text" id="serviceIsRequestInput" onkeyup="searchServiceIsRequest()" placeholder="Rechercher une demande de prestation..." />
-        <br />
-        <br />
-        <table class="table" id="serviceIsRequestTable">
-            <thead>
-                <tr class="header">
-                    <th>Date de début</th>
-                    <th>Horaire de début</th>
-                    <th>Type de service</th>
-                    <th>Numéro de réference</th>
-                    <th>EcoMembre demandeur</th>
-                    <th>EcoPrix</th>
-                    <th>Disponibilité</th>
-                    <th>Reserver</th>
-                </tr>
-            </thead>
-            <tbody>
+							<h:column>
+								<f:facet name="header">Membre EcoCar Prestatire</f:facet>
+								<h:outputText
+									value="#{parcelService.userAccountProvider.username}" />
 
-                    <tr>
-                        <td>@carPoolingServiceRequest.Service.Start.ToShortDateString()</td>
-                        <td>@carPoolingServiceRequest.Service.Start.TimeOfDay</td>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{parcelService.price}" />
+							</h:column>
 
-                            <td>Covoiturage</td>
-
-                        <td>@carPoolingServiceRequest.Service.ReferenceNumber</td>
-
-                            <td>@user.Account.Username</td>
-                        
-                        <td>@carPoolingServiceRequest.Service.PriceEcoCoins</td>
-                        <td>@(carPoolingServiceRequest.Service.IsAvailable ? "Disponible":"Terminé")</td>
-                        <td> <a href="/Service/RespondToCarPoolRequest/@carPoolingServiceRequest.Id"><span class="glyphicon glyphicon-info-sign  text-success"></span></a></td>
-                   </tr>
-
-
-                    <tr>
-                        <td>@carRentalServiceRequest.Service.Start.ToShortDateString()</td>
-                        <td>@carRentalServiceRequest.Service.Start.TimeOfDay</td>
-
-                            <td>Location</td>
-                        
-                        <td>@carRentalServiceRequest.Service.ReferenceNumber</td>
-
-                            <td>@user.Account.Username</td>
-                        
-                        <td>@carRentalServiceRequest.Service.PriceEcoCoins</td>
-                        <td>@(carRentalServiceRequest.Service.IsAvailable ? "Disponible":"Terminé")</td>
-                        <td> <a href="/Service/RespondToCarRentalRequest/@carRentalServiceRequest.Id"><span class="glyphicon glyphicon-info-sign  text-success"></span></a></td>
-                    </tr>
-
-                    <tr>
-                        <td>@parcelServiceRequest.Service.Start.ToShortDateString()</td>
-                        <td>@parcelServiceRequest.Service.Start.TimeOfDay</td>
-
-                            <td>Transport de colis</td>
-                        
-                        <td>@parcelServiceRequest.Service.ReferenceNumber</td>
-
-                            <td>@user.Account.Username</td>
-                        
-                        <td>@parcelServiceRequest.Service.PriceEcoCoins</td>
-                        <td>@(parcelServiceRequest.Service.IsAvailable ? "Disponible":"Terminé")</td>
-                        <td> <a href="/Service/RespondToParcelRequest/@parcelServiceRequest.Id"><span class="glyphicon glyphicon-info-sign  text-success"></span></a></td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-    </div>
-</div>
-<br />
-
-
-
-
-
-
-
-
-
-
-<script>
-    function searchServiceNoRequest() {
-        var input, filter, table, tr, td, cell, i, j;
-        filter = document.getElementById("serviceNoRequestInput").value.toLowerCase();
-        table = document.getElementById("serviceNoRequestTable");
-        tr = table.getElementsByTagName("tr");
-        for (i = 1; i &lt; tr.length; i++) {
-            tr[i].style.display = "none";
-            const tdArray = tr[i].getElementsByTagName("td");
-            for (var j = 0; j &lt; tdArray.length; j++) {
-                const cellValue = tdArray[j];
-                if (cellValue &amp;&amp; cellValue.innerHTML.toLowerCase().indexOf(filter) &gt; -1) {
-                    tr[i].style.display = "";
-                    break;
-                }
-            }
-        }
-    }
-</script>
-<script>
-    function searchServiceIsRequest() {
-        var input, filter, table, tr, td, cell, i, j;
-        filter = document.getElementById("serviceIsRequestInput").value.toLowerCase();
-        table = document.getElementById("serviceIsRequestTable");
-        tr = table.getElementsByTagName("tr");
-        for (i = 1; i &lt; tr.length; i++) {
-            tr[i].style.display = "none";
-            const tdArray = tr[i].getElementsByTagName("td");
-            for (var j = 0; j &lt; tdArray.length; j++) {
-                const cellValue = tdArray[j];
-                if (cellValue &amp;&amp; cellValue.innerHTML.toLowerCase().indexOf(filter) &gt; -1) {
-                    tr[i].style.display = "";
-                    break;
-                }
-            }
-        }
-    }
-</script>
+							<h:column>
+								<f:facet name="header">Details</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{parcelServiceManagementBean.detail(parcelService.id)}">
+										<f:param name="parcelServiceId" value="#{parcelService.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<!-- 							<h:column> -->
+							<!-- 								<f:facet name="header">Delete</f:facet> -->
+							<!-- 								<h:panelGrid> -->
+							<!-- 									<h:commandButton -->
+							<!-- 										action="#{carRentalServiceManagementBean.delete(carRentalService.id)}" -->
+							<!-- 										value="Delete" /> -->
+							<!-- 								</h:panelGrid> -->
+							<!-- 							</h:column> -->
+							<!-- 							<h:column> -->
+							<!-- 								<f:facet name="header">Update</f:facet> -->
+							<!-- 								<h:panelGrid> -->
+							<!-- 									<h:commandButton value="Edit" -->
+							<!-- 										action="#{carRentalServiceManagementBean.showUpdate(carRentalService.id)}"> -->
+							<!-- 										<f:param name="carRentalServiceId" -->
+							<!-- 											value="#{carRentalService.id}"></f:param> -->
+							<!-- 									</h:commandButton> -->
+							<!-- 								</h:panelGrid> -->
+							<!-- 							</h:column> -->
 
 
+						</h:dataTable>
+					</div>
+				</div>
+				<center>
+					<img src="subMedia/Images/lanscape.search.png" style="width: 80%" />
+				</center>
+				<div class="container-fluid bg-grey">
+					<div class="table-responsive">
+
+						<p
+							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">PersonalAssistance</p>
+						<input style="width: 50%; float: right" type="text"
+							id="serviceNoRequestInput" onkeyup="searchServiceNoRequest()"
+							placeholder="Rechercher une proposition de prestation..." /> <br />
+						<br />
+						<h:dataTable class="table" id="PersonalAssistance"
+							value="#{personalAssistanceServiceManagementBean.personnalAssistanceServiceList}"
+							var="personalAssistance">
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{personnalAssistanceService.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse de départ  </f:facet>
+								<h:outputText value="#{personnalAssistanceService.trajectory.pickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure de départ</f:facet>
+								<h:outputText value="#{personnalAssistanceService.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse d'arrivée </f:facet>
+								<h:outputText
+									value="#{personnalAssistanceService.trajectory.deliveryAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure d'arrivée</f:facet>
+								<h:outputText value="#{personnalAssistanceService.endDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Membre EcoCar Prestataire</f:facet>
+								<h:outputText
+									value="#{personnalAssistanceService.userAccountProvider.username}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{personnalAssistanceService.price}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Membre EcoCar Prestatire</f:facet>
+								<h:outputText
+									value="#{parcelService.userAccountProvider.username}" />
+
+							</h:column>
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{parcelService.price}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Details</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{personnalAssistanceServiceManagementBean.detail(personnalAssistanceService.id)}">
+										<f:param name="personnalAssistanceServiceId" value="#{personnalAssistanceService.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<!-- 							<h:column> -->
+							<!-- 								<f:facet name="header">Delete</f:facet> -->
+							<!-- 								<h:panelGrid> -->
+							<!-- 									<h:commandButton -->
+							<!-- 										action="#{carRentalServiceManagementBean.delete(carRentalService.id)}" -->
+							<!-- 										value="Delete" /> -->
+							<!-- 								</h:panelGrid> -->
+							<!-- 							</h:column> -->
+							<!-- 							<h:column> -->
+							<!-- 								<f:facet name="header">Update</f:facet> -->
+							<!-- 								<h:panelGrid> -->
+							<!-- 									<h:commandButton value="Edit" -->
+							<!-- 										action="#{carRentalServiceManagementBean.showUpdate(carRentalService.id)}"> -->
+							<!-- 										<f:param name="carRentalServiceId" -->
+							<!-- 											value="#{carRentalService.id}"></f:param> -->
+							<!-- 									</h:commandButton> -->
+							<!-- 								</h:panelGrid> -->
+							<!-- 							</h:column> -->
 
 
-</h:form>
+						</h:dataTable>
+					</div>
+				</div>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 
