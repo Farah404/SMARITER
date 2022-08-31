@@ -9,6 +9,8 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda17.project3.model.personManagement.accounts.Account;
 import fr.isika.cda17.project3.model.financialManagement.invoice.BankDetails;
 import fr.isika.cda17.project3.model.financialManagement.invoice.BillingAddress;
+import fr.isika.cda17.project3.model.financialManagement.store.ShoppingCart;
+import fr.isika.cda17.project3.model.financialManagement.store.Wallet;
 import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
 import fr.isika.cda17.project3.model.personManagement.accounts.Administrator;
 
@@ -17,6 +19,8 @@ import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
 import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 import fr.isika.cda17.project3.model.personManagement.accounts.User;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
+import fr.isika.cda17.project3.model.personManagement.assets.Insurance;
+import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 import fr.isika.cda17.project3.model.personManagement.accounts.Person;
 import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
 
@@ -96,17 +100,68 @@ public class DataSet {
 	em.persist(test);
 	
 	
-
-	UserAccount u = new UserAccount();
-	User ue = new User();
-	u.setEmail("houda@gmail.com");
-	u.setUsername("houda");
-	u.setPassword("1234");
-	ue.setLastName("madi");
-	ue.setPhoneNumber(0612121212);
-	ue.setUserAccount(u);
-	u.setAccountType(AccountType.USER);
-	em.persist(ue);
+//	User dependencies
+	BankDetails bdU = new BankDetails();
+	bd.setBankName("BankTest");
+	bd.setIban("123456789");
+	bd.setSwift("456456");
+	em.persist(bd);
+	
+	BillingAddress baU = new BillingAddress();
+	ba.setAddressLine("3 rue isika");
+	ba.setCity("Paris");
+	ba.setCountry("France");
+	ba.setPostalCode(0000);
+	ba.setRegion("France");
+	em.persist(ba);
+	
+	Insurance iU = new Insurance();
+	iU.setInsuranceAgencyName("AXA XVIIIe");
+//TODO	iU.setInsuranceContractExpiration(null);
+	iU.setInsuranceContractNumber("135903U5B");
+	em.persist(iU);
+	
+	Vehicule vU = new Vehicule();
+	vU.setAvailableSeats(4);
+	vU.setBrand("Brand");
+	vU.setHybrid(true);
+	vU.setElectric(false);
+	vU.setInsurance(iU);
+	vU.setManual(true);
+	vU.setRegistrationNumber("AA-404-ZZ");
+//TODO	vU.setTechnicalTestExpiration(null);
+	em.persist(vU);
+	
+	Wallet wU = new Wallet();
+	wU.setInternalCurrencyAmount(50);
+//TODO	wU.setStore(null);
+	em.persist(wU);
+	
+	ShoppingCart sCU = new ShoppingCart();
+//TODO	sCU.setStore(null);
+	em.persist(sCU);
+	
+	UserAccount uAU = new UserAccount();
+	uAU.setEmail("houda@test.com");
+	uAU.setUsername("houda");
+	uAU.setPassword("1234");
+	uAU.setAccountType(AccountType.USER);
+	uAU.setVehicule(vU);
+	uAU.setBankDetails(bdU);
+	uAU.setBillingAddress(baU);
+	uAU.setShoppingCart(sCU);
+	uAU.setWallet(wU);
+	em.persist(uAU);
+	
+	User u = new User();
+	u.setLastName("madi");
+	u.setPhoneNumber(0612121212);
+	u.setUserAccount(uAU);
+//TODO	u.setBirthDate(null);
+	u.setDrivingPermitNumber(135315315);
+	u.setFirstName("Houda");
+	u.setIdentityCardnumber(1141414141);
+	em.persist(u);
     }
     
     

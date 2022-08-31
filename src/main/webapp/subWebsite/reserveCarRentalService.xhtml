@@ -18,22 +18,20 @@
     <div class="panel-body inf-content">
         <div class="row">
 
-            @*Profile picture Part with buttons*@
             <div class="col-md-4">
                 <img alt="" style="width:100%;" class=" img-thumbnail" src="subMedia/Images/CarRental.png" />
 
-                @using (Html.BeginForm())
-                {
+
                     <br />
 
-                    <button class="btn btn-success center-block" type="submit">Réserver la prestation pour @Model.CarRentalService.Service.PriceEcoCoins EcoCoins</button>
-                }
+                    <button class="btn btn-success center-block" type="submit">Réserver la prestation pour EcoCoins</button>
+                
                 <br />
                     <button class="btn btn-success center-block">Profil de l'EcoMembre prestataire</button>
             </div>
             <div class="col-md-6">
                 <div class="table-responsive">
-                    @*Information*@
+                    
                     <span class="text-success"><strong>Information</strong><br /></span>
                     <table class="table table-user-information">
                         <tbody>
@@ -43,7 +41,7 @@
                                     Date et heure de départ
                                 </td>
                                 <td class="text-success">
-                                        <p>@Model.CarRentalService.Service.Start</p>
+                                        <p></p>
                                 </td>
                             </tr>
                             
@@ -53,7 +51,7 @@
                                     Date et heure de d'arrivée
                                 </td>
                                 <td class="text-success">
-                                        <p>@Model.CarRentalService.Service.End</p>
+                                        <p></p>
                                 </td>
                             </tr>
                             <tr>
@@ -62,7 +60,7 @@
                                     Lieu de remise des clés
                                 </td>
                                 <td class="text-success">
-                                        <p>@Model.CarRentalService.KeyPickUpAddress</p>
+                                        <p></p>
                                 </td>
                             </tr>
 
@@ -72,7 +70,7 @@
                                      Lieu de récupération des clés
                                 </td>
                                 <td class="text-success">
-                                        <p>@Model.CarRentalService.KeyDropOffAddress</p>
+                                        <p></p>
                                 </td>
                             </tr>
 
@@ -82,7 +80,7 @@
                                     Marque du véhicule
                                 </td>
                                 <td class="text-success">
-                                        <p>@Model.CarRentalService.Vehicule.Brand</p>
+                                        <p></p>
                                 </td>
                             </tr>
 
@@ -92,7 +90,7 @@
                                     Modèle du véhicule
                                 </td>
                                 <td class="text-success">
-                                        <p>@Model.CarRentalService.Vehicule.Model</p>
+                                        <p></p>
                                 </td>
                             </tr>
                             <tr>
@@ -101,7 +99,7 @@
                                     Hybride
                                 </td>
                                 <td class="text-success">
-                                        <p>@(Model.CarRentalService.Vehicule.Hybrid ? "Oui":"Non")</p>
+                                        <p></p>
                                 </td>
                             </tr>
 
@@ -111,7 +109,7 @@
                                     100% Electrique
                                 </td>
                                 <td class="text-success">
-                                        <p>@(Model.CarRentalService.Vehicule.Electric ? "Oui":"Non")</p>
+                                        <p></p>
                                 </td>
                             </tr>
 
@@ -121,7 +119,7 @@
                                     Nombres de places disponibles
                                 </td>
                                 <td class="text-success">
-                                        <p>@Model.CarRentalService.Vehicule.AvailableSeats</p>
+                                        <p></p>
                                 </td>
                             </tr>
                         </tbody>

@@ -30,7 +30,7 @@ public class Vehicule {
     
     private int availableSeats;
     
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade=CascadeType.MERGE)
     private Insurance insurance;
 
     public Vehicule() {

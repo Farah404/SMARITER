@@ -5,8 +5,10 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -29,15 +31,18 @@ public abstract class Service {
     
     private LocalDateTime expirationDate;
     
-    private Date startDate;
+    private LocalDateTime startDate;
     
-    private Date endDate;
+    private LocalDateTime endDate;
     
     private int referenceNumber;
     
     private boolean isRequest;
     
     private double price;
+    
+    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    private List <Reservation> reservations = new LinkedList<>();
     
     @Enumerated
     private ServiceType servicetype;
@@ -54,10 +59,9 @@ public abstract class Service {
     public Service() {
 	super();
     }
-
-    public Service(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, Date startDate, Date endDate,
-	    int referenceNumber, boolean isRequest, double price, ServiceType servicetype,
-	    List<UserAccount> userAccounts) {
+    public Service(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate, LocalDateTime endDate,
+	    int referenceNumber, boolean isRequest, double price, List<Reservation> reservations,
+	    ServiceType servicetype, UserAccount userAccountProvider, List<UserAccount> userAccountsPurchasers, List<UserAccount> userAccounts) {
 	super();
 	this.id = id;
 	this.publicationDate = publicationDate;
@@ -67,11 +71,14 @@ public abstract class Service {
 	this.referenceNumber = referenceNumber;
 	this.isRequest = isRequest;
 	this.price = price;
+	this.reservations = reservations;
 	this.servicetype = servicetype;
+	this.userAccountProvider = userAccountProvider;
+	this.userAccountsPurchasers = userAccountsPurchasers;
 	this.userAccounts = userAccounts;
     }
 
-    
+
     public UserAccount getUserAccountProvider() {
 		return userAccountProvider;
 	}
@@ -104,19 +111,19 @@ public abstract class Service {
         this.expirationDate = expirationDate;
     }
 
-    public Date getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 
@@ -163,5 +170,13 @@ public abstract class Service {
     public Long getId() {
         return id;
     }
+    
+    public List<Reservation> getReservations() {
+	return reservations;
+}
+
+public void setReservations(List<Reservation> reservation) {
+	this.reservations = reservation;
+}
 
 }
