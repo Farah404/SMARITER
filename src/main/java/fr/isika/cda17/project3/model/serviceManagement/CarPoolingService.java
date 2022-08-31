@@ -1,16 +1,15 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 
 @Entity
@@ -30,6 +29,9 @@ public class CarPoolingService extends Service{
     
     private boolean chattingAllowed;
     
+    @ManyToMany
+    private List <CarPoolingService> carPoolingServiceList = new ArrayList<CarPoolingService>();
+    
     @OneToOne(cascade=CascadeType.ALL)
     private Vehicule vehicule;
     
@@ -40,21 +42,20 @@ public class CarPoolingService extends Service{
 	super();
     }
 
-    public CarPoolingService(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate, LocalDateTime endDate,
-			int referenceNumber, boolean isRequest, double price, ServiceType servicetype,
-			List<UserAccount> userAccounts, CarPoolingType carPoolingType, int availableSeats, boolean isPetAllowed,
-		    boolean isSmokingAllowed, boolean isMusicAllowed, boolean isChattingAllowed, Vehicule vehicule, Trajectory trajectory) {
-		super(id, publicationDate, expirationDate, startDate, endDate, referenceNumber, isRequest, price, servicetype,
-				userAccounts);
-		this.carPoolingType = carPoolingType;
-		this.availableSeats = availableSeats;
-		this.petAllowed = isPetAllowed;
-		this.smokingAllowed = isSmokingAllowed;
-		this.musicAllowed = isMusicAllowed;
-		this.chattingAllowed = isChattingAllowed;
-		this.vehicule = vehicule;
-		this.trajectory = trajectory;
-	}
+	public CarPoolingService(CarPoolingType carPoolingType, int availableSeats, boolean petAllowed,
+	    boolean smokingAllowed, boolean musicAllowed, boolean chattingAllowed,
+	    List<CarPoolingService> carPoolingServiceList, Vehicule vehicule, Trajectory trajectory) {
+	super();
+	this.carPoolingType = carPoolingType;
+	this.availableSeats = availableSeats;
+	this.petAllowed = petAllowed;
+	this.smokingAllowed = smokingAllowed;
+	this.musicAllowed = musicAllowed;
+	this.chattingAllowed = chattingAllowed;
+	this.carPoolingServiceList = carPoolingServiceList;
+	this.vehicule = vehicule;
+	this.trajectory = trajectory;
+    }
 
 	public CarPoolingType getCarPoolingType() {
         return carPoolingType;
@@ -120,6 +121,13 @@ public class CarPoolingService extends Service{
 		this.trajectory = trajectory;
 	}
 
+	public List <CarPoolingService> getCarPoolingServiceList() {
+		return carPoolingServiceList;
+	}
+
+	public void setCarPoolingServiceList(List <CarPoolingService> carPoolingServiceList) {
+		this.carPoolingServiceList = carPoolingServiceList;
+	}
     
     
 }
