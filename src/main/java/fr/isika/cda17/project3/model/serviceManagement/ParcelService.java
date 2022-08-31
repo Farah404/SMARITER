@@ -1,5 +1,6 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -14,78 +15,79 @@ public class ParcelService extends Service{
     
     private double weightKilogrammes;
     
-    private Boolean isAtypicalVolume;
+    private boolean atypicalVolume;
     
-    private Boolean isFragile;
+    private boolean fragile;
     
     @OneToOne
     private Vehicule vehicule;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Trajectory trajectory;
 
     public ParcelService() {
 	super();
     }
 
-    public ParcelService(int barCode, double weightKilogrammes, Boolean isAtypicalVolume, Boolean isFragile,
+    public ParcelService(int barCode, double weightKilogrammes, boolean isAtypicalVolume, boolean isFragile,
 	    Vehicule vehicule, Trajectory trajectory) {
 	super();
 	this.barCode = barCode;
 	this.weightKilogrammes = weightKilogrammes;
-	this.isAtypicalVolume = isAtypicalVolume;
-	this.isFragile = isFragile;
+	this.atypicalVolume = isAtypicalVolume;
+	this.fragile = isFragile;
 	this.vehicule = vehicule;
 	this.trajectory = trajectory;
     }
 
-    public int getBarCode() {
-        return barCode;
-    }
+	public int getBarCode() {
+		return barCode;
+	}
 
-    public void setBarCode(int barCode) {
-        this.barCode = barCode;
-    }
+	public void setBarCode(int barCode) {
+		this.barCode = barCode;
+	}
 
-    public double getWeightKilogrammes() {
-        return weightKilogrammes;
-    }
+	public double getWeightKilogrammes() {
+		return weightKilogrammes;
+	}
 
-    public void setWeightKilogrammes(double weightKilogrammes) {
-        this.weightKilogrammes = weightKilogrammes;
-    }
+	public void setWeightKilogrammes(double weightKilogrammes) {
+		this.weightKilogrammes = weightKilogrammes;
+	}
 
-    public Boolean getIsAtypicalVolume() {
-        return isAtypicalVolume;
-    }
+	public boolean isAtypicalVolume() {
+		return atypicalVolume;
+	}
 
-    public void setIsAtypicalVolume(Boolean isAtypicalVolume) {
-        this.isAtypicalVolume = isAtypicalVolume;
-    }
+	public void setAtypicalVolume(boolean atypicalVolume) {
+		this.atypicalVolume = atypicalVolume;
+	}
 
-    public Boolean getIsFragile() {
-        return isFragile;
-    }
+	public boolean isFragile() {
+		return fragile;
+	}
 
-    public void setIsFragile(Boolean isFragile) {
-        this.isFragile = isFragile;
-    }
+	public void setFragile(boolean fragile) {
+		this.fragile = fragile;
+	}
 
-    public Vehicule getVehicule() {
-        return vehicule;
-    }
+	public Vehicule getVehicule() {
+		return vehicule;
+	}
 
-    public void setVehicule(Vehicule vehicule) {
-        this.vehicule = vehicule;
-    }
+	public void setVehicule(Vehicule vehicule) {
+		this.vehicule = vehicule;
+	}
 
-    public Trajectory getTrajectory() {
-        return trajectory;
-    }
+	public Trajectory getTrajectory() {
+		return trajectory;
+	}
 
-    public void setTrajectory(Trajectory trajectory) {
-        this.trajectory = trajectory;
-    }
+	public void setTrajectory(Trajectory trajectory) {
+		this.trajectory = trajectory;
+	}
+
     
 
 }

@@ -32,10 +32,13 @@ public class Vehicule {
     
     private String technicalTestExpiration;
     
+
     @OneToOne(cascade=CascadeType.ALL)
     private UserAccount userAccount;
     
-    @OneToOne
+    
+
+    @OneToOne(cascade=CascadeType.MERGE)
     private Insurance insurance;
 
     public Vehicule() {

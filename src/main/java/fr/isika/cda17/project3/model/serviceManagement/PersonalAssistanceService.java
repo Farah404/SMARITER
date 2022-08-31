@@ -1,5 +1,6 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToOne;
@@ -12,20 +13,20 @@ public class PersonalAssistanceService extends Service {
     @Enumerated
     private PersonalAssistanceType personalAssistanceType;
     
-    private Boolean isUrgent;
+    private boolean urgent;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Trajectory trajectory;
 
     public PersonalAssistanceService() {
 	super();
     }
 
-    public PersonalAssistanceService(PersonalAssistanceType personalAssistanceType, Boolean isUrgent,
+    public PersonalAssistanceService(PersonalAssistanceType personalAssistanceType, boolean isUrgent,
 	    Trajectory trajectory) {
 	super();
 	this.personalAssistanceType = personalAssistanceType;
-	this.isUrgent = isUrgent;
+	this.urgent = isUrgent;
 	this.trajectory = trajectory;
     }
 
@@ -37,15 +38,16 @@ public class PersonalAssistanceService extends Service {
         this.personalAssistanceType = personalAssistanceType;
     }
 
-    public Boolean getIsUrgent() {
-        return isUrgent;
-    }
+    
+    public boolean isUrgent() {
+		return urgent;
+	}
 
-    public void setIsUrgent(Boolean isUrgent) {
-        this.isUrgent = isUrgent;
-    }
+	public void setUrgent(boolean urgent) {
+		this.urgent = urgent;
+	}
 
-    public Trajectory getTrajectory() {
+	public Trajectory getTrajectory() {
         return trajectory;
     }
 

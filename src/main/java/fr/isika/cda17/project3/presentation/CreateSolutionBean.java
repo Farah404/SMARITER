@@ -7,6 +7,7 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.CustomerInvoice;
+import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
 import fr.isika.cda17.project3.model.solutionManagement.MessagingSystemChoice;
 import fr.isika.cda17.project3.model.solutionManagement.ParcelSolution;
@@ -48,6 +49,7 @@ public class CreateSolutionBean implements Serializable{
 		solution.setParcelSolution(parcelSolution);
 		solution.setCustomerInvoice(customerInvoice);
 		Solution created = solutionDao.create(solution);
+		// TODO : findById(accountConnected) puis affecter cette solution a l'entityAccount correspondant
 		System.out.println(created);
 	}
 
