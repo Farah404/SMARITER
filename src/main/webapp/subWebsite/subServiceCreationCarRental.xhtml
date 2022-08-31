@@ -8,6 +8,11 @@
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 
+<f:metadata>
+	<f:event listener="#{createCarRentalServiceBean.init()}" type="preRenderView">
+	</f:event>
+</f:metadata>
+
 <h:body>
 	<ui:composition template="#{templateBean.subtemplatePath()}">
 		<ui:define name="subcontent">
@@ -30,11 +35,16 @@
 
 								<div class="form-outline mb-3">
 									Date de Debut
-									<h:inputText class="form-control" id="startDate"
-										a:placeholder="dd-MM-YYYY" type="datetime-local"
-										value="#{createCarRentalServiceBean.crs.startDate}">
-										<f:convertDateTime pattern="dd-MM-yyyy" />
-									</h:inputText>
+									
+									<h:inputText class="form-control" id="startDateString"
+										a:placeholder="2018-05-05T11:50:55"
+										value="#{createCarRentalServiceBean.startDate}" />
+									
+<!-- 									<h:inputText class="form-control" id="startDate" -->
+<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
+<!-- 										value="#{createCarRentalServiceBean.crs.startDate}"> -->
+<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+<!-- 									</h:inputText> -->
 									<br />
 								</div>
 
@@ -48,11 +58,16 @@
 
 								<div class="form-outline mb-3">
 									Date de fin
-									<h:inputText class="form-control" id="endDate"
-										a:placeholder="dd-MM-YYYY" type="datetime-local"
-										value="#{createCarRentalServiceBean.crs.endDate}">
-										<f:convertDateTime pattern="dd-MM-yyyy" />
-									</h:inputText>
+									
+									<h:inputText class="form-control" id="endDateString"
+										a:placeholder="2018-05-05T11:50:55"
+										value="#{createCarRentalServiceBean.endDate}" />
+										
+<!-- 									<h:inputText class="form-control" id="endDate" -->
+<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
+<!-- 										value="#{createCarRentalServiceBean.crs.endDate}"> -->
+<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+<!-- 									</h:inputText> -->
 									<br />
 								</div>
 
@@ -81,51 +96,42 @@
 							
 							<div class="form-floating mb-3">
 									Brand
-									<h:inputText class="form-control" id="brancVehicule"
-										a:placeholder=""
-										value="#{createCarRentalServiceBean.crs.vehicule.brand}" />
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.brand} </div>
 									<br />
 								</div>
 							
 							<div class="form-floating mb-3">
 									Registration Number
-									<h:inputText class="form-control" id="registrationNumber"
-										a:placeholder=""
-										value="#{createCarRentalServiceBean.crs.vehicule.registrationNumber}" />
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.registrationNumber} </div>
+									<br />
 									<br />
 								</div>
 								
 								<div class="form-floating mb-3">
 									Test technique
-									<h:inputText class="form-control" id="stopsDuration"
-										a:placeholder=""
-										value="#{createCarRentalServiceBean.crs.vehicule.technicalTestExpiration}" />
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.technicalTestExpiration} </div>
+									<br />
 									<br />
 								</div>
 								
 								<div class="form-floating mb-3">
 									Agence assurance
-									<h:inputText class="form-control" id="insuranceAgency"
-										a:placeholder=""
-										value="#{createCarRentalServiceBean.crs.vehicule.insurance.insuranceAgencyName}" />
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.insurance.insuranceAgencyName} </div>
+									<br />
 									<br />
 								</div>
 								
 								<div class="form-floating mb-3">
 									Contract Expiration
-									<h:inputText class="form-control" id="insuranceExp"
-										a:placeholder="dd-MM-YYYY" type="datetime-local"
-										value="#{createCarRentalServiceBean.crs.vehicule.insurance.insuranceContractExpiration}">
-										<f:convertDateTime pattern="dd-MM-yyyy" />
-									</h:inputText>
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.insurance.insuranceContractExpiration} </div>
+									<br />
 									<br />
 								</div>
 								
 								<div class="form-floating mb-3">
 									Contract Number
-									<h:inputText class="form-control" id="insuranceContract"
-										a:placeholder=""
-										value="#{createCarRentalServiceBean.crs.vehicule.insurance.insuranceContractNumber}" />
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.insurance.insuranceContractNumber} </div>
+									<br />
 									<br />
 								</div>
 

@@ -43,17 +43,28 @@ public class CreateCarRentalServiceBean {
 	
 	private Vehicule vehicule = new Vehicule();
 	
+	private String startDate;
+	
+	private String endDate;
+	
 	private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
+	
+	public void init() {
+	    HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	    Long id = Long.valueOf(session.getAttribute("id").toString());
+	    userAccount = userAccountsDao.findById(id);
+	}
 	
 	public void create() {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Long id = Long.valueOf(session.getAttribute("id").toString());
 		userAccount = userAccountsDao.findById(id);
-		crs.setVehicule(userAccount.getVehicule());
 		crs.setServicetype(ServiceType.CAR_RENTAL);
 		crs.setPublicationDate(LocalDateTime.now());
 		crs.setIsRequest(false);
 		crs.setUserAccountProvider(userAccount);
+		crs.setStartDate(LocalDateTime.parse(startDate));
+		crs.setEndDate(LocalDateTime.parse(endDate));
 		CarRentalService created = carRentalServiceDao.create(crs);
 		System.out.println(created);
 	}
@@ -62,7 +73,6 @@ public class CreateCarRentalServiceBean {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Long id = Long.valueOf(session.getAttribute("id").toString());
 		userAccount = userAccountsDao.findById(id);
-		crs.setVehicule(userAccount.getVehicule());
 		crs.setServicetype(ServiceType.CAR_RENTAL);
 		crs.setPublicationDate(LocalDateTime.now());
 		crs.setIsRequest(false);
@@ -86,6 +96,26 @@ public class CreateCarRentalServiceBean {
 
 	public void setVehicule(Vehicule vehicule) {
 		this.vehicule = vehicule;
+	}
+
+	public UserAccount getUserAccount() {
+	    return userAccount;
+	}
+
+	public void setStartDate(String startDate) {
+	    this.startDate = startDate;
+	}
+
+	public void setEndDate(String endDate) {
+	    this.endDate = endDate;
+	}
+
+	public String getStartDate() {
+	    return startDate;
+	}
+
+	public String getEndDate() {
+	    return endDate;
 	}
 
 }

@@ -1,5 +1,6 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -21,7 +22,7 @@ public class ParcelService extends Service{
     @OneToOne
     private Vehicule vehicule;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Trajectory trajectory;
 
     public ParcelService() {

@@ -49,6 +49,10 @@ public class CreateParcelServiceBean {
 	
 	private Itinerary itinerary = new Itinerary();
 	
+	private String startDate;
+	
+	private String endDate;
+	
 	private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
 	
 	public TrajectoryType[] trajectoryTypeValues() {
@@ -65,6 +69,8 @@ public class CreateParcelServiceBean {
 		ps.setServicetype(ServiceType.PARCEL);
 		ps.setPublicationDate(LocalDateTime.now());
 		ps.setIsRequest(false);
+		ps.setStartDate(LocalDateTime.parse(startDate));
+		ps.setEndDate(LocalDateTime.parse(endDate));
 		ParcelService created = parcelServiceDao.create(ps);
 		System.out.println(created);
 	}
@@ -115,5 +121,22 @@ public class CreateParcelServiceBean {
 	public void setItinerary(Itinerary itinerary) {
 		this.itinerary = itinerary;
 	}
+
+	public String getStartDate() {
+	    return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+	    this.startDate = startDate;
+	}
+
+	public String getEndDate() {
+	    return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+	    this.endDate = endDate;
+	}
+	
 }
 
