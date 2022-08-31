@@ -1,5 +1,6 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -26,7 +27,7 @@ public class Trajectory {
     @Enumerated
     private TrajectoryType trajectoryType;
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private Itinerary itinerary;
 
     public Trajectory() {
