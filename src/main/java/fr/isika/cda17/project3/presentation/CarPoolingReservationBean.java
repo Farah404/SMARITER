@@ -27,7 +27,9 @@ import fr.isika.cda17.project3.repository.serviceManagement.ReservationDao;
 
 @ManagedBean
 @SessionScoped
-public class ReservationBean implements Serializable {
+public class CarPoolingReservationBean implements Serializable {
+	
+	private static final String LIST_CARPOOLINGSERVICE_XHTML = "listCarPoolingService.xhtml";
 
 	/**
 	 * 
@@ -46,36 +48,70 @@ public class ReservationBean implements Serializable {
 	private Reservation reservation = new Reservation();
 	private ServiceInvoice serviceInvoice = new ServiceInvoice();
 
-	private CarPoolingService carPooling = new CarPoolingService();
-	private UserAccount user;
+	private CarPoolingService carPooling;
+	private UserAccount user = new UserAccount();
+	
+	
+	public void init() throws IOException {
+		System.out.println("INITIALISATION RESERVATIONBEAN");
+		
+		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 
-	public void create(long id) {
+		if (map.containsKey("carPoolingServiceId")) {
+			String carPoolingServiceIdParamValue = map.get("carPoolingServiceId");
+			System.err.println("carPoolingServiceIdParamValue : " + carPoolingServiceIdParamValue);
+			if (carPoolingServiceIdParamValue != null && !carPoolingServiceIdParamValue.isBlank()) {
+				Long id = Long.valueOf(carPoolingServiceIdParamValue);
+				if (id != null) {
+					carPooling = carPoolingServiceDao.findById(id);
+					if (carPooling == null) {
+						redirectError();
+					}
+					System.out.println(carPooling);
+					
+				} else {
+					redirectError();
+				}
+			} else {
+				redirectError();
+			}
+		}
+	}
+	
+	public void redirectError() throws IOException {
+		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+		ec.redirect(LIST_CARPOOLINGSERVICE_XHTML);
+	}
 
-		carPooling = carPoolingServiceDao.findById(id);
+	public void create() {
+		
+		//carPooling = carPoolingServiceDao.findById(id);
+		
+		System.out.println("DEBUT CREATION");
 
 		reservation.setService(carPooling);
 		serviceInvoice.setService(carPooling);
-		// TODO : pour contourner on utilise l'email qui sera remplacé par l'id plus
-		// tard une fois le login/logout mergé
 		
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		String email = (String) session.getAttribute("email");
 		
 		
 		if(email != null && !email.isBlank()) {
+			
 			Optional<UserAccount> optional = userAccontDao.findByEmail(email);
 			if(optional.isPresent()) {
 				serviceInvoice.setUserAccount(optional.get());
 				
+				
 				if (carPooling.getAvailableSeats() > 0) {
 					// reservationDao.create(reservation);
 		
-					reservation.setServiceinvoice(serviceInvoiceDao.create(serviceInvoice));
+					reservation.setServiceinvoice(serviceInvoice);
 					carPooling.getReservations().add(reservation);
 					carPooling.setAvailableSeats(carPooling.getAvailableSeats() - 1);
 		
 					carPoolingServiceDao.update(carPooling);
-					System.out.println(reservation.getId());
+					System.out.println("reservation : "+reservation.getId());
 		
 				} else {
 					System.out.println("reservation failed, no seats available");
@@ -83,9 +119,11 @@ public class ReservationBean implements Serializable {
 			} else {
 				System.out.println("reservation failed, no user with email : " + email);
 			}
+		
 		} else {
 			System.out.println("reservation failed, email unknown : " + email);
 		}
+		System.out.println("FIN CREATION");
 	}
 
 	public CarPoolingService getCarPooling() {

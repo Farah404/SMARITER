@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<f:metadata>
+	<f:event listener="#{reservationBean.init()}"
+		type="preRenderView"></f:event>
+</f:metadata>
+
+<h:head>
+	<title>List</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="template/template.xhtml">
+		<ui:define name="content">
+			<h:outputScript library="js" name="faq.js" />
+			<div class="container">
+				<br /> <br />
+				<h1>SERVICE DETAIL -- BOOKING</h1>
+				<br />
+				<h:form id="carPoolingToReserve"
+					value="#{reservationBean.carPooling}"
+					var="carPoolingToReserve">
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="Pick-Up Address:  	" />
+					<h:outputText
+						value="#{reservationBean.carPooling.trajectory.pickUpAddress}" />
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="Delivery Address: 	 " />
+					<h:outputText
+						value="#{reservationBean.carPooling.trajectory.deliveryAddress}" />
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="Duration (in hour):  	" />
+					<h:outputText
+						value="#{reservationBean.carPooling.trajectory.durationHours}" />
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="Stop Duration (in minute): 	 " />
+					<h:outputText
+						value="#{reservationBean.carPooling.trajectory.stopDurationMinutes}" />
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="Stop Number:  		" />
+					<h:outputText
+						value="#{reservationBean.carPooling.trajectory.stopNumber}" />
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="Trajectory Type: 		" />
+					<h:outputText
+						value="#{reservationBean.carPooling.trajectory.trajectoryType}" />
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="Seats Avaible: 		" />
+					<h:outputText
+						value="#{reservationBean.carPooling.availableSeats}" />
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="Chatting Allowed: 	" />
+					<h:outputText
+						value="#{reservationBean.carPooling.isChattingAllowed}" />
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="Pet Allowed: 		" />
+					<h:outputText
+						value="#{reservationBean.carPooling.isPetAllowed}" />
+
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="Smoking Allowed: 		" />
+					<h:outputText
+						value="#{reservationBean.carPooling.isSmokingAllowed}" />
+
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="Chatting Allowed: 	" />
+					<h:outputText
+						value="#{reservationBean.carPooling.isMusicAllowed}" />
+
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="vehicule vehiculeType: 		" />
+					<h:outputText value="#{reservationBean.carPooling.vehicule.vehiculeType}" />
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="Chatting Allowed: 	" />
+					<h:outputText
+						value="#{reservationBean.carPooling.isChattingAllowed}" />
+
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="vehicule isHybrid: 	" />
+					
+					<hr />
+					<h:outputLabel value="vehicule brand: 	" />
+					<h:outputText
+						value="#{reservationBean.carPooling.vehicule.brand}" />
+					<br />
+					<br />
+					<hr />
+					<h:outputLabel value="Conductor: 	" />
+					<h:outputText
+						value="#{reservationBean.carPooling.vehicule.userAccount.username}" />
+					<br />
+					<br />
+
+
+			
+
+				
+				<h:column>
+					<f:facet name="header">BOOK</f:facet>
+					<h:panelGrid>
+						<h:commandButton value = "Book"
+							action="#{reservationBean.create()}"/>
+					</h:panelGrid>
+				</h:column>
+			
+		
+
+</h:form>
+			</div>
+
+			<hr />
+			<hr />
+			<hr />
+
+		</ui:define>
+	</ui:composition>
+
+
+</h:body>
+</html>

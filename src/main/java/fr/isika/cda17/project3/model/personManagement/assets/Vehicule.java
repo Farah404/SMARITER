@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -22,13 +24,12 @@ public class Vehicule {
     
     private String registrationNumber;
     
-    private boolean hybrid;
+    @Enumerated(EnumType.STRING)
+    private VehiculeType vehiculeType;
     
-    private boolean electric;
+   
     
-    private boolean manual;
-    
-    private Date technicalTestExpiration;
+    private String technicalTestExpiration;
     
     @OneToOne(cascade=CascadeType.ALL)
     private UserAccount userAccount;
@@ -40,16 +41,13 @@ public class Vehicule {
 	super();
     }
 
-    public Vehicule(Long id, String brand, String registrationNumber, Boolean isHybrid, Boolean isElectric,
-	    Boolean isManual, Date technicalTestExpiration, UserAccount userAccount, Insurance insurance) {
+    public Vehicule(Long id, String brand, String registrationNumber, String technicalTestExpiration, UserAccount userAccount, Insurance insurance) {
 
 	super();
 	this.id = id;
 	this.brand = brand;
 	this.registrationNumber = registrationNumber;
-	this.hybrid = isHybrid;
-	this.electric = isElectric;
-	this.manual = isManual;
+	
 	this.technicalTestExpiration = technicalTestExpiration;
 	this.userAccount = userAccount;
 	this.insurance = insurance;
@@ -71,38 +69,7 @@ public class Vehicule {
         this.registrationNumber = registrationNumber;
     }
 
-    public boolean isHybrid() {
-        return hybrid;
-    }
-
-    public void setHybrid(boolean isHybrid) {
-        this.hybrid = isHybrid;
-    }
-
-    public boolean isElectric() {
-        return electric;
-    }
-
-    public void setElectric(boolean isElectric) {
-        this.electric = isElectric;
-    }
-
-    public boolean isManual() {
-        return manual;
-    }
-
-    public void setManual(boolean isManual) {
-        this.manual = isManual;
-    }
-
-    public Date getTechnicalTestExpiration() {
-        return technicalTestExpiration;
-    }
-
-    public void setTechnicalTestExpiration(Date technicalTestExpiration) {
-        this.technicalTestExpiration = technicalTestExpiration;
-    }
-
+ 
     public UserAccount getUserAccount() {
         return userAccount;
     }
@@ -122,5 +89,11 @@ public class Vehicule {
     public Long getId() {
         return id;
     }
+    public VehiculeType getVehiculeType() {
+		return vehiculeType;
+	}
+    public void setVehiculeType(VehiculeType vehiculeType) {
+		this.vehiculeType = vehiculeType;
+	}
   
 }

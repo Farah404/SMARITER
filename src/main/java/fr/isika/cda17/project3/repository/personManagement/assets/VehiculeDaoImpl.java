@@ -31,10 +31,7 @@ public class VehiculeDaoImpl implements VehiculeDao{
 	    Vehicule updatedVehicule = entityManager.find(Vehicule.class, vehicule.getId());
 	    updatedVehicule.setBrand(vehicule.getBrand());
 	    updatedVehicule.setRegistrationNumber(vehicule.getRegistrationNumber());
-	    updatedVehicule.setHybrid(vehicule.isHybrid());
-	    updatedVehicule.setElectric(vehicule.isElectric());
-	    updatedVehicule.setManual(vehicule.isManual());
-	    updatedVehicule.setTechnicalTestExpiration(vehicule.getTechnicalTestExpiration());
+
 	    
 	    entityManager.persist(updatedVehicule);
 	} catch (Exception e) {

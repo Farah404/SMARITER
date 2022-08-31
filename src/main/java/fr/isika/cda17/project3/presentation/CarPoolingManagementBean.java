@@ -4,23 +4,23 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-
+import fr.isika.cda17.project3.model.personManagement.assets.VehiculeType;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingType;
+import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
 import fr.isika.cda17.project3.repository.serviceManagement.CarPoolingServiceDao;
 
 @ManagedBean
 @ViewScoped
 public class CarPoolingManagementBean implements Serializable {
 
-	//private static final String LIST_CARPOOLINGSERVICE_XHTML = "ListCarPoolingService.xhtml";
+	private static final String LIST_CARPOOLINGSERVICE_XHTML = "listCarPoolingService.xhtml";
 	/**
 	 * 
 	 */
@@ -31,58 +31,20 @@ public class CarPoolingManagementBean implements Serializable {
 
 	private List<CarPoolingService> carPoolingServiceList;
 
-	private CarPoolingService carPoolingService;
+	private CarPoolingService carPoolingService = new CarPoolingService();
 
-//	public void init() throws IOException {
-//	Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-//	if (map.containsKey("carPoolingServiceId")) {
-//		String carPoolingServiceIdParamValue = map.get("carPoolingServiceId");
-//		System.err.println(carPoolingServiceIdParamValue);
-//
-//		if (!carPoolingServiceIdParamValue.isEmpty()) {
-//			try {
-//			Long id = Long.valueOf(carPoolingServiceIdParamValue);
-//			
-//			// TODO : si pas de id => message d'erreur
-//	
-//			carPoolingService = carPoolingServiceDao.findById(id);
-//
-//			if (carPoolingService == null) {
-//				redirectError();
-//			}
-//			
-//			} catch (NumberFormatException e) {
-//				System.err.println("erreur : "+carPoolingServiceIdParamValue);
-//				redirectError();
-//			}
-//
-//		} else {
-//
-//			redirectError();
-//
-//		}
-//	}
-//
-//}
-///*
-//* methods
-//*/
-//
-//// creer une page Erreur parsonna
-//	public void redirectError() throws IOException {
-//		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-//		ec.redirect("listCarPoolingService.xhtml");
-//	}
-	
+//	private TrajectoryType trajectoryType;
+//	private Vehicule vehicule =new Vehicule();
+
 	public void init() throws IOException {
 		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-		
+
 		if (map.containsKey("carPoolingServiceId")) {
 			String carPoolingServiceIdParamValue = map.get("carPoolingServiceId");
-			System.err.println(carPoolingServiceIdParamValue);
+			System.err.println("carPoolingServiceIdParamValue : " + carPoolingServiceIdParamValue);
 			if (carPoolingServiceIdParamValue != null && !carPoolingServiceIdParamValue.isBlank()) {
 				Long id = Long.valueOf(carPoolingServiceIdParamValue);
-				if(id != null) {
+				if (id != null) {
 					carPoolingService = carPoolingServiceDao.findById(id);
 					if (carPoolingService == null) {
 						redirectError();
@@ -95,31 +57,33 @@ public class CarPoolingManagementBean implements Serializable {
 			}
 		}
 	}
+
 	public void redirectError() throws IOException {
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-		ec.redirect("ListCarPoolingService.xhtml");
+		ec.redirect(LIST_CARPOOLINGSERVICE_XHTML);
 	}
-	public String updapte() {
+
+	public String update() {
 		carPoolingServiceDao.update(carPoolingService);
 		System.out.println((carPoolingService));
-		return "ListCarPoolingService.xhtm";
+		return LIST_CARPOOLINGSERVICE_XHTML;
 	}
-	
+
 	public String detail(Long id) {
-		//carPoolingServiceDao.toString();
-		
+		carPoolingService = carPoolingServiceDao.findById(id);
+
 		return "detailAndBookingCarPoolingService.xhtml?faces-redirect=true&carPoolingServiceId=" + id;
 	}
-		
+
 	private void refresh() {
 		carPoolingServiceList = carPoolingServiceDao.findAll();
-
 	}
+
 	@PostConstruct
 	public void freshinit() {
 		refresh();
 	}
-	
+
 	public String showUpdate(Long id) {
 		System.err.println(id);
 		return "editcarPoolingService.xhtml?faces-redirect=true&carPoolingServiceId=" + id;
@@ -127,18 +91,35 @@ public class CarPoolingManagementBean implements Serializable {
 
 	public CarPoolingType[] carPoolingType() {
 		return CarPoolingType.values();
-
 	}
+
+	public TrajectoryType[] trajectoryType() {
+		return TrajectoryType.values();
+	}
+
 	public void delete(Long id) {
 		carPoolingServiceDao.delete(id);
 		refresh();
 	}
+
 	public List<CarPoolingService> getCarPoolingServiceList() {
 		return carPoolingServiceList;
 	}
 
 	public void setCarPoolingServiceList(List<CarPoolingService> carPoolingServiceList) {
 		this.carPoolingServiceList = carPoolingServiceList;
+	}
+
+	public CarPoolingService getCarPoolingService() {
+		return carPoolingService;
+	}
+
+	public void setCarPoolingService(CarPoolingService carPoolingService) {
+		this.carPoolingService = carPoolingService;
+	}
+
+	public VehiculeType[] vehiculeTypes() {
+		return VehiculeType.values();
 	}
 
 }

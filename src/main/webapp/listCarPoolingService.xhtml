@@ -69,14 +69,32 @@
 						</h:column>
 												
 						<h:column>
-							<f:facet name="header">Reservation</f:facet>
+							<f:facet name="header">Details</f:facet>
 							<h:panelGrid>
-								<h:commandButton value="Reserve"
-									action="#{reservationBean.create(carPoolingService.id)}">
+								<h:commandButton value="Detail"
+									action="#{carPoolingManagementBean.detail(carPoolingService.id)}">
+									 <f:param name="carPoolingServiceId"
+										value="#{carPoolingService}"></f:param> 
 								</h:commandButton>
 							</h:panelGrid>
 						</h:column>
-						
+						<h:column>
+							<f:facet name="header">Delete</f:facet>
+							<h:panelGrid>
+								<h:commandButton
+									action="#{carPoolingManagementBean.delete(carPoolingService.id)}"
+									value="Delete" />
+							</h:panelGrid>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Update</f:facet>
+							<h:panelGrid>
+								<h:commandButton value="Edit"
+									action="#{carPoolingManagementBean.showUpdate(carPoolingService.id)}">
+									<f:param name="carPoolingServiceId" value="#{carPoolingService.id}"></f:param>
+								</h:commandButton>
+							</h:panelGrid>
+						</h:column>
 						
 						
 					</h:dataTable>
