@@ -18,14 +18,11 @@
     <div class="panel-body inf-content">
         <div class="row">
 
-            @*Profile picture Part with buttons*@
             <div class="col-md-4">
                 <img alt="" style="width:100%;" class=" img-thumbnail" src="subMedia/Images/Covoit.png" />
 
-                @using (Html.BeginForm())
-                {
                     <br />
-                    <button class="btn btn-success center-block" type="submit">Réserver la prestation pour @Model.CarPoolingService.Service.PriceEcoCoins EcoCoins</button>
+                    <button class="btn btn-success center-block" type="submit">Réserver la prestation pour EcoCoins</button>
 
                 }
                 <br />
@@ -36,7 +33,6 @@
 
             <div class="col-md-6">
                 <div class="table-responsive">
-                    @*Information*@
                     <span class="text-success"><strong>Information</strong><br /></span>
                     <table class="table table-user-information">
                         <tbody>
@@ -46,7 +42,7 @@
                                     Date et heure de départ
                                 </td>
                                 <td class="text-success">
-                                    <p>@Model.CarPoolingService.Service.Start</p>
+                                    <p></p>
                                 </td>
                             </tr>
                             
@@ -56,7 +52,7 @@
                                     Date et heure de d'arrivée
                                 </td>
                                 <td class="text-success">
-                                    <p>@Model.CarPoolingService.Service.End</p>
+                                    <p></p>
                                 </td>
                             </tr>
 
@@ -66,22 +62,6 @@
                                     Type de covoiturage
                                 </td>
                                 <td class="text-success">
-                                    @if(@Model.CarPoolingService.SelectCarPoolingType.ToString()=="HomeToWork")
-                                    {
-                                         <p>Domicile-travail</p>
-                                    }
-                                    @if(@Model.CarPoolingService.SelectCarPoolingType.ToString()=="HomeToSchool")
-                                    {
-                                         <p>Domicile-école/université</p>
-                                    }
-                                    @if(@Model.CarPoolingService.SelectCarPoolingType.ToString()=="Events")
-                                    {
-                                         <p>Evènements</p>
-                                    }
-                                    @if(@Model.CarPoolingService.SelectCarPoolingType.ToString()=="Travel")
-                                    {
-                                         <p>Voyage</p>
-                                    }
                                 </td>
                             </tr>
 
@@ -91,7 +71,7 @@
                                     Sièges disponibles
                                 </td>
                                 <td class="text-success">
-                                    <p>@Model.CarPoolingService.AvailableSeats</p>
+                                    <p></p>
                                 </td>
                             </tr>
 
@@ -101,7 +81,7 @@
                                     Durée du trajet en heure
                                 </td>
                                 <td class="text-success">
-                                    <p>@Model.CarPoolingService.Trajectory.DurationHours</p>
+                                    <p></p>
                                 </td>
                             </tr>
 
@@ -111,7 +91,7 @@
                                     Nombre d'arrêts
                                 </td>
                                 <td class="text-success">
-                                    <p>@Model.CarPoolingService.Trajectory.StopNumber</p>
+                                    <p></p>
                                 </td>
                             </tr>
 
@@ -121,7 +101,7 @@
                                     Durée d'arrêt en minutes
                                 </td>
                                 <td class="text-success">
-                                    <p>@Model.CarPoolingService.Trajectory.StopsDurationMinutes</p>
+                                    <p></p>
                                 </td>
                             </tr>
 
@@ -131,7 +111,7 @@
                                     Adresse de départ
                                 </td>
                                 <td class="text-success">
-                                    <p>@Model.CarPoolingService.Trajectory.PickUpAddress</p>
+                                    <p></p>
                                 </td>
                             </tr>
 
@@ -141,7 +121,7 @@
                                     Adresse d'arrivée
                                 </td>
                                 <td class="text-success">
-                                    <p>@Model.CarPoolingService.Trajectory.DeliveryAddress</p>
+                                    <p></p>
                                 </td>
                             </tr>
 
@@ -151,20 +131,10 @@
                                     Type du trajet
                                 </td>
                                 <td class="text-success">
-                                    @if(@Model.CarPoolingService.Trajectory.SelectTrajectoryType.ToString()=="Regular")
-                                    {
-                                        <p>Régulier</p>
-                                    }
-                                    @if(@Model.CarPoolingService.Trajectory.SelectTrajectoryType.ToString()=="Punctual")
-                                    {
-                                        <p>Ponctuel</p>
-                                    }
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-
-                    @*Preferences*@
 
                     <span class="text-success"><strong>Preferences</strong><br /></span>
                     <table class="table table-user-information">
@@ -176,7 +146,7 @@
                                     Animaux de compagnie
                                 </td>
                                 <td class="text-success">
-                                    <p>@(Model.CarPoolingService.PetsAllowed? "Oui":"Non")</p>
+                                    <p></p>
                                 </td>
                             </tr>
 
@@ -186,7 +156,7 @@
                                     Fumeur
                                 </td>
                                 <td class="text-success">
-                                    <p>@(Model.CarPoolingService.SmokingAllowed? "Oui":"Non")</p>
+                                    <p></p>
                                 </td>
                             </tr>
 
@@ -196,7 +166,7 @@
                                     Musique
                                 </td>
                                 <td class="text-success">
-                                    <p>@(Model.CarPoolingService.MusicAllowed? "Oui":"Non")</p>
+                                    <p></p>
                                 </td>
                             </tr>
 
@@ -206,7 +176,7 @@
                                     Discussion
                                 </td>
                                 <td class="text-success">
-                                    <p>@(Model.CarPoolingService.ChattingAllowed? "Oui":"Non")</p>
+                                    <p></p>
                                 </td>
                             </tr>
 
