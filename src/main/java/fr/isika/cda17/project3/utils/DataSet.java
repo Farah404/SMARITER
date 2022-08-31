@@ -46,21 +46,24 @@ public class DataSet {
 
 		BankDetails b = new BankDetails();
 		b.setBankName("Socièté Générale");
+		em.persist(b);
 
 		UserAccount uz = new UserAccount();
 		uz.setBankDetails(b);
 		uz.setUsername("BIASOO");
-
+		em.persist(uz);
+		
 		Vehicule v = new Vehicule();
 		v.setBrand("BMW");
 		v.setRegistrationNumber("A1234B");
 		v.setVehiculeType(VehiculeType.MANUAL);
 		v.setVehiculePowerType(VehiculePowerType.DIESEL);
 		v.setUserAccount(uz);
-
+		em.persist(v);
+		
 		Itinerary i = new Itinerary();
 		i.setFirstStopAddress("gare de lyon part-dieu,69000");
-
+		em.persist(i);
 
 		Trajectory t = new Trajectory();
 		t.setDurationHours(1);
@@ -69,7 +72,7 @@ public class DataSet {
 		t.setDeliveryAddress("gare de lille flandre, 62000");
 		t.setTrajectoryType(TrajectoryType.REGULAR);
 		t.setItinerary(i);
-
+		em.persist(t);
 
 		CarPoolingService c = new CarPoolingService();
 		c.setCarPoolingType(CarPoolingType.HOME_TO_SCHOOL);
@@ -89,21 +92,25 @@ public class DataSet {
 
 		BankDetails baa = new BankDetails();
 		baa.setBankName("Caisse d'épargne");
-
+		em.persist(baa);
+		
 		UserAccount ua = new UserAccount();
 		ua.setBankDetails(baa);
 		ua.setUsername("JULOOO");
-
+		em.persist(ua);
+		
 		Vehicule va = new Vehicule();
 		va.setBrand("BMW");
 		va.setRegistrationNumber("A4567B");
 		va.setVehiculeType(VehiculeType.MANUAL);
 		va.setVehiculePowerType(VehiculePowerType.DIESEL);
 		va.setUserAccount(ua);
-
+		em.persist(va);
+		
 		Itinerary ia = new Itinerary();
 		ia.setFirstStopAddress("gare de chambéry challes-les-eaux,73000");
-
+		em.persist(ia);
+		
 		Trajectory ta = new Trajectory();
 		ta.setDurationHours(2);
 		ta.setStopDurationMinutes(15);
@@ -111,7 +118,7 @@ public class DataSet {
 		ta.setDeliveryAddress("gare de lille europe, 62000");
 		ta.setTrajectoryType(TrajectoryType.PUNCTUAL);
 		ta.setItinerary(ia);
-
+		em.persist(ta);
 
 		CarPoolingService ca = new CarPoolingService();
 		ca.setCarPoolingType(CarPoolingType.EVENTS);

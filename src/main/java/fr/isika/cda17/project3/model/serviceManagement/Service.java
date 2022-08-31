@@ -49,7 +49,7 @@ public abstract class Service {
     @Enumerated(EnumType.STRING)
     private ServiceType servicetype;
 
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne
     private UserAccount userAccountProvider;
     
     @OneToMany
