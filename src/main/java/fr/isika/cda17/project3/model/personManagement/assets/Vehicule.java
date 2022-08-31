@@ -27,7 +27,8 @@ public class Vehicule {
     @Enumerated(EnumType.STRING)
     private VehiculeType vehiculeType;
     
-   
+    @Enumerated(EnumType.STRING)
+   private VehiculePowerType vehiculePowerType;
     
     private String technicalTestExpiration;
     
@@ -48,7 +49,7 @@ public class Vehicule {
 	this.brand = brand;
 	this.registrationNumber = registrationNumber;
 	
-	this.technicalTestExpiration = technicalTestExpiration;
+	this.setTechnicalTestExpiration(technicalTestExpiration);
 	this.userAccount = userAccount;
 	this.insurance = insurance;
     }
@@ -94,6 +95,14 @@ public class Vehicule {
 	}
     public void setVehiculeType(VehiculeType vehiculeType) {
 		this.vehiculeType = vehiculeType;
+	}
+
+	public String getTechnicalTestExpiration() {
+		return technicalTestExpiration;
+	}
+
+	public void setTechnicalTestExpiration(String technicalTestExpiration) {
+		this.technicalTestExpiration = technicalTestExpiration;
 	}
   
 }

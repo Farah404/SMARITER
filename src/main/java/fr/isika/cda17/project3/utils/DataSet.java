@@ -23,6 +23,7 @@ import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingType;
 import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
 import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
+import fr.isika.cda17.project3.model.serviceManagement.Service;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
 import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
@@ -117,7 +118,7 @@ public class DataSet {
 	u.setAccountType(AccountType.USER);
 	em.persist(ue);
     
-   // Pour list
+   // Pour list carPool
 	 CarPoolingService ca = new CarPoolingService();
 	 Trajectory t = new Trajectory();
 	 Vehicule v = new Vehicule();
@@ -136,6 +137,29 @@ public class DataSet {
 	 i.setFirstStopAddress("poissy");
 	 
 	 em.persist(ca);
+
+	// Pour list Rental
+	 
+	    
+	    
+		 CarRentalService cr = new CarRentalService();
+		 cr.setServicetype(ServiceType.CAR_RENTAL);
+		 cr.setKeyDropOffAddress("nante");
+		 cr.setPrice(12);
+		 Vehicule v1 = new Vehicule();
+		 cr.setVehicule(v1);
+		 v1.setVehiculeType(VehiculeType.MANUAL​);
+		 UserAccount user = new UserAccount();
+		 v1.setUserAccount(user);
+		 user.setUsername("carR");
+		
+		
+		 user.setUsername("hou");
+		
+		 
+		 em.persist(cr);
+		 em.persist(v1);
+		 em.persist(user);
 
 		
 		

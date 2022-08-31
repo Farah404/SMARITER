@@ -8,7 +8,7 @@
 
 
 <f:metadata>
-	<f:event listener="#{reservationBean.init()}"
+	<f:event listener="#{carPoolingReservationBean.init()}"
 		type="preRenderView"></f:event>
 </f:metadata>
 
@@ -25,88 +25,88 @@
 				<h1>SERVICE DETAIL -- BOOKING</h1>
 				<br />
 				<h:form id="carPoolingToReserve"
-					value="#{reservationBean.carPooling}"
+					value="#{carPoolingReservationBean.carPooling}"
 					var="carPoolingToReserve">
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Pick-Up Address:  	" />
 					<h:outputText
-						value="#{reservationBean.carPooling.trajectory.pickUpAddress}" />
+						value="#{carPoolingReservationBean.carPooling.trajectory.pickUpAddress}" />
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Delivery Address: 	 " />
 					<h:outputText
-						value="#{reservationBean.carPooling.trajectory.deliveryAddress}" />
+						value="#{carPoolingToReserve.trajectory.deliveryAddress}" />
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Duration (in hour):  	" />
 					<h:outputText
-						value="#{reservationBean.carPooling.trajectory.durationHours}" />
+						value="#{carPoolingToReserve.trajectory.durationHours}" />
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Stop Duration (in minute): 	 " />
 					<h:outputText
-						value="#{reservationBean.carPooling.trajectory.stopDurationMinutes}" />
+						value="#{carPoolingToReserve.trajectory.stopDurationMinutes}" />
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Stop Number:  		" />
 					<h:outputText
-						value="#{reservationBean.carPooling.trajectory.stopNumber}" />
+						value="#{carPoolingToReserve.trajectory.stopNumber}" />
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Trajectory Type: 		" />
 					<h:outputText
-						value="#{reservationBean.carPooling.trajectory.trajectoryType}" />
+						value="#{carPoolingReservationBean.carPooling.trajectory.trajectoryType}" />
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Seats Avaible: 		" />
 					<h:outputText
-						value="#{reservationBean.carPooling.availableSeats}" />
+						value="#{carPoolingReservationBean.carPooling.availableSeats}" />
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Chatting Allowed: 	" />
 					<h:outputText
-						value="#{reservationBean.carPooling.isChattingAllowed}" />
+						value="#{carPoolingToReserve.isChattingAllowed}" />
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Pet Allowed: 		" />
 					<h:outputText
-						value="#{reservationBean.carPooling.isPetAllowed}" />
+						value="#{carPoolingReservationBean.carPooling.isPetAllowed}" />
 
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Smoking Allowed: 		" />
 					<h:outputText
-						value="#{reservationBean.carPooling.isSmokingAllowed}" />
+						value="#{carPoolingReservationBean.carPooling.isSmokingAllowed}" />
 
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Chatting Allowed: 	" />
 					<h:outputText
-						value="#{reservationBean.carPooling.isMusicAllowed}" />
+						value="#{carPoolingReservationBean.carPooling.isMusicAllowed}" />
 
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="vehicule vehiculeType: 		" />
-					<h:outputText value="#{reservationBean.carPooling.vehicule.vehiculeType}" />
+					<h:outputText value="#{carPoolingReservationBean.carPooling.vehicule.vehiculeType}" />
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Chatting Allowed: 	" />
 					<h:outputText
-						value="#{reservationBean.carPooling.isChattingAllowed}" />
+						value="#{carPoolingReservationBean.carPooling.isChattingAllowed}" />
 
 					<br />
 					<br />
@@ -116,13 +116,13 @@
 					<hr />
 					<h:outputLabel value="vehicule brand: 	" />
 					<h:outputText
-						value="#{reservationBean.carPooling.vehicule.brand}" />
+						value="#{carPoolingReservationBean.carPooling.vehicule.brand}" />
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Conductor: 	" />
 					<h:outputText
-						value="#{reservationBean.carPooling.vehicule.userAccount.username}" />
+						value="#{carPoolingReservationBean.carPooling.vehicule.userAccount.username}" />
 					<br />
 					<br />
 
@@ -134,7 +134,7 @@
 					<f:facet name="header">BOOK</f:facet>
 					<h:panelGrid>
 						<h:commandButton value = "Book"
-							action="#{reservationBean.create()}"/>
+							action="#{carPoolingReservationBean.reservation()}"/>
 					</h:panelGrid>
 				</h:column>
 			

@@ -2,72 +2,65 @@ package fr.isika.cda17.project3.presentation;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.ServiceInvoice;
-import fr.isika.cda17.project3.model.personManagement.accounts.User;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
-import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
-
+import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
 import fr.isika.cda17.project3.model.serviceManagement.Reservation;
-import fr.isika.cda17.project3.model.serviceManagement.Service;
-import fr.isika.cda17.project3.repository.financialManagement.invoice.ServiceInvoiceDao;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
-import fr.isika.cda17.project3.repository.personManagement.accounts.UserDao;
-import fr.isika.cda17.project3.repository.serviceManagement.CarPoolingServiceDao;
+import fr.isika.cda17.project3.repository.serviceManagement.CarRentalServiceDao;
 import fr.isika.cda17.project3.repository.serviceManagement.ReservationDao;
 
 @ManagedBean
-@SessionScoped
-public class CarPoolingReservationBean implements Serializable {
-	
-	private static final String LIST_CARPOOLINGSERVICE_XHTML = "listCarPoolingService.xhtml";
+@ViewScoped
+public class CarRentalReservationBean implements Serializable{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -1025290862154591864L;
+	
+	private static final String LIST_CARRENTALSERVICE_XHTML = "listCarRentalService.xhtml";
+	private static final long serialVersionUID = -7301854715643239409L;
 
+	@Inject
+	private CarRentalServiceDao carRentalServiceDao;
 	@Inject
 	private UserAccountsDao userAccontDao;
-
-	
-
 	@Inject
-	private CarPoolingServiceDao carPoolingServiceDao;
+	private ReservationDao reservationDao;
+
 
 	private Reservation reservation = new Reservation();
 	private ServiceInvoice serviceInvoice = new ServiceInvoice();
-
-	private CarPoolingService carPooling;
 	private UserAccount user = new UserAccount();
-	
-	
+	private CarRentalService carRental;
+/*
+ * methodes
+ */
 	public void init() throws IOException {
 		System.out.println("INITIALISATION RESERVATIONBEAN");
-		
 		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 
-		if (map.containsKey("carPoolingServiceId")) {
-			String carPoolingServiceIdParamValue = map.get("carPoolingServiceId");
-			System.err.println("carPoolingServiceIdParamValue : " + carPoolingServiceIdParamValue);
-			if (carPoolingServiceIdParamValue != null && !carPoolingServiceIdParamValue.isBlank()) {
-				Long id = Long.valueOf(carPoolingServiceIdParamValue);
-				if (id != null) {
-					carPooling = carPoolingServiceDao.findById(id);
-					if (carPooling == null) {
+		if (map.containsKey("carRentalServiceId")) {
+			String carRentalServiceIdParamValue = map.get("carRentalServiceId");
+			System.err.println(carRentalServiceIdParamValue);
+			if (carRentalServiceIdParamValue != null && !carRentalServiceIdParamValue.isBlank()) {
+				Long id = Long.valueOf(carRentalServiceIdParamValue);
+				if(id != null) {
+					carRental = carRentalServiceDao.findById(id);
+					if (carRental == null) {
 						redirectError();
 					}
-					System.out.println(carPooling);
-					
 				} else {
 					redirectError();
 				}
@@ -79,42 +72,34 @@ public class CarPoolingReservationBean implements Serializable {
 	
 	public void redirectError() throws IOException {
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-		ec.redirect(LIST_CARPOOLINGSERVICE_XHTML);
+		ec.redirect(LIST_CARRENTALSERVICE_XHTML);
 	}
-
-	public void reservation() {
+	
+public void reservation() {
 		
 		//carPooling = carPoolingServiceDao.findById(id);
 		
 		System.out.println("DEBUT CREATION");
 
-		reservation.setService(carPooling);
-		serviceInvoice.setService(carPooling);
+		reservation.setService(carRental);
+		serviceInvoice.setService(carRental);
 		
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		String email = (String) session.getAttribute("email");
 		
-		
+		System.out.println(carRental);
 		if(email != null && !email.isBlank()) {
 			
 			Optional<UserAccount> optional = userAccontDao.findByEmail(email);
 			if(optional.isPresent()) {
 				serviceInvoice.setUserAccount(optional.get());
-				
-				
-				if (carPooling.getAvailableSeats() > 0) {
-					// reservationDao.create(reservation);
-		
-					reservation.setServiceinvoice(serviceInvoice);
-					carPooling.getReservations().add(reservation);
-					carPooling.setAvailableSeats(carPooling.getAvailableSeats() - 1);
-		
-					carPoolingServiceDao.update(carPooling);
+			
+				reservation.setServiceinvoice(serviceInvoice);
+				//	carRental.getReservations().add(reservation);
+					 reservationDao.create(reservation);
+					
 					System.out.println("reservation : "+reservation.getId());
-		
-				} else {
-					System.out.println("reservation failed, no seats available");
-				}
+	
 			} else {
 				System.out.println("reservation failed, no user with email : " + email);
 			}
@@ -124,37 +109,56 @@ public class CarPoolingReservationBean implements Serializable {
 		}
 		System.out.println("FIN CREATION");
 	}
+	
+	
+	
+	
+	
+  /**
+   * 
+    getters et setters
+   */
 
-	public CarPoolingService getCarPooling() {
-		return carPooling;
-	}
 
-	public void setCarPooling(CarPoolingService carPooling) {
-		this.carPooling = carPooling;
-	}
+
 
 	public Reservation getReservation() {
 		return reservation;
 	}
 
+
+
 	public void setReservation(Reservation reservation) {
 		this.reservation = reservation;
 	}
+
+
 
 	public ServiceInvoice getServiceInvoice() {
 		return serviceInvoice;
 	}
 
+
+
 	public void setServiceInvoice(ServiceInvoice serviceInvoice) {
 		this.serviceInvoice = serviceInvoice;
 	}
+
+
 
 	public UserAccount getUser() {
 		return user;
 	}
 
+
+
 	public void setUser(UserAccount user) {
 		this.user = user;
 	}
-
+	public CarRentalService getCarRental() {
+		return carRental;
+	}
+	public void setCarRental(CarRentalService carRental) {
+		this.carRental = carRental;
+	}
 }
