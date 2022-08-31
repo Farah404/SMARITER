@@ -1,6 +1,9 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
 import java.util.ArrayList;
+
+import java.util.Date;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,6 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 
 @Entity
@@ -22,16 +26,21 @@ public class CarRentalService extends Service {
     @OneToOne(cascade = CascadeType.ALL)
     private Vehicule vehicule;
     
+
     @ManyToMany(cascade = CascadeType.ALL)
     private List<CarRentalService>carRentalServiceList =new ArrayList<CarRentalService>();
+
 
     
     public CarRentalService() {
 	super();
     }
 
-    public CarRentalService(String keyPickUpAddress, String keyDropOffAddress, Vehicule vehicule) {
-	super();
+    public CarRentalService(Long id, Date publicationDate, Date expirationDate, Date startDate, Date endDate,
+    	    int referenceNumber, Boolean isRequest, double price,List <Reservation> reservations, ServiceType servicetype,
+    	    List<UserAccount> userAccounts ,String keyPickUpAddress, String keyDropOffAddress, Vehicule vehicule) {
+	super(id, publicationDate, expirationDate, startDate, endDate, referenceNumber, isRequest, price,reservations, servicetype,
+			userAccounts);
 	this.keyPickUpAddress = keyPickUpAddress;
 	this.keyDropOffAddress = keyDropOffAddress;
 	this.vehicule = vehicule;
@@ -61,14 +70,22 @@ public class CarRentalService extends Service {
         this.vehicule = vehicule;
     }
 
+
+
+
+	@Override
+	public String toString() {
+		return "CarRentalService [keyPickUpAddress=" + keyPickUpAddress + ", keyDropOffAddress=" + keyDropOffAddress
+				+ ", vehicule=" + vehicule +  "ServiceId," +this.getId()+ "]";
+
+
 	public List<CarRentalService> getCarRentalServiceList() {
 		return carRentalServiceList;
 	}
 
 	public void setCarRentalServiceList(List<CarRentalService> carRentalServiceList) {
 		this.carRentalServiceList = carRentalServiceList;
-	}
-    
+
     
 
 }

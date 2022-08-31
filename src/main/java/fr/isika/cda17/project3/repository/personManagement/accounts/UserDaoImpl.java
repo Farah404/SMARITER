@@ -1,6 +1,7 @@
 package fr.isika.cda17.project3.repository.personManagement.accounts;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -86,4 +87,18 @@ public class UserDaoImpl implements UserDao {
 	}
 	return null;
 }
+    public UserAccount findByUserAccountEmail(String email) {
+		try {
+			UserAccount userAccount = this.entityManager
+					.createNamedQuery("UserAccount.findByUserAccountEmail", UserAccount.class)
+					.setParameter("email_param", email)
+					.getSingleResult();
+			return userAccount;
+		} catch (NoResultException ex) {
+			System.out.println("UserDaoImpl.findByUserAccountEmail() - not found : " + email);
+		}
+		return null;
+
+	}
+
 }

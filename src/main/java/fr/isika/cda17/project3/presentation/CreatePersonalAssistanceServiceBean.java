@@ -46,6 +46,10 @@ public class CreatePersonalAssistanceServiceBean {
 	
 	private Itinerary itinerary = new Itinerary();
 	
+	private String startDate;
+	
+	private String endDate;
+	
 	private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
 	
 	public PersonalAssistanceType[] personalAssistanceTypeValues() {
@@ -66,6 +70,8 @@ public class CreatePersonalAssistanceServiceBean {
 		pas.setPublicationDate(LocalDateTime.now());
 		pas.setIsRequest(false);
 		pas.setUserAccountProvider(userAccount);
+		pas.setStartDate(LocalDateTime.parse(startDate));
+		pas.setEndDate(LocalDateTime.parse(endDate));
 		PersonalAssistanceService created = personalAssistanceServiceDao.create(pas);
 		System.out.println(created);
 	}
@@ -108,4 +114,21 @@ public class CreatePersonalAssistanceServiceBean {
 	public void setPas(PersonalAssistanceService pas) {
 		this.pas = pas;
 	}
+
+	public String getStartDate() {
+	    return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+	    this.startDate = startDate;
+	}
+
+	public String getEndDate() {
+	    return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+	    this.endDate = endDate;
+	}
+	
 }

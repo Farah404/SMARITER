@@ -30,11 +30,15 @@
 
 								<div class="form-outline mb-3">
 									Date de Debut
-									<h:inputText class="form-control" id="startDate"
-										a:placeholder="dd-MM-YYYY" type="datetime-local"
-										value="#{createPersonalAssistanceServiceBean.pas.startDate}">
-										<f:convertDateTime pattern="dd-MM-yyyy" />
-									</h:inputText>
+									<h:inputText class="form-control" id="startDateString"
+										a:placeholder="2018-05-05T11:50:55"
+										value="#{createPersonalAssistanceServiceBean.startDate}" />
+									
+<!-- 									<h:inputText class="form-control" id="startDate" -->
+<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
+<!-- 										value="#{createPersonalAssistanceServiceBean.pas.startDate}"> -->
+<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+<!-- 									</h:inputText> -->
 									<br />
 								</div>
 
@@ -42,17 +46,21 @@
 									Adresse de départ
 									<h:inputText class="form-control" id="pickUpAddress"
 										a:placeholder=""
-										value="#{createPersonalAssistanceServiceBean.pas.trajectory.pickUpAddress}" />
+										value="#{createPersonalAssistanceServiceBean.trajectory.pickUpAddress}" />
 									<br />
 								</div>
 
 								<div class="form-outline mb-3">
 									Date de fin
-									<h:inputText class="form-control" id="endDate"
-										a:placeholder="dd-MM-YYYY" type="datetime-local"
-										value="#{createPersonalAssistanceServiceBean.pas.endDate}">
-										<f:convertDateTime pattern="dd-MM-yyyy" />
-									</h:inputText>
+									
+									<h:inputText class="form-control" id="endDateString"
+										a:placeholder="2018-05-05T11:50:55"
+										value="#{createPersonalAssistanceServiceBean.endDate}" />
+<!-- 									<h:inputText class="form-control" id="endDate" -->
+<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
+<!-- 										value="#{createPersonalAssistanceServiceBean.pas.endDate}"> -->
+<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+<!-- 									</h:inputText> -->
 									<br />
 								</div>
 
@@ -60,7 +68,7 @@
 									Adresse d'arrivée
 									<h:inputText class="form-control" id="deliveryAddress"
 										a:placeholder=""
-										value="#{createPersonalAssistanceServiceBean.pas.trajectory.deliveryAddress}" />
+										value="#{createPersonalAssistanceServiceBean.trajectory.deliveryAddress}" />
 									<br />
 								</div>
 								
@@ -88,7 +96,7 @@
 								<div class="form-floating mb-3">
 								Type du trajet<br />
 									<h:selectOneMenu id="trajectoryType" class="form-control"
-										value="#{createPersonalAssistanceServiceBean.pas.trajectory.trajectoryType}">
+										value="#{createPersonalAssistanceServiceBean.trajectory.trajectoryType}">
 										<f:selectItems
 											value="#{createPersonalAssistanceServiceBean.trajectoryTypeValues()}"
 											var="s" itemLabel="#{s.label}" itemValue="#{s}" />
@@ -111,7 +119,7 @@
 									Arret 1
 									<h:inputText class="form-control" id="firstStop"
 										a:placeholder=""
-										value="#{createPersonalAssistanceServiceBean.pas.trajectory.itinerary.firstStopAddress}" />
+										value="#{createPersonalAssistanceServiceBean.itinerary.firstStopAddress}" />
 									<br />
 								</div>
 								
@@ -119,7 +127,7 @@
 									Arret 2
 									<h:inputText class="form-control" id="secondStop"
 										a:placeholder=""
-										value="#{createPersonalAssistanceServiceBean.pas.trajectory.itinerary.secondStopAddress}" />
+										value="#{createPersonalAssistanceServiceBean.itinerary.secondStopAddress}" />
 									<br />
 								</div>
 								
@@ -127,7 +135,7 @@
 									Arret 3
 									<h:inputText class="form-control" id="thirdStop"
 										a:placeholder=""
-										value="#{createPersonalAssistanceServiceBean.pas.trajectory.itinerary.thirdStopAddress}" />
+										value="#{createPersonalAssistanceServiceBean.itinerary.thirdStopAddress}" />
 									<br />
 								</div>
 

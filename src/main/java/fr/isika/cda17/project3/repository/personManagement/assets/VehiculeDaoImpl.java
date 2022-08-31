@@ -32,6 +32,7 @@ public class VehiculeDaoImpl implements VehiculeDao{
 		} catch (Exception e) {
 			System.out.println("VehiculeDao.update() - Failed : " + e.getMessage());
 		}
+
 	}
 
     @Override

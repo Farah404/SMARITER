@@ -2,6 +2,8 @@ package fr.isika.cda17.project3.model.serviceManagement;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -39,6 +41,7 @@ public class CarPoolingService extends Service{
     
     private boolean chattingAllowed;
     
+
     @ManyToMany
     private List <CarPoolingService> carPoolingServiceList = new ArrayList<CarPoolingService>();
     
@@ -48,6 +51,7 @@ public class CarPoolingService extends Service{
     public CarPoolingService() {
 	super();
     }
+
 
 	public CarPoolingService(CarPoolingType carPoolingType, int availableSeats, boolean petAllowed,
 	    boolean smokingAllowed, boolean musicAllowed, boolean chattingAllowed,
@@ -62,6 +66,16 @@ public class CarPoolingService extends Service{
 	this.carPoolingServiceList = carPoolingServiceList;
 	this.trajectory = trajectory;
     }
+
+
+	public CarPoolingType getCarPoolingType() {
+        return carPoolingType;
+    }
+
+    public void setCarPoolingType(CarPoolingType carPoolingType) {
+        this.carPoolingType = carPoolingType;
+    }
+
 
 	public int getAvailableSeats() {
 		return availableSeats;
@@ -118,6 +132,16 @@ public class CarPoolingService extends Service{
 	public void setCarPoolingServiceList(List <CarPoolingService> carPoolingServiceList) {
 		this.carPoolingServiceList = carPoolingServiceList;
 	}
-    
-    
+
+
+	@Override
+	public String toString() {
+		return "CarPoolingService [id="+ super.getId() +", carPoolingType=" + carPoolingType + ", availableSeats=" + availableSeats
+				+ ", isPetAllowed=" + isPetAllowed + ", isSmokingAllowed=" + isSmokingAllowed + ", isMusicAllowed="
+				+ isMusicAllowed + ", isChattingAllowed=" + isChattingAllowed + ", vehicule=" + vehicule + ", trajectory=" + trajectory + "]";
+	}
+
 }
+
+   
+

@@ -7,10 +7,12 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 
+
 <f:metadata>
 	<f:event listener="#{carPoolingManagementBean.init()}"
 		type="preRenderView"></f:event>
 </f:metadata>
+
 
 <h:head>
 	<title>List</title>
@@ -21,7 +23,10 @@
 		<ui:define name="content">
 			<h:outputScript library="js" name="faq.js" />
 			<div class="container">
+
+
 				<br /> <br /> <br />
+
 				<h:form>
 
 					<h:dataTable class="styled-table" id="carPoolingService"
@@ -29,7 +34,7 @@
 						var="carPoolingService">
 
 						<h:column>
-							<f:facet name="header"> Pick-Up Address</f:facet>
+
 							<h:outputText
 								value="#{carPoolingService.trajectory.pickUpAddress}" />
 						</h:column>
@@ -54,6 +59,7 @@
 							<f:facet name="header"> Duration (in hour)</f:facet>
 							<h:outputText
 								value="#{carPoolingService.trajectory.durationHours}" />
+
 						</h:column>
 						<h:column>
 							<f:facet name="header"> Stop Duration (in minute)</f:facet>
@@ -68,12 +74,13 @@
 						<h:column>
 							<f:facet name="header"> Seats Avaible</f:facet>
 							<h:outputText value="#{carPoolingService.availableSeats}" />
-						</h:column>
+	</h:column>
 
 						<h:column>
 							<f:facet name="header">Conductor</f:facet>
 							<h:outputText
 							value="#{carPoolingService.userAccountProvider.username}"/>
+
 						</h:column>
 						<h:column>
 							<f:facet name="header">Price</f:facet>
@@ -85,8 +92,10 @@
 							<h:panelGrid>
 								<h:commandButton value="Detail"
 									action="#{carPoolingManagementBean.detail(carPoolingService.id)}">
+
 									<f:param name="carPoolingServiceId"
 										value="#{carPoolingService.id}"></f:param>
+
 								</h:commandButton>
 							</h:panelGrid>
 						</h:column>
@@ -103,11 +112,13 @@
 							<h:panelGrid>
 								<h:commandButton value="Edit"
 									action="#{carPoolingManagementBean.showUpdate(carPoolingService.id)}">
+
 									<f:param name="carPoolingServiceId"
 										value="#{carPoolingService.id}"></f:param>
 								</h:commandButton>
 							</h:panelGrid>
 						</h:column>
+
 
 
 					</h:dataTable>

@@ -63,8 +63,10 @@ public class CarRentalServiceManagementBean implements Serializable{
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 		ec.redirect(LIST_CARRENTALSERVICE_XHTML);
 	}
+
 	public String update() {
 		if(carRentalService.getEndDate().equals(carRentalService.getStartDate()))
+
 		carRentalServiceDao.update(carRentalService);
 		System.out.println((carRentalService));
 		return LIST_CARRENTALSERVICE_XHTML;

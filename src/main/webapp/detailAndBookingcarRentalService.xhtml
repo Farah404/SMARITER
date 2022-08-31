@@ -8,7 +8,9 @@
 
 
 <f:metadata>
-	<f:event listener="#{carRentalServiceManagementBean.init()}"
+
+	<f:event listener="#{carRentalReservationBean.init()}"
+
 		type="preRenderView"></f:event>
 </f:metadata>
 
@@ -26,45 +28,58 @@
 				<h1>SERVICE DETAIL -- BOOKING</h1>
 				<br />
 				<h:form id="carRentalService"
-					value="#{carRentalServiceManagementBean.carRentalService}"
-					var="carRentalService">
+
+					value="#{carRentalReservationBean.carRental}"
+					var="carRentalToSReserve">
+
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="key Pick-Up Address:  	" />
 					<h:outputText
-						value="#{carRentalServiceManagementBean.carRentalService.keyPickUpAddress}" />
+
+						value="#{carRentalReservationBean.carRental.keyPickUpAddress}" />
+
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="publication Date:  	" />
 					<h:outputText
-						value="#{carRentalServiceManagementBean.carRentalService.publicationDate}" />
+
+
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="start Date:  	" />
 					<h:outputText
-						value="#{carRentalServiceManagementBean.carRentalService.startDate}" />
+
+						value="#{carRentalReservationBean.carRental.startDate}" />
+
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="End Date:  	" />
 					<h:outputText
-						value="#{carRentalServiceManagementBean.carRentalService.endDate}" />
+
+						value="#{carRentalReservationBean.carRental.endDate}" />
+
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="key Drop-Off Address: 	 " />
 					<h:outputText
-						value="#{carRentalServiceManagementBean.carRentalService.keyDropOffAddress}" />		
+
+						value="#{carRentalReservationBean.carRental.keyDropOffAddress}" />		
+
 												
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="vehicule Type : 		" />
 					<h:outputText
-						value="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.vehiculeType.name()}" />
+
+						value="#{carRentalReservationBean.carRental.userAccountProvider.vehicule.vehiculeType.name()}" />
+
 
 					<br />
 					<br />
@@ -72,51 +87,47 @@
 
 					<h:outputLabel value="vehicule brand: 	" />
 					<h:outputText
-						value="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.brand}" />
+
+						value="#{carRentalReservationBean.carRental.userAccountProvider.vehicule.brand}" />
+
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="price: 	" />
 					<h:outputText
-						value="#{carRentalServiceManagementBean.carRentalService.price}	" />
+
+						value="#{carRentalReservationBean.carRental.price}	" />
+
 					<h:outputLabel value="€ " />	
 					<br />
 					<br />
 					<hr />
 					<h:outputLabel value="Owner: 	" />
 					<h:outputText
-						value="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.username}	" />
+
 					
 					<br />
 					<br />
 					<hr />
 
 
-					<h:column>
-						<f:facet name="header">CANCEL</f:facet>
-						<h:panelGrid>
-							<h:commandButton
-								action="#{carPoolingManagementBean.delete(carPoolingService.id)}"
-								value="Back" />
-						</h:panelGrid>
-					</h:column>
-					<hr />
-					<hr />
-
-				</h:form>
 				<h:column>
 					<f:facet name="header">BOOK</f:facet>
 					<h:panelGrid>
 						<h:commandButton
-							action="#{carPoolingManagementBean.delete(carPoolingService.id)}"
+
+							action="#{carRentalReservationBean.reservation()}"
+
 							value="Book" />
 					</h:panelGrid>
 				</h:column>
 
-			</div>
 
+			
 
+</h:form>
 			<hr />
+</div>
 
 		</ui:define>
 	</ui:composition>

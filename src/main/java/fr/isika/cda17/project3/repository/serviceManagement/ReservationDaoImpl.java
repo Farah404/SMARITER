@@ -59,5 +59,5 @@ public class ReservationDaoImpl implements ReservationDao {
 		return this.entityManager.createQuery("select ea from Reservation ea", Reservation.class).getResultList();
 	}
  
-	
 }
+

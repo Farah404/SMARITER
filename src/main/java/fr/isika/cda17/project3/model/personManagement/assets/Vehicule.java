@@ -115,6 +115,7 @@ public class Vehicule {
 		this.technicalTestExpiration = technicalTestExpiration;
 	}
 
+
 	public UserAccount getUserAccount() {
 		return userAccount;
 	}
@@ -142,8 +143,5 @@ public class Vehicule {
 	public void setAvailableSeats(int availableSeats) {
 		this.availableSeats = availableSeats;
 	}
-
-	
-
 
 }

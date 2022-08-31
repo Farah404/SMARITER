@@ -43,7 +43,7 @@ public class CarPoolingServiceDaoImpl implements CarPoolingServiceDao{
 	    updatedCarPoolingService.setMusicAllowed(carPoolingService.isMusicAllowed());
 	    updatedCarPoolingService.setChattingAllowed(carPoolingService.isChattingAllowed());
 	    
-	    entityManager.persist(carPoolingService);
+	    entityManager.merge(carPoolingService);
 	} catch (Exception e) {
 	    System.out.println("CarPoolingServiceDao.update() - Failed : " + e.getMessage());
 	}
@@ -69,9 +69,11 @@ public class CarPoolingServiceDaoImpl implements CarPoolingServiceDao{
 
     @Override
     public List<CarPoolingService> findAll() {
+
     	
     	List<CarPoolingService> c =  this.entityManager.createQuery("select ea from CarPoolingService ea", CarPoolingService.class).getResultList();
     	 return c;
+
 	
     }
 
