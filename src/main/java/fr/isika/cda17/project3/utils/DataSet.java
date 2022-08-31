@@ -7,7 +7,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.BankDetails;
+import fr.isika.cda17.project3.model.financialManagement.invoice.BillingAddress;
+import fr.isika.cda17.project3.model.financialManagement.store.ShoppingCart;
+import fr.isika.cda17.project3.model.financialManagement.store.Wallet;
+import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
+import fr.isika.cda17.project3.model.personManagement.accounts.Administrator;
+import fr.isika.cda17.project3.model.personManagement.accounts.AdministratorAccount;
+import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
+import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
+import fr.isika.cda17.project3.model.personManagement.accounts.User;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
+import fr.isika.cda17.project3.model.personManagement.assets.Insurance;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 import fr.isika.cda17.project3.model.personManagement.assets.VehiculePowerType;
 import fr.isika.cda17.project3.model.personManagement.assets.VehiculeType;
@@ -18,37 +28,6 @@ import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
 import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
-import fr.isika.cda17.project3.model.financialManagement.invoice.BillingAddress;
-import fr.isika.cda17.project3.model.financialManagement.store.ShoppingCart;
-import fr.isika.cda17.project3.model.financialManagement.store.Wallet;
-import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
-import fr.isika.cda17.project3.model.personManagement.accounts.Administrator;
-
-import fr.isika.cda17.project3.model.personManagement.accounts.AdministratorAccount;
-import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
-import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
-import fr.isika.cda17.project3.model.personManagement.accounts.User;
-import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
-import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
-import fr.isika.cda17.project3.model.personManagement.assets.VehiculeType;
-import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
-import fr.isika.cda17.project3.model.serviceManagement.CarPoolingType;
-import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
-import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
-import fr.isika.cda17.project3.model.serviceManagement.Service;
-import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
-import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
-import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
-
-import fr.isika.cda17.project3.model.personManagement.assets.Insurance;
-import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
-
-import fr.isika.cda17.project3.model.personManagement.accounts.Person;
-import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
-
-import fr.isika.cda17.project3.model.personManagement.assets.Insurance;
-
-
 import fr.isika.cda17.project3.model.solutionManagement.MessagingSystemChoice;
 import fr.isika.cda17.project3.model.solutionManagement.PaymentSystemChoice;
 import fr.isika.cda17.project3.model.solutionManagement.PriceDeal;
@@ -324,67 +303,17 @@ public class DataSet {
 	uAU.setWallet(wU);
 	em.persist(uAU);
 	
-	User u = new User();
-	u.setLastName("madi");
-	u.setPhoneNumber(0612121212);
-	u.setUserAccount(uAU);
+	User usery = new User();
+	usery.setLastName("madi");
+	usery.setPhoneNumber(0612121212);
+	usery.setUserAccount(uAU);
 //TODO	u.setBirthDate(null);
-	u.setDrivingPermitNumber(135315315);
-	u.setFirstName("Houda");
-	u.setIdentityCardnumber(1141414141);
-	em.persist(u);
-    }
+	usery.setDrivingPermitNumber(135315315);
+	usery.setFirstName("Houda");
+	usery.setIdentityCardnumber(1141414141);
+	em.persist(usery);
+    
 
     
-  
-    
-   // Pour list carPool
-	 CarPoolingService ca = new CarPoolingService();
-	 Trajectory t = new Trajectory();
-	 Vehicule v = new Vehicule();
-	 v.setVehiculeType(VehiculeType.MANUAL​);
-	 Itinerary i = new Itinerary();
-	 UserAccount ua = new UserAccount();
-	 ca.setAvailableSeats(3);
-	 ca.setIsChattingAllowed(false);
-	 ca.setTrajectory(t);
-	 ca.setVehicule(v);
-	 v.setBrand("BMW");
-	 t.setPickUpAddress("poissy");
-	 v.setUserAccount(ua);
-	 t.setItinerary(i);
-	 ua.setUsername("hou");
-	 i.setFirstStopAddress("poissy");
-	 
-	 em.persist(ca);
-
-
-	// Pour list Rental
-	 
-	    
-	    
-		 CarRentalService cr = new CarRentalService();
-		 cr.setServicetype(ServiceType.CAR_RENTAL);
-		 cr.setKeyDropOffAddress("nante");
-		 cr.setPrice(12);
-		 Vehicule v1 = new Vehicule();
-		 cr.setVehicule(v1);
-		 v1.setVehiculeType(VehiculeType.MANUAL​);
-		 UserAccount user = new UserAccount();
-		 v1.setUserAccount(user);
-		 user.setUsername("carR");
-		
-		
-		 user.setUsername("hou");
-		
-		 
-		 em.persist(cr);
-		 em.persist(v1);
-		 em.persist(user);
-
-		
-		
-		
-		
-    }
+}
 }

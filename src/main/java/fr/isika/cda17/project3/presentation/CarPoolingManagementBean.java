@@ -12,7 +12,6 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-
 import fr.isika.cda17.project3.model.personManagement.assets.VehiculePowerType;
 
 import fr.isika.cda17.project3.model.personManagement.assets.VehiculeType;
@@ -34,20 +33,19 @@ public class CarPoolingManagementBean implements Serializable {
 	@Inject
 	private CarPoolingServiceDao carPoolingServiceDao;
 
-
 	private CarPoolingService carPoolingService = new CarPoolingService();
-	
+
 	private List<CarPoolingService> carPoolingServiceList;
-	
+
 	public void init() throws IOException {
 		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-		
+
 		if (map.containsKey("carPoolingServiceId")) {
 			String carPoolingServiceIdParamValue = map.get("carPoolingServiceId");
 			System.err.println(carPoolingServiceIdParamValue);
 			if (carPoolingServiceIdParamValue != null && !carPoolingServiceIdParamValue.isBlank()) {
 				Long id = Long.valueOf(carPoolingServiceIdParamValue);
-				if(id != null) {
+				if (id != null) {
 
 					carPoolingService = carPoolingServiceDao.findById(id);
 					if (carPoolingService == null) {
@@ -62,7 +60,6 @@ public class CarPoolingManagementBean implements Serializable {
 		}
 	}
 
-
 	public void redirectError() throws IOException {
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 		ec.redirect(LIST_CARPOOLINGSERVICE_XHTML);
@@ -74,13 +71,12 @@ public class CarPoolingManagementBean implements Serializable {
 		return LIST_CARPOOLINGSERVICE_XHTML;
 	}
 
-	
 	public String detail(Long id) {
 		carPoolingService = carPoolingServiceDao.findById(id);
-		
+
 		return "detailAndBookingCarPoolingService.xhtml?faces-redirect=true&carPoolingServiceId=" + id;
 	}
-		
+
 	private void refresh() {
 		carPoolingServiceList = carPoolingServiceDao.findAll();
 
@@ -99,8 +95,8 @@ public class CarPoolingManagementBean implements Serializable {
 	public CarPoolingType[] carPoolingType() {
 		return CarPoolingType.values();
 
-
 	}
+
 	public TrajectoryType[] trajectoryType() {
 		return TrajectoryType.values();
 	}
@@ -116,19 +112,22 @@ public class CarPoolingManagementBean implements Serializable {
 
 	public void setCarPoolingServiceList(List<CarPoolingService> carPoolingServiceList) {
 		this.carPoolingServiceList = carPoolingServiceList;
+	}
 
 	public CarPoolingService getCarPoolingService() {
 		return carPoolingService;
 	}
+
 	public void setCarPoolingService(CarPoolingService carPoolingService) {
 		this.carPoolingService = carPoolingService;
 	}
+
 	public VehiculeType[] vehiculeTypes() {
 		return VehiculeType.values();
 	}
+
 	public VehiculePowerType[] VehiculePowerTypes() {
 		return VehiculePowerType.values();
 	}
-	
 
 }

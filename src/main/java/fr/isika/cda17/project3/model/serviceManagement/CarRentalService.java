@@ -16,68 +16,62 @@ import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 
 @Entity
-@PrimaryKeyJoinColumn(name="id")
+@PrimaryKeyJoinColumn(name = "id")
 public class CarRentalService extends Service {
-    
-    private String keyPickUpAddress;
-    
-    private String keyDropOffAddress;
-    
-    @OneToOne(cascade = CascadeType.ALL)
-    private Vehicule vehicule;
-    
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<CarRentalService>carRentalServiceList =new ArrayList<CarRentalService>();
+	private String keyPickUpAddress;
 
+	private String keyDropOffAddress;
 
-    
-    public CarRentalService() {
-	super();
-    }
+	@OneToOne(cascade = CascadeType.ALL)
+	private Vehicule vehicule;
 
-    public CarRentalService(Long id, Date publicationDate, Date expirationDate, Date startDate, Date endDate,
-    	    int referenceNumber, Boolean isRequest, double price,List <Reservation> reservations, ServiceType servicetype,
-    	    List<UserAccount> userAccounts ,String keyPickUpAddress, String keyDropOffAddress, Vehicule vehicule) {
-	super(id, publicationDate, expirationDate, startDate, endDate, referenceNumber, isRequest, price,reservations, servicetype,
-			userAccounts);
-	this.keyPickUpAddress = keyPickUpAddress;
-	this.keyDropOffAddress = keyDropOffAddress;
-	this.vehicule = vehicule;
-    }
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<CarRentalService> carRentalServiceList = new ArrayList<CarRentalService>();
 
-    public String getKeyPickUpAddress() {
-        return keyPickUpAddress;
-    }
+	public CarRentalService() {
+		super();
+	}
 
-    public void setKeyPickUpAddress(String keyPickUpAddress) {
-        this.keyPickUpAddress = keyPickUpAddress;
-    }
+	public CarRentalService(Long id, Date publicationDate, Date expirationDate, Date startDate, Date endDate,
+			int referenceNumber, Boolean isRequest, double price, List<Reservation> reservations,
+			ServiceType servicetype, List<UserAccount> userAccounts, String keyPickUpAddress, String keyDropOffAddress,
+			Vehicule vehicule) {
+		super();
+		this.keyPickUpAddress = keyPickUpAddress;
+		this.keyDropOffAddress = keyDropOffAddress;
+		this.vehicule = vehicule;
+	}
 
-    public String getKeyDropOffAddress() {
-        return keyDropOffAddress;
-    }
+	public String getKeyPickUpAddress() {
+		return keyPickUpAddress;
+	}
 
-    public void setKeyDropOffAddress(String keyDropOffAddress) {
-        this.keyDropOffAddress = keyDropOffAddress;
-    }
+	public void setKeyPickUpAddress(String keyPickUpAddress) {
+		this.keyPickUpAddress = keyPickUpAddress;
+	}
 
-    public Vehicule getVehicule() {
-        return vehicule;
-    }
+	public String getKeyDropOffAddress() {
+		return keyDropOffAddress;
+	}
 
-    public void setVehicule(Vehicule vehicule) {
-        this.vehicule = vehicule;
-    }
+	public void setKeyDropOffAddress(String keyDropOffAddress) {
+		this.keyDropOffAddress = keyDropOffAddress;
+	}
 
+	public Vehicule getVehicule() {
+		return vehicule;
+	}
 
-
+	public void setVehicule(Vehicule vehicule) {
+		this.vehicule = vehicule;
+	}
 
 	@Override
 	public String toString() {
 		return "CarRentalService [keyPickUpAddress=" + keyPickUpAddress + ", keyDropOffAddress=" + keyDropOffAddress
-				+ ", vehicule=" + vehicule +  "ServiceId," +this.getId()+ "]";
-
+				+ ", vehicule=" + vehicule + "ServiceId," + this.getId() + "]";
+	}
 
 	public List<CarRentalService> getCarRentalServiceList() {
 		return carRentalServiceList;
@@ -86,6 +80,5 @@ public class CarRentalService extends Service {
 	public void setCarRentalServiceList(List<CarRentalService> carRentalServiceList) {
 		this.carRentalServiceList = carRentalServiceList;
 
-    
-
+	}
 }

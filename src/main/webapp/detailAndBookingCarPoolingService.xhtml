@@ -85,7 +85,7 @@
 					<h:outputLabel value="Chatting Allowed: 	" />
 					<h:outputText
 
-						value="#{carPoolingToReserve.isChattingAllowed}" />
+						value="#{carPoolingToReserve.chattingAllowed}" />
 
 					<br />
 					<br />
@@ -93,7 +93,7 @@
 					<h:outputLabel value="Pet Allowed: 		" />
 					<h:outputText
 
-						value="#{carPoolingReservationBean.carPooling.isPetAllowed}" />
+						value="#{carPoolingReservationBean.carPooling.petAllowed}" />
 
 
 					<br />
@@ -102,7 +102,7 @@
 					<h:outputLabel value="Smoking Allowed: 		" />
 					<h:outputText
 
-						value="#{carPoolingReservationBean.carPooling.isSmokingAllowed}" />
+						value="#{carPoolingReservationBean.carPooling.smokingAllowed}" />
 
 
 					<br />
@@ -111,7 +111,7 @@
 
 					<h:outputLabel value="Chatting Allowed: 	" />
 					<h:outputText
-						value="#{carPoolingReservationBean.carPooling.isMusicAllowed}" />
+						value="#{carPoolingReservationBean.carPooling.musicAllowed}" />
 
 
 					<br />
@@ -146,9 +146,7 @@
 					<hr />
 					<h:outputLabel value="Conductor: 	" />
 					<h:outputText
-
-
-				
+						value="#{carRentalReservationBean.carRental.userAccountProvider.username}" />
 				<h:column>
 					<f:facet name="header">BOOK</f:facet>
 					<h:panelGrid>

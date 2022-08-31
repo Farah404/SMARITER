@@ -12,49 +12,39 @@ import javax.servlet.http.HttpSession;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
-import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
-import fr.isika.cda17.project3.model.serviceManagement.CarPoolingType;
 import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
-import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
-import fr.isika.cda17.project3.model.serviceManagement.PersonalAssistanceType;
-import fr.isika.cda17.project3.model.serviceManagement.Service;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
-import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
-import fr.isika.cda17.project3.repository.serviceManagement.CarPoolingServiceDao;
 import fr.isika.cda17.project3.repository.serviceManagement.CarRentalServiceDao;
-import fr.isika.cda17.project3.repository.serviceManagement.ParcelServiceDao;
-import fr.isika.cda17.project3.repository.serviceManagement.PersonalAssistanceServiceDao;
 
 @ManagedBean
 @ViewScoped
 public class CreateCarRentalServiceBean {
 
-	
 	@Inject
 	private CarRentalServiceDao carRentalServiceDao;
-	
+
 	@Inject
 	private UserAccountsDao userAccountsDao;
-	
-	private UserAccount userAccount;	  
-	
+
+	private UserAccount userAccount;
+
 	private CarRentalService crs = new CarRentalService();
-	
+
 	private Vehicule vehicule = new Vehicule();
-	
+
 	private String startDate;
-	
+
 	private String endDate;
-	
+
 	private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
-	
+
 	public void init() {
-	    HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-	    Long id = Long.valueOf(session.getAttribute("id").toString());
-	    userAccount = userAccountsDao.findById(id);
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		Long id = Long.valueOf(session.getAttribute("id").toString());
+		userAccount = userAccountsDao.findById(id);
 	}
-	
+
 	public void create() {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Long id = Long.valueOf(session.getAttribute("id").toString());
@@ -68,7 +58,7 @@ public class CreateCarRentalServiceBean {
 		CarRentalService created = carRentalServiceDao.create(crs);
 		System.out.println(created);
 	}
-	
+
 	public void createRequest() {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Long id = Long.valueOf(session.getAttribute("id").toString());
@@ -98,26 +88,24 @@ public class CreateCarRentalServiceBean {
 		this.vehicule = vehicule;
 	}
 
-
 	public UserAccount getUserAccount() {
-	    return userAccount;
+		return userAccount;
 	}
 
 	public void setStartDate(String startDate) {
-	    this.startDate = startDate;
+		this.startDate = startDate;
 	}
 
 	public void setEndDate(String endDate) {
-	    this.endDate = endDate;
+		this.endDate = endDate;
 	}
 
 	public String getStartDate() {
-	    return startDate;
+		return startDate;
 	}
 
 	public String getEndDate() {
-	    return endDate;
+		return endDate;
 	}
-
 
 }

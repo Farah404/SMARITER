@@ -92,28 +92,28 @@
 							</h:selectOneMenu>
 							<br />
 							<h:outputLabel value="vehicule brand" />
-						<h:inputText a:placeholder="#{carPoolingManagementBean.carPoolingService.vehicule.brand}"
-							value="#{carPoolingManagementBean.carPoolingService.vehicule.brand}" />
+						<h:inputText a:placeholder="#{carPoolingManagementBean.carPoolingService.userAccountProvider.vehicule.brand}"
+							value="#{carPoolingManagementBean.carPoolingService.userAccountProvider.vehicule.brand}" />
 
 
 							<h:outputLabel value="Pet Allowed" />
 							<h:selectBooleanCheckbox id="isPetAllowed"
-								value="#{carPoolingManagementBean.carPoolingService.isPetAllowed}" />		
+								value="#{carPoolingManagementBean.carPoolingService.petAllowed}" />		
 						
 						<h:outputLabel value="Music Allowed" />
 							<h:selectBooleanCheckbox id="isMusicAllowed"
-								value="#{carPoolingManagementBean.carPoolingService.isMusicAllowed}" />
+								value="#{carPoolingManagementBean.carPoolingService.musicAllowed}" />
 
 						<h:outputLabel value="Smoking Allowed" />
 							<h:selectBooleanCheckbox id="isSmokingAllowed"
-								value="#{carPoolingManagementBean.carPoolingService.isSmokingAllowed}" />
+								value="#{carPoolingManagementBean.carPoolingService.smokingAllowed}" />
 								
 								<h:outputLabel value="Chatting Allowed" />
 							<h:selectBooleanCheckbox id="isChattingAllowed"
-								value="#{carPoolingManagementBean.carPoolingService.isChattingAllowed}" />
+								value="#{carPoolingManagementBean.carPoolingService.chattingAllowed}" />
 	
 							<h:selectOneRadio
-								value="#{carPoolingManagementBean.carPoolingService.vehicule.vehiculeType}"> 
+								value="#{carPoolingManagementBean.carPoolingService.userAccountProvider.vehicule.vehiculeType}"> 
 								<f:selectItems value="#{carPoolingManagementBean.vehiculeTypes()}"
 									var="vehiculeType"
 									itemValue="#{vehiculeType}"
