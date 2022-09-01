@@ -6,6 +6,10 @@
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
 	xmlns:f="http://java.sun.com/jsf/core">
 
+<f:metadata>
+	<f:event listener="#{carPoolingReservationBean.init()}"
+		type="preRenderView"></f:event>
+</f:metadata>
 
 <h:body>
 	<ui:composition template="#{templateBean.subtemplatePath()}">
@@ -20,21 +24,29 @@
 
 							<div class="col-md-4">
 								<img alt="" style="width: 100%;" class=" img-thumbnail"
-									src="subMedia/Images/Covoit.png" /> <br />
-								<button class="btn btn-success center-block" type="submit">Réserver
-									la prestation pour EcoCoins</button>
+									src="subMedia/Images/Covoit.png" /> <br /> <br />
+								<h:commandButton class="btn btn-success center-block"
+									type="submit"
+									value=" Réserver la prestation pour #{carPoolingReservationBean.carPooling.price} EcoCoins"
+									action="#{carPoolingReservationBean.reservation()}">
+								</h:commandButton>
 
-								} <br />
-								<button class="btn btn-success center-block">Profil de
-									l'EcoMembre prestataire</button>
+								<br />
+
+								<h:commandButton class="btn btn-success center-block"
+									type="submit"
+									value="Profil de l'EcoMembre prestataire #{carPoolingManagementBean.carPoolingService.userAccountProvider.username}"
+									action="#{carPoolingReservationBean.reservation()}">
+								</h:commandButton>
+
 							</div>
 
 
 
 							<div class="col-md-6">
 								<div class="table-responsive">
-									@*Information*@ <span class="text-success"><strong>Information</strong></span>
 
+									<span class="text-success"><b>Information</b><br /></span>
 
 									<table class="table table-user-information">
 										<tbody>
@@ -43,6 +55,7 @@
 													class="glyphicon glyphicon-play  text-success"></span> Date
 													et heure de départ</td>
 												<td class="text-success">
+													<p>#{carPoolingReservationBean.carPooling.startDate}</p>
 													<p></p>
 												</td>
 											</tr>
@@ -52,7 +65,7 @@
 													class="glyphicon glyphicon-stop  text-success"></span> Date
 													et heure de d'arrivée</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carPoolingReservationBean.carPooling.endDate}</p>
 												</td>
 											</tr>
 
@@ -60,14 +73,16 @@
 												<td><span
 													class="glyphicon glyphicon-road  text-success"></span> Type
 													de covoiturage</td>
-												<td class="text-success"></td>
+												<td class="text-success">
+													<!--                                    <p>#{carPoolingManagementBean.carPoolingType()}</p>  -->
+												</td>
 											</tr>
 
 											<tr>
 												<td><span class="glyphicon glyphicon-user text-success"></span>
 													Sièges disponibles</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carPoolingReservationBean.carPooling.availableSeats}</p>
 												</td>
 											</tr>
 
@@ -76,7 +91,7 @@
 													class="glyphicon glyphicon-hourglass text-success"></span>
 													Durée du trajet en heure</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carPoolingReservationBean.carPooling.trajectory.durationHours}</p>
 												</td>
 											</tr>
 
@@ -85,7 +100,7 @@
 													class="glyphicon glyphicon-pause text-success"></span>
 													Nombre d'arrêts</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carPoolingReservationBean.carPooling.trajectory.stopNumber}</p>
 												</td>
 											</tr>
 
@@ -93,7 +108,7 @@
 												<td><span class="glyphicon glyphicon-time text-success"></span>
 													Durée d'arrêt en minutes</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carPoolingReservationBean.carPooling.trajectory.stopDurationMinutes}</p>
 												</td>
 											</tr>
 
@@ -102,7 +117,7 @@
 													class="glyphicon glyphicon-arrow-up text-success"></span>
 													Adresse de départ</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carPoolingReservationBean.carPooling.trajectory.pickUpAddress}</p>
 												</td>
 											</tr>
 
@@ -111,7 +126,7 @@
 													class="glyphicon glyphicon-arrow-down text-success"></span>
 													Adresse d'arrivée</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carPoolingReservationBean.carPooling.trajectory.deliveryAddress}</p>
 												</td>
 											</tr>
 
@@ -119,11 +134,15 @@
 												<td><span
 													class="glyphicon glyphicon-resize-small text-success"></span>
 													Type du trajet</td>
-												<td class="text-success"></td>
+												<td class="text-success">
+													<p>#{carPoolingReservationBean.carPooling.trajectory.trajectoryType}</p>
+												</td>
 											</tr>
 										</tbody>
 									</table>
-									@*Preferences*@ <span class="text-success"><strong>Preferences</strong></span>
+
+
+									<span class="text-success"><strong>Preferences</strong></span>
 
 									<table class="table table-user-information">
 										<tbody>
@@ -133,7 +152,7 @@
 													class="glyphicon glyphicon-heart  text-success"></span>
 													Animaux de compagnie</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carPoolingReservationBean.carPooling.petAllowed}</p>
 												</td>
 											</tr>
 
@@ -141,7 +160,7 @@
 												<td><span class="glyphicon glyphicon-fire text-success"></span>
 													Fumeur</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carPoolingReservationBean.carPooling.smokingAllowed}</p>
 												</td>
 											</tr>
 
@@ -150,7 +169,7 @@
 													class="glyphicon glyphicon-headphones text-success"></span>
 													Musique</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carPoolingReservationBean.carPooling.musicAllowed}</p>
 												</td>
 											</tr>
 
@@ -159,7 +178,7 @@
 													class="glyphicon glyphicon-bullhorn text-success"></span>
 													Discussion</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carPoolingReservationBean.carPooling.chattingAllowed}</p>
 												</td>
 											</tr>
 
