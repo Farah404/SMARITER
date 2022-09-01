@@ -19,6 +19,7 @@ public class UserProfileBean implements Serializable {
 
     @Inject
     private UserDao userDao;
+
     private User user;
 
     public void init() {

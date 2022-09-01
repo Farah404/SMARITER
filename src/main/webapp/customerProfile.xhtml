@@ -43,17 +43,17 @@
 							<div class="col-one-half-cusProfile">
 								<br /> <span class="label-text-cusProfile"><i
 									class="fa fa-envelope fa-col-cus"> Firstname:
-										#{customerProfileBean.customer.firstName}</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
+										#{customerProfileBean.customer.firstName}</i></span><br /> <br /> <span
+									class="label-text-cusProfile"><i
 									class="fa fa-envelope fa-col-cus"> Lastname:
-										#{customerProfileBean.customer.lastName}</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
+										#{customerProfileBean.customer.lastName}</i></span><br /> <br /> <span
+									class="label-text-cusProfile"><i
 									class="fa fa-envelope fa-col-cus"> Email address:
-										#{customerProfileBean.customer.entityAccount.email}</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
+										#{customerProfileBean.customer.entityAccount.email}</i></span><br /> <br />
+								<span class="label-text-cusProfile"><i
 									class="fa fa-phone fa-col-cus"> Phone number:
-										#{customerProfileBean.customer.phoneNumber}</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
+										#{customerProfileBean.customer.phoneNumber}</i></span><br /> <br /> <span
+									class="label-text-cusProfile"><i
 									class="fa fa-euro fa-col-cus"> Pricing plan:
 										#{customerProfileBean.customer.entityAccount.solution.priceDeal}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
@@ -69,16 +69,14 @@
 										#{customerProfileBean.customer.entityAccount.solution.parcelSolutionIncluded},
 										#{customerProfileBean.customer.entityAccount.solution.personalAssistanceSolutionIncluded}
 
-								</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
+								</i></span><br /> <br /> <span class="label-text-cusProfile"><i
 									class="fa fa-phone fa-col-cus"> Payment Choice:
 										#{customerProfileBean.customer.entityAccount.solution.paymentSystemChoice}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
 									class="fa fa-phone fa-col-cus"> Payment Choice:
 										#{customerProfileBean.customer.entityAccount.solution.messagingSystemChoice}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-euro fa-col-cus"> Messaging choice:</i></span><br />
-								<br />
+									class="fa fa-euro fa-col-cus"> Messaging choice:</i></span><br /> <br />
 
 							</div>
 
@@ -95,8 +93,8 @@
 									class="fa fa-envelope fa-col-cus"> IBAN:
 										#{customerProfileBean.customer.entityAccount.bankDetails.iban}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-inbox fa-col-cus"> Billing Address:</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
+									class="fa fa-inbox fa-col-cus"> Billing Address:</i></span><br /> <br />
+								<span class="label-text-cusProfile"><i
 									class="fa fa-envelope fa-col-cus"> Address line:
 										#{customerProfileBean.customer.entityAccount.billingAddress.addressLine}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
@@ -158,41 +156,58 @@
 								</div>
 							</div>
 							<br /> <span class="label-text-cusProfile"><i
-								class="fa fa-inbox fa-col-cus"> Users list:</i></span><br />
-							<br />
-							<table class="styled-table">
-								<thead>
-									<tr>
-										<th>Usernames</th>
-										<th>Lastname</th>
-										<th>Firstname</th>
-										<th>Email</th>
-										<th>Member since</th>
-										<th>Status</th>
-										<th>Suspend</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-									</tr>
-									<tr>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-									</tr>
-								</tbody>
-							</table>
+								class="fa fa-inbox fa-col-cus"> Users list:</i></span><br /> <br />
+							<h:dataTable class="styled-table" id="listeUsers"
+								value="#{userProfileManagementBean.userList}" var="users">
+
+								<h:column>
+									<f:facet name="header">Id</f:facet>
+									<h:outputText value="#{users.id}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header"> Email</f:facet>
+									<h:outputText value="#{users.userAccount.email}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header"> Last Name</f:facet>
+									<h:outputText value="#{users.lastName}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Identity Card number</f:facet>
+									<h:outputText value="#{users.identityCardnumber}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Phone Number</f:facet>
+									<h:outputText value="#{users.phoneNumber}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Driving Permit Number</f:facet>
+									<h:outputText value="#{users.drivingPermitNumber}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Update</f:facet>
+									<h:panelGrid>
+										<h:commandButton value="Edit"
+											action="#{userProfileManagementBean.showUpdate(users.id)}">
+											<f:param name="userId" value="#user.id}"></f:param>
+										</h:commandButton>
+									</h:panelGrid>
+								</h:column>
+								<h:column>
+									<f:facet name="header">Delete</f:facet>
+									<h:panelGrid>
+										<h:commandButton
+											action="#{userProfileManagementBean.delete(users.id)}"
+											value="Delete" />
+									</h:panelGrid>
+								</h:column>
+							</h:dataTable>
+
+
+
+
+
+
 							<br /> <span class="label-text-cusProfile"><i
 								class="fa fa-inbox fa-col-cus"> List of services on website:</i></span><br />
 							<br />

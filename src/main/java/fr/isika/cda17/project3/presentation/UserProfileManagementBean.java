@@ -13,7 +13,7 @@ import fr.isika.cda17.project3.repository.personManagement.accounts.UserDao;
 
 @ManagedBean
 @SessionScoped
-public class ManagementUserBean implements Serializable {
+public class UserProfileManagementBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -31,7 +31,7 @@ public class ManagementUserBean implements Serializable {
 
 	System.err.println(id);
 
-	return "signUp2.xhtml?faces-redirect=true&userId=" + id;
+	return "customerProfile.xhtml?faces-redirect=true&userId=" + id;
     }
 
     private void refresh() {
