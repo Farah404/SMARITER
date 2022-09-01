@@ -1,6 +1,5 @@
 package fr.isika.cda17.project3.model.messagingManagement;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,17 +11,17 @@ import fr.isika.cda17.project3.model.serviceManagement.Service;
 
 @Entity
 public class MessageBetweenUsers {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     @ManyToOne
     private UserAccount userAccount;
-    
+
     @OneToOne
     private Service service;
-    
+
     private String messageContent;
 
     public MessageBetweenUsers() {
@@ -38,32 +37,31 @@ public class MessageBetweenUsers {
     }
 
     public UserAccount getUserAccount() {
-        return userAccount;
+	return userAccount;
     }
 
     public void setUserAccount(UserAccount userAccount) {
-        this.userAccount = userAccount;
+	this.userAccount = userAccount;
     }
 
     public Service getService() {
-        return service;
+	return service;
     }
 
     public void setService(Service service) {
-        this.service = service;
+	this.service = service;
     }
 
     public String getMessageContent() {
-        return messageContent;
+	return messageContent;
     }
 
     public void setMessageContent(String messageContent) {
-        this.messageContent = messageContent;
+	this.messageContent = messageContent;
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
 
-    
 }

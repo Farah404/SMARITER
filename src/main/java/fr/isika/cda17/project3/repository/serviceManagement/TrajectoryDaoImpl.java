@@ -7,14 +7,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
-import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
 
 @Stateless
 public class TrajectoryDaoImpl implements TrajectoryDao {
 
     @PersistenceContext
     private EntityManager entityManager;
-    
+
     @Override
     public Trajectory create(Trajectory trajectory) {
 	try {
@@ -35,12 +34,12 @@ public class TrajectoryDaoImpl implements TrajectoryDao {
 	    updatedTrajectory.setStopDurationMinutes(trajectory.getStopDurationMinutes());
 	    updatedTrajectory.setPickUpAddress(trajectory.getPickUpAddress());
 	    updatedTrajectory.setDeliveryAddress(trajectory.getDeliveryAddress());
-	    
+
 	    entityManager.persist(trajectory);
 	} catch (Exception e) {
 	    System.out.println("TrajectoryDao.update() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
@@ -51,13 +50,13 @@ public class TrajectoryDaoImpl implements TrajectoryDao {
 	} catch (Exception e) {
 	    System.out.println("TrajectoryDao.delete() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
     public Trajectory findById(Long id) {
 	return entityManager.find(Trajectory.class, id);
-	
+
     }
 
     @Override

@@ -5,4 +5,3 @@ import fr.isika.cda17.project3.repository.Dao;
 
 public interface ReservationDao extends Dao<Reservation> {
 }
-

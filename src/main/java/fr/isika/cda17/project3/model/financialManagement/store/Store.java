@@ -6,39 +6,39 @@ import javax.persistence.Id;
 
 @Entity
 public class Store {
-   
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private String batchOneName;
     private int batchOneQuantity;
     private double batchOnePrice;
-    
+
     private String batchTwoName;
     private int batchTwoQuantity;
     private double batchTwoPrice;
-    
+
     private String batchThreeName;
     private int batchThreeQuantity;
     private double batchThreePrice;
-    
+
     private String MonthlySubscriptionName;
     private int MonthlySubscriptionQuantity;
     private double MonthlySubscriptionPrice;
-    
+
     private String TrimestrialSubscriptionName;
     private int TrimestrialSubscriptionQuantity;
     private double TrimestrialSubscriptionPrice;
-    
+
     private String SemestrialSubscriptionName;
     private int SemestrialSubscriptionQuantity;
     private double SemestrialSubscriptionPrice;
-    
-    
+
     public Store() {
 	super();
     }
+
     public Store(Long id, String batchOneName, int batchOneQuantity, double batchOnePrice, String batchTwoName,
 	    int batchTwoQuantity, double batchTwoPrice, String batchThreeName, int batchThreeQuantity,
 	    double batchThreePrice, String monthlySubscriptionName, int monthlySubscriptionQuantity,
@@ -66,117 +66,153 @@ public class Store {
 	SemestrialSubscriptionQuantity = semestrialSubscriptionQuantity;
 	SemestrialSubscriptionPrice = semestrialSubscriptionPrice;
     }
+
     public String getBatchOneName() {
-        return batchOneName;
+	return batchOneName;
     }
+
     public void setBatchOneName(String batchOneName) {
-        this.batchOneName = batchOneName;
+	this.batchOneName = batchOneName;
     }
+
     public int getBatchOneQuantity() {
-        return batchOneQuantity;
+	return batchOneQuantity;
     }
+
     public void setBatchOneQuantity(int batchOneQuantity) {
-        this.batchOneQuantity = batchOneQuantity;
+	this.batchOneQuantity = batchOneQuantity;
     }
+
     public double getBatchOnePrice() {
-        return batchOnePrice;
+	return batchOnePrice;
     }
+
     public void setBatchOnePrice(double batchOnePrice) {
-        this.batchOnePrice = batchOnePrice;
+	this.batchOnePrice = batchOnePrice;
     }
+
     public String getBatchTwoName() {
-        return batchTwoName;
+	return batchTwoName;
     }
+
     public void setBatchTwoName(String batchTwoName) {
-        this.batchTwoName = batchTwoName;
+	this.batchTwoName = batchTwoName;
     }
+
     public int getBatchTwoQuantity() {
-        return batchTwoQuantity;
+	return batchTwoQuantity;
     }
+
     public void setBatchTwoQuantity(int batchTwoQuantity) {
-        this.batchTwoQuantity = batchTwoQuantity;
+	this.batchTwoQuantity = batchTwoQuantity;
     }
+
     public double getBatchTwoPrice() {
-        return batchTwoPrice;
+	return batchTwoPrice;
     }
+
     public void setBatchTwoPrice(double batchTwoPrice) {
-        this.batchTwoPrice = batchTwoPrice;
+	this.batchTwoPrice = batchTwoPrice;
     }
+
     public String getBatchThreeName() {
-        return batchThreeName;
+	return batchThreeName;
     }
+
     public void setBatchThreeName(String batchThreeName) {
-        this.batchThreeName = batchThreeName;
+	this.batchThreeName = batchThreeName;
     }
+
     public int getBatchThreeQuantity() {
-        return batchThreeQuantity;
+	return batchThreeQuantity;
     }
+
     public void setBatchThreeQuantity(int batchThreeQuantity) {
-        this.batchThreeQuantity = batchThreeQuantity;
+	this.batchThreeQuantity = batchThreeQuantity;
     }
+
     public double getBatchThreePrice() {
-        return batchThreePrice;
+	return batchThreePrice;
     }
+
     public void setBatchThreePrice(double batchThreePrice) {
-        this.batchThreePrice = batchThreePrice;
+	this.batchThreePrice = batchThreePrice;
     }
+
     public String getMonthlySubscriptionName() {
-        return MonthlySubscriptionName;
+	return MonthlySubscriptionName;
     }
+
     public void setMonthlySubscriptionName(String monthlySubscriptionName) {
-        MonthlySubscriptionName = monthlySubscriptionName;
+	MonthlySubscriptionName = monthlySubscriptionName;
     }
+
     public int getMonthlySubscriptionQuantity() {
-        return MonthlySubscriptionQuantity;
+	return MonthlySubscriptionQuantity;
     }
+
     public void setMonthlySubscriptionQuantity(int monthlySubscriptionQuantity) {
-        MonthlySubscriptionQuantity = monthlySubscriptionQuantity;
+	MonthlySubscriptionQuantity = monthlySubscriptionQuantity;
     }
+
     public double getMonthlySubscriptionPrice() {
-        return MonthlySubscriptionPrice;
+	return MonthlySubscriptionPrice;
     }
+
     public void setMonthlySubscriptionPrice(double monthlySubscriptionPrice) {
-        MonthlySubscriptionPrice = monthlySubscriptionPrice;
+	MonthlySubscriptionPrice = monthlySubscriptionPrice;
     }
+
     public String getTrimestrialSubscriptionName() {
-        return TrimestrialSubscriptionName;
+	return TrimestrialSubscriptionName;
     }
+
     public void setTrimestrialSubscriptionName(String trimestrialSubscriptionName) {
-        TrimestrialSubscriptionName = trimestrialSubscriptionName;
+	TrimestrialSubscriptionName = trimestrialSubscriptionName;
     }
+
     public int getTrimestrialSubscriptionQuantity() {
-        return TrimestrialSubscriptionQuantity;
+	return TrimestrialSubscriptionQuantity;
     }
+
     public void setTrimestrialSubscriptionQuantity(int trimestrialSubscriptionQuantity) {
-        TrimestrialSubscriptionQuantity = trimestrialSubscriptionQuantity;
+	TrimestrialSubscriptionQuantity = trimestrialSubscriptionQuantity;
     }
+
     public double getTrimestrialSubscriptionPrice() {
-        return TrimestrialSubscriptionPrice;
+	return TrimestrialSubscriptionPrice;
     }
+
     public void setTrimestrialSubscriptionPrice(double trimestrialSubscriptionPrice) {
-        TrimestrialSubscriptionPrice = trimestrialSubscriptionPrice;
+	TrimestrialSubscriptionPrice = trimestrialSubscriptionPrice;
     }
+
     public String getSemestrialSubscriptionName() {
-        return SemestrialSubscriptionName;
+	return SemestrialSubscriptionName;
     }
+
     public void setSemestrialSubscriptionName(String semestrialSubscriptionName) {
-        SemestrialSubscriptionName = semestrialSubscriptionName;
+	SemestrialSubscriptionName = semestrialSubscriptionName;
     }
+
     public int getSemestrialSubscriptionQuantity() {
-        return SemestrialSubscriptionQuantity;
+	return SemestrialSubscriptionQuantity;
     }
+
     public void setSemestrialSubscriptionQuantity(int semestrialSubscriptionQuantity) {
-        SemestrialSubscriptionQuantity = semestrialSubscriptionQuantity;
+	SemestrialSubscriptionQuantity = semestrialSubscriptionQuantity;
     }
+
     public double getSemestrialSubscriptionPrice() {
-        return SemestrialSubscriptionPrice;
+	return SemestrialSubscriptionPrice;
     }
+
     public void setSemestrialSubscriptionPrice(double semestrialSubscriptionPrice) {
-        SemestrialSubscriptionPrice = semestrialSubscriptionPrice;
+	SemestrialSubscriptionPrice = semestrialSubscriptionPrice;
     }
+
     public Long getId() {
-        return id;
+	return id;
     }
-  
 
 }

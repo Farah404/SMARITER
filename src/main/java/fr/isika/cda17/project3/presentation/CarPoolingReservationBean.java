@@ -40,7 +40,7 @@ public class CarPoolingReservationBean implements Serializable {
     private UserAccount user = new UserAccount();
 
     public void init() throws IOException {
-	System.out.println("INITIALISATION RESERVATIONBEAN");
+	System.out.println("starting reservation bean");
 
 	Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 
@@ -72,9 +72,7 @@ public class CarPoolingReservationBean implements Serializable {
 
     public void reservation() {
 
-	// carPooling = carPoolingServiceDao.findById(id);
-
-	System.out.println("DEBUT CREATION");
+	System.out.println("starting reservation creation");
 
 	reservation.setService(carPooling);
 	serviceInvoice.setService(carPooling);
@@ -89,7 +87,6 @@ public class CarPoolingReservationBean implements Serializable {
 		serviceInvoice.setUserAccount(optional.get());
 
 		if (carPooling.getAvailableSeats() > 0) {
-		    // reservationDao.create(reservation);
 
 		    reservation.setServiceinvoice(serviceInvoice);
 		    carPooling.getReservations().add(reservation);
@@ -108,7 +105,7 @@ public class CarPoolingReservationBean implements Serializable {
 	} else {
 	    System.out.println("reservation failed, email unknown : " + email);
 	}
-	System.out.println("FIN CREATION");
+	System.out.println("ending reservation creation");
     }
 
     public CarPoolingService getCarPooling() {

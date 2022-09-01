@@ -6,15 +6,15 @@ import javax.persistence.Id;
 
 @Entity
 public class ParcelSolution {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private boolean atypicalVolumeOption;
-    
+
     private boolean fragileOoption;
-    
+
     private boolean weightKilogrammesOption;
 
     public ParcelSolution() {
@@ -31,31 +31,31 @@ public class ParcelSolution {
     }
 
     public boolean getAtypicalVolumeOption() {
-        return atypicalVolumeOption;
+	return atypicalVolumeOption;
     }
 
     public void setAtypicalVolumeOption(boolean atypicalVolumeOption) {
-        this.atypicalVolumeOption = atypicalVolumeOption;
+	this.atypicalVolumeOption = atypicalVolumeOption;
     }
 
     public boolean getFragileOoption() {
-        return fragileOoption;
+	return fragileOoption;
     }
 
     public void setFragileOoption(boolean fragileOoption) {
-        this.fragileOoption = fragileOoption;
+	this.fragileOoption = fragileOoption;
     }
 
     public boolean getWeightKilogrammesOption() {
-        return weightKilogrammesOption;
+	return weightKilogrammesOption;
     }
 
     public void setWeightKilogrammesOption(boolean weightKilogrammesOption) {
-        this.weightKilogrammesOption = weightKilogrammesOption;
+	this.weightKilogrammesOption = weightKilogrammesOption;
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
-    
+
 }

@@ -6,17 +6,17 @@ import javax.persistence.Id;
 
 @Entity
 public class BankDetails {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private String bankName;
-    
+
     private String swift;
-    
+
     private String iban;
-    
+
     public BankDetails() {
 	super();
     }
@@ -30,31 +30,31 @@ public class BankDetails {
     }
 
     public String getBankName() {
-        return bankName;
+	return bankName;
     }
 
     public void setBankName(String bankName) {
-        this.bankName = bankName;
+	this.bankName = bankName;
     }
 
     public String getSwift() {
-        return swift;
+	return swift;
     }
 
     public void setSwift(String swift) {
-        this.swift = swift;
+	this.swift = swift;
     }
 
     public String getIban() {
-        return iban;
+	return iban;
     }
 
     public void setIban(String iban) {
-        this.iban = iban;
+	this.iban = iban;
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
 
 }

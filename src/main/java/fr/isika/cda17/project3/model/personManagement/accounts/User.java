@@ -9,30 +9,28 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@PrimaryKeyJoinColumn(name="id")
+@PrimaryKeyJoinColumn(name = "id")
 @NamedQuery(name = "user.findByUserAccountId", query = "SELECT u FROM User u WHERE u.userAccount.id = :u_param")
 
-public class User extends Person{
-    
+public class User extends Person {
+
     private int phoneNumber;
-    
+
     private Date birthDate;
-    
+
     private int identityCardnumber;
-    
+
     private int drivingPermitNumber;
-    
-    
-    @OneToOne(cascade=CascadeType.ALL)
+
+    @OneToOne(cascade = CascadeType.ALL)
     private UserAccount userAccount;
 
-   
-	public User() {
+    public User() {
 	super();
     }
 
-    public User(Long id, String firstName, String lastName, int phoneNumber, Date birthDate,
-	    int identityCardnumber, int drivingPermitNumber, UserAccount userAccount) {
+    public User(Long id, String firstName, String lastName, int phoneNumber, Date birthDate, int identityCardnumber,
+	    int drivingPermitNumber, UserAccount userAccount) {
 	super(id, firstName, lastName);
 	this.phoneNumber = phoneNumber;
 	this.birthDate = birthDate;
@@ -42,43 +40,43 @@ public class User extends Person{
     }
 
     public int getPhoneNumber() {
-        return phoneNumber;
+	return phoneNumber;
     }
 
     public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
+	this.phoneNumber = phoneNumber;
     }
 
     public Date getBirthDate() {
-        return birthDate;
+	return birthDate;
     }
 
     public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+	this.birthDate = birthDate;
     }
 
     public int getIdentityCardnumber() {
-        return identityCardnumber;
+	return identityCardnumber;
     }
 
     public void setIdentityCardnumber(int identityCardnumber) {
-        this.identityCardnumber = identityCardnumber;
+	this.identityCardnumber = identityCardnumber;
     }
 
     public int getDrivingPermitNumber() {
-        return drivingPermitNumber;
+	return drivingPermitNumber;
     }
 
     public void setDrivingPermitNumber(int drivingPermitNumber) {
-        this.drivingPermitNumber = drivingPermitNumber;
+	this.drivingPermitNumber = drivingPermitNumber;
     }
+
     public UserAccount getUserAccount() {
-		return userAccount;
-	}
+	return userAccount;
+    }
 
-	public void setUserAccount(UserAccount userAccount) {
-		this.userAccount = userAccount;
-	}
-
+    public void setUserAccount(UserAccount userAccount) {
+	this.userAccount = userAccount;
+    }
 
 }

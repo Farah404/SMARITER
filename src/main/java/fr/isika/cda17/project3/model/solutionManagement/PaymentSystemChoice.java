@@ -2,18 +2,15 @@ package fr.isika.cda17.project3.model.solutionManagement;
 
 public enum PaymentSystemChoice {
 
-    NONE("None"), 
-    MONETARY("Monetary"), 
-    INTERNAL_CURRENCY("Internal currency")
-    ;
-	
-	private String label;
+    NONE("None"), MONETARY("Monetary"), INTERNAL_CURRENCY("Internal currency");
 
-	private PaymentSystemChoice(String label) {
-		this.label = label;
-	}
+    private String label;
 
-	public String getLabel() {
-		return label;
-	}
+    private PaymentSystemChoice(String label) {
+	this.label = label;
+    }
+
+    public String getLabel() {
+	return label;
+    }
 }

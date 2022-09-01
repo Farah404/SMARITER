@@ -8,15 +8,15 @@ import javax.persistence.Id;
 
 @Entity
 public class Insurance {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private String insuranceAgencyName;
-    
+
     private String insuranceContractNumber;
-    
+
     private Date insuranceContractExpiration;
 
     public Insurance() {
@@ -33,30 +33,30 @@ public class Insurance {
     }
 
     public String getInsuranceAgencyName() {
-        return insuranceAgencyName;
+	return insuranceAgencyName;
     }
 
     public void setInsuranceAgencyName(String insuranceAgencyName) {
-        this.insuranceAgencyName = insuranceAgencyName;
+	this.insuranceAgencyName = insuranceAgencyName;
     }
 
     public String getInsuranceContractNumber() {
-        return insuranceContractNumber;
+	return insuranceContractNumber;
     }
 
     public void setInsuranceContractNumber(String insuranceContractNumber) {
-        this.insuranceContractNumber = insuranceContractNumber;
+	this.insuranceContractNumber = insuranceContractNumber;
     }
 
     public Date getInsuranceContractExpiration() {
-        return insuranceContractExpiration;
+	return insuranceContractExpiration;
     }
 
     public void setInsuranceContractExpiration(Date insuranceContractExpiration) {
-        this.insuranceContractExpiration = insuranceContractExpiration;
+	this.insuranceContractExpiration = insuranceContractExpiration;
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
 }

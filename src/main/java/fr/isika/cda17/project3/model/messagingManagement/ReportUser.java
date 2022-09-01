@@ -5,9 +5,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@PrimaryKeyJoinColumn(name="id")
-public class ReportUser extends Report{
-    
+@PrimaryKeyJoinColumn(name = "id")
+public class ReportUser extends Report {
+
     @Enumerated
     private UserReportType userReportType;
 
@@ -21,13 +21,11 @@ public class ReportUser extends Report{
     }
 
     public UserReportType getUserReportType() {
-        return userReportType;
+	return userReportType;
     }
 
     public void setUserReportType(UserReportType userReportType) {
-        this.userReportType = userReportType;
+	this.userReportType = userReportType;
     }
-    
-    
 
 }

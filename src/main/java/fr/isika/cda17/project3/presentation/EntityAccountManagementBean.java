@@ -15,48 +15,38 @@ import fr.isika.cda17.project3.repository.personManagement.accounts.EntityAccoun
 @ViewScoped
 public class EntityAccountManagementBean implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Inject
-	private EntityAccountDao entityAccountDao;
+    @Inject
+    private EntityAccountDao entityAccountDao;
 
-	private List<EntityAccount> entityAccountList;
+    private List<EntityAccount> entityAccountList;
 
-	@PostConstruct
-	private void init() {
-		refresh();
-	}
+    @PostConstruct
+    private void init() {
+	refresh();
+    }
 
-	/*
-	 * methods
-	 */
+    public String showUpdate(Long id) {
+	System.err.println(id);
+	return "editEntity.xhtml?faces-redirect=true&accountId=" + id;
+    }
 
-	public String showUpdate(Long id) {
-		//ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-		System.err.println(id);
-		//ec.redirect("editEntity.xhtml?accountId=" + id);
-		return "editEntity.xhtml?faces-redirect=true&accountId=" + id;
-	}
+    public void delete(Long id) {
+	entityAccountDao.delete(id);
+	refresh();
+    }
 
-	public void delete(Long id) {
-		entityAccountDao.delete(id);
-		refresh();
-	}
+    private void refresh() {
+	entityAccountList = entityAccountDao.findAll();
+    }
 
-	private void refresh() {
-		entityAccountList = entityAccountDao.findAll();
-	}
-	
-	/*
-	 * getters and setters
-	 */
+    public List<EntityAccount> getEntityAccountList() {
+	return entityAccountList;
+    }
 
-	public List<EntityAccount> getEntityAccountList() {
-		return entityAccountList;
-	}
-
-	public void setEntityAccountList(List<EntityAccount> entityAccountList) {
-		this.entityAccountList = entityAccountList;
-	}
+    public void setEntityAccountList(List<EntityAccount> entityAccountList) {
+	this.entityAccountList = entityAccountList;
+    }
 
 }

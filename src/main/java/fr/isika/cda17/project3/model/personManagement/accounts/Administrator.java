@@ -7,15 +7,15 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@PrimaryKeyJoinColumn(name="id")
+@PrimaryKeyJoinColumn(name = "id")
 @NamedQuery(name = "administrator.findByAdminAccountId", query = "SELECT aa FROM Administrator aa WHERE aa.administratorAccount.id = :c_param")
 public class Administrator extends Person {
-    
+
     private String employeeCode;
 
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private AdministratorAccount administratorAccount;
-    
+
     public Administrator() {
 	super();
     }
@@ -27,22 +27,19 @@ public class Administrator extends Person {
     }
 
     public String getEmployeeCode() {
-        return employeeCode;
+	return employeeCode;
     }
 
     public void setEmployeeCode(String employeeCode) {
-        this.employeeCode = employeeCode;
+	this.employeeCode = employeeCode;
     }
 
     public AdministratorAccount getAdministratorAccount() {
-        return administratorAccount;
+	return administratorAccount;
     }
 
     public void setAdministratorAccount(AdministratorAccount administratorAccount) {
-        this.administratorAccount = administratorAccount;
+	this.administratorAccount = administratorAccount;
     }
-
-
-
 
 }

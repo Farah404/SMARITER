@@ -7,11 +7,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.StoreInvoice;
-import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 
 @Stateless
 public class StoreInvoiceDaoImpl implements StoreInvoiceDao {
-    
+
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -34,13 +33,12 @@ public class StoreInvoiceDaoImpl implements StoreInvoiceDao {
 	    updatedStoreInvoice.setInvoiceIssueDate(storeInvoice.getInvoiceIssueDate());
 	    updatedStoreInvoice.setInvoiceType(storeInvoice.getInvoiceType());
 	    updatedStoreInvoice.setPurchaseType(storeInvoice.getPurchaseType());
-	    
+
 	    entityManager.persist(storeInvoice);
 	} catch (Exception e) {
 	    System.out.println("StoreInvoiceDao.update() - Failed : " + e.getMessage());
 	}
-	
-	
+
     }
 
     @Override
@@ -56,7 +54,7 @@ public class StoreInvoiceDaoImpl implements StoreInvoiceDao {
     @Override
     public StoreInvoice findById(Long id) {
 	return entityManager.find(StoreInvoice.class, id);
-	
+
     }
 
     @Override

@@ -12,43 +12,45 @@ import fr.isika.cda17.project3.repository.personManagement.accounts.EntityAccoun
 
 @ManagedBean
 @ViewScoped
-public class CreateEntityAccountBean{
-			
-	@Inject
-	private EntityAccountDao entityAccountDao;
+public class CreateEntityAccountBean {
 
-	private EntityAccount entityAccount = new EntityAccount();
+    @Inject
+    private EntityAccountDao entityAccountDao;
 
-	public void create() {
-		EntityAccount created = entityAccountDao.create(entityAccount);
-		System.out.println(created);
-	}
-	
-	public void init() {
-		Map<String,String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-		if(map.containsKey("accountId")) {
-			String accountIdParamValue = map.get("accountId");
-			Long id = Long.valueOf(accountIdParamValue);
-			
-			// TODO : si pas de id => message d'erreur
-			if(id != null) {
-				entityAccount = entityAccountDao.findById(id);
-			} else {	
-				//TODO: error
-				return ;
-				
-			}
-		}
-	}
+    private EntityAccount entityAccount = new EntityAccount();
 
-	public String showUpdate(Long id) {
-		System.err.println(id);
-		return "Testagain.xhtml?accountId=" + id;
+    public void create() {
+	EntityAccount created = entityAccountDao.create(entityAccount);
+	System.out.println(created);
+    }
+
+    public void init() {
+	Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+	if (map.containsKey("accountId")) {
+	    String accountIdParamValue = map.get("accountId");
+	    Long id = Long.valueOf(accountIdParamValue);
+
+	    // TODO : si pas de id => message d'erreur
+	    if (id != null) {
+		entityAccount = entityAccountDao.findById(id);
+	    } else {
+		// TODO: error
+		return;
+
+	    }
 	}
-	public EntityAccount getEntityAccount() {
-		return entityAccount;
-	}
-	public void setEntityAccount(EntityAccount entityAccount) {
-		this.entityAccount = entityAccount;
-	}
+    }
+
+    public String showUpdate(Long id) {
+	System.err.println(id);
+	return "Testagain.xhtml?accountId=" + id;
+    }
+
+    public EntityAccount getEntityAccount() {
+	return entityAccount;
+    }
+
+    public void setEntityAccount(EntityAccount entityAccount) {
+	this.entityAccount = entityAccount;
+    }
 }

@@ -1,6 +1,5 @@
 package fr.isika.cda17.project3.model.personManagement.assets;
 
-import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,136 +11,138 @@ import javax.persistence.OneToOne;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
-
 @Entity
 public class Vehicule {
-	@Id
-	@GeneratedValue
-	private Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-	private String brand;
+    private String brand;
 
-	private String registrationNumber;
-	
-	private int availableSeats;
-	
-	@Enumerated(EnumType.STRING)
-	private VehiculeType vehiculeType;
+    private String registrationNumber;
 
-	@Enumerated(EnumType.STRING)
-	private VehiculePowerType vehiculePowerType;
+    private int availableSeats;
 
-	private String technicalTestExpiration;
+    @Enumerated(EnumType.STRING)
+    private VehiculeType vehiculeType;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	private UserAccount userAccount;
+    @Enumerated(EnumType.STRING)
+    private VehiculePowerType vehiculePowerType;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	private Insurance insurance;
+    private String technicalTestExpiration;
 
-	public Vehicule() {
-		super();
-	}
+    @ManyToOne(cascade = CascadeType.ALL)
+    private UserAccount userAccount;
 
-	public Vehicule(Long id, String brand, String registrationNumber, String technicalTestExpiration, UserAccount userAccount, Insurance insurance, int availableSeats) {
-		super();
-		this.id = id;
-		this.brand = brand;
-		this.registrationNumber = registrationNumber;
-		this.technicalTestExpiration = technicalTestExpiration;
-		this.userAccount = userAccount;
-		this.insurance = insurance;
-		this.availableSeats=availableSeats;
-	}
+    @OneToOne(cascade = CascadeType.ALL)
+    private Insurance insurance;
 
-	public String getBrand() {
-		return brand;
-	}
+    public Vehicule() {
+	super();
+    }
 
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
+    public Vehicule(Long id, String brand, String registrationNumber, String technicalTestExpiration,
+	    UserAccount userAccount, Insurance insurance, int availableSeats) {
+	super();
+	this.id = id;
+	this.brand = brand;
+	this.registrationNumber = registrationNumber;
+	this.technicalTestExpiration = technicalTestExpiration;
+	this.userAccount = userAccount;
+	this.insurance = insurance;
+	this.availableSeats = availableSeats;
+    }
 
-	public String getRegistrationNumber() {
-		return registrationNumber;
-	}
+    public String getBrand() {
+	return brand;
+    }
 
-	public void setRegistrationNumber(String registrationNumber) {
-		this.registrationNumber = registrationNumber;
-	}
+    public void setBrand(String brand) {
+	this.brand = brand;
+    }
 
-	public VehiculeType getVehiculeType() {
-		return vehiculeType;
-	}
-	public void setVehiculeType(VehiculeType vehiculeType) {
-		this.vehiculeType = vehiculeType;
-	}
+    public String getRegistrationNumber() {
+	return registrationNumber;
+    }
 
-	public Boolean isAutomatic() {
-		return VehiculeType.AUTOMATIC.equals(vehiculeType);
-	}
+    public void setRegistrationNumber(String registrationNumber) {
+	this.registrationNumber = registrationNumber;
+    }
 
-	public Boolean isManual() {
-		return VehiculeType.MANUAL.equals(vehiculeType);
-	}
+    public VehiculeType getVehiculeType() {
+	return vehiculeType;
+    }
 
+    public void setVehiculeType(VehiculeType vehiculeType) {
+	this.vehiculeType = vehiculeType;
+    }
 
-	public VehiculePowerType getVehiculePowerType() {
-		return vehiculePowerType;
-	}
+    public Boolean isAutomatic() {
+	return VehiculeType.AUTOMATIC.equals(vehiculeType);
+    }
 
-	public void setVehiculePowerType(VehiculePowerType vehiculePowerType) {
-		this.vehiculePowerType = vehiculePowerType;
-	}
+    public Boolean isManual() {
+	return VehiculeType.MANUAL.equals(vehiculeType);
+    }
 
-	public Boolean isPetrol() {
-		return vehiculePowerType.equals(vehiculePowerType);
-	}
-	public Boolean isElectric() {
-		return vehiculePowerType.equals(vehiculePowerType);
-	}
-	public Boolean isHybrid() {
-		return vehiculePowerType.equals(vehiculePowerType);
-	}
-	public Boolean isDiesel() {
-		return vehiculePowerType.equals(vehiculePowerType);
-	}
-	
-	public String getTechnicalTestExpiration() {
-		return technicalTestExpiration;
-	}
+    public VehiculePowerType getVehiculePowerType() {
+	return vehiculePowerType;
+    }
 
-	public void setTechnicalTestExpiration(String technicalTestExpiration) {
-		this.technicalTestExpiration = technicalTestExpiration;
-	}
+    public void setVehiculePowerType(VehiculePowerType vehiculePowerType) {
+	this.vehiculePowerType = vehiculePowerType;
+    }
 
+    public Boolean isPetrol() {
+	return vehiculePowerType.equals(vehiculePowerType);
+    }
 
-	public UserAccount getUserAccount() {
-		return userAccount;
-	}
+    public Boolean isElectric() {
+	return vehiculePowerType.equals(vehiculePowerType);
+    }
 
-	public void setUserAccount(UserAccount userAccount) {
-		this.userAccount = userAccount;
-	}
+    public Boolean isHybrid() {
+	return vehiculePowerType.equals(vehiculePowerType);
+    }
 
-	public Insurance getInsurance() {
-		return insurance;
-	}
+    public Boolean isDiesel() {
+	return vehiculePowerType.equals(vehiculePowerType);
+    }
 
-	public void setInsurance(Insurance insurance) {
-		this.insurance = insurance;
-	}
+    public String getTechnicalTestExpiration() {
+	return technicalTestExpiration;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public void setTechnicalTestExpiration(String technicalTestExpiration) {
+	this.technicalTestExpiration = technicalTestExpiration;
+    }
 
-	public int getAvailableSeats() {
-		return availableSeats;
-	}
+    public UserAccount getUserAccount() {
+	return userAccount;
+    }
 
-	public void setAvailableSeats(int availableSeats) {
-		this.availableSeats = availableSeats;
-	}
+    public void setUserAccount(UserAccount userAccount) {
+	this.userAccount = userAccount;
+    }
+
+    public Insurance getInsurance() {
+	return insurance;
+    }
+
+    public void setInsurance(Insurance insurance) {
+	this.insurance = insurance;
+    }
+
+    public Long getId() {
+	return id;
+    }
+
+    public int getAvailableSeats() {
+	return availableSeats;
+    }
+
+    public void setAvailableSeats(int availableSeats) {
+	this.availableSeats = availableSeats;
+    }
 
 }

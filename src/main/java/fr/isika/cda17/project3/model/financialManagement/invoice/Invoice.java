@@ -11,17 +11,17 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 @Entity
-@Inheritance (strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Invoice {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private int invoiceNumber;
-    
+
     private Date invoiceIssueDate;
-    
+
     @Enumerated(EnumType.STRING)
     private InvoiceType invoiceType;
 
@@ -38,31 +38,31 @@ public abstract class Invoice {
     }
 
     public int getInvoiceNumber() {
-        return invoiceNumber;
+	return invoiceNumber;
     }
 
     public void setInvoiceNumber(int invoiceNumber) {
-        this.invoiceNumber = invoiceNumber;
+	this.invoiceNumber = invoiceNumber;
     }
 
     public Date getInvoiceIssueDate() {
-        return invoiceIssueDate;
+	return invoiceIssueDate;
     }
 
     public void setInvoiceIssueDate(Date invoiceIssueDate) {
-        this.invoiceIssueDate = invoiceIssueDate;
+	this.invoiceIssueDate = invoiceIssueDate;
     }
 
     public InvoiceType getInvoiceType() {
-        return invoiceType;
+	return invoiceType;
     }
 
     public void setInvoiceType(InvoiceType invoiceType) {
-        this.invoiceType = invoiceType;
+	this.invoiceType = invoiceType;
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
-    
+
 }

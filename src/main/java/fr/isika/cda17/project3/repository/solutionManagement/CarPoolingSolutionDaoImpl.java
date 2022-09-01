@@ -7,14 +7,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
-import fr.isika.cda17.project3.model.solutionManagement.Solution;
 
 @Stateless
 public class CarPoolingSolutionDaoImpl implements CarPoolingsolutionDao {
 
     @PersistenceContext
     private EntityManager entityManager;
-    
+
     @Override
     public CarPoolingSolution create(CarPoolingSolution carPoolingSolution) {
 	try {
@@ -29,19 +28,20 @@ public class CarPoolingSolutionDaoImpl implements CarPoolingsolutionDao {
     @Override
     public void update(CarPoolingSolution carPoolingSolution) {
 	try {
-	    CarPoolingSolution updatedCarPoolingSolution = entityManager.find(CarPoolingSolution.class, carPoolingSolution.getId());
+	    CarPoolingSolution updatedCarPoolingSolution = entityManager.find(CarPoolingSolution.class,
+		    carPoolingSolution.getId());
 	    updatedCarPoolingSolution.setCarPoolingTypeOption(carPoolingSolution.isCarPoolingTypeOption());
 	    updatedCarPoolingSolution.setAvailableSeatsOption(carPoolingSolution.isAvailableSeatsOption());
 	    updatedCarPoolingSolution.setPetAllowedOption(carPoolingSolution.isPetAllowedOption());
 	    updatedCarPoolingSolution.setSmokingAllowedOption(carPoolingSolution.isSmokingAllowedOption());
 	    updatedCarPoolingSolution.setMusicAllowedOption(carPoolingSolution.isMusicAllowedOption());
 	    updatedCarPoolingSolution.setChattingAllowedOption(carPoolingSolution.isChattingAllowedOption());
-	    
+
 	    entityManager.persist(carPoolingSolution);
 	} catch (Exception e) {
 	    System.out.println("CarPoolingsolutionDao.update() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
@@ -52,18 +52,17 @@ public class CarPoolingSolutionDaoImpl implements CarPoolingsolutionDao {
 	} catch (Exception e) {
 	    System.out.println("CarPoolingsolutionDao.delete() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
     public CarPoolingSolution findById(Long id) {
 	return entityManager.find(CarPoolingSolution.class, id);
-	
+
     }
 
     @Override
     public List<CarPoolingSolution> findAll() {
-	// TODO Auto-generated method stub
 	return null;
     }
 

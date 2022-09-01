@@ -1,6 +1,5 @@
 package fr.isika.cda17.project3.model.personManagement.accounts;
 
-import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,41 +19,37 @@ import fr.isika.cda17.project3.model.serviceManagement.Reservation;
 import fr.isika.cda17.project3.model.serviceManagement.Service;
 
 @Entity
-@PrimaryKeyJoinColumn(name="id")
+@PrimaryKeyJoinColumn(name = "id")
 @NamedQuery(name = "UserAccount.findByEmail", query = "SELECT ua FROM UserAccount ua WHERE ua.email = :email_param")
 
-public class UserAccount extends Account{
-    
-    @OneToOne(cascade=CascadeType.ALL)
+public class UserAccount extends Account {
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Vehicule vehicule;
 
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private ShoppingCart shoppingCart;
 
-
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private BankDetails bankDetails;
 
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private BillingAddress billingAddress;
-    
+
     @OneToOne(cascade = CascadeType.ALL)
     private Wallet wallet;
 
-    @ManyToMany(cascade=CascadeType.ALL)
-    private List <Service> services = new LinkedList<>();
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Service> services = new LinkedList<>();
 
-    @ManyToMany(cascade=CascadeType.ALL)
-    private List <Reservation> reservations = new LinkedList<>();
-    
-
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Reservation> reservations = new LinkedList<>();
 
     public UserAccount() {
 	super();
     }
 
-
-	public UserAccount(Vehicule vehicule, ShoppingCart shoppingCart, BankDetails bankDetails,
+    public UserAccount(Vehicule vehicule, ShoppingCart shoppingCart, BankDetails bankDetails,
 	    BillingAddress billingAddress, Wallet wallet, List<Service> services, List<Reservation> reservations) {
 	super();
 	this.vehicule = vehicule;
@@ -66,15 +61,15 @@ public class UserAccount extends Account{
 	this.reservations = reservations;
     }
 
-	public Vehicule getVehicule() {
-	        return vehicule;
-	    }
+    public Vehicule getVehicule() {
+	return vehicule;
+    }
 
-	    public void setVehicule(Vehicule vehicule) {
-	        this.vehicule = vehicule;
-	    }
+    public void setVehicule(Vehicule vehicule) {
+	this.vehicule = vehicule;
+    }
 
-	public ShoppingCart getShoppingCart() {
+    public ShoppingCart getShoppingCart() {
 	return shoppingCart;
     }
 
@@ -99,11 +94,11 @@ public class UserAccount extends Account{
     }
 
     public Wallet getWallet() {
-        return wallet;
+	return wallet;
     }
 
     public void setWallet(Wallet wallet) {
-        this.wallet = wallet;
+	this.wallet = wallet;
     }
 
     public List<Service> getServices() {
@@ -121,6 +116,5 @@ public class UserAccount extends Account{
     public void setReservations(List<Reservation> reservations) {
 	this.reservations = reservations;
     }
-
 
 }

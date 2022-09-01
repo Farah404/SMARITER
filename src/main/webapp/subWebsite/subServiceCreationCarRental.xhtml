@@ -9,7 +9,8 @@
 
 
 <f:metadata>
-	<f:event listener="#{createCarRentalServiceBean.init()}" type="preRenderView">
+	<f:event listener="#{createCarRentalServiceBean.init()}"
+		type="preRenderView">
 	</f:event>
 </f:metadata>
 
@@ -20,10 +21,10 @@
 
 				<div class="container bootstrap snippets bootdey">
 					<div class="panel-body inf-content">
-					<h4>Proposer un service de location de véhicule</h4>
+						<h4>Proposer un service de location de véhicule</h4>
 						<div class="row">
 							<div class="col-md-4">
-								
+
 								<div class="form-floating mb-3">
 									Date de publication de la prestation-Autogénérée <br />
 								</div>
@@ -35,16 +36,16 @@
 
 								<div class="form-outline mb-3">
 									Date de Debut
-									
+
 									<h:inputText class="form-control" id="startDateString"
 										a:placeholder="2018-05-05T11:50:55"
 										value="#{createCarRentalServiceBean.startDate}" />
-									
-<!-- 									<h:inputText class="form-control" id="startDate" -->
-<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
-<!-- 										value="#{createCarRentalServiceBean.crs.startDate}"> -->
-<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
-<!-- 									</h:inputText> -->
+
+									<!-- 									<h:inputText class="form-control" id="startDate" -->
+									<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
+									<!-- 										value="#{createCarRentalServiceBean.crs.startDate}"> -->
+									<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+									<!-- 									</h:inputText> -->
 									<br />
 								</div>
 
@@ -58,16 +59,16 @@
 
 								<div class="form-outline mb-3">
 									Date de fin
-									
+
 									<h:inputText class="form-control" id="endDateString"
 										a:placeholder="2018-05-05T11:50:55"
 										value="#{createCarRentalServiceBean.endDate}" />
-										
-<!-- 									<h:inputText class="form-control" id="endDate" -->
-<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
-<!-- 										value="#{createCarRentalServiceBean.crs.endDate}"> -->
-<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
-<!-- 									</h:inputText> -->
+
+									<!-- 									<h:inputText class="form-control" id="endDate" -->
+									<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
+									<!-- 										value="#{createCarRentalServiceBean.crs.endDate}"> -->
+									<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+									<!-- 									</h:inputText> -->
 									<br />
 								</div>
 
@@ -78,7 +79,7 @@
 										value="#{createCarRentalServiceBean.crs.keyDropOffAddress}" />
 									<br />
 								</div>
-								
+
 								<div class="form-floating mb-3">
 									Prix en EcoCoins
 									<h:inputText class="form-control" id="price"
@@ -93,46 +94,47 @@
 							</div>
 
 							<div class="col-md-4">
-							
-							<div class="form-floating mb-3">
+
+								<div class="form-floating mb-3">
 									Brand
-									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.brand} </div>
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.brand}
+									</div>
 									<br />
 								</div>
-							
-							<div class="form-floating mb-3">
+
+								<div class="form-floating mb-3">
 									Registration Number
-									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.registrationNumber} </div>
-									<br />
-									<br />
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.registrationNumber}
+									</div>
+									<br /> <br />
 								</div>
-								
+
 								<div class="form-floating mb-3">
 									Test technique
-									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.technicalTestExpiration} </div>
-									<br />
-									<br />
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.technicalTestExpiration}
+									</div>
+									<br /> <br />
 								</div>
-								
+
 								<div class="form-floating mb-3">
 									Agence assurance
-									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.insurance.insuranceAgencyName} </div>
-									<br />
-									<br />
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.insurance.insuranceAgencyName}
+									</div>
+									<br /> <br />
 								</div>
-								
+
 								<div class="form-floating mb-3">
 									Contract Expiration
-									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.insurance.insuranceContractExpiration} </div>
-									<br />
-									<br />
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.insurance.insuranceContractExpiration}
+									</div>
+									<br /> <br />
 								</div>
-								
+
 								<div class="form-floating mb-3">
 									Contract Number
-									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.insurance.insuranceContractNumber} </div>
-									<br />
-									<br />
+									<div class="form-control">#{createCarRentalServiceBean.userAccount.vehicule.insurance.insuranceContractNumber}
+									</div>
+									<br /> <br />
 								</div>
 
 							</div>

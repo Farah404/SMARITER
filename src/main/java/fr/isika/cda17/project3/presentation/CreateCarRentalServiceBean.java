@@ -21,93 +21,93 @@ import fr.isika.cda17.project3.repository.serviceManagement.CarRentalServiceDao;
 @ViewScoped
 public class CreateCarRentalServiceBean {
 
-	@Inject
-	private CarRentalServiceDao carRentalServiceDao;
+    @Inject
+    private CarRentalServiceDao carRentalServiceDao;
 
-	@Inject
-	private UserAccountsDao userAccountsDao;
+    @Inject
+    private UserAccountsDao userAccountsDao;
 
-	private UserAccount userAccount;
+    private UserAccount userAccount;
 
-	private CarRentalService crs = new CarRentalService();
+    private CarRentalService crs = new CarRentalService();
 
-	private Vehicule vehicule = new Vehicule();
+    private Vehicule vehicule = new Vehicule();
 
-	private String startDate;
+    private String startDate;
 
-	private String endDate;
+    private String endDate;
 
-	private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
+    private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
 
-	public void init() {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		Long id = Long.valueOf(session.getAttribute("id").toString());
-		userAccount = userAccountsDao.findById(id);
-	}
+    public void init() {
+	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	Long id = Long.valueOf(session.getAttribute("id").toString());
+	userAccount = userAccountsDao.findById(id);
+    }
 
-	public void create() {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		Long id = Long.valueOf(session.getAttribute("id").toString());
-		userAccount = userAccountsDao.findById(id);
-		crs.setServicetype(ServiceType.CAR_RENTAL);
-		crs.setPublicationDate(LocalDateTime.now());
-		crs.setIsRequest(false);
-		crs.setUserAccountProvider(userAccount);
-		crs.setStartDate(LocalDateTime.parse(startDate));
-		crs.setEndDate(LocalDateTime.parse(endDate));
-		CarRentalService created = carRentalServiceDao.create(crs);
-		System.out.println(created);
-	}
+    public void create() {
+	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	Long id = Long.valueOf(session.getAttribute("id").toString());
+	userAccount = userAccountsDao.findById(id);
+	crs.setServicetype(ServiceType.CAR_RENTAL);
+	crs.setPublicationDate(LocalDateTime.now());
+	crs.setIsRequest(false);
+	crs.setUserAccountProvider(userAccount);
+	crs.setStartDate(LocalDateTime.parse(startDate));
+	crs.setEndDate(LocalDateTime.parse(endDate));
+	CarRentalService created = carRentalServiceDao.create(crs);
+	System.out.println(created);
+    }
 
-	public void createRequest() {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		Long id = Long.valueOf(session.getAttribute("id").toString());
-		userAccount = userAccountsDao.findById(id);
-		crs.setServicetype(ServiceType.CAR_RENTAL);
-		crs.setPublicationDate(LocalDateTime.now());
-		crs.setIsRequest(false);
-		userAccountsPurchasers.add(userAccount);
-		crs.setUserAccountsPurchasers(userAccountsPurchasers);
-		crs.setStartDate(LocalDateTime.parse(startDate));
-		crs.setEndDate(LocalDateTime.parse(endDate));
-		CarRentalService created = carRentalServiceDao.create(crs);
-		System.out.println(created);
-	}
+    public void createRequest() {
+	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	Long id = Long.valueOf(session.getAttribute("id").toString());
+	userAccount = userAccountsDao.findById(id);
+	crs.setServicetype(ServiceType.CAR_RENTAL);
+	crs.setPublicationDate(LocalDateTime.now());
+	crs.setIsRequest(false);
+	userAccountsPurchasers.add(userAccount);
+	crs.setUserAccountsPurchasers(userAccountsPurchasers);
+	crs.setStartDate(LocalDateTime.parse(startDate));
+	crs.setEndDate(LocalDateTime.parse(endDate));
+	CarRentalService created = carRentalServiceDao.create(crs);
+	System.out.println(created);
+    }
 
-	public CarRentalService getCrs() {
-		return crs;
-	}
+    public CarRentalService getCrs() {
+	return crs;
+    }
 
-	public void setCrs(CarRentalService crs) {
-		this.crs = crs;
-	}
+    public void setCrs(CarRentalService crs) {
+	this.crs = crs;
+    }
 
-	public Vehicule getVehicule() {
-		return vehicule;
-	}
+    public Vehicule getVehicule() {
+	return vehicule;
+    }
 
-	public void setVehicule(Vehicule vehicule) {
-		this.vehicule = vehicule;
-	}
+    public void setVehicule(Vehicule vehicule) {
+	this.vehicule = vehicule;
+    }
 
-	public UserAccount getUserAccount() {
-		return userAccount;
-	}
+    public UserAccount getUserAccount() {
+	return userAccount;
+    }
 
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
-	}
+    public void setStartDate(String startDate) {
+	this.startDate = startDate;
+    }
 
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
-	}
+    public void setEndDate(String endDate) {
+	this.endDate = endDate;
+    }
 
-	public String getStartDate() {
-		return startDate;
-	}
+    public String getStartDate() {
+	return startDate;
+    }
 
-	public String getEndDate() {
-		return endDate;
-	}
+    public String getEndDate() {
+	return endDate;
+    }
 
 }

@@ -28,43 +28,44 @@
 
 			<div class="signupform-container animate-right" id="container">
 				<h:form action="#" class="sigup-form">
-				
-				
+
+
 					<fieldset>
-					
-					<h:panelGrid>
-					<br />
-							<f:facet name="header">
+
+						<h:panelGrid>
 							<br />
+							<f:facet name="header">
+								<br />
 								<h:outputText value="UPDATE SERVICE" />
 							</f:facet>
 							<br />
 
-					
-						<h:outputLabel value="Key Pick-Up Address" />
-						<h:inputText
-							a:placeholder="#{carRentalServiceManagementBean.carRentalService.keyPickUpAddress}"
-							value="#{carRentalServiceManagementBean.carRentalService.keyPickUpAddress}" />
 
-						<h:outputLabel value="Key Drop-Off Address" />
-						<h:inputText
-							a:placeholder="#{carRentalServiceManagementBean.carRentalService.keyDropOffAddress}"
-							value="#{carRentalServiceManagementBean.carRentalService.keyDropOffAddress}" />
+							<h:outputLabel value="Key Pick-Up Address" />
+							<h:inputText
+								a:placeholder="#{carRentalServiceManagementBean.carRentalService.keyPickUpAddress}"
+								value="#{carRentalServiceManagementBean.carRentalService.keyPickUpAddress}" />
 
-						<h:outputLabel value="Price" />
-						<h:inputText
-							a:placeholder="#{carRentalServiceManagementBean.carRentalService.price}"
-							value="#{carRentalServiceManagementBean.carRentalService.price}" />
+							<h:outputLabel value="Key Drop-Off Address" />
+							<h:inputText
+								a:placeholder="#{carRentalServiceManagementBean.carRentalService.keyDropOffAddress}"
+								value="#{carRentalServiceManagementBean.carRentalService.keyDropOffAddress}" />
 
-						
-						<h:outputLabel value="start Date" />
-						<h:inputText
-							a:placeholder="#{carRentalServiceManagementBean.carRentalService.startDate}"
-							value="#{carRentalServiceManagementBean.carRentalService.startDate}" />
+							<h:outputLabel value="Price" />
+							<h:inputText
+								a:placeholder="#{carRentalServiceManagementBean.carRentalService.price}"
+								value="#{carRentalServiceManagementBean.carRentalService.price}" />
 
-						<h:outputLabel value="End Date" />
-						<h:inputText a:placeholder="#{carRentalServiceManagementBean.carRentalService.endDate}"
-							value="#{carRentalServiceManagementBean.carRentalService.endDate}" />
+
+							<h:outputLabel value="start Date" />
+							<h:inputText
+								a:placeholder="#{carRentalServiceManagementBean.carRentalService.startDate}"
+								value="#{carRentalServiceManagementBean.carRentalService.startDate}" />
+
+							<h:outputLabel value="End Date" />
+							<h:inputText
+								a:placeholder="#{carRentalServiceManagementBean.carRentalService.endDate}"
+								value="#{carRentalServiceManagementBean.carRentalService.endDate}" />
 
 							<h:outputLabel value="Service type" />
 							<h:selectOneMenu
@@ -74,33 +75,34 @@
 									value="#{carRentalServiceManagementBean.serviceType()}"
 									var="servicetype" itemLabel="#{servicetype}"
 									itemValue="#{servicetype}"></f:selectItems>
-							</h:selectOneMenu>	
+							</h:selectOneMenu>
 							<br />
 							<h:outputLabel value="Trajetory Type" />
-							
+
 							<br />
 							<h:outputLabel value="vehicule brand" />
-						<h:inputText a:placeholder="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.brand}"
-							value="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.brand}" />
-	
+							<h:inputText
+								a:placeholder="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.brand}"
+								value="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.brand}" />
+
 							<h:selectOneRadio
-								value="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.vehiculeType}"> 
-								<f:selectItems value="#{carRentalServiceManagementBean.vehiculeType()}"
-									var="vehiculeType"
-									itemValue="#{vehiculeType}"
+								value="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.vehiculeType}">
+								<f:selectItems
+									value="#{carRentalServiceManagementBean.vehiculeType()}"
+									var="vehiculeType" itemValue="#{vehiculeType}"
 									itemLabel="#{vehiculeType}" />
 							</h:selectOneRadio>
 
 							<br />
 
-						<h:commandButton class="btn-signin"
-							action="#{carRentalServiceManagementBean.update()}"
-							value="Valide your Update" />
-							
-							
-						</h:panelGrid >	
+							<h:commandButton class="btn-signin"
+								action="#{carRentalServiceManagementBean.update()}"
+								value="Valide your Update" />
+
+
+						</h:panelGrid>
 					</fieldset>
-					
+
 				</h:form>
 			</div>
 

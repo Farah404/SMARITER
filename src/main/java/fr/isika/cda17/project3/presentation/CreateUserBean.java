@@ -14,7 +14,6 @@ import fr.isika.cda17.project3.model.financialManagement.invoice.BillingAddress;
 import fr.isika.cda17.project3.model.financialManagement.store.ShoppingCart;
 import fr.isika.cda17.project3.model.financialManagement.store.Wallet;
 import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
-
 import fr.isika.cda17.project3.model.personManagement.accounts.User;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Insurance;
@@ -25,140 +24,139 @@ import fr.isika.cda17.project3.repository.personManagement.accounts.UserDao;
 @SessionScoped
 public class CreateUserBean implements Serializable {
 
-	private static final long serialVersionUID = -8688644566487799148L;
+    private static final long serialVersionUID = -8688644566487799148L;
 
-	@Inject
-	private UserDao userDao;
+    @Inject
+    private UserDao userDao;
 
-	private User user = new User();
-	private UserAccount userAccount = new UserAccount();
-	private BankDetails bankDetails = new BankDetails();
-	private BillingAddress billingAddress = new BillingAddress();
-	private ShoppingCart shoppingCart = new ShoppingCart();
-	private Wallet wallet = new Wallet();
-	private Vehicule vehicule = new Vehicule();
-	private Insurance insurance = new Insurance();
+    private User user = new User();
+    private UserAccount userAccount = new UserAccount();
+    private BankDetails bankDetails = new BankDetails();
+    private BillingAddress billingAddress = new BillingAddress();
+    private ShoppingCart shoppingCart = new ShoppingCart();
+    private Wallet wallet = new Wallet();
+    private Vehicule vehicule = new Vehicule();
+    private Insurance insurance = new Insurance();
 
-	public String create() {
-		userAccount.setBankDetails(bankDetails);
-		userAccount.setBillingAddress(billingAddress);
-		userAccount.setCreationDate(LocalDateTime.now());
-		userAccount.setAccountType(AccountType.USER);
-		userAccount.setShoppingCart(shoppingCart);
-		userAccount.setWallet(wallet);
-		userAccount.setIsActive(true);
-		
-//TODO	parse String into LTD
-//		set.(LTD)
-		
-		vehicule.setInsurance(insurance);
-		userAccount.setVehicule(vehicule);
-		user.setUserAccount(userAccount);
-		User created = userDao.create(user);
-		
-//		There is no list&&reservations set on userAccount 
-		
-		System.out.println(created);
-		return "subIndex.xhtml";
+    public String create() {
+	userAccount.setBankDetails(bankDetails);
+	userAccount.setBillingAddress(billingAddress);
+	userAccount.setCreationDate(LocalDateTime.now());
+	userAccount.setAccountType(AccountType.USER);
+	userAccount.setShoppingCart(shoppingCart);
+	userAccount.setWallet(wallet);
+	userAccount.setIsActive(true);
+
+	// TODO parse String into LTD
+	// set.(LTD)
+
+	vehicule.setInsurance(insurance);
+	userAccount.setVehicule(vehicule);
+	user.setUserAccount(userAccount);
+	User created = userDao.create(user);
+
+	// There is no list&&reservations set on userAccount
+
+	System.out.println(created);
+	return "subIndex.xhtml";
+    }
+
+    public String createStepOne() {
+	userAccount.setBankDetails(bankDetails);
+	userAccount.setBillingAddress(billingAddress);
+	userAccount.setCreationDate(LocalDateTime.now());
+	userAccount.setAccountType(AccountType.USER);
+
+	userAccount.setIsActive(true);
+	userAccount.setProfilePicturePath("media/gif/profilePictures/ProfileGif8.gif");
+	user.setUserAccount(getUserAccount());
+	userDao.create(user);
+	System.err.println(user.getId());
+	return "signUp2.xhtml?faces-redirect=true&userId=" + user.getId();
+    }
+
+    public String update() {
+	userDao.update(user);
+	System.out.println(user);
+	return "subIndex.xhtml?faces-redirect=true";
+    }
+
+    public void init() {
+	Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+	if (map.containsKey("userId")) {
+	    String userIdParamValue = map.get("userId");
+	    Long id = Long.valueOf(userIdParamValue);
+	    if (id != null) {
+		user = userDao.findById(id);
+	    } else {
+		System.err.println("no userId on page");
+		return;
+	    }
 	}
+    }
 
-	public String createStepOne() {
-		userAccount.setBankDetails(bankDetails);
-		userAccount.setBillingAddress(billingAddress);
-		userAccount.setCreationDate(LocalDateTime.now());
-		userAccount.setAccountType(AccountType.USER);
+    public User getUser() {
+	return user;
+    }
 
-		userAccount.setIsActive(true);
-		userAccount.setProfilePicturePath("media/gif/profilePictures/ProfileGif8.gif");
-		user.setUserAccount(getUserAccount());
-		userDao.create(user);
-		System.err.println(user.getId());
-		return "signUp2.xhtml?faces-redirect=true&userId=" + user.getId();
-	}
+    public void setUser(User user) {
+	this.user = user;
+    }
 
-	public String update() {
-		userDao.update(user);
-		System.out.println(user);
-		return "subIndex.xhtml?faces-redirect=true";
-	}
+    public UserAccount getUserAccount() {
+	return userAccount;
+    }
 
-	public void init() {
-		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-		if (map.containsKey("userId")) {
-			String userIdParamValue = map.get("userId");
-			Long id = Long.valueOf(userIdParamValue);
-			if (id != null) {
-				user = userDao.findById(id);
-			} else {
-				System.err.println("no userId on page");
-				return;
-			}
-		}
-	}
+    public void setUserAccount(UserAccount userAccount) {
+	this.userAccount = userAccount;
+    }
 
-	public User getUser() {
-		return user;
-	}
+    public BankDetails getBankDetails() {
+	return bankDetails;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public void setBankDetails(BankDetails bankDetails) {
+	this.bankDetails = bankDetails;
+    }
 
-	public UserAccount getUserAccount() {
-		return userAccount;
-	}
+    public BillingAddress getBillingAddress() {
+	return billingAddress;
+    }
 
-	public void setUserAccount(UserAccount userAccount) {
-		this.userAccount = userAccount;
-	}
+    public void setBillingAddress(BillingAddress billingAddress) {
+	this.billingAddress = billingAddress;
+    }
 
-	public BankDetails getBankDetails() {
-		return bankDetails;
-	}
+    public Vehicule getVehicule() {
+	return vehicule;
+    }
 
-	public void setBankDetails(BankDetails bankDetails) {
-		this.bankDetails = bankDetails;
-	}
+    public void setVehicule(Vehicule vehicule) {
+	this.vehicule = vehicule;
+    }
 
-	public BillingAddress getBillingAddress() {
-		return billingAddress;
-	}
+    public Insurance getInsurance() {
+	return insurance;
+    }
 
-	public void setBillingAddress(BillingAddress billingAddress) {
-		this.billingAddress = billingAddress;
-	}
+    public void setInsurance(Insurance insurance) {
+	this.insurance = insurance;
+    }
 
-	public Vehicule getVehicule() {
-		return vehicule;
-	}
+    public ShoppingCart getShoppingCart() {
+	return shoppingCart;
+    }
 
-	public void setVehicule(Vehicule vehicule) {
-		this.vehicule = vehicule;
-	}
+    public void setShoppingCart(ShoppingCart shoppingCart) {
+	this.shoppingCart = shoppingCart;
+    }
 
-	public Insurance getInsurance() {
-		return insurance;
-	}
+    public Wallet getWallet() {
+	return wallet;
+    }
 
-	public void setInsurance(Insurance insurance) {
-		this.insurance = insurance;
-	}
+    public void setWallet(Wallet wallet) {
+	this.wallet = wallet;
+    }
 
-	public ShoppingCart getShoppingCart() {
-		return shoppingCart;
-	}
-
-	public void setShoppingCart(ShoppingCart shoppingCart) {
-		this.shoppingCart = shoppingCart;
-	}
-
-	public Wallet getWallet() {
-		return wallet;
-	}
-
-	public void setWallet(Wallet wallet) {
-		this.wallet = wallet;
-	}
-
-	
 }

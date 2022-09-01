@@ -8,56 +8,54 @@ import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.serviceManagement.Reservation;
 
-
 @Stateless
 public class ReservationDaoImpl implements ReservationDao {
-	
-	@PersistenceContext
-	private EntityManager entityManager;
 
-	@Override
-	public Reservation create(Reservation reservation) {
-		try{
-			
-			entityManager.persist(reservation);
-			
-			return reservation;
-		}catch (Exception e) {
-			System.out.println("reservation.create() - Failed : " + e.getMessage());
-			return null;
-		}
-	}
+    @PersistenceContext
+    private EntityManager entityManager;
 
-	@Override
-	public void update(Reservation reservation) {
-		try {
-			entityManager.merge(reservation);
-		} catch (Exception e) {
-			System.out.println("ReservationImpl.update() - Failed : " + e.getMessage());
-		}
-	}
+    @Override
+    public Reservation create(Reservation reservation) {
+	try {
 
-	@Override
-	public void delete(Long id) {
-		try {
-			Reservation deletedReservation = entityManager.find(Reservation.class, id);
-			entityManager.remove(deletedReservation);
-		} catch (Exception e) {
-			System.out.println("ReservationDaoImpl.delete() - Failed : " + e.getMessage());
-		}		
-	}
+	    entityManager.persist(reservation);
 
-	@Override
-	public Reservation findById(Long id) {
-		// TODO Auto-generated method stub
-		return entityManager.find(Reservation.class, id);
+	    return reservation;
+	} catch (Exception e) {
+	    System.out.println("reservation.create() - Failed : " + e.getMessage());
+	    return null;
 	}
+    }
 
-	@Override
-	public List<Reservation> findAll() {
-		// TODO Auto-generated method stub
-		return this.entityManager.createQuery("select ea from Reservation ea", Reservation.class).getResultList();
+    @Override
+    public void update(Reservation reservation) {
+	try {
+	    entityManager.merge(reservation);
+	} catch (Exception e) {
+	    System.out.println("ReservationImpl.update() - Failed : " + e.getMessage());
 	}
- 
+    }
+
+    @Override
+    public void delete(Long id) {
+	try {
+	    Reservation deletedReservation = entityManager.find(Reservation.class, id);
+	    entityManager.remove(deletedReservation);
+	} catch (Exception e) {
+	    System.out.println("ReservationDaoImpl.delete() - Failed : " + e.getMessage());
+	}
+    }
+
+    @Override
+    public Reservation findById(Long id) {
+	// TODO Auto-generated method stub
+	return entityManager.find(Reservation.class, id);
+    }
+
+    @Override
+    public List<Reservation> findAll() {
+	// TODO Auto-generated method stub
+	return this.entityManager.createQuery("select ea from Reservation ea", Reservation.class).getResultList();
+    }
+
 }
-

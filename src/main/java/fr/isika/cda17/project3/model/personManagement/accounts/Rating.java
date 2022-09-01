@@ -9,16 +9,16 @@ import fr.isika.cda17.project3.model.serviceManagement.Service;
 
 @Entity
 public class Rating {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private String comment;
-    
+
     @ManyToOne
     private UserAccount userAccount;
-    
+
     @ManyToOne
     private Service service;
 
@@ -35,31 +35,31 @@ public class Rating {
     }
 
     public String getComment() {
-        return comment;
+	return comment;
     }
 
     public void setComment(String comment) {
-        this.comment = comment;
+	this.comment = comment;
     }
 
     public UserAccount getUserAccount() {
-        return userAccount;
+	return userAccount;
     }
 
     public void setUserAccount(UserAccount userAccount) {
-        this.userAccount = userAccount;
+	this.userAccount = userAccount;
     }
 
     public Service getService() {
-        return service;
+	return service;
     }
 
     public void setService(Service service) {
-        this.service = service;
+	this.service = service;
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
 
 }

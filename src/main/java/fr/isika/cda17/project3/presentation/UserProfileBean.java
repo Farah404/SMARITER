@@ -8,59 +8,57 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import fr.isika.cda17.project3.model.financialManagement.invoice.BillingAddress;
 import fr.isika.cda17.project3.model.personManagement.accounts.User;
-import fr.isika.cda17.project3.repository.financialManagement.invoice.BankDetailsDao;
-import fr.isika.cda17.project3.repository.financialManagement.invoice.BillingAddressDao;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserDao;
-import fr.isika.cda17.project3.repository.personManagement.assets.InsuranceDao;
-import fr.isika.cda17.project3.repository.personManagement.assets.VehiculeDao;
 
 @ManagedBean
 @ViewScoped
-public class UserProfileBean implements Serializable{
-
+public class UserProfileBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Inject
     private UserDao userDao;
     private User user;
-    
 
-    public void init(){
+    public void init() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	System.out.println(id);
-	if(id != null) {
+	if (id != null) {
 	    user = userDao.findByUserAccountId(id);
 	    if (user == null) {
 		System.out.println("not logical");
 	    }
-	}
-	else {
+	} else {
 	    System.out.println("id null");
 	}
     }
+
     public String updateStepOne() {
 	return "subUpdateUserProfile.xhtml?faces-redirect=true";
     }
+
     public String update() {
 	userDao.update(user);
 	System.out.println(user);
 	return "subUserProfilePersonal.xhtml?faces-redirect=true";
     }
+
     public UserDao getUserDao() {
-        return userDao;
+	return userDao;
     }
+
     public void setUserDao(UserDao userDao) {
-        this.userDao = userDao;
+	this.userDao = userDao;
     }
+
     public User getUser() {
-        return user;
+	return user;
     }
+
     public void setUser(User user) {
-        this.user = user;
+	this.user = user;
     }
 
 }

@@ -4,8 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
-     >
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en">
 
 <h:head>
 	<title>SmarIter</title>
@@ -15,9 +14,10 @@
 	<ui:composition template="template/templatewithoutHeader.xhtml">
 		<ui:define name="content">
 
-			<h:outputScript library="js" name = "signup.js"/>
+			<h:outputScript library="js" name="signup.js" />
 
-			<section class="wrapper-signin"> <img width="100%" src="media/gif/coding/abstract.gif" /> </section>
+			<section class="wrapper-signin"> <img width="100%"
+				src="media/gif/coding/abstract.gif" /> </section>
 
 			<section class="signin">
 
@@ -25,9 +25,12 @@
 				<div class="form-container sign-up-container">
 					<h:form>
 						<h1>Create Account</h1>
-						<h:inputText a:placeholder="Email" value="#{createCustomerBean.entityAccount.email}"/>
-						<h:inputSecret a:placeholder="Password" value="#{createCustomerBean.entityAccount.password}"/>
-						<h:commandButton class="btn-signup" value="Sign Up" action="#{createCustomerBean.createStepOne()}"></h:commandButton>
+						<h:inputText a:placeholder="Email"
+							value="#{createCustomerBean.entityAccount.email}" />
+						<h:inputSecret a:placeholder="Password"
+							value="#{createCustomerBean.entityAccount.password}" />
+						<h:commandButton class="btn-signup" value="Sign Up"
+							action="#{createCustomerBean.createStepOne()}"></h:commandButton>
 					</h:form>
 				</div>
 				<div class="form-container sign-in-container">
@@ -38,33 +41,35 @@
 								href="#" class="social"><i class="fa fa-google-plus"></i></a> <a
 								href="#" class="social"><i class="fa fa-facebook"></i></a>
 						</div>
-						<span>or use your account</span> 
-						<h:inputText a:placeholder="Email" id="nameTxt" value="#{logInAccountBean.email}" />
-						<h:message for="nameTxt"/>
-						
-						<h:inputSecret a:placeholder="Password" id="passwordTxt" value="#{logInAccountBean.password}" />
-						<h:message for="passwordTxt"/>
-						
+						<span>or use your account</span>
+						<h:inputText a:placeholder="Email" id="nameTxt"
+							value="#{logInAccountBean.email}" />
+						<h:message for="nameTxt" />
+
+						<h:inputSecret a:placeholder="Password" id="passwordTxt"
+							value="#{logInAccountBean.password}" />
+						<h:message for="passwordTxt" />
+
 						<a href="#">Forgot your password?</a>
-						<h:commandButton class="btn-signin" action="#{logInAccountBean.accountLogin()}" value="Sign In"></h:commandButton>
+						<h:commandButton class="btn-signin"
+							action="#{logInAccountBean.accountLogin()}" value="Sign In"></h:commandButton>
 					</h:form>
 				</div>
 				<div class="overlay-container">
 					<div class="overlay">
 						<div class="overlay-panel overlay-left">
 							<h1>Welcome Back!</h1>
-							<br />
-							<br />
+							<br /> <br />
 							<p>To keep connected with us please login with your personal
 								info</p>
 							<button class="btn-signin ghost" id="signIn">Sign In</button>
 						</div>
 						<div class="overlay-panel overlay-right">
 							<h1>Hello, Friend!</h1>
-							<br />
-							<br />
+							<br /> <br />
 							<p>Enter your personal details and start journey with us</p>
-							<button class="btn-signin ghost" id="signUp" type="button">Sign Up</button>
+							<button class="btn-signin ghost" id="signUp" type="button">Sign
+								Up</button>
 						</div>
 					</div>
 				</div>

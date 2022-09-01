@@ -4,12 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@PrimaryKeyJoinColumn(name="id")
-public class CustomerInvoice extends Invoice{
-    
+@PrimaryKeyJoinColumn(name = "id")
+public class CustomerInvoice extends Invoice {
+
     private double price;
 
-    
     public CustomerInvoice() {
 	super();
     }
@@ -20,15 +19,11 @@ public class CustomerInvoice extends Invoice{
     }
 
     public double getPrice() {
-        return price;
+	return price;
     }
 
     public void setPrice(double price) {
-        this.price = price;
+	this.price = price;
     }
-    
-    
-    
-
 
 }

@@ -9,11 +9,11 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda17.project3.model.financialManagement.invoice.BillingAddress;
 
 @Stateless
-public class BillingAddressDaoImpl implements BillingAddressDao{
+public class BillingAddressDaoImpl implements BillingAddressDao {
 
     @PersistenceContext
     private EntityManager entityManager;
-    
+
     @Override
     public BillingAddress create(BillingAddress billingAddress) {
 	try {
@@ -34,12 +34,12 @@ public class BillingAddressDaoImpl implements BillingAddressDao{
 	    updatedBillingAddress.setRegion(billingAddress.getRegion());
 	    updatedBillingAddress.setCountry(billingAddress.getCountry());
 	    updatedBillingAddress.setPostalCode(billingAddress.getPostalCode());
-	   
+
 	    entityManager.persist(billingAddress);
 	} catch (Exception e) {
 	    System.out.println("BillingAddressDao.update() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
@@ -50,13 +50,13 @@ public class BillingAddressDaoImpl implements BillingAddressDao{
 	} catch (Exception e) {
 	    System.out.println("BillingAddressDao.delete() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
     public BillingAddress findById(Long id) {
 	return entityManager.find(BillingAddress.class, id);
-	
+
     }
 
     @Override

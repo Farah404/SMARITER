@@ -1,10 +1,7 @@
 package fr.isika.cda17.project3.model.financialManagement.invoice;
 
-
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -13,16 +10,15 @@ import fr.isika.cda17.project3.model.financialManagement.store.Store;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
 @Entity
-@PrimaryKeyJoinColumn(name="id")
-public class StoreInvoice extends Invoice{
-    
-    
+@PrimaryKeyJoinColumn(name = "id")
+public class StoreInvoice extends Invoice {
+
     @Enumerated
     private PurchaseType purchaseType;
-    
+
     @ManyToOne
     private UserAccount userAccount;
-    
+
     @ManyToOne
     private Store store;
 
@@ -38,28 +34,27 @@ public class StoreInvoice extends Invoice{
     }
 
     public PurchaseType getPurchaseType() {
-        return purchaseType;
+	return purchaseType;
     }
 
     public void setPurchaseType(PurchaseType purchaseType) {
-        this.purchaseType = purchaseType;
+	this.purchaseType = purchaseType;
     }
 
     public UserAccount getUserAccount() {
-        return userAccount;
+	return userAccount;
     }
 
     public void setUserAccount(UserAccount userAccount) {
-        this.userAccount = userAccount;
+	this.userAccount = userAccount;
     }
 
     public Store getStore() {
-        return store;
+	return store;
     }
 
     public void setStore(Store store) {
-        this.store = store;
+	this.store = store;
     }
-
 
 }

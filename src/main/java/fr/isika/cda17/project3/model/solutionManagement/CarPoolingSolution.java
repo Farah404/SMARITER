@@ -10,17 +10,17 @@ public class CarPoolingSolution {
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private boolean carPoolingTypeOption;
-    
+
     private boolean availableSeatsOption;
 
     private boolean petAllowedOption;
-    
+
     private boolean smokingAllowedOption;
-    
+
     private boolean musicAllowedOption;
-    
+
     private boolean chattingAllowedOption;
 
     public CarPoolingSolution() {
@@ -41,55 +41,55 @@ public class CarPoolingSolution {
     }
 
     public boolean isCarPoolingTypeOption() {
-        return carPoolingTypeOption;
+	return carPoolingTypeOption;
     }
 
     public void setCarPoolingTypeOption(boolean carPoolingTypeOption) {
-        this.carPoolingTypeOption = carPoolingTypeOption;
+	this.carPoolingTypeOption = carPoolingTypeOption;
     }
 
     public boolean isAvailableSeatsOption() {
-        return availableSeatsOption;
+	return availableSeatsOption;
     }
 
     public void setAvailableSeatsOption(boolean availableSeatsOption) {
-        this.availableSeatsOption = availableSeatsOption;
+	this.availableSeatsOption = availableSeatsOption;
     }
 
     public boolean isPetAllowedOption() {
-        return petAllowedOption;
+	return petAllowedOption;
     }
 
     public void setPetAllowedOption(boolean petAllowedOption) {
-        this.petAllowedOption = petAllowedOption;
+	this.petAllowedOption = petAllowedOption;
     }
 
     public boolean isSmokingAllowedOption() {
-        return smokingAllowedOption;
+	return smokingAllowedOption;
     }
 
     public void setSmokingAllowedOption(boolean smokingAllowedOption) {
-        this.smokingAllowedOption = smokingAllowedOption;
+	this.smokingAllowedOption = smokingAllowedOption;
     }
 
     public boolean isMusicAllowedOption() {
-        return musicAllowedOption;
+	return musicAllowedOption;
     }
 
     public void setMusicAllowedOption(boolean musicAllowedOption) {
-        this.musicAllowedOption = musicAllowedOption;
+	this.musicAllowedOption = musicAllowedOption;
     }
 
     public boolean isChattingAllowedOption() {
-        return chattingAllowedOption;
+	return chattingAllowedOption;
     }
 
     public void setChattingAllowedOption(boolean chattingAllowedOption) {
-        this.chattingAllowedOption = chattingAllowedOption;
+	this.chattingAllowedOption = chattingAllowedOption;
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
-    
+
 }

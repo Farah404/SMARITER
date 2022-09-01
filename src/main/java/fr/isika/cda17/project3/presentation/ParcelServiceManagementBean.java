@@ -97,28 +97,27 @@ public class ParcelServiceManagementBean implements Serializable {
     }
 
     public ParcelServiceDao getParcelServiceDao() {
-        return parcelServiceDao;
+	return parcelServiceDao;
     }
 
     public void setParcelServiceDao(ParcelServiceDao parcelServiceDao) {
-        this.parcelServiceDao = parcelServiceDao;
+	this.parcelServiceDao = parcelServiceDao;
     }
 
     public ParcelService getParcelService() {
-        return parcelService;
+	return parcelService;
     }
 
     public void setParcelService(ParcelService parcelService) {
-        this.parcelService = parcelService;
+	this.parcelService = parcelService;
     }
 
     public List<ParcelService> getParcelServiceList() {
-        return parcelServiceList;
+	return parcelServiceList;
     }
 
     public void setParcelServiceList(List<ParcelService> parcelServiceList) {
-        this.parcelServiceList = parcelServiceList;
+	this.parcelServiceList = parcelServiceList;
     }
-
 
 }

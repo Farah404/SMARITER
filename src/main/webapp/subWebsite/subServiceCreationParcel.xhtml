@@ -15,10 +15,10 @@
 
 				<div class="container bootstrap snippets bootdey">
 					<div class="panel-body inf-content">
-					<h4>Proposer un service de transport de colis</h4>
+						<h4>Proposer un service de transport de colis</h4>
 						<div class="row">
 							<div class="col-md-4">
-								
+
 								<div class="form-floating mb-3">
 									Date de publication de la prestation-Autogénérée <br />
 								</div>
@@ -30,16 +30,16 @@
 
 								<div class="form-outline mb-3">
 									Date de Debut
-									
+
 									<h:inputText class="form-control" id="startDateString"
 										a:placeholder="2018-05-05T11:50:55"
 										value="#{createParcelServiceBean.startDate}" />
-									
-<!-- 									<h:inputText class="form-control" id="startDate" -->
-<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
-<!-- 										value="#{createParcelServiceBean.ps.startDate}"> -->
-<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
-<!-- 									</h:inputText> -->
+
+									<!-- 									<h:inputText class="form-control" id="startDate" -->
+									<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
+									<!-- 										value="#{createParcelServiceBean.ps.startDate}"> -->
+									<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+									<!-- 									</h:inputText> -->
 									<br />
 								</div>
 
@@ -56,12 +56,12 @@
 									<h:inputText class="form-control" id="endDateString"
 										a:placeholder="2018-05-05T11:50:55"
 										value="#{createParcelServiceBean.endDate}" />
-									
-<!-- 									<h:inputText class="form-control" id="endDate" -->
-<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
-<!-- 										value="#{createParcelServiceBean.ps.endDate}"> -->
-<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
-<!-- 									</h:inputText> -->
+
+									<!-- 									<h:inputText class="form-control" id="endDate" -->
+									<!-- 										a:placeholder="dd-MM-YYYY" type="datetime-local" -->
+									<!-- 										value="#{createParcelServiceBean.ps.endDate}"> -->
+									<!-- 										<f:convertDateTime pattern="dd-MM-yyyy" /> -->
+									<!-- 									</h:inputText> -->
 									<br />
 								</div>
 
@@ -72,14 +72,12 @@
 										value="#{createParcelServiceBean.trajectory.deliveryAddress}" />
 									<br />
 								</div>
-								
+
 								<div class="form-outline mb-3">
 									Poids en kilogrammes
-									<h:inputText class="form-control" id="poids"
-										a:placeholder=""
+									<h:inputText class="form-control" id="poids" a:placeholder=""
 										value="#{createParcelServiceBean.ps.weightKilogrammes}" />
-									<br />
-									<br />
+									<br /> <br />
 								</div>
 
 								<div class="form-floating mb-3">
@@ -98,7 +96,7 @@
 							</div>
 
 							<div class="col-md-4">
-								
+
 								<div class="form-floating mb-3">
 									Arret 1
 									<h:inputText class="form-control" id="firstStop"
@@ -106,7 +104,7 @@
 										value="#{createParcelServiceBean.itinerary.firstStopAddress}" />
 									<br />
 								</div>
-								
+
 								<div class="form-floating mb-3">
 									Arret 2
 									<h:inputText class="form-control" id="secondStop"
@@ -114,7 +112,7 @@
 										value="#{createParcelServiceBean.itinerary.secondStopAddress}" />
 									<br />
 								</div>
-								
+
 								<div class="form-floating mb-3">
 									Arret 3
 									<h:inputText class="form-control" id="thirdStop"
@@ -122,7 +120,7 @@
 										value="#{createParcelServiceBean.itinerary.thirdStopAddress}" />
 									<br />
 								</div>
-								
+
 								<div class="form-outline mb-3">
 									Type du trajet<br />
 									<h:selectOneMenu id="trajectoryType" class="form-control"
@@ -133,7 +131,7 @@
 									</h:selectOneMenu>
 									<br />
 								</div>
-							
+
 								<div class="form-floating mb-3">
 									<h:selectBooleanCheckbox
 										value="#{createParcelServiceBean.ps.atypicalVolume}" />
@@ -143,7 +141,7 @@
 								<div class="form-floating mb-3">
 									<h:selectBooleanCheckbox
 										value="#{createParcelServiceBean.ps.fragile}" />
-									 Fragile <br />
+									Fragile <br />
 								</div>
 
 							</div>

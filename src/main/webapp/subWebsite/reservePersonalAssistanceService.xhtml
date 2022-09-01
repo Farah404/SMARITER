@@ -4,7 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
-      xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <f:metadata>
 
@@ -14,103 +14,96 @@
 <h:body>
 	<ui:composition template="#{templateBean.subtemplatePath()}">
 		<ui:define name="subcontent">
-<h:form>
+			<h:form>
 
 
-<div class="container bootstrap snippets bootdey">
-    <div class="panel-body inf-content">
-        <div class="row">
-
-           
-            <div class="col-md-4">
-                <img alt="" style="width:100%;" class=" img-thumbnail" src="subMedia/Images/ParcelDelivery.png" />
-
-                
-                    <br />
-
-                    <button class="btn btn-success center-block" type="submit">Réserver la prestation pour EcoCoins</button>
-                
-                <br />
-                    <button  class="btn btn-success center-block">Profil de l'EcoMembre prestataire</button>
-            </div>
+				<div class="container bootstrap snippets bootdey">
+					<div class="panel-body inf-content">
+						<div class="row">
 
 
+							<div class="col-md-4">
+								<img alt="" style="width: 100%;" class=" img-thumbnail"
+									src="subMedia/Images/ParcelDelivery.png" /> <br />
 
-            <div class="col-md-6">
-                <div class="table-responsive">
-                    @*Information*@
-                    <span class="text-success"><strong>Information</strong></span>
+								<button class="btn btn-success center-block" type="submit">Réserver
+									la prestation pour EcoCoins</button>
 
-                    <table class="table table-user-information">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <span class="glyphicon glyphicon-play  text-success"></span>
-                                    Date et heure de départ
-                                </td>
-                                <td class="text-success">
-                                        <p>#{personalAssistanceServiceManagementBean.personalAssistanceService.startDate}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                            
-                                <td>
-                                    <span class="glyphicon glyphicon-stop  text-success"></span>
-                                    Date et heure de d'arrivée
-                                </td>
-                                <td class="text-success">
-                                         <p>#{personalAssistanceServiceManagementBean.personalAssistanceService.endDate}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="glyphicon glyphicon-barcode  text-success"></span>
-                                    Type
-                                </td>
-                                <td class="text-success">
-                                       <p>#{personalAssistanceServiceManagementBean.personalAssistanceService.personalAssistanceType}</p>
-                                </td>
-                            </tr>
+								<br />
+								<button class="btn btn-success center-block">Profil de
+									l'EcoMembre prestataire</button>
+							</div>
 
-                            <tr>
-                                <td>
-                                    <span class="glyphicon glyphicon-dashboard text-success"></span>
-                                    Urgent
-                                </td>
-                                <td class="text-success">
-                                         <p>#{personalAssistanceServiceManagementBean.personalAssistanceService.urgent}</p>
-                                </td>
-                            </tr>
 
-                            <tr>
-                                <td>
-                                    <span class="glyphicon glyphicon-arrow-up text-success"></span>
-                                    Adresse de départ
-                                </td>
-                                <td class="text-success">
-                                         <p>#{personalAssistanceServiceManagementBean.personalAssistanceService.trajectory.pickUpAddress}</p>
-                                </td>
-                            </tr>
 
-                            <tr>
-                                <td>
-                                    <span class="glyphicon glyphicon-arrow-down text-success"></span>
-                                    Adresse d'arrivée
-                                </td>
-                                <td class="text-success">
-                                         <p>#{personalAssistanceServiceManagementBean.personalAssistanceService.trajectory.deliveryAddress}</p>
-                                </td>
-                            </tr>
+							<div class="col-md-6">
+								<div class="table-responsive">
+									@*Information*@ <span class="text-success"><strong>Information</strong></span>
 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+									<table class="table table-user-information">
+										<tbody>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-play  text-success"></span> Date
+													et heure de départ</td>
+												<td class="text-success">
+													<p>#{personalAssistanceServiceManagementBean.personalAssistanceService.startDate}</p>
+												</td>
+											</tr>
+											<tr>
 
-</h:form>
+												<td><span
+													class="glyphicon glyphicon-stop  text-success"></span> Date
+													et heure de d'arrivée</td>
+												<td class="text-success">
+													<p>#{personalAssistanceServiceManagementBean.personalAssistanceService.endDate}</p>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-barcode  text-success"></span>
+													Type</td>
+												<td class="text-success">
+													<p>#{personalAssistanceServiceManagementBean.personalAssistanceService.personalAssistanceType}</p>
+												</td>
+											</tr>
+
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-dashboard text-success"></span>
+													Urgent</td>
+												<td class="text-success">
+													<p>#{personalAssistanceServiceManagementBean.personalAssistanceService.urgent}</p>
+												</td>
+											</tr>
+
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-up text-success"></span>
+													Adresse de départ</td>
+												<td class="text-success">
+													<p>#{personalAssistanceServiceManagementBean.personalAssistanceService.trajectory.pickUpAddress}</p>
+												</td>
+											</tr>
+
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-down text-success"></span>
+													Adresse d'arrivée</td>
+												<td class="text-success">
+													<p>#{personalAssistanceServiceManagementBean.personalAssistanceService.trajectory.deliveryAddress}</p>
+												</td>
+											</tr>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</h:form>
 		</ui:define>
 	</ui:composition>
 

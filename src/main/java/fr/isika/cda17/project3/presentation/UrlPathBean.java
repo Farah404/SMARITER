@@ -11,60 +11,64 @@ import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
 
 @ManagedBean
 @ViewScoped
-public class UrlPathBean implements Serializable{
+public class UrlPathBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     public String goToIndex() {
 	return "index.xhtml";
     }
-    
+
     public String goToAbout() {
 	return "about.xhtml";
     }
-    
+
     public String goToTeam() {
 	return "team.xhtml";
     }
-    
+
     public String goToServices() {
 	return "service.xhtml";
     }
-    
+
     public String goToPricing() {
 	return "pricing.xhtml";
     }
-    
+
     public String goToBlog() {
 	return "blog.xhtml";
     }
-    
+
     public String goToContact() {
 	return "contactForm.xhtml";
     }
-    
+
     public String goToSignIn() {
 	return "logInSignUp.xhtml";
     }
-    
+
     public String goToPatterns() {
-    	return "patterns.xhtml";
+	return "patterns.xhtml";
     }
-    
+
     public String goToOnlineStore() {
-    	return "onlineStore.xhtml";
+	return "onlineStore.xhtml";
     }
+
     public String goToBookings() {
-    	return "onlineStore.xhtml";
+	return "onlineStore.xhtml";
     }
+
     public String goToInvestors() {
-    	return "partners.xhtml";
+	return "partners.xhtml";
     }
+
     public String goToTermsOfUse() {
-    	return "termsOfUse.xhtml";
+	return "termsOfUse.xhtml";
     }
+
     public String goToSiteMap() {
-    	return "siteMap.xhtml";
+	return "siteMap.xhtml";
     }
 
     public String goToStartService() {

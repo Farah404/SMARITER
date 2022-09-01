@@ -11,25 +11,25 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 @Entity
-@Inheritance (strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Account {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private String username;
-    
+
     private String email;
-    
+
     private String password;
-    
+
     private String profilePicturePath;
-    
+
     private Boolean isActive;
-    
+
     private LocalDateTime creationDate;
-    
+
     @Enumerated(EnumType.STRING)
     private AccountType accountType;
 
@@ -38,7 +38,7 @@ public abstract class Account {
     }
 
     public Account(Long id, String username, String email, String password, String profilePicturePath, Boolean isActive,
-    		LocalDateTime creationDate, AccountType accountType) {
+	    LocalDateTime creationDate, AccountType accountType) {
 	super();
 	this.id = id;
 	this.username = username;
@@ -51,67 +51,67 @@ public abstract class Account {
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+	this.id = id;
     }
 
     public String getUsername() {
-        return username;
+	return username;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+	this.username = username;
     }
 
     public String getEmail() {
-        return email;
+	return email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+	this.email = email;
     }
 
     public String getPassword() {
-        return password;
+	return password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+	this.password = password;
     }
 
     public String getProfilePicturePath() {
-        return profilePicturePath;
+	return profilePicturePath;
     }
 
     public void setProfilePicturePath(String profilePicturePath) {
-        this.profilePicturePath = profilePicturePath;
+	this.profilePicturePath = profilePicturePath;
     }
 
     public Boolean getIsActive() {
-        return isActive;
+	return isActive;
     }
 
     public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
+	this.isActive = isActive;
     }
 
     public LocalDateTime getCreationDate() {
-        return creationDate;
+	return creationDate;
     }
 
     public void setCreationDate(LocalDateTime creationDate) {
-        this.creationDate = creationDate;
+	this.creationDate = creationDate;
     }
 
     public AccountType getAccountType() {
-        return accountType;
+	return accountType;
     }
 
     public void setAccountType(AccountType accountType) {
-        this.accountType = accountType;
+	this.accountType = accountType;
     }
 
 }

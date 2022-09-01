@@ -15,50 +15,40 @@ import fr.isika.cda17.project3.repository.personManagement.accounts.UserDao;
 @SessionScoped
 public class ManagementUserBean implements Serializable {
 
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Inject
-	private UserDao userDao;
-	
-	private List<User> userList;
-	
-	@PostConstruct
-	private void init() {
-		refresh();
-	}
-	/*
-	 * methods
-	 */
-	
-public String showUpdate(Long id) {
-		
-		System.err.println(id);
-		
-		return "signUp2.xhtml?faces-redirect=true&userId=" + id;
-	}
+    @Inject
+    private UserDao userDao;
 
-private void refresh() {
+    private List<User> userList;
+
+    @PostConstruct
+    private void init() {
+	refresh();
+    }
+
+    public String showUpdate(Long id) {
+
+	System.err.println(id);
+
+	return "signUp2.xhtml?faces-redirect=true&userId=" + id;
+    }
+
+    private void refresh() {
 	userList = userDao.findAll();
-}
+    }
 
-public void delete(Long id) {
+    public void delete(Long id) {
 	userDao.delete(id);
 	refresh();
-}
+    }
 
-/*
- * getters and setters
- */
-public List<User> getUserList() {
+    public List<User> getUserList() {
 	return userList;
-}
+    }
 
-public void setUserList(List<User> userList) {
+    public void setUserList(List<User> userList) {
 	this.userList = userList;
-}
+    }
 
 }

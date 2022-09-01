@@ -9,11 +9,11 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda17.project3.model.solutionManagement.ParcelSolution;
 
 @Stateless
-public class ParcelSolutionDaoImpl implements ParcelSolutionDao{
+public class ParcelSolutionDaoImpl implements ParcelSolutionDao {
 
     @PersistenceContext
     private EntityManager entityManager;
-    
+
     @Override
     public ParcelSolution create(ParcelSolution parcelSolution) {
 	try {
@@ -32,12 +32,12 @@ public class ParcelSolutionDaoImpl implements ParcelSolutionDao{
 	    updatedParcelSolution.setAtypicalVolumeOption(parcelSolution.getAtypicalVolumeOption());
 	    updatedParcelSolution.setFragileOoption(parcelSolution.getFragileOoption());
 	    updatedParcelSolution.setWeightKilogrammesOption(parcelSolution.getWeightKilogrammesOption());
-	    
+
 	    entityManager.persist(parcelSolution);
 	} catch (Exception e) {
 	    System.out.println("ParcelSolutionDao.update() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
@@ -48,7 +48,7 @@ public class ParcelSolutionDaoImpl implements ParcelSolutionDao{
 	} catch (Exception e) {
 	    System.out.println("ParcelSolutionDao.delete() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
@@ -58,7 +58,6 @@ public class ParcelSolutionDaoImpl implements ParcelSolutionDao{
 
     @Override
     public List<ParcelSolution> findAll() {
-	// TODO Auto-generated method stub
 	return null;
     }
 

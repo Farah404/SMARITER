@@ -7,11 +7,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.financialManagement.store.Store;
-import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 
 @Stateless
-public class StoreDaoImpl implements StoreDao{
-    
+public class StoreDaoImpl implements StoreDao {
+
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -33,28 +32,27 @@ public class StoreDaoImpl implements StoreDao{
 	    updatedStore.setBatchOneName(store.getBatchOneName());
 	    updatedStore.setBatchOneQuantity(store.getBatchOneQuantity());
 	    updatedStore.setBatchOnePrice(store.getBatchOnePrice());
-	    
+
 	    updatedStore.setBatchTwoName(store.getBatchTwoName());
 	    updatedStore.setBatchTwoQuantity(store.getBatchTwoQuantity());
 	    updatedStore.setBatchTwoPrice(store.getBatchTwoPrice());
-	    
+
 	    updatedStore.setBatchThreeName(store.getBatchThreeName());
 	    updatedStore.setBatchThreeQuantity(store.getBatchThreeQuantity());
 	    updatedStore.setBatchThreePrice(store.getBatchThreePrice());
-	    
+
 	    updatedStore.setMonthlySubscriptionName(store.getMonthlySubscriptionName());
 	    updatedStore.setMonthlySubscriptionQuantity(store.getMonthlySubscriptionQuantity());
 	    updatedStore.setMonthlySubscriptionPrice(store.getMonthlySubscriptionPrice());
-	    
+
 	    updatedStore.setSemestrialSubscriptionName(store.getSemestrialSubscriptionName());
 	    updatedStore.setSemestrialSubscriptionQuantity(store.getSemestrialSubscriptionQuantity());
 	    updatedStore.setSemestrialSubscriptionPrice(store.getSemestrialSubscriptionPrice());
-	    
+
 	    updatedStore.setTrimestrialSubscriptionName(store.getTrimestrialSubscriptionName());
 	    updatedStore.setTrimestrialSubscriptionQuantity(store.getTrimestrialSubscriptionQuantity());
 	    updatedStore.setTrimestrialSubscriptionPrice(store.getTrimestrialSubscriptionPrice());
-	    
-	    
+
 	    entityManager.persist(store);
 	} catch (Exception e) {
 	    System.out.println("StoreDao.update() - Failed : " + e.getMessage());
@@ -69,13 +67,13 @@ public class StoreDaoImpl implements StoreDao{
 	} catch (Exception e) {
 	    System.out.println("StoreDao.delete() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
     public Store findById(Long id) {
 	return entityManager.find(Store.class, id);
-	
+
     }
 
     @Override

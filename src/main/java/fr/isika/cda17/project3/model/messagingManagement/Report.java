@@ -12,19 +12,19 @@ import javax.persistence.ManyToOne;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
 @Entity
-@Inheritance (strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Report {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private Date reportIssueDate;
-    
+
     private int reportReferenceNumber;
-    
+
     private String reportContent;
-    
+
     @ManyToOne
     private UserAccount userAccount;
 
@@ -43,41 +43,39 @@ public abstract class Report {
     }
 
     public Date getReportIssueDate() {
-        return reportIssueDate;
+	return reportIssueDate;
     }
 
     public void setReportIssueDate(Date reportIssueDate) {
-        this.reportIssueDate = reportIssueDate;
+	this.reportIssueDate = reportIssueDate;
     }
 
     public int getReportReferenceNumber() {
-        return reportReferenceNumber;
+	return reportReferenceNumber;
     }
 
     public void setReportReferenceNumber(int reportReferenceNumber) {
-        this.reportReferenceNumber = reportReferenceNumber;
+	this.reportReferenceNumber = reportReferenceNumber;
     }
 
     public String getReportContent() {
-        return reportContent;
+	return reportContent;
     }
 
     public void setReportContent(String reportContent) {
-        this.reportContent = reportContent;
+	this.reportContent = reportContent;
     }
 
     public UserAccount getUserAccount() {
-        return userAccount;
+	return userAccount;
     }
 
     public void setUserAccount(UserAccount userAccount) {
-        this.userAccount = userAccount;
+	this.userAccount = userAccount;
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
-    
-    
 
 }

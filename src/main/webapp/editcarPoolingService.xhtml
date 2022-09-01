@@ -28,47 +28,49 @@
 
 			<div class="signupform-container animate-right" id="container">
 				<h:form action="#" class="sigup-form">
-				
-				
+
+
 					<fieldset>
-					
-					<h:panelGrid>
-					<br />
-							<f:facet name="header">
+
+						<h:panelGrid>
 							<br />
+							<f:facet name="header">
+								<br />
 								<h:outputText value="UPDATE SERVICE" />
 							</f:facet>
 							<br />
 
-					
 
-						<h:outputLabel value="Delivery Address" />
-						<h:inputText
-							a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.deliveryAddress}"
-							value="#{carPoolingManagementBean.carPoolingService.trajectory.deliveryAddress}" />
 
-						<h:outputLabel value="Journey Duration (in hour)" />
-						<h:inputText
-							a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.durationHours}"
-							value="#{carPoolingManagementBean.carPoolingService.trajectory.durationHours}" />
+							<h:outputLabel value="Delivery Address" />
+							<h:inputText
+								a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.deliveryAddress}"
+								value="#{carPoolingManagementBean.carPoolingService.trajectory.deliveryAddress}" />
 
-						<h:outputLabel value="Stop Duration (in minute)" />
-						<h:inputText
-							a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.stopDurationMinutes}"
-							value="#{carPoolingManagementBean.carPoolingService.trajectory.stopDurationMinutes}" />
+							<h:outputLabel value="Journey Duration (in hour)" />
+							<h:inputText
+								a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.durationHours}"
+								value="#{carPoolingManagementBean.carPoolingService.trajectory.durationHours}" />
 
-						<h:outputLabel value="Stop Number" />
-						<h:inputText
-							a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.stopNumber}"
-							value="#{carPoolingManagementBean.carPoolingService.trajectory.stopNumber}" />
+							<h:outputLabel value="Stop Duration (in minute)" />
+							<h:inputText
+								a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.stopDurationMinutes}"
+								value="#{carPoolingManagementBean.carPoolingService.trajectory.stopDurationMinutes}" />
 
-						<h:outputLabel value="Seats Avaible" />
-						<h:inputText a:placeholder="#{carPoolingManagementBean.carPoolingService.availableSeats}"
-							value="#{carPoolingManagementBean.carPoolingService.availableSeats}" />
+							<h:outputLabel value="Stop Number" />
+							<h:inputText
+								a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.stopNumber}"
+								value="#{carPoolingManagementBean.carPoolingService.trajectory.stopNumber}" />
 
-						<h:outputLabel value="Price" />
-						<h:inputText a:placeholder="#{carPoolingManagementBean.carPoolingService.price}"
-							value="#{carPoolingManagementBean.carPoolingService.price}" />
+							<h:outputLabel value="Seats Avaible" />
+							<h:inputText
+								a:placeholder="#{carPoolingManagementBean.carPoolingService.availableSeats}"
+								value="#{carPoolingManagementBean.carPoolingService.availableSeats}" />
+
+							<h:outputLabel value="Price" />
+							<h:inputText
+								a:placeholder="#{carPoolingManagementBean.carPoolingService.price}"
+								value="#{carPoolingManagementBean.carPoolingService.price}" />
 
 							<h:outputLabel value="CarPooling Type" />
 							<h:selectOneMenu
@@ -78,8 +80,8 @@
 									value="#{carPoolingManagementBean.carPoolingType()}"
 									var="carPoolingType" itemLabel="#{carPoolingType}"
 									itemValue="#{carPoolingType}"></f:selectItems>
-							</h:selectOneMenu>	
-							
+							</h:selectOneMenu>
+
 							<br />
 							<h:outputLabel value="Trajetory Type" />
 							<h:selectOneMenu
@@ -92,43 +94,44 @@
 							</h:selectOneMenu>
 							<br />
 							<h:outputLabel value="vehicule brand" />
-						<h:inputText a:placeholder="#{carPoolingManagementBean.carPoolingService.userAccountProvider.vehicule.brand}"
-							value="#{carPoolingManagementBean.carPoolingService.userAccountProvider.vehicule.brand}" />
+							<h:inputText
+								a:placeholder="#{carPoolingManagementBean.carPoolingService.userAccountProvider.vehicule.brand}"
+								value="#{carPoolingManagementBean.carPoolingService.userAccountProvider.vehicule.brand}" />
 
 
 							<h:outputLabel value="Pet Allowed" />
 							<h:selectBooleanCheckbox id="isPetAllowed"
-								value="#{carPoolingManagementBean.carPoolingService.petAllowed}" />		
-						
-						<h:outputLabel value="Music Allowed" />
+								value="#{carPoolingManagementBean.carPoolingService.petAllowed}" />
+
+							<h:outputLabel value="Music Allowed" />
 							<h:selectBooleanCheckbox id="isMusicAllowed"
 								value="#{carPoolingManagementBean.carPoolingService.musicAllowed}" />
 
-						<h:outputLabel value="Smoking Allowed" />
+							<h:outputLabel value="Smoking Allowed" />
 							<h:selectBooleanCheckbox id="isSmokingAllowed"
 								value="#{carPoolingManagementBean.carPoolingService.smokingAllowed}" />
-								
-								<h:outputLabel value="Chatting Allowed" />
+
+							<h:outputLabel value="Chatting Allowed" />
 							<h:selectBooleanCheckbox id="isChattingAllowed"
 								value="#{carPoolingManagementBean.carPoolingService.chattingAllowed}" />
-	
+
 							<h:selectOneRadio
-								value="#{carPoolingManagementBean.carPoolingService.userAccountProvider.vehicule.vehiculeType}"> 
-								<f:selectItems value="#{carPoolingManagementBean.vehiculeTypes()}"
-									var="vehiculeType"
-									itemValue="#{vehiculeType}"
+								value="#{carPoolingManagementBean.carPoolingService.userAccountProvider.vehicule.vehiculeType}">
+								<f:selectItems
+									value="#{carPoolingManagementBean.vehiculeTypes()}"
+									var="vehiculeType" itemValue="#{vehiculeType}"
 									itemLabel="#{vehiculeType}" />
 							</h:selectOneRadio>
 
 							<br />
-							
-						<h:commandButton class="btn-signin"
-							action="#{carPoolingManagementBean.update()}"
-							value="Valide your Update" />
-														
-						</h:panelGrid >	
+
+							<h:commandButton class="btn-signin"
+								action="#{carPoolingManagementBean.update()}"
+								value="Valide your Update" />
+
+						</h:panelGrid>
 					</fieldset>
-					
+
 				</h:form>
 			</div>
 

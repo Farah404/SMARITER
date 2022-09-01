@@ -26,22 +26,22 @@
 							<div class="col-one-half-cusProfile">
 								<img class="customer-img"
 									src="media/gif/profilePictures/ProfileGif6.gif" /><br />
-								<h:commandButton class="button-shared" action="#{logInAccountBean.logout()}" value="Log Out"></h:commandButton>
+								<h:commandButton class="button-shared"
+									action="#{logInAccountBean.logout()}" value="Log Out"></h:commandButton>
 							</div>
 							<div class="col-one-half-cusProfile">
 								<br /> <span class="label-text-cusProfile"><i
 									class="fa fa-envelope fa-col-cus"> Firstname:
-										#{adminDashboardBean.administrator.firstName}</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
+										#{adminDashboardBean.administrator.firstName}</i></span><br /> <br /> <span
+									class="label-text-cusProfile"><i
 									class="fa fa-phone fa-col-cus"> Lastname:
-										#{adminDashboardBean.administrator.lastName}</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
+										#{adminDashboardBean.administrator.lastName}</i></span><br /> <br /> <span
+									class="label-text-cusProfile"><i
 									class="fa fa-envelope fa-col-cus"> Email address:
 										#{adminDashboardBean.administrator.administratorAccount.email}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
 									class="fa fa-phone fa-col-cus"> Employee Code:
-										#{adminDashboardBean.administrator.employeeCode}</i></span><br />
-								<br />
+										#{adminDashboardBean.administrator.employeeCode}</i></span><br /> <br />
 
 							</div>
 
@@ -93,8 +93,10 @@
 									</div>
 								</div>
 							</div>
-							<br /> <span class="label-text-cusProfile"><i
-								class="fa fa-inbox fa-col-cus"> List of active Solutions:</i></span><br />
+							<br />
+							<span class="label-text-cusProfile"><i
+								class="fa fa-inbox fa-col-cus"> List of active Solutions:</i></span>
+							<br />
 							<br />
 
 							<h:dataTable class="styled-table" id="solutionList"
@@ -143,8 +145,10 @@
 									<h:outputText value="#{solution.ratingSystemIncluded}" />
 								</h:column>
 							</h:dataTable>
-							<br /> <span class="label-text-cusProfile"><i
-								class="fa fa-inbox fa-col-cus"> List of Customers:</i></span><br />
+							<br />
+							<span class="label-text-cusProfile"><i
+								class="fa fa-inbox fa-col-cus"> List of Customers:</i></span>
+							<br />
 							<br />
 							<h:dataTable class="styled-table" id="solutionListEntities"
 								value="#{solutionManagementBean.solutiontList}" var="solution">

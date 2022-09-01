@@ -1,15 +1,12 @@
 package fr.isika.cda17.project3.repository.personManagement.accounts;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
-import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
-import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 import fr.isika.cda17.project3.model.personManagement.accounts.User;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
@@ -18,11 +15,11 @@ public class UserDaoImpl implements UserDao {
 
     @PersistenceContext
     private EntityManager entityManager;
-    
+
     @Override
     public User create(User user) {
 	try {
-		
+
 	    entityManager.persist(user);
 	    return user;
 	} catch (Exception e) {
@@ -46,7 +43,7 @@ public class UserDaoImpl implements UserDao {
 	} catch (Exception e) {
 	    System.out.println("UserDao.update() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
@@ -57,7 +54,7 @@ public class UserDaoImpl implements UserDao {
 	} catch (Exception e) {
 	    System.out.println("UserDao.delete() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
@@ -67,38 +64,36 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> findAll() {
-    	
-    	List<User> u =  this.entityManager.createQuery("select ea from User ea", User.class).getResultList();
-    	 System.out.println( u);
-    	 return u;
-	
+
+	List<User> u = this.entityManager.createQuery("select ea from User ea", User.class).getResultList();
+	System.out.println(u);
+	return u;
+
     }
 
     @Override
     public User findByUserAccountId(Long id) {
 	try {
-		User user = this.entityManager
-				.createNamedQuery("user.findByUserAccountId", User.class)
-				.setParameter("u_param", id)
-				.getSingleResult();
-		return user;
+	    User user = this.entityManager.createNamedQuery("user.findByUserAccountId", User.class)
+		    .setParameter("u_param", id).getSingleResult();
+	    return user;
 	} catch (NoResultException ex) {
-		System.out.println("UserDaoImpl.findByUserAccountId() - not found : " + id);
+	    System.out.println("UserDaoImpl.findByUserAccountId() - not found : " + id);
 	}
 	return null;
-}
-    public UserAccount findByUserAccountEmail(String email) {
-		try {
-			UserAccount userAccount = this.entityManager
-					.createNamedQuery("UserAccount.findByUserAccountEmail", UserAccount.class)
-					.setParameter("email_param", email)
-					.getSingleResult();
-			return userAccount;
-		} catch (NoResultException ex) {
-			System.out.println("UserDaoImpl.findByUserAccountEmail() - not found : " + email);
-		}
-		return null;
+    }
 
+    public UserAccount findByUserAccountEmail(String email) {
+	try {
+	    UserAccount userAccount = this.entityManager
+		    .createNamedQuery("UserAccount.findByUserAccountEmail", UserAccount.class)
+		    .setParameter("email_param", email).getSingleResult();
+	    return userAccount;
+	} catch (NoResultException ex) {
+	    System.out.println("UserDaoImpl.findByUserAccountEmail() - not found : " + email);
 	}
+	return null;
+
+    }
 
 }

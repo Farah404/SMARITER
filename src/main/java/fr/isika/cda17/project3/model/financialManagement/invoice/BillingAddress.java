@@ -6,19 +6,19 @@ import javax.persistence.Id;
 
 @Entity
 public class BillingAddress {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private String addressLine;
-    
+
     private String city;
-    
+
     private String region;
-    
+
     private String country;
-    
+
     private int postalCode;
 
     public BillingAddress() {
@@ -36,47 +36,47 @@ public class BillingAddress {
     }
 
     public String getAddressLine() {
-        return addressLine;
+	return addressLine;
     }
 
     public void setAddressLine(String addressLine) {
-        this.addressLine = addressLine;
+	this.addressLine = addressLine;
     }
 
     public String getCity() {
-        return city;
+	return city;
     }
 
     public void setCity(String city) {
-        this.city = city;
+	this.city = city;
     }
 
     public String getRegion() {
-        return region;
+	return region;
     }
 
     public void setRegion(String region) {
-        this.region = region;
+	this.region = region;
     }
 
     public String getCountry() {
-        return country;
+	return country;
     }
 
     public void setCountry(String country) {
-        this.country = country;
+	this.country = country;
     }
 
     public int getPostalCode() {
-        return postalCode;
+	return postalCode;
     }
 
     public void setPostalCode(int postalCode) {
-        this.postalCode = postalCode;
+	this.postalCode = postalCode;
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
 
 }

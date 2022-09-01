@@ -5,9 +5,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@PrimaryKeyJoinColumn(name="id")
-public class HelpReport extends Report{
-    
+@PrimaryKeyJoinColumn(name = "id")
+public class HelpReport extends Report {
+
     @Enumerated
     private HelpReportType helpReportType;
 
@@ -21,15 +21,11 @@ public class HelpReport extends Report{
     }
 
     public HelpReportType getHelpReportType() {
-        return helpReportType;
+	return helpReportType;
     }
 
     public void setHelpReportType(HelpReportType helpReportType) {
-        this.helpReportType = helpReportType;
+	this.helpReportType = helpReportType;
     }
-    
-    
-    
-    
 
 }

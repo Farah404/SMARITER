@@ -10,25 +10,25 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Trajectory {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private int durationHours;
-    
+
     private int stopNumber;
-    
+
     private int stopDurationMinutes;
-    
+
     private String pickUpAddress;
-    
+
     private String deliveryAddress;
-    
+
     @Enumerated(EnumType.STRING)
     private TrajectoryType trajectoryType;
-    
-    @OneToOne(cascade=CascadeType.ALL)
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Itinerary itinerary;
 
     public Trajectory() {
@@ -49,63 +49,63 @@ public class Trajectory {
     }
 
     public int getDurationHours() {
-        return durationHours;
+	return durationHours;
     }
 
     public void setDurationHours(int durationHours) {
-        this.durationHours = durationHours;
+	this.durationHours = durationHours;
     }
 
     public int getStopNumber() {
-        return stopNumber;
+	return stopNumber;
     }
 
     public void setStopNumber(int stopNumber) {
-        this.stopNumber = stopNumber;
+	this.stopNumber = stopNumber;
     }
 
     public int getStopDurationMinutes() {
-        return stopDurationMinutes;
+	return stopDurationMinutes;
     }
 
     public void setStopDurationMinutes(int stopDurationMinutes) {
-        this.stopDurationMinutes = stopDurationMinutes;
+	this.stopDurationMinutes = stopDurationMinutes;
     }
 
     public String getPickUpAddress() {
-        return pickUpAddress;
+	return pickUpAddress;
     }
 
     public void setPickUpAddress(String pickUpAddress) {
-        this.pickUpAddress = pickUpAddress;
+	this.pickUpAddress = pickUpAddress;
     }
 
     public String getDeliveryAddress() {
-        return deliveryAddress;
+	return deliveryAddress;
     }
 
     public void setDeliveryAddress(String deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
+	this.deliveryAddress = deliveryAddress;
     }
 
     public TrajectoryType getTrajectoryType() {
-        return trajectoryType;
+	return trajectoryType;
     }
 
     public void setTrajectoryType(TrajectoryType trajectoryType) {
-        this.trajectoryType = trajectoryType;
+	this.trajectoryType = trajectoryType;
     }
 
     public Itinerary getItinerary() {
-        return itinerary;
+	return itinerary;
     }
 
     public void setItinerary(Itinerary itinerary) {
-        this.itinerary = itinerary;
+	this.itinerary = itinerary;
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
-    
+
 }

@@ -1,8 +1,6 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 

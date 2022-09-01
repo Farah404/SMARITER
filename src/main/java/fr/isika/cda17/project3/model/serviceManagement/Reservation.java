@@ -26,9 +26,9 @@ public class Reservation {
     private Service service;
 
     @ManyToMany
-    private List <UserAccount> Useraccounts = new LinkedList<>();
-    
-    @OneToOne(cascade=CascadeType.ALL)
+    private List<UserAccount> Useraccounts = new LinkedList<>();
+
+    @OneToOne(cascade = CascadeType.ALL)
     private ServiceInvoice serviceinvoice;
 
     public Reservation() {
@@ -44,35 +44,31 @@ public class Reservation {
     }
 
     public Service getService() {
-        return service;
+	return service;
     }
 
     public void setService(Service service) {
-        this.service = service;
+	this.service = service;
     }
 
     public List<UserAccount> getUseraccounts() {
-        return Useraccounts;
+	return Useraccounts;
     }
 
     public void setUseraccounts(List<UserAccount> useraccounts) {
-        Useraccounts = useraccounts;
+	Useraccounts = useraccounts;
     }
 
     public ServiceInvoice getServiceinvoice() {
-        return serviceinvoice;
+	return serviceinvoice;
     }
 
     public void setServiceinvoice(ServiceInvoice serviceinvoice) {
-        this.serviceinvoice = serviceinvoice;
+	this.serviceinvoice = serviceinvoice;
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
-    
-    
-
-
 
 }

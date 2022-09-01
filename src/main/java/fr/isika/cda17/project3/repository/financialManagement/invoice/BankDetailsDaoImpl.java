@@ -9,11 +9,11 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda17.project3.model.financialManagement.invoice.BankDetails;
 
 @Stateless
-public class BankDetailsDaoImpl implements BankDetailsDao{
+public class BankDetailsDaoImpl implements BankDetailsDao {
 
     @PersistenceContext
     private EntityManager entityManager;
-    
+
     @Override
     public BankDetails create(BankDetails bankDetails) {
 	try {
@@ -36,7 +36,7 @@ public class BankDetailsDaoImpl implements BankDetailsDao{
 	} catch (Exception e) {
 	    System.out.println("BankDetailsDao.update() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
@@ -47,13 +47,13 @@ public class BankDetailsDaoImpl implements BankDetailsDao{
 	} catch (Exception e) {
 	    System.out.println("BankDetailsDao.delete() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
     public BankDetails findById(Long id) {
 	return entityManager.find(BankDetails.class, id);
-	
+
     }
 
     @Override

@@ -4,8 +4,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <f:metadata>
 	<f:event listener="#{createCustomerBean.init()}" type="preRenderView">
@@ -13,88 +13,136 @@
 </f:metadata>
 
 <h:head>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css' />
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet" />
+	<link
+		href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600'
+		rel='stylesheet' type='text/css' />
+	<link
+		href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css"
+		rel="stylesheet" />
 </h:head>
 
 <h:body>
- <ui:composition template="template/templatewithoutHeader.xhtml">
- <ui:define name="content">
- 
-<div class="wrapper-signin"> <img  width="100%" src="media/gif/coding/abstract.gif" /> </div>
-	
-<div class="signupform-container animate-right">
-<div class="signupbox">
-  <h1>Registration</h1>
+	<ui:composition template="template/templatewithoutHeader.xhtml">
+		<ui:define name="content">
 
-  <h:form>
-      <hr />
-      <div class="row-signup">
-      <div class="col-signup">
-  <label id="icon" for="name"><i class="fa fa-envelope"></i></label>
-  <h:inputText id="email" a:placeholder="#{createCustomerBean.customer.entityAccount.email}" value="#{createCustomerBean.customer.entityAccount.email}" />
-<br /><br />
- <label id="icon" for="name"><i class="fa fa-envelope"></i></label>
- <h:inputText id="password" a:placeholder="#{createCustomerBean.customer.entityAccount.password}" value="#{createCustomerBean.customer.entityAccount.password}"/>
- <br /><br />
- 
- <label id="icon" for="name"><i class="fa fa-envelope"></i></label>
-  <h:inputText id="username" a:placeholder="Enter your username" value="#{createCustomerBean.customer.entityAccount.username}"/>
-<br /><br />
- <label id="icon" for="name"><i class="fa fa-envelope"></i></label>
- <h:inputText id="firstName" a:placeholder="Enter your firstName" value="#{createCustomerBean.customer.firstName}"/>
-<br /><br />
- <label id="icon" for="name"><i class="fa fa-envelope"></i></label>
- <h:inputText id="lastName" a:placeholder="Enter your lastName" value="#{createCustomerBean.customer.lastName}"/>
-<br /><br />
- <label id="icon" for="name"><i class="fa fa-envelope"></i></label>
-  <h:inputText id="phoneNumber" a:placeholder="Enter your phoneNumber" value="#{createCustomerBean.customer.phoneNumber}"/>
-  <br /><br />
-  <label id="icon" for="name"><i class="fa fa-envelope"></i></label>
- <h:inputText id="entityName" a:placeholder="Your Entity Name" value="#{createCustomerBean.customer.entityAccount.name}"/>
-  <br /><br />
-  <label id="icon" for="name"><i class="fa fa-envelope"></i></label>
- <h:inputText id="siretNumber" a:placeholder="Its Siret/Siren Number" value="#{createCustomerBean.customer.entityAccount.siretNumber}"/> 
-  <br /><br />
+			<div class="wrapper-signin">
+				<img width="100%" src="media/gif/coding/abstract.gif" />
+			</div>
 
-</div>
-<div class="col-signup">
- <label id="icon" for="name"><i class="fa fa-envelope"></i></label> 
-<h:inputText id="addressLine" a:placeholder="AddressLine" value="#{createCustomerBean.customer.entityAccount.billingAddress.addressLine}"/>
-			<br /><br />
-			<label id="icon" for="name"><i class="fa fa-envelope"></i></label>
-			<h:inputText id="postalCode" a:placeholder="PostalCode" value="#{createCustomerBean.customer.entityAccount.billingAddress.postalCode}"/>
-			<br /><br />
-			<label id="icon" for="name"><i class="fa fa-envelope"></i></label>
-			<h:inputText id="city" a:placeholder="City" value="#{createCustomerBean.customer.entityAccount.billingAddress.city}"/>
-			<br /><br />
-			<label id="icon" for="name"><i class="fa fa-envelope"></i></label>
-			<h:inputText id="region" a:placeholder="Region" value="#{createCustomerBean.customer.entityAccount.billingAddress.region}"/>
-			<br /><br />
-			<label id="icon" for="name"><i class="fa fa-envelope"></i></label>
-			<h:inputText id="country" a:placeholder="Country" value="#{createCustomerBean.customer.entityAccount.billingAddress.country}"/>
-<br /><br />
-		<label id="icon" for="name"><i class="fa fa-envelope"></i></label>
-		<h:inputText id="bankName" a:placeholder="BankName" value="#{createCustomerBean.customer.entityAccount.bankDetails.bankName}"/>
-		<br /><br />
-			<label id="icon" for="name"><i class="fa fa-envelope"></i></label>
-		<h:inputText id="iban" a:placeholder="IBAN" value="#{createCustomerBean.customer.entityAccount.bankDetails.iban}"/>
-		<br /><br />
-			<label id="icon" for="name"><i class="fa fa-envelope "></i></label>
-		<h:inputText id="swift" a:placeholder="SWIFT" value="#{createCustomerBean.customer.entityAccount.bankDetails.swift}"/>
+			<div class="signupform-container animate-right">
+				<div class="signupbox">
+					<h1>Registration</h1>
 
-   </div>
-   </div>
-    <br /><br />
-   <p>By creating your account, you agree on our <h:outputLink value="#{urlPathBean.goToTermsOfUse()}">terms and conditions</h:outputLink>.</p> <br />
-   <h:commandButton class="register-button" value="Create account" action="#{createCustomerBean.update()}"/>
-   <br /><br/>
-		</h:form>
-</div>
- </div>
- 
- </ui:define>
- </ui:composition>
- 
+					<h:form>
+						<hr />
+						<div class="row-signup">
+							<div class="col-signup">
+								<label id="icon" for="name"><i class="fa fa-envelope"></i></label>
+								<h:inputText id="email"
+									a:placeholder="#{createCustomerBean.customer.entityAccount.email}"
+									value="#{createCustomerBean.customer.entityAccount.email}" />
+								<br />
+								<br /> <label id="icon" for="name"><i
+									class="fa fa-envelope"></i></label>
+								<h:inputText id="password"
+									a:placeholder="#{createCustomerBean.customer.entityAccount.password}"
+									value="#{createCustomerBean.customer.entityAccount.password}" />
+								<br />
+								<br /> <label id="icon" for="name"><i
+									class="fa fa-envelope"></i></label>
+								<h:inputText id="username" a:placeholder="Enter your username"
+									value="#{createCustomerBean.customer.entityAccount.username}" />
+								<br />
+								<br /> <label id="icon" for="name"><i
+									class="fa fa-envelope"></i></label>
+								<h:inputText id="firstName" a:placeholder="Enter your firstName"
+									value="#{createCustomerBean.customer.firstName}" />
+								<br />
+								<br /> <label id="icon" for="name"><i
+									class="fa fa-envelope"></i></label>
+								<h:inputText id="lastName" a:placeholder="Enter your lastName"
+									value="#{createCustomerBean.customer.lastName}" />
+								<br />
+								<br /> <label id="icon" for="name"><i
+									class="fa fa-envelope"></i></label>
+								<h:inputText id="phoneNumber"
+									a:placeholder="Enter your phoneNumber"
+									value="#{createCustomerBean.customer.phoneNumber}" />
+								<br />
+								<br /> <label id="icon" for="name"><i
+									class="fa fa-envelope"></i></label>
+								<h:inputText id="entityName" a:placeholder="Your Entity Name"
+									value="#{createCustomerBean.customer.entityAccount.name}" />
+								<br />
+								<br /> <label id="icon" for="name"><i
+									class="fa fa-envelope"></i></label>
+								<h:inputText id="siretNumber"
+									a:placeholder="Its Siret/Siren Number"
+									value="#{createCustomerBean.customer.entityAccount.siretNumber}" />
+								<br />
+								<br />
+
+							</div>
+							<div class="col-signup">
+								<label id="icon" for="name"><i class="fa fa-envelope"></i></label>
+								<h:inputText id="addressLine" a:placeholder="AddressLine"
+									value="#{createCustomerBean.customer.entityAccount.billingAddress.addressLine}" />
+								<br />
+								<br /> <label id="icon" for="name"><i
+									class="fa fa-envelope"></i></label>
+								<h:inputText id="postalCode" a:placeholder="PostalCode"
+									value="#{createCustomerBean.customer.entityAccount.billingAddress.postalCode}" />
+								<br />
+								<br /> <label id="icon" for="name"><i
+									class="fa fa-envelope"></i></label>
+								<h:inputText id="city" a:placeholder="City"
+									value="#{createCustomerBean.customer.entityAccount.billingAddress.city}" />
+								<br />
+								<br /> <label id="icon" for="name"><i
+									class="fa fa-envelope"></i></label>
+								<h:inputText id="region" a:placeholder="Region"
+									value="#{createCustomerBean.customer.entityAccount.billingAddress.region}" />
+								<br />
+								<br /> <label id="icon" for="name"><i
+									class="fa fa-envelope"></i></label>
+								<h:inputText id="country" a:placeholder="Country"
+									value="#{createCustomerBean.customer.entityAccount.billingAddress.country}" />
+								<br />
+								<br /> <label id="icon" for="name"><i
+									class="fa fa-envelope"></i></label>
+								<h:inputText id="bankName" a:placeholder="BankName"
+									value="#{createCustomerBean.customer.entityAccount.bankDetails.bankName}" />
+								<br />
+								<br /> <label id="icon" for="name"><i
+									class="fa fa-envelope"></i></label>
+								<h:inputText id="iban" a:placeholder="IBAN"
+									value="#{createCustomerBean.customer.entityAccount.bankDetails.iban}" />
+								<br />
+								<br /> <label id="icon" for="name"><i
+									class="fa fa-envelope "></i></label>
+								<h:inputText id="swift" a:placeholder="SWIFT"
+									value="#{createCustomerBean.customer.entityAccount.bankDetails.swift}" />
+
+							</div>
+						</div>
+						<br />
+						<br />
+						<p>
+							By creating your account, you agree on our
+							<h:outputLink value="#{urlPathBean.goToTermsOfUse()}">terms and conditions</h:outputLink>
+							.
+						</p>
+						<br />
+						<h:commandButton class="register-button" value="Create account"
+							action="#{createCustomerBean.update()}" />
+						<br />
+						<br />
+					</h:form>
+				</div>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+
 </h:body>
 </html>

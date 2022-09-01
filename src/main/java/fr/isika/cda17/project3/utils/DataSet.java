@@ -36,147 +36,143 @@ import fr.isika.cda17.project3.model.solutionManagement.Solution;
 @Singleton
 @Startup
 public class DataSet {
-	@PersistenceContext
-	private EntityManager em;
+    @PersistenceContext
+    private EntityManager em;
 
-	@PostConstruct
-	private void initData() {
+    @PostConstruct
+    private void initData() {
 
-		BankDetails b = new BankDetails();
-		b.setBankName("Socièté Générale");
-		em.persist(b);
+	BankDetails b = new BankDetails();
+	b.setBankName("Socièté Générale");
+	em.persist(b);
 
-		UserAccount uz = new UserAccount();
-		uz.setBankDetails(b);
-		uz.setUsername("BIASOO");
-		em.persist(uz);
-		
-		Vehicule v = new Vehicule();
-		v.setBrand("BMW");
-		v.setRegistrationNumber("A1234B");
-		v.setVehiculeType(VehiculeType.MANUAL);
-		v.setVehiculePowerType(VehiculePowerType.DIESEL);
-		v.setUserAccount(uz);
-		em.persist(v);
-		
-		Itinerary i = new Itinerary();
-		i.setFirstStopAddress("gare de lyon part-dieu,69000");
-		em.persist(i);
+	UserAccount uz = new UserAccount();
+	uz.setBankDetails(b);
+	uz.setUsername("BIASOO");
+	em.persist(uz);
 
-		Trajectory t = new Trajectory();
-		t.setDurationHours(1);
-		t.setStopDurationMinutes(5);
-		t.setPickUpAddress("gare de grenoble,38000");
-		t.setDeliveryAddress("gare de lille flandre, 62000");
-		t.setTrajectoryType(TrajectoryType.REGULAR);
-		t.setItinerary(i);
-		em.persist(t);
+	Vehicule v = new Vehicule();
+	v.setBrand("BMW");
+	v.setRegistrationNumber("A1234B");
+	v.setVehiculeType(VehiculeType.MANUAL);
+	v.setVehiculePowerType(VehiculePowerType.DIESEL);
+	v.setUserAccount(uz);
+	em.persist(v);
 
-		CarPoolingService c = new CarPoolingService();
-		c.setCarPoolingType(CarPoolingType.HOME_TO_SCHOOL);
-		c.setAvailableSeats(3);
-		c.setPetAllowed(true);
-		c.setSmokingAllowed(false);
-		c.setMusicAllowed(false);
-		c.setChattingAllowed(true);
-		c.setTrajectory(t);
-		c.setPrice(10);
-		c.setUserAccountProvider(uz);
-//TODO		c.setEndDate("22/09/1011");
-//TODO		c.setStartDate("23/09/2022");
+	Itinerary i = new Itinerary();
+	i.setFirstStopAddress("gare de lyon part-dieu,69000");
+	em.persist(i);
 
-		em.persist(c);
+	Trajectory t = new Trajectory();
+	t.setDurationHours(1);
+	t.setStopDurationMinutes(5);
+	t.setPickUpAddress("gare de grenoble,38000");
+	t.setDeliveryAddress("gare de lille flandre, 62000");
+	t.setTrajectoryType(TrajectoryType.REGULAR);
+	t.setItinerary(i);
+	em.persist(t);
 
+	CarPoolingService c = new CarPoolingService();
+	c.setCarPoolingType(CarPoolingType.HOME_TO_SCHOOL);
+	c.setAvailableSeats(3);
+	c.setPetAllowed(true);
+	c.setSmokingAllowed(false);
+	c.setMusicAllowed(false);
+	c.setChattingAllowed(true);
+	c.setTrajectory(t);
+	c.setPrice(10);
+	c.setUserAccountProvider(uz);
+	// TODO c.setEndDate("22/09/1011");
+	// TODO c.setStartDate("23/09/2022");
 
-		BankDetails baa = new BankDetails();
-		baa.setBankName("Caisse d'épargne");
-		em.persist(baa);
-		
-		UserAccount ua = new UserAccount();
-		ua.setBankDetails(baa);
-		ua.setUsername("JULOOO");
-		em.persist(ua);
-		
-		Vehicule va = new Vehicule();
-		va.setBrand("BMW");
-		va.setRegistrationNumber("A4567B");
-		va.setVehiculeType(VehiculeType.MANUAL);
-		va.setVehiculePowerType(VehiculePowerType.DIESEL);
-		va.setUserAccount(ua);
-		em.persist(va);
-		
-		Itinerary ia = new Itinerary();
-		ia.setFirstStopAddress("gare de chambéry challes-les-eaux,73000");
-		em.persist(ia);
-		
-		Trajectory ta = new Trajectory();
-		ta.setDurationHours(2);
-		ta.setStopDurationMinutes(15);
-		ta.setPickUpAddress("gare de grenoble,38000");
-		ta.setDeliveryAddress("gare de lille europe, 62000");
-		ta.setTrajectoryType(TrajectoryType.PUNCTUAL);
-		ta.setItinerary(ia);
-		em.persist(ta);
+	em.persist(c);
 
-		CarPoolingService ca = new CarPoolingService();
-		ca.setCarPoolingType(CarPoolingType.EVENTS);
-		ca.setAvailableSeats(2);
-		ca.setPetAllowed(false);
-		ca.setSmokingAllowed(true);
-		ca.setMusicAllowed(true);
-		ca.setChattingAllowed(false);
-		ca.setTrajectory(ta);
-		ca.setPrice(30);
-		ca.setUserAccountProvider(ua);
-//TODO		ca.setStartDate("23/10/2022");
-//TODO		ca.setEndDate("23/10/2022");
+	BankDetails baa = new BankDetails();
+	baa.setBankName("Caisse d'épargne");
+	em.persist(baa);
 
-		em.persist(ca);
+	UserAccount ua = new UserAccount();
+	ua.setBankDetails(baa);
+	ua.setUsername("JULOOO");
+	em.persist(ua);
 
+	Vehicule va = new Vehicule();
+	va.setBrand("BMW");
+	va.setRegistrationNumber("A4567B");
+	va.setVehiculeType(VehiculeType.MANUAL);
+	va.setVehiculePowerType(VehiculePowerType.DIESEL);
+	va.setUserAccount(ua);
+	em.persist(va);
 
+	Itinerary ia = new Itinerary();
+	ia.setFirstStopAddress("gare de chambéry challes-les-eaux,73000");
+	em.persist(ia);
 
+	Trajectory ta = new Trajectory();
+	ta.setDurationHours(2);
+	ta.setStopDurationMinutes(15);
+	ta.setPickUpAddress("gare de grenoble,38000");
+	ta.setDeliveryAddress("gare de lille europe, 62000");
+	ta.setTrajectoryType(TrajectoryType.PUNCTUAL);
+	ta.setItinerary(ia);
+	em.persist(ta);
 
-		UserAccount ui =new UserAccount();
-		ui.setUsername("MELIODAS");
+	CarPoolingService ca = new CarPoolingService();
+	ca.setCarPoolingType(CarPoolingType.EVENTS);
+	ca.setAvailableSeats(2);
+	ca.setPetAllowed(false);
+	ca.setSmokingAllowed(true);
+	ca.setMusicAllowed(true);
+	ca.setChattingAllowed(false);
+	ca.setTrajectory(ta);
+	ca.setPrice(30);
+	ca.setUserAccountProvider(ua);
+	// TODO ca.setStartDate("23/10/2022");
+	// TODO ca.setEndDate("23/10/2022");
 
-		Vehicule vi =new Vehicule();
-		vi.setBrand("Audi");
-		vi.setVehiculeType(VehiculeType.MANUAL);
-		vi.setVehiculePowerType(VehiculePowerType.DIESEL);
-		vi.setRegistrationNumber("ZAZA1234");
-		vi.setUserAccount(ui);
+	em.persist(ca);
 
-		CarRentalService cr =new CarRentalService();
-		cr.setKeyPickUpAddress("26 rue de la martine,Brest");
-		cr.setKeyDropOffAddress("5 bis des rue de la joie, Brest");
-		cr.setPrice(50);
-//TODO		cr.setEndDate("03/09/2022");
-//TODO		cr.setStartDate("01/09/2022");
-		cr.setServicetype(ServiceType.CAR_RENTAL);
-		cr.setVehicule(vi);
-		cr.setUserAccountProvider(ui);
-		em.persist(cr);
+	UserAccount ui = new UserAccount();
+	ui.setUsername("MELIODAS");
 
-		UserAccount uia =new UserAccount();
-		uia.setUsername("ESCANOR");
+	Vehicule vi = new Vehicule();
+	vi.setBrand("Audi");
+	vi.setVehiculeType(VehiculeType.MANUAL);
+	vi.setVehiculePowerType(VehiculePowerType.DIESEL);
+	vi.setRegistrationNumber("ZAZA1234");
+	vi.setUserAccount(ui);
 
-		Vehicule via =new Vehicule();
-		via.setBrand("Mercedes");
-		via.setVehiculeType(VehiculeType.MANUAL);
-		via.setVehiculePowerType(VehiculePowerType.DIESEL);
-		via.setRegistrationNumber("WAWZA4321");
-		via.setUserAccount(uia);
+	CarRentalService cr = new CarRentalService();
+	cr.setKeyPickUpAddress("26 rue de la martine,Brest");
+	cr.setKeyDropOffAddress("5 bis des rue de la joie, Brest");
+	cr.setPrice(50);
+	// TODO cr.setEndDate("03/09/2022");
+	// TODO cr.setStartDate("01/09/2022");
+	cr.setServicetype(ServiceType.CAR_RENTAL);
+	cr.setVehicule(vi);
+	cr.setUserAccountProvider(ui);
+	em.persist(cr);
 
-		CarRentalService cra =new CarRentalService();
-		cra.setKeyPickUpAddress("26 rue de la martine,Marseille");
-		cra.setKeyDropOffAddress("5 bis des rue de la joie, Marseille");
-		cra.setPrice(25);
-//TODO		cra.setEndDate("09/09/2022");
-//TODO		cra.setStartDate("05/09/2022");
-		cra.setServicetype(ServiceType.CAR_RENTAL);
-		cra.setVehicule(via);
-		cra.setUserAccountProvider(uia);
-		em.persist(cra);
+	UserAccount uia = new UserAccount();
+	uia.setUsername("ESCANOR");
+
+	Vehicule via = new Vehicule();
+	via.setBrand("Mercedes");
+	via.setVehiculeType(VehiculeType.MANUAL);
+	via.setVehiculePowerType(VehiculePowerType.DIESEL);
+	via.setRegistrationNumber("WAWZA4321");
+	via.setUserAccount(uia);
+
+	CarRentalService cra = new CarRentalService();
+	cra.setKeyPickUpAddress("26 rue de la martine,Marseille");
+	cra.setKeyDropOffAddress("5 bis des rue de la joie, Marseille");
+	cra.setPrice(25);
+	// TODO cra.setEndDate("09/09/2022");
+	// TODO cra.setStartDate("05/09/2022");
+	cra.setServicetype(ServiceType.CAR_RENTAL);
+	cra.setVehicule(via);
+	cra.setUserAccountProvider(uia);
+	em.persist(cra);
 
 	AdministratorAccount aa = new AdministratorAccount();
 	aa.setAccountType(AccountType.ADMINISTRATOR);
@@ -184,20 +180,20 @@ public class DataSet {
 	aa.setPassword("smariter123");
 	aa.setUsername("SmartAdmin");
 	em.persist(aa);
-	
+
 	Administrator a = new Administrator();
 	a.setEmployeeCode("EC102");
 	a.setFirstName("First");
 	a.setLastName("Last");
 	a.setAdministratorAccount(aa);
 	em.persist(a);
-	
+
 	BankDetails bd = new BankDetails();
 	bd.setBankName("BankTest");
 	bd.setIban("123456789");
 	bd.setSwift("456456");
 	em.persist(bd);
-	
+
 	BillingAddress ba = new BillingAddress();
 	ba.setAddressLine("3 rue isika");
 	ba.setCity("Paris");
@@ -205,7 +201,7 @@ public class DataSet {
 	ba.setPostalCode(0000);
 	ba.setRegion("France");
 	em.persist(ba);
-	
+
 	Solution s = new Solution();
 	s.setCarPoolingsolutionIncluded(true);
 	s.setCarRentalSolutionIncluded(true);
@@ -216,7 +212,7 @@ public class DataSet {
 	s.setPriceDeal(PriceDeal.BUSINESS_UNLIMITED);
 	s.setSolutionName("EcoCar");
 	em.persist(s);
-	
+
 	EntityAccount ea = new EntityAccount();
 	ea.setAccountType(AccountType.ENTITY);
 	ea.setEmail("test@test.com");
@@ -227,8 +223,8 @@ public class DataSet {
 	ea.setBankDetails(bd);
 	ea.setBillingAddress(ba);
 	ea.setSolution(s);
-	em.persist(ea);	
-	
+	em.persist(ea);
+
 	Customer test = new Customer();
 	test.setFirstName("firstName");
 	test.setLastName("lastName");
@@ -236,9 +232,6 @@ public class DataSet {
 	test.setRole("Customer");
 	test.setEntityAccount(ea);
 	em.persist(test);
-	
-	
-
 
 	UserAccount u = new UserAccount();
 	User ue = new User();
@@ -251,13 +244,13 @@ public class DataSet {
 	u.setAccountType(AccountType.USER);
 	em.persist(ue);
 
-//	User dependencies
+	// User dependencies
 	BankDetails bdU = new BankDetails();
 	bd.setBankName("BankTest");
 	bd.setIban("123456789");
 	bd.setSwift("456456");
 	em.persist(bd);
-	
+
 	BillingAddress baU = new BillingAddress();
 	ba.setAddressLine("3 rue isika");
 	ba.setCity("Paris");
@@ -265,13 +258,13 @@ public class DataSet {
 	ba.setPostalCode(0000);
 	ba.setRegion("France");
 	em.persist(ba);
-	
+
 	Insurance iU = new Insurance();
 	iU.setInsuranceAgencyName("AXA XVIIIe");
-//TODO	iU.setInsuranceContractExpiration(null);
+	// TODO iU.setInsuranceContractExpiration(null);
 	iU.setInsuranceContractNumber("135903U5B");
 	em.persist(iU);
-	
+
 	Vehicule vU = new Vehicule();
 	vU.setAvailableSeats(4);
 	vU.setBrand("Brand");
@@ -279,18 +272,18 @@ public class DataSet {
 	vU.setVehiculeType(VehiculeType.MANUAL);
 	vU.setInsurance(iU);
 	vU.setRegistrationNumber("AA-404-ZZ");
-//TODO	vU.setTechnicalTestExpiration(null);
+	// TODO vU.setTechnicalTestExpiration(null);
 	em.persist(vU);
-	
+
 	Wallet wU = new Wallet();
 	wU.setInternalCurrencyAmount(50);
-//TODO	wU.setStore(null);
+	// TODO wU.setStore(null);
 	em.persist(wU);
-	
+
 	ShoppingCart sCU = new ShoppingCart();
-//TODO	sCU.setStore(null);
+	// TODO sCU.setStore(null);
 	em.persist(sCU);
-	
+
 	UserAccount uAU = new UserAccount();
 	uAU.setEmail("houda@test.com");
 	uAU.setUsername("houda");
@@ -302,18 +295,16 @@ public class DataSet {
 	uAU.setShoppingCart(sCU);
 	uAU.setWallet(wU);
 	em.persist(uAU);
-	
+
 	User usery = new User();
 	usery.setLastName("madi");
 	usery.setPhoneNumber(0612121212);
 	usery.setUserAccount(uAU);
-//TODO	u.setBirthDate(null);
+	// TODO u.setBirthDate(null);
 	usery.setDrivingPermitNumber(135315315);
 	usery.setFirstName("Houda");
 	usery.setIdentityCardnumber(1141414141);
 	em.persist(usery);
-    
 
-    
-}
+    }
 }

@@ -18,104 +18,102 @@ import fr.isika.cda17.project3.model.solutionManagement.PriceDeal;
 import fr.isika.cda17.project3.model.solutionManagement.Solution;
 import fr.isika.cda17.project3.repository.solutionManagement.SolutionDao;
 
-
 @ManagedBean
 @ViewScoped
 public class SolutionManagementBean implements Serializable {
-	
-	private static final String LIST_SOLUTION_XHTML= "listSolution.xhtml";
-	
-	private static final long serialVersionUID = 1L;
 
-	@Inject
-	private SolutionDao solutionDao;
+    private static final String LIST_SOLUTION_XHTML = "listSolution.xhtml";
 
-	private List<Solution> solutiontList;
+    private static final long serialVersionUID = 1L;
 
-	private Solution solution;
-	
-	public void init() throws IOException {
-		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-		if (map.containsKey("solutionId")) {
-			String solutionIdParamValue = map.get("solutionId");
-			System.err.println(solutionIdParamValue);
-			if (solutionIdParamValue != null && !solutionIdParamValue.isBlank()) {
-				Long id = Long.valueOf(solutionIdParamValue);
-				if(id != null) {
-					solution = solutionDao.findById(id);
-					if (solution == null) {
-						redirectError();
-					}
-				} else {
-					redirectError();
-				}
-			} else {
-				redirectError();
-			}
+    @Inject
+    private SolutionDao solutionDao;
+
+    private List<Solution> solutiontList;
+
+    private Solution solution;
+
+    public void init() throws IOException {
+	Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+	if (map.containsKey("solutionId")) {
+	    String solutionIdParamValue = map.get("solutionId");
+	    System.err.println(solutionIdParamValue);
+	    if (solutionIdParamValue != null && !solutionIdParamValue.isBlank()) {
+		Long id = Long.valueOf(solutionIdParamValue);
+		if (id != null) {
+		    solution = solutionDao.findById(id);
+		    if (solution == null) {
+			redirectError();
+		    }
+		} else {
+		    redirectError();
 		}
+	    } else {
+		redirectError();
+	    }
 	}
+    }
 
-	public void redirectError() throws IOException {
-		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-		ec.redirect(LIST_SOLUTION_XHTML);
-	}
+    public void redirectError() throws IOException {
+	ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+	ec.redirect(LIST_SOLUTION_XHTML);
+    }
 
-	public String updapte() {
-		solutionDao.update(solution);
-		System.out.println((solution));
-		return LIST_SOLUTION_XHTML;
-	}
-	
-	public Solution getSolution() {
-		return solution;
-	}
+    public String updapte() {
+	solutionDao.update(solution);
+	System.out.println((solution));
+	return LIST_SOLUTION_XHTML;
+    }
 
-	public void setSolution(Solution solution) {
-		this.solution = solution;
-	}
+    public Solution getSolution() {
+	return solution;
+    }
 
+    public void setSolution(Solution solution) {
+	this.solution = solution;
+    }
 
-	public PaymentSystemChoice[] paymentSystemChoice() {
-		return PaymentSystemChoice.values();
-	}
+    public PaymentSystemChoice[] paymentSystemChoice() {
+	return PaymentSystemChoice.values();
+    }
 
-	public MessagingSystemChoice[] messagingSystemChoice() {
-		return MessagingSystemChoice.values();
-	}
+    public MessagingSystemChoice[] messagingSystemChoice() {
+	return MessagingSystemChoice.values();
+    }
 
-	public PriceDeal[] priceDeals() {
-		return PriceDeal.values();
-	}
-	
-	@PostConstruct
-	public void feeshinit() {
-		refresh();
-	}
+    public PriceDeal[] priceDeals() {
+	return PriceDeal.values();
+    }
 
-	public void delete(Long id) {
-		solutionDao.delete(id);
-		refresh();
-	}
+    @PostConstruct
+    public void feeshinit() {
+	refresh();
+    }
 
-	private void refresh() {
-		solutiontList = solutionDao.findAll();
-		
-	}
+    public void delete(Long id) {
+	solutionDao.delete(id);
+	refresh();
+    }
 
-	public List<Solution> getSolutiontList() {
-		return solutiontList;
-	}
+    private void refresh() {
+	solutiontList = solutionDao.findAll();
 
-	public void setSolutiontList(List<Solution> solutiontList) {
-		this.solutiontList = solutiontList;
-	}
+    }
 
-	public SolutionDao getSolutionDao() {
-	    return solutionDao;
-	}
+    public List<Solution> getSolutiontList() {
+	return solutiontList;
+    }
 
-	public void setSolutionDao(SolutionDao solutionDao) {
-	    this.solutionDao = solutionDao;
-	}
+    public void setSolutiontList(List<Solution> solutiontList) {
+	this.solutiontList = solutiontList;
+    }
+
+    public SolutionDao getSolutionDao() {
+	return solutionDao;
+    }
+
+    public void setSolutionDao(SolutionDao solutionDao) {
+	this.solutionDao = solutionDao;
+    }
 
 }

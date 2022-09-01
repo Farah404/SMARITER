@@ -9,11 +9,11 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 
 @Stateless
-public class VehiculeDaoImpl implements VehiculeDao{
+public class VehiculeDaoImpl implements VehiculeDao {
 
     @PersistenceContext
     private EntityManager entityManager;
-    
+
     @Override
     public Vehicule create(Vehicule vehicule) {
 	try {
@@ -27,13 +27,13 @@ public class VehiculeDaoImpl implements VehiculeDao{
 
     @Override
     public void update(Vehicule vehicule) {
-		try {
-			entityManager.merge(vehicule);
-		} catch (Exception e) {
-			System.out.println("VehiculeDao.update() - Failed : " + e.getMessage());
-		}
-
+	try {
+	    entityManager.merge(vehicule);
+	} catch (Exception e) {
+	    System.out.println("VehiculeDao.update() - Failed : " + e.getMessage());
 	}
+
+    }
 
     @Override
     public void delete(Long id) {
@@ -43,7 +43,7 @@ public class VehiculeDaoImpl implements VehiculeDao{
 	} catch (Exception e) {
 	    System.out.println("VehiculeDao.delete() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override

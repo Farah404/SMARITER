@@ -7,17 +7,16 @@ import javax.persistence.NamedQuery;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@PrimaryKeyJoinColumn(name="id")
+@PrimaryKeyJoinColumn(name = "id")
 @NamedQuery(name = "AdministratorAccount.findByEmail", query = "SELECT ea FROM AdministratorAccount ea WHERE ea.email = :email_param")
-public class AdministratorAccount extends Account{
-    
+public class AdministratorAccount extends Account {
+
     public AdministratorAccount() {
 	super();
     }
-    
 
-    public AdministratorAccount(Long id, String username, String email, String password, String profilePicturePath, boolean isActive,
-    		LocalDateTime creationDate, AccountType accountType) {
+    public AdministratorAccount(Long id, String username, String email, String password, String profilePicturePath,
+	    boolean isActive, LocalDateTime creationDate, AccountType accountType) {
 	super(id, username, email, password, profilePicturePath, isActive, creationDate, accountType);
     }
 

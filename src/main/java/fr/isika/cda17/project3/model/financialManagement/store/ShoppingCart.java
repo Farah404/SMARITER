@@ -7,11 +7,11 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class ShoppingCart {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     @OneToOne
     private Store store;
 
@@ -26,18 +26,15 @@ public class ShoppingCart {
     }
 
     public Store getStore() {
-        return store;
+	return store;
     }
 
     public void setStore(Store store) {
-        this.store = store;
+	this.store = store;
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
 
-
-    
-   
 }

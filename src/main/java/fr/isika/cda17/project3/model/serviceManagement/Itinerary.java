@@ -6,15 +6,15 @@ import javax.persistence.Id;
 
 @Entity
 public class Itinerary {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private String firstStopAddress;
-    
+
     private String secondStopAddress;
-    
+
     private String thirdStopAddress;
 
     public Itinerary() {
@@ -30,33 +30,31 @@ public class Itinerary {
     }
 
     public String getFirstStopAddress() {
-        return firstStopAddress;
+	return firstStopAddress;
     }
 
     public void setFirstStopAddress(String firstStopAddress) {
-        this.firstStopAddress = firstStopAddress;
+	this.firstStopAddress = firstStopAddress;
     }
 
     public String getSecondStopAddress() {
-        return secondStopAddress;
+	return secondStopAddress;
     }
 
     public void setSecondStopAddress(String secondStopAddress) {
-        this.secondStopAddress = secondStopAddress;
+	this.secondStopAddress = secondStopAddress;
     }
 
     public String getThirdStopAddress() {
-        return thirdStopAddress;
+	return thirdStopAddress;
     }
 
     public void setThirdStopAddress(String thirdStopAddress) {
-        this.thirdStopAddress = thirdStopAddress;
+	this.thirdStopAddress = thirdStopAddress;
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
-    
-    
 
 }

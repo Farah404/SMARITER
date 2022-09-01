@@ -11,14 +11,14 @@ import fr.isika.cda17.project3.model.serviceManagement.Service;
 
 @Entity
 public class ServiceInvoice {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     @ManyToOne
     private UserAccount userAccount;
-    
+
     @OneToOne
     private Service service;
 
@@ -34,27 +34,23 @@ public class ServiceInvoice {
     }
 
     public UserAccount getUserAccount() {
-        return userAccount;
+	return userAccount;
     }
 
     public void setUserAccount(UserAccount userAccount) {
-        this.userAccount = userAccount;
+	this.userAccount = userAccount;
     }
 
     public Service getService() {
-        return service;
+	return service;
     }
 
     public void setService(Service service) {
-        this.service = service;
+	this.service = service;
     }
 
     public Long getId() {
-        return id;
+	return id;
     }
-
-    
-    
-    
 
 }

@@ -13,7 +13,6 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import fr.isika.cda17.project3.model.personManagement.assets.VehiculePowerType;
-
 import fr.isika.cda17.project3.model.personManagement.assets.VehiculeType;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingType;
@@ -42,7 +41,7 @@ public class CarPoolingServiceManagementBean implements Serializable {
     public TrajectoryType[] trajectoryType() {
 	return TrajectoryType.values();
     }
-    
+
     public VehiculeType[] vehiculeTypes() {
 	return VehiculeType.values();
     }

@@ -9,11 +9,11 @@ import javax.persistence.PersistenceContext;
 import fr.isika.cda17.project3.model.personManagement.assets.Insurance;
 
 @Stateless
-public class InsuranceDaoImpl implements InsuranceDao{
-    
+public class InsuranceDaoImpl implements InsuranceDao {
+
     @PersistenceContext
     private EntityManager entityManager;
-    
+
     @Override
     public Insurance create(Insurance insurance) {
 	try {
@@ -28,7 +28,7 @@ public class InsuranceDaoImpl implements InsuranceDao{
     @Override
     public void update(Insurance insurance) {
 	try {
-	    Insurance updatedInsurance  = entityManager.find(Insurance.class, insurance.getId());
+	    Insurance updatedInsurance = entityManager.find(Insurance.class, insurance.getId());
 	    updatedInsurance.setInsuranceAgencyName(insurance.getInsuranceAgencyName());
 	    updatedInsurance.setInsuranceContractNumber(insurance.getInsuranceContractNumber());
 	    updatedInsurance.setInsuranceContractExpiration(insurance.getInsuranceContractExpiration());
@@ -36,7 +36,7 @@ public class InsuranceDaoImpl implements InsuranceDao{
 	} catch (Exception e) {
 	    System.out.println("InsuranceDao.update() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
@@ -47,7 +47,7 @@ public class InsuranceDaoImpl implements InsuranceDao{
 	} catch (Exception e) {
 	    System.out.println("InsuranceDao.delete() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override

@@ -19,7 +19,7 @@ import fr.isika.cda17.project3.repository.personManagement.accounts.CustomerDao;
 @ManagedBean
 @ViewScoped
 public class CreateCustomerBean implements Serializable {
-    
+
     private static final long serialVersionUID = -8688644566487799148L;
 
     @Inject
@@ -29,60 +29,61 @@ public class CreateCustomerBean implements Serializable {
     private EntityAccount entityAccount = new EntityAccount();
     private BankDetails bankDetails = new BankDetails();
     private BillingAddress billingAddress = new BillingAddress();
-    
+
     public void create() {
-//    	customer.setEntityAccount(entityAccount);
-    	Customer created = customerDao.create(customer);
-    	System.out.println(created);
+	Customer created = customerDao.create(customer);
+	System.out.println(created);
     }
-    
+
     public String createStepOne() {
-    	entityAccount.setBankDetails(bankDetails);
-    	entityAccount.setBillingAddress(billingAddress);
-    	entityAccount.setCreationDate(LocalDateTime.now());
-    	entityAccount.setAccountType(AccountType.ENTITY);
-    	// set default values for Entity Account : isActive==true && profilePicturePath==basicOne
-    	entityAccount.setIsActive(true);
-    	entityAccount.setProfilePicturePath("media/gif/profilePictures/ProfileGif8.gif");
-    	customer.setEntityAccount(entityAccount);
-    	customerDao.create(customer);
-    	System.err.println(customer.getId());
-    	return "signUp.xhtml?faces-redirect=true&customerId=" + customer.getId();
+	entityAccount.setBankDetails(bankDetails);
+	entityAccount.setBillingAddress(billingAddress);
+	entityAccount.setCreationDate(LocalDateTime.now());
+	entityAccount.setAccountType(AccountType.ENTITY);
+	// set default values for Entity Account : isActive==true &&
+	// profilePicturePath==basicOne
+	entityAccount.setIsActive(true);
+	entityAccount.setProfilePicturePath("media/gif/profilePictures/ProfileGif8.gif");
+	customer.setEntityAccount(entityAccount);
+	customerDao.create(customer);
+	System.err.println(customer.getId());
+	return "signUp.xhtml?faces-redirect=true&customerId=" + customer.getId();
     }
-    
+
     public String update() {
-    	customerDao.update(customer);
-    	System.out.println(customer);
-    	return "index.xhtml?faces-redirect=true";
+	customerDao.update(customer);
+	System.out.println(customer);
+	return "index.xhtml?faces-redirect=true";
     }
-    
-    public void init(){
-		Map<String,String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-		if(map.containsKey("customerId")) {
-			String customerIdParamValue = map.get("customerId");
-			Long id = Long.valueOf(customerIdParamValue);
-			if(id != null) {
-				customer = customerDao.findById(id);
-			} else {	
-				System.err.println("no customerId on page");
-				return ;
-			}
-		}
+
+    public void init() {
+	Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+	if (map.containsKey("customerId")) {
+	    String customerIdParamValue = map.get("customerId");
+	    Long id = Long.valueOf(customerIdParamValue);
+	    if (id != null) {
+		customer = customerDao.findById(id);
+	    } else {
+		System.err.println("no customerId on page");
+		return;
+	    }
 	}
-    
+    }
+
     public Customer getCustomer() {
 	return customer;
     }
+
     public void setCustomer(Customer customer) {
 	this.customer = customer;
     }
 
-	public EntityAccount getEntityAccount() {
-		return entityAccount;
-	}
+    public EntityAccount getEntityAccount() {
+	return entityAccount;
+    }
 
-	public void setEntityAccount(EntityAccount entityAccount) {
-		this.entityAccount = entityAccount;
-	}
-    
+    public void setEntityAccount(EntityAccount entityAccount) {
+	this.entityAccount = entityAccount;
+    }
+
 }

@@ -7,11 +7,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
-import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
 
 @Stateless
-public class ItineraryDaoImpl implements ItineraryDao{
-    
+public class ItineraryDaoImpl implements ItineraryDao {
+
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -33,12 +32,12 @@ public class ItineraryDaoImpl implements ItineraryDao{
 	    updatedItinerary.setFirstStopAddress(itinerary.getFirstStopAddress());
 	    updatedItinerary.setSecondStopAddress(itinerary.getSecondStopAddress());
 	    updatedItinerary.setThirdStopAddress(itinerary.getThirdStopAddress());
-	    
+
 	    entityManager.persist(itinerary);
 	} catch (Exception e) {
 	    System.out.println("ItineraryDao.update() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
@@ -49,13 +48,13 @@ public class ItineraryDaoImpl implements ItineraryDao{
 	} catch (Exception e) {
 	    System.out.println("ItineraryDao.delete() - Failed : " + e.getMessage());
 	}
-	
+
     }
 
     @Override
     public Itinerary findById(Long id) {
 	return entityManager.find(Itinerary.class, id);
-	
+
     }
 
     @Override

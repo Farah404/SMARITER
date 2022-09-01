@@ -4,7 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
-      xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core">
 
 
 <h:body>
@@ -12,42 +12,51 @@
 		<ui:define name="subcontent">
 
 
-<br />
-<div class="landscape">
-    <center><img src="subMedia/Images/EcoCart.png" /></center>
-</div>
-   <div class="container-fluid">
-        <div class="table-responsive">
-            <table class="table" id="userTable">
-                <thead>
-                    <tr class="header">
-                        <th>Catégorie d'EcoAchat</th>
-                        <th>Montant EcoCoins</th>
-                        <th>Prix unitaire</th>
-                        <th>Quantité</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-						 
-                </tbody>
+			<br />
+			<div class="landscape">
+				<center>
+					<img src="subMedia/Images/EcoCart.png" />
+				</center>
+			</div>
+			<div class="container-fluid">
+				<div class="table-responsive">
+					<table class="table" id="userTable">
+						<thead>
+							<tr class="header">
+								<th>Catégorie d'EcoAchat</th>
+								<th>Montant EcoCoins</th>
+								<th>Prix unitaire</th>
+								<th>Quantité</th>
+								<th>Total</th>
+							</tr>
+						</thead>
+						<tbody>
 
-            </table>
-        </div>
+						</tbody>
 
-        <div class="empty">
-            <button class="submit-with-icon text-right" type="submit" formaction="EmptyShoppingCart">
-                <span data-toggle="popover" data-placement="top" title="Vider mon panier" class="glyphicon glyphicon-erase text-success"></span>
-            </button>
-        </div>
-        <div class="refresh">
-            <button data-toggle="popover" data-placement="top" title="Rafraîchir mon panier" class="submit-with-icon text-right" type="submit" formaction="RefreshShoppingCart">
-                <span class="glyphicon glyphicon-refresh text-success"></span>
-            </button>
-        </div>
+					</table>
+				</div>
 
-        <button style="float: right;" class="btn btn-success btn-xl" type="submit" formaction="ShoppingCart">Valider la commande</button>
-    </div>
+				<div class="empty">
+					<button class="submit-with-icon text-right" type="submit"
+						formaction="EmptyShoppingCart">
+						<span data-toggle="popover" data-placement="top"
+							title="Vider mon panier"
+							class="glyphicon glyphicon-erase text-success"></span>
+					</button>
+				</div>
+				<div class="refresh">
+					<button data-toggle="popover" data-placement="top"
+						title="Rafraîchir mon panier" class="submit-with-icon text-right"
+						type="submit" formaction="RefreshShoppingCart">
+						<span class="glyphicon glyphicon-refresh text-success"></span>
+					</button>
+				</div>
+
+				<button style="float: right;" class="btn btn-success btn-xl"
+					type="submit" formaction="ShoppingCart">Valider la
+					commande</button>
+			</div>
 
 
 

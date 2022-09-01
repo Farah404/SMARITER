@@ -40,7 +40,7 @@ public class CarRentalReservationBean implements Serializable {
     private CarRentalService carRental;
 
     public void init() throws IOException {
-	System.out.println("INITIALISATION RESERVATIONBEAN");
+	System.out.println("starting resevarion bean");
 	Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 
 	if (map.containsKey("carRentalServiceId")) {
@@ -69,7 +69,7 @@ public class CarRentalReservationBean implements Serializable {
 
     public void reservation() {
 
-	System.out.println("DEBUT CREATION");
+	System.out.println("starting reservation creation");
 
 	reservation.setService(carRental);
 	serviceInvoice.setService(carRental);
@@ -97,9 +97,8 @@ public class CarRentalReservationBean implements Serializable {
 	} else {
 	    System.out.println("reservation failed, email unknown : " + email);
 	}
-	System.out.println("FIN CREATION");
+	System.out.println("ending reservation creation");
     }
-
 
     public Reservation getReservation() {
 	return reservation;

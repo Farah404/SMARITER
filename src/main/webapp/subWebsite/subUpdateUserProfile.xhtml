@@ -4,8 +4,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
-      xmlns:f="http://java.sun.com/jsf/core"
-       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <f:metadata>
 	<f:event listener="#{userProfileBean.init()}" type="preRenderView">
@@ -13,328 +13,327 @@
 </f:metadata>
 
 <h:head>
-<script src="subResources/scripts/jquery-3.3.1.js"></script>
-<script src="subResources/scripts/jquery.validate-vsdoc.js"></script>
-<script src="subResources/scripts/jquery.validate.unobtrusive.js"></script>
+	<script src="subResources/scripts/jquery-3.3.1.js"></script>
+	<script src="subResources/scripts/jquery.validate-vsdoc.js"></script>
+	<script src="subResources/scripts/jquery.validate.unobtrusive.js"></script>
 </h:head>
 
 <h:body>
 	<ui:composition template="#{templateBean.subtemplatePath()}">
-<ui:define name="subcontent">
-<h:form>
+		<ui:define name="subcontent">
+			<h:form>
 
 
-<div class="container bootstrap snippets bootdey">
-    <div class="panel-body inf-content">
-        <div class="row">
-                <div class="col-md-4">
-                    <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" />
-                    <ul title="Ratings" class="list-inline ratings text-center">
-                        <li>
-                            <span>
+				<div class="container bootstrap snippets bootdey">
+					<div class="panel-body inf-content">
+						<div class="row">
+							<div class="col-md-4">
+								<img alt="" style="width: 600px;" title=""
+									class="img-circle img-thumbnail isTooltip" />
+								<ul title="Ratings" class="list-inline ratings text-center">
+									<li><span> </span></li>
+								</ul>
+							</div>
 
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="text-success"><strong>Information</strong><br />
-                    </div>
-                    <div class="table-responsive">
+							<div class="col-md-6">
+								<div class="text-success">
+									<strong>Information</strong><br />
+								</div>
+								<div class="table-responsive">
 
-                        <table class="table table-user-information">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-user  text-success"></span>
-                                        Nom et Prénom
-                                    </td>
-                                    <td class="text-success">
-										 <p> #{userProfileBean.user.lastName} #{userProfileBean.user.firstName}</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-gift text-success"></span>
-                                        Date de naissance
-                                    </td>
-                                    <td class="text-success">
-                                        <p>#{userProfileBean.user.birthDate}</p>
+									<table class="table table-user-information">
+										<tbody>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-user  text-success"></span> Nom
+													et Prénom</td>
+												<td class="text-success">
+													<p>#{userProfileBean.user.lastName}
+														#{userProfileBean.user.firstName}</p>
+												</td>
+											</tr>
+											<tr>
+												<td><span class="glyphicon glyphicon-gift text-success"></span>
+													Date de naissance</td>
+												<td class="text-success">
+													<p>#{userProfileBean.user.birthDate}</p>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-inbox text-success"></span>
-                                        Courriel
-                                    </td>
-                                    <td class="text-success">
-                                        <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.email}" value="#{userProfileBean.user.userAccount.email}" />
-		
-                                    </td>
-                                </tr>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-inbox text-success"></span>
+													Courriel</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.userAccount.email}"
+														value="#{userProfileBean.user.userAccount.email}" /></td>
+											</tr>
 
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-phone text-success"></span>
-                                        Numéro de téléphone
-                                    </td>
-                                    <td class="text-success">
-                                         <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.phoneNumber}" value="#{userProfileBean.user.phoneNumber}" />                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-credit-card text-success"></span>
-                                        Numéro de carte nationale d'identité
-                                    </td>
-                                    <td class="text-success">
-                                    <p>#{userProfileBean.user.identityCardnumber}</p>
-<!--                                     <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.identityCardnumber}" value="#{userProfileBean.user.identityCardnumber}" /> -->
-                                    </td>
-                                </tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-phone text-success"></span>
+													Numéro de téléphone</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.phoneNumber}"
+														value="#{userProfileBean.user.phoneNumber}" /></td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-credit-card text-success"></span>
+													Numéro de carte nationale d'identité</td>
+												<td class="text-success">
+													<p>#{userProfileBean.user.identityCardnumber}</p> <!--                                     <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.identityCardnumber}" value="#{userProfileBean.user.identityCardnumber}" /> -->
+												</td>
+											</tr>
 
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-dashboard text-success"></span>
-                                        Numéro de permis de conduire
-                                    </td>
-                                    <td class="text-success">
-                                       <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.drivingPermitNumber}" value="#{userProfileBean.user.drivingPermitNumber}" />
-                                    </td>
-                                </tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-dashboard text-success"></span>
+													Numéro de permis de conduire</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.drivingPermitNumber}"
+														value="#{userProfileBean.user.drivingPermitNumber}" /></td>
+											</tr>
 
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-calendar text-success"></span>
-                                        EcoMembre depuis
-                                    </td>
-                                    <td class="text-success">
-                                    <p>#{userProfileBean.user.userAccount.creationDate}</p>
-<!--                                     <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.creationDate}" value="#{userProfileBean.user.userAccount.creationDate}" /> -->
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-calendar text-success"></span>
+													EcoMembre depuis</td>
+												<td class="text-success">
+													<p>#{userProfileBean.user.userAccount.creationDate}</p> <!--                                     <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.creationDate}" value="#{userProfileBean.user.userAccount.creationDate}" /> -->
+												</td>
+											</tr>
+										</tbody>
+									</table>
 
-                        
-                        <span class="text-success"><strong>Mon EcoWallet</strong><br /></span>
-                        <div class="table-responsive">
 
-                            <table class="table table-user-information">
+									<span class="text-success"><strong>Mon
+											EcoWallet</strong><br /></span>
+									<div class="table-responsive">
 
-                                <tbody>
+										<table class="table table-user-information">
 
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-piggy-bank  text-success"></span>
-                                            Montant EcoCoins
-                                        </td>
-                                        <td class="text-success">
-                                            <a class="text-muted" href="subStore.xhtml">J'achète des EcoCoins</a>
-                                        </td>
-                                    </tr>
+											<tbody>
 
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-leaf text-success"></span>
-                                            Formule Abonnement
-                                        </td>
-                                        <td class="text-success">
-                                            <a class="text-muted" href="subStore.xhtml">Je m'abonne</a>
-                                        </td>
-                                    </tr>
+												<tr>
+													<td><span
+														class="glyphicon glyphicon-piggy-bank  text-success"></span>
+														Montant EcoCoins</td>
+													<td class="text-success"><a class="text-muted"
+														href="subStore.xhtml">J'achète des EcoCoins</a></td>
+												</tr>
 
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+												<tr>
+													<td><span
+														class="glyphicon glyphicon-leaf text-success"></span>
+														Formule Abonnement</td>
+													<td class="text-success"><a class="text-muted"
+														href="subStore.xhtml">Je m'abonne</a></td>
+												</tr>
 
-                    
-                    <span class="text-success"><strong>Relevé d'identité bancaire</strong><br /></span>
-                    <div class="table-responsive">
+											</tbody>
+										</table>
+									</div>
+								</div>
 
-                        <table class="table table-user-information">
 
-                            <tbody>
+								<span class="text-success"><strong>Relevé
+										d'identité bancaire</strong><br /></span>
+								<div class="table-responsive">
 
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-font  text-success"></span>
-                                        Nom de l'agence bancaire
-                                    </td>
-                                    <td class="text-success">
+									<table class="table table-user-information">
 
-                                       <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.bankDetails.bankName}" value="#{userProfileBean.user.userAccount.bankDetails.bankName}" />
-                                    </td>
-                                </tr>
+										<tbody>
 
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-sort-by-order-alt text-success"></span>
-                                        Numéro SWIFT
-                                    </td>
-                                    <td class="text-success">
-                                       <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.bankDetails.swift}" value="#{userProfileBean.user.userAccount.bankDetails.swift}" />
-                                    </td>
-                                </tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-font  text-success"></span> Nom
+													de l'agence bancaire</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.userAccount.bankDetails.bankName}"
+														value="#{userProfileBean.user.userAccount.bankDetails.bankName}" />
+												</td>
+											</tr>
 
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-sort-by-order text-success"></span>
-                                        Numéro IBAN
-                                    </td>
-                                    <td class="text-success">
-                                        <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.bankDetails.iban}" value="#{userProfileBean.user.userAccount.bankDetails.iban}" />
-                                   </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-sort-by-order-alt text-success"></span>
+													Numéro SWIFT</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.userAccount.bankDetails.swift}"
+														value="#{userProfileBean.user.userAccount.bankDetails.swift}" />
+												</td>
+											</tr>
 
-                    
-                    <span class="text-success"><strong>Adresse de facturation</strong><br /></span>
-                    <div class="table-responsive">
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-sort-by-order text-success"></span>
+													Numéro IBAN</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.userAccount.bankDetails.iban}"
+														value="#{userProfileBean.user.userAccount.bankDetails.iban}" />
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
 
-                        <table class="table table-user-information">
 
-                            <tbody>
+								<span class="text-success"><strong>Adresse de
+										facturation</strong><br /></span>
+								<div class="table-responsive">
 
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-map-marker  text-success"></span>
-                                        Adresse
-                                    </td>
-                                    <td class="text-success">
+									<table class="table table-user-information">
 
-                                       <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.billingAddress.addressLine}" value="#{userProfileBean.user.userAccount.billingAddress.addressLine}" />
-                                   </td>
-                                </tr>
+										<tbody>
 
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-picture text-success"></span>
-                                        Ville
-                                    </td>
-                                    <td class="text-success">
-                                        <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.billingAddress.city}" value="#{userProfileBean.user.userAccount.billingAddress.city}" />
-                                   </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-globe text-success"></span>
-                                        Pays
-                                    </td>
-                                    <td class="text-success">
-                                       <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.billingAddress.country}" value="#{userProfileBean.user.userAccount.billingAddress.country}" />
-                                   </td>
-                                </tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-map-marker  text-success"></span>
+													Adresse</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.userAccount.billingAddress.addressLine}"
+														value="#{userProfileBean.user.userAccount.billingAddress.addressLine}" />
+												</td>
+											</tr>
 
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-send text-success"></span>
-                                        Code Postal
-                                    </td>
-                                    <td class="text-success">
-                                       <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.billingAddress.postalCode}" value="#{userProfileBean.user.userAccount.billingAddress.postalCode}" />
-                                   </td>
-                                </tr>
-							</tbody>
-                        </table>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-picture text-success"></span>
+													Ville</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.userAccount.billingAddress.city}"
+														value="#{userProfileBean.user.userAccount.billingAddress.city}" />
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-globe text-success"></span> Pays
+												</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.userAccount.billingAddress.country}"
+														value="#{userProfileBean.user.userAccount.billingAddress.country}" />
+												</td>
+											</tr>
 
-                    </div>
+											<tr>
+												<td><span class="glyphicon glyphicon-send text-success"></span>
+													Code Postal</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.userAccount.billingAddress.postalCode}"
+														value="#{userProfileBean.user.userAccount.billingAddress.postalCode}" />
+												</td>
+											</tr>
+										</tbody>
+									</table>
 
-                    <span class="text-success"><strong>Votre véhicule &amp; assurance</strong><br /></span>
-                    <div class="table-responsive">
+								</div>
 
-                        <table class="table table-user-information">
+								<span class="text-success"><strong>Votre
+										véhicule &amp; assurance</strong><br /></span>
+								<div class="table-responsive">
 
-                            <tbody>
-								<tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-user text-success"></span>
-                                        Nom de l'assureur 
-                                    </td>
-                                    <td class="text-success">
-                                        <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceAgencyName}" value="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceAgencyName}" />
-                                   </td>
-                                </tr>
-                                
-                                   <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-user text-success"></span>
-                                        Date de fin de validité de l'assurance
-                                    </td>
-                                    <td class="text-success">
-                                        <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractExpiration}" value="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractExpiration}">
-                                        <f:convertDateTime pattern="dd-MM-yyyy"/>
-                                        </h:inputText>
-                                   </td>
-                                </tr>
-                                
-                                   <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-user text-success"></span>
-                                        Numéro du contrat d'assurance
-                                    </td>
-                                    <td class="text-success">
-                                        <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractNumber}" value="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractNumber}" />
-                                   </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-wrench text-success"></span>
-                                        Marque du véhicule
-                                    </td>
-                                    <td class="text-success">
+									<table class="table table-user-information">
 
-                                       <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.vehicule.brand}" value="#{userProfileBean.user.userAccount.vehicule.brand}" />
-                                   </td>
-                                </tr>
+										<tbody>
+											<tr>
+												<td><span class="glyphicon glyphicon-user text-success"></span>
+													Nom de l'assureur</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceAgencyName}"
+														value="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceAgencyName}" />
+												</td>
+											</tr>
 
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-sort-by-order text-success"></span>
-                                        Plaque d'immatriculation
-                                    </td>
-                                    <td class="text-success">
-                                        <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.vehicule.registrationNumber}" value="#{userProfileBean.user.userAccount.vehicule.registrationNumber}" />
-                                   </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-briefcase text-success"></span>
-                                        Date de fin de validité du contrôle technique
-                                    </td>
-                                    <td class="text-success">
-                                        <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.vehicule.technicalTestExpiration}" value="#{userProfileBean.user.userAccount.vehicule.technicalTestExpiration}">
-                                        <f:convertDateTime pattern="dd-MM-yyyy"/>
-                                        
-                                        </h:inputText>
-                                   </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-user text-success"></span>
-                                        Nombre de sièges disponibles
-                                    </td>
-                                    <td class="text-success">
-                                        <h:inputText class="label-text-cusProfile" a:placeholder="#{userProfileBean.user.userAccount.vehicule.availableSeats}" value="#{userProfileBean.user.userAccount.vehicule.availableSeats}" />
-                                   </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <center><h:commandButton  action="#{userProfileBean.update()}" class="btn btn-success btn-xl" value="Soumettre les modifications"/>
-             				</center>
+											<tr>
+												<td><span class="glyphicon glyphicon-user text-success"></span>
+													Date de fin de validité de l'assurance</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractExpiration}"
+														value="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractExpiration}">
+														<f:convertDateTime pattern="dd-MM-yyyy" />
+													</h:inputText></td>
+											</tr>
 
-        </div>
+											<tr>
+												<td><span class="glyphicon glyphicon-user text-success"></span>
+													Numéro du contrat d'assurance</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractNumber}"
+														value="#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractNumber}" />
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-wrench text-success"></span>
+													Marque du véhicule</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.userAccount.vehicule.brand}"
+														value="#{userProfileBean.user.userAccount.vehicule.brand}" />
+												</td>
+											</tr>
 
-    </div>
-</div>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-sort-by-order text-success"></span>
+													Plaque d'immatriculation</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.userAccount.vehicule.registrationNumber}"
+														value="#{userProfileBean.user.userAccount.vehicule.registrationNumber}" />
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-briefcase text-success"></span>
+													Date de fin de validité du contrôle technique</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.userAccount.vehicule.technicalTestExpiration}"
+														value="#{userProfileBean.user.userAccount.vehicule.technicalTestExpiration}">
+														<f:convertDateTime pattern="dd-MM-yyyy" />
 
-</h:form>
+													</h:inputText></td>
+											</tr>
+											<tr>
+												<td><span class="glyphicon glyphicon-user text-success"></span>
+													Nombre de sièges disponibles</td>
+												<td class="text-success"><h:inputText
+														class="label-text-cusProfile"
+														a:placeholder="#{userProfileBean.user.userAccount.vehicule.availableSeats}"
+														value="#{userProfileBean.user.userAccount.vehicule.availableSeats}" />
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<center>
+								<h:commandButton action="#{userProfileBean.update()}"
+									class="btn btn-success btn-xl"
+									value="Soumettre les modifications" />
+							</center>
+
+						</div>
+
+					</div>
+				</div>
+
+			</h:form>
 		</ui:define>
 	</ui:composition>
 
