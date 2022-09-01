@@ -78,8 +78,10 @@ public class CreatePersonalAssistanceServiceBean {
 	pas.setIsRequest(true);
 	pas.setStartDate(LocalDateTime.parse(startDate));
 	pas.setEndDate(LocalDateTime.parse(endDate));
-	userAccountsPurchasers.add(userAccount);
-	pas.setUserAccountsPurchasers(userAccountsPurchasers);
+//	userAccountsPurchasers.add(userAccount);
+//	pas.setUserAccountsPurchasers(userAccountsPurchasers);
+	pas.addPurchaser(userAccount);
+
 	PersonalAssistanceService created = personalAssistanceServiceDao.create(pas);
 	System.out.println(created);
     }

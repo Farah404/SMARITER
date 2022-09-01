@@ -1,16 +1,6 @@
 package fr.isika.cda17.project3.presentation;
 
 import java.time.LocalDateTime;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.inject.Inject;
-import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
-import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
-import fr.isika.cda17.project3.model.serviceManagement.CarPoolingType;
-import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
-import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
-import java.util.LinkedList;
-import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -18,18 +8,16 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import fr.isika.cda17.project3.model.personManagement.accounts.User;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingType;
 import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
+import fr.isika.cda17.project3.model.serviceManagement.Service;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
-import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
 import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
-import fr.isika.cda17.project3.repository.personManagement.accounts.UserDao;
 import fr.isika.cda17.project3.repository.serviceManagement.CarPoolingServiceDao;
 
 @ManagedBean
@@ -44,7 +32,7 @@ public class CreateCarPoolingServiceBean {
 
     private UserAccount userAccount;
 
-    private CarPoolingService cps = new CarPoolingService();
+    private Service cps = new CarPoolingService();
 
     private Vehicule vehicule = new Vehicule();
 
@@ -52,7 +40,7 @@ public class CreateCarPoolingServiceBean {
 
     private Itinerary itinerary = new Itinerary();
 
-    private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
+//    private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
 
     private String startDate;
 
@@ -73,12 +61,12 @@ public class CreateCarPoolingServiceBean {
 	trajectory.setItinerary(itinerary);
 	cps.setStartDate(LocalDateTime.parse(startDate));
 	cps.setEndDate(LocalDateTime.parse(startDate));
-	cps.setTrajectory(trajectory);
+	((CarPoolingService) cps).setTrajectory(trajectory);
 	cps.setServicetype(ServiceType.CAR_POOLING);
 	cps.setPublicationDate(LocalDateTime.now());
 	cps.setIsRequest(false);
 	cps.setUserAccountProvider(userAccount);
-	CarPoolingService created = carPoolingServiceDao.create(cps);
+	CarPoolingService created = carPoolingServiceDao.create((CarPoolingService) cps);
 	System.out.println(created);
     }
 
@@ -86,21 +74,39 @@ public class CreateCarPoolingServiceBean {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
+
+	// @formatter:off
+	
 	trajectory.setItinerary(itinerary);
-	cps.setStartDate(LocalDateTime.parse(startDate));
-	cps.setEndDate(LocalDateTime.parse(startDate));
-	cps.setTrajectory(trajectory);
-	cps.setServicetype(ServiceType.CAR_POOLING);
-	cps.setPublicationDate(LocalDateTime.now());
-	cps.setIsRequest(true);
-	userAccountsPurchasers.add(userAccount);
-	cps.setUserAccountsPurchasers(userAccountsPurchasers);
-	CarPoolingService created = carPoolingServiceDao.create(cps);
+	
+	cps = new CarPoolingService()
+		.withStartDate(LocalDateTime.parse(startDate))
+		.withEndDate(LocalDateTime.parse(endDate))
+		.withPublicationDate(LocalDateTime.now())
+		.withServiceType(ServiceType.CAR_POOLING)
+		.withRequest(true)
+		.withPurchaser(userAccount);
+	
+	cps = ((CarPoolingService) cps).withTrajectory(trajectory);
+
+	// @formatter:on
+
+//	cps.setStartDate(LocalDateTime.parse(startDate));
+//	cps.setEndDate(LocalDateTime.parse(startDate));
+//	cps.setServicetype(ServiceType.CAR_POOLING);
+//	cps.setPublicationDate(LocalDateTime.now());
+//	cps.setIsRequest(true);
+
+//	cps.setTrajectory(trajectory);
+
+//	cps.addPurchaser(userAccount);
+
+	CarPoolingService created = carPoolingServiceDao.create((CarPoolingService) cps);
 	System.out.println(created);
     }
 
     public CarPoolingService getCps() {
-	return cps;
+	return (CarPoolingService) cps;
     }
 
     public void setCps(CarPoolingService cps) {

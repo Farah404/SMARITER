@@ -72,4 +72,8 @@ public class PersonalAssistanceService extends Service {
 	this.personnalAssistanceServiceList = personnalAssistanceServiceList;
     }
 
+    public Service withTrajectory(Trajectory trajectory) {
+	this.trajectory = trajectory;
+	return this;
+    }
 }

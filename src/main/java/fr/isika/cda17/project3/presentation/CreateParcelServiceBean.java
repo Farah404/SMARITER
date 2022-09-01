@@ -78,8 +78,10 @@ public class CreateParcelServiceBean {
 	ps.setIsRequest(true);
 	ps.setStartDate(LocalDateTime.parse(startDate));
 	ps.setEndDate(LocalDateTime.parse(endDate));
-	userAccountsPurchasers.add(userAccount);
-	ps.setUserAccountsPurchasers(userAccountsPurchasers);
+//	userAccountsPurchasers.add(userAccount);
+//	ps.setUserAccountsPurchasers(userAccountsPurchasers);
+	ps.addPurchaser(userAccount);
+
 	ParcelService created = parcelServiceDao.create(ps);
 	System.out.println(created);
     }

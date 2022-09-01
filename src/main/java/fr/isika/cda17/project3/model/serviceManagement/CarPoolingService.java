@@ -126,4 +126,8 @@ public class CarPoolingService extends Service {
 		+ ", trajectory=" + trajectory + "]";
     }
 
+    public Service withTrajectory(Trajectory trajectory) {
+	this.trajectory = trajectory;
+	return this;
+    }
 }

@@ -39,8 +39,8 @@ public class UserAccount extends Account {
     @OneToOne(cascade = CascadeType.ALL)
     private Wallet wallet;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<Service> services = new LinkedList<>();
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    private List<Service> services = new LinkedList<>();
 
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Reservation> reservations = new LinkedList<>();
@@ -57,7 +57,7 @@ public class UserAccount extends Account {
 	this.bankDetails = bankDetails;
 	this.billingAddress = billingAddress;
 	this.wallet = wallet;
-	this.services = services;
+//	this.services = services;
 	this.reservations = reservations;
     }
 
@@ -101,13 +101,13 @@ public class UserAccount extends Account {
 	this.wallet = wallet;
     }
 
-    public List<Service> getServices() {
-	return services;
-    }
-
-    public void setServices(List<Service> services) {
-	this.services = services;
-    }
+//    public List<Service> getServices() {
+//	return services;
+//    }
+//
+//    public void setServices(List<Service> services) {
+//	this.services = services;
+//    }
 
     public List<Reservation> getReservations() {
 	return reservations;

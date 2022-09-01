@@ -90,4 +90,8 @@ public class ParcelService extends Service {
 	this.trajectory = trajectory;
     }
 
+    public Service withTrajectory(Trajectory trajectory) {
+	this.trajectory = trajectory;
+	return this;
+    }
 }

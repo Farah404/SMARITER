@@ -66,8 +66,10 @@ public class CreateCarRentalServiceBean {
 	crs.setServicetype(ServiceType.CAR_RENTAL);
 	crs.setPublicationDate(LocalDateTime.now());
 	crs.setIsRequest(false);
-	userAccountsPurchasers.add(userAccount);
-	crs.setUserAccountsPurchasers(userAccountsPurchasers);
+//	userAccountsPurchasers.add(userAccount);
+//	crs.setUserAccountsPurchasers(userAccountsPurchasers);
+	crs.addPurchaser(userAccount);
+
 	crs.setStartDate(LocalDateTime.parse(startDate));
 	crs.setEndDate(LocalDateTime.parse(endDate));
 	CarRentalService created = carRentalServiceDao.create(crs);
