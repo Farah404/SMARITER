@@ -25,6 +25,9 @@ import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingType;
 import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
 import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
+import fr.isika.cda17.project3.model.serviceManagement.ParcelService;
+import fr.isika.cda17.project3.model.serviceManagement.PersonalAssistanceService;
+import fr.isika.cda17.project3.model.serviceManagement.PersonalAssistanceType;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
 import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
@@ -283,6 +286,9 @@ public class DataSet {
 	ShoppingCart sCU = new ShoppingCart();
 	// TODO sCU.setStore(null);
 	em.persist(sCU);
+	
+	
+	
 
 	UserAccount uAU = new UserAccount();
 	uAU.setEmail("houda@test.com");
@@ -305,6 +311,23 @@ public class DataSet {
 	usery.setFirstName("Houda");
 	usery.setIdentityCardnumber(1141414141);
 	em.persist(usery);
-
+	
+	ParcelService pa = new ParcelService();
+	pa.setPrice(15);
+	pa.setFragile(false);
+	pa.setServicetype(ServiceType.PARCEL);
+	pa.setUserAccountProvider(uAU);
+	pa.setVehicule(v);
+	v.setBrand("Volvo");
+	em.persist(pa);
+	
+	PersonalAssistanceService pe = new PersonalAssistanceService();
+	pe.setPrice(20);
+	pe.setPersonalAssistanceType(PersonalAssistanceType.MEDICAL);
+	pe.setUrgent(false);
+	pe.setTrajectory(t);
+	t.setPickUpAddress("Poissy");
+	pe.setUserAccountProvider(uAU);
+    em.persist(pe);
     }
 }
