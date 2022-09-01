@@ -1,104 +1,149 @@
 package fr.isika.cda17.project3.presentation;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
-import javax.ws.rs.core.Response;
 
 import com.braintreegateway.BraintreeGateway;
-import com.braintreegateway.ClientTokenRequest;
+import com.braintreegateway.CustomerRequest;
 import com.braintreegateway.Environment;
-import com.braintreegateway.Request;
 import com.braintreegateway.Result;
 import com.braintreegateway.Transaction;
+import com.braintreegateway.Transaction.Type;
+import com.braintreegateway.TransactionCreditCardRequest;
+import com.braintreegateway.TransactionOptionsRequest;
 import com.braintreegateway.TransactionRequest;
+import com.braintreegateway.ValidationError;
+import com.braintreegateway.ValidationErrors;
 
-import fr.isika.cda17.project3.model.financialManagement.brainTree.BrainTree;
-import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
 import fr.isika.cda17.project3.repository.financialManagement.brainTree.BrainTreeDao;
 import fr.isika.cda17.project3.repository.personManagement.accounts.CustomerDao;
+
 @ManagedBean
 @ViewScoped
-public class PaymentBean implements Serializable{
+public class PaymentBean {
 
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = -3492910063337920040L;
+    @Inject
+    private CustomerDao customerDao;
 
-	@Inject
-	private CustomerDao customerDao;
+    @Inject
+    private BrainTreeDao brainTreeDao;
 
-	@Inject
-	private BrainTreeDao brainTreeDao;
+//    private Customer customer;
+//
+//    private BrainTree brainTree;
 
-	private Customer customer;
+    private String clientToken;
 
-	private BrainTree brainTree;
+    private BigDecimal amount = BigDecimal.valueOf(0);
 
+    private String nonce;
 
-	private static BraintreeGateway gateway = new BraintreeGateway(
-			  Environment.SANDBOX,
-			  "2zx4jdwmxyfkq8jb",
-			  "633dfv7hh5cvrh25",
-			  "9138d1a0acf5673f4a0ff57dc08dde65"
-			);
-		public String clientTokenRequest() {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		Long id = Long.valueOf(session.getAttribute("id").toString());
-		if(id != null) {
-			customer = customerDao.findByEntityAccountId(id);
-		}
-		ClientTokenRequest clientTokenRequest = new ClientTokenRequest().customerId(customer.getId().toString());
-		// pass clientToken to your front-end
-		System.out.println(clientTokenRequest);
-		String clientToken = gateway.clientToken().generate(clientTokenRequest);
-		System.out.println(clientToken);
-		return clientToken;
+    // Below are the Braintree sandbox credentials
+    private static BraintreeGateway gateway = null;
+    private static String publicKey = "633dfv7hh5cvrh25";
+    private static String privateKey = "9138d1a0acf5673f4a0ff57dc08dde65";
+    private static String merchantId = "2zx4jdwmxyfkq8jb";
+
+    public void init() {
+	gateway = connectBraintreeGateway();
+	generateClientToken();
+    }
+
+    // Make an endpoint which return client token.
+    public void generateClientToken() {
+	// client token will be generated at server side and return to client
+	clientToken = gateway.clientToken().generate();
+    }
+
+    // Connect to Braintree Gateway.
+    public BraintreeGateway connectBraintreeGateway() {
+	BraintreeGateway braintreeGateway = new BraintreeGateway(Environment.SANDBOX, merchantId, publicKey,
+		privateKey);
+	return braintreeGateway;
+    }
+
+    // Make payment
+    public void doPaymentTransaction() {
+
+	TransactionRequest request = new TransactionRequest().amount(amount).paymentMethodNonce(nonce)
+		.type(Type.SALE);
+
+	CustomerRequest customerRequest = request.customer();
+	customerRequest.email("cpatel@gmail.com");
+	customerRequest.firstName("Chirag");
+	customerRequest.lastName("Patel");
+
+	
+	TransactionCreditCardRequest tccr = request.creditCard()
+		.number("1234567891234567").cardholderName("Patel Chirag").cvv("200").expirationDate("11/23");
+	
+	TransactionOptionsRequest options = request.options();
+	options.submitForSettlement(true);
+	
+	// Done the transaction request
+	options.done();
+
+	// Create transaction ...
+	Result<Transaction> result = gateway.transaction().sale(request);
+	boolean isSuccess = result.isSuccess();
+
+	if (isSuccess) {
+	    Transaction transaction = result.getTarget();
+	    displayTransactionInfo(transaction);
+	} else {
+	    ValidationErrors errors = result.getErrors();
+	    validationError(errors);
 	}
+    }
 
-//	  @Override
-//	public Object handle(Request request, Response response) {
-//	    return gateway.clientToken().generate();
-//	  }	
-//	  @Override
-//	public Object handle(Request request, Response response) {
-//	    String nonceFromTheClient = request.queryParams("payment_method_nonce");
-//	@Override
-//	public Object handle(Request request, Response response) {
-//	    String nonceFromTheClient = request.queryParams("payment_method_nonce");
+    public BigDecimal getAmount() {
+	return amount;
+    }
 
+    public String getNonce() {
+	return nonce;
+    }
 
+    public void setClientToken(String clientToken) {
+	this.clientToken = clientToken;
+    }
 
-	public String processTransaction() {
-		BrainTree created = brainTreeDao.create(brainTree);
-        System.out.println("Processing transaction");
-        TransactionRequest request = new TransactionRequest().amount(new BigDecimal(brainTree.getChargeAmount()))
-                .paymentMethodNonce(brainTree.getNonce()).deviceData(brainTree.getDeviceData()).options()
-                .submitForSettlement(true).done();
-        Result<Transaction> transactionResult = gateway.transaction().sale(request);
-        Transaction transaction;
-        if (transactionResult.isSuccess()) {
-        	System.out.println("TransactionSucceed");
-            transaction = transactionResult.getTarget();
-            return transaction.getId();
-        }else {
-        	System.out.println("TransactionFailed");
-        	transaction=null;
-        	return transaction.getId();
-        }
-}
+    public String getClientToken() {
+	return clientToken;
+    }
 
-	public BrainTree getBrainTree() {
-		return brainTree;
+    // Make an endpoint which receive payment method nonce from client and do
+    // payment.
+    public String receivePaymentMethodNonce() {
+	String nonceFromTheClient = "fake-valid-mastercard-nonce";
+	return nonceFromTheClient;
+    }
+
+    private void displayTransactionInfo(Transaction transaction) {
+	System.out.println(" ------ Transaction Info ------ ");
+	System.out.println(" Transaction Id  : " + transaction.getId());
+	System.out.println(" Processor Response Text : " + transaction.getProcessorResponseText());
+    }
+
+    private void validationError(ValidationErrors errors) {
+	List<ValidationError> error = errors.getAllDeepValidationErrors();
+	for (ValidationError er : error) {
+	    System.out.println(" error code : " + er.getCode());
+	    System.out.println(" error message  : " + er.getMessage());
 	}
+    }
 
-	public void setBrainTree(BrainTree brainTree) {
-		this.brainTree = brainTree;
-	}
+    public void setAmount(BigDecimal amount) {
+	this.amount = amount;
+    }
+
+    public void setNonce(String nonce) {
+	this.nonce = nonce;
+
+    }
 
 }
