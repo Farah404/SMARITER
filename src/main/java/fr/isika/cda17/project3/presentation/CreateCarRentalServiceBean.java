@@ -1,8 +1,6 @@
 package fr.isika.cda17.project3.presentation;
 
 import java.time.LocalDateTime;
-import java.util.LinkedList;
-import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -13,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
+import fr.isika.cda17.project3.model.serviceManagement.Service;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
 import fr.isika.cda17.project3.repository.serviceManagement.CarRentalServiceDao;
@@ -29,15 +28,13 @@ public class CreateCarRentalServiceBean {
 
     private UserAccount userAccount;
 
-    private CarRentalService crs = new CarRentalService();
+    private Service crs = new CarRentalService();
 
     private Vehicule vehicule = new Vehicule();
 
     private String startDate;
 
     private String endDate;
-
-    private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
 
     public void init() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
@@ -55,7 +52,7 @@ public class CreateCarRentalServiceBean {
 	crs.setUserAccountProvider(userAccount);
 	crs.setStartDate(LocalDateTime.parse(startDate));
 	crs.setEndDate(LocalDateTime.parse(endDate));
-	CarRentalService created = carRentalServiceDao.create(crs);
+	CarRentalService created = carRentalServiceDao.create((CarRentalService) crs);
 	System.out.println(created);
     }
 
@@ -63,21 +60,21 @@ public class CreateCarRentalServiceBean {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
-	crs.setServicetype(ServiceType.CAR_RENTAL);
-	crs.setPublicationDate(LocalDateTime.now());
-	crs.setIsRequest(false);
-//	userAccountsPurchasers.add(userAccount);
-//	crs.setUserAccountsPurchasers(userAccountsPurchasers);
-	crs.addPurchaser(userAccount);
-
-	crs.setStartDate(LocalDateTime.parse(startDate));
-	crs.setEndDate(LocalDateTime.parse(endDate));
-	CarRentalService created = carRentalServiceDao.create(crs);
+	
+	crs = new CarRentalService()
+		.withStartDate(LocalDateTime.parse(startDate))
+		.withEndDate(LocalDateTime.parse(endDate))
+		.withPublicationDate(LocalDateTime.now())
+		.withServiceType(ServiceType.CAR_RENTAL)
+		.withRequest(true)
+		.withPurchaser(userAccount);
+	
+	CarRentalService created = carRentalServiceDao.create((CarRentalService) crs);
 	System.out.println(created);
     }
 
     public CarRentalService getCrs() {
-	return crs;
+	return (CarRentalService) crs;
     }
 
     public void setCrs(CarRentalService crs) {

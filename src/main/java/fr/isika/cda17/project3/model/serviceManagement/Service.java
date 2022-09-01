@@ -52,9 +52,6 @@ public abstract class Service {
     @OneToMany
     private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
 
-//    @ManyToMany
-//    private List<UserAccount> userAccounts = new LinkedList<>();
-
     public Service() {
 	super();
     }
@@ -62,9 +59,7 @@ public abstract class Service {
     public Service(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate,
 	    LocalDateTime endDate, int referenceNumber, boolean isRequest, double price, List<Reservation> reservations,
 	    ServiceType servicetype, UserAccount userAccountProvider,
-	    List<UserAccount> userAccountsPurchasers/*
-						     * , List<UserAccount> userAccounts
-						     */) {
+	    List<UserAccount> userAccountsPurchasers) {
 
 	super();
 	this.id = id;
@@ -79,7 +74,6 @@ public abstract class Service {
 	this.servicetype = servicetype;
 	this.userAccountProvider = userAccountProvider;
 	this.userAccountsPurchasers = userAccountsPurchasers;
-//	this.userAccounts = userAccounts;
 
     }
 
@@ -94,10 +88,6 @@ public abstract class Service {
     public List<UserAccount> getUserAccountsPurchasers() {
 	return userAccountsPurchasers;
     }
-
-//    public void setUserAccountsPurchasers(List<UserAccount> userAccountsPurchasers) {
-//	this.userAccountsPurchasers = userAccountsPurchasers;
-//    }
 
     public LocalDateTime getPublicationDate() {
 	return publicationDate;
@@ -163,14 +153,6 @@ public abstract class Service {
 	this.servicetype = servicetype;
     }
 
-//    public List<UserAccount> getUserAccounts() {
-//	return userAccounts;
-//    }
-
-//    public void setUserAccounts(List<UserAccount> userAccounts) {
-//	this.userAccounts = userAccounts;
-//    }
-
     public Long getId() {
 	return id;
     }
@@ -178,10 +160,6 @@ public abstract class Service {
     public List<Reservation> getReservations() {
 	return reservations;
     }
-
-//    public void setReservations(List<Reservation> reservation) {
-//	this.reservations = reservation;
-//    }
 
     public void addPurchaser(UserAccount purchaser) {
 	if (!this.userAccountsPurchasers.contains(purchaser)) {

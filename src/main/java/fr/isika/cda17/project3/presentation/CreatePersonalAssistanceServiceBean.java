@@ -1,8 +1,6 @@
 package fr.isika.cda17.project3.presentation;
 
 import java.time.LocalDateTime;
-import java.util.LinkedList;
-import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -14,6 +12,7 @@ import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
 import fr.isika.cda17.project3.model.serviceManagement.PersonalAssistanceService;
 import fr.isika.cda17.project3.model.serviceManagement.PersonalAssistanceType;
+import fr.isika.cda17.project3.model.serviceManagement.Service;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
 import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
@@ -31,7 +30,7 @@ public class CreatePersonalAssistanceServiceBean {
 
     private UserAccount userAccount;
 
-    private PersonalAssistanceService pas = new PersonalAssistanceService();
+    private Service pas = new PersonalAssistanceService();
 
     private Trajectory trajectory = new Trajectory();
 
@@ -40,8 +39,6 @@ public class CreatePersonalAssistanceServiceBean {
     private String startDate;
 
     private String endDate;
-
-    private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
 
     public PersonalAssistanceType[] personalAssistanceTypeValues() {
 	return PersonalAssistanceType.values();
@@ -56,14 +53,14 @@ public class CreatePersonalAssistanceServiceBean {
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
 	trajectory.setItinerary(itinerary);
-	pas.setTrajectory(trajectory);
+	((PersonalAssistanceService) pas).setTrajectory(trajectory);
 	pas.setServicetype(ServiceType.PERSONAL_ASSISTANCE);
 	pas.setPublicationDate(LocalDateTime.now());
 	pas.setIsRequest(false);
 	pas.setUserAccountProvider(userAccount);
 	pas.setStartDate(LocalDateTime.parse(startDate));
 	pas.setEndDate(LocalDateTime.parse(endDate));
-	PersonalAssistanceService created = personalAssistanceServiceDao.create(pas);
+	PersonalAssistanceService created = personalAssistanceServiceDao.create((PersonalAssistanceService) pas);
 	System.out.println(created);
     }
 
@@ -71,23 +68,26 @@ public class CreatePersonalAssistanceServiceBean {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
+	
 	trajectory.setItinerary(itinerary);
-	pas.setTrajectory(trajectory);
-	pas.setServicetype(ServiceType.PERSONAL_ASSISTANCE);
-	pas.setPublicationDate(LocalDateTime.now());
-	pas.setIsRequest(true);
-	pas.setStartDate(LocalDateTime.parse(startDate));
-	pas.setEndDate(LocalDateTime.parse(endDate));
-//	userAccountsPurchasers.add(userAccount);
-//	pas.setUserAccountsPurchasers(userAccountsPurchasers);
-	pas.addPurchaser(userAccount);
+	
+	pas = new PersonalAssistanceService()
+		.withStartDate(LocalDateTime.parse(startDate))
+		.withEndDate(LocalDateTime.parse(endDate))
+		.withPublicationDate(LocalDateTime.now())
+		.withServiceType(ServiceType.PERSONAL_ASSISTANCE)
+		.withRequest(true)
+		.withPurchaser(userAccount);
+	
+	pas = ((PersonalAssistanceService) pas).withTrajectory(trajectory);
 
-	PersonalAssistanceService created = personalAssistanceServiceDao.create(pas);
+
+	PersonalAssistanceService created = personalAssistanceServiceDao.create((PersonalAssistanceService) pas);
 	System.out.println(created);
     }
 
     public PersonalAssistanceService getPas() {
-	return pas;
+	return (PersonalAssistanceService) pas;
     }
 
     public Trajectory getTrajectory() {
