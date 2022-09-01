@@ -1,12 +1,11 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -15,6 +14,7 @@ import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
+@NamedQuery(name = "CarRentalService.findAllUserCRS", query = "SELECT crs FROM CarRentalService crs WHERE crs.userAccountProvider.id = :userid_param")
 public class CarRentalService extends Service {
 
     private String keyPickUpAddress;
@@ -23,10 +23,7 @@ public class CarRentalService extends Service {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Vehicule vehicule;
-
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    private List<CarRentalService> carRentalServiceList = new ArrayList<CarRentalService>();
-
+    
     public CarRentalService() {
 	super();
     }
@@ -62,19 +59,4 @@ public class CarRentalService extends Service {
     public void setVehicule(Vehicule vehicule) {
 	this.vehicule = vehicule;
     }
-
-    @Override
-    public String toString() {
-	return "CarRentalService [keyPickUpAddress=" + keyPickUpAddress + ", keyDropOffAddress=" + keyDropOffAddress
-		+ ", vehicule=" + vehicule + "ServiceId," + this.getId() + "]";
-    }
-
-//    public List<CarRentalService> getCarRentalServiceList() {
-//	return carRentalServiceList;
-//    }
-//
-//    public void setCarRentalServiceList(List<CarRentalService> carRentalServiceList) {
-//	this.carRentalServiceList = carRentalServiceList;
-//
-//    }
 }

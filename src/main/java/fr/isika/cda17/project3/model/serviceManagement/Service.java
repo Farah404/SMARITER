@@ -13,7 +13,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -50,11 +49,8 @@ public abstract class Service {
     @OneToOne
     private UserAccount userAccountProvider;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany
     private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
-
-    @ManyToMany
-    private List<UserAccount> userAccounts = new LinkedList<>();
 
     public Service() {
 	super();
@@ -62,8 +58,8 @@ public abstract class Service {
 
     public Service(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate,
 	    LocalDateTime endDate, int referenceNumber, boolean isRequest, double price, List<Reservation> reservations,
-	    ServiceType servicetype, UserAccount userAccountProvider, List<UserAccount> userAccountsPurchasers,
-	    List<UserAccount> userAccounts) {
+	    ServiceType servicetype, UserAccount userAccountProvider,
+	    List<UserAccount> userAccountsPurchasers) {
 
 	super();
 	this.id = id;
@@ -78,7 +74,6 @@ public abstract class Service {
 	this.servicetype = servicetype;
 	this.userAccountProvider = userAccountProvider;
 	this.userAccountsPurchasers = userAccountsPurchasers;
-	this.userAccounts = userAccounts;
 
     }
 
@@ -92,10 +87,6 @@ public abstract class Service {
 
     public List<UserAccount> getUserAccountsPurchasers() {
 	return userAccountsPurchasers;
-    }
-
-    public void setUserAccountsPurchasers(List<UserAccount> userAccountsPurchasers) {
-	this.userAccountsPurchasers = userAccountsPurchasers;
     }
 
     public LocalDateTime getPublicationDate() {
@@ -162,14 +153,6 @@ public abstract class Service {
 	this.servicetype = servicetype;
     }
 
-    public List<UserAccount> getUserAccounts() {
-	return userAccounts;
-    }
-
-    public void setUserAccounts(List<UserAccount> userAccounts) {
-	this.userAccounts = userAccounts;
-    }
-
     public Long getId() {
 	return id;
     }
@@ -178,8 +161,40 @@ public abstract class Service {
 	return reservations;
     }
 
-    public void setReservations(List<Reservation> reservation) {
-	this.reservations = reservation;
+    public void addPurchaser(UserAccount purchaser) {
+	if (!this.userAccountsPurchasers.contains(purchaser)) {
+	    this.userAccountsPurchasers.add(purchaser);
+	}
+    }
+
+    public Service withPurchaser(final UserAccount account) {
+	this.addPurchaser(account);
+	return this;
+    }
+
+    public Service withRequest(final boolean isRequest) {
+	this.isRequest = isRequest;
+	return this;
+    }
+
+    public Service withServiceType(final ServiceType serviceType) {
+	this.servicetype = serviceType;
+	return this;
+    }
+
+    public Service withPublicationDate(final LocalDateTime publicationDate) {
+	this.setPublicationDate(publicationDate);
+	return this;
+    }
+
+    public Service withStartDate(final LocalDateTime startDate) {
+	this.setStartDate(startDate);
+	return this;
+    }
+
+    public Service withEndDate(final LocalDateTime endDate) {
+	this.setEndDate(endDate);
+	return this;
     }
 
 }

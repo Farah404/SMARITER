@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<f:metadata>
+	<f:event listener="#{adminDashboardBean.init()}" type="preRenderView">
+	</f:event>
+</f:metadata>
+
+
+<h:body>
+	<ui:composition template="template/templateWhenConnected.xhtml">
+		<ui:define name="content">
+		<h:outputScript library="js" name="admin.js" />
+			<div class="container">
+				<div class="container-cusProfile">
+					<h1 class="text-center-cusProfile">Welcome back to your
+						Dashboard,
+						#{adminDashboardBean.administrator.administratorAccount.username}</h1>
+					<br />
+					<div class="row">
+						<h:form class="cusProfile">
+							<div class="col-one-half-cusProfile">
+								<img class="customer-img"
+									src="media/gif/profilePictures/ProfileGif6.gif" /><br />
+								<h:commandButton class="button-shared"
+									action="#{logInAccountBean.logout()}" value="Log Out"></h:commandButton>
+							</div>
+							<div class="col-one-half-cusProfile">
+								<br /> <span class="label-text-cusProfile"><i
+									class="fa fa-envelope fa-col-cus"> Firstname:
+										#{adminDashboardBean.administrator.firstName}</i></span><br /> <br /> <span
+									class="label-text-cusProfile"><i
+									class="fa fa-phone fa-col-cus"> Lastname:
+										#{adminDashboardBean.administrator.lastName}</i></span><br /> <br /> <span
+									class="label-text-cusProfile"><i
+									class="fa fa-envelope fa-col-cus"> Email address:
+										#{adminDashboardBean.administrator.administratorAccount.email}</i></span><br />
+								<br /> <span class="label-text-cusProfile"><i
+									class="fa fa-phone fa-col-cus"> Employee Code:
+										#{adminDashboardBean.administrator.employeeCode}</i></span><br /> <br />
+
+							</div>
+
+							<div class="col-one-half-cusProfile"></div>
+						</h:form>
+					</div>
+				</div>
+
+				<div class="container-cusProfile">
+					<h1 class="text-center-cusProfile">Manage your website</h1>
+					<br />
+					<div class="row">
+						<h:form class="cusProfile">
+							<div class="row-effort">
+								<div class="column-effort">
+									<div class="card-effort">
+										<p>
+											<i class="fa fa-effort fa-user"></i>
+										</p>
+										<h3>11+</h3>
+										<p>Users</p>
+									</div>
+								</div>
+								<div class="column-effort">
+									<div class="card-effort">
+										<p>
+											<i class="fa fa-effort fa-check"></i>
+										</p>
+										<h3>55+</h3>
+										<p>Posted requests</p>
+									</div>
+								</div>
+								<div class="column-effort">
+									<div class="card-effort">
+										<p>
+											<i class="fa fa-effort fa-smile-o"></i>
+										</p>
+										<h3>100+</h3>
+										<p>Posted services</p>
+									</div>
+								</div>
+								<div class="column-effort">
+									<div class="card-effort">
+										<p>
+											<i class="fa fa-effort fa-coffee"></i>
+										</p>
+										<h3>100+</h3>
+										<p>Reservations</p>
+									</div>
+								</div>
+							</div>
+							<br />
+							<span class="label-text-cusProfile"><i
+								class="fa fa-inbox fa-col-cus"> List of active Solutions:</i></span>
+							<br />
+							<br />
+
+							<h:dataTable class="styled-table" id="solutionList"
+								value="#{solutionManagementBean.solutiontList}" var="solution">
+
+								<h:column>
+									<f:facet name="header">Solution Name</f:facet>
+									<h:outputText value="#{solution.solutionName}" />
+								</h:column>
+
+								<h:column>
+									<f:facet class="admin-table" name="header">Solution Owner</f:facet>
+									<h:outputText value="#{solution.customer.entityAccount.name}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header"> Car pool</f:facet>
+									<h:outputText value="#{solution.carPoolingsolutionIncluded}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Car rental</f:facet>
+									<h:outputText value="#{solution.carRentalSolutionIncluded}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Personnal Assistance</f:facet>
+									<h:outputText
+										value="#{solution.personalAssistanceSolutionIncluded}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Parcel Solution</f:facet>
+									<h:outputText value="#{solution.parcelSolutionIncluded}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Messaging system</f:facet>
+									<h:outputText value="#{solution.messagingSystemChoice}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Payment system</f:facet>
+									<h:outputText value="#{solution.paymentSystemChoice}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Rating system</f:facet>
+									<h:outputText value="#{solution.ratingSystemIncluded}" />
+								</h:column>
+							</h:dataTable>
+							<br />
+							<span class="label-text-cusProfile"><i
+								class="fa fa-inbox fa-col-cus"> List of Customers:</i></span>
+							<br />
+							<br />
+							<h:dataTable class="styled-table" id="solutionListEntities"
+								value="#{solutionManagementBean.solutiontList}" var="solution">
+
+								<h:column>
+									<f:facet name="header">Entity</f:facet>
+									<h:outputText value="#{solution.customer.entityAccount.name}" />
+								</h:column>
+
+								<h:column>
+									<f:facet class="admin-table" name="header">Solution</f:facet>
+									<h:outputText value="#{solution.solutionName}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">Siret Number</f:facet>
+									<h:outputText
+										value="#{solution.customer.entityAccount.siretNumber}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header"> Email</f:facet>
+									<h:outputText value="#{solution.customer.entityAccount.email}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Phone Number</f:facet>
+									<h:outputText value="#{solution.customer.phoneNumber}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Pricing Deal</f:facet>
+									<h:outputText value="#{solution.priceDeal}" />
+								</h:column>
+							</h:dataTable>
+
+						</h:form>
+					</div>
+				</div>
+
+				<div class="container-cusProfile">
+
+
+					<!-- GRAPH AREA -->
+
+				</div>
+
+			</div>
+
+		</ui:define>
+	</ui:composition>
+
+
+</h:body>
+</html>

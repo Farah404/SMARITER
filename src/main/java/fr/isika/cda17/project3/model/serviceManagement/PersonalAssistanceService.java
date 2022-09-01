@@ -1,18 +1,16 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.OneToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
+@NamedQuery(name = "PersonalAssistanceService.findAllUserPAS", query = "SELECT pas FROM PersonalAssistanceService pas WHERE pas.userAccountProvider.id = :userid_param")
 public class PersonalAssistanceService extends Service {
 
     @Enumerated(EnumType.STRING)
@@ -22,9 +20,6 @@ public class PersonalAssistanceService extends Service {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Trajectory trajectory;
-
-    @OneToMany
-    private List<PersonalAssistanceService> personnalAssistanceServiceList = new ArrayList<PersonalAssistanceService>();
 
     public PersonalAssistanceService() {
 	super();
@@ -62,12 +57,8 @@ public class PersonalAssistanceService extends Service {
 	this.trajectory = trajectory;
     }
 
-    public List<PersonalAssistanceService> getPersonnalAssistanceServiceList() {
-	return personnalAssistanceServiceList;
+    public Service withTrajectory(Trajectory trajectory) {
+	this.trajectory = trajectory;
+	return this;
     }
-
-    public void setPersonnalAssistanceServiceList(List<PersonalAssistanceService> personnalAssistanceServiceList) {
-	this.personnalAssistanceServiceList = personnalAssistanceServiceList;
-    }
-
 }

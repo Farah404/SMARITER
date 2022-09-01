@@ -75,4 +75,10 @@ public class PersonalAssistanceServiceDaoImpl implements PersonalAssistanceServi
 	return pASList;
     }
 
+	@Override
+	public List<PersonalAssistanceService> findAllUserPersonalAssistanceServices(Long id) {
+		List<PersonalAssistanceService> pasUserList = this.entityManager.createNamedQuery("PersonalAssistanceService.findAllUserPAS", PersonalAssistanceService.class).setParameter("userid_param", id).getResultList();
+		return pasUserList;
+	}
+
 }

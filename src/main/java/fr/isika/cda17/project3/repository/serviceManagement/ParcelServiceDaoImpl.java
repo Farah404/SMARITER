@@ -73,4 +73,10 @@ public class ParcelServiceDaoImpl implements ParcelServiceDao {
 	return pSList;
     }
 
+	@Override
+	public List<ParcelService> findAllUserParcelServices(Long id) {
+		List<ParcelService> psUserList = this.entityManager.createNamedQuery("ParcelService.findAllUserPS", ParcelService.class).setParameter("userid_param", id).getResultList();
+		return psUserList;
+	}
+
 }

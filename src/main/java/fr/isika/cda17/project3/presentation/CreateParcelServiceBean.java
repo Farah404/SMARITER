@@ -1,8 +1,6 @@
 package fr.isika.cda17.project3.presentation;
 
 import java.time.LocalDateTime;
-import java.util.LinkedList;
-import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -14,6 +12,7 @@ import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
 import fr.isika.cda17.project3.model.serviceManagement.ParcelService;
+import fr.isika.cda17.project3.model.serviceManagement.Service;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
 import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
@@ -32,7 +31,7 @@ public class CreateParcelServiceBean {
 
     private UserAccount userAccount;
 
-    private ParcelService ps = new ParcelService();
+    private Service ps = new ParcelService();
 
     private Vehicule vehicule = new Vehicule();
 
@@ -44,8 +43,6 @@ public class CreateParcelServiceBean {
 
     private String endDate;
 
-    private List<UserAccount> userAccountsPurchasers = new LinkedList<>();
-
     public TrajectoryType[] trajectoryTypeValues() {
 	return TrajectoryType.values();
     }
@@ -54,15 +51,16 @@ public class CreateParcelServiceBean {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
-	ps.setVehicule(userAccount.getVehicule());
+	((ParcelService) ps).setVehicule(userAccount.getVehicule());
 	trajectory.setItinerary(itinerary);
-	ps.setTrajectory(trajectory);
+	((ParcelService) ps).setTrajectory(trajectory);
 	ps.setServicetype(ServiceType.PARCEL);
 	ps.setPublicationDate(LocalDateTime.now());
 	ps.setIsRequest(false);
 	ps.setStartDate(LocalDateTime.parse(startDate));
 	ps.setEndDate(LocalDateTime.parse(endDate));
-	ParcelService created = parcelServiceDao.create(ps);
+	ps.setUserAccountProvider(userAccount);
+	ParcelService created = parcelServiceDao.create((ParcelService) ps);
 	System.out.println(created);
     }
 
@@ -70,21 +68,26 @@ public class CreateParcelServiceBean {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
+	
 	trajectory.setItinerary(itinerary);
-	ps.setTrajectory(trajectory);
-	ps.setServicetype(ServiceType.PARCEL);
-	ps.setPublicationDate(LocalDateTime.now());
-	ps.setIsRequest(true);
-	ps.setStartDate(LocalDateTime.parse(startDate));
-	ps.setEndDate(LocalDateTime.parse(endDate));
-	userAccountsPurchasers.add(userAccount);
-	ps.setUserAccountsPurchasers(userAccountsPurchasers);
-	ParcelService created = parcelServiceDao.create(ps);
+	
+	ps = new ParcelService()
+		.withStartDate(LocalDateTime.parse(startDate))
+		.withEndDate(LocalDateTime.parse(endDate))
+		.withPublicationDate(LocalDateTime.now())
+		.withServiceType(ServiceType.PARCEL)
+		.withRequest(true)
+		.withPurchaser(userAccount);
+	
+	ps = ((ParcelService) ps).withTrajectory(trajectory);
+
+
+	ParcelService created = parcelServiceDao.create((ParcelService) ps);
 	System.out.println(created);
     }
 
     public ParcelService getPs() {
-	return ps;
+	return (ParcelService) ps;
     }
 
     public void setPs(ParcelService ps) {
