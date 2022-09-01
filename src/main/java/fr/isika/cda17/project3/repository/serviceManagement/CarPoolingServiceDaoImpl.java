@@ -77,4 +77,10 @@ public class CarPoolingServiceDaoImpl implements CarPoolingServiceDao {
 
     }
 
+	@Override
+	public List<CarPoolingService> findAllUserCarPoolingServices(Long id) {
+		List<CarPoolingService> cpsUserList = this.entityManager.createNamedQuery("CarPoolingService.findAllUserCPS", CarPoolingService.class).setParameter("userid_param", id).getResultList();
+		return cpsUserList;
+	}
+
 }

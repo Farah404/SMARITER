@@ -21,120 +21,125 @@ import fr.isika.cda17.project3.repository.serviceManagement.PersonalAssistanceSe
 @ViewScoped
 public class PersonalAssistanceServiceManagementBean implements Serializable {
 
-    private static final String SERVICE_LIST_XHTML = "subServiceList.xhtml";
+	private static final String SERVICE_LIST_XHTML = "subServiceList.xhtml";
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Inject
-    private PersonalAssistanceServiceDao personalAssistanceServiceDao;
+	@Inject
+	private PersonalAssistanceServiceDao personalAssistanceServiceDao;
 
-    private PersonalAssistanceService personalAssistanceService = new PersonalAssistanceService();
+	private PersonalAssistanceService personalAssistanceService = new PersonalAssistanceService();
 
-    private List<PersonalAssistanceService> personnalAssistanceServiceList;
+	private List<PersonalAssistanceService> personnalAssistanceServiceList;
 
-    private TrajectoryType trajectoryType;
+	private TrajectoryType trajectoryType;
 
-    private PersonalAssistanceType personalAssistanceType;
+	private PersonalAssistanceType personalAssistanceType;
 
-    public void init() throws IOException {
-	Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+	public void init() throws IOException {
+		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 
-	if (map.containsKey("personalAssistanceServiceId")) {
-	    String personalAssistanceServiceIdParamValue = map.get("personalAssistanceServiceId");
-	    System.err.println(personalAssistanceServiceIdParamValue);
-	    if (personalAssistanceServiceIdParamValue != null && !personalAssistanceServiceIdParamValue.isBlank()) {
-		Long id = Long.valueOf(personalAssistanceServiceIdParamValue);
-		if (id != null) {
-		    personalAssistanceService = personalAssistanceServiceDao.findById(id);
-		    if (personalAssistanceService == null) {
-			redirectError();
-		    }
-		} else {
-		    redirectError();
+		if (map.containsKey("personalAssistanceServiceId")) {
+			String personalAssistanceServiceIdParamValue = map.get("personalAssistanceServiceId");
+			System.err.println(personalAssistanceServiceIdParamValue);
+			if (personalAssistanceServiceIdParamValue != null && !personalAssistanceServiceIdParamValue.isBlank()) {
+				Long id = Long.valueOf(personalAssistanceServiceIdParamValue);
+				if (id != null) {
+					personalAssistanceService = personalAssistanceServiceDao.findById(id);
+					if (personalAssistanceService == null) {
+						redirectError();
+					}
+				} else {
+					redirectError();
+				}
+			} else {
+				redirectError();
+			}
 		}
-	    } else {
-		redirectError();
-	    }
 	}
-    }
 
-    public void redirectError() throws IOException {
-	ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-	ec.redirect(SERVICE_LIST_XHTML);
-    }
+	public void redirectError() throws IOException {
+		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+		ec.redirect(SERVICE_LIST_XHTML);
+	}
 
-    public String updapte() {
-	personalAssistanceServiceDao.update(personalAssistanceService);
-	System.out.println((personalAssistanceService));
-	return SERVICE_LIST_XHTML;
-    }
+	public String updapte() {
+		personalAssistanceServiceDao.update(personalAssistanceService);
+		System.out.println((personalAssistanceService));
+		return SERVICE_LIST_XHTML;
+	}
 
-    public String detail(Long id) {
-	personalAssistanceServiceDao.toString();
+	public String detail(Long id) {
+		personalAssistanceServiceDao.toString();
 
-	return "reservePersonalAssistanceService.xhtml?faces-redirect=true&personalAssistanceServiceId=" + id;
-    }
+		return "reservePersonalAssistanceService.xhtml?faces-redirect=true&personalAssistanceServiceId=" + id;
+	}
 
-    private void refresh() {
-	personnalAssistanceServiceList = personalAssistanceServiceDao.findAll();
+	private void refresh() {
+		personnalAssistanceServiceList = personalAssistanceServiceDao.findAll();
 
-    }
+	}
 
-    @PostConstruct
-    public void freshinit() {
-	refresh();
-    }
+	@PostConstruct
+	public void freshinit() {
+		refresh();
+	}
 
-    public String showUpdate(Long id) {
-	System.err.println(id);
-	return "editcarPoolingService.xhtml?faces-redirect=true&carPoolingServiceId=" + id;
-    }
+	public String showUpdate(Long id) {
+		System.err.println(id);
+		return "editcarPoolingService.xhtml?faces-redirect=true&carPoolingServiceId=" + id;
+	}
 
-    public PersonalAssistanceType[] personalAssistanceType() {
-	return PersonalAssistanceType.values();
-    }
+	public void delete(Long id) {
+		personalAssistanceServiceDao.delete(id);
+		refresh();
+	}
 
-    public TrajectoryType[] trajectoryType() {
-	return TrajectoryType.values();
-    }
+	public PersonalAssistanceType[] personalAssistanceType() {
+		return PersonalAssistanceType.values();
+	}
 
-    public PersonalAssistanceServiceDao getAssistanceServiceDao() {
-	return personalAssistanceServiceDao;
-    }
+	public TrajectoryType[] trajectoryType() {
+		return TrajectoryType.values();
+	}
 
-    public void setAssistanceServiceDao(PersonalAssistanceServiceDao assistanceServiceDao) {
-	this.personalAssistanceServiceDao = assistanceServiceDao;
-    }
+	public PersonalAssistanceServiceDao getAssistanceServiceDao() {
+		return personalAssistanceServiceDao;
+	}
 
-    public TrajectoryType getTrajectoryType() {
-	return trajectoryType;
-    }
+	public void setAssistanceServiceDao(PersonalAssistanceServiceDao assistanceServiceDao) {
+		this.personalAssistanceServiceDao = assistanceServiceDao;
+	}
 
-    public void setTrajectoryType(TrajectoryType trajectoryType) {
-	this.trajectoryType = trajectoryType;
-    }
+	public TrajectoryType getTrajectoryType() {
+		return trajectoryType;
+	}
 
-    public List<PersonalAssistanceService> getPersonnalAssistanceServiceList() {
-	return personnalAssistanceServiceList;
-    }
+	public void setTrajectoryType(TrajectoryType trajectoryType) {
+		this.trajectoryType = trajectoryType;
+	}
 
-    public void setPersonnalAssistanceServiceList(List<PersonalAssistanceService> personnalAssistanceServiceList) {
-	this.personnalAssistanceServiceList = personnalAssistanceServiceList;
-    }
+	public List<PersonalAssistanceService> getPersonnalAssistanceServiceList() {
+		return personnalAssistanceServiceList;
+	}
 
-    public PersonalAssistanceType getPersonalAssistanceType() {
-	return personalAssistanceType;
-    }
+	public void setPersonnalAssistanceServiceList(List<PersonalAssistanceService> personnalAssistanceServiceList) {
+		this.personnalAssistanceServiceList = personnalAssistanceServiceList;
+	}
 
-    public void setPersonalAssistanceType(PersonalAssistanceType personalAssistanceType) {
-	this.personalAssistanceType = personalAssistanceType;
-    }
+	public PersonalAssistanceType getPersonalAssistanceType() {
+		return personalAssistanceType;
+	}
 
-    public PersonalAssistanceService getPersonalAssistanceService() {
-	return personalAssistanceService;
-    }
+	public void setPersonalAssistanceType(PersonalAssistanceType personalAssistanceType) {
+		this.personalAssistanceType = personalAssistanceType;
+	}
 
-    public void setPersonalAssistanceService(PersonalAssistanceService personalAssistanceService) {
-	this.personalAssistanceService = personalAssistanceService;
-    }
+	public PersonalAssistanceService getPersonalAssistanceService() {
+		return personalAssistanceService;
+	}
+
+	public void setPersonalAssistanceService(PersonalAssistanceService personalAssistanceService) {
+		this.personalAssistanceService = personalAssistanceService;
+	}
 }

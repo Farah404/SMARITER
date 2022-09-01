@@ -4,11 +4,13 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
+@NamedQuery(name = "CarPoolingService.findAllUserCPS", query = "SELECT cps FROM CarPoolingService cps WHERE cps.userAccountProvider.id = :userid_param")
 public class CarPoolingService extends Service {
 
     @Enumerated(EnumType.STRING)
