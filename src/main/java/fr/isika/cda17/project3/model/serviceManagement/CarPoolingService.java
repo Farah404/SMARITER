@@ -26,10 +26,6 @@ public class CarPoolingService extends Service {
 
     private boolean chattingAllowed;
 
-    // @ManyToMany
-    // private List<CarPoolingService> carPoolingServiceList = new
-    // ArrayList<CarPoolingService>();
-
     @OneToOne(cascade = CascadeType.ALL)
     private Trajectory trajectory;
 
@@ -39,7 +35,6 @@ public class CarPoolingService extends Service {
 
     public CarPoolingService(CarPoolingType carPoolingType, int availableSeats, boolean petAllowed,
 	    boolean smokingAllowed, boolean musicAllowed, boolean chattingAllowed,
-	    // List<CarPoolingService> carPoolingServiceList,
 	    Trajectory trajectory) {
 	super();
 	this.carPoolingType = carPoolingType;
@@ -48,7 +43,6 @@ public class CarPoolingService extends Service {
 	this.smokingAllowed = smokingAllowed;
 	this.musicAllowed = musicAllowed;
 	this.chattingAllowed = chattingAllowed;
-	// this.carPoolingServiceList = carPoolingServiceList;
 	this.trajectory = trajectory;
     }
 
@@ -108,22 +102,8 @@ public class CarPoolingService extends Service {
 	this.trajectory = trajectory;
     }
 
-    // public List<CarPoolingService> getCarPoolingServiceList() {
-    // return carPoolingServiceList;
-    // }
-    //
-    // public void setCarPoolingServiceList(List<CarPoolingService>
-    // carPoolingServiceList) {
-    // this.carPoolingServiceList = carPoolingServiceList;
-    // }
-
-    @Override
-    public String toString() {
-	return "CarPoolingService [carPoolingType=" + carPoolingType + ", availableSeats=" + availableSeats
-		+ ", petAllowed=" + petAllowed + ", smokingAllowed=" + smokingAllowed + ", musicAllowed=" + musicAllowed
-		+ ", chattingAllowed=" + chattingAllowed + ", carPoolingServiceList="
-		// + carPoolingServiceList
-		+ ", trajectory=" + trajectory + "]";
+    public Service withTrajectory(Trajectory trajectory) {
+	this.trajectory = trajectory;
+	return this;
     }
-
 }
