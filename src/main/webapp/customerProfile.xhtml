@@ -11,6 +11,27 @@
 	</f:event>
 </f:metadata>
 
+<f:metadata>
+	<f:event listener="#{userProfileManagementBean.init()}"
+		type="preRenderView">
+	</f:event>
+</f:metadata>
+<f:metadata>
+	<f:event listener="#{carPoolingServiceManagementBean.init()}"
+		type="preRenderView"></f:event>
+</f:metadata>
+<f:metadata>
+	<f:event listener="#{carRentalServiceManagementBean.init()}"
+		type="preRenderView"></f:event>
+</f:metadata>
+<f:metadata>
+	<f:event listener="#{parcelServiceManagementBean.init()}"
+		type="preRenderView"></f:event>
+</f:metadata>
+<f:metadata>
+	<f:event listener="#{personalAssistanceServiceManagementBean.init()}"
+		type="preRenderView"></f:event>
+</f:metadata>
 <h:head>
 	<title>SmarIter</title>
 </h:head>
@@ -33,6 +54,8 @@
 									class="button-shared" value="Update profile" />
 								<br />
 								<h:commandButton class="button-shared" value="View my website" />
+								<br /> 
+								<h:commandButton class="button-shared" value="Check my invoice" />
 								<br />
 
 								<h:commandButton class="button-shared"
@@ -117,133 +140,314 @@
 					<br />
 					<div class="row">
 						<form class="cusProfile">
-							<div class="row-effort">
-								<div class="column-effort">
-									<div class="card-effort">
-										<p>
-											<i class="fa fa-effort fa-user"></i>
-										</p>
-										<h3>11+</h3>
-										<p>Users</p>
-									</div>
-								</div>
-								<div class="column-effort">
-									<div class="card-effort">
-										<p>
-											<i class="fa fa-effort fa-check"></i>
-										</p>
-										<h3>55+</h3>
-										<p>Posted requests</p>
-									</div>
-								</div>
-								<div class="column-effort">
-									<div class="card-effort">
-										<p>
-											<i class="fa fa-effort fa-smile-o"></i>
-										</p>
-										<h3>100+</h3>
-										<p>Posted services</p>
-									</div>
-								</div>
-								<div class="column-effort">
-									<div class="card-effort">
-										<p>
-											<i class="fa fa-effort fa-coffee"></i>
-										</p>
-										<h3>100+</h3>
-										<p>Reservations</p>
-									</div>
-								</div>
-							</div>
 							<br /> <span class="label-text-cusProfile"><i
-								class="fa fa-inbox fa-col-cus"> Users list:</i></span><br /> <br />
-							<h:dataTable class="styled-table" id="listeUsers"
-								value="#{userProfileManagementBean.userList}" var="users">
+								class="fa fa-inbox fa-col-cus"> Manage your users:</i></span><br /> <br />
+							<h:form>
+								<h:dataTable class="styled-table" id="listeUsers"
+									value="#{userProfileManagementBean.userList}" var="users">
 
-								<h:column>
-									<f:facet name="header">Id</f:facet>
-									<h:outputText value="#{users.id}" />
-								</h:column>
-								<h:column>
-									<f:facet name="header"> Email</f:facet>
-									<h:outputText value="#{users.userAccount.email}" />
-								</h:column>
-								<h:column>
-									<f:facet name="header"> Last Name</f:facet>
-									<h:outputText value="#{users.lastName}" />
-								</h:column>
-								<h:column>
-									<f:facet name="header">Identity Card number</f:facet>
-									<h:outputText value="#{users.identityCardnumber}" />
-								</h:column>
-								<h:column>
-									<f:facet name="header">Phone Number</f:facet>
-									<h:outputText value="#{users.phoneNumber}" />
-								</h:column>
-								<h:column>
-									<f:facet name="header">Driving Permit Number</f:facet>
-									<h:outputText value="#{users.drivingPermitNumber}" />
-								</h:column>
-								<h:column>
-									<f:facet name="header">Update</f:facet>
-									<h:panelGrid>
-										<h:commandButton value="Edit"
-											action="#{userProfileManagementBean.showUpdate(users.id)}">
-											<f:param name="userId" value="#user.id}"></f:param>
-										</h:commandButton>
-									</h:panelGrid>
-								</h:column>
-								<h:column>
-									<f:facet name="header">Delete</f:facet>
-									<h:panelGrid>
-										<h:commandButton
-											action="#{userProfileManagementBean.delete(users.id)}"
-											value="Delete" />
-									</h:panelGrid>
-								</h:column>
-							</h:dataTable>
-
+									<h:column>
+										<f:facet name="header">Id</f:facet>
+										<h:outputText value="#{users.id}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header"> Email</f:facet>
+										<h:outputText value="#{users.userAccount.email}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header"> Last Name</f:facet>
+										<h:outputText value="#{users.lastName}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Identity Card number</f:facet>
+										<h:outputText value="#{users.identityCardnumber}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Phone Number</f:facet>
+										<h:outputText value="#{users.phoneNumber}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Driving Permit Number</f:facet>
+										<h:outputText value="#{users.drivingPermitNumber}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Go to profile</f:facet>
+										<h:panelGrid>
+											<h:commandButton value="Edit"
+												action="#{userProfileManagementBean.showUpdate(users.id)}">
+												<f:param name="userId" value="#user.id}"></f:param>
+											</h:commandButton>
+										</h:panelGrid>
+									</h:column>
+									<h:column>
+										<f:facet name="header">Delete</f:facet>
+										<h:panelGrid>
+											<h:commandButton
+												action="#{userProfileManagementBean.delete(users.id)}"
+												value="Delete" />
+										</h:panelGrid>
+									</h:column>
+								</h:dataTable>
+							</h:form>
 
 
 
 
 
 							<br /> <span class="label-text-cusProfile"><i
-								class="fa fa-inbox fa-col-cus"> List of services on website:</i></span><br />
-							<br />
-							<table class="styled-table">
-								<thead>
-									<tr>
-										<th>Start date</th>
-										<th>Service type</th>
-										<th>Reference number</th>
-										<th>Published by</th>
-										<th>Price</th>
-										<th>Status</th>
-										<th>Details</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-									</tr>
-									<tr>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-										<td class="center-row"><span class="green-check"></span></td>
-									</tr>
-								</tbody>
-							</table>
+								class="fa fa-inbox fa-col-cus"> Manage carpooling services
+									on your website: </i></span><br /> <br />
+							<h:form>
+								<h:dataTable class="styled-table"
+									value="#{carPoolingServiceManagementBean.carPoolingServiceList}"
+									var="carPoolingService">
+
+									<h:column>
+										<f:facet name="header">Reference # </f:facet>
+										<h:outputText value="#{carPoolingService.referenceNumber}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">From </f:facet>
+										<h:outputText
+											value="#{carPoolingService.trajectory.pickUpAddress}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Departure date &amp; time</f:facet>
+										<h:outputText value="#{carPoolingService.startDate}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">To </f:facet>
+										<h:outputText
+											value="#{carPoolingService.trajectory.deliveryAddress}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Arrival date &amp; time</f:facet>
+										<h:outputText value="#{carPoolingService.endDate}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Published by</f:facet>
+										<h:outputText
+											value="#{carPoolingService.userAccountProvider.username}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Price</f:facet>
+										<h:outputText value="#{carPoolingService.price}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Details</f:facet>
+										<h:panelGrid>
+											<h:commandButton value="Detail"
+												action="#{carPoolingServiceManagementBean.detail(carPoolingService.id)}">
+
+												<f:param name="carPoolingServiceId"
+													value="#{carPoolingService.id}"></f:param>
+
+											</h:commandButton>
+										</h:panelGrid>
+									</h:column>
+									<h:column>
+										<f:facet name="header">Delete</f:facet>
+										<h:panelGrid>
+											<h:commandButton
+												action="#{carPoolingManagementBean.delete(carPoolingService.id)}"
+												value="Delete" />
+										</h:panelGrid>
+									</h:column>
+								</h:dataTable>
+							</h:form>
+
+							<br /> <span class="label-text-cusProfile"><i
+								class="fa fa-inbox fa-col-cus"> Manage car rental services
+									on your website:</i></span><br /> <br />
+							<h:form>
+								<h:dataTable class="styled-table"
+									value="#{carPoolingServiceManagementBean.carPoolingServiceList}"
+									var="carPoolingService">
+
+									<h:column>
+										<f:facet name="header"> Referece # </f:facet>
+										<h:outputText value="#{carRentalService.referenceNumber}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Keys picked up at </f:facet>
+										<h:outputText value="#{carRentalService.keyPickUpAddress}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Keys returned at  </f:facet>
+										<h:outputText value="#{carRentalService.keyDropOffAddress}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Start date</f:facet>
+										<h:outputText value="#{carRentalService.startDate}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">End date</f:facet>
+										<h:outputText value="#{carRentalService.endDate}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Published by</f:facet>
+										<h:outputText
+											value="#{carRentalService.userAccountProvider.username}" />
+
+									</h:column>
+									<h:column>
+										<f:facet name="header">Price</f:facet>
+										<h:outputText value="#{carRentalService.price}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Details</f:facet>
+										<h:panelGrid>
+											<h:commandButton value="Detail"
+												action="#{carRentalServiceManagementBean.detail(carRentalService.id)}">
+												<f:param name="carRentalServiceId"
+													value="#{carRentalService.id}"></f:param>
+											</h:commandButton>
+										</h:panelGrid>
+									</h:column>
+									<h:column>
+										<f:facet name="header">Delete</f:facet>
+										<h:panelGrid>
+											<h:commandButton
+												action="#{carRentalServiceManagementBean.delete(carRentalService.id)}"
+												value="Delete" />
+										</h:panelGrid>
+									</h:column>
+								</h:dataTable>
+							</h:form>
+
+							<br /> <span class="label-text-cusProfile"><i
+								class="fa fa-inbox fa-col-cus"> Manage parcel services on
+									your website:</i></span><br /> <br />
+							<h:form>
+								<h:dataTable class="styled-table" id="ParcelService"
+									value="#{parcelServiceManagementBean.parcelServiceList}"
+									var="parcelService">
+
+									<h:column>
+										<f:facet name="header"> Refecence # </f:facet>
+										<h:outputText value="#{parcelService.referenceNumber}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">From</f:facet>
+										<h:outputText
+											value="#{parcelService.trajectory.pickUpAddress}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Departure date &amp; time</f:facet>
+										<h:outputText value="#{parcelService.startDate}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">To</f:facet>
+										<h:outputText
+											value="#{parcelService.trajectory.deliveryAddress}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Arrival date &amp; time</f:facet>
+										<h:outputText value="#{parcelService.endDate}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Bar code</f:facet>
+										<h:outputText value="#{parcelService.barCode}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Published by</f:facet>
+										<h:outputText
+											value="#{parcelService.userAccountProvider.username}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Price</f:facet>
+										<h:outputText value="#{parcelService.price}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Details</f:facet>
+										<h:panelGrid>
+											<h:commandButton value="Detail"
+												action="#{parcelServiceManagementBean.detail(parcelService.id)}">
+												<f:param name="parcelServiceId" value="#{parcelService.id}"></f:param>
+											</h:commandButton>
+										</h:panelGrid>
+									</h:column>
+									<h:column>
+										<f:facet name="header">Delete</f:facet>
+										<h:panelGrid>
+											<h:commandButton
+												action="#{parcelServiceManagementBean.delete(parcelService.id)}"
+												value="Delete" />
+										</h:panelGrid>
+									</h:column>
+
+								</h:dataTable>
+							</h:form>
+
+							<br /> <span class="label-text-cusProfile"><i
+								class="fa fa-inbox fa-col-cus"> Manage personal assistance
+									services on your website:</i></span><br /> <br />
+							<h:form>
+								<h:dataTable class="styled-table" id="PersonalAssistance"
+									value="#{personalAssistanceServiceManagementBean.personnalAssistanceServiceList}"
+									var="personalAssistance">
+
+									<h:column>
+										<f:facet name="header">Reference #</f:facet>
+										<h:outputText value="#{personalAssistance.referenceNumber}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">From</f:facet>
+										<h:outputText
+											value="#{personalAssistance.trajectory.pickUpAddress}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Departure date &amp; time</f:facet>
+										<h:outputText value="#{personalAssistance.startDate}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">To</f:facet>
+										<h:outputText
+											value="#{personalAssistance.trajectory.deliveryAddress}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Arrival date &amp; time</f:facet>
+										<h:outputText value="#{personalAssistance.endDate}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Published by</f:facet>
+										<h:outputText
+											value="#{personalAssistance.userAccountProvider.username}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Price</f:facet>
+										<h:outputText value="#{personalAssistance.price}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Details</f:facet>
+										<h:panelGrid>
+											<h:commandButton value="Detail"
+												action="#{personalAssistanceServiceManagementBean.detail(personalAssistance.id)}">
+												<f:param name="personalAssistanceServiceId"
+													value="#{personalAssistance.id}"></f:param>
+											</h:commandButton>
+										</h:panelGrid>
+									</h:column>
+									<h:column>
+										<f:facet name="header">Delete</f:facet>
+										<h:panelGrid>
+											<h:commandButton
+												action="#{personalAssistanceServiceManagementBean.delete(personalAssistance.id)}"
+												value="Delete" />
+										</h:panelGrid>
+									</h:column>
+								</h:dataTable>
+							</h:form>
 
 						</form>
 					</div>

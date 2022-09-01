@@ -2,6 +2,7 @@ package fr.isika.cda17.project3.model.serviceManagement;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -9,6 +10,7 @@ import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
+@NamedQuery(name = "ParcelService.findAllUserPS", query = "SELECT ps FROM ParcelService ps WHERE ps.userAccountProvider.id = :userid_param")
 public class ParcelService extends Service {
 
     private int barCode;

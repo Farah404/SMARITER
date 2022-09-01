@@ -64,4 +64,11 @@ public class CarRentalServiceDaoImpl implements CarRentalServiceDao {
 
     }
 
+	@Override
+	public List<CarRentalService> findAllUserCarRentalServices(Long id) {
+		List<CarRentalService> crsUserList = this.entityManager.createNamedQuery("CarRentalService.findAllUserCRS", CarRentalService.class)
+				.setParameter("userid_param", id).getResultList();
+		return crsUserList;
+	}
+
 }

@@ -359,29 +359,300 @@
 
 
 				<div id="services" class="container-fluid bg-grey">
-					@*Service List Display*@
 					<div class="table-responsive">
 						<p
 							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Mon
 							historique de prestations</p>
-						<input style="width: 50%; float: right" type="text"
-							id="searchInput" onkeyup="myFunction()"
-							placeholder="Rechercher une de mes prestations..." />
-						<table class="table" id="userInvoices">
-							<thead>
-								<tr class="header">
-									<th>Date de début</th>
-									<th>Type de service</th>
-									<th>Numéro de réference</th>
-									<th>Prestation demandée</th>
-									<th>Disponibilité</th>
-									<th>Supprimer la prestation</th>
-									<th>Consulter la facture</th>
-								</tr>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
+
+						<h:dataTable class="table container-fluid"
+							value="#{userProfileBean.cpsListUserRelated}"
+							var="cpsUserRelated">
+
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{cpsUserRelated.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Adresse de départ </f:facet>
+								<h:outputText value="#{cpsUserRelated.trajectory.pickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Date et heure de départ</f:facet>
+								<h:outputText value="#{cpsUserRelated.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Adresse d'arrivée </f:facet>
+								<h:outputText
+									value="#{cpsUserRelated.trajectory.deliveryAddress}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header"> Date et heure d'arrivée</f:facet>
+								<h:outputText value="#{cpsUserRelated.endDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Durée (heures)</f:facet>
+								<h:outputText value="#{cpsUserRelated.trajectory.durationHours}" />
+
+							</h:column>
+							<h:column>
+								<f:facet name="header">Nombre d'arrets</f:facet>
+								<h:outputText value="#{cpsUserRelated.trajectory.stopNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Sièges disponibles</f:facet>
+								<h:outputText value="#{cpsUserRelated.availableSeats}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{cpsUserRelated.price}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Details</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{carPoolingServiceManagementBean.detail(carPoolingService.id)}">
+
+										<f:param name="carPoolingServiceId"
+											value="#{carPoolingService.id}"></f:param>
+
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Modifier</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Edit"
+										action="#{carPoolingManagementBean.showUpdate(carPoolingService.id)}">
+
+										<f:param name="carPoolingServiceId"
+											value="#{carPoolingService.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Supprimer</f:facet>
+								<h:panelGrid>
+									<h:commandButton
+										action="#{carPoolingManagementBean.delete(carPoolingService.id)}"
+										value="Delete" />
+								</h:panelGrid>
+							</h:column>
+
+						</h:dataTable>
+						<br/>
+						<h:dataTable class="table container-fluid bg-grey" id="carRentalService"
+							value="#{userProfileBean.crsListUserRelated}"
+							var="crsUserRelated">
+
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{crsUserRelated.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Lieu de récupération des clés </f:facet>
+								<h:outputText value="#{crsUserRelated.keyPickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Lieu de remise des clés  </f:facet>
+								<h:outputText value="#{crsUserRelated.keyDropOffAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date de début</f:facet>
+								<h:outputText value="#{crsUserRelated.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date de fin</f:facet>
+								<h:outputText value="#{crsUserRelated.endDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Marque du véhicule</f:facet>
+								<h:outputText value="#{crsUserRelated.vehicule.brand}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{crsUserRelated.price}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Details</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{carRentalServiceManagementBean.detail(carRentalService.id)}">
+										<f:param name="carRentalServiceId"
+											value="#{carRentalService.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Modifier</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Edit"
+										action="#{carRentalServiceManagementBean.showUpdate(carRentalService.id)}">
+										<f:param name="carRentalServiceId"
+											value="#{carRentalService.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Supprimer</f:facet>
+								<h:panelGrid>
+									<h:commandButton
+										action="#{carRentalServiceManagementBean.delete(carRentalService.id)}"
+										value="Delete" />
+								</h:panelGrid>
+							</h:column>
+						</h:dataTable>
+						<br/>
+						<h:dataTable class="table container-fluid"
+							value="#{userProfileBean.psListUserRelated}"
+							var="psUserRelated">
+
+
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{psUserRelated.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse de départ  </f:facet>
+								<h:outputText value="#{psUserRelated.trajectory.pickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure de départ</f:facet>
+								<h:outputText value="#{parcelService.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse d'arrivée </f:facet>
+								<h:outputText
+									value="#{psUserRelated.trajectory.deliveryAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure d'arrivée</f:facet>
+								<h:outputText value="#{psUserRelated.endDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Code Barre</f:facet>
+								<h:outputText value="#{psUserRelated.barCode}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Fragile</f:facet>
+								<h:outputText value="#{psUserRelated.fragile}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Volumineux</f:facet>
+								<h:outputText value="#{psUserRelated.atypicalVolume}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Poids</f:facet>
+								<h:outputText value="#{psUserRelated.weightKilogrammes}" />
+							</h:column>
+
+
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{psUserRelated.price}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Details</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{parcelServiceManagementBean.detail(parcelService.id)}">
+										<f:param name="parcelServiceId" value="#{parcelService.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Modifier</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Edit"
+										action="#{parcelServiceManagementBean.showUpdate(parcelService.id)}">
+										<f:param name="parcelServiceId"
+											value="#{parcelService.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Supprimer</f:facet>
+								<h:panelGrid>
+									<h:commandButton
+										action="#{parcelServiceManagementBean.delete(parcelService.id)}"
+										value="Delete" />
+								</h:panelGrid>
+							</h:column>
+
+
+
+
+						</h:dataTable>
+						<br/>
+						<h:dataTable class="table container-fluid bg-grey"
+							value="#{userProfileBean.pasListUserRelated}"
+							var="pasUserRelated">
+
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{pasUserRelated.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse de départ  </f:facet>
+								<h:outputText value="#{pasUserRelated.trajectory.pickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure de départ</f:facet>
+								<h:outputText value="#{pasUserRelated.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse d'arrivée </f:facet>
+								<h:outputText
+									value="#{pasUserRelated.trajectory.deliveryAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure d'arrivée</f:facet>
+								<h:outputText value="#{pasUserRelated.endDate}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{pasUserRelated.price}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Details</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{personalAssistanceServiceManagementBean.detail(personalAssistance.id)}">
+										<f:param name="personalAssistanceServiceId"
+											value="#{personalAssistance.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Modifier</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Edit"
+										action="#{personalAssistanceServiceManagementBean.showUpdate(personalAssistance.id)}">
+										<f:param name="personalAssistanceServiceId"
+											value="#{personalAssistance.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+
+								<f:facet name="header">Supprimer</f:facet>
+								<h:panelGrid>
+									<h:commandButton
+										action="#{personalAssistanceServiceManagementBean.delete(personalAssistance.id)}"
+										value="Delete" />
+								</h:panelGrid>
+							</h:column>
+
+
+
+
+						</h:dataTable>
 					</div>
 				</div>
 				<br />

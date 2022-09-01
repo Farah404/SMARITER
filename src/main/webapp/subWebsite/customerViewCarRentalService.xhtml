@@ -6,7 +6,11 @@
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
 	xmlns:f="http://java.sun.com/jsf/core">
 
+<f:metadata>
 
+	<f:event listener="#{carRentalReservationBean.init()}"
+		type="preRenderView"></f:event>
+</f:metadata>
 <h:body>
 	<ui:composition template="#{templateBean.subtemplatePath()}">
 		<ui:define name="subcontent">
@@ -18,23 +22,28 @@
 					<div class="panel-body inf-content">
 						<div class="row">
 
-
 							<div class="col-md-4">
 								<img alt="" style="width: 100%;" class=" img-thumbnail"
-									src="subMedia/Images/CarRental.png" /> <br />
+									src="subMedia/Images/CarRental.png" /> <br /> <br />
 
-								<button class="btn btn-success center-block" type="submit">Réserver
-									la prestation pour EcoCoins</button>
+								<h:commandButton
+									action="#{carRentalReservationBean.reservation()}"
+									value="Réserver la prestation pour #{carRentalReservationBean.carRental.price} EcoCoins"
+									class="btn btn-success center-block" type="submit"></h:commandButton>
 
 								<br />
-								<button class="btn btn-success center-block">Profil de
-									l'EcoMembre prestataire</button>
+
+								<h:commandButton class="btn btn-success center-block"
+									type="submit"
+									value="Profil de l'EcoMembre prestataire #{carRentalReservationBean.carRental.userAccountProvider.username}"
+									action="#{carPoolingReservationBean.reservation()}">
+								</h:commandButton>
+
 							</div>
 							<div class="col-md-6">
 								<div class="table-responsive">
-									@*Information*@ <span class="text-success"><strong>Information</strong></span>
 
-
+									<span class="text-success"><strong>Information</strong><br /></span>
 
 									<table class="table table-user-information">
 										<tbody>
@@ -43,7 +52,7 @@
 													class="glyphicon glyphicon-play  text-success"></span> Date
 													et heure de départ</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carRentalReservationBean.carRental.endDate}</p>
 												</td>
 											</tr>
 
@@ -52,7 +61,7 @@
 													class="glyphicon glyphicon-stop  text-success"></span> Date
 													et heure de d'arrivée</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carRentalReservationBean.carRental.startDate}</p>
 												</td>
 											</tr>
 											<tr>
@@ -60,7 +69,7 @@
 													class="glyphicon glyphicon-arrow-up  text-success"></span>
 													Lieu de remise des clés</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carRentalReservationBean.carRental.keyDropOffAddress}</p>
 												</td>
 											</tr>
 
@@ -69,7 +78,7 @@
 													class="glyphicon glyphicon-arrow-down text-success"></span>
 													Lieu de récupération des clés</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carRentalReservationBean.carRental.keyPickUpAddress}</p>
 												</td>
 											</tr>
 
@@ -77,33 +86,18 @@
 												<td><span class="glyphicon glyphicon-tags text-success"></span>
 													Marque du véhicule</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carRentalReservationBean.carRental.userAccountProvider.vehicule.brand}</p>
 												</td>
 											</tr>
 
-											<tr>
-												<td><span class="glyphicon glyphicon-star text-success"></span>
-													Modèle du véhicule</td>
-												<td class="text-success">
-													<p></p>
-												</td>
-											</tr>
 											<tr>
 												<td><span class="glyphicon glyphicon-cog text-success"></span>
-													Hybride</td>
+													Type</td>
 												<td class="text-success">
-													<p></p>
+													<p>#{carRentalReservationBean.carRental.userAccountProvider.vehicule.vehiculeType.name()}</p>
 												</td>
 											</tr>
 
-											<tr>
-												<td><span
-													class="glyphicon glyphicon-flash text-success"></span> 100%
-													Electrique</td>
-												<td class="text-success">
-													<p></p>
-												</td>
-											</tr>
 
 											<tr>
 												<td><span class="glyphicon glyphicon-user text-success"></span>
