@@ -30,9 +30,9 @@ public class PersonalAssistanceServiceManagementBean implements Serializable {
 
     private PersonalAssistanceService personalAssistanceService = new PersonalAssistanceService();
 
-    private TrajectoryType trajectoryType;
-
     private List<PersonalAssistanceService> personnalAssistanceServiceList;
+
+    private TrajectoryType trajectoryType;
 
     private PersonalAssistanceType personalAssistanceType;
 

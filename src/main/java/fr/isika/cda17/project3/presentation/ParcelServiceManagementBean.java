@@ -73,7 +73,7 @@ public class ParcelServiceManagementBean implements Serializable {
     public String detail(Long id) {
 	parcelService = parcelServiceDao.findById(id);
 
-	return "reserveParcelService.xhtml?faces-redirect=true&cparcelServiceId=" + id;
+	return "reserveParcelService.xhtml?faces-redirect=true&parcelServiceId=" + id;
     }
 
     private void refresh() {
