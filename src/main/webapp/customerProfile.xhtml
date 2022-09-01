@@ -167,9 +167,9 @@
 									<h:column>
 										<f:facet name="header">Go to profile</f:facet>
 										<h:panelGrid>
-											<h:commandButton value="Edit"
+											<h:commandButton value="See"
 												action="#{userProfileManagementBean.showUpdate(users.id)}">
-												<f:param name="userId" value="#user.id}"></f:param>
+												<f:param name="userId" value="{#user.id}"></f:param>
 											</h:commandButton>
 										</h:panelGrid>
 									</h:column>
@@ -235,7 +235,7 @@
 										<f:facet name="header">Details</f:facet>
 										<h:panelGrid>
 											<h:commandButton value="Detail"
-												action="#{carPoolingServiceManagementBean.detail(carPoolingService.id)}">
+												action="#{carPoolingServiceManagementBean.detailFromSmariter(carPoolingService.id)}">
 
 												<f:param name="carPoolingServiceId"
 													value="#{carPoolingService.id}"></f:param>
@@ -247,7 +247,7 @@
 										<f:facet name="header">Delete</f:facet>
 										<h:panelGrid>
 											<h:commandButton
-												action="#{carPoolingManagementBean.delete(carPoolingService.id)}"
+												action="#{carPoolingServiceManagementBean.delete(carPoolingService.id)}"
 												value="Delete" />
 										</h:panelGrid>
 									</h:column>
@@ -259,8 +259,8 @@
 									on your website:</i></span><br /> <br />
 							<h:form>
 								<h:dataTable class="styled-table"
-									value="#{carPoolingServiceManagementBean.carPoolingServiceList}"
-									var="carPoolingService">
+									value="#{carRentalServiceManagementBean.carRentalServiceList}"
+									var="carRentalService">
 
 									<h:column>
 										<f:facet name="header"> Referece # </f:facet>
@@ -297,7 +297,7 @@
 										<f:facet name="header">Details</f:facet>
 										<h:panelGrid>
 											<h:commandButton value="Detail"
-												action="#{carRentalServiceManagementBean.detail(carRentalService.id)}">
+												action="#{carRentalServiceManagementBean.detailFromSmariter(carRentalService.id)}">
 												<f:param name="carRentalServiceId"
 													value="#{carRentalService.id}"></f:param>
 											</h:commandButton>
@@ -364,7 +364,7 @@
 										<f:facet name="header">Details</f:facet>
 										<h:panelGrid>
 											<h:commandButton value="Detail"
-												action="#{parcelServiceManagementBean.detail(parcelService.id)}">
+												action="#{parcelServiceManagementBean.detailFromSmariter(parcelService.id)}">
 												<f:param name="parcelServiceId" value="#{parcelService.id}"></f:param>
 											</h:commandButton>
 										</h:panelGrid>
@@ -426,7 +426,7 @@
 										<f:facet name="header">Details</f:facet>
 										<h:panelGrid>
 											<h:commandButton value="Detail"
-												action="#{personalAssistanceServiceManagementBean.detail(personalAssistance.id)}">
+												action="#{personalAssistanceServiceManagementBean.detailFromSmariter(personalAssistance.id)}">
 												<f:param name="personalAssistanceServiceId"
 													value="#{personalAssistance.id}"></f:param>
 											</h:commandButton>

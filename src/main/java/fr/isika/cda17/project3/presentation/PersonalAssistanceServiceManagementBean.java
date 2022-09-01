@@ -71,8 +71,12 @@ public class PersonalAssistanceServiceManagementBean implements Serializable {
 
 	public String detail(Long id) {
 		personalAssistanceServiceDao.toString();
-
 		return "reservePersonalAssistanceService.xhtml?faces-redirect=true&personalAssistanceServiceId=" + id;
+	}
+	
+	public String detailFromSmariter(Long id) {
+		personalAssistanceServiceDao.toString();
+		return "subWebsite/reservePersonalAssistanceService.xhtml?faces-redirect=true&personalAssistanceServiceId=" + id;
 	}
 
 	private void refresh() {

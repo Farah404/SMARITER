@@ -31,7 +31,7 @@ public class UserProfileManagementBean implements Serializable {
 
 	System.err.println(id);
 
-	return "subUserProfileByCustomer.xhtml?faces-redirect=true&userId=" + id;
+	return "subWebsite/subUserProfileByCustomer.xhtml?faces-redirect=true&userId=" + id;
     }
 
     private void refresh() {
