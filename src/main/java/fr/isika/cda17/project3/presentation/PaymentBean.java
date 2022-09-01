@@ -68,6 +68,7 @@ public class PaymentBean {
 
     // Make payment
     public void doPaymentTransaction() {
+    	receivePaymentMethodNonce();
 
 	TransactionRequest request = new TransactionRequest().amount(amount).paymentMethodNonce(nonce)
 		.type(Type.SALE);
@@ -78,8 +79,8 @@ public class PaymentBean {
 	customerRequest.lastName("Patel");
 
 	
-	TransactionCreditCardRequest tccr = request.creditCard()
-		.number("1234567891234567").cardholderName("Patel Chirag").cvv("200").expirationDate("11/23");
+//	TransactionCreditCardRequest tccr = request.creditCard()
+//		.number("1234567891234567").cardholderName("Patel Chirag").cvv("200").expirationDate("11/23");
 	
 	TransactionOptionsRequest options = request.options();
 	options.submitForSettlement(true);
@@ -118,9 +119,10 @@ public class PaymentBean {
 
     // Make an endpoint which receive payment method nonce from client and do
     // payment.
-    public String receivePaymentMethodNonce() {
-	String nonceFromTheClient = "fake-valid-mastercard-nonce";
-	return nonceFromTheClient;
+    public void receivePaymentMethodNonce() {
+//	String nonceFromTheClient = "fake-valid-mastercard-nonce";
+    	nonce = "fake-valid-mastercard-nonce";
+//	return nonceFromTheClient;
     }
 
     private void displayTransactionInfo(Transaction transaction) {
