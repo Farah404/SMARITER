@@ -52,6 +52,8 @@ public class Solution {
 
     @OneToOne(cascade = CascadeType.PERSIST)
     private ParcelSolution parcelSolution;
+    
+    private double price;
 
     public Solution() {
 	super();
@@ -200,4 +202,14 @@ public class Solution {
 	this.customer = customer;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    
+    
 }
