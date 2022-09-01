@@ -23,14 +23,12 @@ public class CarRentalService extends Service {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Vehicule vehicule;
-
+    
     public CarRentalService() {
 	super();
     }
 
-    public CarRentalService(Long id, Date publicationDate, Date expirationDate, Date startDate, Date endDate,
-	    int referenceNumber, Boolean isRequest, double price, List<Reservation> reservations,
-	    ServiceType servicetype, List<UserAccount> userAccounts, String keyPickUpAddress, String keyDropOffAddress,
+    public CarRentalService(String keyPickUpAddress, String keyDropOffAddress,
 	    Vehicule vehicule) {
 	super();
 	this.keyPickUpAddress = keyPickUpAddress;
@@ -61,5 +59,4 @@ public class CarRentalService extends Service {
     public void setVehicule(Vehicule vehicule) {
 	this.vehicule = vehicule;
     }
-
 }

@@ -8,7 +8,7 @@
 
 <f:metadata>
 
-	<f:event listener="#{parcelServiceManagementBean.init()}"
+	<f:event listener="#{parcelServiceReservationBean.init()}"
 		type="preRenderView"></f:event>
 </f:metadata>
 
@@ -26,8 +26,11 @@
 								<img alt="" style="width: 100%;" class=" img-thumbnail"
 									src="subMedia/Images/ParcelDelivery.png" /> <br />
 
-								<button class="btn btn-success center-block" type="submit">Réserver
-									la prestation pour EcoCoins</button>
+								<h:commandButton class="btn btn-success center-block"
+									type="submit"
+									value=" Réserver la prestation pour #{parcelServiceReservationBean.parcelService.price} EcoCoins"
+									action="#{parcelServiceReservationBean.reservation()}">
+								</h:commandButton>
 
 								<br />
 								<button class="btn btn-success center-block">Profil de
@@ -48,7 +51,7 @@
 													class="glyphicon glyphicon-play  text-success"></span> Date
 													et heure de départ</td>
 												<td class="text-success">
-													<p>#{parcelServiceManagementBean.parcelService.startDate}</p>
+													<p>#{parcelServiceReservationBean.parcelService.startDate}</p>
 												</td>
 											</tr>
 											<tr>
@@ -57,7 +60,7 @@
 													class="glyphicon glyphicon-stop  text-success"></span> Date
 													et heure de d'arrivée</td>
 												<td class="text-success">
-													<p>#{parcelServiceManagementBean.parcelService.endDate}</p>
+													<p>#{parcelServiceReservationBean.parcelService.endDate}</p>
 												</td>
 											</tr>
 											<tr>
@@ -65,7 +68,7 @@
 													class="glyphicon glyphicon-barcode  text-success"></span>
 													Code barre</td>
 												<td class="text-success">
-													<p>#{parcelServiceManagementBean.parcelService.barCode}</p>
+													<p>#{parcelServiceReservationBean.parcelService.barCode}</p>
 												</td>
 											</tr>
 
@@ -74,7 +77,7 @@
 													class="glyphicon glyphicon-dashboard text-success"></span>
 													Poids en kilogrammes</td>
 												<td class="text-success">
-													<p>#{parcelServiceManagementBean.parcelService.weightKilogrammes}</p>
+													<p>#{parcelServiceReservationBean.parcelService.weightKilogrammes}</p>
 												</td>
 											</tr>
 
@@ -83,7 +86,7 @@
 													class="glyphicon glyphicon-cloud text-success"></span>
 													Forme atypique</td>
 												<td class="text-success">
-													<p>#{parcelServiceManagementBean.parcelService.atypicalVolume}</p>
+													<p>#{parcelServiceReservationBean.parcelService.atypicalVolume}</p>
 												</td>
 											</tr>
 
@@ -92,7 +95,7 @@
 													class="glyphicon glyphicon-flash text-success"></span>
 													Fragile</td>
 												<td class="text-success">
-													<p>#{parcelServiceManagementBean.parcelService.fragile}</p>
+													<p>#{parcelServiceReservationBean.parcelService.fragile}</p>
 												</td>
 											</tr>
 
@@ -103,7 +106,7 @@
 													class="glyphicon glyphicon-arrow-up text-success"></span>
 													Adresse de départ</td>
 												<td class="text-success">
-													<p>#{parcelServiceManagementBean.parcelService.trajectory.pickUpAddress}</p>
+													<p>#{parcelServiceReservationBean.parcelService.trajectory.pickUpAddress}</p>
 												</td>
 											</tr>
 
@@ -112,18 +115,18 @@
 													class="glyphicon glyphicon-arrow-down text-success"></span>
 													Adresse d'arrivée</td>
 												<td class="text-success">
-													<p>#{parcelServiceManagementBean.parcelService.trajectory.deliveryAddress}</p>
+													<p>#{parcelServiceReservationBean.parcelService.trajectory.deliveryAddress}</p>
 												</td>
 											</tr>
 
 										</tbody>
 									</table>
 								</div>
-							</div>
-						</div>
-					</div>
+		</div>
 				</div>
-
+				</div>
+				</div>
+					
 			</h:form>
 		</ui:define>
 	</ui:composition>
