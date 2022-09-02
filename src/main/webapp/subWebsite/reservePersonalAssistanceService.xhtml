@@ -24,7 +24,7 @@
 
 							<div class="col-md-4">
 								<img alt="" style="width: 100%;" class=" img-thumbnail"
-									src="subMedia/Images/ParcelDelivery.png" /> <br />
+									src="subMedia/Images/Entraide.png" /> <br />
 
 								<h:commandButton class="btn btn-success center-block"
 									type="submit"
@@ -41,16 +41,26 @@
 
 							<div class="col-md-6">
 								<div class="table-responsive">
-									@*Information*@ <span class="text-success"><strong>Information</strong></span>
+									<span class="text-success"><strong>Information</strong></span>
 
 									<table class="table table-user-information">
 										<tbody>
+
 											<tr>
 												<td><span
 													class="glyphicon glyphicon-play  text-success"></span> Date
 													et heure de départ</td>
 												<td class="text-success">
 													<p>#{personnalAssistanceReservationBean.personalAssistanceService.startDate}</p>
+												</td>
+											</tr>
+
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-up text-success"></span>
+													Adresse de départ</td>
+												<td class="text-success">
+													<p>#{personnalAssistanceReservationBean.personalAssistanceService.trajectory.pickUpAddress}</p>
 												</td>
 											</tr>
 											<tr>
@@ -62,6 +72,16 @@
 													<p>#{personnalAssistanceReservationBean.personalAssistanceService.endDate}</p>
 												</td>
 											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-down text-success"></span>
+													Adresse d'arrivée</td>
+												<td class="text-success">
+													<p>#{personnalAssistanceReservationBean.personalAssistanceService.trajectory.deliveryAddress}</p>
+												</td>
+											</tr>
+
+
 											<tr>
 												<td><span
 													class="glyphicon glyphicon-barcode  text-success"></span>
@@ -79,25 +99,6 @@
 													<p>#{personnalAssistanceReservationBean.personalAssistanceService.urgent}</p>
 												</td>
 											</tr>
-
-											<tr>
-												<td><span
-													class="glyphicon glyphicon-arrow-up text-success"></span>
-													Adresse de départ</td>
-												<td class="text-success">
-													<p>#{personnalAssistanceReservationBean.personalAssistanceService.trajectory.pickUpAddress}</p>
-												</td>
-											</tr>
-
-											<tr>
-												<td><span
-													class="glyphicon glyphicon-arrow-down text-success"></span>
-													Adresse d'arrivée</td>
-												<td class="text-success">
-													<p>#{personnalAssistanceReservationBean.personalAssistanceService.trajectory.deliveryAddress}</p>
-												</td>
-											</tr>
-
 										</tbody>
 									</table>
 								</div>

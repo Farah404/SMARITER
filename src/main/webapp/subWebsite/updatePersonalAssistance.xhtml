@@ -8,7 +8,7 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <f:metadata>
-	<f:event listener="#{CarPoolingServiceManagementBean.init()}"
+	<f:event listener="#{personalAssistanceServiceManagementBean.init()}"
 		type="preRenderView"></f:event>
 </f:metadata>
 
@@ -25,13 +25,11 @@
 
 							<div class="col-md-4">
 								<img alt="" style="width: 100%;" class=" img-thumbnail"
-									src="subMedia/Images/Covoit.png" /> <br /> <br />
-								<br />
+									src="subMedia/Images/Entraide.png" /> <br />
 
 								<h:commandButton class="btn btn-success center-block"
-									type="submit"
-									value="Mettre à jour"
-									action="#{carPoolingServiceManagementBean.update()}">
+									type="submit" value="Mettre à jour"
+									action="#{personalAssistanceServiceManagementBean.updapte()}">
 								</h:commandButton>
 
 							</div>
@@ -40,93 +38,93 @@
 
 							<div class="col-md-6">
 								<div class="table-responsive">
-
-									<span class="text-success"><b>Information</b><br /></span>
+									<span class="text-success"><strong>Information</strong></span>
 
 									<table class="table table-user-information">
 										<tbody>
-							<h:inputText
-								a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.deliveryAddress}"
-								value="#{carPoolingManagementBean.carPoolingService.trajectory.deliveryAddress}" />
 
-							<h:outputLabel value="Journey Duration (in hour)" />
-							<h:inputText
-								a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.durationHours}"
-								value="#{carPoolingManagementBean.carPoolingService.trajectory.durationHours}" />
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-play  text-success"></span> Date
+													et heure de départ</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{personalAssistanceServiceManagementBean.personalAssistanceService.startDate}"
+															value="#{personalAssistanceServiceManagementBean.personalAssistanceService.startDate}" />
+													</p>
+												</td>
+											</tr>
 
-							<h:outputLabel value="Stop Duration (in minute)" />
-							<h:inputText
-								a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.stopDurationMinutes}"
-								value="#{carPoolingManagementBean.carPoolingService.trajectory.stopDurationMinutes}" />
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-up text-success"></span>
+													Adresse de départ</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{personalAssistanceServiceManagementBean.personalAssistanceService.trajectory.pickUpAddress}"
+															value="#{personalAssistanceServiceManagementBean.personalAssistanceService.trajectory.pickUpAddress}" />
+													</p>
+												</td>
+											</tr>
+											<tr>
 
-							<h:outputLabel value="Stop Number" />
-							<h:inputText
-								a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.stopNumber}"
-								value="#{carPoolingManagementBean.carPoolingService.trajectory.stopNumber}" />
-
-							<h:outputLabel value="Seats Avaible" />
-							<h:inputText
-								a:placeholder="#{carPoolingManagementBean.carPoolingService.availableSeats}"
-								value="#{carPoolingManagementBean.carPoolingService.availableSeats}" />
-
-							<h:outputLabel value="Price" />
-							<h:inputText
-								a:placeholder="#{carPoolingManagementBean.carPoolingService.price}"
-								value="#{carPoolingManagementBean.carPoolingService.price}" />
-
-							<h:outputLabel value="CarPooling Type" />
-							<h:selectOneMenu
-								value="#{carPoolingManagementBean.carPoolingService.carPoolingType}">
-								<f:selectItem itemLabel="Selection" itemValue="null" />
-								<f:selectItems
-									value="#{carPoolingManagementBean.carPoolingType()}"
-									var="carPoolingType" itemLabel="#{carPoolingType}"
-									itemValue="#{carPoolingType}"></f:selectItems>
-							</h:selectOneMenu>
-
-							<br />
-							<h:outputLabel value="Trajetory Type" />
-							<h:selectOneMenu
-								value="#{carPoolingManagementBean.carPoolingService.trajectory.trajectoryType}">
-								<f:selectItem itemLabel="Selection" itemValue="" />
-								<f:selectItems
-									value="#{carPoolingManagementBean.trajectoryType()}"
-									var="trajectoryType" itemLabel="#{trajectoryType}"
-									itemValue="#{trajectoryType}"></f:selectItems>
-							</h:selectOneMenu>
-							<br />
-							<h:outputLabel value="vehicule brand" />
-							<h:inputText
-								a:placeholder="#{carPoolingManagementBean.carPoolingService.userAccountProvider.vehicule.brand}"
-								value="#{carPoolingManagementBean.carPoolingService.userAccountProvider.vehicule.brand}" />
+												<td><span
+													class="glyphicon glyphicon-stop  text-success"></span> Date
+													et heure de d'arrivée</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{personalAssistanceServiceManagementBean.personalAssistanceService.endDate}"
+															value=#{personalAssistanceServiceManagementBean.personalAssistanceService.endDate} />
+													</p>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-down text-success"></span>
+													Adresse d'arrivée</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{personalAssistanceServiceManagementBean.personalAssistanceService.trajectory.deliveryAddress}"
+															value="#{personalAssistanceServiceManagementBean.personalAssistanceService.trajectory.deliveryAddress}" />
+													</p>
+												</td>
+											</tr>
 
 
-							<h:outputLabel value="Pet Allowed" />
-							<h:selectBooleanCheckbox id="isPetAllowed"
-								value="#{carPoolingManagementBean.carPoolingService.petAllowed}" />
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-barcode  text-success"></span>
+													Type</td>
+												<td class="text-success">
+													<p>
+														<h:selectOneMenu
+															value="#{personalAssistanceServiceManagementBean.personalAssistanceService.personalAssistanceType}">
+															<f:selectItem itemLabel="Selection" itemValue="null" />
+															<f:selectItems
+																value="#{personalAssistanceServiceManagementBean.personalAssistanceType()}"
+																var="personalAssistanceType"
+																itemLabel="#{personalAssistanceType}"
+																itemValue="#{personalAssistanceType}"></f:selectItems>
+														</h:selectOneMenu>
+													</p>
+												</td>
+											</tr>
 
-							<h:outputLabel value="Music Allowed" />
-							<h:selectBooleanCheckbox id="isMusicAllowed"
-								value="#{carPoolingManagementBean.carPoolingService.musicAllowed}" />
-
-							<h:outputLabel value="Smoking Allowed" />
-							<h:selectBooleanCheckbox id="isSmokingAllowed"
-								value="#{carPoolingManagementBean.carPoolingService.smokingAllowed}" />
-
-							<h:outputLabel value="Chatting Allowed" />
-							<h:selectBooleanCheckbox id="isChattingAllowed"
-								value="#{carPoolingManagementBean.carPoolingService.chattingAllowed}" />
-
-							<h:selectOneRadio
-								value="#{carPoolingManagementBean.carPoolingService.userAccountProvider.vehicule.vehiculeType}">
-								<f:selectItems
-									value="#{carPoolingManagementBean.vehiculeTypes()}"
-									var="vehiculeType" itemValue="#{vehiculeType}"
-									itemLabel="#{vehiculeType}" />
-							</h:selectOneRadio>
-											
-											
-											
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-dashboard text-success"></span>
+													Urgent</td>
+												<td class="text-success">
+													<p>
+														<h:selectBooleanCheckbox id="isUrgent"
+															value="#{personalAssistanceServiceManagementBean.personalAssistanceService.urgent}" />
+													</p>
+												</td>
+											</tr>
 										</tbody>
 									</table>
 								</div>

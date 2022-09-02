@@ -35,7 +35,7 @@
 
 								<h:commandButton class="btn btn-success center-block"
 									type="submit"
-									value="Profil de l'EcoMembre prestataire #{carPoolingManagementBean.carPoolingService.userAccountProvider.username}"
+									value="Profil de l'EcoMembre prestataire"
 									action="#{carPoolingReservationBean.reservation()}">
 								</h:commandButton>
 
@@ -59,7 +59,14 @@
 													<p></p>
 												</td>
 											</tr>
-
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-up text-success"></span>
+													Adresse de départ</td>
+												<td class="text-success">
+													<p>#{carPoolingReservationBean.carPooling.trajectory.pickUpAddress}</p>
+												</td>
+											</tr>
 											<tr>
 												<td><span
 													class="glyphicon glyphicon-stop  text-success"></span> Date
@@ -68,7 +75,14 @@
 													<p>#{carPoolingReservationBean.carPooling.endDate}</p>
 												</td>
 											</tr>
-
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-down text-success"></span>
+													Adresse d'arrivée</td>
+												<td class="text-success">
+													<p>#{carPoolingReservationBean.carPooling.trajectory.deliveryAddress}</p>
+												</td>
+											</tr>
 											<tr>
 												<td><span
 													class="glyphicon glyphicon-road  text-success"></span> Type
@@ -109,24 +123,6 @@
 													Durée d'arrêt en minutes</td>
 												<td class="text-success">
 													<p>#{carPoolingReservationBean.carPooling.trajectory.stopDurationMinutes}</p>
-												</td>
-											</tr>
-
-											<tr>
-												<td><span
-													class="glyphicon glyphicon-arrow-up text-success"></span>
-													Adresse de départ</td>
-												<td class="text-success">
-													<p>#{carPoolingReservationBean.carPooling.trajectory.pickUpAddress}</p>
-												</td>
-											</tr>
-
-											<tr>
-												<td><span
-													class="glyphicon glyphicon-arrow-down text-success"></span>
-													Adresse d'arrivée</td>
-												<td class="text-success">
-													<p>#{carPoolingReservationBean.carPooling.trajectory.deliveryAddress}</p>
 												</td>
 											</tr>
 

@@ -25,12 +25,10 @@
 
 							<div class="col-md-4">
 								<img alt="" style="width: 100%;" class=" img-thumbnail"
-									src="subMedia/Images/Covoit.png" /> <br /> <br />
-								<br />
+									src="subMedia/Images/Covoit.png" /> <br /> <br /> <br />
 
 								<h:commandButton class="btn btn-success center-block"
-									type="submit"
-									value="Mettre à jour"
+									type="submit" value="Mettre à jour"
 									action="#{carPoolingServiceManagementBean.update()}">
 								</h:commandButton>
 
@@ -45,85 +43,197 @@
 
 									<table class="table table-user-information">
 										<tbody>
-							<h:inputText
-								a:placeholder="#{carPoolingServiceManagementBean.carPoolingService.trajectory.deliveryAddress}"
-								value="#{carPoolingServiceManagementBean.carPoolingService.trajectory.deliveryAddress}" />
 
-							<h:outputLabel value="Journey Duration (in hour)" />
-							<h:inputText
-								a:placeholder="#{carPoolingServiceManagementBean.carPoolingService.trajectory.durationHours}"
-								value="#{carPoolingServiceManagementBean.carPoolingService.trajectory.durationHours}" />
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-resize-small text-success"></span>
+													Prix</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{carPoolingServiceManagementBean.carPoolingService.price}"
+															value="#{carPoolingServiceManagementBean.carPoolingService.price}" />
+													</p>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-play  text-success"></span> Date
+													et heure de départ</td>
+												<td class="text-success">
+													<p>#{carPoolingReservationBean.carPooling.startDate}</p>
+													<p></p>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-up text-success"></span>
+													Adresse de départ</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{carPoolingServiceManagementBean.carPoolingService.trajectory.deliveryAddress}"
+															value="#{carPoolingServiceManagementBean.carPoolingService.trajectory.deliveryAddress}" />
+													</p>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-stop  text-success"></span> Date
+													et heure d'arrivée</td>
+												<td class="text-success">
+													<p>#{carPoolingReservationBean.carPooling.endDate}</p>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-down text-success"></span>
+													Adresse d'arrivée</td>
+												<td class="text-success">
+													<p>#{carPoolingReservationBean.carPooling.trajectory.deliveryAddress}</p>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-road  text-success"></span> Type
+													de covoiturage</td>
+												<td class="text-success">
+													<p>
+														<h:selectOneMenu
+															value="#{carPoolingServiceManagementBean.carPoolingService.carPoolingType}">
+															<f:selectItem itemLabel="Selection" itemValue="null" />
+															<f:selectItems
+																value="#{carPoolingServiceManagementBean.carPoolingType()}"
+																var="carPoolingType" itemLabel="#{carPoolingType}"
+																itemValue="#{carPoolingType}"></f:selectItems>
+														</h:selectOneMenu>
+													</p>
+												</td>
+											</tr>
 
-							<h:outputLabel value="Stop Duration (in minute)" />
-							<h:inputText
-								a:placeholder="#{carPoolingServiceManagementBean.carPoolingService.trajectory.stopDurationMinutes}"
-								value="#{carPoolingServiceManagementBean.carPoolingService.trajectory.stopDurationMinutes}" />
+											<tr>
+												<td><span class="glyphicon glyphicon-user text-success"></span>
+													Sièges disponibles</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{carPoolingServiceManagementBean.carPoolingService.availableSeats}"
+															value="#{carPoolingServiceManagementBean.carPoolingService.availableSeats}" />
+													</p>
+												</td>
+											</tr>
 
-							<h:outputLabel value="Stop Number" />
-							<h:inputText
-								a:placeholder="#{carPoolingServiceManagementBean.carPoolingService.trajectory.stopNumber}"
-								value="#{carPoolingServiceManagementBean.carPoolingService.trajectory.stopNumber}" />
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-hourglass text-success"></span>
+													Durée du trajet en heure</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{carPoolingServiceManagementBean.carPoolingService.trajectory.durationHours}"
+															value="#{carPoolingServiceManagementBean.carPoolingService.trajectory.durationHours}" />
+													</p>
+												</td>
+											</tr>
 
-							<h:outputLabel value="Seats Avaible" />
-							<h:inputText
-								a:placeholder="#{carPoolingServiceManagementBean.carPoolingService.availableSeats}"
-								value="#{carPoolingServiceManagementBean.carPoolingService.availableSeats}" />
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-pause text-success"></span>
+													Nombre d'arrêts</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{carPoolingServiceManagementBean.carPoolingService.trajectory.stopNumber}"
+															value="#{carPoolingServiceManagementBean.carPoolingService.trajectory.stopNumber}" />
+													</p>
+												</td>
+											</tr>
 
-							<h:outputLabel value="Price" />
-							<h:inputText
-								a:placeholder="#{carPoolingServiceManagementBean.carPoolingService.price}"
-								value="#{carPoolingServiceManagementBean.carPoolingService.price}" />
+											<tr>
+												<td><span class="glyphicon glyphicon-time text-success"></span>
+													Durée d'arrêt en minutes</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{carPoolingServiceManagementBean.carPoolingService.trajectory.stopDurationMinutes}"
+															value="#{carPoolingServiceManagementBean.carPoolingService.trajectory.stopDurationMinutes}" />
+													</p>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-resize-small text-success"></span>
+													Type du trajet</td>
+												<td class="text-success">
+													<p>
+														<h:selectOneMenu
+															value="#{carPoolingServiceManagementBean.carPoolingService.trajectory.trajectoryType}">
+															<f:selectItem itemLabel="Selection" itemValue="" />
+															<f:selectItems
+																value="#{carPoolingServiceManagementBean.trajectoryType()}"
+																var="trajectoryType" itemLabel="#{trajectoryType}"
+																itemValue="#{trajectoryType}"></f:selectItems>
+														</h:selectOneMenu>
+													</p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
 
-							<h:outputLabel value="CarPooling Type" />
-							<h:selectOneMenu
-								value="#{carPoolingServiceManagementBean.carPoolingService.carPoolingType}">
-								<f:selectItem itemLabel="Selection" itemValue="null" />
-								<f:selectItems
-									value="#{carPoolingServiceManagementBean.carPoolingType()}"
-									var="carPoolingType" itemLabel="#{carPoolingType}"
-									itemValue="#{carPoolingType}"></f:selectItems>
-							</h:selectOneMenu>
 
-							<br />
-							<h:outputLabel value="Trajetory Type" />
-							<h:selectOneMenu
-								value="#{carPoolingServiceManagementBean.carPoolingService.trajectory.trajectoryType}">
-								<f:selectItem itemLabel="Selection" itemValue="" />
-								<f:selectItems
-									value="#{carPoolingServiceManagementBean.trajectoryType()}"
-									var="trajectoryType" itemLabel="#{trajectoryType}"
-									itemValue="#{trajectoryType}"></f:selectItems>
-							</h:selectOneMenu>
-							<br />
-							<h:outputLabel value="vehicule brand" />
-							<h:inputText
-								a:placeholder="#{carPoolingServiceManagementBean.carPoolingService.userAccountProvider.vehicule.brand}"
-								value="#{carPoolingServiceManagementBean.carPoolingService.userAccountProvider.vehicule.brand}" />
+									<span class="text-success"><strong>Preferences</strong></span>
+
+									<table class="table table-user-information">
+										<tbody>
+
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-heart  text-success"></span>
+													Animaux de compagnie</td>
+												<td class="text-success">
+													<p>
+														<h:selectBooleanCheckbox id="isPetAllowed"
+															value="#{carPoolingServiceManagementBean.carPoolingService.petAllowed}" />
+													</p>
+												</td>
+											</tr>
+
+											<tr>
+												<td><span class="glyphicon glyphicon-fire text-success"></span>
+													Fumeur</td>
+												<td class="text-success">
+													<p>
+														<h:selectBooleanCheckbox id="isSmokingAllowed"
+															value="#{carPoolingServiceManagementBean.carPoolingService.smokingAllowed}" />
+													</p>
+												</td>
+											</tr>
+
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-headphones text-success"></span>
+													Musique</td>
+												<td class="text-success">
+													<p>
+														<h:selectBooleanCheckbox id="isMusicAllowed"
+															value="#{carPoolingServiceManagementBean.carPoolingService.musicAllowed}" />
+													</p>
+												</td>
+											</tr>
+
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-bullhorn text-success"></span>
+													Discussion</td>
+												<td class="text-success">
+													<p>
+														<h:selectBooleanCheckbox id="isChattingAllowed"
+															value="#{carPoolingServiceManagementBean.carPoolingService.chattingAllowed}" />
+													</p>
+												</td>
+											</tr>
 
 
-							<h:outputLabel value="Pet Allowed" />
-							<h:selectBooleanCheckbox id="isPetAllowed"
-								value="#{carPoolingServiceManagementBean.carPoolingService.petAllowed}" />
-
-							<h:outputLabel value="Music Allowed" />
-							<h:selectBooleanCheckbox id="isMusicAllowed"
-								value="#{carPoolingServiceManagementBean.carPoolingService.musicAllowed}" />
-
-							<h:outputLabel value="Smoking Allowed" />
-							<h:selectBooleanCheckbox id="isSmokingAllowed"
-								value="#{carPoolingServiceManagementBean.carPoolingService.smokingAllowed}" />
-
-							<h:outputLabel value="Chatting Allowed" />
-							<h:selectBooleanCheckbox id="isChattingAllowed"
-								value="#{carPoolingServiceManagementBean.carPoolingService.chattingAllowed}" />
-
-							<h:selectOneRadio
-								value="#{carPoolingServiceManagementBean.carPoolingService.userAccountProvider.vehicule.vehiculeType}">
-								<f:selectItems
-									value="#{carPoolingServiceManagementBean.vehiculeTypes()}"
-									var="vehiculeType" itemValue="#{vehiculeType}"
-									itemLabel="#{vehiculeType}" />
-							</h:selectOneRadio>
 										</tbody>
 									</table>
 								</div>

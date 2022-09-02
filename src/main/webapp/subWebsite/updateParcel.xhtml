@@ -8,7 +8,7 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <f:metadata>
-	<f:event listener="#{CarPoolingServiceManagementBean.init()}"
+	<f:event listener="#{parcelServiceManagementBean.init()}"
 		type="preRenderView"></f:event>
 </f:metadata>
 
@@ -25,13 +25,13 @@
 
 							<div class="col-md-4">
 								<img alt="" style="width: 100%;" class=" img-thumbnail"
-									src="subMedia/Images/Covoit.png" /> <br /> <br />
+									src="subMedia/Images/ParcelDelivery.png" /> <br />
 								<br />
 
 								<h:commandButton class="btn btn-success center-block"
 									type="submit"
 									value="Mettre à jour"
-									action="#{carPoolingServiceManagementBean.update()}">
+									action="#{parcelServiceManagementBean.update()}">
 								</h:commandButton>
 
 							</div>
@@ -41,100 +41,118 @@
 							<div class="col-md-6">
 								<div class="table-responsive">
 
-									<span class="text-success"><b>Information</b><br /></span>
+									<span class="text-success"><strong>Information</strong><br /></span>
 
 									<table class="table table-user-information">
 										<tbody>
-							<h:inputText
-								a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.deliveryAddress}"
-								value="#{carPoolingManagementBean.carPoolingService.trajectory.deliveryAddress}" />
+										<tr>
+												<td><span
+													class="glyphicon glyphicon-resize-small text-success"></span>
+													Prix</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{parcelServiceManagementBean.parcelService.price}"
+															value="#{parcelServiceManagementBean.parcelService.price}" />
+													</p>
+												</td>
+											</tr>
+																					<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-up text-success"></span>
+													Adresse de départ</td>
+												<td class="text-success">
+													<p><h:inputText
+															a:placeholder="#{parcelServiceManagementBean.parcelService.trajectory.pickUpAddress}"
+															value="#{parcelServiceManagementBean.parcelService.trajectory.deliveryAddress}" /></p>
+												</td>
+											</tr>
 
-							<h:outputLabel value="Journey Duration (in hour)" />
-							<h:inputText
-								a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.durationHours}"
-								value="#{carPoolingManagementBean.carPoolingService.trajectory.durationHours}" />
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-down text-success"></span>
+													Adresse d'arrivée</td>
+												<td class="text-success">
+													<p><h:inputText
+															a:placeholder="#{parcelServiceManagementBean.parcelService.trajectory.deliveryAddress}"
+															value="#{parcelServiceManagementBean.parcelService.trajectory.deliveryAddress}" /></p>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-play  text-success"></span> Date
+													et heure de départ  </td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{parcelServiceManagementBean.parcelService.startDate}"
+															value="#{parcelServiceManagementBean.parcelService.startDate}" />
+													</p>
+												</td>
+											</tr>
+											<tr>
 
-							<h:outputLabel value="Stop Duration (in minute)" />
-							<h:inputText
-								a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.stopDurationMinutes}"
-								value="#{carPoolingManagementBean.carPoolingService.trajectory.stopDurationMinutes}" />
+												<td><span
+													class="glyphicon glyphicon-stop  text-success"></span> Date
+													et heure d'arrivée</td>
+												<td class="text-success">
+													<p><h:inputText
+															a:placeholder="#{parcelServiceManagementBean.parcelService.endDate}"
+															value="#{parcelServiceManagementBean.parcelService.endDate}" /></p>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-barcode  text-success"></span>
+													Code barre</td>
+												<td class="text-success">
+													<p>#{parcelServiceReservationBean.parcelService.barCode}</p>
+												</td>
+											</tr>
 
-							<h:outputLabel value="Stop Number" />
-							<h:inputText
-								a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.stopNumber}"
-								value="#{carPoolingManagementBean.carPoolingService.trajectory.stopNumber}" />
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-dashboard text-success"></span>
+													Poids en kilogrammes</td>
+												<td class="text-success">
+													<p><h:inputText
+															a:placeholder="#{parcelServiceManagementBean.parcelService.weightKilogrammes}"
+															value="#{parcelServiceManagementBean.parcelService.weightKilogrammes}" /></p>
+												</td>
+											</tr>
 
-							<h:outputLabel value="Seats Avaible" />
-							<h:inputText
-								a:placeholder="#{carPoolingManagementBean.carPoolingService.availableSeats}"
-								value="#{carPoolingManagementBean.carPoolingService.availableSeats}" />
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-cloud text-success"></span>
+													Forme atypique</td>
+												<td class="text-success">
+													<p><h:selectBooleanCheckbox id="isAtypical"
+												value="#{parcelServiceManagementBean.parcelService.atypicalVolume}" /></p>
+												</td>
+											</tr>
 
-							<h:outputLabel value="Price" />
-							<h:inputText
-								a:placeholder="#{carPoolingManagementBean.carPoolingService.price}"
-								value="#{carPoolingManagementBean.carPoolingService.price}" />
-
-							<h:outputLabel value="CarPooling Type" />
-							<h:selectOneMenu
-								value="#{carPoolingManagementBean.carPoolingService.carPoolingType}">
-								<f:selectItem itemLabel="Selection" itemValue="null" />
-								<f:selectItems
-									value="#{carPoolingManagementBean.carPoolingType()}"
-									var="carPoolingType" itemLabel="#{carPoolingType}"
-									itemValue="#{carPoolingType}"></f:selectItems>
-							</h:selectOneMenu>
-
-							<br />
-							<h:outputLabel value="Trajetory Type" />
-							<h:selectOneMenu
-								value="#{carPoolingManagementBean.carPoolingService.trajectory.trajectoryType}">
-								<f:selectItem itemLabel="Selection" itemValue="" />
-								<f:selectItems
-									value="#{carPoolingManagementBean.trajectoryType()}"
-									var="trajectoryType" itemLabel="#{trajectoryType}"
-									itemValue="#{trajectoryType}"></f:selectItems>
-							</h:selectOneMenu>
-							<br />
-							<h:outputLabel value="vehicule brand" />
-							<h:inputText
-								a:placeholder="#{carPoolingManagementBean.carPoolingService.userAccountProvider.vehicule.brand}"
-								value="#{carPoolingManagementBean.carPoolingService.userAccountProvider.vehicule.brand}" />
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-flash text-success"></span>
+													Fragile</td>
+												<td class="text-success">
+													<p><h:selectBooleanCheckbox id="isFragile"
+												value="#{parcelServiceManagementBean.parcelService.fragile}" /></p>
+												</td>
+											</tr>
 
 
-							<h:outputLabel value="Pet Allowed" />
-							<h:selectBooleanCheckbox id="isPetAllowed"
-								value="#{carPoolingManagementBean.carPoolingService.petAllowed}" />
 
-							<h:outputLabel value="Music Allowed" />
-							<h:selectBooleanCheckbox id="isMusicAllowed"
-								value="#{carPoolingManagementBean.carPoolingService.musicAllowed}" />
 
-							<h:outputLabel value="Smoking Allowed" />
-							<h:selectBooleanCheckbox id="isSmokingAllowed"
-								value="#{carPoolingManagementBean.carPoolingService.smokingAllowed}" />
 
-							<h:outputLabel value="Chatting Allowed" />
-							<h:selectBooleanCheckbox id="isChattingAllowed"
-								value="#{carPoolingManagementBean.carPoolingService.chattingAllowed}" />
-
-							<h:selectOneRadio
-								value="#{carPoolingManagementBean.carPoolingService.userAccountProvider.vehicule.vehiculeType}">
-								<f:selectItems
-									value="#{carPoolingManagementBean.vehiculeTypes()}"
-									var="vehiculeType" itemValue="#{vehiculeType}"
-									itemLabel="#{vehiculeType}" />
-							</h:selectOneRadio>
-											
-											
-											
 										</tbody>
 									</table>
 								</div>
-							</div>
-						</div>
-					</div>
+		</div>
 				</div>
-
+				</div>
+				</div>
+					
 			</h:form>
 		</ui:define>
 	</ui:composition>

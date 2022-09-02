@@ -46,6 +46,24 @@
 
 									<table class="table table-user-information">
 										<tbody>
+
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-up text-success"></span>
+													Adresse de départ</td>
+												<td class="text-success">
+													<p>#{parcelServiceReservationBean.parcelService.trajectory.pickUpAddress}</p>
+												</td>
+											</tr>
+
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-down text-success"></span>
+													Adresse d'arrivée</td>
+												<td class="text-success">
+													<p>#{parcelServiceReservationBean.parcelService.trajectory.deliveryAddress}</p>
+												</td>
+											</tr>
 											<tr>
 												<td><span
 													class="glyphicon glyphicon-play  text-success"></span> Date
@@ -58,7 +76,7 @@
 
 												<td><span
 													class="glyphicon glyphicon-stop  text-success"></span> Date
-													et heure de d'arrivée</td>
+													et heure d'arrivée</td>
 												<td class="text-success">
 													<p>#{parcelServiceReservationBean.parcelService.endDate}</p>
 												</td>
@@ -101,32 +119,16 @@
 
 
 
-											<tr>
-												<td><span
-													class="glyphicon glyphicon-arrow-up text-success"></span>
-													Adresse de départ</td>
-												<td class="text-success">
-													<p>#{parcelServiceReservationBean.parcelService.trajectory.pickUpAddress}</p>
-												</td>
-											</tr>
 
-											<tr>
-												<td><span
-													class="glyphicon glyphicon-arrow-down text-success"></span>
-													Adresse d'arrivée</td>
-												<td class="text-success">
-													<p>#{parcelServiceReservationBean.parcelService.trajectory.deliveryAddress}</p>
-												</td>
-											</tr>
 
 										</tbody>
 									</table>
 								</div>
-		</div>
+							</div>
+						</div>
+					</div>
 				</div>
-				</div>
-				</div>
-					
+
 			</h:form>
 		</ui:define>
 	</ui:composition>

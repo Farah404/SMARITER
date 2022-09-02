@@ -25,12 +25,10 @@
 
 							<div class="col-md-4">
 								<img alt="" style="width: 100%;" class=" img-thumbnail"
-									src="subMedia/Images/Covoit.png" /> <br /> <br />
-								<br />
+									src="subMedia/Images/Covoit.png" /> <br /> <br /> <br />
 
 								<h:commandButton class="btn btn-success center-block"
-									type="submit"
-									value="Mettre à jour"
+									type="submit" value="Mettre à jour"
 									action="#{carRentalServiceManagementBean.update()}">
 								</h:commandButton>
 
@@ -41,85 +39,105 @@
 							<div class="col-md-6">
 								<div class="table-responsive">
 
-									<span class="text-success"><b>Information</b><br /></span>
+									<span class="text-success"><strong>Information</strong><br /></span>
 
 									<table class="table table-user-information">
 										<tbody>
-										<fieldset>
-							<h:panelGrid>
-							<br />
-							<f:facet name="header">
-								<br />
-								<h:outputText value="UPDATE SERVICE" />
-							</f:facet>
-							<br />
+
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-resize-small text-success"></span>
+													Prix</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{carRentalServiceManagementBean.carRentalService.price}"
+															value="#{carRentalServiceManagementBean.carRentalService.price}" />
+													</p>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-play  text-success"></span> Date
+													et heure d'arrivée</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{carRentalServiceManagementBean.carRentalService.startDate}"
+															value="#{carRentalServiceManagementBean.carRentalService.startDate}" />
+													</p>
+												</td>
+											</tr>
+
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-stop  text-success"></span> Date
+													et heure de départ</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{carRentalServiceManagementBean.carRentalService.endDate}"
+															value="#{carRentalServiceManagementBean.carRentalService.endDate}" />
+													</p>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-up  text-success"></span>
+													Lieu de remise des clés</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{carRentalServiceManagementBean.carRentalService.keyDropOffAddress}"
+															value="#{carRentalServiceManagementBean.carRentalService.keyDropOffAddress}" />
+													</p>
+												</td>
+											</tr>
+
+											<tr>
+												<td><span
+													class="glyphicon glyphicon-arrow-down text-success"></span>
+													Lieu de récupération des clés</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{carRentalServiceManagementBean.carRentalService.keyPickUpAddress}"
+															value="#{carRentalServiceManagementBean.carRentalService.keyPickUpAddress}" />
+													</p>
+												</td>
+											</tr>
+
+											<tr>
+												<td><span class="glyphicon glyphicon-tags text-success"></span>
+													Marque du véhicule</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.brand}"
+															value="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.brand}" />
+													</p>
+												</td>
+											</tr>
 
 
-							<h:outputLabel value="Key Pick-Up Address" />
-							<h:inputText
-								a:placeholder="#{carRentalServiceManagementBean.carRentalService.keyPickUpAddress}"
-								value="#{carRentalServiceManagementBean.carRentalService.keyPickUpAddress}" />
-
-							<h:outputLabel value="Key Drop-Off Address" />
-							<h:inputText
-								a:placeholder="#{carRentalServiceManagementBean.carRentalService.keyDropOffAddress}"
-								value="#{carRentalServiceManagementBean.carRentalService.keyDropOffAddress}" />
-
-							<h:outputLabel value="Price" />
-							<h:inputText
-								a:placeholder="#{carRentalServiceManagementBean.carRentalService.price}"
-								value="#{carRentalServiceManagementBean.carRentalService.price}" />
-
-
-							<h:outputLabel value="start Date" />
-							<h:inputText
-								a:placeholder="#{carRentalServiceManagementBean.carRentalService.startDate}"
-								value="#{carRentalServiceManagementBean.carRentalService.startDate}" />
-
-							<h:outputLabel value="End Date" />
-							<h:inputText
-								a:placeholder="#{carRentalServiceManagementBean.carRentalService.endDate}"
-								value="#{carRentalServiceManagementBean.carRentalService.endDate}" />
-
-							<h:outputLabel value="Service type" />
-							<h:selectOneMenu
-								value="#{carRentalServiceManagementBean.carRentalService.servicetype}">
-								<f:selectItem itemLabel="Selection" itemValue="" />
-								<f:selectItems
-									value="#{carRentalServiceManagementBean.serviceType()}"
-									var="servicetype" itemLabel="#{servicetype}"
-									itemValue="#{servicetype}"></f:selectItems>
-							</h:selectOneMenu>
-							<br />
-							<h:outputLabel value="Trajetory Type" />
-
-							<br />
-							<h:outputLabel value="vehicule brand" />
-							<h:inputText
-								a:placeholder="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.brand}"
-								value="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.brand}" />
-
-							<h:selectOneRadio
-								value="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.vehiculeType}">
-								<f:selectItems
-									value="#{carRentalServiceManagementBean.vehiculeType()}"
-									var="vehiculeType" itemValue="#{vehiculeType}"
-									itemLabel="#{vehiculeType}" />
-							</h:selectOneRadio>
-
-							<br />
-
-							<h:commandButton class="btn-signin"
-								action="#{carRentalServiceManagementBean.update()}"
-								value="Valide your Update" />
-
-
-						</h:panelGrid>
-					</fieldset>
+											<tr>
+												<td><span class="glyphicon glyphicon-user text-success"></span>
+													Nombres de places disponibles</td>
+												<td class="text-success">
+													<p>
+														<h:inputText
+															a:placeholder="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.availableSeats}"
+															value="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.availableSeats}" />
+													</p>
+												</td>
+											</tr>
 										</tbody>
 									</table>
 								</div>
 							</div>
+
+
+
 						</div>
 					</div>
 				</div>
