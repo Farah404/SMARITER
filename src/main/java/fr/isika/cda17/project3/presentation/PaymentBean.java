@@ -2,9 +2,11 @@ package fr.isika.cda17.project3.presentation;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import com.braintreegateway.BraintreeGateway;
@@ -38,19 +40,50 @@ public class PaymentBean {
 
     private String clientToken;
 
-    private BigDecimal amount = BigDecimal.valueOf(0);
+    private BigDecimal amount;
 
     private String nonce;
+    
+    private String cardNumber;
+    
+    private String cardDate;
+    
+    private String cardCvv;
+    
+    private String cardName;
+    
+    private Long solutionId;
+    
 
     // Below are the Braintree sandbox credentials
     private static BraintreeGateway gateway = null;
     private static String publicKey = "633dfv7hh5cvrh25";
     private static String privateKey = "9138d1a0acf5673f4a0ff57dc08dde65";
     private static String merchantId = "2zx4jdwmxyfkq8jb";
+    
 
     public void init() {
 	gateway = connectBraintreeGateway();
 	generateClientToken();
+	Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+
+	if (map.containsKey("solutionId")) {
+	    String solutionIdParamValue = map.get("solutionId");
+	    if (solutionIdParamValue != null && !solutionIdParamValue.isBlank()) {
+		Long id = Long.valueOf(solutionIdParamValue);
+		if (id != null) {
+			solutionId=id;
+		    
+		}}}
+	if (map.containsKey("solutionAmount")) {
+	    String solutionAmountParamValue = map.get("solutionAmount");
+	    if (solutionAmountParamValue != null && !solutionAmountParamValue.isBlank()) {
+		Double amountToSet = Double.valueOf(solutionAmountParamValue);
+		BigDecimal amountToSetBD = BigDecimal.valueOf(amountToSet);
+		if (amountToSetBD != null) {
+			amount=amountToSetBD;
+		    
+		}}}
     }
 
     // Make an endpoint which return client token.
@@ -59,7 +92,31 @@ public class PaymentBean {
 	clientToken = gateway.clientToken().generate();
     }
 
-    // Connect to Braintree Gateway.
+    public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+
+	public String getCardDate() {
+		return cardDate;
+	}
+
+	public void setCardDate(String cardDate) {
+		this.cardDate = cardDate;
+	}
+
+	public String getCardCvv() {
+		return cardCvv;
+	}
+
+	public void setCardCvv(String cardCvv) {
+		this.cardCvv = cardCvv;
+	}
+
+	// Connect to Braintree Gateway.
     public BraintreeGateway connectBraintreeGateway() {
 	BraintreeGateway braintreeGateway = new BraintreeGateway(Environment.SANDBOX, merchantId, publicKey,
 		privateKey);
@@ -68,15 +125,14 @@ public class PaymentBean {
 
     // Make payment
     public void doPaymentTransaction() {
-    	receivePaymentMethodNonce();
+//    	receivePaymentMethodNonce();
 
-	TransactionRequest request = new TransactionRequest().amount(amount).paymentMethodNonce(nonce)
-		.type(Type.SALE);
+	TransactionRequest request = new TransactionRequest().amount(amount).paymentMethodNonce(nonce).creditCard().number(cardNumber).expirationDate("01/2024").cvv(cardCvv).done();
 
 	CustomerRequest customerRequest = request.customer();
-	customerRequest.email("cpatel@gmail.com");
-	customerRequest.firstName("Chirag");
-	customerRequest.lastName("Patel");
+	customerRequest.email("notPatel@gmail.com");
+	customerRequest.firstName("Falal");
+	customerRequest.lastName("NotRacist");
 
 	
 //	TransactionCreditCardRequest tccr = request.creditCard()
@@ -147,5 +203,13 @@ public class PaymentBean {
 	this.nonce = nonce;
 
     }
+
+	public String getCardName() {
+		return cardName;
+	}
+
+	public void setCardName(String cardName) {
+		this.cardName = cardName;
+	}
 
 }

@@ -23,9 +23,9 @@
 		<ui:define name="content">
 		<script src="https://js.braintreegateway.com/web/dropin/1.33.4/js/dropin.min.js"></script>
 		<script src="https://js.braintreegateway.com/web/3.86.0/js/client.min.js"></script>
-<script src="https://js.braintreegateway.com/web/3.87.0/js/hosted-fields.min.js"></script>
+		<script src="https://js.braintreegateway.com/web/3.87.0/js/hosted-fields.min.js"></script>
 			
-			<h:form id="payment-form">
+		<h:form id="payment-form">
     <!-- Putting the empty container you plan to pass to
       `braintree.dropin.create` inside a form will make layout and flow
       easier to manage -->
@@ -38,7 +38,11 @@
 
 <!--       <label for="expiration-date">Expiration Date</label> -->
 <!--       <div id="expiration-date"></div> -->
+	<h:inputText value="#{paymentBean.cardNumber}"></h:inputText>
 	
+	<h:inputText value="#{paymentBean.cardCvv}"></h:inputText>
+	
+	<h:inputText value="#{paymentBean.cardDate}"></h:inputText>
     <h:inputSecret id="nonce" name="payment_method_nonce" value="#{paymentBean.nonce}"/>
 	<h:inputText id="client-authorization" value="#{paymentBean.clientToken}" />
     <h:inputText name="amount" value="#{paymentBean.amount}"/>
