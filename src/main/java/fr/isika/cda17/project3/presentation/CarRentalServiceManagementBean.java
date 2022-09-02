@@ -83,9 +83,12 @@ public class CarRentalServiceManagementBean implements Serializable {
 
     public String detail(Long id) {
 	carRentalService = carRentalServiceDao.findById(id);
-
 	return "reserveCarRentalService.xhtml?faces-redirect=true&carRentalServiceId=" + id;
     }
+    public String detailFromSmariter(Long id) {
+    	carRentalService = carRentalServiceDao.findById(id);
+    	return "subWebsite/reserveCarRentalService.xhtml?faces-redirect=true&carRentalServiceId=" + id;
+        }
 
     private void refresh() {
 	carRentalServiceList = carRentalServiceDao.findAll();

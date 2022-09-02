@@ -42,7 +42,7 @@ public class ParcelServiceDaoImpl implements ParcelServiceDao {
 	    updatedParcelService.setAtypicalVolume(parcelService.isAtypicalVolume());
 	    updatedParcelService.setFragile(parcelService.isFragile());
 
-	    entityManager.persist(parcelService);
+	    entityManager.merge(parcelService);
 	} catch (Exception e) {
 	    System.out.println("ParcelServiceDao.update() - Failed : " + e.getMessage());
 	}

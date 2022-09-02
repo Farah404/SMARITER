@@ -7,7 +7,7 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <f:metadata>
-	<f:event listener="#{userProfileBean.init()}" type="preRenderView">
+	<f:event listener="#{userProfileByCustomerBean.init()}" type="preRenderView">
 	</f:event>
 </f:metadata>
 
@@ -33,7 +33,7 @@
 
 								</ul>
 								<h:commandButton class="btn btn-success center-block"
-									action="#{userProfileBean.updateStepOne()}"
+									action="#{userProfileByCustomerBean.updateStepOne()}"
 									value="Modifier mon profil" />
 								<br />
 							</div>
@@ -77,8 +77,8 @@
 																		class="glyphicon glyphicon-user  text-success"></span>
 																		Nom et Prenom</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.lastName}
-																			#{userProfileBean.user.firstName}</p>
+																		<p>#{userProfileByCustomerBean.user.lastName}
+																			#{userProfileByCustomerBean.user.firstName}</p>
 																	</td>
 																</tr>
 
@@ -105,7 +105,7 @@
 																		class="glyphicon glyphicon-gift text-success"></span>
 																		Date de naissance</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.birthDate}</p>
+																		<p>#{userProfileByCustomerBean.user.birthDate}</p>
 																	</td>
 																</tr>
 
@@ -114,7 +114,7 @@
 																		class="glyphicon glyphicon-inbox text-success"></span>
 																		Email</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.userAccount.email}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.email}</p>
 																	</td>
 																</tr>
 
@@ -123,7 +123,7 @@
 																		class="glyphicon glyphicon-phone text-success"></span>
 																		Numéro de téléphone</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.phoneNumber}</p>
+																		<p>#{userProfileByCustomerBean.user.phoneNumber}</p>
 																	</td>
 																</tr>
 
@@ -132,7 +132,7 @@
 																		class="glyphicon glyphicon-credit-card text-success"></span>
 																		Numéro de carte d'identité ou passeport</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.identityCardnumber}</p>
+																		<p>#{userProfileByCustomerBean.user.identityCardnumber}</p>
 																	</td>
 																</tr>
 
@@ -141,7 +141,7 @@
 																		class="glyphicon glyphicon-dashboard text-success"></span>
 																		Numéro de permis de conduire</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.drivingPermitNumber}</p>
+																		<p>#{userProfileByCustomerBean.user.drivingPermitNumber}</p>
 																	</td>
 																</tr>
 
@@ -150,7 +150,7 @@
 																		class="glyphicon glyphicon-calendar text-success"></span>
 																		Date de création du compte</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.userAccount.creationDate}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.creationDate}</p>
 																	</td>
 																</tr>
 															</tbody>
@@ -167,7 +167,7 @@
 																		class="glyphicon glyphicon-piggy-bank  text-success"></span>
 																		Montant EcoCoins</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.userAccount.wallet.ecoCoinsAmmount}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.wallet.internalCurrencyAmount}</p>
 																	</td>
 																</tr>
 																<tr>
@@ -194,7 +194,7 @@
 																		class="glyphicon glyphicon-font  text-success"></span>
 																		Nom de l'agence bancaire</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.userAccount.bankDetails.bankName}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.bankDetails.bankName}</p>
 																	</td>
 																</tr>
 																<tr>
@@ -202,7 +202,7 @@
 																		class="glyphicon glyphicon-sort-by-order-alt text-success"></span>
 																		Numéro SWIFT</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.userAccount.bankDetails.swift}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.bankDetails.swift}</p>
 																	</td>
 																</tr>
 																<tr>
@@ -210,7 +210,7 @@
 																		class="glyphicon glyphicon-sort-by-order text-success"></span>
 																		Numéro IBAN</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.userAccount.bankDetails.iban}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.bankDetails.iban}</p>
 																	</td>
 																</tr>
 																<tr>
@@ -218,7 +218,7 @@
 																		class="glyphicon glyphicon-map-marker  text-success"></span>
 																		Adresse</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.userAccount.billingAddress.addressLine}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.billingAddress.addressLine}</p>
 																	</td>
 																</tr>
 																<tr>
@@ -226,7 +226,7 @@
 																		class="glyphicon glyphicon-tree-conifer text-success"></span>
 																		Ville</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.userAccount.billingAddress.city}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.billingAddress.city}</p>
 																	</td>
 																</tr>
 																<tr>
@@ -234,7 +234,7 @@
 																		class="glyphicon glyphicon-globe text-success"></span>
 																		Pays</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.userAccount.billingAddress.country}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.billingAddress.country}</p>
 																	</td>
 																</tr>
 																<tr>
@@ -242,7 +242,7 @@
 																		class="glyphicon glyphicon-send text-success"></span>
 																		Code Postale</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.userAccount.billingAddress.postalCode}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.billingAddress.postalCode}</p>
 																	</td>
 																</tr>
 															</tbody>
@@ -257,7 +257,7 @@
 																		class="glyphicon glyphicon-sort-by-alphabet  text-success"></span>
 																		Nom de l'assureur</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.userAccount.vehicule.insurance.insuranceAgencyName}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.vehicule.insurance.insuranceAgencyName}</p>
 																	</td>
 																</tr>
 																<tr>
@@ -266,7 +266,7 @@
 																		Date de fin de validité de l'assurance</td>
 																	<td class="text-success">
 
-																		<p>#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractExpiration}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.vehicule.insurance.insuranceContractExpiration}</p>
 																	</td>
 																</tr>
 
@@ -276,7 +276,7 @@
 																		Numéro du contrat d'assurance</td>
 																	<td class="text-success">
 
-																		<p>#{userProfileBean.user.userAccount.vehicule.insurance.insuranceContractNumber}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.vehicule.insurance.insuranceContractNumber}</p>
 																	</td>
 																</tr>
 
@@ -286,7 +286,7 @@
 																		Marque du véhicule</td>
 																	<td class="text-success">
 
-																		<p>#{userProfileBean.user.userAccount.vehicule.brand}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.vehicule.brand}</p>
 																	</td>
 																</tr>
 
@@ -296,7 +296,7 @@
 																		Plaque d'immatriculation</td>
 																	<td class="text-success">
 
-																		<p>#{userProfileBean.user.userAccount.vehicule.registrationNumber}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.vehicule.registrationNumber}</p>
 																	</td>
 																</tr>
 
@@ -306,7 +306,7 @@
 																		Hybride</td>
 																	<td class="text-success">
 
-																		<p>#{userProfileBean.user.userAccount.vehicule.isHybrid()}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.vehicule.vehiculeType}</p>
 																	</td>
 																</tr>
 
@@ -316,7 +316,7 @@
 																		100% Electrique</td>
 																	<td class="text-success">
 
-																		<p>#{userProfileBean.user.userAccount.vehicule.isElectric()}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.vehicule.vehiculePowerType}</p>
 																	</td>
 																</tr>
 																<tr>
@@ -325,7 +325,7 @@
 																		Date de fin de validité du contrôle technique</td>
 																	<td class="text-success">
 
-																		<p>#{userProfileBean.user.userAccount.vehicule.technicalTestExpiration}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.vehicule.technicalTestExpiration}</p>
 																	</td>
 																</tr>
 
@@ -335,7 +335,7 @@
 																		Nombre de sièges disponibles</td>
 																	<td class="text-success">
 
-																		<p>#{userProfileBean.user.userAccount.vehicule.availableSeats}</p>
+																		<p>#{userProfileByCustomerBean.user.userAccount.vehicule.availableSeats}</p>
 																	</td>
 																</tr>
 
@@ -378,29 +378,300 @@
 
 
 				<div id="services" class="container-fluid bg-grey">
-					@*Service List Display*@
 					<div class="table-responsive">
 						<p
 							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Mon
 							historique de prestations</p>
-						<input style="width: 50%; float: right" type="text"
-							id="searchInput" onkeyup="myFunction()"
-							placeholder="Rechercher une de mes prestations..." />
-						<table class="table" id="userInvoices">
-							<thead>
-								<tr class="header">
-									<th>Date de début</th>
-									<th>Type de service</th>
-									<th>Numéro de réference</th>
-									<th>Prestation demandée</th>
-									<th>Disponibilité</th>
-									<th>Supprimer la prestation</th>
-									<th>Consulter la facture</th>
-								</tr>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
+
+						<h:dataTable class="table container-fluid"
+							value="#{userProfileByCustomerBean.cpsListUserRelated}"
+							var="cpsUserRelated">
+
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{cpsUserRelated.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Adresse de départ </f:facet>
+								<h:outputText value="#{cpsUserRelated.trajectory.pickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Date et heure de départ</f:facet>
+								<h:outputText value="#{cpsUserRelated.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Adresse d'arrivée </f:facet>
+								<h:outputText
+									value="#{cpsUserRelated.trajectory.deliveryAddress}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header"> Date et heure d'arrivée</f:facet>
+								<h:outputText value="#{cpsUserRelated.endDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Durée (heures)</f:facet>
+								<h:outputText value="#{cpsUserRelated.trajectory.durationHours}" />
+
+							</h:column>
+							<h:column>
+								<f:facet name="header">Nombre d'arrets</f:facet>
+								<h:outputText value="#{cpsUserRelated.trajectory.stopNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Sièges disponibles</f:facet>
+								<h:outputText value="#{cpsUserRelated.availableSeats}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{cpsUserRelated.price}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Details</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{carPoolingServiceManagementBean.detail(carPoolingService.id)}">
+
+										<f:param name="carPoolingServiceId"
+											value="#{carPoolingService.id}"></f:param>
+
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Modifier</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Edit"
+										action="#{carPoolingManagementBean.showUpdate(carPoolingService.id)}">
+
+										<f:param name="carPoolingServiceId"
+											value="#{carPoolingService.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Supprimer</f:facet>
+								<h:panelGrid>
+									<h:commandButton
+										action="#{carPoolingManagementBean.delete(carPoolingService.id)}"
+										value="Delete" />
+								</h:panelGrid>
+							</h:column>
+
+						</h:dataTable>
+						<br/>
+						<h:dataTable class="table container-fluid bg-grey" id="carRentalService"
+							value="#{userProfileByCustomerBean.crsListUserRelated}"
+							var="crsUserRelated">
+
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{crsUserRelated.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Lieu de récupération des clés </f:facet>
+								<h:outputText value="#{crsUserRelated.keyPickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Lieu de remise des clés  </f:facet>
+								<h:outputText value="#{crsUserRelated.keyDropOffAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date de début</f:facet>
+								<h:outputText value="#{crsUserRelated.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date de fin</f:facet>
+								<h:outputText value="#{crsUserRelated.endDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Marque du véhicule</f:facet>
+								<h:outputText value="#{crsUserRelated.vehicule.brand}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{crsUserRelated.price}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Details</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{carRentalServiceManagementBean.detail(carRentalService.id)}">
+										<f:param name="carRentalServiceId"
+											value="#{carRentalService.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Modifier</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Edit"
+										action="#{carRentalServiceManagementBean.showUpdate(carRentalService.id)}">
+										<f:param name="carRentalServiceId"
+											value="#{carRentalService.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Supprimer</f:facet>
+								<h:panelGrid>
+									<h:commandButton
+										action="#{carRentalServiceManagementBean.delete(carRentalService.id)}"
+										value="Delete" />
+								</h:panelGrid>
+							</h:column>
+						</h:dataTable>
+						<br/>
+						<h:dataTable class="table container-fluid"
+							value="#{userProfileByCustomerBean.psListUserRelated}"
+							var="psUserRelated">
+
+
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{psUserRelated.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse de départ  </f:facet>
+								<h:outputText value="#{psUserRelated.trajectory.pickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure de départ</f:facet>
+								<h:outputText value="#{parcelService.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse d'arrivée </f:facet>
+								<h:outputText
+									value="#{psUserRelated.trajectory.deliveryAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure d'arrivée</f:facet>
+								<h:outputText value="#{psUserRelated.endDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Code Barre</f:facet>
+								<h:outputText value="#{psUserRelated.barCode}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Fragile</f:facet>
+								<h:outputText value="#{psUserRelated.fragile}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Volumineux</f:facet>
+								<h:outputText value="#{psUserRelated.atypicalVolume}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Poids</f:facet>
+								<h:outputText value="#{psUserRelated.weightKilogrammes}" />
+							</h:column>
+
+
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{psUserRelated.price}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Details</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{parcelServiceManagementBean.detail(parcelService.id)}">
+										<f:param name="parcelServiceId" value="#{parcelService.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Modifier</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Edit"
+										action="#{parcelServiceManagementBean.showUpdate(parcelService.id)}">
+										<f:param name="parcelServiceId"
+											value="#{parcelService.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Supprimer</f:facet>
+								<h:panelGrid>
+									<h:commandButton
+										action="#{parcelServiceManagementBean.delete(parcelService.id)}"
+										value="Delete" />
+								</h:panelGrid>
+							</h:column>
+
+
+
+
+						</h:dataTable>
+						<br/>
+						<h:dataTable class="table container-fluid bg-grey"
+							value="#{userProfileByCustomerBean.pasListUserRelated}"
+							var="pasUserRelated">
+
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{pasUserRelated.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse de départ  </f:facet>
+								<h:outputText value="#{pasUserRelated.trajectory.pickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure de départ</f:facet>
+								<h:outputText value="#{pasUserRelated.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse d'arrivée </f:facet>
+								<h:outputText
+									value="#{pasUserRelated.trajectory.deliveryAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure d'arrivée</f:facet>
+								<h:outputText value="#{pasUserRelated.endDate}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{pasUserRelated.price}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Details</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{personalAssistanceServiceManagementBean.detail(personalAssistance.id)}">
+										<f:param name="personalAssistanceServiceId"
+											value="#{personalAssistance.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Modifier</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Edit"
+										action="#{personalAssistanceServiceManagementBean.showUpdate(personalAssistance.id)}">
+										<f:param name="personalAssistanceServiceId"
+											value="#{personalAssistance.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+
+								<f:facet name="header">Supprimer</f:facet>
+								<h:panelGrid>
+									<h:commandButton
+										action="#{personalAssistanceServiceManagementBean.delete(personalAssistance.id)}"
+										value="Delete" />
+								</h:panelGrid>
+							</h:column>
+
+
+
+
+						</h:dataTable>
 					</div>
 				</div>
 				<br />

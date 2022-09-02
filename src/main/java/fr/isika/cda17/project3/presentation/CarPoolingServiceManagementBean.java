@@ -86,10 +86,14 @@ public class CarPoolingServiceManagementBean implements Serializable {
 
     public String detail(Long id) {
 	carPoolingService = carPoolingServiceDao.findById(id);
-
 	return "reserveCarPoolingService.xhtml?faces-redirect=true&carPoolingServiceId=" + id;
     }
 
+    public String detailFromSmariter(Long id) {
+    	carPoolingService = carPoolingServiceDao.findById(id);
+    	return "subWebsite/reserveCarPoolingService.xhtml?faces-redirect=true&carPoolingServiceId=" + id;
+        }
+    
     private void refresh() {
 	carPoolingServiceList = carPoolingServiceDao.findAll();
 

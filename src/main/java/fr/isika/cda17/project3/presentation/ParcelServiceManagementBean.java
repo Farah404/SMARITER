@@ -72,9 +72,13 @@ public class ParcelServiceManagementBean implements Serializable {
 
     public String detail(Long id) {
 	parcelService = parcelServiceDao.findById(id);
-
 	return "reserveParcelService.xhtml?faces-redirect=true&parcelServiceId=" + id;
     }
+    
+    public String detailFromSmariter(Long id) {
+    	parcelService = parcelServiceDao.findById(id);
+    	return "subWebsite/reserveParcelService.xhtml?faces-redirect=true&parcelServiceId=" + id;
+        }
 
     private void refresh() {
 	parcelServiceList = parcelServiceDao.findAll();

@@ -18,6 +18,7 @@ import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 import fr.isika.cda17.project3.model.serviceManagement.Reservation;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
 import fr.isika.cda17.project3.repository.serviceManagement.CarPoolingServiceDao;
+import fr.isika.cda17.project3.repository.serviceManagement.ReservationDao;
 
 @ManagedBean
 @SessionScoped
@@ -29,6 +30,8 @@ public class CarPoolingReservationBean implements Serializable {
 
     @Inject
     private UserAccountsDao userAccontDao;
+    @Inject
+	private ReservationDao reservationDao;
 
     @Inject
     private CarPoolingServiceDao carPoolingServiceDao;
@@ -89,7 +92,9 @@ public class CarPoolingReservationBean implements Serializable {
 		if (carPooling.getAvailableSeats() > 0) {
 
 		    reservation.setServiceinvoice(serviceInvoice);
-		    carPooling.getReservations().add(reservation);
+		    
+		   carPooling.getReservations().add(reservation);
+		   reservationDao.create(reservation);
 		    carPooling.setAvailableSeats(carPooling.getAvailableSeats() - 1);
 
 		    carPoolingServiceDao.update(carPooling);
