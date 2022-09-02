@@ -44,10 +44,12 @@
 						<h:form class="cusProfile">
 							<div class="col-one-half-cusProfile">
 								<img class="customer-img" src="media/img/EcoCarBig.png" /><br />
-								<h:commandButton style="width:25vh" action="#{customerProfileBean.updateStepOne()}"
+								<h:commandButton style="width:25vh"
+									action="#{customerProfileBean.updateStepOne()}"
 									class="button-shared" value="Update profile" />
 								<br />
-								<h:commandButton style="width:25vh" class="button-shared" value="Check my invoice" />
+								<h:commandButton style="width:25vh" class="button-shared"
+									value="Check my invoice" />
 								<br />
 								<h:commandButton style="width:25vh" class="button-shared"
 									action="#{logInAccountBean.logout()}" value="Log Out"></h:commandButton>
@@ -69,32 +71,25 @@
 										#{customerProfileBean.customer.phoneNumber}</i></span><br /> <br /> <span
 									class="label-text-cusProfile"><i
 									class="fa fa-euro fa-col-cus"> Pricing plan:
-										#{customerProfileBean.customer.entityAccount.solution.priceDeal}</i></span><br />
+										#{customerProfileBean.customer.entityAccount.solution.priceDeal.label}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
 									class="fa fa-hashtag fa-col-cus"> Siret Number:
 										#{customerProfileBean.customer.entityAccount.siretNumber}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
 									class="fa fa-globe fa-col-cus"> Website name:
-										#{customerProfileBean.customer.entityAccount.solution.solutionName}</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-globe fa-col-cus"> Included solutions:
-										#{customerProfileBean.customer.entityAccount.solution.carPoolingsolutionIncluded},
-										#{customerProfileBean.customer.entityAccount.solution.carRentalSolutionIncluded},
-										#{customerProfileBean.customer.entityAccount.solution.parcelSolutionIncluded},
-										#{customerProfileBean.customer.entityAccount.solution.personalAssistanceSolutionIncluded}
-
-								</i></span><br /> <br /> <span class="label-text-cusProfile"><i
+										#{customerProfileBean.customer.entityAccount.solution.solutionName}</i></span>
+								<br /> <br /> <span class="label-text-cusProfile"><i
 									class="fa fa-euro fa-col-cus"> Payment Choice:
-										#{customerProfileBean.customer.entityAccount.solution.paymentSystemChoice}</i></span><br />
+										#{customerProfileBean.customer.entityAccount.solution.paymentSystemChoice.label}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-phone fa-col-cus"> Messaging Choice:
-										#{customerProfileBean.customer.entityAccount.solution.messagingSystemChoice}</i></span><br />
-								<br /> 
+									class="fa fa-inbox fa-col-cus"> Messaging Choice:
+										#{customerProfileBean.customer.entityAccount.solution.messagingSystemChoice.label}</i></span><br />
+								<br />
 
 							</div>
 
 							<div class="col-one-half-cusProfile">
-								
+
 								<br /> <span class="label-text-cusProfile"><i
 									class="fa fa-check fa-col-cus"> Bank name:
 										#{customerProfileBean.customer.entityAccount.bankDetails.bankName}</i></span><br />
@@ -104,8 +99,7 @@
 								<br /> <span class="label-text-cusProfile"><i
 									class="fa fa-check fa-col-cus"> IBAN:
 										#{customerProfileBean.customer.entityAccount.bankDetails.iban}</i></span><br />
-<br />
-								<span class="label-text-cusProfile"><i
+								<br /> <span class="label-text-cusProfile"><i
 									class="fa fa-map fa-col-cus"> Address line:
 										#{customerProfileBean.customer.entityAccount.billingAddress.addressLine}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
