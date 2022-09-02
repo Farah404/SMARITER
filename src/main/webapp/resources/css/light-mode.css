@@ -1573,6 +1573,10 @@ background-color: 	#F6F6F8;
     padding: 12px 15px;
 }
 
+.styled-table th{
+	text-align: center;
+}
+
 .styled-table td.span {
     text-align: center;
     

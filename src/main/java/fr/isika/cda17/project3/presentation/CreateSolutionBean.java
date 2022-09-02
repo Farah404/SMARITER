@@ -42,14 +42,13 @@ public class CreateSolutionBean implements Serializable {
 	return MessagingSystemChoice.values();
     }
 
-    public void create() {
+    public String create() {
 	solution.setCarPoolingSolution(carPoolingSolution);
 	solution.setParcelSolution(parcelSolution);
 	solution.setCustomerInvoice(customerInvoice);
 	Solution created = solutionDao.create(solution);
-	// TODO : findById(accountConnected) puis affecter cette solution a
-	// l'entityAccount correspondant
 	System.out.println(created);
+	return "patterns.xhtml?faces-redirect=true";
     }
 
     public Solution getSolution() {

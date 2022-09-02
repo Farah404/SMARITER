@@ -71,6 +71,26 @@ public class UrlPathBean implements Serializable {
 	return "siteMap.xhtml";
     }
     
+    public String goToPaymentForm() {
+	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	if (session.getAttribute("accountType") == AccountType.ADMINISTRATOR
+		|| session.getAttribute("accountType") == AccountType.ENTITY) {
+	    return "paymentForm.xhtml";
+	} else {
+	    return "logInSignUp.xhtml";
+	}
+    }
+    
+    public String goToPatternsFromServices(){
+	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	if (session.getAttribute("accountType") == AccountType.ADMINISTRATOR
+		|| session.getAttribute("accountType") == AccountType.ENTITY) {
+	    return "patterns.xhtml";
+	} else {
+	    return "logInSignUp.xhtml";
+	}
+    }
+    
 
     public String goToStartService() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
