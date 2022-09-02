@@ -8,41 +8,43 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <f:metadata>
-	<f:event listener="#{carPoolingManagementBean.init()}"
+	<f:event listener="#{CarPoolingServiceManagementBean.init()}"
 		type="preRenderView"></f:event>
 </f:metadata>
 
-<h:head>
-	<title>SmarIter</title>
-</h:head>
-
 <h:body>
-	<ui:composition template="template/templatewithoutHeader.xhtml">
-		<ui:define name="content">
-
-			<section class="wrapper-signin"> <video
-				class="background-video" autoplay="autoplay" loop="loop"
-				muted="muted"> <source src="media/webm/videoplayback.webm"
-				type="video/webm" /> </video> </section>
+	<ui:composition template="#{templateBean.subtemplatePath()}">
+		<ui:define name="subcontent">
+			<h:form>
 
 
-			<div class="signupform-container animate-right" id="container">
-				<h:form action="#" class="sigup-form">
 
+				<div class="container bootstrap snippets bootdey">
+					<div class="panel-body inf-content">
+						<div class="row">
 
-					<fieldset>
-
-						<h:panelGrid>
-							<br />
-							<f:facet name="header">
+							<div class="col-md-4">
+								<img alt="" style="width: 100%;" class=" img-thumbnail"
+									src="subMedia/Images/Covoit.png" /> <br /> <br />
 								<br />
-								<h:outputText value="UPDATE SERVICE" />
-							</f:facet>
-							<br />
+
+								<h:commandButton class="btn btn-success center-block"
+									type="submit"
+									value="Mettre à jour"
+									action="#{carPoolingServiceManagementBean.update()}">
+								</h:commandButton>
+
+							</div>
 
 
 
-							<h:outputLabel value="Delivery Address" />
+							<div class="col-md-6">
+								<div class="table-responsive">
+
+									<span class="text-success"><b>Information</b><br /></span>
+
+									<table class="table table-user-information">
+										<tbody>
 							<h:inputText
 								a:placeholder="#{carPoolingManagementBean.carPoolingService.trajectory.deliveryAddress}"
 								value="#{carPoolingManagementBean.carPoolingService.trajectory.deliveryAddress}" />
@@ -122,21 +124,21 @@
 									var="vehiculeType" itemValue="#{vehiculeType}"
 									itemLabel="#{vehiculeType}" />
 							</h:selectOneRadio>
+											
+											
+											
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-							<br />
-
-							<h:commandButton class="btn-signin"
-								action="#{carPoolingManagementBean.update()}"
-								value="Valide your Update" />
-
-						</h:panelGrid>
-					</fieldset>
-
-				</h:form>
-			</div>
-
+			</h:form>
 		</ui:define>
 	</ui:composition>
+
 
 </h:body>
 </html>

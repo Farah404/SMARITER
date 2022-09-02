@@ -362,7 +362,7 @@
 					<div class="table-responsive">
 						<p
 							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Mon
-							historique de prestations</p>
+							historique de prestations de covoiturage</p>
 
 						<h:dataTable class="table container-fluid"
 							value="#{userProfileBean.cpsListUserRelated}"
@@ -412,10 +412,10 @@
 								<f:facet name="header">Details</f:facet>
 								<h:panelGrid>
 									<h:commandButton value="Detail"
-										action="#{carPoolingServiceManagementBean.detail(carPoolingService.id)}">
+										action="#{carPoolingServiceManagementBean.detail(cpsUserRelated.id)}">
 
 										<f:param name="carPoolingServiceId"
-											value="#{carPoolingService.id}"></f:param>
+											value="#{cpsUserRelated.id}"></f:param>
 
 									</h:commandButton>
 								</h:panelGrid>
@@ -424,10 +424,10 @@
 								<f:facet name="header">Modifier</f:facet>
 								<h:panelGrid>
 									<h:commandButton value="Edit"
-										action="#{carPoolingManagementBean.showUpdate(carPoolingService.id)}">
+										action="#{carPoolingServiceManagementBean.updateStepOne()}">
 
 										<f:param name="carPoolingServiceId"
-											value="#{carPoolingService.id}"></f:param>
+											value="#{cps.id}"></f:param>
 									</h:commandButton>
 								</h:panelGrid>
 							</h:column>
@@ -435,14 +435,20 @@
 								<f:facet name="header">Supprimer</f:facet>
 								<h:panelGrid>
 									<h:commandButton
-										action="#{carPoolingManagementBean.delete(carPoolingService.id)}"
+										action="#{carPoolingManagementBean.delete(cpsUserRelated.id)}"
 										value="Delete" />
 								</h:panelGrid>
 							</h:column>
 
 						</h:dataTable>
-						<br/>
-						<h:dataTable class="table container-fluid bg-grey" id="carRentalService"
+						<br />
+
+						<p
+							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Mon
+							historique de prestations de location de véhicule</p>
+
+						<h:dataTable class="table container-fluid bg-grey"
+							id="carRentalService"
 							value="#{userProfileBean.crsListUserRelated}"
 							var="crsUserRelated">
 
@@ -479,9 +485,9 @@
 								<f:facet name="header">Details</f:facet>
 								<h:panelGrid>
 									<h:commandButton value="Detail"
-										action="#{carRentalServiceManagementBean.detail(carRentalService.id)}">
+										action="#{carRentalServiceManagementBean.detail(crsUserRelated.id)}">
 										<f:param name="carRentalServiceId"
-											value="#{carRentalService.id}"></f:param>
+											value="#{crsUserRelated.id}"></f:param>
 									</h:commandButton>
 								</h:panelGrid>
 							</h:column>
@@ -489,9 +495,9 @@
 								<f:facet name="header">Modifier</f:facet>
 								<h:panelGrid>
 									<h:commandButton value="Edit"
-										action="#{carRentalServiceManagementBean.showUpdate(carRentalService.id)}">
+										action="#{carRentalServiceManagementBean.updateStepOne()}">
 										<f:param name="carRentalServiceId"
-											value="#{carRentalService.id}"></f:param>
+											value="#{crsUserRelated.id}"></f:param>
 									</h:commandButton>
 								</h:panelGrid>
 							</h:column>
@@ -499,15 +505,19 @@
 								<f:facet name="header">Supprimer</f:facet>
 								<h:panelGrid>
 									<h:commandButton
-										action="#{carRentalServiceManagementBean.delete(carRentalService.id)}"
+										action="#{carRentalServiceManagementBean.delete(crsUserRelated.id)}"
 										value="Delete" />
 								</h:panelGrid>
 							</h:column>
 						</h:dataTable>
-						<br/>
+						<br />
+
+						<p
+							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Mon
+							historique de prestation de transport de colis</p>
+
 						<h:dataTable class="table container-fluid"
-							value="#{userProfileBean.psListUserRelated}"
-							var="psUserRelated">
+							value="#{userProfileBean.psListUserRelated}" var="psUserRelated">
 
 
 							<h:column>
@@ -560,8 +570,8 @@
 								<f:facet name="header">Details</f:facet>
 								<h:panelGrid>
 									<h:commandButton value="Detail"
-										action="#{parcelServiceManagementBean.detail(parcelService.id)}">
-										<f:param name="parcelServiceId" value="#{parcelService.id}"></f:param>
+										action="#{parcelServiceManagementBean.detail(psUserRelated.id)}">
+										<f:param name="parcelServiceId" value="#{psUserRelated.id}"></f:param>
 									</h:commandButton>
 								</h:panelGrid>
 							</h:column>
@@ -569,9 +579,8 @@
 								<f:facet name="header">Modifier</f:facet>
 								<h:panelGrid>
 									<h:commandButton value="Edit"
-										action="#{parcelServiceManagementBean.showUpdate(parcelService.id)}">
-										<f:param name="parcelServiceId"
-											value="#{parcelService.id}"></f:param>
+										action="#{parcelServiceManagementBean.updateStepOne()}">
+										<f:param name="parcelServiceId" value="#{psUserRelated.id}"></f:param>
 									</h:commandButton>
 								</h:panelGrid>
 							</h:column>
@@ -579,16 +588,17 @@
 								<f:facet name="header">Supprimer</f:facet>
 								<h:panelGrid>
 									<h:commandButton
-										action="#{parcelServiceManagementBean.delete(parcelService.id)}"
+										action="#{parcelServiceManagementBean.delete(psUserRelated.id)}"
 										value="Delete" />
 								</h:panelGrid>
 							</h:column>
 
-
-
-
 						</h:dataTable>
-						<br/>
+						<br />
+						<p
+							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Mon
+							historique de prestation Personal Assistance</p>
+						
 						<h:dataTable class="table container-fluid bg-grey"
 							value="#{userProfileBean.pasListUserRelated}"
 							var="pasUserRelated">
@@ -623,9 +633,9 @@
 								<f:facet name="header">Details</f:facet>
 								<h:panelGrid>
 									<h:commandButton value="Detail"
-										action="#{personalAssistanceServiceManagementBean.detail(personalAssistance.id)}">
+										action="#{personalAssistanceServiceManagementBean.detail(pasUserRelated.id)}">
 										<f:param name="personalAssistanceServiceId"
-											value="#{personalAssistance.id}"></f:param>
+											value="#{pasListUserRelated.id}"></f:param>
 									</h:commandButton>
 								</h:panelGrid>
 							</h:column>
@@ -633,9 +643,9 @@
 								<f:facet name="header">Modifier</f:facet>
 								<h:panelGrid>
 									<h:commandButton value="Edit"
-										action="#{personalAssistanceServiceManagementBean.showUpdate(personalAssistance.id)}">
+										action="#{personalAssistanceServiceManagementBean.updateStepOne()}">
 										<f:param name="personalAssistanceServiceId"
-											value="#{personalAssistance.id}"></f:param>
+											value="#{pasUserRelated.id}"></f:param>
 									</h:commandButton>
 								</h:panelGrid>
 							</h:column>
@@ -644,14 +654,10 @@
 								<f:facet name="header">Supprimer</f:facet>
 								<h:panelGrid>
 									<h:commandButton
-										action="#{personalAssistanceServiceManagementBean.delete(personalAssistance.id)}"
+										action="#{personalAssistanceServiceManagementBean.delete(pasUserRelated.id)}"
 										value="Delete" />
 								</h:panelGrid>
 							</h:column>
-
-
-
-
 						</h:dataTable>
 					</div>
 				</div>

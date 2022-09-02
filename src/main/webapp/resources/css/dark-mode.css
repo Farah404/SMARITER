@@ -77,6 +77,7 @@ html {
   	border-color: #282828;
     border-radius: 12px;
     padding: 15px 5px;
+    font-family: "Rubik", sans-serif;
 }
 .headerButton::hover{
 	background: #303030;
@@ -121,6 +122,7 @@ a {
   color: #d9d5d4;
   text-decoration: none;
   position: relative;
+  
 }
 
 .item a::before {
@@ -1493,7 +1495,7 @@ background-color: 	#383838;
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
-  background-color: #7b667a;
+  background-color: #282828;
 }
 
 .button-about-b {
@@ -1503,7 +1505,7 @@ background-color: 	#383838;
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
-  background-color: #d9d5d4;
+  background-color:#282828;
 }
 
 .img-about {

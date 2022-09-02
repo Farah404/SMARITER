@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<f:metadata>
+	<f:event listener="#{carRentalServiceManagementBean.init()}"
+		type="preRenderView"></f:event>
+</f:metadata>
+
+<h:body>
+	<ui:composition template="#{templateBean.subtemplatePath()}">
+		<ui:define name="subcontent">
+			<h:form>
+
+
+
+				<div class="container bootstrap snippets bootdey">
+					<div class="panel-body inf-content">
+						<div class="row">
+
+							<div class="col-md-4">
+								<img alt="" style="width: 100%;" class=" img-thumbnail"
+									src="subMedia/Images/Covoit.png" /> <br /> <br />
+								<br />
+
+								<h:commandButton class="btn btn-success center-block"
+									type="submit"
+									value="Mettre à jour"
+									action="#{carRentalServiceManagementBean.update()}">
+								</h:commandButton>
+
+							</div>
+
+
+
+							<div class="col-md-6">
+								<div class="table-responsive">
+
+									<span class="text-success"><b>Information</b><br /></span>
+
+									<table class="table table-user-information">
+										<tbody>
+										<fieldset>
+							<h:panelGrid>
+							<br />
+							<f:facet name="header">
+								<br />
+								<h:outputText value="UPDATE SERVICE" />
+							</f:facet>
+							<br />
+
+
+							<h:outputLabel value="Key Pick-Up Address" />
+							<h:inputText
+								a:placeholder="#{carRentalServiceManagementBean.carRentalService.keyPickUpAddress}"
+								value="#{carRentalServiceManagementBean.carRentalService.keyPickUpAddress}" />
+
+							<h:outputLabel value="Key Drop-Off Address" />
+							<h:inputText
+								a:placeholder="#{carRentalServiceManagementBean.carRentalService.keyDropOffAddress}"
+								value="#{carRentalServiceManagementBean.carRentalService.keyDropOffAddress}" />
+
+							<h:outputLabel value="Price" />
+							<h:inputText
+								a:placeholder="#{carRentalServiceManagementBean.carRentalService.price}"
+								value="#{carRentalServiceManagementBean.carRentalService.price}" />
+
+
+							<h:outputLabel value="start Date" />
+							<h:inputText
+								a:placeholder="#{carRentalServiceManagementBean.carRentalService.startDate}"
+								value="#{carRentalServiceManagementBean.carRentalService.startDate}" />
+
+							<h:outputLabel value="End Date" />
+							<h:inputText
+								a:placeholder="#{carRentalServiceManagementBean.carRentalService.endDate}"
+								value="#{carRentalServiceManagementBean.carRentalService.endDate}" />
+
+							<h:outputLabel value="Service type" />
+							<h:selectOneMenu
+								value="#{carRentalServiceManagementBean.carRentalService.servicetype}">
+								<f:selectItem itemLabel="Selection" itemValue="" />
+								<f:selectItems
+									value="#{carRentalServiceManagementBean.serviceType()}"
+									var="servicetype" itemLabel="#{servicetype}"
+									itemValue="#{servicetype}"></f:selectItems>
+							</h:selectOneMenu>
+							<br />
+							<h:outputLabel value="Trajetory Type" />
+
+							<br />
+							<h:outputLabel value="vehicule brand" />
+							<h:inputText
+								a:placeholder="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.brand}"
+								value="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.brand}" />
+
+							<h:selectOneRadio
+								value="#{carRentalServiceManagementBean.carRentalService.userAccountProvider.vehicule.vehiculeType}">
+								<f:selectItems
+									value="#{carRentalServiceManagementBean.vehiculeType()}"
+									var="vehiculeType" itemValue="#{vehiculeType}"
+									itemLabel="#{vehiculeType}" />
+							</h:selectOneRadio>
+
+							<br />
+
+							<h:commandButton class="btn-signin"
+								action="#{carRentalServiceManagementBean.update()}"
+								value="Valide your Update" />
+
+
+						</h:panelGrid>
+					</fieldset>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+
+</h:body>
+</html>

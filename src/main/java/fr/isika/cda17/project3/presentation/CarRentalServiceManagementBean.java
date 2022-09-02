@@ -23,7 +23,8 @@ import fr.isika.cda17.project3.repository.serviceManagement.CarRentalServiceDao;
 public class CarRentalServiceManagementBean implements Serializable {
 
     private static final String SERVICE_LIST_XHTML = "subServiceList.xhtml";
-
+    private static final String UPDATE_CARENTAL = "updateCarRental.xhtml";
+    private static final String USER_PROFILE = "subUserProfilePersonal.xhtml";
     private static final long serialVersionUID = 1L;
 
     @Inject
@@ -72,13 +73,17 @@ public class CarRentalServiceManagementBean implements Serializable {
 	ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 	ec.redirect(SERVICE_LIST_XHTML);
     }
+    
+    public String updateStepOne() {
+	return UPDATE_CARENTAL;
+    }
 
     public String update() {
 	if (carRentalService.getEndDate().equals(carRentalService.getStartDate()))
 
 	    carRentalServiceDao.update(carRentalService);
 	System.out.println((carRentalService));
-	return SERVICE_LIST_XHTML;
+	return USER_PROFILE;
     }
 
     public String detail(Long id) {
@@ -98,11 +103,6 @@ public class CarRentalServiceManagementBean implements Serializable {
     @PostConstruct
     public void freshinit() {
 	refresh();
-    }
-
-    public String showUpdate(Long id) {
-	System.err.println(id);
-	return "editcarRentalService.xhtml?faces-redirect=true&carRentalServiceId=" + id;
     }
 
     public void delete(Long id) {

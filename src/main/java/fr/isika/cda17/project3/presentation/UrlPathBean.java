@@ -70,6 +70,7 @@ public class UrlPathBean implements Serializable {
     public String goToSiteMap() {
 	return "siteMap.xhtml";
     }
+    
 
     public String goToStartService() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);

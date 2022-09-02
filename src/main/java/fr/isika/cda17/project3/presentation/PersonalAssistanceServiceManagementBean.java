@@ -21,7 +21,9 @@ import fr.isika.cda17.project3.repository.serviceManagement.PersonalAssistanceSe
 @ViewScoped
 public class PersonalAssistanceServiceManagementBean implements Serializable {
 
-	private static final String SERVICE_LIST_XHTML = "subServiceList.xhtml";
+    private static final String SERVICE_LIST_XHTML = "subServiceList.xhtml";
+    private static final String UPDATE_PERSONAL_ASSISTANCE = "updatePersonalAssistance.xhtml";
+    private static final String USER_PROFILE = "subUserProfilePersonal.xhtml";
 
 	private static final long serialVersionUID = 1L;
 
@@ -62,11 +64,14 @@ public class PersonalAssistanceServiceManagementBean implements Serializable {
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 		ec.redirect(SERVICE_LIST_XHTML);
 	}
-
+	
+	    public String updateStepOne() {
+		return UPDATE_PERSONAL_ASSISTANCE;
+	    }
 	public String updapte() {
 		personalAssistanceServiceDao.update(personalAssistanceService);
 		System.out.println((personalAssistanceService));
-		return SERVICE_LIST_XHTML;
+		return USER_PROFILE;
 	}
 
 	public String detail(Long id) {
@@ -87,11 +92,6 @@ public class PersonalAssistanceServiceManagementBean implements Serializable {
 	@PostConstruct
 	public void freshinit() {
 		refresh();
-	}
-
-	public String showUpdate(Long id) {
-		System.err.println(id);
-		return "editcarPoolingService.xhtml?faces-redirect=true&carPoolingServiceId=" + id;
 	}
 
 	public void delete(Long id) {

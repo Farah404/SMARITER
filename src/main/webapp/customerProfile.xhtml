@@ -44,25 +44,22 @@
 						<h:form class="cusProfile">
 							<div class="col-one-half-cusProfile">
 								<img class="customer-img" src="media/img/EcoCarBig.png" /><br />
-								<h:commandButton action="#{customerProfileBean.updateStepOne()}"
+								<h:commandButton style="width:25vh" action="#{customerProfileBean.updateStepOne()}"
 									class="button-shared" value="Update profile" />
 								<br />
-								<h:commandButton class="button-shared" value="View my website" />
+								<h:commandButton style="width:25vh" class="button-shared" value="Check my invoice" />
 								<br />
-								<h:commandButton class="button-shared" value="Check my invoice" />
-								<br />
-
-								<h:commandButton class="button-shared"
+								<h:commandButton style="width:25vh" class="button-shared"
 									action="#{logInAccountBean.logout()}" value="Log Out"></h:commandButton>
 
 
 							</div>
 							<div class="col-one-half-cusProfile">
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Firstname:
+									class="fa fa-user fa-col-cus"> Firstname:
 										#{customerProfileBean.customer.firstName}</i></span><br /> <br /> <span
 									class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Lastname:
+									class="fa fa-user fa-col-cus"> Lastname:
 										#{customerProfileBean.customer.lastName}</i></span><br /> <br /> <span
 									class="label-text-cusProfile"><i
 									class="fa fa-envelope fa-col-cus"> Email address:
@@ -77,51 +74,48 @@
 									class="fa fa-hashtag fa-col-cus"> Siret Number:
 										#{customerProfileBean.customer.entityAccount.siretNumber}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Website name:
+									class="fa fa-globe fa-col-cus"> Website name:
 										#{customerProfileBean.customer.entityAccount.solution.solutionName}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-inbox fa-col-cus"> Included solutions:
+									class="fa fa-globe fa-col-cus"> Included solutions:
 										#{customerProfileBean.customer.entityAccount.solution.carPoolingsolutionIncluded},
 										#{customerProfileBean.customer.entityAccount.solution.carRentalSolutionIncluded},
 										#{customerProfileBean.customer.entityAccount.solution.parcelSolutionIncluded},
 										#{customerProfileBean.customer.entityAccount.solution.personalAssistanceSolutionIncluded}
 
 								</i></span><br /> <br /> <span class="label-text-cusProfile"><i
-									class="fa fa-phone fa-col-cus"> Payment Choice:
+									class="fa fa-euro fa-col-cus"> Payment Choice:
 										#{customerProfileBean.customer.entityAccount.solution.paymentSystemChoice}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-phone fa-col-cus"> Payment Choice:
+									class="fa fa-phone fa-col-cus"> Messaging Choice:
 										#{customerProfileBean.customer.entityAccount.solution.messagingSystemChoice}</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-euro fa-col-cus"> Messaging choice:</i></span><br /> <br />
+								<br /> 
 
 							</div>
 
 							<div class="col-one-half-cusProfile">
+								
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Banking details:</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Bank name:
+									class="fa fa-check fa-col-cus"> Bank name:
 										#{customerProfileBean.customer.entityAccount.bankDetails.bankName}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Swift number:
+									class="fa fa-check fa-col-cus"> Swift number:
 										#{customerProfileBean.customer.entityAccount.bankDetails.swift}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> IBAN:
+									class="fa fa-check fa-col-cus"> IBAN:
 										#{customerProfileBean.customer.entityAccount.bankDetails.iban}</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-inbox fa-col-cus"> Billing Address:</i></span><br /> <br />
+<br />
 								<span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Address line:
+									class="fa fa-map fa-col-cus"> Address line:
 										#{customerProfileBean.customer.entityAccount.billingAddress.addressLine}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> City:
+									class="fa fa-map fa-col-cus"> City:
 										#{customerProfileBean.customer.entityAccount.billingAddress.city}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Postal code:
+									class="fa fa-map fa-col-cus"> Postal code:
 										#{customerProfileBean.customer.entityAccount.billingAddress.postalCode}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Country:
+									class="fa fa-map fa-col-cus"> Country:
 										#{customerProfileBean.customer.entityAccount.billingAddress.country}</i></span><br />
 								<br />
 							</div>
