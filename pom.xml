@@ -206,6 +206,13 @@
 			<artifactId>arquillian-protocol-servlet</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- Braintree -->
+		<dependency>
+			  <groupId>com.braintreepayments.gateway</groupId>
+			  <artifactId>braintree-java</artifactId>
+			  <version>3.18.0</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<!-- Maven will append the version to the finalName (which is the name

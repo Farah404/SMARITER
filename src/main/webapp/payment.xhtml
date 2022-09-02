@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
+	xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+
+<f:metadata>
+	<f:event listener="#{paymentBean.init()}" type="preRenderView">
+	</f:event>
+</f:metadata>
+
+
+<h:body>
+
+
+
+	<ui:composition template="template/templatewithoutHeader.xhtml">
+	<h:outputScript library="js" name = "payment.js"/>
+		<ui:define name="content">
+		<script src="https://js.braintreegateway.com/web/dropin/1.33.4/js/dropin.min.js"></script>
+		<script src="https://js.braintreegateway.com/web/3.86.0/js/client.min.js"></script>
+<!-- <script src="https://js.braintreegateway.com/web/3.86.0/js/data-collector.min.js"></script> -->
+<script src="https://js.braintreegateway.com/web/3.87.0/js/hosted-fields.min.js"></script>
+			
+			<h:form id="payment-form">
+    <!-- Putting the empty container you plan to pass to
+      `braintree.dropin.create` inside a form will make layout and flow
+      easier to manage -->
+<!--     <div id="dropin-container"></div> -->
+<!-- 	<label for="card-number">Card Number</label> -->
+<!--       <div id="card-number"></div> -->
+
+<!--       <label for="cvv">CVV</label> -->
+<!--       <div id="cvv"></div> -->
+
+<!--       <label for="expiration-date">Expiration Date</label> -->
+<!--       <div id="expiration-date"></div> -->
+	
+    <h:inputSecret id="nonce" name="payment_method_nonce" value="#{paymentBean.nonce}"/>
+	<h:inputText id="client-authorization" value="#{paymentBean.clientToken}" />
+    <h:inputText name="amount" value="#{paymentBean.amount}"/>
+    <h:commandButton action="#{paymentBean.doPaymentTransaction()}" value="Pay" />
+  </h:form>  
+    		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>
