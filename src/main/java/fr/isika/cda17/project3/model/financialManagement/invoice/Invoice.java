@@ -1,5 +1,6 @@
 package fr.isika.cda17.project3.model.financialManagement.invoice;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -18,9 +19,9 @@ public abstract class Invoice {
     @GeneratedValue
     private Long id;
 
-    private int invoiceNumber;
+    private String invoiceNumber;
 
-    private Date invoiceIssueDate;
+    private LocalDate invoiceIssueDate;
 
     @Enumerated(EnumType.STRING)
     private InvoiceType invoiceType;
@@ -29,7 +30,7 @@ public abstract class Invoice {
 	super();
     }
 
-    public Invoice(Long id, int invoiceNumber, Date invoiceIssueDate, InvoiceType invoiceType) {
+    public Invoice(Long id, String invoiceNumber, LocalDate invoiceIssueDate, InvoiceType invoiceType) {
 	super();
 	this.id = id;
 	this.invoiceNumber = invoiceNumber;
@@ -37,19 +38,19 @@ public abstract class Invoice {
 	this.invoiceType = invoiceType;
     }
 
-    public int getInvoiceNumber() {
+    public String getInvoiceNumber() {
 	return invoiceNumber;
     }
 
-    public void setInvoiceNumber(int invoiceNumber) {
+    public void setInvoiceNumber(String invoiceNumber) {
 	this.invoiceNumber = invoiceNumber;
     }
 
-    public Date getInvoiceIssueDate() {
+    public LocalDate getInvoiceIssueDate() {
 	return invoiceIssueDate;
     }
 
-    public void setInvoiceIssueDate(Date invoiceIssueDate) {
+    public void setInvoiceIssueDate(LocalDate invoiceIssueDate) {
 	this.invoiceIssueDate = invoiceIssueDate;
     }
 

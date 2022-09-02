@@ -29,12 +29,13 @@ public class CustomerProfileBean implements Serializable {
 	if (id != null) {
 	    customer = customerDao.findByEntityAccountId(id);
 	    // customer => entityAccount == id
-	    if (customer == null) {
-		System.out.println("this is bullshit");
-	    }
-	} else {
-	    System.out.println("id null");
-	}
+//	    if (customer == null) {
+//		System.out.println("non logical");
+//	    }
+	} 
+//    else {
+//	    System.out.println("id null");
+//	}
     }
 
     public Customer getCustomer() {
@@ -51,7 +52,7 @@ public class CustomerProfileBean implements Serializable {
 
     public String update() {
 	customerDao.update(customer);
-	System.out.println(customer);
+//	System.out.println(customer);
 	return "customerProfile.xhtml?faces-redirect=true";
     }
 

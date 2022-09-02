@@ -4,15 +4,20 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.CustomerInvoice;
+import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
 import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
 import fr.isika.cda17.project3.model.solutionManagement.MessagingSystemChoice;
 import fr.isika.cda17.project3.model.solutionManagement.ParcelSolution;
 import fr.isika.cda17.project3.model.solutionManagement.PaymentSystemChoice;
 import fr.isika.cda17.project3.model.solutionManagement.PriceDeal;
 import fr.isika.cda17.project3.model.solutionManagement.Solution;
+import fr.isika.cda17.project3.model.solutionManagement.TemplateChoice;
+import fr.isika.cda17.project3.repository.personManagement.accounts.CustomerDao;
 import fr.isika.cda17.project3.repository.solutionManagement.SolutionDao;
 
 @ManagedBean
@@ -24,7 +29,12 @@ public class CreateSolutionBean implements Serializable {
     @Inject
     private SolutionDao solutionDao;
 
+    @Inject
+    private CustomerDao customerDao;
+    
     private Solution solution = new Solution();
+    
+    private Customer customer;
 
     private CarPoolingSolution carPoolingSolution = new CarPoolingSolution();
     private ParcelSolution parcelSolution = new ParcelSolution();
@@ -41,14 +51,27 @@ public class CreateSolutionBean implements Serializable {
     public MessagingSystemChoice[] messagingSystemChoicesValues() {
 	return MessagingSystemChoice.values();
     }
+    
+    public TemplateChoice[] templateChoiceValues() {
+    	return TemplateChoice.values();
+        }
 
     public String create() {
-	solution.setCarPoolingSolution(carPoolingSolution);
-	solution.setParcelSolution(parcelSolution);
-	solution.setCustomerInvoice(customerInvoice);
-	Solution created = solutionDao.create(solution);
-	System.out.println(created);
-	return "patterns.xhtml?faces-redirect=true";
+    HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+    if(session != null) {
+    	Long id = Long.valueOf(session.getAttribute("id").toString());
+        customer = customerDao.findByEntityAccountId(id);
+        solution.setCarPoolingSolution(carPoolingSolution);
+    	solution.setParcelSolution(parcelSolution);
+    	solution.setCustomerInvoice(customerInvoice);
+    	solution.setCustomer(customer);
+    	Solution created = solutionDao.create(solution);
+    	return "paymentForm.xhtml?faces-redirect=true&solutionId="+ created.getId();
+    }
+    else {
+    	return "logInSignUp.xhtml";
+    }
+    
     }
 
     public Solution getSolution() {
@@ -82,5 +105,6 @@ public class CreateSolutionBean implements Serializable {
     public void setCustomerInvoice(CustomerInvoice customerInvoice) {
 	this.customerInvoice = customerInvoice;
     }
+    
 
 }

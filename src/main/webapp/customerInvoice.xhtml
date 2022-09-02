@@ -6,6 +6,12 @@
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
 	xmlns:f="http://java.sun.com/jsf/core">
 
+<f:metadata>
+	<f:event listener="#{customerInvoiceBean.init()}"
+		type="preRenderView">
+	</f:event>
+</f:metadata>
+
 <h:head>
 	<title>SmarIter</title>
 </h:head>
@@ -34,7 +40,7 @@
 
 				<h1>Invoice</h1>
 
-				<div class="invoice-id"># 0002</div>
+				<div class="invoice-id">#{customerInvoiceBean.solution.customerInvoice.invoiceNumber}</div>
 
 				<img src="/images/logo/codepen-logo-black.svg" alt="CodePen Logo"
 					class="invoice-logo" />
@@ -44,16 +50,16 @@
 					<div class="grid-1-2">
 						<div class="invoice-module">
 							<h3>To</h3>
-							<pre>Some Company
- 123 Street St
- Madison, WI 53555</pre>
+							<pre>#{customerInvoiceBean.solution.customer.entityAccount.name}
+ #{customerInvoiceBean.solution.customer.entityAccount.billingAddress.addressLine}
+ #{customerInvoiceBean.solution.customer.entityAccount.billingAddress.city}, #{customerInvoiceBean.solution.customer.entityAccount.billingAddress.postalCode}</pre>
 						</div>
 					</div>
 
 					<div class="grid-1-2">
 						<div class="invoice-module">
 							<h3>From</h3>
-							CodePen<br /> 1242 NW Colonial Dr<br /> Bend OR 97701
+							SMARITER<br /> Smariter Street<br /> Binary Square, 10101
 						</div>
 					</div>
 
@@ -63,8 +69,7 @@
 					<div class="grid-1-1">
 						<div class="invoice-module">
 							<h3>For</h3>
-							<div class="invoice-for">Display advertising on codepen.io,
-								running February 1, 2014 to February 28, 2014.</div>
+							<div class="invoice-for">#{customerInvoiceBean.solution.solutionName}</div>
 						</div>
 					</div>
 				</div>
@@ -74,14 +79,14 @@
 					<div class="grid-1-2">
 						<div class="invoice-module">
 							<h3>Amount Due</h3>
-							<div class="amount-due-amount">$125.00</div>
+							<div class="amount-due-amount">#{customerInvoiceBean.solution.priceDeal.amount} €</div>
 						</div>
 					</div>
 
 					<div class="grid-1-2">
 						<div class="invoice-module">
 							<h3>Due Date</h3>
-							<div class="due-date-date">2014-02-15</div>
+							<div class="due-date-date">#{customerInvoiceBean.dueDate}</div>
 						</div>
 					</div>
 
@@ -89,7 +94,7 @@
 
 				<div class="paid-line">
 					<img src="/images/advertising/paid.svg" alt="Paid"
-						class="paid-stamp" /> 2014-01-31
+						class="paid-stamp" /> #{customerInvoiceBean.stampDate}
 				</div>
 
 			</div>

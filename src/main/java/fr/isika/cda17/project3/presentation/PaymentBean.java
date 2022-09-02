@@ -1,6 +1,8 @@
 package fr.isika.cda17.project3.presentation;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -14,15 +16,18 @@ import com.braintreegateway.CustomerRequest;
 import com.braintreegateway.Environment;
 import com.braintreegateway.Result;
 import com.braintreegateway.Transaction;
-import com.braintreegateway.Transaction.Type;
-import com.braintreegateway.TransactionCreditCardRequest;
 import com.braintreegateway.TransactionOptionsRequest;
 import com.braintreegateway.TransactionRequest;
 import com.braintreegateway.ValidationError;
 import com.braintreegateway.ValidationErrors;
 
+import fr.isika.cda17.project3.model.financialManagement.invoice.CustomerInvoice;
+import fr.isika.cda17.project3.model.financialManagement.invoice.InvoiceType;
+import fr.isika.cda17.project3.model.solutionManagement.Solution;
 import fr.isika.cda17.project3.repository.financialManagement.brainTree.BrainTreeDao;
+import fr.isika.cda17.project3.repository.financialManagement.invoice.CustomerInvoiceDao;
 import fr.isika.cda17.project3.repository.personManagement.accounts.CustomerDao;
+import fr.isika.cda17.project3.repository.solutionManagement.SolutionDao;
 
 @ManagedBean
 @ViewScoped
@@ -33,10 +38,12 @@ public class PaymentBean {
 
     @Inject
     private BrainTreeDao brainTreeDao;
-
-//    private Customer customer;
-//
-//    private BrainTree brainTree;
+    
+    @Inject
+    private CustomerInvoiceDao customerInvoiceDao;
+    
+    @Inject
+    private SolutionDao solutionDao;
 
     private String clientToken;
 
@@ -52,10 +59,12 @@ public class PaymentBean {
     
     private String cardName;
     
-    private Long solutionId;
+    private Solution solution;
+    
+    private CustomerInvoice customerInvoice;
     
 
-    // Below are the Braintree sandbox credentials
+    // BrainTreeSandbox Credentials
     private static BraintreeGateway gateway = null;
     private static String publicKey = "633dfv7hh5cvrh25";
     private static String privateKey = "9138d1a0acf5673f4a0ff57dc08dde65";
@@ -72,18 +81,29 @@ public class PaymentBean {
 	    if (solutionIdParamValue != null && !solutionIdParamValue.isBlank()) {
 		Long id = Long.valueOf(solutionIdParamValue);
 		if (id != null) {
-			solutionId=id;
+			solution=solutionDao.findById(id);
+			amount=BigDecimal.valueOf(solution.getPriceDeal().getAmount());
 		    
 		}}}
-	if (map.containsKey("solutionAmount")) {
-	    String solutionAmountParamValue = map.get("solutionAmount");
-	    if (solutionAmountParamValue != null && !solutionAmountParamValue.isBlank()) {
-		Double amountToSet = Double.valueOf(solutionAmountParamValue);
+//	if (map.containsKey("solutionAmount")) {
+//	    String solutionAmountParamValue = map.get("solutionAmount");
+//	    if (solutionAmountParamValue != null && !solutionAmountParamValue.isBlank()) {
+//		Double amountToSet = Double.valueOf(solutionAmountParamValue);
+//		BigDecimal amountToSetBD = BigDecimal.valueOf(amountToSet);
+//		if (amountToSetBD != null) {
+//			amount=amountToSetBD;
+//		    
+//		}}}
+	if (map.containsKey("serviceAmount")) {
+	    String serviceAmountParamValue = map.get("serviceAmount");
+	    if (serviceAmountParamValue != null && !serviceAmountParamValue.isBlank()) {
+		Double amountToSet = Double.valueOf(serviceAmountParamValue);
 		BigDecimal amountToSetBD = BigDecimal.valueOf(amountToSet);
 		if (amountToSetBD != null) {
 			amount=amountToSetBD;
 		    
 		}}}
+	
     }
 
     // Make an endpoint which return client token.
@@ -124,15 +144,16 @@ public class PaymentBean {
     }
 
     // Make payment
-    public void doPaymentTransaction() {
+    public String doSolutionPaymentTransaction() {
 //    	receivePaymentMethodNonce();
 
-	TransactionRequest request = new TransactionRequest().amount(amount).paymentMethodNonce(nonce).creditCard().number(cardNumber).expirationDate("01/2024").cvv(cardCvv).done();
+	TransactionRequest request = new TransactionRequest().amount(amount)
+			.paymentMethodNonce(nonce).creditCard().number(cardNumber).expirationDate("01/2024").cvv(cardCvv).done();
 
 	CustomerRequest customerRequest = request.customer();
-	customerRequest.email("notPatel@gmail.com");
-	customerRequest.firstName("Falal");
-	customerRequest.lastName("NotRacist");
+	customerRequest.email(solution.getCustomer().getEntityAccount().getEmail());
+	customerRequest.firstName(solution.getCustomer().getFirstName());
+	customerRequest.lastName(solution.getCustomer().getLastName());
 
 	
 //	TransactionCreditCardRequest tccr = request.creditCard()
@@ -155,6 +176,16 @@ public class PaymentBean {
 	    ValidationErrors errors = result.getErrors();
 	    validationError(errors);
 	}
+	// Generating invoice
+	customerInvoice=customerInvoiceDao.findById(solution.getCustomerInvoice().getId());
+	customerInvoice.setInvoiceIssueDate(LocalDate.now());
+	int ref = customerInvoiceDao.findAll().size()+1;
+	customerInvoice.setInvoiceNumber("2022-0"+ref);
+	customerInvoice.setInvoiceType(InvoiceType.CUSTOMER_INVOICE);
+	customerInvoice.setPrice(solution.getPriceDeal().getAmount());
+	customerInvoiceDao.update(customerInvoice);
+	
+	return "customerInvoice.xhtml?faces-redirect=true&solutionId="+ solution.getId();
     }
 
     public BigDecimal getAmount() {
@@ -175,11 +206,11 @@ public class PaymentBean {
 
     // Make an endpoint which receive payment method nonce from client and do
     // payment.
-    public void receivePaymentMethodNonce() {
+//    public void receivePaymentMethodNonce() {
 //	String nonceFromTheClient = "fake-valid-mastercard-nonce";
-    	nonce = "fake-valid-mastercard-nonce";
+//    	nonce = "fake-valid-mastercard-nonce";
 //	return nonceFromTheClient;
-    }
+//    }
 
     private void displayTransactionInfo(Transaction transaction) {
 	System.out.println(" ------ Transaction Info ------ ");

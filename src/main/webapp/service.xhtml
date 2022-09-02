@@ -43,10 +43,9 @@
 
 								<h:selectOneMenu id="paymentchoiceTrue"
 									value="#{createSolutionBean.solution.paymentSystemChoice}"
-									Label="Chose your solution payment plan"
+									Label="Choose your solution payment plan"
 									class="form-solution-field animation a3">
-									<f:selectItem itemLabel="Select payment system"
-										itemValue="null" />
+<!-- 									<f:selectItem itemLabel="Select payment system" itemValue="null" /> -->
 									<f:selectItems
 										value="#{createSolutionBean.paymentSystemValue()}" var="ps"
 										itemLabel="#{ps.label}" itemValue="#{ps}" />
@@ -54,11 +53,20 @@
 
 								<h:selectOneMenu id="pricingDeal"
 									value="#{createSolutionBean.solution.priceDeal}"
-									Label="Chose your price deal"
+									Label="Choose your price deal"
 									class="form-solution-field animation a3">
-									<f:selectItem itemLabel="Select price deal" itemValue="null" />
+<!-- 									<f:selectItem itemLabel="Select price deal" itemValue="null" /> -->
 									<f:selectItems value="#{createSolutionBean.priceDeal()}"
 										var="pd" itemLabel="#{pd.label}" itemValue="#{pd}" />
+								</h:selectOneMenu>
+								
+								<h:selectOneMenu id="templateChoice"
+									value="#{createSolutionBean.solution.templateChoice}"
+									Label="Choose your template"
+									class="form-solution-field animation a3">
+<!-- 									<f:selectItem itemLabel="Select price deal" itemValue="null" /> -->
+									<f:selectItems value="#{createSolutionBean.templateChoiceValues()}"
+										var="pd" itemLabel="#{tc.label}" itemValue="#{tc}" />
 								</h:selectOneMenu>
 
 								<h:selectOneMenu id="messagingSystem"
@@ -72,8 +80,7 @@
 										value="#{createSolutionBean.messagingSystemChoicesValues()}"
 										var="ms" itemLabel="#{ms.label}" itemValue="#{ms}" />
 								</h:selectOneMenu>
-
-
+								
 								<button type="button" class="collapsible animation a3">Do
 									you want to include a carpooling solution in your website?</button>
 								<div class="content-collapse">

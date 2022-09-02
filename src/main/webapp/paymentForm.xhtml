@@ -30,7 +30,7 @@
 				<main class="page-content"> <section class="credit-form">
 
 				<header class="form-header">
-				<h1 class="form-header__slogan">Confirm your Smariter purchase of #{paymentBean.amount}</h1>
+				<h1 class="form-header__slogan">Confirm your Smariter purchase of #{paymentBean.amount} €</h1>
 				</header>
 
 				<h:form class="payment-form">
@@ -97,7 +97,7 @@
 					<h:inputHidden id="nonce" name="payment_method_nonce" value="#{paymentBean.nonce}"/>
 					<h:inputHidden id="client-authorization" value="#{paymentBean.clientToken}" />
 				    <h:inputHidden name="amount" value="#{paymentBean.amount}"/>
-						<h:commandButton action="#{paymentBean.doPaymentTransaction()}" value="Pay" class="payment-form__button" />
+						<h:commandButton action="#{paymentBean.doSolutionPaymentTransaction()}" value="Pay" class="payment-form__button" />
 					</div>
 
 				</h:form>
