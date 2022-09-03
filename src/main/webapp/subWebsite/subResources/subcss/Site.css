@@ -184,19 +184,28 @@
 
 /*Styling NavBar*/
 .navbar {
-    margin-bottom: 0;
-    background-color: #93bb83;
-    z-index: 9999;
-    border: 0;
-    font-size: 12px !important;
-    line-height: 1.42857143 !important;
-    letter-spacing: 4px;
-    border-radius: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0;
+	background-color: #93bb83;
+	z-index: 9999;
+	border: 0;
+	font-size: 12px !important;
+	line-height: 1.42857143 !important;
+	letter-spacing: 4px;
+	border-radius: 0;
 }
 
-    .navbar li a, .navbar .navbar-brand {
-        color: #fff !important;
-    }
+.navbar li a, .navbar .navbar-brand {
+	color: #fff !important;
+	padding: 15px 5px;
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 24px;}
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
     color: #04bc3b !important;
