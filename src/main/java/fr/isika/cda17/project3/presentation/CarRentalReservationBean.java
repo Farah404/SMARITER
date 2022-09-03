@@ -15,15 +15,18 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.ServiceInvoice;
+import fr.isika.cda17.project3.model.financialManagement.store.Wallet;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
 import fr.isika.cda17.project3.model.serviceManagement.Reservation;
+import fr.isika.cda17.project3.repository.financialManagement.invoice.ServiceInvoiceDao;
+import fr.isika.cda17.project3.repository.financialManagement.store.WalletDao;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
 import fr.isika.cda17.project3.repository.serviceManagement.CarRentalServiceDao;
 import fr.isika.cda17.project3.repository.serviceManagement.ReservationDao;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class CarRentalReservationBean implements Serializable{
 
 	/**
@@ -37,22 +40,28 @@ public class CarRentalReservationBean implements Serializable{
 	private CarRentalServiceDao carRentalServiceDao;
 	
 	@Inject
-	private UserAccountsDao userAccontDao;
+	private UserAccountsDao userAccountDao;
   
 	@Inject
 	private ReservationDao reservationDao;
-     
-	private Reservation reservation = new Reservation();
-	private ServiceInvoice serviceInvoice = new ServiceInvoice();
-	private UserAccount user = new UserAccount();
+	
+	@Inject
+	private ServiceInvoiceDao serviceInvoiceDao;
+	@Inject 
+	private WalletDao walletDao;
+	
+	
+	private Reservation reservation;
+	private ServiceInvoice serviceInvoice;
+	
 	private CarRentalService carRental;
-/*
- * methodes
- */
-	public void init() throws IOException {
-		System.out.println("INITIALISATION RESERVATIONBEAN");
-		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+	private UserAccount userAccountPurchaser;
+	private UserAccount userAccountProvider;
+	private Wallet walletProvider;
+	private Wallet walletPurchaser;
 
+	public void init() throws IOException {
+		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		if (map.containsKey("carRentalServiceId")) {
 			String carRentalServiceIdParamValue = map.get("carRentalServiceId");
 			System.err.println(carRentalServiceIdParamValue);
@@ -77,29 +86,69 @@ public class CarRentalReservationBean implements Serializable{
 		ec.redirect(LIST_CARRENTALSERVICE_XHTML);
 	}
 	
-public void reservation() {
+public String reservation() throws IOException {
+	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	Long id = (Long) session.getAttribute("id");
+	userAccountPurchaser = userAccountDao.findById(id);
+	userAccountProvider = userAccountDao.findById(carRental.getUserAccountProvider().getId());
+	walletPurchaser = walletDao.findById(userAccountPurchaser.getWallet().getId());
+	walletProvider = walletDao.findById(userAccountProvider.getWallet().getId());
+	
+	if(userAccountPurchaser.getWallet().getInternalCurrencyAmount() >= carRental.getPrice()) {
+		int ref = serviceInvoiceDao.findAll().size() + 1;
+		String invoiceNumber = "2022INV-" + ref + "-SMTR";
 		
+		walletPurchaser.withSubstractedValue(carRental.getPrice());
+		walletProvider.withAddedValue(carRental.getPrice());
 
-		System.out.println("DEBUT CREATION");
-
-		reservation.setService(carRental);
-		serviceInvoice.setService(carRental);
+		serviceInvoice = (ServiceInvoice) new ServiceInvoice()
+				.withService(carRental)
+				.withUserAccountProvider(carRental.getUserAccountProvider())
+				.withUserAccountPurchaser(userAccountPurchaser)
+				.withServiceInvoiceType()
+				.withIssueDate()
+				.withInvoiceNumber(invoiceNumber);
 		
+		reservation = new Reservation()
+				.withService(carRental)
+				.withServiceInvoice(serviceInvoice);
+
+		carRental.withReservation(reservation).withUnavailable(true);
+		walletDao.update(walletProvider);
+		walletDao.update(walletPurchaser);
+		serviceInvoiceDao.create(serviceInvoice);
+		reservationDao.create(reservation);
+		carRentalServiceDao.update(carRental);
+		
+		return "subServiceInvoice.xhtml?faces-redirect=true&serviceInvoiceId="+serviceInvoice.getId();
+	}
+	else {
+		return "subStore.xhtml";
+	}
+	
+//		System.out.println("DEBUT CREATION");
+//
+//		reservation.setService(carRental);
+//		serviceInvoice.setService(carRental);
+//		
 //		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 //		String email = (String) session.getAttribute("email");
 //		
 //		System.out.println(carRental);
 //		if(email != null && !email.isBlank()) {
 //			
-//			Optional<UserAccount> optional = userAccontDao.findByEmail(email);
+//			Optional<UserAccount> optional = userAccountDao.findByEmail(email);
 //			if(optional.isPresent()) {
-//				serviceInvoice.setUserAccount(optional.get());
-//			
-				reservation.setServiceinvoice(serviceInvoice);
-				carRental.getReservations().add(reservation);
-				reservationDao.create(reservation);
-				carRentalServiceDao.update(carRental);
-					
+//				serviceInvoice.setUserAccountProvider(user);
+//				
+//				reservation.setServiceinvoice(serviceInvoice);
+//				
+//				carRental.withReservation(reservation).withUnavailable(true);
+//				
+//				reservationDao.create(reservation);
+//				carRentalServiceDao.update(carRental);
+//				
+//					
 //				System.out.println("reservation : "+reservation.getId());
 //	
 //			} else {
@@ -109,7 +158,7 @@ public void reservation() {
 //		} else {
 //			System.out.println("reservation failed, email unknown : " + email);
 //		}
-		System.out.println("FIN CREATION");
+//		System.out.println("FIN CREATION");
 	}
 	
 	
@@ -148,15 +197,6 @@ public void reservation() {
 
 
 
-	public UserAccount getUser() {
-		return user;
-	}
-
-
-
-	public void setUser(UserAccount user) {
-		this.user = user;
-	}
 	public CarRentalService getCarRental() {
 		return carRental;
 	}

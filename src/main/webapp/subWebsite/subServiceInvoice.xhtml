@@ -5,7 +5,10 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
 	xmlns:f="http://java.sun.com/jsf/core">
-
+<f:metadata>
+	<f:event listener="#{serviceInvoiceBean.init()}" type="preRenderView">
+	</f:event>
+</f:metadata>
 
 <h:head>
 	<script src="subResources/scripts/jquery-3.3.1.js"></script>

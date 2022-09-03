@@ -1,15 +1,11 @@
 package fr.isika.cda17.project3.model.serviceManagement;
 
-import java.util.Date;
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 
 @Entity
@@ -58,5 +54,11 @@ public class CarRentalService extends Service {
 
     public void setVehicule(Vehicule vehicule) {
 	this.vehicule = vehicule;
+	
     }
+	public Service withVehicule(Vehicule vehicule) {
+			this.vehicule = vehicule;
+			return this;
+		    }
+	
 }

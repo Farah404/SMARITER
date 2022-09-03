@@ -7,142 +7,160 @@ import java.util.Optional;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.ServiceInvoice;
+import fr.isika.cda17.project3.model.financialManagement.store.Wallet;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 import fr.isika.cda17.project3.model.serviceManagement.Reservation;
+import fr.isika.cda17.project3.repository.financialManagement.invoice.ServiceInvoiceDao;
+import fr.isika.cda17.project3.repository.financialManagement.store.WalletDao;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
 import fr.isika.cda17.project3.repository.serviceManagement.CarPoolingServiceDao;
 import fr.isika.cda17.project3.repository.serviceManagement.ReservationDao;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class CarPoolingReservationBean implements Serializable {
 
-    private static final String SERVICE_LIST_XHTML = "subServiceList.xhtml";
+	private static final String SERVICE_LIST_XHTML = "subServiceList.xhtml";
 
-    private static final long serialVersionUID = -1025290862154591864L;
+	private static final long serialVersionUID = -1025290862154591864L;
 
-    @Inject
-    private UserAccountsDao userAccontDao;
-    @Inject
+	@Inject
+	private UserAccountsDao userAccountDao;
+	@Inject
 	private ReservationDao reservationDao;
 
-    @Inject
-    private CarPoolingServiceDao carPoolingServiceDao;
+	@Inject
+	private CarPoolingServiceDao carPoolingServiceDao;
 
-    private Reservation reservation = new Reservation();
-    private ServiceInvoice serviceInvoice = new ServiceInvoice();
+	@Inject
+	private ServiceInvoiceDao serviceInvoiceDao;
+	@Inject
+	private WalletDao walletDao;
 
-    private CarPoolingService carPooling;
-    private UserAccount user = new UserAccount();
+	private Reservation reservation;
+	private ServiceInvoice serviceInvoice;
+	private Wallet walletProvider;
 
-    public void init() throws IOException {
-	System.out.println("starting reservation bean");
+	private Wallet walletPurchaser;
+	private UserAccount userAccountPurchaser;
+	private UserAccount userAccountProvider;
+	private CarPoolingService carPooling;
+	private UserAccount user = new UserAccount();
 
-	Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+	public void init() throws IOException {
+		System.out.println("starting reservation bean");
 
-	if (map.containsKey("carPoolingServiceId")) {
-	    String carPoolingServiceIdParamValue = map.get("carPoolingServiceId");
-	    System.err.println("carPoolingServiceIdParamValue : " + carPoolingServiceIdParamValue);
-	    if (carPoolingServiceIdParamValue != null && !carPoolingServiceIdParamValue.isBlank()) {
-		Long id = Long.valueOf(carPoolingServiceIdParamValue);
-		if (id != null) {
-		    carPooling = carPoolingServiceDao.findById(id);
-		    if (carPooling == null) {
-			redirectError();
-		    }
-		    System.out.println(carPooling);
+		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 
-		} else {
-		    redirectError();
+		if (map.containsKey("carPoolingServiceId")) {
+			String carPoolingServiceIdParamValue = map.get("carPoolingServiceId");
+			System.err.println("carPoolingServiceIdParamValue : " + carPoolingServiceIdParamValue);
+			if (carPoolingServiceIdParamValue != null && !carPoolingServiceIdParamValue.isBlank()) {
+				Long id = Long.valueOf(carPoolingServiceIdParamValue);
+				if (id != null) {
+					carPooling = carPoolingServiceDao.findById(id);
+					if (carPooling == null) {
+						redirectError();
+					}
+					System.out.println(carPooling);
+
+				} else {
+					redirectError();
+				}
+			} else {
+				redirectError();
+			}
 		}
-	    } else {
-		redirectError();
-	    }
 	}
-    }
 
-    public void redirectError() throws IOException {
-	ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-	ec.redirect(SERVICE_LIST_XHTML);
-    }
+	public void redirectError() throws IOException {
+		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+		ec.redirect(SERVICE_LIST_XHTML);
+	}
 
-    public void reservation() {
+	public String reservation() {
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		Long id = (Long) session.getAttribute("id");
+		userAccountPurchaser = userAccountDao.findById(id);
+		userAccountProvider = userAccountDao.findById(carPooling.getUserAccountProvider().getId());
+		walletPurchaser = walletDao.findById(userAccountPurchaser.getWallet().getId());
+		walletProvider = walletDao.findById(userAccountProvider.getWallet().getId());
 
-	System.out.println("starting reservation creation");
+		if (userAccountPurchaser.getWallet().getInternalCurrencyAmount() >= carPooling.getPrice()) {
+			int ref = serviceInvoiceDao.findAll().size() + 1;
+			String invoiceNumber = "2022INV-" + ref + "-SMTR";
+			if (carPooling.getAvailableSeats() > 0) {
 
-	reservation.setService(carPooling);
-	serviceInvoice.setService(carPooling);
+				walletPurchaser.withSubstractedValue(carPooling.getPrice());
+				walletProvider.withAddedValue(carPooling.getPrice());
+				serviceInvoice = (ServiceInvoice) new ServiceInvoice().withService(carPooling)
+						.withUserAccountProvider(carPooling.getUserAccountProvider())
+						.withUserAccountPurchaser(userAccountPurchaser).withServiceInvoiceType().withIssueDate()
+						.withInvoiceNumber(invoiceNumber);
 
-	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-	String email = (String) session.getAttribute("email");
+				reservation = new Reservation().withService(carPooling).withServiceInvoice(serviceInvoice);
 
-	if (email != null && !email.isBlank()) {
+				walletDao.update(walletProvider);
+				walletDao.update(walletPurchaser);
+				serviceInvoiceDao.create(serviceInvoice);
+				reservationDao.create(reservation);
 
-	    Optional<UserAccount> optional = userAccontDao.findByEmail(email);
-	    if (optional.isPresent()) {
-		serviceInvoice.setUserAccount(optional.get());
-
-		if (carPooling.getAvailableSeats() > 0) {
-
-		    reservation.setServiceinvoice(serviceInvoice);
-		    
-		   carPooling.getReservations().add(reservation);
-		   reservationDao.create(reservation);
-		    carPooling.setAvailableSeats(carPooling.getAvailableSeats() - 1);
-
-		    carPoolingServiceDao.update(carPooling);
-		    System.out.println("reservation : " + reservation.getId());
-
+				if (carPooling.getAvailableSeats() > 1) {
+					carPooling.setAvailableSeats(carPooling.getAvailableSeats() - 1);
+					carPooling.withReservation(reservation);
+					carPoolingServiceDao.update(carPooling);
+				} else {
+					carPooling.setAvailableSeats(carPooling.getAvailableSeats() - 1);
+					carPooling.withReservation(reservation).withUnavailable(true);
+					carPoolingServiceDao.update(carPooling);
+				}
+			} else {
+				return "subServiceList.xhtml";
+			}
+			return "subServiceInvoice.xhtml?faces-redirect=true&serviceInvoiceId=" + serviceInvoice.getId();
 		} else {
-		    System.out.println("reservation failed, no seats available");
+			return "subStore.xhtml";
 		}
-	    } else {
-		System.out.println("reservation failed, no user with email : " + email);
-	    }
-
-	} else {
-	    System.out.println("reservation failed, email unknown : " + email);
 	}
-	System.out.println("ending reservation creation");
-    }
 
-    public CarPoolingService getCarPooling() {
-	return carPooling;
-    }
+	public CarPoolingService getCarPooling() {
+		return carPooling;
+	}
 
-    public void setCarPooling(CarPoolingService carPooling) {
-	this.carPooling = carPooling;
-    }
+	public void setCarPooling(CarPoolingService carPooling) {
+		this.carPooling = carPooling;
+	}
 
-    public Reservation getReservation() {
-	return reservation;
-    }
+	public Reservation getReservation() {
+		return reservation;
+	}
 
-    public void setReservation(Reservation reservation) {
-	this.reservation = reservation;
-    }
+	public void setReservation(Reservation reservation) {
+		this.reservation = reservation;
+	}
 
-    public ServiceInvoice getServiceInvoice() {
-	return serviceInvoice;
-    }
+	public ServiceInvoice getServiceInvoice() {
+		return serviceInvoice;
+	}
 
-    public void setServiceInvoice(ServiceInvoice serviceInvoice) {
-	this.serviceInvoice = serviceInvoice;
-    }
+	public void setServiceInvoice(ServiceInvoice serviceInvoice) {
+		this.serviceInvoice = serviceInvoice;
+	}
 
-    public UserAccount getUser() {
-	return user;
-    }
+	public UserAccount getUser() {
+		return user;
+	}
 
-    public void setUser(UserAccount user) {
-	this.user = user;
-    }
+	public void setUser(UserAccount user) {
+		this.user = user;
+	}
 
 }

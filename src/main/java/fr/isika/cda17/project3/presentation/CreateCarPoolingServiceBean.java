@@ -57,13 +57,16 @@ public class CreateCarPoolingServiceBean {
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
 	trajectory.setItinerary(itinerary);
-	cps.setStartDate(LocalDateTime.parse(startDate));
-	cps.setEndDate(LocalDateTime.parse(startDate));
+	
+	cps.withStartDate(LocalDateTime.parse(startDate))
+			.withEndDate(LocalDateTime.parse(endDate))
+			.withPublicationDate(LocalDateTime.now())
+			.withServiceType(ServiceType.CAR_POOLING)
+			.withProvider(userAccount);
+	
+
 	((CarPoolingService) cps).setTrajectory(trajectory);
-	cps.setServicetype(ServiceType.CAR_POOLING);
-	cps.setPublicationDate(LocalDateTime.now());
-	cps.setIsRequest(false);
-	cps.setUserAccountProvider(userAccount);
+	
 	CarPoolingService created = carPoolingServiceDao.create((CarPoolingService) cps);
 	System.out.println(created);
     }
@@ -75,8 +78,7 @@ public class CreateCarPoolingServiceBean {
 
 	trajectory.setItinerary(itinerary);
 	
-	cps = new CarPoolingService()
-		.withStartDate(LocalDateTime.parse(startDate))
+	cps.withStartDate(LocalDateTime.parse(startDate))
 		.withEndDate(LocalDateTime.parse(endDate))
 		.withPublicationDate(LocalDateTime.now())
 		.withServiceType(ServiceType.CAR_POOLING)

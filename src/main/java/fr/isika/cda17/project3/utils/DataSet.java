@@ -61,6 +61,7 @@ public class DataSet {
 	ad.setUsername("Administartor");
 	ad.setIsActive(true);
 	em.persist(ad);
+
 	Administrator adm = new Administrator();
 	adm.setAdministratorAccount(ad);
 	adm.setEmployeeCode("ze125 R3");
@@ -524,7 +525,7 @@ public class DataSet {
 	u5.setEmail("carla.get@gmail.com");
 	u5.setPassword("carla");
 	u5.setUsername("Carla");
-	si1.setUserAccount(u5);
+	si1.setUserAccountProvider(u5);
 	em.persist(u5);
 
 	User us3 = new User();
@@ -882,7 +883,7 @@ public class DataSet {
 	u9.setPassword("lina");
 	u9.setUsername("Lina");
 	u9.setProfilePicturePath(null);
-	si3.setUserAccount(u9);
+	si3.setUserAccountProvider(u9);
 
 	em.persist(u9);
 
@@ -1040,9 +1041,9 @@ public class DataSet {
 	u12.setAccountType(AccountType.USER);
 	u12.setBankDetails(ba22);
 	u12.setBillingAddress(bi22);
-	u12.setEmail("Chloe.get@gmail.com");
-	u12.setPassword("Chloe");
-	u12.setUsername("Chloé");
+	u12.setEmail("chloe.get@gmail.com");
+	u12.setPassword("chloe");
+	u12.setUsername("chloe");
 	u12.setWallet(w4);
 	us11.setUserAccount(u12);
 	u12.setProfilePicturePath("webapp/media/img/EA-Will.png");
@@ -1115,8 +1116,7 @@ public class DataSet {
 	u20.setIdentityCardnumber(712893403);
 	u20.setPhoneNumber(683285319);
 	em.persist(u20);
-
-	UserAccount ua20 = new UserAccount();
+	UserAccount  ua20 = new UserAccount();
 	ua20.setEmail("louis.get@gmail.com");
 	ua20.setProfilePicturePath("webapp/media/img/EA-Will.png");
 	ua20.setPassword("louis");
@@ -1186,7 +1186,7 @@ public class DataSet {
 
 	ServiceInvoice si20 = new ServiceInvoice();
 	si20.setService(pc);
-	si20.setUserAccount(u12);
+	si20.setUserAccountProvider(u12);
 	em.persist(si20);
 
 	Reservation r20 = new Reservation();
@@ -1195,7 +1195,7 @@ public class DataSet {
 	em.persist(r20);
 
 	ServiceInvoice si4 = new ServiceInvoice();
-	si4.setUserAccount(u11);
+	si4.setUserAccountProvider(u11);
 	si4.setService(cr2);
 	em.persist(si4);
 
@@ -1379,7 +1379,7 @@ public class DataSet {
 
 	ServiceInvoice s25 = new ServiceInvoice();
 	s25.setService(pe1);
-	s25.setUserAccount(ua2);
+	s25.setUserAccountProvider(ua2);
 	em.persist(s25);
 
 	Reservation r25 = new Reservation();

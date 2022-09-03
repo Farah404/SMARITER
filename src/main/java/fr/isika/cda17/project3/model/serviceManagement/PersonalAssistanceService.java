@@ -25,11 +25,11 @@ public class PersonalAssistanceService extends Service {
 	super();
     }
 
-    public PersonalAssistanceService(PersonalAssistanceType personalAssistanceType, boolean isUrgent,
+    public PersonalAssistanceService(PersonalAssistanceType personalAssistanceType, boolean urgent,
 	    Trajectory trajectory) {
 	super();
 	this.personalAssistanceType = personalAssistanceType;
-	this.urgent = isUrgent;
+	this.urgent = urgent;
 	this.trajectory = trajectory;
     }
 

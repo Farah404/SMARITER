@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
+import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
 import fr.isika.cda17.project3.model.serviceManagement.Service;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
@@ -46,31 +47,30 @@ public class CreateCarRentalServiceBean {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
-	crs.setServicetype(ServiceType.CAR_RENTAL);
-	crs.setPublicationDate(LocalDateTime.now());
-	crs.setIsRequest(false);
-	crs.setUserAccountProvider(userAccount);
-	crs.setStartDate(LocalDateTime.parse(startDate));
-	crs.setEndDate(LocalDateTime.parse(endDate));
-	CarRentalService created = carRentalServiceDao.create((CarRentalService) crs);
-	System.out.println(created);
-    }
+	
+	crs	.withStartDate(LocalDateTime.parse(startDate))
+		.withEndDate(LocalDateTime.parse(endDate))
+		.withPublicationDate(LocalDateTime.now())
+		.withServiceType(ServiceType.CAR_RENTAL)
+		.withProvider(userAccount);
+
+	crs = ((CarRentalService) crs).withVehicule(vehicule);
+	carRentalServiceDao.create((CarRentalService) crs);
+	}
 
     public void createRequest() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
 	
-	crs = new CarRentalService()
-		.withStartDate(LocalDateTime.parse(startDate))
+	crs .withStartDate(LocalDateTime.parse(startDate))
 		.withEndDate(LocalDateTime.parse(endDate))
 		.withPublicationDate(LocalDateTime.now())
 		.withServiceType(ServiceType.CAR_RENTAL)
 		.withRequest(true)
 		.withPurchaser(userAccount);
 	
-	CarRentalService created = carRentalServiceDao.create((CarRentalService) crs);
-	System.out.println(created);
+	carRentalServiceDao.create((CarRentalService) crs);
     }
 
     public CarRentalService getCrs() {

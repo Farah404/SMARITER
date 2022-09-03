@@ -54,12 +54,13 @@ public class CreateParcelServiceBean {
 	((ParcelService) ps).setVehicule(userAccount.getVehicule());
 	trajectory.setItinerary(itinerary);
 	((ParcelService) ps).setTrajectory(trajectory);
-	ps.setServicetype(ServiceType.PARCEL);
-	ps.setPublicationDate(LocalDateTime.now());
-	ps.setIsRequest(false);
-	ps.setStartDate(LocalDateTime.parse(startDate));
-	ps.setEndDate(LocalDateTime.parse(endDate));
-	ps.setUserAccountProvider(userAccount);
+	
+	ps.withStartDate(LocalDateTime.parse(startDate))
+		.withEndDate(LocalDateTime.parse(endDate))
+		.withPublicationDate(LocalDateTime.now())
+		.withServiceType(ServiceType.PARCEL)
+		.withProvider(userAccount);
+	
 	ParcelService created = parcelServiceDao.create((ParcelService) ps);
 	System.out.println(created);
     }
@@ -71,8 +72,7 @@ public class CreateParcelServiceBean {
 	
 	trajectory.setItinerary(itinerary);
 	
-	ps = new ParcelService()
-		.withStartDate(LocalDateTime.parse(startDate))
+	ps.withStartDate(LocalDateTime.parse(startDate))
 		.withEndDate(LocalDateTime.parse(endDate))
 		.withPublicationDate(LocalDateTime.now())
 		.withServiceType(ServiceType.PARCEL)

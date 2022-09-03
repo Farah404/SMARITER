@@ -51,5 +51,12 @@ public class Wallet {
     public void setStore(Store store) {
 	this.store = store;
     }
-
+    public Wallet withAddedValue(final double value) {
+    	this.internalCurrencyAmount = this.internalCurrencyAmount+value;
+    	return this;
+    }
+    public Wallet withSubstractedValue(final double value) {
+    	this.internalCurrencyAmount = this.internalCurrencyAmount-value;
+    	return this;
+    }
 }
