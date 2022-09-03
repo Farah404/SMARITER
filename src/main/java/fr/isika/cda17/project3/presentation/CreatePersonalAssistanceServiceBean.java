@@ -56,7 +56,7 @@ public class CreatePersonalAssistanceServiceBean {
 	((PersonalAssistanceService) pas).setTrajectory(trajectory);
 	pas.setServicetype(ServiceType.PERSONAL_ASSISTANCE);
 	pas.setPublicationDate(LocalDateTime.now());
-	pas.setIsRequest(false);
+	pas.setRequest(false);
 	pas.setUserAccountProvider(userAccount);
 	pas.setStartDate(LocalDateTime.parse(startDate));
 	pas.setEndDate(LocalDateTime.parse(endDate));

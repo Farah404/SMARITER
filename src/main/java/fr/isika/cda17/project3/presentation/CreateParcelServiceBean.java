@@ -56,7 +56,7 @@ public class CreateParcelServiceBean {
 	((ParcelService) ps).setTrajectory(trajectory);
 	ps.setServicetype(ServiceType.PARCEL);
 	ps.setPublicationDate(LocalDateTime.now());
-	ps.setIsRequest(false);
+	ps.setRequest(false);
 	ps.setStartDate(LocalDateTime.parse(startDate));
 	ps.setEndDate(LocalDateTime.parse(endDate));
 	ps.setUserAccountProvider(userAccount);

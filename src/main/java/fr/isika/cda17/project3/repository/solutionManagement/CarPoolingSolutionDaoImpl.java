@@ -28,15 +28,6 @@ public class CarPoolingSolutionDaoImpl implements CarPoolingsolutionDao {
     @Override
     public void update(CarPoolingSolution carPoolingSolution) {
 	try {
-	    CarPoolingSolution updatedCarPoolingSolution = entityManager.find(CarPoolingSolution.class,
-		    carPoolingSolution.getId());
-	    updatedCarPoolingSolution.setCarPoolingTypeOption(carPoolingSolution.isCarPoolingTypeOption());
-	    updatedCarPoolingSolution.setAvailableSeatsOption(carPoolingSolution.isAvailableSeatsOption());
-	    updatedCarPoolingSolution.setPetAllowedOption(carPoolingSolution.isPetAllowedOption());
-	    updatedCarPoolingSolution.setSmokingAllowedOption(carPoolingSolution.isSmokingAllowedOption());
-	    updatedCarPoolingSolution.setMusicAllowedOption(carPoolingSolution.isMusicAllowedOption());
-	    updatedCarPoolingSolution.setChattingAllowedOption(carPoolingSolution.isChattingAllowedOption());
-
 	    entityManager.persist(carPoolingSolution);
 	} catch (Exception e) {
 	    System.out.println("CarPoolingsolutionDao.update() - Failed : " + e.getMessage());

@@ -91,6 +91,7 @@ public class ParcelServiceReservationBean implements Serializable {
 				reservation.setServiceinvoice(serviceInvoice);
 				parcelService.getReservations().add(reservation);
                 reservationDao.create(reservation);
+                parcelService.setUnavailable(true);
 				parcelServiceDao.update(parcelService);
 				System.out.println("reservation : " + reservation.getId());
 

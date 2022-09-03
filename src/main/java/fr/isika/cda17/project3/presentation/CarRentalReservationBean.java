@@ -98,7 +98,9 @@ public void reservation() {
 				reservation.setServiceinvoice(serviceInvoice);
 				carRental.getReservations().add(reservation);
 				reservationDao.create(reservation);
+				carRental.setUnavailable(true);
 				carRentalServiceDao.update(carRental);
+				
 					
 //				System.out.println("reservation : "+reservation.getId());
 //	

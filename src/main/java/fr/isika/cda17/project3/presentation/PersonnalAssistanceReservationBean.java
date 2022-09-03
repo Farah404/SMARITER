@@ -93,8 +93,9 @@ public class PersonnalAssistanceReservationBean implements Serializable {
 					    personalAssistanceService.getReservations().add(reservation);
 					   reservationDao.create(reservation);
 					  
-
+					   personalAssistanceService.setUnavailable(true);
 					    personalAssistanceServiceDao.update(personalAssistanceService);
+					   
 					    System.out.println("reservation : " + reservation.getId());
 
 				

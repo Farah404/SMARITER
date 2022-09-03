@@ -62,7 +62,7 @@ public class CreateCarPoolingServiceBean {
 	((CarPoolingService) cps).setTrajectory(trajectory);
 	cps.setServicetype(ServiceType.CAR_POOLING);
 	cps.setPublicationDate(LocalDateTime.now());
-	cps.setIsRequest(false);
+	cps.setRequest(false);
 	cps.setUserAccountProvider(userAccount);
 	CarPoolingService created = carPoolingServiceDao.create((CarPoolingService) cps);
 	System.out.println(created);
