@@ -2177,6 +2177,10 @@ float:left;
   width: 50%;
 }
 
+.grid .grid-1-1 {
+  width: 100%;
+}
+
 .group:after {
   content: "";
   display: block;
