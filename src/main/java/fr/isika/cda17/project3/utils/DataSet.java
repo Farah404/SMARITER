@@ -61,7 +61,6 @@ public class DataSet {
 	ad.setUsername("Administartor");
 	ad.setIsActive(true);
 	em.persist(ad);
-
 	Administrator adm = new Administrator();
 	adm.setAdministratorAccount(ad);
 	adm.setEmployeeCode("ze125 R3");
@@ -78,13 +77,11 @@ public class DataSet {
 	cs.setSmokingAllowedOption(true);
 	cs.setChattingAllowedOption(false);
 	em.persist(cs);
-
 	ParcelSolution ps = new ParcelSolution();
 	ps.setAtypicalVolumeOption(false);
 	ps.setFragileOoption(true);
 	ps.setWeightKilogrammesOption(true);
 	em.persist(ps);
-
 	Solution so = new Solution();
 	so.setCarPoolingSolution(cs);
 	so.setCarPoolingsolutionIncluded(true);
@@ -99,13 +96,11 @@ public class DataSet {
 	so.setMessagingSystemChoice(MessagingSystemChoice.SERVICE_RELATED_MESSAGING);
 	so.setRatingSystemIncluded(true);
 	em.persist(so);
-
 	BankDetails ba = new BankDetails();
 	ba.setBankName("BNP");
 	ba.setIban("z12 698743 54ry");
 	ba.setSwift("z123");
 	em.persist(ba);
-
 	BillingAddress bi = new BillingAddress();
 	bi.setAddressLine("13, rue de paris");
 	bi.setCity("brest");
@@ -113,7 +108,6 @@ public class DataSet {
 	bi.setRegion("Bretagne");
 	bi.setPostalCode(29200);
 	em.persist(bi);
-
 	EntityAccount ea = new EntityAccount();
 	ea.setProfilePicturePath(null);
 	ea.setIsActive(true);
@@ -127,19 +121,16 @@ public class DataSet {
 	ea.setSiretNumber(573002678);
 	ea.setBillingAddress(bi);
 	em.persist(ea);
-
 	Customer cu = new Customer();
 	cu.setFirstName("jules");
 	cu.setLastName("Bias");
 	cu.setPhoneNumber(672438672);
-	cu.setRole("directeur");
 	cu.setEntityAccount(ea);
-	cu.setRole("directeur");
-
+	cu.setRole("Directeur");
 	so.setCustomer(cu);
 	em.persist(cu);
 
-	// Solution "EcoMobil"
+	// Solution "EcoCar"
 	CarPoolingSolution cs1 = new CarPoolingSolution();
 	cs1.setAvailableSeatsOption(true);
 	cs1.setCarPoolingTypeOption(true);
@@ -148,13 +139,11 @@ public class DataSet {
 	cs1.setSmokingAllowedOption(true);
 	cs1.setChattingAllowedOption(true);
 	em.persist(cs1);
-
 	ParcelSolution ps1 = new ParcelSolution();
 	ps1.setAtypicalVolumeOption(true);
 	ps1.setFragileOoption(true);
 	ps1.setWeightKilogrammesOption(true);
 	em.persist(ps1);
-
 	Solution so1 = new Solution();
 	so1.setCarPoolingSolution(cs1);
 	so1.setCarPoolingsolutionIncluded(true);
@@ -169,21 +158,18 @@ public class DataSet {
 	so1.setMessagingSystemChoice(MessagingSystemChoice.SERVICE_RELATED_MESSAGING);
 	so1.setRatingSystemIncluded(false);
 	em.persist(so1);
-
 	BankDetails ba1 = new BankDetails();
 	ba1.setBankName("LCL");
 	ba1.setIban("z12 91543 54ry");
 	ba1.setSwift("p693");
 	em.persist(ba1);
-
 	BillingAddress bi1 = new BillingAddress();
-	bi1.setAddressLine("7,Av du prado");
+	bi1.setAddressLine("7, Av du prado");
 	bi1.setCity("Marseille");
 	bi1.setCountry("France");
 	bi1.setRegion("BProvence-Alpes-Côte d'Azur");
 	bi1.setPostalCode(13000);
 	em.persist(bi1);
-
 	EntityAccount ea1 = new EntityAccount();
 	ea1.setProfilePicturePath(null);
 	ea1.setIsActive(true);
@@ -197,19 +183,16 @@ public class DataSet {
 	ea1.setSiretNumber(573002678);
 	ea1.setBillingAddress(bi1);
 	em.persist(ea1);
-
 	Customer cu1 = new Customer();
 	cu1.setFirstName("Farah");
 	cu1.setLastName("Taleb");
 	cu1.setPhoneNumber(651293872);
-	cu1.setRole("directeur");
+	cu1.setRole("Directeur");
 	cu1.setEntityAccount(ea1);
-	cu1.setRole("directeur");
-
 	so1.setCustomer(cu1);
 	em.persist(cu1);
 
-	// Solution "EcoCar"
+	// Solution "EcoMobil"
 	CarPoolingSolution cs2 = new CarPoolingSolution();
 	cs2.setAvailableSeatsOption(true);
 	cs2.setCarPoolingTypeOption(false);
@@ -218,13 +201,11 @@ public class DataSet {
 	cs2.setSmokingAllowedOption(true);
 	cs2.setChattingAllowedOption(false);
 	em.persist(cs2);
-
 	ParcelSolution ps2 = new ParcelSolution();
 	ps2.setAtypicalVolumeOption(true);
 	ps2.setFragileOoption(true);
 	ps2.setWeightKilogrammesOption(true);
 	em.persist(ps2);
-
 	Solution so2 = new Solution();
 	so2.setCarPoolingSolution(cs2);
 	so2.setCarPoolingsolutionIncluded(true);
@@ -239,18 +220,15 @@ public class DataSet {
 	so2.setMessagingSystemChoice(MessagingSystemChoice.NO_RESTRICTION_MESSAGING);
 	so2.setRatingSystemIncluded(false);
 	em.persist(so2);
-
 	BankDetails ba2 = new BankDetails();
 	ba2.setBankName("Société Générale");
 	ba2.setIban("z12 692143 54ry");
 	ba2.setSwift("z143");
 	em.persist(ba2);
-
 	Store s2 = new Store();
 	s2.setBatchOneName("ECOMOBIL'");
 	s2.setBatchOneQuantity(1);
 	em.persist(s2);
-
 	BillingAddress bi2 = new BillingAddress();
 	bi2.setAddressLine("10,Av du la valliette");
 	bi2.setCity("Aix-en-provence");
@@ -258,7 +236,6 @@ public class DataSet {
 	bi2.setRegion("BProvence-Alpes-Côte d'Azur");
 	bi2.setPostalCode(13000);
 	em.persist(bi2);
-
 	EntityAccount ea2 = new EntityAccount();
 	ea2.setProfilePicturePath(null);
 	ea2.setIsActive(true);
@@ -272,16 +249,76 @@ public class DataSet {
 	ea2.setSiretNumber(573002678);
 	ea2.setBillingAddress(bi2);
 	em.persist(ea2);
-
 	Customer cu2 = new Customer();
 	cu2.setFirstName("Houda");
 	cu2.setLastName("Madi");
 	cu2.setPhoneNumber(623576202);
 	cu2.setRole("directeur");
 	cu2.setEntityAccount(ea2);
-
 	so2.setCustomer(cu2);
 	em.persist(cu2);
+
+	// Solution "GoCar"
+	CarPoolingSolution cs15 = new CarPoolingSolution();
+	cs15.setAvailableSeatsOption(true);
+	cs15.setCarPoolingTypeOption(false);
+	cs15.setMusicAllowedOption(true);
+	cs15.setPetAllowedOption(false);
+	cs15.setSmokingAllowedOption(false);
+	cs15.setChattingAllowedOption(false);
+	em.persist(cs15);
+	ParcelSolution ps15 = new ParcelSolution();
+	ps15.setAtypicalVolumeOption(true);
+	ps15.setFragileOoption(true);
+	ps15.setWeightKilogrammesOption(true);
+	em.persist(ps15);
+	Solution so15 = new Solution();
+	so15.setCarPoolingSolution(cs15);
+	so15.setCarPoolingsolutionIncluded(true);
+	so15.setCarRentalSolutionIncluded(true);
+	so15.setRatingSystemIncluded(false);
+	so15.setSolutionName("GO CAR");
+	so15.setParcelSolutionIncluded(true);
+	so15.setParcelSolution(ps15);
+	so15.setPaymentSystemChoice(PaymentSystemChoice.MONETARY);
+	so15.setPersonalAssistanceSolutionIncluded(false);
+	so15.setPriceDeal(PriceDeal.BUSINESS_VIP);
+	so15.setMessagingSystemChoice(MessagingSystemChoice.NO_RESTRICTION_MESSAGING);
+	so15.setRatingSystemIncluded(false);
+	em.persist(so15);
+	BankDetails ba15 = new BankDetails();
+	ba15.setBankName("Société Générale");
+	ba15.setIban("z115 69151415 54ry");
+	ba15.setSwift("z1415");
+	em.persist(ba15);
+	BillingAddress bi15 = new BillingAddress();
+	bi15.setAddressLine("10,Av du la valliette");
+	bi15.setCity("Aix-en-provence");
+	bi15.setCountry("France");
+	bi15.setRegion("BProvence-Alpes-Côte d'Azur");
+	bi15.setPostalCode(115000);
+	em.persist(bi15);
+	EntityAccount ea15 = new EntityAccount();
+	ea15.setProfilePicturePath(null);
+	ea15.setIsActive(true);
+	ea15.setCreationDate(LocalDateTime.now());
+	ea15.setEmail("houda.company@gmail.com");
+	ea15.setPassword("houda");
+	ea15.setName("EcoTransport");
+	ea15.setSolution(so15);
+	ea15.setBankDetails(ba15);
+	ea15.setAccountType(AccountType.ENTITY);
+	ea15.setSiretNumber(57115678);
+	ea15.setBillingAddress(bi15);
+	em.persist(ea15);
+	Customer cu15 = new Customer();
+	cu15.setFirstName("Houda");
+	cu15.setLastName("Madi");
+	cu15.setPhoneNumber(615155015);
+	cu15.setRole("Directeur");
+	cu15.setEntityAccount(ea15);
+	so15.setCustomer(cu15);
+	em.persist(cu15);
 
 ////////////////////////***************************************************************////////////////////////////    
 
@@ -397,7 +434,6 @@ public class DataSet {
 	r.setService(cr);
 
 	si.setService(cr);
-
 	em.persist(cr);
 
 	// Service - Car Rental
@@ -751,7 +787,7 @@ public class DataSet {
 
 	cps0.setReferenceNumber(13);
 	em.persist(cps0);
-	
+
 	// Service Carpooling
 	User us7 = new User();
 	us7.setDrivingPermitNumber(912430);
@@ -866,8 +902,7 @@ public class DataSet {
 	t1.setPickUpAddress("chemin Saint Pierre, Av. du 8 Mai 1945, 13700 Marignane");
 	t1.setDurationHours(2);
 	t1.setDeliveryAddress("Quai Jean Jaurès, 84800 L'Isle-sur-la-Sorgue");
-	em.persist(t1); 
-
+	em.persist(t1);
 
 	CarPoolingService cps1 = new CarPoolingService();
 	cps1.setPetAllowed(false);
@@ -886,8 +921,8 @@ public class DataSet {
 	r3.setService(cps1);
 	cps1.setReferenceNumber(2);
 	em.persist(cps1);
-	
-	//Service Carpooling
+
+	// Service Carpooling
 	User us9 = new User();
 	us9.setDrivingPermitNumber(76125);
 	us9.setPhoneNumber(631202054);
@@ -949,8 +984,7 @@ public class DataSet {
 	t2.setPickUpAddress("Av. des Promenades, 22000 Saint-Brieuc");
 	t2.setDurationHours(2);
 	t2.setDeliveryAddress("Rte de Saint-Renan, 29820 Guilers");
-	em.persist(t2); 
-
+	em.persist(t2);
 
 	CarPoolingService cps3 = new CarPoolingService();
 	cps3.setPetAllowed(true);
@@ -968,8 +1002,8 @@ public class DataSet {
 	cps3.setReferenceNumber(8);
 
 	em.persist(cps3);
-	
-	//Service Carpooling
+
+	// Service Carpooling
 	User us11 = new User();
 	us11.setDrivingPermitNumber(51452703);
 	us11.setPhoneNumber(69368103);
@@ -978,26 +1012,24 @@ public class DataSet {
 	us11.setIdentityCardnumber(1563772);
 	em.persist(us11);
 
-
-
 	Wallet w6 = new Wallet();
 
 	w4.setInternalCurrencyAmount(373);
 	em.persist(w6);
 
-	BankDetails ba12 = new BankDetails();
-	ba12.setBankName("BNP");
-	ba12.setIban("123 4z7v42r3 B816");
-	ba12.setSwift("198");
-	em.persist(ba12);
+	BankDetails ba22 = new BankDetails();
+	ba22.setBankName("BNP");
+	ba22.setIban("123 4z7v42r3 B816");
+	ba22.setSwift("198");
+	em.persist(ba22);
 
-	BillingAddress bi12 = new BillingAddress();
-	bi12.setAddressLine("19 Av. André Mussat");
-	bi12.setCity("Bordeaux");
-	bi12.setCountry("France");
-	bi12.setRegion("Bretagne");
-	bi12.setPostalCode(3500);
-	em.persist(bi12);
+	BillingAddress bi22 = new BillingAddress();
+	bi22.setAddressLine("19 Av. André Mussat");
+	bi22.setCity("Bordeaux");
+	bi22.setCountry("France");
+	bi22.setRegion("Bretagne");
+	bi22.setPostalCode(3500);
+	em.persist(bi22);
 
 	Insurance i5 = new Insurance();
 	i5.setInsuranceAgencyName("MACIF Assurances");
@@ -1006,10 +1038,10 @@ public class DataSet {
 
 	UserAccount u12 = new UserAccount();
 	u12.setAccountType(AccountType.USER);
-	u12.setBankDetails(ba12);
-	u12.setBillingAddress(bi12);
-	u12.setEmail("Chloé.get@gmail.com");
-	u12.setPassword("Chloé");
+	u12.setBankDetails(ba22);
+	u12.setBillingAddress(bi22);
+	u12.setEmail("Chloe.get@gmail.com");
+	u12.setPassword("Chloe");
 	u12.setUsername("Chloé");
 	u12.setWallet(w4);
 	us11.setUserAccount(u12);
@@ -1028,7 +1060,6 @@ public class DataSet {
 	u12.setVehicule(v6);
 	em.persist(v5);
 
-
 	Trajectory t3 = new Trajectory();
 
 	t3.setStopNumber(3);
@@ -1036,8 +1067,7 @@ public class DataSet {
 	t3.setPickUpAddress("505 Rue Irène Joliot Curie, 76620 Le Havre");
 	t3.setDurationHours(3);
 	t3.setDeliveryAddress("Av. de la Défense Passive, 80080 Amiens");
-	em.persist(t3); 
-
+	em.persist(t3);
 
 	CarPoolingService cps4 = new CarPoolingService();
 
@@ -1073,11 +1103,11 @@ public class DataSet {
 	cps5.setReferenceNumber(9);
 
 	em.persist(cps5);
-	
+
 ////////////////////////***************************************************************//////////////////////////// 
-	
-	//Service Parcel Service
-	
+
+	// Service Parcel Service
+
 	User u20 = new User();
 	u20.setDrivingPermitNumber(1267853);
 	u20.setFirstName("Louis");
@@ -1086,7 +1116,7 @@ public class DataSet {
 	u20.setPhoneNumber(683285319);
 	em.persist(u20);
 
-	UserAccount  ua20 = new UserAccount();
+	UserAccount ua20 = new UserAccount();
 	ua20.setEmail("louis.get@gmail.com");
 	ua20.setProfilePicturePath("webapp/media/img/EA-Will.png");
 	ua20.setPassword("louis");
@@ -1119,7 +1149,7 @@ public class DataSet {
 	bi20.setCity("Balan");
 	bi20.setCountry("France");
 	bi20.setPostalCode(01360);
-	bi20.setRegion("Grand Est"); 
+	bi20.setRegion("Grand Est");
 	ua20.setBillingAddress(bi20);
 	em.persist(bi20);
 
@@ -1174,7 +1204,6 @@ public class DataSet {
 	r4.setService(cr2);
 	em.persist(r4);
 
-
 	ParcelService pc1 = new ParcelService();
 	pc1.setAtypicalVolume(true);
 	pc1.setEndDate(null);
@@ -1191,7 +1220,6 @@ public class DataSet {
 	pc1.setStartDate(null);
 	pc1.setTrajectory(t20);
 	em.persist(pc1);
-
 
 	ParcelService pc2 = new ParcelService();
 	pc2.setAtypicalVolume(true);
@@ -1225,11 +1253,11 @@ public class DataSet {
 	u22.setLastName("Qadim");
 	em.persist(u22);
 
-	BankDetails ba22 = new BankDetails();
-	ba.setBankName("credit agricole");
-	ba.setIban("r3578434vh5");
-	ba.setSwift("134");
-	em.persist(ba22);
+	BankDetails ba32 = new BankDetails();
+	ba32.setBankName("credit agricole");
+	ba32.setIban("r3578434vh5");
+	ba32.setSwift("134");
+	em.persist(ba32);
 
 	Vehicule v22 = new Vehicule();
 	v22.setBrand("Alfa Rome");
@@ -1244,7 +1272,7 @@ public class DataSet {
 	v22.setUserAccount(ua2);
 	ua2.setAccountType(AccountType.USER);
 	ua2.setIsActive(true);
-	ua2.setBankDetails(ba22);
+	ua2.setBankDetails(ba32);
 	ua2.setEmail("mael.get@gmail.com");
 	ua2.setCreationDate(LocalDateTime.now());
 	ua2.setProfilePicturePath("webapp/media/img/EA-Will.png");
@@ -1253,7 +1281,6 @@ public class DataSet {
 	ua2.setPassword("mael");
 	u22.setUserAccount(ua2);
 	em.persist(ua2);
-
 
 	ParcelService pc3 = new ParcelService();
 	pc3.setServicetype(ServiceType.PARCEL);
@@ -1268,9 +1295,9 @@ public class DataSet {
 	pc3.setWeightKilogrammes(50);
 	pc3.setVehicule(v22);
 	em.persist(pc3);
-	
+
 ////////////////////////***************************************************************//////////////////////////// 
-	//Service Personal Assistance
+	// Service Personal Assistance
 	PersonalAssistanceService pe = new PersonalAssistanceService();
 	pe.setEndDate(null);
 	pe.setExpirationDate(null);
@@ -1299,7 +1326,6 @@ public class DataSet {
 	u25.setIdentityCardnumber(836462989);
 	u25.setLastName("ando");
 	em.persist(u25);
-
 
 	UserAccount ua10 = new UserAccount();
 	ua10.setEmail("yamina.get@gmail.com");
@@ -1382,9 +1408,6 @@ public class DataSet {
 	t27.setTrajectoryType(TrajectoryType.PUNCTUAL);
 	em.persist(t27);
 
-
     }
-    
-    
 
 }
