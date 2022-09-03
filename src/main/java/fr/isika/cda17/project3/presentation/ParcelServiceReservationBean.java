@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -21,7 +22,7 @@ import fr.isika.cda17.project3.repository.serviceManagement.ParcelServiceDao;
 import fr.isika.cda17.project3.repository.serviceManagement.ReservationDao;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class ParcelServiceReservationBean implements Serializable {
 
 	/**
@@ -39,7 +40,7 @@ public class ParcelServiceReservationBean implements Serializable {
 	@Inject
 	private UserAccountsDao userAccontDao;
 
-	private ParcelService parcelService = new ParcelService();
+	private ParcelService parcelService;
 
 	private Reservation reservation = new Reservation();
 	private ServiceInvoice serviceInvoice = new ServiceInvoice();
@@ -72,8 +73,28 @@ public class ParcelServiceReservationBean implements Serializable {
 		ec.redirect(SERVICE_LIST_XHTML);
 	}
 
-	public void reservation() {
+	public void reservation() throws IOException {
 
+		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+
+		if (map.containsKey("parcelServiceId")) {
+			String parcelServiceIdParamValue = map.get("parcelServiceId");
+			System.err.println(parcelServiceIdParamValue);
+			if (parcelServiceIdParamValue != null && !parcelServiceIdParamValue.isBlank()) {
+				Long id = Long.valueOf(parcelServiceIdParamValue);
+				if (id != null) {
+					parcelService = parcelServiceDao.findById(id);
+					if (parcelService == null) {
+						redirectError();
+					}
+				} else {
+					redirectError();
+				}
+			} else {
+				redirectError();
+			}
+		}
+		
 		System.out.println("starting reservation creation");
 
 		reservation.setService(parcelService);
@@ -86,12 +107,12 @@ public class ParcelServiceReservationBean implements Serializable {
 
 			Optional<UserAccount> optional = userAccontDao.findByEmail(email);
 			if (optional.isPresent()) {
+				System.out.println(parcelService.getId());
 				serviceInvoice.setUserAccount(optional.get());
 
 				reservation.setServiceinvoice(serviceInvoice);
-				parcelService.getReservations().add(reservation);
+				parcelService.withReservation(reservation).withUnavailable(true);
                 reservationDao.create(reservation);
-                parcelService.setUnavailable(true);
 				parcelServiceDao.update(parcelService);
 				System.out.println("reservation : " + reservation.getId());
 

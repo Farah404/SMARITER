@@ -28,21 +28,7 @@ public class PersonalAssistanceServiceDaoImpl implements PersonalAssistanceServi
     @Override
     public void update(PersonalAssistanceService personalAssistanceService) {
 	try {
-	    PersonalAssistanceService updatedPersonalAssistanceService = entityManager
-		    .find(PersonalAssistanceService.class, personalAssistanceService.getId());
-	    updatedPersonalAssistanceService.setPublicationDate(personalAssistanceService.getPublicationDate());
-	    updatedPersonalAssistanceService.setExpirationDate(personalAssistanceService.getExpirationDate());
-	    updatedPersonalAssistanceService.setStartDate(personalAssistanceService.getStartDate());
-	    updatedPersonalAssistanceService.setEndDate(personalAssistanceService.getEndDate());
-	    updatedPersonalAssistanceService.setReferenceNumber(personalAssistanceService.getReferenceNumber());
-	    updatedPersonalAssistanceService.setRequest(personalAssistanceService.isRequest());
-	    updatedPersonalAssistanceService.setPrice(personalAssistanceService.getPrice());
-
-	    updatedPersonalAssistanceService.setUrgent(personalAssistanceService.isUrgent());
-	    updatedPersonalAssistanceService
-		    .setPersonalAssistanceType(personalAssistanceService.getPersonalAssistanceType());
-
-	    entityManager.persist(personalAssistanceService);
+		entityManager.merge(personalAssistanceService);
 	} catch (Exception e) {
 	    System.out.println("PersonalAssistanceServiceDao.update() - Failed : " + e.getMessage());
 	}

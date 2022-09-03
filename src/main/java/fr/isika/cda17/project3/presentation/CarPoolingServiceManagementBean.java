@@ -59,11 +59,9 @@ public class CarPoolingServiceManagementBean implements Serializable {
 
 	if (map.containsKey("carPoolingServiceId")) {
 	    String carPoolingServiceIdParamValue = map.get("carPoolingServiceId");
-	    System.err.println(carPoolingServiceIdParamValue);
 	    if (carPoolingServiceIdParamValue != null && !carPoolingServiceIdParamValue.isBlank()) {
 		Long id = Long.valueOf(carPoolingServiceIdParamValue);
 		if (id != null) {
-
 		    carPoolingService = carPoolingServiceDao.findById(id);
 		    if (carPoolingService == null) {
 			redirectError();

@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -21,7 +22,7 @@ import fr.isika.cda17.project3.repository.serviceManagement.CarPoolingServiceDao
 import fr.isika.cda17.project3.repository.serviceManagement.ReservationDao;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class CarPoolingReservationBean implements Serializable {
 
 	private static final String SERVICE_LIST_XHTML = "subServiceList.xhtml";
@@ -93,7 +94,8 @@ public class CarPoolingReservationBean implements Serializable {
 
 					reservation.setServiceinvoice(serviceInvoice);
 
-					carPooling.getReservations().add(reservation);
+					carPooling.withReservation(reservation);
+					
 					reservationDao.create(reservation);
 
 					if (carPooling.getAvailableSeats()>1) {
@@ -102,7 +104,7 @@ public class CarPoolingReservationBean implements Serializable {
 						System.out.println("reservation : " + reservation.getId());
 					}else {
 						carPooling.setAvailableSeats(carPooling.getAvailableSeats() - 1);
-						carPooling.setUnavailable(true);
+						carPooling.withUnavailable(true);
 						carPoolingServiceDao.update(carPooling);
 						System.out.println("reservation : " + reservation.getId());
 					}

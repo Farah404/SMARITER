@@ -44,7 +44,6 @@ public class ParcelServiceManagementBean implements Serializable {
 
 	if (map.containsKey("parcelServiceId")) {
 	    String parcelServiceIdParamValue = map.get("parcelServiceId");
-	    System.err.println(parcelServiceIdParamValue);
 	    if (parcelServiceIdParamValue != null && !parcelServiceIdParamValue.isBlank()) {
 		Long id = Long.valueOf(parcelServiceIdParamValue);
 		if (id != null) {

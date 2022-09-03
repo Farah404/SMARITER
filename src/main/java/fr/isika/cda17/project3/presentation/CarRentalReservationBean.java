@@ -23,7 +23,7 @@ import fr.isika.cda17.project3.repository.serviceManagement.CarRentalServiceDao;
 import fr.isika.cda17.project3.repository.serviceManagement.ReservationDao;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class CarRentalReservationBean implements Serializable{
 
 	/**
@@ -46,13 +46,9 @@ public class CarRentalReservationBean implements Serializable{
 	private ServiceInvoice serviceInvoice = new ServiceInvoice();
 	private UserAccount user = new UserAccount();
 	private CarRentalService carRental;
-/*
- * methodes
- */
-	public void init() throws IOException {
-		System.out.println("INITIALISATION RESERVATIONBEAN");
-		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 
+	public void init() throws IOException {
+		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		if (map.containsKey("carRentalServiceId")) {
 			String carRentalServiceIdParamValue = map.get("carRentalServiceId");
 			System.err.println(carRentalServiceIdParamValue);
@@ -77,40 +73,59 @@ public class CarRentalReservationBean implements Serializable{
 		ec.redirect(LIST_CARRENTALSERVICE_XHTML);
 	}
 	
-public void reservation() {
-		
+public void reservation() throws IOException {
+	Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 
+	if (map.containsKey("carRentalServiceId")) {
+		String parcelServiceIdParamValue = map.get("carRentalServiceId");
+		System.err.println(parcelServiceIdParamValue);
+		if (parcelServiceIdParamValue != null && !parcelServiceIdParamValue.isBlank()) {
+			Long id = Long.valueOf(parcelServiceIdParamValue);
+			if (id != null) {
+				carRental = carRentalServiceDao.findById(id);
+				if (carRental == null) {
+					redirectError();
+				}
+			} else {
+				redirectError();
+			}
+		} else {
+			redirectError();
+		}
+	}
+	
 		System.out.println("DEBUT CREATION");
 
 		reservation.setService(carRental);
 		serviceInvoice.setService(carRental);
 		
-//		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-//		String email = (String) session.getAttribute("email");
-//		
-//		System.out.println(carRental);
-//		if(email != null && !email.isBlank()) {
-//			
-//			Optional<UserAccount> optional = userAccontDao.findByEmail(email);
-//			if(optional.isPresent()) {
-//				serviceInvoice.setUserAccount(optional.get());
-//			
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		String email = (String) session.getAttribute("email");
+		
+		System.out.println(carRental);
+		if(email != null && !email.isBlank()) {
+			
+			Optional<UserAccount> optional = userAccontDao.findByEmail(email);
+			if(optional.isPresent()) {
+				serviceInvoice.setUserAccount(optional.get());
+				
 				reservation.setServiceinvoice(serviceInvoice);
-				carRental.getReservations().add(reservation);
+				
+				carRental.withReservation(reservation).withUnavailable(true);
+				
 				reservationDao.create(reservation);
-				carRental.setUnavailable(true);
 				carRentalServiceDao.update(carRental);
 				
 					
-//				System.out.println("reservation : "+reservation.getId());
-//	
-//			} else {
-//				System.out.println("reservation failed, no user with email : " + email);
-//			}
-//		
-//		} else {
-//			System.out.println("reservation failed, email unknown : " + email);
-//		}
+				System.out.println("reservation : "+reservation.getId());
+	
+			} else {
+				System.out.println("reservation failed, no user with email : " + email);
+			}
+		
+		} else {
+			System.out.println("reservation failed, email unknown : " + email);
+		}
 		System.out.println("FIN CREATION");
 	}
 	

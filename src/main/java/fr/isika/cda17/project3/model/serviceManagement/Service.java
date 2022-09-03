@@ -214,5 +214,21 @@ public abstract class Service {
 		this.setUserAccountProvider(userAccount);
 		return this;
 	}
+	
+	public void addReservation(Reservation reservation) {
+		if (!this.reservations.contains(reservation)) {
+			this.reservations.add(reservation);
+		}
+	}
+	
+	public Service withReservation(final Reservation reservation) {
+		this.addReservation(reservation);
+		return this;
+	}
+	
+	public Service withUnavailable(final boolean unavailable) {
+		this.unavailable = unavailable;
+		return this;
+	}
 
 }

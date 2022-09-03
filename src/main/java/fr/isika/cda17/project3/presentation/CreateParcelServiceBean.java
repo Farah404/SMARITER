@@ -55,12 +55,11 @@ public class CreateParcelServiceBean {
 	trajectory.setItinerary(itinerary);
 	((ParcelService) ps).setTrajectory(trajectory);
 	
-	ps = new ParcelService()
-			.withStartDate(LocalDateTime.parse(startDate))
-			.withEndDate(LocalDateTime.parse(endDate))
-			.withPublicationDate(LocalDateTime.now())
-			.withServiceType(ServiceType.PARCEL)
-			.withProvider(userAccount);
+	ps.withStartDate(LocalDateTime.parse(startDate))
+		.withEndDate(LocalDateTime.parse(endDate))
+		.withPublicationDate(LocalDateTime.now())
+		.withServiceType(ServiceType.PARCEL)
+		.withProvider(userAccount);
 	
 	ParcelService created = parcelServiceDao.create((ParcelService) ps);
 	System.out.println(created);
@@ -73,8 +72,7 @@ public class CreateParcelServiceBean {
 	
 	trajectory.setItinerary(itinerary);
 	
-	ps = new ParcelService()
-		.withStartDate(LocalDateTime.parse(startDate))
+	ps.withStartDate(LocalDateTime.parse(startDate))
 		.withEndDate(LocalDateTime.parse(endDate))
 		.withPublicationDate(LocalDateTime.now())
 		.withServiceType(ServiceType.PARCEL)

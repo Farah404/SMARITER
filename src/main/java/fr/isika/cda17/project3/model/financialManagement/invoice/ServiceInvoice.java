@@ -10,13 +10,9 @@ import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.serviceManagement.Service;
 
 @Entity
-public class ServiceInvoice {
+public class ServiceInvoice extends Invoice{
 
-    @Id
-    @GeneratedValue
-    private Long id;
-
-    @ManyToOne
+	@ManyToOne
     private UserAccount userAccount;
 
     @OneToOne
@@ -26,9 +22,8 @@ public class ServiceInvoice {
 	super();
     }
 
-    public ServiceInvoice(Long id, UserAccount userAccount, Service service) {
+    public ServiceInvoice(UserAccount userAccount, Service service) {
 	super();
-	this.id = id;
 	this.userAccount = userAccount;
 	this.service = service;
     }
@@ -47,10 +42,6 @@ public class ServiceInvoice {
 
     public void setService(Service service) {
 	this.service = service;
-    }
-
-    public Long getId() {
-	return id;
     }
 
 }

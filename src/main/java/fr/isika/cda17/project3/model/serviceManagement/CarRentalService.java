@@ -54,5 +54,11 @@ public class CarRentalService extends Service {
 
     public void setVehicule(Vehicule vehicule) {
 	this.vehicule = vehicule;
+	
     }
+	public Service withVehicule(Vehicule vehicule) {
+			this.vehicule = vehicule;
+			return this;
+		    }
+	
 }

@@ -55,12 +55,11 @@ public class CreatePersonalAssistanceServiceBean {
 	trajectory.setItinerary(itinerary);
 	((PersonalAssistanceService) pas).setTrajectory(trajectory);
 	
-	pas = new PersonalAssistanceService()
-			.withStartDate(LocalDateTime.parse(startDate))
-			.withEndDate(LocalDateTime.parse(endDate))
-			.withPublicationDate(LocalDateTime.now())
-			.withServiceType(ServiceType.PERSONAL_ASSISTANCE)
-			.withProvider(userAccount);
+	pas	.withStartDate(LocalDateTime.parse(startDate))
+		.withEndDate(LocalDateTime.parse(endDate))
+		.withPublicationDate(LocalDateTime.now())
+		.withServiceType(ServiceType.PERSONAL_ASSISTANCE)
+		.withProvider(userAccount);
 	
 	PersonalAssistanceService created = personalAssistanceServiceDao.create((PersonalAssistanceService) pas);
 	System.out.println(created);
@@ -73,8 +72,7 @@ public class CreatePersonalAssistanceServiceBean {
 	
 	trajectory.setItinerary(itinerary);
 	
-	pas = new PersonalAssistanceService()
-		.withStartDate(LocalDateTime.parse(startDate))
+	pas	.withStartDate(LocalDateTime.parse(startDate))
 		.withEndDate(LocalDateTime.parse(endDate))
 		.withPublicationDate(LocalDateTime.now())
 		.withServiceType(ServiceType.PERSONAL_ASSISTANCE)

@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -21,7 +22,7 @@ import fr.isika.cda17.project3.repository.serviceManagement.PersonalAssistanceSe
 import fr.isika.cda17.project3.repository.serviceManagement.ReservationDao;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class PersonnalAssistanceReservationBean implements Serializable {
 
 	/**
@@ -29,111 +30,122 @@ public class PersonnalAssistanceReservationBean implements Serializable {
 	 */
 	private static final long serialVersionUID = -933564076831708579L;
 	private static final String SERVICE_LIST_XHTML = "subServiceList.xhtml";
-	
-	 @Inject
-	    private PersonalAssistanceServiceDao personalAssistanceServiceDao;
-	 @Inject
-		private ReservationDao reservationDao;
 
-		@Inject
-		private UserAccountsDao userAccontDao;
+	@Inject
+	private PersonalAssistanceServiceDao personalAssistanceServiceDao;
+	@Inject
+	private ReservationDao reservationDao;
 
-	    private PersonalAssistanceService personalAssistanceService = new PersonalAssistanceService();
-		private Reservation reservation = new Reservation();
-		private ServiceInvoice serviceInvoice = new ServiceInvoice();
-		
-		 public void init() throws IOException {
-				Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+	@Inject
+	private UserAccountsDao userAccontDao;
 
-				if (map.containsKey("personalAssistanceServiceId")) {
-				    String personalAssistanceServiceIdParamValue = map.get("personalAssistanceServiceId");
-				    System.err.println(personalAssistanceServiceIdParamValue);
-				    if (personalAssistanceServiceIdParamValue != null && !personalAssistanceServiceIdParamValue.isBlank()) {
-					Long id = Long.valueOf(personalAssistanceServiceIdParamValue);
-					if (id != null) {
-					    personalAssistanceService = personalAssistanceServiceDao.findById(id);
-					    if (personalAssistanceService == null) {
+	private PersonalAssistanceService personalAssistanceService;
+	private Reservation reservation = new Reservation();
+	private ServiceInvoice serviceInvoice = new ServiceInvoice();
+
+	public void init() throws IOException {
+		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+
+		if (map.containsKey("personalAssistanceServiceId")) {
+			String personalAssistanceServiceIdParamValue = map.get("personalAssistanceServiceId");
+			System.err.println(personalAssistanceServiceIdParamValue);
+			if (personalAssistanceServiceIdParamValue != null && !personalAssistanceServiceIdParamValue.isBlank()) {
+				Long id = Long.valueOf(personalAssistanceServiceIdParamValue);
+				if (id != null) {
+					personalAssistanceService = personalAssistanceServiceDao.findById(id);
+					if (personalAssistanceService == null) {
 						redirectError();
-					    }
-					} else {
-					    redirectError();
 					}
-				    } else {
-					redirectError();
-				    }
-				}
-			    }
-		 
-		 public void redirectError() throws IOException {
-				ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-				ec.redirect(SERVICE_LIST_XHTML);
-			    }
-
-		 
-		 public void reservation() {
-
-				System.out.println("starting reservation creation");
-
-				reservation.setService(personalAssistanceService);
-				serviceInvoice.setService(personalAssistanceService);
-
-				HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-				String email = (String) session.getAttribute("email");
-
-				if (email != null && !email.isBlank()) {
-
-				    Optional<UserAccount> optional = userAccontDao.findByEmail(email);
-				    if (optional.isPresent()) {
-					serviceInvoice.setUserAccount(optional.get());
-
-				
-
-					    reservation.setServiceinvoice(serviceInvoice);
-					    
-					    personalAssistanceService.getReservations().add(reservation);
-					   reservationDao.create(reservation);
-					  
-					   personalAssistanceService.setUnavailable(true);
-					    personalAssistanceServiceDao.update(personalAssistanceService);
-					   
-					    System.out.println("reservation : " + reservation.getId());
-
-				
-				    } else {
-					System.out.println("reservation failed, no user with email : " + email);
-				    }
-
 				} else {
-				    System.out.println("reservation failed, email unknown : " + email);
+					redirectError();
 				}
-				System.out.println("ending reservation creation");
-			    }
-		 
-		 
-		 
-		 
-		public ServiceInvoice getServiceInvoice() {
-			return serviceInvoice;
+			} else {
+				redirectError();
+			}
+		}
+	}
+
+	public void redirectError() throws IOException {
+		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+		ec.redirect(SERVICE_LIST_XHTML);
+	}
+
+	public void reservation() throws IOException {
+		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+
+		if (map.containsKey("personalAssistanceServiceId")) {
+			String parcelServiceIdParamValue = map.get("personalAssistanceServiceId");
+			System.err.println(parcelServiceIdParamValue);
+			if (parcelServiceIdParamValue != null && !parcelServiceIdParamValue.isBlank()) {
+				Long id = Long.valueOf(parcelServiceIdParamValue);
+				if (id != null) {
+					personalAssistanceService = personalAssistanceServiceDao.findById(id);
+					if (personalAssistanceService == null) {
+						redirectError();
+					}
+				} else {
+					redirectError();
+				}
+			} else {
+				redirectError();
+			}
 		}
 
-		public void setServiceInvoice(ServiceInvoice serviceInvoice) {
-			this.serviceInvoice = serviceInvoice;
-		}
+		System.out.println("starting reservation creation");
 
-		public Reservation getReservation() {
-			return reservation;
-		}
+		reservation.setService(personalAssistanceService);
+		serviceInvoice.setService(personalAssistanceService);
 
-		public void setReservation(Reservation reservation) {
-			this.reservation = reservation;
-		}
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		String email = (String) session.getAttribute("email");
 
-		public PersonalAssistanceService getPersonalAssistanceService() {
-			return personalAssistanceService;
-		}
+		if (email != null && !email.isBlank()) {
 
-		public void setPersonalAssistanceService(PersonalAssistanceService personalAssistanceService) {
-			this.personalAssistanceService = personalAssistanceService;
+			Optional<UserAccount> optional = userAccontDao.findByEmail(email);
+			if (optional.isPresent()) {
+				System.out.println(personalAssistanceService.getId()); 
+				serviceInvoice.setUserAccount(optional.get());
+
+				reservation.setServiceinvoice(serviceInvoice);
+
+				personalAssistanceService.withReservation(reservation).withUnavailable(true);
+				reservationDao.create(reservation);
+				personalAssistanceServiceDao.update(personalAssistanceService);
+
+				System.out.println("reservation : " + reservation.getId());
+
+			} else {
+				System.out.println("reservation failed, no user with email : " + email);
+			}
+
+		} else {
+			System.out.println("reservation failed, email unknown : " + email);
 		}
+		System.out.println("ending reservation creation");
+	}
+
+	public ServiceInvoice getServiceInvoice() {
+		return serviceInvoice;
+	}
+
+	public void setServiceInvoice(ServiceInvoice serviceInvoice) {
+		this.serviceInvoice = serviceInvoice;
+	}
+
+	public Reservation getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(Reservation reservation) {
+		this.reservation = reservation;
+	}
+
+	public PersonalAssistanceService getPersonalAssistanceService() {
+		return personalAssistanceService;
+	}
+
+	public void setPersonalAssistanceService(PersonalAssistanceService personalAssistanceService) {
+		this.personalAssistanceService = personalAssistanceService;
+	}
 
 }

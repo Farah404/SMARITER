@@ -58,8 +58,7 @@ public class CreateCarPoolingServiceBean {
 	userAccount = userAccountsDao.findById(id);
 	trajectory.setItinerary(itinerary);
 	
-	cps =new CarPoolingService()
-			.withStartDate(LocalDateTime.parse(startDate))
+	cps.withStartDate(LocalDateTime.parse(startDate))
 			.withEndDate(LocalDateTime.parse(endDate))
 			.withPublicationDate(LocalDateTime.now())
 			.withServiceType(ServiceType.CAR_POOLING)
@@ -79,8 +78,7 @@ public class CreateCarPoolingServiceBean {
 
 	trajectory.setItinerary(itinerary);
 	
-	cps = new CarPoolingService()
-		.withStartDate(LocalDateTime.parse(startDate))
+	cps.withStartDate(LocalDateTime.parse(startDate))
 		.withEndDate(LocalDateTime.parse(endDate))
 		.withPublicationDate(LocalDateTime.now())
 		.withServiceType(ServiceType.CAR_POOLING)

@@ -22,7 +22,6 @@ public class Reservation {
     private Long id;
 
     @ManyToOne(cascade = CascadeType.ALL)
-
     private Service service;
 
     @ManyToMany

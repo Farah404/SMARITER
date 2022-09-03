@@ -28,9 +28,7 @@ public class CarRentalServiceDaoImpl implements CarRentalServiceDao {
     @Override
     public void update(CarRentalService carRentalService) {
 	try {
-	    CarRentalService updatedCarRentalService = entityManager.find(CarRentalService.class,
-		    carRentalService.getId());
-	    entityManager.merge(updatedCarRentalService);
+	    entityManager.merge(carRentalService);
 	} catch (Exception e) {
 	    System.out.println("CarRentalServiceDao.update() - Failed : " + e.getMessage());
 	}
