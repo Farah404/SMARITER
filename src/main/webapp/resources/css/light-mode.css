@@ -2102,28 +2102,29 @@ float:left;
 /*Invoice*/
 
 .invoice {
-  color: #222;
-  padding: 3rem 2rem 4rem 3rem;
-  width: 600px;
-  margin: 3rem auto;
-  position: relative;
-  border: 1px solid #ccc;
-}
+	padding: 3rem 2rem 4rem 3rem;
+	width: 600px;
+	margin: 3rem auto;
+	position: relative;
+	border: 1px solid #7b667a;
+	}
+	
 .invoice h1 {
   font-size: 3rem;
   text-transform: uppercase;
   margin: 0;
+  color: #7b667a;
 }
 .invoice h3 {
   font-weight: 800;
   text-transform: uppercase;
   font-size: 0.75rem;
   margin: 0 0 1rem 0;
-  color: #999;
+  color: #7b667a;
 }
 
 .invoice-id {
-  color: #999;
+  color: #7b667a;
   margin: 0 0 2rem 0;
 }
 
@@ -2131,7 +2132,7 @@ float:left;
   position: absolute;
   top: 3.3rem;
   right: 3rem;
-  width: 120px;
+  width:10%;
 }
 
 .invoice-grid {
@@ -2154,15 +2155,19 @@ float:left;
 .amount-due-amount, .due-date-date {
   font-size: 1.5rem;
   font-weight: 800;
+  color: #7b667a;
 }
 
 .paid-line {
   padding: 2rem 0 1rem 0;
   text-align: center;
+  color: #7b667a;
 }
 .paid-line img {
   display: block;
   margin: 0 auto 0.5rem;
+  width: 20%;
+  float: left;
 }
 
 .grid [class^=grid-] {
