@@ -7,12 +7,12 @@ window.addEventListener('load', function() {
 			replyMessage: "We can chat about the following topics: Building a website, Smariter services, Smariter terms of use and Payment solutions."
 		},
 		{
-			userKeywords: ["Building", "Website"],
+			userKeywords: ["building", "website"],
 			replyMessage: "You want to provide carpooling services to your members ? SMARITER provides you many options to define your own website. You can either choose every options from scratch or select a pre-defined website template. Please visit the website builder section to get started !"
 		},
 		{
 			userKeywords: ["solution", "service", "carpool", "parcel", "personal", "rental"],
-			replyMessage: "Showcase and offer your services with a professional online scheduling platform. treamline your business by managing your schedule with an all-in-one booking solution."
+			replyMessage: "Showcase and offer your services with a professional online scheduling platform. Streamline your business by managing your schedule with an all-in-one booking solution."
 		},
 		{
 			userKeywords: ["terms", "use"],

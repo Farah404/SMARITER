@@ -46,6 +46,7 @@ public class UpdateCustomerProfileBean implements Serializable {
 	}
     }
 
+
     public void redirectError() throws IOException {
 	ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 	ec.redirect("listEntity.xhtml");

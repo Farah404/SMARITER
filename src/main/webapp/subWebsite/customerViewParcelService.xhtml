@@ -24,14 +24,12 @@
 
 							<div class="col-md-4">
 								<img alt="" style="width: 100%;" class=" img-thumbnail"
-									src="subMedia/Images/ParcelDelivery.png" /> <br />
+									src="subMedia/Images/ParcelDelivery.png" /> <br /> <br />
 
-								<button class="btn btn-success center-block" type="submit">Réserver
-									la prestation pour EcoCoins</button>
-
-								<br />
-								<button class="btn btn-success center-block">Profil de
-									l'EcoMembre prestataire</button>
+								<h:commandButton
+									action="#{parcelServiceManagementBean.delete()}"
+									value="Supprimer la prestation"
+									class="btn btn-success center-block" type="submit"></h:commandButton>
 							</div>
 
 

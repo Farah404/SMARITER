@@ -99,7 +99,7 @@
 							<br />
 							<br />
 
-							<h:dataTable class="styled-table" id="solutionList"
+							<h:dataTable class="table-customer" id="solutionList"
 								value="#{solutionManagementBean.solutiontList}" var="solution">
 
 								<h:column>
@@ -114,22 +114,22 @@
 
 								<h:column>
 									<f:facet name="header"> Car pool</f:facet>
-									<h:outputText value="#{solution.carPoolingsolutionIncluded}" />
+									<h:outputText value="#{solution.carPoolingsolutionIncluded? 'Included' : 'Not Included'}" />
 								</h:column>
 
 								<h:column>
 									<f:facet name="header">Car rental</f:facet>
-									<h:outputText value="#{solution.carRentalSolutionIncluded}" />
+									<h:outputText value="#{solution.carRentalSolutionIncluded? 'Included' : 'Not Included'}" />
 								</h:column>
 
 								<h:column>
 									<f:facet name="header">Personnal Assistance</f:facet>
 									<h:outputText
-										value="#{solution.personalAssistanceSolutionIncluded}" />
+										value="#{solution.personalAssistanceSolutionIncluded? 'Included' : 'Not Included'}" />
 								</h:column>
 								<h:column>
 									<f:facet name="header">Parcel Solution</f:facet>
-									<h:outputText value="#{solution.parcelSolutionIncluded}" />
+									<h:outputText value="#{solution.parcelSolutionIncluded? 'Included' : 'Not Included'}" />
 								</h:column>
 
 								<h:column>
@@ -140,17 +140,13 @@
 									<f:facet name="header">Payment system</f:facet>
 									<h:outputText value="#{solution.paymentSystemChoice}" />
 								</h:column>
-								<h:column>
-									<f:facet name="header">Rating system</f:facet>
-									<h:outputText value="#{solution.ratingSystemIncluded}" />
-								</h:column>
 							</h:dataTable>
 							<br />
 							<span class="label-text-cusProfile"><i
 								class="fa fa-inbox fa-col-cus"> List of Customers:</i></span>
 							<br />
 							<br />
-							<h:dataTable class="styled-table" id="solutionListEntities"
+							<h:dataTable class="table-customer" id="solutionListEntities"
 								value="#{solutionManagementBean.solutiontList}" var="solution">
 
 								<h:column>

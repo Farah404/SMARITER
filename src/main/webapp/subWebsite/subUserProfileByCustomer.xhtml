@@ -32,9 +32,6 @@
 									<h3>#{userProfileBean.user.userAccount.username}</h3>
 
 								</ul>
-								<h:commandButton class="btn btn-success center-block"
-									action="#{userProfileByCustomerBean.updateStepOne()}"
-									value="Modifier mon profil" />
 								<br />
 							</div>
 
@@ -168,16 +165,6 @@
 																		Montant EcoCoins</td>
 																	<td class="text-success">
 																		<p>#{userProfileByCustomerBean.user.userAccount.wallet.internalCurrencyAmount}</p>
-																	</td>
-																</tr>
-																<tr>
-																	<td><span
-																		class="glyphicon glyphicon-leaf text-success"></span>
-																		Abonnement</td>
-																	<td class="text-success">
-
-																		<p>Jusqu'au
-																			@Model.EcoWallet.SubscriptionExpiration.ToShortDateString()</p>
 																	</td>
 																</tr>
 															</tbody>

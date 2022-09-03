@@ -27,17 +27,10 @@
 									src="subMedia/Images/Covoit.png" /> <br /> <br />
 								<h:commandButton class="btn btn-success center-block"
 									type="submit"
-									value=" Réserver la prestation pour #{carPoolingReservationBean.carPooling.price} EcoCoins"
-									action="#{carPoolingReservationBean.reservation()}">
+									value="Supprimer la prestation"
+									action="#{carPoolingServiceManagementBean.delete()}">
 								</h:commandButton>
 
-								<br />
-
-								<h:commandButton class="btn btn-success center-block"
-									type="submit"
-									value="Profil de l'EcoMembre prestataire #{carPoolingManagementBean.carPoolingService.userAccountProvider.username}"
-									action="#{carPoolingReservationBean.reservation()}">
-								</h:commandButton>
 
 							</div>
 
