@@ -43,7 +43,7 @@
 					<div class="row">
 						<h:form class="cusProfile">
 							<div class="col-one-half-cusProfile">
-								<img class="customer-img" src="media/img/EcoCarBig.png" /><br />
+								<img class="customer-img" src="#{customerProfileBean.customer.entityAccount.profilePicturePath}" /><br />
 								<h:commandButton style="width:25vh"
 									action="#{customerProfileBean.updateStepOne()}"
 									class="button-shared" value="Update profile" />
