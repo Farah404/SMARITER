@@ -32,52 +32,51 @@
 												</div>
 												<div class="row-usersignup">
 													<div class="col-usersignup">
-														Personal Details
 														<div class="form-outline mb-4">
 															<h:inputText class="form-control" id="email"
-																a:placeholder="Email address"
+																a:placeholder="Email"
 																value="#{createUserBean.userAccount.email}" />
 														</div>
 														<br />
 
 														<div class="form-outline mb-4">
 															<h:inputSecret class="form-control" id="password"
-																a:placeholder="Password"
+																a:placeholder="Mot de passe"
 																value="#{createUserBean.userAccount.password}" />
 														</div>
 														<br />
 
 														<div class="form-outline mb-4">
 															<h:inputText class="form-control" id="username"
-																a:placeholder="Username"
+																a:placeholder="Nom d'utilisateur"
 																value="#{createUserBean.userAccount.username}" />
 														</div>
 														<br />
 
 														<div class="form-outline mb-4">
 															<h:inputText class="form-control" id="firstname"
-																a:placeholder="Firstname"
+																a:placeholder="Prénom"
 																value="#{createUserBean.user.firstName}" />
 														</div>
 														<br />
 
 														<div class="form-outline mb-4">
 															<h:inputText class="form-control" id="lastname"
-																a:placeholder="Lastname"
+																a:placeholder="Nom"
 																value="#{createUserBean.user.lastName}" />
 														</div>
 														<br />
 
 														<div class="form-outline mb-4">
 															<h:inputText class="form-control" id="phoneNumber"
-																a:placeholder="Phone Number"
+																a:placeholder="Numéro de téléphone"
 																value="#{createUserBean.user.phoneNumber}" />
 														</div>
 														<br />
 
 														<div class="form-outline mb-4">
 															<h:inputText class="form-control" id="birthDate"
-																a:placeholder="dd-MM-YYYY" type="datetime-local"
+																a:placeholder="Date de naissance" type="datetime-local"
 																value="#{createUserBean.user.birthDate}">
 																<f:convertDateTime pattern="dd-MM-yyyy" />
 															</h:inputText>
@@ -86,45 +85,44 @@
 													</div>
 
 													<div class="col-usersignup">
-														Billing Details
 														<div class="form-outline mb-4">
 															<h:inputText class="form-control" id="addressLine"
-																a:placeholder="Address Line"
+																a:placeholder="Adresse Postale"
 																value="#{createUserBean.billingAddress.addressLine}" />
 														</div>
 														<br />
 
 														<div class="form-outline mb-4">
 															<h:inputText class="form-control" id="postalCode"
-																a:placeholder="Postal Code"
+																a:placeholder="Code Postale"
 																value="#{createUserBean.billingAddress.postalCode}" />
 														</div>
 														<br />
 
 														<div class="form-outline mb-4">
 															<h:inputText class="form-control" id="city"
-																a:placeholder="City"
+																a:placeholder="Ville"
 																value="#{createUserBean.billingAddress.city}" />
 														</div>
 														<br />
 
 														<div class="form-outline mb-4">
 															<h:inputText class="form-control" id="country"
-																a:placeholder="Country"
+																a:placeholder="Pays"
 																value="#{createUserBean.billingAddress.country}" />
 														</div>
 														<br />
 
 														<div class="form-outline mb-4">
 															<h:inputText class="form-control" id="bankNAme"
-																a:placeholder="Bank Name"
+																a:placeholder="Agence bancaire"
 																value="#{createUserBean.bankDetails.bankName}" />
 														</div>
 														<br />
 
 														<div class="form-outline mb-4">
 															<h:inputText class="form-control" id="swift"
-																a:placeholder="Swift Code"
+																a:placeholder="Code Swift"
 																value="#{createUserBean.bankDetails.swift}" />
 														</div>
 														<br />

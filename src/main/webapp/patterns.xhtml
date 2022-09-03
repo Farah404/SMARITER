@@ -13,7 +13,15 @@
 				<img width="100%" src="media/gif/coding/abstract.gif" />
 
 			</div>
-			<div class="headerText animate-opacity">Our Team</div>
+			<div class="headerText animate-opacity">
+			Choose your template !
+			</div>
+			<div class="headerSubtext animate-opacity">
+			Showcase and offer your services with a professional online scheduling platform<br />
+				Drive revenue and fill up your schedule by selling your services right from your website
+				<br />
+			</div>
+			<h:form>
 			<div class="container">
 				<div class="row">
 					<div class="column-team">
@@ -22,11 +30,17 @@
 								style="width: 98.5%" />
 							<div class="container-team">
 								<h2>
-									Carpooling <br />Template
+									Basic <br />Template
 								</h2>
+								<br />
 								<p>
-									<a href="templateOne.xhtml"><button class="button">Preview
-											template</button></a>
+									<a href="templateOne.xhtml"><button class="button button-shared">Preview
+											template</button></a><br />
+											
+											<h:commandButton class="button button-shared"
+									action="#{urlPathBean.goToServices()}"
+									value="I Like this one" />
+											
 								</p>
 							</div>
 						</div>
@@ -39,11 +53,17 @@
 								style="width: 100%" />
 							<div class="container-team">
 								<h2>
-									Personal Assistance <br /> Template
+									Zen <br /> Template
 								</h2>
+								<br />
 								<p>
-									<a href="templateTwo.xhtml"><button class="button">Preview
-											template</button></a>
+									<a href="templateTwo.xhtml"><button class="button button-shared">Preview
+											template</button></a><br />
+											
+											<h:commandButton class="button button-shared"
+									action="#{urlPathBean.goToServices()}"
+									value="Just what I was looking for" />
+											
 								</p>
 							</div>
 						</div>
@@ -55,11 +75,15 @@
 								style="width: 100%" />
 							<div class="container-team">
 								<h2>
-									Car Rental <br /> Template
+									Portfolio <br /> Template
 								</h2>
+								<br />
 								<p>
-									<a href="templateThree.xhtml"><button class="button">Preview
-											template</button></a>
+									<a href="templateThree.xhtml"><button class="button button-shared">Preview
+											template</button></a><br />
+											<h:commandButton class="button button-shared"
+									action="#{urlPathBean.goToServices()}"
+									value="Perfect template !" />
 								</p>
 							</div>
 						</div>
@@ -70,11 +94,16 @@
 								style="width: 100%" />
 							<div class="container-team">
 								<h2>
-									All services <br /> template
+									Minimalist <br /> template
 								</h2>
+								<br />
 								<p>
-									<a href="subWebsite/subIndex.xhtml"><button class="button">Preview
-											template</button></a>
+									<a href="templateFour.xhtml">
+									<button class="button button-shared">Preview
+											template</button></a><br />
+											<h:commandButton class="button button-shared"
+									action="#{urlPathBean.goToServices()}"
+									value="Definitely what I need" />
 								</p>
 							</div>
 						</div>
@@ -82,6 +111,7 @@
 
 				</div>
 			</div>
+			</h:form>
 			
 			
 						<div class="container">

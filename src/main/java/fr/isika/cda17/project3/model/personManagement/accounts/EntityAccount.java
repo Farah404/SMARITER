@@ -37,7 +37,7 @@ public class EntityAccount extends Account {
     @OneToOne(cascade = CascadeType.ALL)
     private Wallet wallet;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     private Solution solution;
 
     public EntityAccount() {

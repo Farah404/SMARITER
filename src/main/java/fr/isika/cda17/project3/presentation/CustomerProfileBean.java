@@ -28,21 +28,11 @@ public class CustomerProfileBean implements Serializable {
 	System.out.println(id);
 	if (id != null) {
 	    customer = customerDao.findByEntityAccountId(id);
-	    // customer => entityAccount == id
-	    if (customer == null) {
-		System.out.println("this is bullshit");
-	    }
-	} else {
-	    System.out.println("id null");
 	}
     }
 
-    public Customer getCustomer() {
-	return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-	this.customer = customer;
+    public String goToInvoice() {
+	return "customerInvoice.xhtml?faces-redirect=true&solutionId="+customer.getEntityAccount().getSolution().getId();
     }
 
     public String updateStepOne() {
@@ -51,8 +41,15 @@ public class CustomerProfileBean implements Serializable {
 
     public String update() {
 	customerDao.update(customer);
-	System.out.println(customer);
 	return "customerProfile.xhtml?faces-redirect=true";
+    }
+
+    public Customer getCustomer() {
+	return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+	this.customer = customer;
     }
 
 }

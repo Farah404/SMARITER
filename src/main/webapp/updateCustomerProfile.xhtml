@@ -30,10 +30,10 @@
 						<h:form class="cusProfile">
 							<div class="col-one-half-cusProfile">
 								<img class="customer-img" src="media/img/EcoCarBig.png" /><br />
-								<h:commandButton action="#{customerProfileBean.update()}"
+								<h:commandButton style="width:25vh" action="#{customerProfileBean.update()}"
 									class="button-shared" value="Update profile" />
 								<br />
-								<h:commandButton class="button-shared"
+								<h:commandButton style="width:25vh" class="button-shared"
 									value="Change Profile Picture" />
 								<br />
 
@@ -42,99 +42,76 @@
 							</div>
 							<div class="col-one-half-cusProfile">
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Firstname:
-										#{customerProfileBean.customer.firstName}</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Lastname:
-										#{customerProfileBean.customer.lastName}</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
+									class="fa fa-user fa-col-cus"> Firstname:
+										#{customerProfileBean.customer.firstName}</i></span><br /> <br /> <span
+									class="label-text-cusProfile"><i
+									class="fa fa-user fa-col-cus"> Lastname:
+										#{customerProfileBean.customer.lastName}</i></span><br /> <br /> <span
+									class="label-text-cusProfile"><i
 									class="fa fa-envelope fa-col-cus"> Email address:</i></span><br />
 								<h:inputText class="label-text-cusProfile"
 									a:placeholder="#{customerProfileBean.customer.entityAccount.email}"
 									value="#{customerProfileBean.customer.entityAccount.email}" />
-								<br />
-								<br /> <span class="label-text-cusProfile"><i
+								<br /> <br /> <span class="label-text-cusProfile"><i
 									class="fa fa-envelope fa-col-cus"> Phone Number:</i></span><br />
 								<h:inputText class="label-text-cusProfile"
 									a:placeholder="#{customerProfileBean.customer.phoneNumber}"
 									value="#{customerProfileBean.customer.phoneNumber}" />
-								<br />
-								<br /> <span class="label-text-cusProfile"><i
+								<br /> <br /> <span class="label-text-cusProfile"><i
 									class="fa fa-euro fa-col-cus"> Pricing plan:
-										#{customerProfileBean.customer.entityAccount.solution.priceDeal}</i></span><br />
+										#{customerProfileBean.customer.entityAccount.solution.priceDeal.label}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
 									class="fa fa-hashtag fa-col-cus"> Siret Number:
 										#{customerProfileBean.customer.entityAccount.siretNumber}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
 									class="fa fa-envelope fa-col-cus"> Website Name:
-										#{customerProfileBean.customer.entityAccount.solution.solutionName}</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-inbox fa-col-cus"> Included solutions:
-										#{customerProfileBean.customer.entityAccount.solution.carPoolingsolutionIncluded},
-										#{customerProfileBean.customer.entityAccount.solution.carRentalSolutionIncluded},
-										#{customerProfileBean.customer.entityAccount.solution.parcelSolutionIncluded},
-										#{customerProfileBean.customer.entityAccount.solution.personalAssistanceSolutionIncluded}
-								</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
+										#{customerProfileBean.customer.entityAccount.solution.solutionName}</i></span>
+								<br /> <br /> <span class="label-text-cusProfile"><i
 									class="fa fa-phone fa-col-cus"> Payment Choice:
-										#{customerProfileBean.customer.entityAccount.solution.paymentSystemChoice}</i></span><br />
+										#{customerProfileBean.customer.entityAccount.solution.paymentSystemChoice.label}</i></span><br />
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-phone fa-col-cus"> Payment Choice:
-										#{customerProfileBean.customer.entityAccount.solution.messagingSystemChoice}</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-euro fa-col-cus"> Messaging choice:</i></span><br />
+									class="fa fa-inbox fa-col-cus"> Messaging choice:
+										#{customerProfileBean.customer.entityAccount.solution.messagingSystemChoice.label}</i></span><br />
 								<br />
-
 							</div>
 
 							<div class="col-one-half-cusProfile">
 								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Banking Details:</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Bank Name:</i></span><br />
+									class="fa fa-check fa-col-cus"> Bank Name:</i></span><br />
 								<h:inputText class="label-text-cusProfile"
 									a:placeholder="#{customerProfileBean.customer.entityAccount.bankDetails.bankName}"
 									value="#{customerProfileBean.customer.entityAccount.bankDetails.bankName}" />
-								<br />
-								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Swift:</i></span><br />
+								<br /> <br /> <span class="label-text-cusProfile"><i
+									class="fa fa-check fa-col-cus"> Swift:</i></span><br />
 								<h:inputText class="label-text-cusProfile"
 									a:placeholder=" #{customerProfileBean.customer.entityAccount.bankDetails.swift}"
 									value="#{customerProfileBean.customer.entityAccount.bankDetails.swift}" />
-								<br />
-								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> IBAN:</i></span><br />
+								<br /> <br /> <span class="label-text-cusProfile"><i
+									class="fa fa-check fa-col-cus"> IBAN:</i></span><br />
 								<h:inputText class="label-text-cusProfile"
 									a:placeholder="#{customerProfileBean.customer.entityAccount.bankDetails.iban}"
 									value="#{customerProfileBean.customer.entityAccount.bankDetails.iban}" />
-								<br />
-								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-inbox fa-col-cus"> Billing Address:</i></span><br />
-								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Address Line:</i></span><br />
+								<br /> <br /> <span class="label-text-cusProfile"><i
+									class="fa fa-map fa-col-cus"> Address Line:</i></span><br />
 								<h:inputText class="label-text-cusProfile"
 									a:placeholder="#{customerProfileBean.customer.entityAccount.billingAddress.addressLine}"
 									value="#{customerProfileBean.customer.entityAccount.billingAddress.addressLine}" />
-								<br />
-								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> City:</i></span><br />
+								<br /> <br /> <span class="label-text-cusProfile"><i
+									class="fa fa-map fa-col-cus"> City:</i></span><br />
 								<h:inputText class="label-text-cusProfile"
 									a:placeholder="#{customerProfileBean.customer.entityAccount.billingAddress.city}"
 									value="#{customerProfileBean.customer.entityAccount.billingAddress.city}" />
-								<br />
-								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Postal Code:</i></span><br />
+								<br /> <br /> <span class="label-text-cusProfile"><i
+									class="fa fa-map fa-col-cus"> Postal Code:</i></span><br />
 								<h:inputText class="label-text-cusProfile"
 									a:placeholder=" #{customerProfileBean.customer.entityAccount.billingAddress.postalCode}"
 									value="#{customerProfileBean.customer.entityAccount.bankDetails.iban}" />
-								<br />
-								<br /> <span class="label-text-cusProfile"><i
-									class="fa fa-envelope fa-col-cus"> Country:</i></span><br />
+								<br /> <br /> <span class="label-text-cusProfile"><i
+									class="fa fa-map fa-col-cus"> Country:</i></span><br />
 								<h:inputText class="label-text-cusProfile"
 									a:placeholder="#{customerProfileBean.customer.entityAccount.billingAddress.country}"
 									value="#{customerProfileBean.customer.entityAccount.billingAddress.country}" />
-								<br />
-								<br />
+								<br /> <br />
 							</div>
 						</h:form>
 					</div>

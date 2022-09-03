@@ -48,6 +48,10 @@
 								<h:outputText value="#{carPoolingService.referenceNumber}" />
 							</h:column>
 							<h:column>
+								<f:facet name="header"> Type </f:facet>
+								<h:outputText value="#{carPoolingService.isRequest}" />
+							</h:column>
+							<h:column>
 								<f:facet name="header"> Adresse de départ </f:facet>
 								<h:outputText
 									value="#{carPoolingService.trajectory.pickUpAddress}" />
@@ -75,14 +79,7 @@
 							<h:column>
 								<f:facet name="header">Nombre d'arrets</f:facet>
 								<h:outputText value="#{carPoolingService.trajectory.stopNumber}" />
-							</h:column>
-							<!-- 							<h:column> -->
-							<!-- 								<f:facet name="header">Durée d'arret (minutes)</f:facet> -->
-							<!-- 								<h:outputText -->
-							<!-- 									value="#{carPoolingService.trajectory.stopDurationMinutes}" /> -->
-							<!-- 							</h:column> -->
-
-
+								</h:column>
 							<h:column>
 								<f:facet name="header">Sièges disponibles</f:facet>
 								<h:outputText value="#{carPoolingService.availableSeats}" />
@@ -111,26 +108,6 @@
 									</h:commandButton>
 								</h:panelGrid>
 							</h:column>
-							<!-- 							<h:column> -->
-							<!-- 								<f:facet name="header">Delete</f:facet> -->
-							<!-- 								<h:panelGrid> -->
-							<!-- 									<h:commandButton -->
-							<!-- 										action="#{carPoolingManagementBean.delete(carPoolingService.id)}" -->
-							<!-- 										value="Delete" /> -->
-							<!-- 								</h:panelGrid> -->
-							<!-- 							</h:column> -->
-							<!-- 							<h:column> -->
-							<!-- 								<f:facet name="header">Update</f:facet> -->
-							<!-- 								<h:panelGrid> -->
-							<!-- 									<h:commandButton value="Edit" -->
-							<!-- 										action="#{carPoolingManagementBean.showUpdate(carPoolingService.id)}"> -->
-
-							<!-- 										<f:param name="carPoolingServiceId" -->
-							<!-- 											value="#{carPoolingService.id}"></f:param> -->
-							<!-- 									</h:commandButton> -->
-							<!-- 								</h:panelGrid> -->
-							<!-- 							</h:column> -->
-
 						</h:dataTable>
 					</div>
 				</div>
@@ -153,6 +130,10 @@
 							<h:column>
 								<f:facet name="header"> Numéro de référence </f:facet>
 								<h:outputText value="#{carRentalService.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Type </f:facet>
+								<h:outputText value="#{carRentalService.isRequest}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Lieu de récupération des clés </f:facet>
@@ -196,26 +177,6 @@
 									</h:commandButton>
 								</h:panelGrid>
 							</h:column>
-							<!-- 							<h:column> -->
-							<!-- 								<f:facet name="header">Delete</f:facet> -->
-							<!-- 								<h:panelGrid> -->
-							<!-- 									<h:commandButton -->
-							<!-- 										action="#{carRentalServiceManagementBean.delete(carRentalService.id)}" -->
-							<!-- 										value="Delete" /> -->
-							<!-- 								</h:panelGrid> -->
-							<!-- 							</h:column> -->
-							<!-- 							<h:column> -->
-							<!-- 								<f:facet name="header">Update</f:facet> -->
-							<!-- 								<h:panelGrid> -->
-							<!-- 									<h:commandButton value="Edit" -->
-							<!-- 										action="#{carRentalServiceManagementBean.showUpdate(carRentalService.id)}"> -->
-							<!-- 										<f:param name="carRentalServiceId" -->
-							<!-- 											value="#{carRentalService.id}"></f:param> -->
-							<!-- 									</h:commandButton> -->
-							<!-- 								</h:panelGrid> -->
-							<!-- 							</h:column> -->
-
-
 						</h:dataTable>
 
 					</div>
@@ -239,6 +200,10 @@
 							<h:column>
 								<f:facet name="header"> Numéro de référence </f:facet>
 								<h:outputText value="#{parcelService.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Type </f:facet>
+								<h:outputText value="#{parcelService.isRequest}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Adresse de départ  </f:facet>
@@ -287,18 +252,6 @@
 								<f:facet name="header">Prix</f:facet>
 								<h:outputText value="#{parcelService.price}" />
 							</h:column>
-
-							<!-- 							<h:column> -->
-							<!-- 								<f:facet name="header">Membre EcoCar Prestatire</f:facet> -->
-							<!-- 								<h:outputText -->
-							<!-- 									value="#{parcelService.userAccountProvider.username}" /> -->
-
-							<!-- 							</h:column> -->
-							<!-- 							<h:column> -->
-							<!-- 								<f:facet name="header">Prix</f:facet> -->
-							<!-- 								<h:outputText value="#{parcelService.price}" /> -->
-							<!-- 							</h:column> -->
-
 							<h:column>
 								<f:facet name="header">Details</f:facet>
 								<h:panelGrid>
@@ -308,26 +261,6 @@
 									</h:commandButton>
 								</h:panelGrid>
 							</h:column>
-							<!-- 							<h:column> -->
-							<!-- 								<f:facet name="header">Delete</f:facet> -->
-							<!-- 								<h:panelGrid> -->
-							<!-- 									<h:commandButton -->
-							<!-- 										action="#{carRentalServiceManagementBean.delete(carRentalService.id)}" -->
-							<!-- 										value="Delete" /> -->
-							<!-- 								</h:panelGrid> -->
-							<!-- 							</h:column> -->
-							<!-- 							<h:column> -->
-							<!-- 								<f:facet name="header">Update</f:facet> -->
-							<!-- 								<h:panelGrid> -->
-							<!-- 									<h:commandButton value="Edit" -->
-							<!-- 										action="#{carRentalServiceManagementBean.showUpdate(carRentalService.id)}"> -->
-							<!-- 										<f:param name="carRentalServiceId" -->
-							<!-- 											value="#{carRentalService.id}"></f:param> -->
-							<!-- 									</h:commandButton> -->
-							<!-- 								</h:panelGrid> -->
-							<!-- 							</h:column> -->
-
-
 						</h:dataTable>
 					</div>
 				</div>
@@ -349,6 +282,10 @@
 							<h:column>
 								<f:facet name="header"> Numéro de référence </f:facet>
 								<h:outputText value="#{personalAssistance.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Type </f:facet>
+								<h:outputText value="#{personalAssistance.isRequest}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Adresse de départ  </f:facet>
@@ -378,18 +315,6 @@
 								<f:facet name="header">Prix</f:facet>
 								<h:outputText value="#{personalAssistance.price}" />
 							</h:column>
-
-							<!-- 							<h:column> -->
-							<!-- 								<f:facet name="header">Membre EcoCar Prestatire</f:facet> -->
-							<!-- 								<h:outputText -->
-							<!-- 									value="#{personalAssistance.userAccountProvider.username}" /> -->
-
-							<!-- 							</h:column> -->
-							<!-- 							<h:column> -->
-							<!-- 								<f:facet name="header">Prix</f:facet> -->
-							<!-- 								<h:outputText value="#{personalAssistance.price}" /> -->
-							<!-- 							</h:column> -->
-
 							<h:column>
 								<f:facet name="header">Details</f:facet>
 								<h:panelGrid>
@@ -400,25 +325,6 @@
 									</h:commandButton>
 								</h:panelGrid>
 							</h:column>
-							<!-- 							<h:column> -->
-							<!-- 								<f:facet name="header">Delete</f:facet> -->
-							<!-- 								<h:panelGrid> -->
-							<!-- 									<h:commandButton -->
-							<!-- 										action="#{carRentalServiceManagementBean.delete(carRentalService.id)}" -->
-							<!-- 										value="Delete" /> -->
-							<!-- 								</h:panelGrid> -->
-							<!-- 							</h:column> -->
-							<!-- 							<h:column> -->
-							<!-- 								<f:facet name="header">Update</f:facet> -->
-							<!-- 								<h:panelGrid> -->
-							<!-- 									<h:commandButton value="Edit" -->
-							<!-- 										action="#{carRentalServiceManagementBean.showUpdate(carRentalService.id)}"> -->
-							<!-- 										<f:param name="carRentalServiceId" -->
-							<!-- 											value="#{carRentalService.id}"></f:param> -->
-							<!-- 									</h:commandButton> -->
-							<!-- 								</h:panelGrid> -->
-							<!-- 							</h:column> -->
-
 
 						</h:dataTable>
 					</div>
