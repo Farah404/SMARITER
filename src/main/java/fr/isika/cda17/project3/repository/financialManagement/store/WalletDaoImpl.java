@@ -6,49 +6,50 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import fr.isika.cda17.project3.model.financialManagement.store.Store;
+import fr.isika.cda17.project3.model.financialManagement.store.Wallet;
 
 @Stateless
-public class StoreDaoImpl implements StoreDao {
-
+public class WalletDaoImpl implements WalletDao{
+    
     @PersistenceContext
     private EntityManager entityManager;
 
     @Override
-    public Store create(Store ecoStore) {
+    public Wallet create(Wallet wallet) {
 	try {
-	    entityManager.persist(ecoStore);
-	    return ecoStore;
+	    entityManager.persist(wallet);
+	    return wallet;
 	} catch (Exception e) {
 	    return null;
 	}
     }
 
     @Override
-    public void update(Store store) {
+    public void update(Wallet wallet) {
 	try {
-	    entityManager.merge(store);
+	    entityManager.merge(wallet);
 	} catch (Exception e) {
 	}
+	
     }
 
     @Override
     public void delete(Long id) {
 	try {
-	    Store deletedStore = entityManager.find(Store.class, id);
-	    entityManager.remove(deletedStore);
+	    Wallet deletedWallet = entityManager.find(Wallet.class, id);
+	    entityManager.remove(deletedWallet);
 	} catch (Exception e) {
 	}
+	
     }
 
     @Override
-    public Store findById(Long id) {
-	return entityManager.find(Store.class, id);
-
+    public Wallet findById(Long id) {
+		return entityManager.find(Wallet.class, id);
     }
 
     @Override
-    public List<Store> findAll() {
+    public List<Wallet> findAll() {
 	return null;
     }
 
