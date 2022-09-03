@@ -46,12 +46,14 @@ public class CreateCarRentalServiceBean {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
-	crs.setServicetype(ServiceType.CAR_RENTAL);
-	crs.setPublicationDate(LocalDateTime.now());
-	crs.setRequest(false);
-	crs.setUserAccountProvider(userAccount);
-	crs.setStartDate(LocalDateTime.parse(startDate));
-	crs.setEndDate(LocalDateTime.parse(endDate));
+	
+	crs = new CarRentalService()
+			.withStartDate(LocalDateTime.parse(startDate))
+			.withEndDate(LocalDateTime.parse(endDate))
+			.withPublicationDate(LocalDateTime.now())
+			.withServiceType(ServiceType.CAR_RENTAL)
+			.withProvider(userAccount);
+
 	CarRentalService created = carRentalServiceDao.create((CarRentalService) crs);
 	System.out.println(created);
     }

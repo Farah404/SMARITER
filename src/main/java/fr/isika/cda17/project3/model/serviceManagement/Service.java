@@ -209,5 +209,10 @@ public abstract class Service {
 		this.setEndDate(endDate);
 		return this;
 	}
+	
+	public Service withProvider(final UserAccount userAccount) {
+		this.setUserAccountProvider(userAccount);
+		return this;
+	}
 
 }

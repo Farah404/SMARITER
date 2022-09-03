@@ -95,12 +95,17 @@ public class CarPoolingReservationBean implements Serializable {
 
 					carPooling.getReservations().add(reservation);
 					reservationDao.create(reservation);
-					//TODO add condition to set Unavailble
-					carPooling.setAvailableSeats(carPooling.getAvailableSeats() - 1);
-					
-					carPoolingServiceDao.update(carPooling);
-					System.out.println("reservation : " + reservation.getId());
 
+					if (carPooling.getAvailableSeats()>1) {
+						carPooling.setAvailableSeats(carPooling.getAvailableSeats() - 1);
+						carPoolingServiceDao.update(carPooling);
+						System.out.println("reservation : " + reservation.getId());
+					}else {
+						carPooling.setAvailableSeats(carPooling.getAvailableSeats() - 1);
+						carPooling.setUnavailable(true);
+						carPoolingServiceDao.update(carPooling);
+						System.out.println("reservation : " + reservation.getId());
+					}
 				} else {
 					System.out.println("reservation failed, no seats available");
 				}

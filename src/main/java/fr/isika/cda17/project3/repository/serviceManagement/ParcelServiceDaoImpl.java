@@ -28,20 +28,6 @@ public class ParcelServiceDaoImpl implements ParcelServiceDao {
     @Override
     public void update(ParcelService parcelService) {
 	try {
-	    ParcelService updatedParcelService = entityManager.find(ParcelService.class, parcelService.getId());
-	    updatedParcelService.setPublicationDate(parcelService.getPublicationDate());
-	    updatedParcelService.setExpirationDate(parcelService.getExpirationDate());
-	    updatedParcelService.setStartDate(parcelService.getStartDate());
-	    updatedParcelService.setEndDate(parcelService.getEndDate());
-	    updatedParcelService.setReferenceNumber(parcelService.getReferenceNumber());
-	    updatedParcelService.setIsRequest(parcelService.getIsRequest());
-	    updatedParcelService.setPrice(parcelService.getPrice());
-
-	    updatedParcelService.setBarCode(parcelService.getBarCode());
-	    updatedParcelService.setWeightKilogrammes(parcelService.getWeightKilogrammes());
-	    updatedParcelService.setAtypicalVolume(parcelService.isAtypicalVolume());
-	    updatedParcelService.setFragile(parcelService.isFragile());
-
 	    entityManager.merge(parcelService);
 	} catch (Exception e) {
 	    System.out.println("ParcelServiceDao.update() - Failed : " + e.getMessage());

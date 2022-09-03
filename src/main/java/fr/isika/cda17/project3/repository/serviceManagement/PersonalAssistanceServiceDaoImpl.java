@@ -35,7 +35,7 @@ public class PersonalAssistanceServiceDaoImpl implements PersonalAssistanceServi
 	    updatedPersonalAssistanceService.setStartDate(personalAssistanceService.getStartDate());
 	    updatedPersonalAssistanceService.setEndDate(personalAssistanceService.getEndDate());
 	    updatedPersonalAssistanceService.setReferenceNumber(personalAssistanceService.getReferenceNumber());
-	    updatedPersonalAssistanceService.setIsRequest(personalAssistanceService.getIsRequest());
+	    updatedPersonalAssistanceService.setRequest(personalAssistanceService.isRequest());
 	    updatedPersonalAssistanceService.setPrice(personalAssistanceService.getPrice());
 
 	    updatedPersonalAssistanceService.setUrgent(personalAssistanceService.isUrgent());
