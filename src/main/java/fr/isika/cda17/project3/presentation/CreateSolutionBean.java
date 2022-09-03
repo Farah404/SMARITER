@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.CustomerInvoice;
 import fr.isika.cda17.project3.model.personManagement.accounts.Customer;
+import fr.isika.cda17.project3.model.personManagement.accounts.EntityAccount;
 import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
 import fr.isika.cda17.project3.model.solutionManagement.MessagingSystemChoice;
 import fr.isika.cda17.project3.model.solutionManagement.ParcelSolution;
@@ -18,6 +19,7 @@ import fr.isika.cda17.project3.model.solutionManagement.PriceDeal;
 import fr.isika.cda17.project3.model.solutionManagement.Solution;
 import fr.isika.cda17.project3.model.solutionManagement.TemplateChoice;
 import fr.isika.cda17.project3.repository.personManagement.accounts.CustomerDao;
+import fr.isika.cda17.project3.repository.personManagement.accounts.EntityAccountDao;
 import fr.isika.cda17.project3.repository.solutionManagement.SolutionDao;
 
 @ManagedBean
@@ -32,9 +34,14 @@ public class CreateSolutionBean implements Serializable {
     @Inject
     private CustomerDao customerDao;
     
+    @Inject
+    private EntityAccountDao entityAccountDao;
+    
     private Solution solution = new Solution();
     
     private Customer customer;
+    
+    private EntityAccount entityAccount;
 
     private CarPoolingSolution carPoolingSolution = new CarPoolingSolution();
     private ParcelSolution parcelSolution = new ParcelSolution();
@@ -65,8 +72,11 @@ public class CreateSolutionBean implements Serializable {
     	solution.setParcelSolution(parcelSolution);
     	solution.setCustomerInvoice(customerInvoice);
     	solution.setCustomer(customer);
-    	Solution created = solutionDao.create(solution);
-    	return "paymentForm.xhtml?faces-redirect=true&solutionId="+ created.getId();
+    	customer.getEntityAccount().setSolution(solution);  
+    	customerDao.update(customer);
+    	customer = customerDao.findByEntityAccountId(id);
+    	Long idSolution = customer.getEntityAccount().getSolution().getId();
+    	return "paymentForm.xhtml?faces-redirect=true&solutionId="+ idSolution;
     }
     else {
     	return "logInSignUp.xhtml";

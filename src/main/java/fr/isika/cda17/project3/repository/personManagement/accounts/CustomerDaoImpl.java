@@ -29,12 +29,7 @@ public class CustomerDaoImpl implements CustomerDao {
     @Override
     public void update(Customer customer) {
 	try {
-	    Customer updatedCustomer = this.entityManager.find(Customer.class, customer.getId());
-	    updatedCustomer.setFirstName(customer.getFirstName());
-	    updatedCustomer.setLastName(customer.getLastName());
-	    updatedCustomer.setPhoneNumber(customer.getPhoneNumber());
-	    updatedCustomer.setEntityAccount(customer.getEntityAccount());
-	    entityManager.merge(updatedCustomer);
+	    entityManager.merge(customer);
 	} catch (Exception e) {
 	    System.out.println("CustomerDao.create() - Failed : " + e.getMessage());
 	}

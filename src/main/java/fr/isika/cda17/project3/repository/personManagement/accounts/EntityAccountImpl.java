@@ -30,15 +30,7 @@ public class EntityAccountImpl implements EntityAccountDao {
     @Override
     public void update(EntityAccount entityAccount) {
 	try {
-	    EntityAccount updatedEntityAccount = entityManager.find(EntityAccount.class, entityAccount.getId());
-	    updatedEntityAccount.setUsername(entityAccount.getUsername());
-	    updatedEntityAccount.setEmail(entityAccount.getEmail());
-	    updatedEntityAccount.setPassword(entityAccount.getPassword());
-	    updatedEntityAccount.setProfilePicturePath(entityAccount.getProfilePicturePath());
-	    updatedEntityAccount.setName(entityAccount.getName());
-	    updatedEntityAccount.setSiretNumber(entityAccount.getSiretNumber());
-	    updatedEntityAccount.setPrivate(entityAccount.isPrivate());
-	    entityManager.merge(updatedEntityAccount);
+	    entityManager.merge(entityAccount);
 	} catch (Exception e) {
 	    System.out.println("EntityAccountDaoImpl.update() - Failed : " + e.getMessage());
 	}

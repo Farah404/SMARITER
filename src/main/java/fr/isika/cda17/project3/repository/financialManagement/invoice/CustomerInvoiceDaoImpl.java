@@ -20,7 +20,7 @@ public class CustomerInvoiceDaoImpl implements CustomerInvoiceDao{
 		entityManager.persist(customerInvoice);
 		return customerInvoice;
 	} catch (Exception e) {
-	    System.out.println("ServiceInvoiceDaoImpl.create() - Failed : " + e.getMessage());
+	    System.out.println("CustomerInvoiceDaoImpl.create() - Failed : " + e.getMessage());
 	    return null;
 	}
 	}
@@ -30,7 +30,7 @@ public class CustomerInvoiceDaoImpl implements CustomerInvoiceDao{
 		try {
 		    entityManager.merge(customerInvoice);
 		} catch (Exception e) {
-		    System.out.println("SolutionImpl.update() - Failed : " + e.getMessage());
+		    System.out.println("CustomerInvoiceDaoImpl.update() - Failed : " + e.getMessage());
 		}
 		
 	}
@@ -41,7 +41,7 @@ public class CustomerInvoiceDaoImpl implements CustomerInvoiceDao{
 		    CustomerInvoice customerInvoice = entityManager.find(CustomerInvoice.class, id);
 		    entityManager.remove(customerInvoice);
 		} catch (Exception e) {
-		    System.out.println("SolutionImpl.delete() - Failed : " + e.getMessage());
+		    System.out.println("CustomerInvoiceDaoImpl.delete() - Failed : " + e.getMessage());
 		}
 		
 	}
