@@ -69,5 +69,14 @@ public class Reservation {
     public Long getId() {
 	return id;
     }
+    
+    public Reservation withService(final Service service) {
+    	this.service=service;
+    	return this;
+    }
+    public Reservation withServiceInvoice(final ServiceInvoice serviceInvoice) {
+    	this.serviceinvoice=serviceInvoice;
+    	return this;
+    }
 
 }

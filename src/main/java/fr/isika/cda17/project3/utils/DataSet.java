@@ -374,7 +374,7 @@ public class DataSet {
 	u1.setEmail("adam.get@gmail.com");
 	u1.setPassword("adam");
 	u1.setUsername("adam");
-	si.setUserAccount(u1);
+	si.setUserAccountProvider(u1);
 	em.persist(u1);
 
 	User us1 = new User();
@@ -488,7 +488,7 @@ public class DataSet {
 	u5.setEmail("carla.get@gmail.com");
 	u5.setPassword("carla");
 	u5.setUsername("Carla");
-	si1.setUserAccount(u5);
+	si1.setUserAccountProvider(u5);
 	em.persist(u5);
 
 	User us3 = new User();
@@ -695,7 +695,7 @@ public class DataSet {
 	u3.setPassword("constantine");
 	u3.setUsername("Constantine");
 	u3.setProfilePicturePath(null);
-	si.setUserAccount(u3);
+	si.setUserAccountProvider(u3);
 
 	em.persist(u3);
 
@@ -846,7 +846,7 @@ public class DataSet {
 	u9.setPassword("lina");
 	u9.setUsername("Lina");
 	u9.setProfilePicturePath(null);
-	si3.setUserAccount(u9);
+	si3.setUserAccountProvider(u9);
 
 	em.persist(u9);
 
@@ -1156,7 +1156,7 @@ public class DataSet {
 
 	ServiceInvoice si20 = new ServiceInvoice();
 	si20.setService(pc);
-	si20.setUserAccount(u12);
+	si20.setUserAccountProvider(u12);
 	em.persist(si20);
 
 	Reservation r20 = new Reservation();
@@ -1165,7 +1165,7 @@ public class DataSet {
 	em.persist(r20);
 
 	ServiceInvoice si4 = new ServiceInvoice();
-	si4.setUserAccount(u11);
+	si4.setUserAccountProvider(u11);
 	si4.setService(cr2);
 	em.persist(si4);
 
@@ -1353,7 +1353,7 @@ public class DataSet {
 
 	ServiceInvoice s25 = new ServiceInvoice();
 	s25.setService(pe1);
-	s25.setUserAccount(ua2);
+	s25.setUserAccountProvider(ua2);
 	em.persist(s25);
 
 	Reservation r25 = new Reservation();

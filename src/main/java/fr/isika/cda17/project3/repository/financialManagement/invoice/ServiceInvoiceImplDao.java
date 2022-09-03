@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.ServiceInvoice;
+import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 
 @Stateless
 public class ServiceInvoiceImplDao implements ServiceInvoiceDao {
@@ -45,8 +46,10 @@ public class ServiceInvoiceImplDao implements ServiceInvoiceDao {
 
     @Override
     public List<ServiceInvoice> findAll() {
-	// TODO Auto-generated method stub
-	return null;
+    	List<ServiceInvoice> serviceInvoiceList = this.entityManager
+    			.createQuery("SELECT si FROM ServiceInvoice si", ServiceInvoice.class)
+    			.getResultList();
+    		return serviceInvoiceList;
     }
 
 }

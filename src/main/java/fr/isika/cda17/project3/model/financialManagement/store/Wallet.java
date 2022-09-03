@@ -12,7 +12,7 @@ public class Wallet {
     @GeneratedValue
     private Long id;
 
-    private int internalCurrencyAmount;
+    private double internalCurrencyAmount;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Store store;
@@ -21,7 +21,7 @@ public class Wallet {
 	super();
     }
 
-    public Wallet(Long id, int ecoCoinsAmmount, Store store) {
+    public Wallet(Long id, double ecoCoinsAmmount, Store store) {
 	super();
 	this.id = id;
 	this.internalCurrencyAmount = ecoCoinsAmmount;
@@ -36,11 +36,11 @@ public class Wallet {
 	this.id = id;
     }
 
-    public int getInternalCurrencyAmount() {
+    public double getInternalCurrencyAmount() {
 	return internalCurrencyAmount;
     }
 
-    public void setInternalCurrencyAmount(int internalCurrencyAmount) {
+    public void setInternalCurrencyAmount(double internalCurrencyAmount) {
 	this.internalCurrencyAmount = internalCurrencyAmount;
     }
 
@@ -51,5 +51,12 @@ public class Wallet {
     public void setStore(Store store) {
 	this.store = store;
     }
-
+    public Wallet withAddedValue(final double value) {
+    	this.internalCurrencyAmount = this.internalCurrencyAmount+value;
+    	return this;
+    }
+    public Wallet withSubstractedValue(final double value) {
+    	this.internalCurrencyAmount = this.internalCurrencyAmount-value;
+    	return this;
+    }
 }

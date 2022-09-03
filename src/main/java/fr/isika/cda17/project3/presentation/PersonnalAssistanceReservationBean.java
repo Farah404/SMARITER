@@ -14,9 +14,12 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.ServiceInvoice;
+import fr.isika.cda17.project3.model.financialManagement.store.Wallet;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.serviceManagement.PersonalAssistanceService;
 import fr.isika.cda17.project3.model.serviceManagement.Reservation;
+import fr.isika.cda17.project3.repository.financialManagement.invoice.ServiceInvoiceDao;
+import fr.isika.cda17.project3.repository.financialManagement.store.WalletDao;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
 import fr.isika.cda17.project3.repository.serviceManagement.PersonalAssistanceServiceDao;
 import fr.isika.cda17.project3.repository.serviceManagement.ReservationDao;
@@ -37,11 +40,20 @@ public class PersonnalAssistanceReservationBean implements Serializable {
 	private ReservationDao reservationDao;
 
 	@Inject
-	private UserAccountsDao userAccontDao;
+	private UserAccountsDao userAccountDao;
+
+	@Inject
+	private ServiceInvoiceDao serviceInvoiceDao;
+	@Inject
+	private WalletDao walletDao;
 
 	private PersonalAssistanceService personalAssistanceService;
-	private Reservation reservation = new Reservation();
-	private ServiceInvoice serviceInvoice = new ServiceInvoice();
+	private Reservation reservation;
+	private ServiceInvoice serviceInvoice;
+	private UserAccount userAccountPurchaser;
+	private UserAccount userAccountProvider;
+	private Wallet walletProvider;
+	private Wallet walletPurchaser;
 
 	public void init() throws IOException {
 		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
@@ -70,58 +82,44 @@ public class PersonnalAssistanceReservationBean implements Serializable {
 		ec.redirect(SERVICE_LIST_XHTML);
 	}
 
-	public void reservation() throws IOException {
-		Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-
-		if (map.containsKey("personalAssistanceServiceId")) {
-			String parcelServiceIdParamValue = map.get("personalAssistanceServiceId");
-			System.err.println(parcelServiceIdParamValue);
-			if (parcelServiceIdParamValue != null && !parcelServiceIdParamValue.isBlank()) {
-				Long id = Long.valueOf(parcelServiceIdParamValue);
-				if (id != null) {
-					personalAssistanceService = personalAssistanceServiceDao.findById(id);
-					if (personalAssistanceService == null) {
-						redirectError();
-					}
-				} else {
-					redirectError();
-				}
-			} else {
-				redirectError();
-			}
-		}
-
-		System.out.println("starting reservation creation");
-
-		reservation.setService(personalAssistanceService);
-		serviceInvoice.setService(personalAssistanceService);
-
+	public String reservation() throws IOException {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		String email = (String) session.getAttribute("email");
+		Long id = (Long) session.getAttribute("id");
+		userAccountPurchaser = userAccountDao.findById(id);
+		userAccountProvider = userAccountDao.findById(personalAssistanceService.getUserAccountProvider().getId());
+		walletPurchaser = walletDao.findById(userAccountPurchaser.getWallet().getId());
+		walletProvider = walletDao.findById(userAccountProvider.getWallet().getId());
 
-		if (email != null && !email.isBlank()) {
+		if (userAccountPurchaser.getWallet().getInternalCurrencyAmount() >= personalAssistanceService.getPrice()) {
+			int ref = serviceInvoiceDao.findAll().size() + 1;
+			String invoiceNumber = "2022INV-" + ref + "-SMTR";
 
-			Optional<UserAccount> optional = userAccontDao.findByEmail(email);
-			if (optional.isPresent()) {
-				System.out.println(personalAssistanceService.getId()); 
-				serviceInvoice.setUserAccount(optional.get());
+			walletPurchaser.withSubstractedValue(personalAssistanceService.getPrice());
+			walletProvider.withAddedValue(personalAssistanceService.getPrice());
 
-				reservation.setServiceinvoice(serviceInvoice);
+			serviceInvoice = (ServiceInvoice) new ServiceInvoice()
+					.withService(personalAssistanceService)
+					.withUserAccountProvider(personalAssistanceService.getUserAccountProvider())
+					.withUserAccountPurchaser(userAccountPurchaser)
+					.withServiceInvoiceType()
+					.withIssueDate()
+					.withInvoiceNumber(invoiceNumber);
 
-				personalAssistanceService.withReservation(reservation).withUnavailable(true);
-				reservationDao.create(reservation);
-				personalAssistanceServiceDao.update(personalAssistanceService);
+			reservation = new Reservation()
+					.withService(personalAssistanceService)
+					.withServiceInvoice(serviceInvoice);
 
-				System.out.println("reservation : " + reservation.getId());
+			personalAssistanceService.withReservation(reservation).withUnavailable(true);
+			walletDao.update(walletProvider);
+			walletDao.update(walletPurchaser);
+			serviceInvoiceDao.create(serviceInvoice);
+			reservationDao.create(reservation);
+			personalAssistanceServiceDao.update(personalAssistanceService);
 
-			} else {
-				System.out.println("reservation failed, no user with email : " + email);
-			}
-
+			return "subServiceInvoice.xhtml?faces-redirect=true&serviceInvoiceId=" + serviceInvoice.getId();
 		} else {
-			System.out.println("reservation failed, email unknown : " + email);
+			return "subStore.xhtml";
 		}
-		System.out.println("ending reservation creation");
 	}
 
 	public ServiceInvoice getServiceInvoice() {

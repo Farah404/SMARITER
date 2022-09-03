@@ -12,8 +12,11 @@ import fr.isika.cda17.project3.model.serviceManagement.Service;
 @Entity
 public class ServiceInvoice extends Invoice{
 
-	@ManyToOne
-    private UserAccount userAccount;
+	@OneToOne
+    private UserAccount userAccountProvider;
+	
+	@OneToOne
+	private UserAccount userAccountPurchaser;
 
     @OneToOne
     private Service service;
@@ -22,26 +25,54 @@ public class ServiceInvoice extends Invoice{
 	super();
     }
 
-    public ServiceInvoice(UserAccount userAccount, Service service) {
-	super();
-	this.userAccount = userAccount;
-	this.service = service;
-    }
+    
+	public ServiceInvoice(UserAccount userAccountProvider, UserAccount userAccountPurchaser, Service service) {
+		super();
+		this.userAccountProvider = userAccountProvider;
+		this.userAccountPurchaser = userAccountPurchaser;
+		this.service = service;
+	}
 
-    public UserAccount getUserAccount() {
-	return userAccount;
-    }
 
-    public void setUserAccount(UserAccount userAccount) {
-	this.userAccount = userAccount;
-    }
+	public UserAccount getUserAccountProvider() {
+		return userAccountProvider;
+	}
 
-    public Service getService() {
-	return service;
-    }
+	public void setUserAccountProvider(UserAccount userAccountProvider) {
+		this.userAccountProvider = userAccountProvider;
+	}
 
-    public void setService(Service service) {
-	this.service = service;
-    }
+	public UserAccount getUserAccountPurchaser() {
+		return userAccountPurchaser;
+	}
 
+	public void setUserAccountPurchaser(UserAccount userAccountPurchaser) {
+		this.userAccountPurchaser = userAccountPurchaser;
+	}
+
+	public Service getService() {
+		return service;
+	}
+
+	public void setService(Service service) {
+		this.service = service;
+	}
+
+	public ServiceInvoice withUserAccountProvider(final UserAccount userAccountProvider) {
+		this.userAccountProvider = userAccountProvider;
+		return this;
+	}
+	public ServiceInvoice withUserAccountPurchaser(final UserAccount userAccountPurchaser) {
+		this.userAccountPurchaser = userAccountPurchaser;
+		return this;
+	}
+	public ServiceInvoice withService(final Service service) {
+		this.service = service;
+		return this;
+	}
+	public ServiceInvoice withServiceInvoiceType() {
+		InvoiceType invoiceType=InvoiceType.CUSTOMER_INVOICE;
+		this.invoiceType=invoiceType;
+		return this;
+	}
 }
