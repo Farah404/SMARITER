@@ -2358,7 +2358,7 @@ float:left;
 /*Customer Tables*/
 
 .table-customer td {
-	font-size: 1.8vh;
+	font-size: 1.5vh;
 	color:#d9d5d4;
 	}
 .table-customer {
@@ -2377,6 +2377,10 @@ float:left;
 .table-customer th,
 .table-customer td {
     padding: 12px 15px;
+    
+}
+.table-customer td {
+        font-size:1.5vh;
     
 }
 .table-customer tbody tr {
