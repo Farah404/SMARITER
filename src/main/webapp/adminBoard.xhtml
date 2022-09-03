@@ -118,35 +118,31 @@
 
 								<h:column>
 									<f:facet name="header"> Car pool</f:facet>
-									<h:outputText value="#{solution.carPoolingsolutionIncluded}" />
+									<h:outputText value="#{solution.carPoolingsolutionIncluded? 'Included' : 'Not Included'}" />
 								</h:column>
 
 								<h:column>
 									<f:facet name="header">Car rental</f:facet>
-									<h:outputText value="#{solution.carRentalSolutionIncluded}" />
+									<h:outputText value="#{solution.carRentalSolutionIncluded? 'Included' : 'Not Included'}" />
 								</h:column>
 
 								<h:column>
 									<f:facet name="header">Personnal Assistance</f:facet>
 									<h:outputText
-										value="#{solution.personalAssistanceSolutionIncluded}" />
+										value="#{solution.personalAssistanceSolutionIncluded? 'Included' : 'Not Included'}" />
 								</h:column>
 								<h:column>
 									<f:facet name="header">Parcel Solution</f:facet>
-									<h:outputText value="#{solution.parcelSolutionIncluded}" />
+									<h:outputText value="#{solution.parcelSolutionIncluded? 'Included' : 'Not Included'}" />
 								</h:column>
 
 								<h:column>
 									<f:facet name="header">Messaging system</f:facet>
-									<h:outputText value="#{solution.messagingSystemChoice}" />
+									<h:outputText value="#{solution.messagingSystemChoice.label}" />
 								</h:column>
 								<h:column>
 									<f:facet name="header">Payment system</f:facet>
-									<h:outputText value="#{solution.paymentSystemChoice}" />
-								</h:column>
-								<h:column>
-									<f:facet name="header">Rating system</f:facet>
-									<h:outputText value="#{solution.ratingSystemIncluded}" />
+									<h:outputText value="#{solution.paymentSystemChoice.label}" />
 								</h:column>
 							</h:dataTable>
 							<br />
@@ -183,7 +179,7 @@
 
 								<h:column>
 									<f:facet name="header">Pricing Deal</f:facet>
-									<h:outputText value="#{solution.priceDeal}" />
+									<h:outputText value="#{solution.priceDeal.label}" />
 								</h:column>
 							</h:dataTable>
 

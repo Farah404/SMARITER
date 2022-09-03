@@ -49,7 +49,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header"> Type </f:facet>
-								<h:outputText value="#{carPoolingService.isRequest}" />
+								<h:outputText value="#{carPoolingService.isRequest? 'Yes' : 'No'}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header"> Adresse de départ </f:facet>
@@ -133,7 +133,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header"> Type </f:facet>
-								<h:outputText value="#{carRentalService.isRequest}" />
+								<h:outputText value="#{carRentalService.isRequest? 'Yes' : 'No'}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Lieu de récupération des clés </f:facet>
@@ -203,7 +203,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header"> Type </f:facet>
-								<h:outputText value="#{parcelService.isRequest}" />
+								<h:outputText value="#{parcelService.isRequest? 'Yes' : 'No'}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Adresse de départ  </f:facet>
@@ -285,7 +285,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header"> Type </f:facet>
-								<h:outputText value="#{personalAssistance.isRequest}" />
+								<h:outputText value="#{personalAssistance.isRequest? 'Demande' : 'Proposition'}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Adresse de départ  </f:facet>
