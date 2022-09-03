@@ -172,20 +172,25 @@ public class PaymentBean {
 	if (isSuccess) {
 	    Transaction transaction = result.getTarget();
 	    displayTransactionInfo(transaction);
+	 // Generating invoice
+		customerInvoice=customerInvoiceDao.findById(solution.getCustomerInvoice().getId());
+		customerInvoice.setInvoiceIssueDate(LocalDate.now());
+		int ref = customerInvoiceDao.findAll().size()+1;
+		customerInvoice.setInvoiceNumber("2022-0"+ref);
+		customerInvoice.setInvoiceType(InvoiceType.CUSTOMER_INVOICE);
+		customerInvoice.setPrice(solution.getPriceDeal().getAmount());
+		customerInvoiceDao.update(customerInvoice);
+		
+		return "customerInvoice.xhtml?faces-redirect=true&solutionId="+ solution.getId();
 	} else {
 	    ValidationErrors errors = result.getErrors();
 	    validationError(errors);
+//	    TODO : delete solution created without payment
+//	    solutionDao.delete(solution.getId());
+//	    ARUJUNAO errors = > Solution - Customer - EntityAccount Bermuda Triangle
+	    return "paymentError.xhtml";
 	}
-	// Generating invoice
-	customerInvoice=customerInvoiceDao.findById(solution.getCustomerInvoice().getId());
-	customerInvoice.setInvoiceIssueDate(LocalDate.now());
-	int ref = customerInvoiceDao.findAll().size()+1;
-	customerInvoice.setInvoiceNumber("2022-0"+ref);
-	customerInvoice.setInvoiceType(InvoiceType.CUSTOMER_INVOICE);
-	customerInvoice.setPrice(solution.getPriceDeal().getAmount());
-	customerInvoiceDao.update(customerInvoice);
 	
-	return "customerInvoice.xhtml?faces-redirect=true&solutionId="+ solution.getId();
     }
 
     public BigDecimal getAmount() {
