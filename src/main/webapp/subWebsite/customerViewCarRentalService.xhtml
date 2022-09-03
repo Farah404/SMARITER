@@ -27,17 +27,9 @@
 									src="subMedia/Images/CarRental.png" /> <br /> <br />
 
 								<h:commandButton
-									action="#{carRentalReservationBean.reservation()}"
-									value="Réserver la prestation pour #{carRentalReservationBean.carRental.price} EcoCoins"
+									action="#{carRentalServiceManagementBean.delete()}"
+									value="Supprimer la prestation"
 									class="btn btn-success center-block" type="submit"></h:commandButton>
-
-								<br />
-
-								<h:commandButton class="btn btn-success center-block"
-									type="submit"
-									value="Profil de l'EcoMembre prestataire #{carRentalReservationBean.carRental.userAccountProvider.username}"
-									action="#{carPoolingReservationBean.reservation()}">
-								</h:commandButton>
 
 							</div>
 							<div class="col-md-6">

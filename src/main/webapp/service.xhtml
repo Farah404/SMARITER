@@ -36,46 +36,40 @@
 						</div>
 						<div>
 							<h:form class="form-solution">
-								<h:inputText id="solutionName"
-									value="#{createSolutionBean.solution.solutionName}"
-									class="form-solution-field animation a3"
-									a:placeholder="Give a name to your Website" />
-
-								<h:selectOneMenu id="paymentchoiceTrue"
-									value="#{createSolutionBean.solution.paymentSystemChoice}"
-									Label="Choose your solution payment plan"
-									class="form-solution-field animation a3">
-<!-- 									<f:selectItem itemLabel="Select payment system" itemValue="null" /> -->
-									<f:selectItems
-										value="#{createSolutionBean.paymentSystemValue()}" var="ps"
-										itemLabel="#{ps.label}" itemValue="#{ps}" />
-								</h:selectOneMenu>
-
-								<h:selectOneMenu id="pricingDeal"
+							<h:selectOneMenu id="pricingDeal"
 									value="#{createSolutionBean.solution.priceDeal}"
-									Label="Choose your price deal"
 									class="form-solution-field animation a3">
-<!-- 									<f:selectItem itemLabel="Select price deal" itemValue="null" /> -->
+									<f:selectItem itemLabel="Choose your price deal" itemDisabled="true" />
 									<f:selectItems value="#{createSolutionBean.priceDeal()}"
 										var="pd" itemLabel="#{pd.label}" itemValue="#{pd}" />
 								</h:selectOneMenu>
 								
 								<h:selectOneMenu id="templateChoice"
 									value="#{createSolutionBean.solution.templateChoice}"
-									Label="Choose your template"
 									class="form-solution-field animation a3">
-<!-- 									<f:selectItem itemLabel="Select price deal" itemValue="null" /> -->
+									<f:selectItem itemLabel="Choose your template" itemDisabled="true" />
 									<f:selectItems value="#{createSolutionBean.templateChoiceValues()}"
 										var="pd" itemLabel="#{tc.label}" itemValue="#{tc}" />
+								</h:selectOneMenu>
+								
+								<h:inputText id="solutionName"
+									value="#{createSolutionBean.solution.solutionName}"
+									class="form-solution-field animation a3"
+									a:placeholder="Give a name to your Website" />
+									
+								<h:selectOneMenu id="paymentchoiceTrue"
+									value="#{createSolutionBean.solution.paymentSystemChoice}"
+									class="form-solution-field animation a3">
+									<f:selectItem itemLabel="Choose your Website payment plan" itemDisabled="true" />
+									<f:selectItems
+										value="#{createSolutionBean.paymentSystemValue()}" var="ps"
+										itemLabel="#{ps.label}" itemValue="#{ps}" />
 								</h:selectOneMenu>
 
 								<h:selectOneMenu id="messagingSystem"
 									value="#{createSolutionBean.solution.messagingSystemChoice}"
-									Label="How do you want your users to communicate?"
 									class="form-solution-field animation a3">
-									<f:selectItem
-										itemLabel="How do you want your users to communicate?"
-										itemValue="null" />
+									<f:selectItem itemLabel="How do you want your users to communicate" itemDisabled="true" />
 									<f:selectItems
 										value="#{createSolutionBean.messagingSystemChoicesValues()}"
 										var="ms" itemLabel="#{ms.label}" itemValue="#{ms}" />
@@ -83,15 +77,11 @@
 								
 								<button type="button" class="collapsible animation a3">Do
 									you want to include a carpooling solution in your website?</button>
-								<div class="content-collapse">
+								<div class="content-collapse"><br />
 									<h:selectBooleanCheckbox id="bollCarPooling"
 										value="#{createSolutionBean.solution.carPoolingsolutionIncluded}">
 									</h:selectBooleanCheckbox>
-									Yes, i want a CP<br />
-									<h:selectBooleanCheckbox id="typeOption"
-										value="#{createSolutionBean.carPoolingSolution.carPoolingTypeOption}">
-									</h:selectBooleanCheckbox>
-									Carpooling type option<br />
+									Yes, I want to include a carpooling option<br />
 									<h:selectBooleanCheckbox id="seatsOption"
 										value="#{createSolutionBean.carPoolingSolution.availableSeatsOption}">
 									</h:selectBooleanCheckbox>
@@ -111,16 +101,15 @@
 									<h:selectBooleanCheckbox id="chattingOption"
 										value="#{createSolutionBean.carPoolingSolution.chattingAllowedOption}">
 									</h:selectBooleanCheckbox>
-									Chatting option<br />
+									Chatting option<br /><br />
 								</div>
 
-								<button type="button" class="collapsible animation a3">Do
-									you want to include a parcel solution in your website?</button>
-								<div class="content-collapse">
+								<button type="button" class="collapsible animation a3">What about a parcel solution?</button>
+								<div class="content-collapse"><br />
 									<h:selectBooleanCheckbox id="boolPS"
 										value="#{createSolutionBean.solution.parcelSolutionIncluded}">
 									</h:selectBooleanCheckbox>
-									Yes, i want a PS<br />
+									Yes, I want to include a parcel option<br />
 									<h:selectBooleanCheckbox id="volumeOption"
 										value="#{createSolutionBean.parcelSolution.atypicalVolumeOption}">
 									</h:selectBooleanCheckbox>
@@ -132,24 +121,21 @@
 									<h:selectBooleanCheckbox id="weightOption"
 										value="#{createSolutionBean.parcelSolution.weightKilogrammesOption}">
 									</h:selectBooleanCheckbox>
-									Weight Kilogrammes option<br />
+									Weight Kilogrammes option<br /><br />
 								</div>
-								<button type="button" class="collapsible animation a3">Do
-									you want to include a car rental in your website?</button>
-								<div class="content-collapse">
+								<button type="button" class="collapsible animation a3">Let's add a car rental solution in there too?</button>
+								<div class="content-collapse"><br />
 									<h:selectBooleanCheckbox id="boolCR"
 										value="#{createSolutionBean.solution.carRentalSolutionIncluded}">
 									</h:selectBooleanCheckbox>
-									Yes, i want a CR<br />
+									Yes, I want to include a car rental option<br /><br />
 								</div>
-								<button type="button" class="collapsible animation a3">Do
-									you want to include a personal assistance in your website?</button>
-								<div class="content-collapse">
+								<button type="button" class="collapsible animation a3">There is always place for a personal assistance solution?</button>
+								<div class="content-collapse"><br />
 									<h:selectBooleanCheckbox id="boolPA"
 										value="#{createSolutionBean.solution.personalAssistanceSolutionIncluded}">
 									</h:selectBooleanCheckbox>
-									Yes, i want a PA<br />
-									<br />
+									Yes, I want to include a personal assistance option<br />
 									<br />
 								</div>
 

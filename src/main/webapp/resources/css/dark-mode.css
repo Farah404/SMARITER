@@ -2351,3 +2351,44 @@ float:left;
     text-align: left;
   }
 }
+
+/*===================================================================*/
+/*===================================================================*/
+
+/*Customer Tables*/
+
+.table-customer td {
+	font-size: 1.8vh;
+	color:#d9d5d4;
+	}
+.table-customer {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width:100%;
+}
+.table-customer thead tr {
+    background-color: #383838;
+    color: #d9d5d4;
+    text-align: left;
+}
+.table-customer th,
+.table-customer td {
+    padding: 12px 15px;
+    
+}
+.table-customer tbody tr {
+    border-bottom: 1px solid #d0b9cd;
+}
+
+.table-customer tbody tr:nth-of-type(even) {
+    background-color: #505050;
+}
+
+.table-customer tbody tr:last-of-type {
+    border-bottom: 2px solid #d0b9cd;
+}
+
+
