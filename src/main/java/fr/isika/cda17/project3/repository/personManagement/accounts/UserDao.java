@@ -10,5 +10,8 @@ public interface UserDao extends Dao<User> {
     UserAccount findByUserAccountEmail(String email);
     
     User findByShoppingCartId(Long id);
+    
+    
+    //Test
 
 }
