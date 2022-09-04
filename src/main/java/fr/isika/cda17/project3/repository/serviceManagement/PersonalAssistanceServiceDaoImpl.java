@@ -6,7 +6,9 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 import fr.isika.cda17.project3.model.serviceManagement.PersonalAssistanceService;
+import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 
 @Stateless
 public class PersonalAssistanceServiceDaoImpl implements PersonalAssistanceServiceDao {
@@ -65,6 +67,42 @@ public class PersonalAssistanceServiceDaoImpl implements PersonalAssistanceServi
 	public List<PersonalAssistanceService> findAllUserPersonalAssistanceServices(Long id) {
 		List<PersonalAssistanceService> pasUserList = this.entityManager.createNamedQuery("PersonalAssistanceService.findAllUserPAS", PersonalAssistanceService.class).setParameter("userid_param", id).getResultList();
 		return pasUserList;
+	}
+	
+	@Override
+	public ServiceType findServiceType(Long id) {
+		ServiceType serviceType = null;
+		try {
+			PersonalAssistanceService pas = entityManager.find(PersonalAssistanceService.class, id);
+			serviceType = pas.getServicetype();
+			return serviceType;	
+		}catch (Exception e) {
+			return serviceType;
+		}
+	}
+
+	@Override
+	public double findServicePrice(Long id) {
+		double servicePrice = 0;
+		try {
+			PersonalAssistanceService pas = entityManager.find(PersonalAssistanceService.class, id);
+		servicePrice = pas.getPrice();
+		return servicePrice;
+		}catch (Exception e) {
+			return servicePrice;
+		}
+	}
+
+	@Override
+	public String findReferenceNumber(Long id) {
+		String referenceNumber="";
+		try {
+			PersonalAssistanceService pas = entityManager.find(PersonalAssistanceService.class, id);
+		referenceNumber = pas.getReferenceNumber();
+		return referenceNumber;
+	}catch (Exception e) {
+		return referenceNumber;
+	}
 	}
 
 }

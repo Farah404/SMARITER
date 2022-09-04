@@ -95,9 +95,6 @@ public String reservation() throws IOException {
 	walletProvider = walletDao.findById(userAccountProvider.getWallet().getId());
 	
 	if(userAccountPurchaser.getWallet().getInternalCurrencyAmount() >= carRental.getPrice()) {
-		int ref = serviceInvoiceDao.findAll().size() + 1;
-		String invoiceNumber = "2022INV-" + ref + "-SMTR";
-		
 		walletPurchaser.withSubstractedValue(carRental.getPrice());
 		walletProvider.withAddedValue(carRental.getPrice());
 
@@ -107,7 +104,7 @@ public String reservation() throws IOException {
 				.withUserAccountPurchaser(userAccountPurchaser)
 				.withServiceInvoiceType()
 				.withIssueDate()
-				.withInvoiceNumber(invoiceNumber);
+				.withInvoiceNumber(serviceInvoiceDao.ServiceInvoiceNumber());
 		
 		reservation = new Reservation()
 				.withService(carRental)

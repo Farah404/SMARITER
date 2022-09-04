@@ -91,8 +91,6 @@ public class PersonnalAssistanceReservationBean implements Serializable {
 		walletProvider = walletDao.findById(userAccountProvider.getWallet().getId());
 
 		if (userAccountPurchaser.getWallet().getInternalCurrencyAmount() >= personalAssistanceService.getPrice()) {
-			int ref = serviceInvoiceDao.findAll().size() + 1;
-			String invoiceNumber = "2022INV-" + ref + "-SMTR";
 
 			walletPurchaser.withSubstractedValue(personalAssistanceService.getPrice());
 			walletProvider.withAddedValue(personalAssistanceService.getPrice());
@@ -103,7 +101,7 @@ public class PersonnalAssistanceReservationBean implements Serializable {
 					.withUserAccountPurchaser(userAccountPurchaser)
 					.withServiceInvoiceType()
 					.withIssueDate()
-					.withInvoiceNumber(invoiceNumber);
+					.withInvoiceNumber(serviceInvoiceDao.ServiceInvoiceNumber());
 
 			reservation = new Reservation()
 					.withService(personalAssistanceService)

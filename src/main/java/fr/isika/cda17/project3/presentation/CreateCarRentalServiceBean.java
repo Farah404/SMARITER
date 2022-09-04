@@ -48,11 +48,13 @@ public class CreateCarRentalServiceBean {
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
 	
+	
 	crs	.withStartDate(LocalDateTime.parse(startDate))
 		.withEndDate(LocalDateTime.parse(endDate))
 		.withPublicationDate(LocalDateTime.now())
 		.withServiceType(ServiceType.CAR_RENTAL)
-		.withProvider(userAccount);
+		.withProvider(userAccount)
+		.withReferenceNumber(createReferenceNumber());
 
 	crs = ((CarRentalService) crs).withVehicule(vehicule);
 	carRentalServiceDao.create((CarRentalService) crs);
@@ -68,9 +70,16 @@ public class CreateCarRentalServiceBean {
 		.withPublicationDate(LocalDateTime.now())
 		.withServiceType(ServiceType.CAR_RENTAL)
 		.withRequest(true)
-		.withPurchaser(userAccount);
+		.withPurchaser(userAccount)
+		.withReferenceNumber(createReferenceNumber());
 	
 	carRentalServiceDao.create((CarRentalService) crs);
+    }
+    
+    public String createReferenceNumber() {
+    	int ref = carRentalServiceDao.findAll().size()+1;
+    	String referenceNumber="2022 - 00" + ref + " - CR";
+    	return referenceNumber;
     }
 
     public CarRentalService getCrs() {

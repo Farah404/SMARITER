@@ -49,7 +49,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header"> Type </f:facet>
-								<h:outputText value="#{carPoolingService.isRequest? 'Demande' : 'Proposition'}" />
+								<h:outputText value="#{carPoolingService.request? 'Demande' : 'Proposition'}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header"> Adresse de départ </f:facet>
@@ -133,7 +133,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header"> Type </f:facet>
-								<h:outputText value="#{carRentalService.isRequest? 'Demande' : 'Proposition'}" />
+								<h:outputText value="#{carRentalService.request? 'Demande' : 'Proposition'}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Lieu de récupération des clés </f:facet>
@@ -203,7 +203,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header"> Type </f:facet>
-								<h:outputText value="#{parcelService.isRequest? 'Demande' : 'Proposition'}" />
+								<h:outputText value="#{parcelService.request? 'Demande' : 'Proposition'}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Adresse de départ  </f:facet>
@@ -285,7 +285,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header"> Type </f:facet>
-								<h:outputText value="#{personalAssistance.isRequest? 'Demande' : 'Proposition'}" />
+								<h:outputText value="#{personalAssistance.request? 'Demande' : 'Proposition'}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Adresse de départ  </f:facet>

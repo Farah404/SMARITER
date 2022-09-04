@@ -95,9 +95,6 @@ public class ParcelServiceReservationBean implements Serializable {
 		walletProvider = walletDao.findById(userAccountProvider.getWallet().getId());
 
 		if (userAccountPurchaser.getWallet().getInternalCurrencyAmount() - parcelService.getPrice() >= 0) {
-			int ref = serviceInvoiceDao.findAll().size() + 1;
-			String invoiceNumber = "2022INV-" + ref + "-SMTR";
-
 			walletPurchaser.withSubstractedValue(parcelService.getPrice());
 			walletProvider.withAddedValue(parcelService.getPrice());
 
@@ -107,7 +104,7 @@ public class ParcelServiceReservationBean implements Serializable {
 					.withUserAccountPurchaser(userAccountPurchaser)
 					.withServiceInvoiceType()
 					.withIssueDate()
-					.withInvoiceNumber(invoiceNumber);
+					.withInvoiceNumber(serviceInvoiceDao.ServiceInvoiceNumber());
 			
 			reservation = new Reservation()
 					.withService(parcelService)

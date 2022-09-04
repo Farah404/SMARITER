@@ -34,7 +34,7 @@ public abstract class Service {
 
 	private LocalDateTime endDate;
 
-	private int referenceNumber;
+	private String referenceNumber;
 
 	private boolean request;
 
@@ -61,7 +61,7 @@ public abstract class Service {
 	
 
 	public Service(Long id, LocalDateTime publicationDate, LocalDateTime expirationDate, LocalDateTime startDate,
-			LocalDateTime endDate, int referenceNumber, boolean request, boolean unavailable, double price,
+			LocalDateTime endDate, String referenceNumber, boolean request, boolean unavailable, double price,
 			List<Reservation> reservations, ServiceType servicetype, UserAccount userAccountProvider,
 			List<UserAccount> userAccountsPurchasers) {
 		super();
@@ -134,11 +134,11 @@ public abstract class Service {
 		this.endDate = endDate;
 	}
 
-	public int getReferenceNumber() {
+	public String getReferenceNumber() {
 		return referenceNumber;
 	}
 
-	public void setReferenceNumber(int referenceNumber) {
+	public void setReferenceNumber(String referenceNumber) {
 		this.referenceNumber = referenceNumber;
 	}
 
@@ -228,6 +228,11 @@ public abstract class Service {
 	
 	public Service withUnavailable(final boolean unavailable) {
 		this.unavailable = unavailable;
+		return this;
+	}
+	
+	public Service withReferenceNumber(final String referenceNumber) {
+		this.referenceNumber = referenceNumber;
 		return this;
 	}
 
