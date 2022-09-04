@@ -95,7 +95,7 @@
 													class="glyphicon glyphicon-dashboard text-success"></span>
 													Poids en kilogrammes</td>
 												<td class="text-success">
-													<p>#{parcelServiceReservationBean.parcelService.weightKilogrammes}</p>
+												<p><h:outputText value="#{parcelServiceReservationBean.parcelService.weightKilogrammes}"></h:outputText></p>
 												</td>
 											</tr>
 
@@ -104,7 +104,7 @@
 													class="glyphicon glyphicon-cloud text-success"></span>
 													Forme atypique</td>
 												<td class="text-success">
-													<p>#{parcelServiceReservationBean.parcelService.atypicalVolume}</p>
+												<p><h:outputText value="#{parcelServiceReservationBean.parcelService.atypicalVolume? 'Oui' : 'Non'}"></h:outputText></p>
 												</td>
 											</tr>
 
@@ -113,14 +113,9 @@
 													class="glyphicon glyphicon-flash text-success"></span>
 													Fragile</td>
 												<td class="text-success">
-													<p>#{parcelServiceReservationBean.parcelService.fragile}</p>
+												<p><h:outputText value="#{parcelServiceReservationBean.parcelService.fragile? 'Oui' : 'Non'}"></h:outputText></p>
 												</td>
 											</tr>
-
-
-
-
-
 										</tbody>
 									</table>
 								</div>

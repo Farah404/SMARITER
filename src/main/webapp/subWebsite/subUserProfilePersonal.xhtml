@@ -538,12 +538,12 @@
 
 							<h:column>
 								<f:facet name="header">Fragile</f:facet>
-								<h:outputText value="#{psUserRelated.fragile}" />
+								<h:outputText value="#{psUserRelated.fragile? 'Oui' : 'Non'}" />
 							</h:column>
 
 							<h:column>
 								<f:facet name="header">Volumineux</f:facet>
-								<h:outputText value="#{psUserRelated.atypicalVolume}" />
+								<h:outputText value="#{psUserRelated.atypicalVolume? 'Oui' : 'Non'}" />
 							</h:column>
 
 							<h:column>

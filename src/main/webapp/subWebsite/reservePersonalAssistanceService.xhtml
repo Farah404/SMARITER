@@ -96,7 +96,7 @@
 													class="glyphicon glyphicon-dashboard text-success"></span>
 													Urgent</td>
 												<td class="text-success">
-													<p>#{personnalAssistanceReservationBean.personalAssistanceService.urgent}</p>
+													<p><h:outputText value="#{personalAssistanceServiceManagementBean.personalAssistanceService.urgent? 'Oui' : 'Non'}"></h:outputText></p>
 												</td>
 											</tr>
 										</tbody>

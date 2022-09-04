@@ -217,12 +217,12 @@
 
 							<h:column>
 								<f:facet name="header">Fragile</f:facet>
-								<h:outputText value="#{parcelService.fragile}" />
+								<h:outputText value="#{parcelService.fragile? 'Oui' : 'Non'}" />
 							</h:column>
 
 							<h:column>
 								<f:facet name="header">Volumineux</f:facet>
-								<h:outputText value="#{parcelService.atypicalVolume}" />
+								<h:outputText value="#{parcelService.atypicalVolume? 'Oui' : 'Non'}" />
 							</h:column>
 
 							<h:column>

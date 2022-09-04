@@ -148,7 +148,7 @@
 													class="glyphicon glyphicon-heart  text-success"></span>
 													Animaux de compagnie</td>
 												<td class="text-success">
-													<p>#{carPoolingReservationBean.carPooling.petAllowed}</p>
+												<p><h:outputText value="#{carPoolingReservationBean.carPooling.petAllowed? 'Oui' : 'Non'}"></h:outputText></p>
 												</td>
 											</tr>
 
@@ -156,7 +156,7 @@
 												<td><span class="glyphicon glyphicon-fire text-success"></span>
 													Fumeur</td>
 												<td class="text-success">
-													<p>#{carPoolingReservationBean.carPooling.smokingAllowed}</p>
+												<p><h:outputText value="#{carPoolingReservationBean.carPooling.smokingAllowed? 'Oui' : 'Non'}"></h:outputText></p>
 												</td>
 											</tr>
 
@@ -165,7 +165,7 @@
 													class="glyphicon glyphicon-headphones text-success"></span>
 													Musique</td>
 												<td class="text-success">
-													<p>#{carPoolingReservationBean.carPooling.musicAllowed}</p>
+												<p><h:outputText value="#{carPoolingReservationBean.carPooling.musicAllowed? 'Oui' : 'Non'}"></h:outputText></p>
 												</td>
 											</tr>
 
@@ -174,7 +174,7 @@
 													class="glyphicon glyphicon-bullhorn text-success"></span>
 													Discussion</td>
 												<td class="text-success">
-													<p>#{carPoolingReservationBean.carPooling.chattingAllowed}</p>
+												<p><h:outputText value="#{carPoolingReservationBean.carPooling.chattingAllowed? 'Oui' : 'Non'}"></h:outputText></p>
 												</td>
 											</tr>
 

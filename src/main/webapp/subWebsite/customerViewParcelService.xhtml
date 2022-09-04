@@ -81,7 +81,7 @@
 													class="glyphicon glyphicon-cloud text-success"></span>
 													Forme atypique</td>
 												<td class="text-success">
-													<p>#{parcelServiceManagementBean.parcelService.atypicalVolume}</p>
+													<p><h:outputText value="#{parcelServiceReservationBean.parcelService.atypicalVolume? 'Oui' : 'Non'}"></h:outputText></p>
 												</td>
 											</tr>
 
@@ -90,7 +90,7 @@
 													class="glyphicon glyphicon-flash text-success"></span>
 													Fragile</td>
 												<td class="text-success">
-													<p>#{parcelServiceManagementBean.parcelService.fragile}</p>
+													<p><h:outputText value="#{parcelServiceReservationBean.parcelService.fragile? 'Oui' : 'Non'}"></h:outputText></p>
 												</td>
 											</tr>
 
