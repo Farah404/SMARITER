@@ -1,15 +1,18 @@
 package fr.isika.cda17.project3.model.financialManagement.invoice;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.serviceManagement.Service;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name = "ServiceInvoice.findAllUserAccountProviderServiceInvoice", query = "SELECT si FROM ServiceInvoice si WHERE si.userAccountProvider.id = :userid_param"),
+	@NamedQuery(name = "ServiceInvoice.findAllUserAccountPurchaserServiceInvoice", query = "SELECT si FROM ServiceInvoice si WHERE si.userAccountPurchaser.id = :userid_param")
+})
 public class ServiceInvoice extends Invoice{
 
 	@OneToOne

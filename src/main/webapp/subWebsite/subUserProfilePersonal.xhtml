@@ -472,7 +472,7 @@
 							</h:column>
 
 							<h:column>
-								<f:facet name="header">Details</f:facet>
+								<f:facet name="header">Détails</f:facet>
 								<h:panelGrid>
 									<h:commandButton value="Detail"
 										action="#{carRentalServiceManagementBean.detail(crsUserRelated.id)}">
@@ -557,7 +557,7 @@
 								<h:outputText value="#{psUserRelated.price}" />
 							</h:column>
 							<h:column>
-								<f:facet name="header">Details</f:facet>
+								<f:facet name="header">Détails</f:facet>
 								<h:panelGrid>
 									<h:commandButton value="Detail"
 										action="#{parcelServiceManagementBean.detail(psUserRelated.id)}">
@@ -587,7 +587,7 @@
 						<br />
 						<p
 							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Mon
-							historique de prestation Personal Assistance</p>
+							historique de prestation d'aide à la personne</p>
 						
 						<h:dataTable class="table container-fluid bg-grey"
 							value="#{userProfileBean.pasListUserRelated}"
@@ -620,7 +620,7 @@
 								<h:outputText value="#{pasUserRelated.price}" />
 							</h:column>
 							<h:column>
-								<f:facet name="header">Details</f:facet>
+								<f:facet name="header">Détails</f:facet>
 								<h:panelGrid>
 									<h:commandButton value="Detail"
 										action="#{personalAssistanceServiceManagementBean.detail(pasUserRelated.id)}">
@@ -643,7 +643,7 @@
 
 								<f:facet name="header">Supprimer</f:facet>
 								<h:panelGrid>
-									<h:commandButton
+									<h:commandButton 
 										action="#{personalAssistanceServiceManagementBean.delete(pasUserRelated.id)}"
 										value="Delete" />
 								</h:panelGrid>
@@ -654,66 +654,72 @@
 							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Mon
 							historique de factures</p>
 
-						<h:dataTable class="table container-fluid bg-grey">
-
+						
+						<h:dataTable class="table container-fluid bg-grey"
+							value="#{userProfileBean.userServiceInvoiceWhenPurchaser}"
+							var="userServiceInvoiceWhenPurchaser">
 
 							<h:column>
 								<f:facet name="header"> Numéro de référence </f:facet>
-<!-- 								<h:outputText value="#{psUserRelated.referenceNumber}" /> -->
+								<h:outputText value="#{userServiceInvoiceWhenPurchaser.invoiceNumber}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header"> Type de facture</f:facet>
+								<h:outputText value="#{userProfileBean.labelServiceInvoice}" />
 							</h:column>
 							<h:column>
-								<f:facet name="header">Montant payé en EcoCoins</f:facet>
+								<f:facet name="header">Prestataire du service</f:facet>
+								<h:outputText value="#{userServiceInvoiceWhenPurchaser.userAccountProvider.username}" />
+								
 							</h:column>
 							<h:column>
-								<f:facet name="header">Montant payé en Euros</f:facet>
+								<f:facet name="header">Date</f:facet>
+								<h:outputText value="#{userServiceInvoiceWhenPurchaser.invoiceIssueDate}" />
 							</h:column>
 							<h:column>
-								<f:facet name="header">Voir la Facture</f:facet>
-							</h:column>
-
-							<h:column>
-								<f:facet name="header">Volumineux</f:facet>
-							</h:column>
-
-							<h:column>
-								<f:facet name="header">Poids</f:facet>
-							</h:column>
-
-
-							<h:column>
-								<f:facet name="header">Prix</f:facet>
-								<h:outputText value="#{psUserRelated.price}" />
-							</h:column>
-							<h:column>
-								<f:facet name="header">Details</f:facet>
+								<f:facet name="header">Voir la facture</f:facet>
 								<h:panelGrid>
 									<h:commandButton value="Detail"
-										action="#{parcelServiceManagementBean.detail(psUserRelated.id)}">
-										<f:param name="parcelServiceId" value="#{psUserRelated.id}"></f:param>
+										action="#{userProfileBean.GoToServiceInvoice(userServiceInvoiceWhenPurchaser.id)}">
+										<f:param name="serviceInvoiceId" value="#{userServiceInvoiceWhenPurchaser.id}"></f:param>
 									</h:commandButton>
 								</h:panelGrid>
 							</h:column>
-							<h:column>
-								<f:facet name="header">Modifier</f:facet>
-								<h:panelGrid>
-									<h:commandButton value="Edit"
-										action="#{parcelServiceManagementBean.updateStepOne()}">
-										<f:param name="parcelServiceId" value="#{psUserRelated.id}"></f:param>
-									</h:commandButton>
-								</h:panelGrid>
-							</h:column>
-							<h:column>
-								<f:facet name="header">Supprimer</f:facet>
-								<h:panelGrid>
-									<h:commandButton
-										action="#{parcelServiceManagementBean.delete(psUserRelated.id)}"
-										value="Delete" />
-								</h:panelGrid>
-							</h:column>
+							
+							
+						</h:dataTable>
+						<h:dataTable class="table container-fluid bg-grey"
+							value="#{userProfileBean.userStoreInvoice}"
+							var="userStoreInvoice">
 
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{userStoreInvoice.invoiceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Type de facture</f:facet>
+								<h:outputText value="#{userProfileBean.labelStoreInvoice}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Montant de l'achat</f:facet>
+								<h:outputText value="#{userStoreInvoice.amount}" />
+								
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date</f:facet>
+								<h:outputText value="#{userStoreInvoice.invoiceIssueDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Voir la facture</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{userProfileBean.GoToStoreInvoice(userStoreInvoice.id)}">
+										<f:param name="storeInvoiceId" value="#{userStoreInvoice.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							
+							
 						</h:dataTable>
 					</div>
 				</div>

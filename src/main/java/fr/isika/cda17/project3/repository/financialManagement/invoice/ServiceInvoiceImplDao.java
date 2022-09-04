@@ -70,5 +70,16 @@ public class ServiceInvoiceImplDao implements ServiceInvoiceDao {
 		String invoiceNumber = "2022 - 00" + ref + " - SI";
 		return invoiceNumber;
 	}
+	 @Override
+		public List<ServiceInvoice> findAllUserAccountProviderServiceInvoice(Long id) {
+			List<ServiceInvoice> serviceInvoiceProviderList = this.entityManager.createNamedQuery("ServiceInvoice.findAllUserAccountProviderServiceInvoice", ServiceInvoice.class).setParameter("userid_param", id).getResultList();
+			return serviceInvoiceProviderList;
+		}
+	 
+	 @Override
+		public List<ServiceInvoice> findAllUserAccountPurchaserServiceInvoice(Long id) {
+			List<ServiceInvoice> serviceInvoicePurchaserList = this.entityManager.createNamedQuery("ServiceInvoice.findAllUserAccountPurchaserServiceInvoice", ServiceInvoice.class).setParameter("userid_param", id).getResultList();
+			return serviceInvoicePurchaserList;
+		}
 
 }
