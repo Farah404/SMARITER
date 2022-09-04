@@ -34,9 +34,11 @@
 								<h4>tous les mois pour</h4>
 								<h5 class="card-text">30 EcoCoins/mois</h5>
 
-								<button type="submit" name="action:Save"
-									class="btn btn-success btn-xl">Je m'abonne</button>
-								<!--                     } -->
+								<h:form><h:commandButton class="btn btn-success btn-xl"
+									type="submit"
+									value="Je m'abonne"
+									action="#{storeManagementBean.addMonthlySubscriptionToCart()}">
+								</h:commandButton></h:form>
 							</div>
 						</div>
 					</div>
@@ -57,9 +59,11 @@
 								<h4>tous les 3 mois pour</h4>
 								<h5 class="card-text">30 EcoCoins/mois</h5>
 
-								<button type="submit" name="AbonnementTrimestriel"
-									class="btn btn-success btn-xl">Je m'abonne</button>
-								<!--                     } -->
+								<h:form><h:commandButton class="btn btn-success btn-xl"
+									type="submit"
+									value="Je m'abonne"
+									action="#{storeManagementBean.addTrimestrialSubscriptionToCart()}">
+								</h:commandButton></h:form>
 
 							</div>
 						</div>
@@ -81,9 +85,11 @@
 								<h4>tous les 6 mois pour</h4>
 								<h5 class="card-text">30 EcoCoins/mois</h5>
 
-								<button type="submit" name="action:Save"
-									class="btn btn-success btn-xl">Je m'abonne</button>
-								<!--                     } -->
+								<h:form><h:commandButton class="btn btn-success btn-xl"
+									type="submit"
+									value="Je m'abonne"
+									action="#{storeManagementBean.addSemestrialSubscriptionToCart()}">
+								</h:commandButton></h:form>
 							</div>
 						</div>
 					</div>
@@ -114,7 +120,7 @@
 								<h:form><h:commandButton class="btn btn-success btn-xl"
 									type="submit"
 									value="J'achète"
-									action="#{storeManagementBean.purchaseBatchOne()}">
+									action="#{storeManagementBean.addBatchOneToCart()}">
 								</h:commandButton></h:form>
 							
 							</div>
@@ -137,7 +143,7 @@
 								<h:form><h:commandButton class="btn btn-success btn-xl"
 									type="submit"
 									value="J'achète"
-									action="#{storeManagementBean.purchaseBatchTwo()}">
+									action="#{storeManagementBean.addBatchTwoToCart()}">
 								</h:commandButton></h:form>
 							</div>
 						</div>
@@ -159,7 +165,7 @@
 								<h:form><h:commandButton class="btn btn-success btn-xl"
 									type="submit"
 									value="J'achète"
-									action="#{storeManagementBean.purchaseBatchThree()}">
+									action="#{storeManagementBean.addBatchThreeToCart()}">
 								</h:commandButton></h:form>
 							</div>
 						</div>

@@ -21,10 +21,10 @@ public class Wallet {
 	super();
     }
 
-    public Wallet(Long id, double ecoCoinsAmmount, Store store) {
+    public Wallet(Long id, double internalCurrencyAmount, Store store) {
 	super();
 	this.id = id;
-	this.internalCurrencyAmount = ecoCoinsAmmount;
+	this.internalCurrencyAmount = internalCurrencyAmount;
 	this.store = store;
     }
 
@@ -33,20 +33,21 @@ public class Wallet {
     } 
 
     public double getInternalCurrencyAmount() {
-	return internalCurrencyAmount;
+        return internalCurrencyAmount;
     }
 
     public void setInternalCurrencyAmount(double internalCurrencyAmount) {
-	this.internalCurrencyAmount = internalCurrencyAmount;
+        this.internalCurrencyAmount = internalCurrencyAmount;
     }
 
     public Store getStore() {
-	return store;
+        return store;
     }
 
     public void setStore(Store store) {
-	this.store = store;
+        this.store = store;
     }
+
     public Wallet withAddedValue(final double value) {
     	this.internalCurrencyAmount = this.internalCurrencyAmount+value;
     	return this;
