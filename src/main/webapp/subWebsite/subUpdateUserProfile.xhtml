@@ -30,9 +30,9 @@
 							<div class="col-md-4">
 								<img alt="" style="width: 600px;" title=""
 									class="img-circle img-thumbnail isTooltip" />
-								<ul title="Ratings" class="list-inline ratings text-center">
-									<li><span> </span></li>
-								</ul>
+								<h:commandButton action="#{userProfileBean.update()}"
+									class="btn btn-success btn-xl"
+									value="Soumettre les modifications" />
 							</div>
 
 							<div class="col-md-6">
@@ -322,11 +322,6 @@
 									</table>
 								</div>
 							</div>
-							<center>
-								<h:commandButton action="#{userProfileBean.update()}"
-									class="btn btn-success btn-xl"
-									value="Soumettre les modifications" />
-							</center>
 
 						</div>
 
