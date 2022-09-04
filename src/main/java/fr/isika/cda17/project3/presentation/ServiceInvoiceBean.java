@@ -54,6 +54,8 @@ public class ServiceInvoiceBean {
 	
 	private double servicePrice;
 	
+	private String serviceTypeFrLabel="";
+	
 //	private LocalDate dueDate;
 //	
 //	private LocalDate stampDate;
@@ -72,17 +74,21 @@ public class ServiceInvoiceBean {
 					userProvider = userDao.findByUserAccountId(serviceInvoice.getUserAccountProvider().getId());
 					if (carPoolingServiceDao.findServiceType(serviceInvoice.getService().getId()) != null) {
 						serviceType=carPoolingServiceDao.findServiceType(serviceInvoice.getService().getId());
+						serviceTypeFrLabel="Covoiturage";
 					}
 						else {
 							if(carRentalServiceDao.findServiceType(serviceInvoice.getService().getId()) != null) {
 								serviceType=carRentalServiceDao.findServiceType(serviceInvoice.getService().getId());
+								serviceTypeFrLabel="Location";
 						}
 							else {
 								if(parcelServiceDao.findServiceType(serviceInvoice.getService().getId()) != null) {
 									serviceType=parcelServiceDao.findServiceType(serviceInvoice.getService().getId());
+									serviceTypeFrLabel="Transport de colis";
 								}
 								else {
 									serviceType=personalAssistanceServiceDao.findServiceType(serviceInvoice.getService().getId());
+									serviceTypeFrLabel="Aide à la personne";
 								}
 							}
 					}
@@ -148,6 +154,8 @@ public class ServiceInvoiceBean {
 	public ServiceType getServiceType() {
 		return serviceType;
 	}
-
+	public String getServiceTypeFrLabel() {
+		return serviceTypeFrLabel;
+	}
 
 }
