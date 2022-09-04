@@ -65,14 +65,14 @@
 						<div class="invoice-module">
 							<h3>For</h3>
 							<div class="invoice-for">
-								#{customerInvoiceBean.solution.solutionName} <br /> Included
+								#{customerInvoiceBean.solution.solutionName} Included
 								solutions:<br />
-								#{customerInvoiceBean.solution.carPoolingsolutionIncluded},<br />
-								#{customerInvoiceBean.solution.carRentalSolutionIncluded},<br />
-								#{customerInvoiceBean.solution.parcelSolutionIncluded},<br />
-								#{customerInvoiceBean.solution.personalAssistanceSolutionIncluded}<br />
-								You chose #{customerInvoiceBean.solution.priceDeal.name()}
-								pricing deal
+								<span class="green-check">&#10003;</span><h:outputText value="#{customerInvoiceBean.solution.carPoolingsolutionIncluded? 'Carpooling solution included' : 'Carpooling solution not included'}" /><br />
+								<span class="green-check">&#10003;</span><h:outputText value="#{customerInvoiceBean.solution.carRentalSolutionIncluded? 'Car rental solution included' : 'Car rental solution not included'}" /><br />
+								<span class="green-check">&#10003;</span><h:outputText value="#{customerInvoiceBean.solution.parcelSolutionIncluded? 'Parcel solution included' : 'Parcel solution not included'}" /><br />
+								<span class="green-check">&#10003;</span><h:outputText value="#{customerInvoiceBean.solution.personalAssistanceSolutionIncluded? 'Personal assistance solution included' : 'Personal assistance solution not included'}" /><br /><br />
+								You chose <h:outputText value="#{customerInvoiceBean.solution.priceDeal.label}" /> price deal
+
 							</div>
 						</div>
 					</div>

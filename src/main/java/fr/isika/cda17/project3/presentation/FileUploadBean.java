@@ -79,9 +79,8 @@ public class FileUploadBean implements Serializable{
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Long id = Long.valueOf(session.getAttribute("id").toString());
 		EntityAccount entityAccount = entityAccountDao.findById(id);
-		entityAccount.setProfilePicturePath(savedFile.getAbsolutePath());
-		
-		System.out.println(savedFile.getAbsolutePath());
+		entityAccount.setProfilePicturePath(savedFile.getName());
+		entityAccountDao.update(entityAccount);
 	    } else {
 		/**
 		 * set the error message when error occurs during the file upload

@@ -41,9 +41,10 @@
 					</h1>
 					<br />
 					<div class="row">
-						<h:form class="cusProfile">
+						<h:form enctype="multipart/form-data" class="cusProfile">
 							<div class="col-one-half-cusProfile">
-								<img class="customer-img" src="#{customerProfileBean.customer.entityAccount.profilePicturePath}" /><br />
+							<center><h:graphicImage class="customer-img" url="/media/uploads/#{customerProfileBean.customer.entityAccount.profilePicturePath}" /></center>
+								<br />
 								<h:commandButton style="width:25vh"
 									action="#{customerProfileBean.updateStepOne()}"
 									class="button-shared" value="Update profile" />

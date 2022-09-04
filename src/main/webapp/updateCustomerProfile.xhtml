@@ -27,18 +27,21 @@
 					</h1>
 					<br />
 					<div class="row">
-						<h:form enctype="multipart/form-data" class="cusProfile">
+			
+						<h:form prependid="false" enctype="multipart/form-data" class="cusProfile">
+						
 							<div class="col-one-half-cusProfile">
-								<img class="customer-img" src="#{customerProfileBean.customer.entityAccount.profilePicturePath}" /><br />
-								<h:commandButton style="width:25vh" action="#{customerProfileBean.update()}"
+								<center><h:graphicImage class="customer-img" url="/media/uploads/#{customerProfileBean.customer.entityAccount.profilePicturePath}" /></center>
+								<br />
+								<h:commandButton style="width:40vh" action="#{customerProfileBean.update()}"
 									class="button-shared" value="Update profile" />
 								<br />
 
 								
-	<h:inputFile class="button-shared" value="#{fileUploadBean.newProfilePic}"></h:inputFile> <br />
+	<h:inputFile class="button-shared" style="width:40vh" value="#{fileUploadBean.newProfilePic}"></h:inputFile> <br />
 	
     
-    <h:commandButton class="button-shared" action="#{fileUploadBean.uploadFile()}" value="Upload"></h:commandButton>
+    <h:commandButton class="button-shared" style="width:40vh" action="#{fileUploadBean.uploadFile()}" value="Upload"></h:commandButton>
 
 
 
