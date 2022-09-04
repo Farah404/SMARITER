@@ -7,7 +7,7 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <f:metadata>
-	<f:event listener="#{paymentBean.init()}" type="preRenderView">
+	<f:event listener="#{subPaymentBean.init()}" type="preRenderView">
 	</f:event>
 </f:metadata>
 
@@ -30,7 +30,7 @@
 				<main class="page-content"> <section class="credit-form">
 
 				<header class="form-header">
-				<h1 class="form-header__slogan">Confirm your Smariter purchase of #{paymentBean.amount} €</h1>
+				<h1 class="form-header__slogan">Confirm your Smariter purchase of #{subPaymentBean.amount} €</h1>
 				</header>
 
 				<h:form class="payment-form">
@@ -38,19 +38,19 @@
 					<div class="payment-form__group payment-form__group-medium">
 						<label for="owner" class="payment-form__label">Credit Card Holder</label> 
 						
-						<h:inputText value="#{paymentBean.cardName}"
+						<h:inputText value="#{subPaymentBean.cardName}"
 							id="owner" class="payment-form__input" />
 					</div>
 
 					<div class="payment-form__group payment-form__group-small">
 						<label for="cvv" class="payment-form__label">CVV</label> 
 						
-						<h:inputText value="#{paymentBean.cardCvv}" id="cvv" class="payment-form__input" />
+						<h:inputText value="#{subPaymentBean.cardCvv}" id="cvv" class="payment-form__input" />
 					</div>
 
 					<div class="payment-form__group payment-form__group-large">
 						<label for="card-number" class="payment-form__label">Card
-							Number</label> <h:inputText value="#{paymentBean.cardNumber}" id="card-number"
+							Number</label> <h:inputText value="#{subPaymentBean.cardNumber}" id="card-number"
 							class="payment-form__input" />
 					</div>
 
@@ -94,10 +94,10 @@
 					</div>
 
 					<div class="payment-form__group payment-form__group-large">
-					<h:inputHidden id="nonce" name="payment_method_nonce" value="#{paymentBean.nonce}"/>
-					<h:inputHidden id="client-authorization" value="#{paymentBean.clientToken}" />
-				    <h:inputHidden name="amount" value="#{paymentBean.amount}"/>
-						<h:commandButton action="#{paymentBean.doSolutionPaymentTransaction()}" value="Pay" class="payment-form__button" />
+					<h:inputHidden id="nonce" name="payment_method_nonce" value="#{subPaymentBean.nonce}"/>
+					<h:inputHidden id="client-authorization" value="#{subPaymentBean.clientToken}" />
+				    <h:inputHidden name="amount" value="#{subPaymentBean.amount}"/>
+						<h:commandButton action="#{subPaymentBean.doSolutionPaymentTransaction()}" value="Pay" class="payment-form__button" />
 					</div>
 
 				</h:form>

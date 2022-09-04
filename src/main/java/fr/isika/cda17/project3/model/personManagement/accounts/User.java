@@ -4,14 +4,18 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
-@NamedQuery(name = "user.findByUserAccountId", query = "SELECT u FROM User u WHERE u.userAccount.id = :u_param")
-
+@NamedQueries({
+			@NamedQuery(name = "user.findByUserAccountId", query = "SELECT u FROM User u WHERE u.userAccount.id = :u_param"),
+			@NamedQuery(name = "user.findByShoppingCartId", query = "SELECT u FROM User u WHERE u.userAccount.shoppingCart.id = :shopping_param")
+			}
+		)
 public class User extends Person {
 
     private int phoneNumber;
