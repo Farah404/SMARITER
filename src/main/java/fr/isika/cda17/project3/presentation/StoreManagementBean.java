@@ -8,11 +8,10 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import fr.isika.cda17.project3.model.financialManagement.store.Store;
-import fr.isika.cda17.project3.model.financialManagement.store.Wallet;
+import fr.isika.cda17.project3.model.financialManagement.store.ShoppingCart;
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
+import fr.isika.cda17.project3.repository.financialManagement.store.ShoppingCartDao;
 import fr.isika.cda17.project3.repository.financialManagement.store.StoreDao;
-import fr.isika.cda17.project3.repository.financialManagement.store.WalletDao;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
 
 @ManagedBean
@@ -21,12 +20,6 @@ public class StoreManagementBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Store ecoStore = new Store();
-
-    private Wallet wallet;
-
-    private UserAccount userAccount;
-
     @Inject
     StoreDao storeDao;
 
@@ -34,71 +27,111 @@ public class StoreManagementBean implements Serializable {
     private UserAccountsDao userAccountsDao;
 
     @Inject
-    private WalletDao walletDao;
+    private ShoppingCartDao shoppingCartDao;
 
-//    public void createStore() {
-//	ecoStore.setMonthlySubscriptionName("Mensuel");
-//	ecoStore.setMonthlySubscriptionPrice(15);
-//	ecoStore.setMonthlySubscriptionQuantity(30);
-//	ecoStore.setTrimestrialSubscriptionName("Trimestriel");
-//	ecoStore.setTrimestrialSubscriptionPrice(45);
-//	ecoStore.setTrimestrialSubscriptionQuantity(30);
-//	ecoStore.setSemestrialSubscriptionName("Semestriel");
-//	ecoStore.setSemestrialSubscriptionPrice(80);
-//	ecoStore.setSemestrialSubscriptionQuantity(30);
-//    }
+    private UserAccount userAccount;
+    
+    private ShoppingCart shoppingCart = new ShoppingCart();
 
-    public void purchaseBatchOne() {
-
+    public String addBatchOneToCart() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
-	wallet = walletDao.findById(userAccount.getWallet().getId());
-	double oldAmount = wallet.getInternalCurrencyAmount();
-	ecoStore.setBatchOneName("Lot EcoLeaf");
-	ecoStore.setBatchOnePrice(10);
-	ecoStore.setBatchOneQuantity(15);
-	storeDao.create(ecoStore);
-	double newAmount = oldAmount + ecoStore.getBatchOneQuantity();
-	System.out.println(newAmount);
-	wallet.setInternalCurrencyAmount(newAmount);
-	walletDao.update(wallet);
+	shoppingCart = shoppingCartDao.findById(userAccount.getShoppingCart().getId());
+	shoppingCart.setBatchOneName("Lot EcoLeaf");
+	shoppingCart.setBatchOnePrice(10);
+	shoppingCart.setBatchOneQuantity(15);
+	shoppingCart.setBoughtBatchOneQuantity(1);
+	double toBePaidEurosAmount = shoppingCart.getBatchOnePrice() + shoppingCart.getBatchTwoPrice()
+	+ shoppingCart.getBatchThreePrice() + shoppingCart.getMonthlySubscriptionPrice()
+	+ shoppingCart.getTrimestrialSubscriptionPrice() + shoppingCart.getSemestrialSubscriptionPrice();
+	shoppingCart.setToBePaidEurosAmount(toBePaidEurosAmount);
+	shoppingCartDao.update(shoppingCart);
+	return "subShoppingCart.xhtml?faces-redirect=true&shoppingCartId=" + shoppingCart.getId();
     }
 
-    public void purchaseBatchTwo() {
+    public String addBatchTwoToCart() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
-	System.out.println(id);
 	userAccount = userAccountsDao.findById(id);
-	wallet = walletDao.findById(userAccount.getWallet().getId());
-	ecoStore.setBatchTwoName("Lot EcoTree");
-	ecoStore.setBatchTwoPrice(20);
-	ecoStore.setBatchTwoQuantity(35);
-	storeDao.create(ecoStore);
-	double oldAmount = wallet.getInternalCurrencyAmount();
-	System.out.println(oldAmount);
-	double newAmount = oldAmount + ecoStore.getBatchTwoQuantity();
-	System.out.println(newAmount);
-	wallet.setInternalCurrencyAmount(newAmount);
-	walletDao.update(wallet);
+	shoppingCart = shoppingCartDao.findById(userAccount.getShoppingCart().getId());
+	shoppingCart.setBatchTwoName("Lot EcoTree");
+	shoppingCart.setBatchTwoPrice(20);
+	shoppingCart.setBatchTwoQuantity(35);
+	shoppingCart.setBoughtBatchTwoQuantity(1);
+	double toBePaidEurosAmount = shoppingCart.getBatchOnePrice() + shoppingCart.getBatchTwoPrice()
+	+ shoppingCart.getBatchThreePrice() + shoppingCart.getMonthlySubscriptionPrice()
+	+ shoppingCart.getTrimestrialSubscriptionPrice() + shoppingCart.getSemestrialSubscriptionPrice();
+	shoppingCart.setToBePaidEurosAmount(toBePaidEurosAmount);
+	shoppingCartDao.update(shoppingCart);
+	return "subShoppingCart.xhtml?faces-redirect=true&shoppingCartId=" + shoppingCart.getId();
     }
 
-    public void purchaseBatchThree() {
+    public String addBatchThreeToCart() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
-	System.out.println(id);
 	userAccount = userAccountsDao.findById(id);
-	wallet = walletDao.findById(userAccount.getWallet().getId());
-	ecoStore.setBatchThreeName("Lot EcoForest");
-	ecoStore.setBatchThreePrice(30);
-	ecoStore.setBatchThreeQuantity(50);
-	storeDao.create(ecoStore);
-	double oldAmount = wallet.getInternalCurrencyAmount();
-	System.out.println(oldAmount);
-	double newAmount = oldAmount + ecoStore.getBatchThreeQuantity();
-	System.out.println(newAmount);
-	wallet.setInternalCurrencyAmount(newAmount);
-	walletDao.update(wallet);
+	shoppingCart = shoppingCartDao.findById(userAccount.getShoppingCart().getId());
+	shoppingCart.setBatchThreeName("Lot EcoForest");
+	shoppingCart.setBatchThreePrice(30);
+	shoppingCart.setBatchThreeQuantity(50);
+	shoppingCart.setBoughtBatchThreeQuantity(1);
+	double toBePaidEurosAmount = shoppingCart.getBatchOnePrice() + shoppingCart.getBatchTwoPrice()
+	+ shoppingCart.getBatchThreePrice() + shoppingCart.getMonthlySubscriptionPrice()
+	+ shoppingCart.getTrimestrialSubscriptionPrice() + shoppingCart.getSemestrialSubscriptionPrice();
+	shoppingCart.setToBePaidEurosAmount(toBePaidEurosAmount);
+	shoppingCartDao.update(shoppingCart);
+	return "subShoppingCart.xhtml?faces-redirect=true&shoppingCartId=" + shoppingCart.getId();
+    }
+
+    public String addMonthlySubscriptionToCart() {
+	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	Long id = Long.valueOf(session.getAttribute("id").toString());
+	userAccount = userAccountsDao.findById(id);
+	shoppingCart = shoppingCartDao.findById(userAccount.getShoppingCart().getId());
+	shoppingCart.setMonthlySubscriptionName("Mensuel");
+	shoppingCart.setMonthlySubscriptionPrice(15);
+	shoppingCart.setMonthlySubscriptionQuantity(30);
+	shoppingCart.setBoughtMonthlySubscriptionQuantity(1);
+	double toBePaidEurosAmount = shoppingCart.getBatchOnePrice() + shoppingCart.getBatchTwoPrice()
+	+ shoppingCart.getBatchThreePrice() + shoppingCart.getMonthlySubscriptionPrice()
+	+ shoppingCart.getTrimestrialSubscriptionPrice() + shoppingCart.getSemestrialSubscriptionPrice();
+	shoppingCart.setToBePaidEurosAmount(toBePaidEurosAmount);
+	shoppingCartDao.update(shoppingCart);
+	return "subShoppingCart.xhtml?faces-redirect=true&shoppingCartId=" + shoppingCart.getId();
+    }
+
+    public String addTrimestrialSubscriptionToCart() {
+	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	Long id = Long.valueOf(session.getAttribute("id").toString());
+	userAccount = userAccountsDao.findById(id);
+	shoppingCart = shoppingCartDao.findById(userAccount.getShoppingCart().getId());
+	shoppingCart.setTrimestrialSubscriptionName("Trimestriel");
+	shoppingCart.setTrimestrialSubscriptionPrice(45);
+	shoppingCart.setTrimestrialSubscriptionQuantity(30);
+	shoppingCart.setTrimestrialSubscriptionQuantity(1);
+	double toBePaidEurosAmount = shoppingCart.getBatchOnePrice() + shoppingCart.getBatchTwoPrice()
+	+ shoppingCart.getBatchThreePrice() + shoppingCart.getMonthlySubscriptionPrice()
+	+ shoppingCart.getTrimestrialSubscriptionPrice() + shoppingCart.getSemestrialSubscriptionPrice();
+	shoppingCart.setToBePaidEurosAmount(toBePaidEurosAmount);
+	shoppingCartDao.update(shoppingCart);
+	return "subShoppingCart.xhtml?faces-redirect=true&shoppingCartId=" + shoppingCart.getId();
+    }
+
+    public String addSemestrialSubscriptionToCart() {
+	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	Long id = Long.valueOf(session.getAttribute("id").toString());
+	userAccount = userAccountsDao.findById(id);
+	shoppingCart = shoppingCartDao.findById(userAccount.getShoppingCart().getId());
+	shoppingCart.setSemestrialSubscriptionName("Semestriel");
+	shoppingCart.setSemestrialSubscriptionPrice(80);
+	shoppingCart.setSemestrialSubscriptionPrice(1);
+	double toBePaidEurosAmount = shoppingCart.getBatchOnePrice() + shoppingCart.getBatchTwoPrice()
+	+ shoppingCart.getBatchThreePrice() + shoppingCart.getMonthlySubscriptionPrice()
+	+ shoppingCart.getTrimestrialSubscriptionPrice() + shoppingCart.getSemestrialSubscriptionPrice();
+	shoppingCart.setToBePaidEurosAmount(toBePaidEurosAmount);
+	shoppingCartDao.update(shoppingCart);
+	return "subShoppingCart.xhtml?faces-redirect=true&shoppingCartId=" + shoppingCart.getId();
     }
 
 }

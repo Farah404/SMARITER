@@ -6,61 +6,103 @@
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
 	xmlns:f="http://java.sun.com/jsf/core">
 
+<f:metadata>
+	<f:event listener="#{shoppingCartManagementBean.init()}"
+		type="preRenderView"></f:event>
+</f:metadata>
 
 <h:body>
 	<ui:composition template="#{templateBean.subtemplatePath()}">
 		<ui:define name="subcontent">
+			<h:form>
 
 
-			<br />
-			<div class="landscape">
-				<center>
-					<img src="subMedia/Images/EcoCart.png" />
-				</center>
-			</div>
-			<div class="container-fluid">
-				<div class="table-responsive">
-					<table class="table" id="userTable">
-						<thead>
-							<tr class="header">
-								<th>Catégorie d'EcoAchat</th>
-								<th>Montant EcoCoins</th>
-								<th>Prix unitaire</th>
-								<th>Quantité</th>
-								<th>Total</th>
-							</tr>
-						</thead>
-						<tbody>
+				<br />
+				<div class="landscape">
+					<center>
+						<img src="subMedia/Images/EcoCart.png" />
+					</center>
+				</div>
+				<div class="container-fluid">
+					<div class="table-responsive">
 
-						</tbody>
+						<table class="table" id="userTable">
+							<thead>
+								<tr class="header">
+									<th>Catégorie d'EcoAchat</th>
+									<th>Montant EcoCoins</th>
+									<th>Prix en Euros</th>
+									<th>Quantité Achetée</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="product-name">Lot EcoLeaf</td>
+									<td class="product-eco-ecoin">#{shoppingCartManagementBean.shoppingCart.batchOneQuantity}</td>
+									<td id="unitaryPrice" class="product-line-price">#{shoppingCartManagementBean.shoppingCart.batchOnePrice}
+										€</td>
+										<td class="product-eco-ecoin">#{shoppingCartManagementBean.shoppingCart.boughtBatchOneQuantity}</td>
+								</tr>
 
-					</table>
+								<tr>
+									<td class="product-name">Lot EcoTree</td>
+									<td class="product-eco-ecoin">#{shoppingCartManagementBean.shoppingCart.batchTwoQuantity}</td>
+									<td id="unitaryPrice" class="product-line-price">#{shoppingCartManagementBean.shoppingCart.batchTwoPrice}
+										€</td>
+										<td class="product-eco-ecoin">#{shoppingCartManagementBean.shoppingCart.boughtBatchTwoQuantity}</td>
+								</tr>
+
+								<tr>
+									<td class="product-name">Lot EcoForest</td>
+									<td class="product-eco-ecoin">#{shoppingCartManagementBean.shoppingCart.batchThreeQuantity}</td>
+									<td id="unitaryPrice" class="product-line-price">#{shoppingCartManagementBean.shoppingCart.batchThreePrice}
+										€</td>
+										<td class="product-eco-ecoin">#{shoppingCartManagementBean.shoppingCart.boughtBatchThreeQuantity}</td>
+										
+								</tr>
+
+								<tr>
+									<td class="product-name">Abonnement Mensuel</td>
+									<td class="product-eco-ecoin">#{shoppingCartManagementBean.shoppingCart.monthlySubscriptionQuantity}</td>
+									<td id="unitaryPrice" class="product-line-price">#{shoppingCartManagementBean.shoppingCart.monthlySubscriptionPrice}
+										€</td>
+										<td class="product-eco-ecoin">#{shoppingCartManagementBean.shoppingCart.boughtMonthlySubscriptionQuantity}</td>
+								</tr>
+
+								<tr>
+									<td class="product-name">Abonnement Trimestriel</td>
+									<td class="product-eco-ecoin">#{shoppingCartManagementBean.shoppingCart.trimestrialSubscriptionQuantity}</td>
+									<td id="unitaryPrice" class="product-line-price">#{shoppingCartManagementBean.shoppingCart.trimestrialSubscriptionPrice}
+										€</td>
+										<td class="product-eco-ecoin">#{shoppingCartManagementBean.shoppingCart.boughtTrimestrialSubscriptionQuantity}</td>
+								</tr>
+
+								<tr>
+									<td class="product-name">Abonnement Semestriel</td>
+									<td class="product-eco-ecoin">#{shoppingCartManagementBean.shoppingCart.semestrialSubscriptionQuantity}</td>
+									<td id="unitaryPrice" class="product-line-price">#{shoppingCartManagementBean.shoppingCart.semestrialSubscriptionPrice}
+										€</td>
+										<td class="product-eco-ecoin">#{shoppingCartManagementBean.shoppingCart.boughtSemestrialSubscriptionQuantity}</td>
+								</tr>
+
+
+							</tbody>
+						</table>
+
+					</div>
+
+					<h:form>
+						<h:commandButton class="btn btn-success btn-xl" type="submit"
+							value="Je valide ma commande de #{shoppingCartManagementBean.shoppingCart.toBePaidEurosAmount}
+										€"
+							action="#{shoppingCartManagementBean.purchaseButton()}">
+						</h:commandButton>
+					</h:form>
 				</div>
 
-				<div class="empty">
-					<button class="submit-with-icon text-right" type="submit"
-						formaction="EmptyShoppingCart">
-						<span data-toggle="popover" data-placement="top"
-							title="Vider mon panier"
-							class="glyphicon glyphicon-erase text-success"></span>
-					</button>
-				</div>
-				<div class="refresh">
-					<button data-toggle="popover" data-placement="top"
-						title="Rafraîchir mon panier" class="submit-with-icon text-right"
-						type="submit" formaction="RefreshShoppingCart">
-						<span class="glyphicon glyphicon-refresh text-success"></span>
-					</button>
-				</div>
-
-				<button style="float: right;" class="btn btn-success btn-xl"
-					type="submit" formaction="ShoppingCart">Valider la
-					commande</button>
-			</div>
 
 
-
-}
+			</h:form>
 
 		</ui:define>
 	</ui:composition>
