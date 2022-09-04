@@ -412,7 +412,7 @@ public class DataSet {
 	u1.setEmail("adam.get@gmail.com");
 	u1.setPassword("adam");
 	u1.setUsername("adam");
-	si.setUserAccount(u1);
+	si.setUserAccountProvider(u1);
 	em.persist(u1);
 
 	User us1 = new User();
@@ -429,7 +429,7 @@ public class DataSet {
 	cr.setKeyPickUpAddress("Poissy,gare");
 	cr.setServicetype(ServiceType.CAR_RENTAL);
 	cr.setPrice(150);
-	cr.setReferenceNumber(4);
+	cr.setReferenceNumber("4");
 	cr.setUserAccountProvider(u);
 	cr.setVehicule(v);
 	r.setService(cr);
@@ -542,7 +542,7 @@ public class DataSet {
 	cr1.setKeyPickUpAddress("28 Pl. Vivaux, 13002 Marseille");
 	cr1.setServicetype(ServiceType.CAR_RENTAL);
 	cr1.setPrice(150);
-	cr1.setReferenceNumber(3);
+	cr1.setReferenceNumber("3");
 	cr1.setUserAccountProvider(u4);
 	cr1.setVehicule(v1);
 	cr1.setEndDate(null);
@@ -558,7 +558,7 @@ public class DataSet {
 	cr2.setKeyPickUpAddress("28 Pl. Vivaux, 13002 Marseille");
 	cr2.setServicetype(ServiceType.CAR_RENTAL);
 	cr2.setPrice(360);
-	cr2.setReferenceNumber(7);
+	cr2.setReferenceNumber("7");
 	cr2.setUserAccountProvider(u4);
 	cr2.setVehicule(v1);
 	cr2.setEndDate(null);
@@ -625,7 +625,7 @@ public class DataSet {
 	cr3.setKeyPickUpAddress("Ferme du Toulay, 80470 Ailly-sur-Somme");
 	cr3.setServicetype(ServiceType.CAR_RENTAL);
 	cr3.setPrice(241);
-	cr3.setReferenceNumber(3);
+	cr3.setReferenceNumber("3");
 	cr3.setUserAccountProvider(u14);
 	cr3.setVehicule(v12);
 	cr3.setEndDate(null);
@@ -732,7 +732,7 @@ public class DataSet {
 	u3.setPassword("constantine");
 	u3.setUsername("Constantine");
 	u3.setProfilePicturePath(null);
-	si.setUserAccount(u3);
+	si.setUserAccountProvider(u3);
 
 	em.persist(u3);
 
@@ -769,7 +769,7 @@ public class DataSet {
 	si2.setService(cps);
 	r2.setService(cps);
 //	so1.setService(cps);
-	cps.setReferenceNumber(1);
+	cps.setReferenceNumber("1");
 	em.persist(cps);
 
 	CarPoolingService cps0 = new CarPoolingService();
@@ -786,7 +786,7 @@ public class DataSet {
 	cps0.setUserAccountProvider(u6);
 	cps0.setTrajectory(t);
 
-	cps0.setReferenceNumber(13);
+	cps0.setReferenceNumber("13");
 	em.persist(cps0);
 
 	// Service Carpooling
@@ -920,7 +920,7 @@ public class DataSet {
 //	so1.setService(cps1);
 	si3.setService(cps1);
 	r3.setService(cps1);
-	cps1.setReferenceNumber(2);
+	cps1.setReferenceNumber("2");
 	em.persist(cps1);
 
 	// Service Carpooling
@@ -1000,7 +1000,7 @@ public class DataSet {
 	cps3.setUserAccountProvider(u11);
 	cps3.setTrajectory(t2);
 //	so1.setService(cps3);
-	cps3.setReferenceNumber(8);
+	cps3.setReferenceNumber("8");
 
 	em.persist(cps3);
 
@@ -1084,7 +1084,7 @@ public class DataSet {
 	cps4.setUserAccountProvider(u12);
 	cps4.setTrajectory(t3);
 //	so1.setService(cps4);
-	cps4.setReferenceNumber(10);
+	cps4.setReferenceNumber("10");
 
 	em.persist(cps4);
 
@@ -1101,7 +1101,7 @@ public class DataSet {
 	cps5.setUserAccountProvider(u12);
 	cps5.setTrajectory(t3);
 //	so1.setService(cps5);
-	cps5.setReferenceNumber(9);
+	cps5.setReferenceNumber("9");
 
 	em.persist(cps5);
 
@@ -1166,7 +1166,7 @@ public class DataSet {
 	pc.setExpirationDate(null);
 	pc.setFragile(true);
 	pc.setPrice(20);
-	pc.setReferenceNumber(15);
+	pc.setReferenceNumber("15");
 	pc.setPublicationDate(LocalDateTime.now());
 	pc.setUserAccountProvider(ua20);
 	pc.setServicetype(ServiceType.PARCEL);
@@ -1210,7 +1210,7 @@ public class DataSet {
 	pc1.setExpirationDate(null);
 	pc1.setFragile(true);
 	pc1.setPrice(40);
-	pc1.setReferenceNumber(18);
+	pc1.setReferenceNumber("18");
 	pc1.setPublicationDate(LocalDateTime.now());
 	pc1.setUserAccountProvider(ua20);
 	pc1.setServicetype(ServiceType.PARCEL);
@@ -1227,7 +1227,7 @@ public class DataSet {
 	pc2.setExpirationDate(null);
 	pc2.setFragile(true);
 	pc2.setPrice(27);
-	pc2.setReferenceNumber(16);
+	pc2.setReferenceNumber("16");
 	pc2.setPublicationDate(LocalDateTime.now());
 	pc2.setUserAccountProvider(u8);
 	pc2.setServicetype(ServiceType.PARCEL);
@@ -1288,7 +1288,7 @@ public class DataSet {
 	pc3.setEndDate(null);
 	pc3.setFragile(false);
 	pc3.setPublicationDate(LocalDateTime.now());
-	pc3.setReferenceNumber(21);
+	pc3.setReferenceNumber("21");
 	pc3.setPrice(46);
 	pc3.setTrajectory(t6);
 	pc3.setUserAccountProvider(ua2);
@@ -1303,7 +1303,7 @@ public class DataSet {
 	pe.setExpirationDate(null);
 	pe.setStartDate(null);
 	pe.setServicetype(ServiceType.PERSONAL_ASSISTANCE);
-	pe.setReferenceNumber(1);
+	pe.setReferenceNumber("1");
 	pe.setPrice(15);
 	pe.setPersonalAssistanceType(PersonalAssistanceType.GROCERY);
 	pe.setUserAccountProvider(ua2);
@@ -1363,7 +1363,7 @@ public class DataSet {
 	pe1.setUrgent(false);
 	pe1.setUserAccountProvider(ua10);
 	pe1.setExpirationDate(null);
-	pe1.setReferenceNumber(2);
+	pe1.setReferenceNumber("2");
 //	so1.setService(pe1);
 	em.persist(pe1);
 
@@ -1396,7 +1396,7 @@ public class DataSet {
 	pe2.setUrgent(true);
 	pe2.setUserAccountProvider(ua10);
 	pe2.setExpirationDate(null);
-	pe2.setReferenceNumber(2);
+	pe2.setReferenceNumber("2");
 //	so1.setService(pe2);
 	em.persist(pe2);
 

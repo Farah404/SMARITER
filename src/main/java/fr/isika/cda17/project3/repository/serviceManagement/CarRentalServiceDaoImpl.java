@@ -6,7 +6,9 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
+import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 
 @Stateless
 public class CarRentalServiceDaoImpl implements CarRentalServiceDao {
@@ -68,5 +70,39 @@ public class CarRentalServiceDaoImpl implements CarRentalServiceDao {
 				.setParameter("userid_param", id).getResultList();
 		return crsUserList;
 	}
+	@Override
+	public ServiceType findServiceType(Long id) {
+		ServiceType serviceType = null;
+		try {
+			CarRentalService crs = entityManager.find(CarRentalService.class, id);
+			serviceType = crs.getServicetype();
+			return serviceType;	
+		}catch (Exception e) {
+			return serviceType;
+		}
+	}
 
+	@Override
+	public double findServicePrice(Long id) {
+		double servicePrice = 0;
+		try {
+		CarRentalService crs = entityManager.find(CarRentalService.class, id);
+		servicePrice = crs.getPrice();
+		return servicePrice;
+		}catch (Exception e) {
+			return servicePrice;
+		}
+	}
+
+	@Override
+	public String findReferenceNumber(Long id) {
+		String referenceNumber="";
+		try {
+		CarRentalService crs = entityManager.find(CarRentalService.class, id);
+		referenceNumber = crs.getReferenceNumber();
+		return referenceNumber;
+	}catch (Exception e) {
+		return referenceNumber;
+	}
+	}
 }

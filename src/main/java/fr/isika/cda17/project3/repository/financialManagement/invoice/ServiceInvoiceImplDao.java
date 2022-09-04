@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.ServiceInvoice;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
+import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
 
 @Stateless
 public class ServiceInvoiceImplDao implements ServiceInvoiceDao {
@@ -27,21 +28,29 @@ public class ServiceInvoiceImplDao implements ServiceInvoiceDao {
     }
 
     @Override
-    public void update(ServiceInvoice t) {
-	// TODO Auto-generated method stub
+    public void update(ServiceInvoice serviceInvoice) {
+    	try {
+    	    entityManager.merge(serviceInvoice);
+    	} catch (Exception e) {
+    	    System.out.println("ServiceInvoiceDao.update() - Failed : " + e.getMessage());
+    	}
 
     }
 
     @Override
     public void delete(Long id) {
-	// TODO Auto-generated method stub
+    	try {
+    	    ServiceInvoice deletedServiceInvoice = entityManager.find(ServiceInvoice.class, id);
+    	    entityManager.remove(deletedServiceInvoice);
+    	} catch (Exception e) {
+    	    System.out.println("ServiceInvoiceDao.delete() - Failed : " + e.getMessage());
+    	}
 
     }
 
     @Override
     public ServiceInvoice findById(Long id) {
-	// TODO Auto-generated method stub
-	return null;
+	return entityManager.find(ServiceInvoice.class,id);
     }
 
     @Override
@@ -51,5 +60,15 @@ public class ServiceInvoiceImplDao implements ServiceInvoiceDao {
     			.getResultList();
     		return serviceInvoiceList;
     }
+
+	@Override
+	public String ServiceInvoiceNumber() {
+		List<ServiceInvoice> serviceInvoiceList = this.entityManager
+    			.createQuery("SELECT si FROM ServiceInvoice si", ServiceInvoice.class)
+    			.getResultList();
+		int ref = serviceInvoiceList.size() + 1;
+		String invoiceNumber = "2022 - 00" + ref + " - SI";
+		return invoiceNumber;
+	}
 
 }

@@ -62,7 +62,8 @@ public class CreateCarPoolingServiceBean {
 			.withEndDate(LocalDateTime.parse(endDate))
 			.withPublicationDate(LocalDateTime.now())
 			.withServiceType(ServiceType.CAR_POOLING)
-			.withProvider(userAccount);
+			.withProvider(userAccount)
+			.withReferenceNumber(createReferenceNumber());
 	
 
 	((CarPoolingService) cps).setTrajectory(trajectory);
@@ -83,7 +84,8 @@ public class CreateCarPoolingServiceBean {
 		.withPublicationDate(LocalDateTime.now())
 		.withServiceType(ServiceType.CAR_POOLING)
 		.withRequest(true)
-		.withPurchaser(userAccount);
+		.withPurchaser(userAccount)
+		.withReferenceNumber(createReferenceNumber());
 	
 	cps = ((CarPoolingService) cps).withTrajectory(trajectory);
 
@@ -91,6 +93,11 @@ public class CreateCarPoolingServiceBean {
 	System.out.println(created);
     }
 
+    public String createReferenceNumber() {
+    	int ref = carPoolingServiceDao.findAll().size()+1;
+    	String referenceNumber="2022 - 00" + ref + " - CP";
+    	return referenceNumber;
+    }
     public CarPoolingService getCps() {
 	return (CarPoolingService) cps;
     }

@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
+import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 
 @Stateless
 public class CarPoolingServiceDaoImpl implements CarPoolingServiceDao {
@@ -67,4 +68,39 @@ public class CarPoolingServiceDaoImpl implements CarPoolingServiceDao {
 		return cpsUserList;
 	}
 
+	@Override
+	public ServiceType findServiceType(Long id) {
+		ServiceType serviceType = null;
+		try {
+			CarPoolingService cps = entityManager.find(CarPoolingService.class, id);
+			serviceType = cps.getServicetype();
+			return serviceType;	
+		}catch (Exception e) {
+			return serviceType;
+		}
+	}
+
+	@Override
+	public double findServicePrice(Long id) {
+		double servicePrice = 0;
+		try {
+		CarPoolingService cps = entityManager.find(CarPoolingService.class, id);
+		servicePrice = cps.getPrice();
+		return servicePrice;
+		}catch (Exception e) {
+			return servicePrice;
+		}
+	}
+
+	@Override
+	public String findReferenceNumber(Long id) {
+		String referenceNumber="";
+		try {
+		CarPoolingService cps = entityManager.find(CarPoolingService.class, id);
+		referenceNumber = cps.getReferenceNumber();
+		return referenceNumber;
+	}catch (Exception e) {
+		return referenceNumber;
+	}
+	}
 }

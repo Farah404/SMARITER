@@ -59,7 +59,8 @@ public class CreateParcelServiceBean {
 		.withEndDate(LocalDateTime.parse(endDate))
 		.withPublicationDate(LocalDateTime.now())
 		.withServiceType(ServiceType.PARCEL)
-		.withProvider(userAccount);
+		.withProvider(userAccount)
+		.withReferenceNumber(createReferenceNumber());
 	
 	ParcelService created = parcelServiceDao.create((ParcelService) ps);
 	System.out.println(created);
@@ -77,13 +78,20 @@ public class CreateParcelServiceBean {
 		.withPublicationDate(LocalDateTime.now())
 		.withServiceType(ServiceType.PARCEL)
 		.withRequest(true)
-		.withPurchaser(userAccount);
+		.withPurchaser(userAccount)
+		.withReferenceNumber(createReferenceNumber());
 	
 	ps = ((ParcelService) ps).withTrajectory(trajectory);
 
 
 	ParcelService created = parcelServiceDao.create((ParcelService) ps);
 	System.out.println(created);
+    }
+    
+    public String createReferenceNumber() {
+    	int ref = parcelServiceDao.findAll().size()+1;
+    	String referenceNumber="2022 - 00" + ref + " - P";
+    	return referenceNumber;
     }
 
     public ParcelService getPs() {

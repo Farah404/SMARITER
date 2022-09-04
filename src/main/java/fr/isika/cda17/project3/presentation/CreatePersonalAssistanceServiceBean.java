@@ -59,7 +59,8 @@ public class CreatePersonalAssistanceServiceBean {
 		.withEndDate(LocalDateTime.parse(endDate))
 		.withPublicationDate(LocalDateTime.now())
 		.withServiceType(ServiceType.PERSONAL_ASSISTANCE)
-		.withProvider(userAccount);
+		.withProvider(userAccount)
+		.withReferenceNumber(createReferenceNumber());
 	
 	PersonalAssistanceService created = personalAssistanceServiceDao.create((PersonalAssistanceService) pas);
 	System.out.println(created);
@@ -77,13 +78,20 @@ public class CreatePersonalAssistanceServiceBean {
 		.withPublicationDate(LocalDateTime.now())
 		.withServiceType(ServiceType.PERSONAL_ASSISTANCE)
 		.withRequest(true)
-		.withPurchaser(userAccount);
+		.withPurchaser(userAccount)
+		.withReferenceNumber(createReferenceNumber());
 	
 	pas = ((PersonalAssistanceService) pas).withTrajectory(trajectory);
 
 
 	PersonalAssistanceService created = personalAssistanceServiceDao.create((PersonalAssistanceService) pas);
 	System.out.println(created);
+    }
+    
+    public String createReferenceNumber() {
+    	int ref = personalAssistanceServiceDao.findAll().size()+1;
+    	String referenceNumber="2022 - 00" + ref + " - PA";
+    	return referenceNumber;
     }
 
     public PersonalAssistanceService getPas() {

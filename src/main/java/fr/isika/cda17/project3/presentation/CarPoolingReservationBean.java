@@ -104,7 +104,7 @@ public class CarPoolingReservationBean implements Serializable {
 				serviceInvoice = (ServiceInvoice) new ServiceInvoice().withService(carPooling)
 						.withUserAccountProvider(carPooling.getUserAccountProvider())
 						.withUserAccountPurchaser(userAccountPurchaser).withServiceInvoiceType().withIssueDate()
-						.withInvoiceNumber(invoiceNumber);
+						.withInvoiceNumber(serviceInvoiceDao.ServiceInvoiceNumber());
 
 				reservation = new Reservation().withService(carPooling).withServiceInvoice(serviceInvoice);
 

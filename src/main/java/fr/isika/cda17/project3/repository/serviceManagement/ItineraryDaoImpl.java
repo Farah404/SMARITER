@@ -28,11 +28,6 @@ public class ItineraryDaoImpl implements ItineraryDao {
     @Override
     public void update(Itinerary itinerary) {
 	try {
-	    Itinerary updatedItinerary = entityManager.find(Itinerary.class, itinerary.getId());
-	    updatedItinerary.setFirstStopAddress(itinerary.getFirstStopAddress());
-	    updatedItinerary.setSecondStopAddress(itinerary.getSecondStopAddress());
-	    updatedItinerary.setThirdStopAddress(itinerary.getThirdStopAddress());
-
 	    entityManager.persist(itinerary);
 	} catch (Exception e) {
 	    System.out.println("ItineraryDao.update() - Failed : " + e.getMessage());

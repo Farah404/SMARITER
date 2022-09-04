@@ -29,8 +29,8 @@ public class Wallet {
     }
 
     public Long getId() {
-        return id;
-    }
+	return id;
+    } 
 
     public double getInternalCurrencyAmount() {
         return internalCurrencyAmount;
