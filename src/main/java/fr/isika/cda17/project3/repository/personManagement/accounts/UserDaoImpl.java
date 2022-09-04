@@ -96,4 +96,17 @@ public class UserDaoImpl implements UserDao {
 
     }
 
+	@Override
+	public User findByShoppingCartId(Long id) {
+		try {
+		    User user = this.entityManager
+			    .createNamedQuery("user.findByShoppingCartId", User.class)
+			    .setParameter("shopping_param", id).getSingleResult();
+		    return user;
+		} catch (NoResultException ex) {
+		    System.out.println("UserDaoImpl.findByShoppingCartId() - not found : " + id);
+		}
+		return null;
+	}
+
 }

@@ -5,7 +5,10 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
 	xmlns:f="http://java.sun.com/jsf/core">
-
+<f:metadata>
+	<f:event listener="#{storeInvoiceBean.init()}" type="preRenderView">
+	</f:event>
+</f:metadata>
 
 <h:body>
 	<ui:composition template="#{templateBean.subtemplatePath()}">
@@ -31,11 +34,11 @@
 									<!-- col-lg-6 start here -->
 									<div class="invoice-from">
 										<ul class="list-unstyled text-right">
-											<li>@Model.User.Account.Username</li>
-											<li>@Model.User.BillingAddress.AddressLine</li>
-											<li>@Model.User.BillingAddress.PostalCode
-												@Model.User.BillingAddress.City</li>
-											<li>@Model.User.BillingAddress.Country</li>
+								
+											<li>#{storeInvoiceBean.userPurchaser.userAccount.username}</li>
+											<li>#{storeInvoiceBean.userPurchaser.userAccount.billingAddress.addressLine}</li>
+											<li>#{storeInvoiceBean.userPurchaser.userAccount.billingAddress.postalCode} #{storeInvoiceBean.userPurchaser.userAccount.billingAddress.city}</li>
+											<li>#{storeInvoiceBean.userPurchaser.userAccount.billingAddress.country}</li>
 										</ul>
 									</div>
 								</div>
@@ -46,11 +49,9 @@
 										<div class="well">
 											<ul class="list-unstyled mb0">
 												<li><strong>Numéro de facture</strong>
-													@Model.EcoStoreInvoice.Invoice.InvoiceNumber</li>
+													#{storeInvoiceBean.storeInvoice.invoiceNumber}</li>
 												<li><strong>Date d'émission de la facture</strong>
-													@Model.EcoStoreInvoice.Invoice.InvoiceIssueDate.ToShortDateString()</li>
-												<li><strong>Heure d'émission de la facture</strong>
-													@Model.EcoStoreInvoice.Invoice.InvoiceIssueDate.ToShortTimeString()</li>
+													#{storeInvoiceBean.storeInvoice.invoiceIssueDate}</li>
 												<li><strong>Type de facture</strong> Facture EcoStore</li>
 											</ul>
 										</div>
@@ -63,18 +64,21 @@
 													<tr>
 														<th class="per70 text-center">Type d'achat</th>
 														<th class="per25 text-center">Prix unitaire en €</th>
-														<th class="per25 text-center">EcoCoins unitaire
-															crédités</th>
+														<th class="per25 text-center">EcoCoins unitaire crédités</th>
 													</tr>
 												</thead>
 												<tbody>
+												<tr>
+												<td>#{storeInvoiceBean.storeInvoice.purchaseType}</td>
+												<td>#{storeInvoiceBean.storeInvoice.amount}</td>
+												<td>#{storeInvoiceBean.storeInvoice.internalCurrencyAmount}</td>
+												</tr>
 												</tbody>
 												<tfoot>
 													<tr>
 														<th colspan="1" class="text-right">Total:</th>
-														<th class="text-center">@Model.EcoStoreInvoice.TotalPriceEuros
-															€</th>
-														<th class="text-center">Total EcoCoins</th>
+														<th class="text-center">#{storeInvoiceBean.storeInvoice.amount} €</th>
+														<th class="text-center">#{storeInvoiceBean.storeInvoice.internalCurrencyAmount}</th>
 													</tr>
 												</tfoot>
 											</table>
