@@ -114,4 +114,8 @@ public class UrlPathBean implements Serializable {
 	    }
 	}
     }
+    
+    public String goToUserProfile(Long id) {
+		return "subUserProfile.xhtml?faces-redirect=true&userId="+id;
+	}
 }

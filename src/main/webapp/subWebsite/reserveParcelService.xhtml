@@ -33,8 +33,11 @@
 								</h:commandButton>
 
 								<br />
-								<button class="btn btn-success center-block">Profil de
-									l'EcoMembre prestataire</button>
+								<h:commandButton class="btn btn-success center-block"
+									type="submit"
+									value="Profil de l'EcoMembre prestataire"
+									action="#{urlPathBean.goToUserProfile(parcelServiceReservationBean.parcelService.userAccountProvider.id)}">
+								</h:commandButton>
 							</div>
 
 

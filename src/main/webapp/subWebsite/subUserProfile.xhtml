@@ -6,7 +6,11 @@
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-
+<f:metadata>
+	<f:event listener="#{userProfileShowBean.init()}" type="preRenderView">
+	</f:event>
+	
+</f:metadata>
 <h:head>
 
 </h:head>
@@ -14,7 +18,7 @@
 <h:body>
 	<ui:composition template="#{templateBean.subtemplatePath()}">
 		<ui:define name="subcontent">
-
+			<h:form>
 			<div class="container bootstrap snippets bootdey">
 				<div class="panel-body inf-content">
 					<div class="row">
@@ -22,14 +26,13 @@
 							<img alt="" style="width: 600px;" title=""
 								class="img-circle img-thumbnail isTooltip" />
 							<ul title="username" class="list-inline ratings text-center">
-								<h3>User.Account.Username</h3>
+								<h3>#{userProfileShowBean.user.userAccount.username}</h3>
 							</ul>
 							<center>
 								<a class="btn btn-success" data-toggle="modal"
-									data-target="#basicModal">Signaler User.Account.Username</a> <br />
+									data-target="#basicModal">Signaler #{userProfileShowBean.user.userAccount.username}</a> <br />
 								<br /> <a class="btn btn-success" data-toggle="modal"
-									data-target="#basicModalSms">Contacter
-									User.Account.Username</a>
+									data-target="#basicModalSms">Contacter #{userProfileShowBean.user.userAccount.username}</a>
 							</center>
 						</div>
 						<div class="col-md-6">
@@ -44,7 +47,7 @@
 													et prénom
 											</strong></td>
 											<td class="text-success">
-												<p></p>
+												<p>#{userProfileShowBean.user.lastName} #{userProfileShowBean.user.firstName}</p>
 											</td>
 										</tr>
 										<tr>
@@ -71,7 +74,7 @@
 													de naissance
 											</strong></td>
 											<td class="text-success">
-												<p></p>
+												<p>#{userProfileShowBean.user.birthDate}</p>
 											</td>
 										</tr>
 										<tr>
@@ -88,7 +91,7 @@
 													EcoMembre depuis
 											</strong></td>
 											<td class="text-success">
-												<p></p>
+												<p>#{userProfileShowBean.user.userAccount.creationDate}</p>
 											</td>
 										</tr>
 
@@ -99,71 +102,236 @@
 					</div>
 				</div>
 			</div>
-			<div id="services" class="container-fluid bg-grey">
+			<div id="services" class="container-fluid">
+					<div class="table-responsive">
+						<p
+							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Mon
+							historique de prestations de covoiturage</p>
 
-				<div class="table-responsive">
-					<p
-						style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Prestations
-						de @Model.User.Account.Username en cours</p>
-					<input style="width: 50%; float: right" type="text"
-						id="searchInput" onkeyup="myFunction()"
-						placeholder="Prestations de @Model.User.Account.Username en cours..." />
-					<table class="table" id="userInvoices">
-						<thead>
-							<tr class="header">
-								<th>Date de début</th>
-								<th>Type de service</th>
-								<th>Numéro de réference</th>
-								<th>Prestation demandée</th>
-								<th>Consulter la prestation</th>
-							</tr>
-						</thead>
-						<tbody>
+						<h:dataTable class="table container-fluid bg-grey"
+							value="#{userProfileShowBean.cpsListUserRelated}"
+							var="cpsUserRelated">
 
-							<tr>
-								<td></td>
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{cpsUserRelated.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Adresse de départ </f:facet>
+								<h:outputText value="#{cpsUserRelated.trajectory.pickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Date et heure de départ</f:facet>
+								<h:outputText value="#{cpsUserRelated.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Adresse d'arrivée </f:facet>
+								<h:outputText
+									value="#{cpsUserRelated.trajectory.deliveryAddress}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header"> Date et heure d'arrivée</f:facet>
+								<h:outputText value="#{cpsUserRelated.endDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Durée (heures)</f:facet>
+								<h:outputText value="#{cpsUserRelated.trajectory.durationHours}" />
+
+							</h:column>
+							<h:column>
+								<f:facet name="header">Nombre d'arrets</f:facet>
+								<h:outputText value="#{cpsUserRelated.trajectory.stopNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Sièges disponibles</f:facet>
+								<h:outputText value="#{cpsUserRelated.availableSeats}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{cpsUserRelated.price}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Détails</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{carPoolingServiceManagementBean.detail(cpsUserRelated.id)}">
+
+										<f:param name="carPoolingServiceId"
+											value="#{cpsUserRelated.id}"></f:param>
+
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+
+						</h:dataTable>
+						<br />
+
+						<p
+							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Mon
+							historique de prestations de location de véhicule</p>
+
+						<h:dataTable class="table container-fluid bg-grey"
+							id="carRentalService"
+							value="#{userProfileShowBean.crsListUserRelated}"
+							var="crsUserRelated">
+
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{crsUserRelated.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Lieu de récupération des clés </f:facet>
+								<h:outputText value="#{crsUserRelated.keyPickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Lieu de remise des clés  </f:facet>
+								<h:outputText value="#{crsUserRelated.keyDropOffAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date de début</f:facet>
+								<h:outputText value="#{crsUserRelated.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date de fin</f:facet>
+								<h:outputText value="#{crsUserRelated.endDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Marque du véhicule</f:facet>
+								<h:outputText value="#{crsUserRelated.vehicule.brand}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{crsUserRelated.price}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Détails</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{carRentalServiceManagementBean.detail(crsUserRelated.id)}">
+										<f:param name="carRentalServiceId"
+											value="#{crsUserRelated.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+						</h:dataTable>
+						<br />
+
+						<p
+							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Mon
+							historique de prestation de transport de colis</p>
+
+						<h:dataTable class="table container-fluid bg-grey"
+							value="#{userProfileShowBean.psListUserRelated}" var="psUserRelated">
 
 
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{psUserRelated.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse de départ  </f:facet>
+								<h:outputText value="#{psUserRelated.trajectory.pickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure de départ</f:facet>
+								<h:outputText value="#{parcelService.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse d'arrivée </f:facet>
+								<h:outputText
+									value="#{psUserRelated.trajectory.deliveryAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure d'arrivée</f:facet>
+								<h:outputText value="#{psUserRelated.endDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Code Barre</f:facet>
+								<h:outputText value="#{psUserRelated.barCode}" />
+							</h:column>
 
-								<td></td>
-								<td></td>
-								<td><a
-									href="/Service/ReserveCarPoolingService/@carPoolingService.Id"><span
-										class="glyphicon glyphicon-info-sign   text-success"></span></a></td>
-							</tr>
+							<h:column>
+								<f:facet name="header">Fragile</f:facet>
+								<h:outputText value="#{psUserRelated.fragile}" />
+							</h:column>
 
-							<tr>
-								<td></td>
+							<h:column>
+								<f:facet name="header">Volumineux</f:facet>
+								<h:outputText value="#{psUserRelated.atypicalVolume}" />
+							</h:column>
 
-
-
-
-								<td></td>
-								<td></td>
-								<td><a
-									href="/Service/ReserveCarRentalService/@carRentalService.Id"><span
-										class="glyphicon glyphicon-info-sign   text-success"></span></a></td>
-							</tr>
-							<tr>
-								<td></td>
+							<h:column>
+								<f:facet name="header">Poids</f:facet>
+								<h:outputText value="#{psUserRelated.weightKilogrammes}" />
+							</h:column>
 
 
-								<td></td>
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{psUserRelated.price}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Détails</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{parcelServiceManagementBean.detail(psUserRelated.id)}">
+										<f:param name="parcelServiceId" value="#{psUserRelated.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
 
-								<td></td>
-								<td></td>
-								<td><a
-									href="/Service/ReserveParcelService/@parcelService.Id"><span
-										class="glyphicon glyphicon-info-sign   text-success"></span></a></td>
-							</tr>
+						</h:dataTable>
+						<br />
+						<p
+							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Mon
+							historique de prestation d'aide à la personne</p>
+						
+						<h:dataTable class="table container-fluid bg-grey"
+							value="#{userProfileShowBean.pasListUserRelated}"
+							var="pasUserRelated">
 
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+								<h:outputText value="#{pasUserRelated.referenceNumber}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse de départ  </f:facet>
+								<h:outputText value="#{pasUserRelated.trajectory.pickUpAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure de départ</f:facet>
+								<h:outputText value="#{pasUserRelated.startDate}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Adresse d'arrivée </f:facet>
+								<h:outputText
+									value="#{pasUserRelated.trajectory.deliveryAddress}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date et heure d'arrivée</f:facet>
+								<h:outputText value="#{pasUserRelated.endDate}" />
+							</h:column>
 
-
-						</tbody>
-					</table>
-				</div>
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{pasUserRelated.price}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Détails</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{personalAssistanceServiceManagementBean.detail(pasUserRelated.id)}">
+										<f:param name="personalAssistanceServiceId"
+											value="#{pasUserRelated.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+						</h:dataTable>
 			</div>
-
+			</div>
 
 
 
@@ -177,7 +345,7 @@
 							<button type="button" class="close" data-dismiss="modal"
 								aria-hidden="true">Fermer</button>
 							<h4 class="modal-title" id="myModalLabel">Contacter
-								@Model.User.Account.Username</h4>
+								#{userProfileShowBean.user.userAccount.username}</h4>
 						</div>
 						<div class="modal-body">
 							<center>
@@ -232,7 +400,7 @@
 			</div>
 
 
-
+			</h:form>
 		</ui:define>
 	</ui:composition>
 
