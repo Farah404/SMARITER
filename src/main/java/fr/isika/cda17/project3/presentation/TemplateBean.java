@@ -54,6 +54,27 @@ public class TemplateBean implements Serializable {
 	    }
 	}
     }
+    
+    public String subTemplateBeanPathIndex() {
+	
+	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	if (session.getAttribute("email") == null) {
+	    templateToUse = "subTemplate/subTemplateIndex.xhtml";
+	    System.out.println("authentification == None :" + templateToUse);
+	    return templateToUse;
+	} else {
+	    if (session.getAttribute("accountType") == AccountType.USER) {
+		templateToUse = "subTemplate/subTemplateWhenConnectedIndex.xhtml";
+		System.out.println("authentification == User :" + templateToUse);
+		return templateToUse;
+	    } else {
+		templateToUse = "subTemplate/subTemplateIndex.xhtml";
+		System.out.println("authentification == True but not User : " + templateToUse);
+		return templateToUse;
+	    }
+	}
+	
+    }
 
     public String getTemplateToUse() {
 	return templateToUse;

@@ -649,6 +649,72 @@
 								</h:panelGrid>
 							</h:column>
 						</h:dataTable>
+						
+						<p
+							style="float: left; font-variant: small-caps; font-weight: bold; font-size: larger">Mon
+							historique de factures</p>
+
+						<h:dataTable class="table container-fluid bg-grey">
+
+
+							<h:column>
+								<f:facet name="header"> Numéro de référence </f:facet>
+<!-- 								<h:outputText value="#{psUserRelated.referenceNumber}" /> -->
+							</h:column>
+							<h:column>
+								<f:facet name="header"> Type de facture</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Montant payé en EcoCoins</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Montant payé en Euros</f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Voir la Facture</f:facet>
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Volumineux</f:facet>
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Poids</f:facet>
+							</h:column>
+
+
+							<h:column>
+								<f:facet name="header">Prix</f:facet>
+								<h:outputText value="#{psUserRelated.price}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Details</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Detail"
+										action="#{parcelServiceManagementBean.detail(psUserRelated.id)}">
+										<f:param name="parcelServiceId" value="#{psUserRelated.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Modifier</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Edit"
+										action="#{parcelServiceManagementBean.updateStepOne()}">
+										<f:param name="parcelServiceId" value="#{psUserRelated.id}"></f:param>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Supprimer</f:facet>
+								<h:panelGrid>
+									<h:commandButton
+										action="#{parcelServiceManagementBean.delete(psUserRelated.id)}"
+										value="Delete" />
+								</h:panelGrid>
+							</h:column>
+
+						</h:dataTable>
 					</div>
 				</div>
 				<br />
