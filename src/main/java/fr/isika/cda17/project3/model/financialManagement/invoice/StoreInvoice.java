@@ -3,6 +3,7 @@ package fr.isika.cda17.project3.model.financialManagement.invoice;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 import fr.isika.cda17.project3.model.financialManagement.store.PurchaseType;
@@ -11,6 +12,7 @@ import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
+@NamedQuery(name = "StoreInvoice.findAllUserAccountStoreInvoice", query = "SELECT si FROM StoreInvoice si WHERE si.userAccount.id = :userid_param")
 public class StoreInvoice extends Invoice {
 
     @Enumerated

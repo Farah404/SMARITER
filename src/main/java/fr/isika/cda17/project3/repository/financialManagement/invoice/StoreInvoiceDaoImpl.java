@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.ServiceInvoice;
 import fr.isika.cda17.project3.model.financialManagement.invoice.StoreInvoice;
+import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 
 @Stateless
 public class StoreInvoiceDaoImpl implements StoreInvoiceDao {
@@ -59,5 +60,10 @@ public class StoreInvoiceDaoImpl implements StoreInvoiceDao {
     			.getResultList();
     		return storeInvoiceList;
     }
-
+    
+    @Override
+	public List<StoreInvoice> findAllUserAccountStoreInvoice(Long id) {
+		List<StoreInvoice> storeInvoiceList = this.entityManager.createNamedQuery("StoreInvoice.findAllUserAccountStoreInvoice", StoreInvoice.class).setParameter("userid_param", id).getResultList();
+		return storeInvoiceList;
+	}
 }
