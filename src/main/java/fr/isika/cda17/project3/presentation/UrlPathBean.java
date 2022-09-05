@@ -68,6 +68,18 @@ public class UrlPathBean implements Serializable {
     public String goToSiteMap() {
 	return "siteMap.xhtml";
     }
+    public String goToTemplateOne() {
+    return "TemplateOne.xhtml";
+    }
+    public String goToTemplateTwo() {
+    return "templateTwo.xhtml";
+    }
+    public String goToTemplateThree() {
+    return "templateThree.xhtml";
+    }
+    public String goToTemplateFour() {
+    return "templateFour.xhtml";
+    }
     
     public String goToPaymentForm() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
