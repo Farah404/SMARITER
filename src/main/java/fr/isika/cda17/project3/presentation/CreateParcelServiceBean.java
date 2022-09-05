@@ -18,6 +18,7 @@ import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
 import fr.isika.cda17.project3.model.serviceManagement.TrajectoryType;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
 import fr.isika.cda17.project3.repository.serviceManagement.ParcelServiceDao;
+import fr.isika.cda17.project3.utils.BarcodeDatamatrix;
 
 @ManagedBean
 @ViewScoped
