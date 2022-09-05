@@ -1,12 +1,10 @@
 package fr.isika.cda17.project3.presentation;
 
 import java.io.Serializable;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
-
 import fr.isika.cda17.project3.model.personManagement.accounts.AccountType;
 
 @ManagedBean
@@ -56,7 +54,7 @@ public class UrlPathBean implements Serializable {
     }
 
     public String goToBookings() {
-	return "onlineStore.xhtml";
+	return "bookings.xhtml";
     }
 
     public String goToInvestors() {
@@ -80,17 +78,6 @@ public class UrlPathBean implements Serializable {
 	    return "logInSignUp.xhtml";
 	}
     }
-    
-//    public String goToPatternsFromServices(){
-//	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-//	if (session.getAttribute("accountType") == AccountType.ADMINISTRATOR
-//		|| session.getAttribute("accountType") == AccountType.ENTITY) {
-//	    return "patterns.xhtml";
-//	} else {
-//	    return "logInSignUp.xhtml";
-//	}
-//    }
-    
 
     public String goToStartService() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
