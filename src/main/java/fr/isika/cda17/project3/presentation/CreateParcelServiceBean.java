@@ -31,7 +31,7 @@ public class CreateParcelServiceBean {
 
     private UserAccount userAccount;
 
-    private Service ps = new ParcelService();
+    private ParcelService ps = new ParcelService();
 
     private Vehicule vehicule = new Vehicule();
 
@@ -53,7 +53,6 @@ public class CreateParcelServiceBean {
 	userAccount = userAccountsDao.findById(id);
 	((ParcelService) ps).setVehicule(userAccount.getVehicule());
 	trajectory.setItinerary(itinerary);
-	((ParcelService) ps).setTrajectory(trajectory);
 	
 	ps.withStartDate(LocalDateTime.parse(startDate))
 		.withEndDate(LocalDateTime.parse(endDate))
@@ -61,6 +60,8 @@ public class CreateParcelServiceBean {
 		.withServiceType(ServiceType.PARCEL)
 		.withProvider(userAccount)
 		.withReferenceNumber(createReferenceNumber());
+	
+	ps.withBarCode(createParcelNumber()).withTrajectory(trajectory);
 	
 	ParcelService created = parcelServiceDao.create((ParcelService) ps);
 	System.out.println(created);
@@ -81,13 +82,17 @@ public class CreateParcelServiceBean {
 		.withPurchaser(userAccount)
 		.withReferenceNumber(createReferenceNumber());
 	
-	ps = ((ParcelService) ps).withTrajectory(trajectory);
+	ps.withBarCode(createParcelNumber()).withTrajectory(trajectory);
 
 
-	ParcelService created = parcelServiceDao.create((ParcelService) ps);
-	System.out.println(created);
+	parcelServiceDao.create((ParcelService) ps);
+
     }
     
+    public int createParcelNumber() {
+    	int ref = parcelServiceDao.findAll().size()+151;
+    	return ref;
+    }
     public String createReferenceNumber() {
     	int ref = parcelServiceDao.findAll().size()+1;
     	String referenceNumber="2022-00" + ref + "-PS";

@@ -98,6 +98,10 @@ public class CreateCarPoolingServiceBean {
     	String referenceNumber="2022-00" + ref + "-CP";
     	return referenceNumber;
     }
+    public LocalDateTime expirationDate() {
+    	LocalDateTime expirationDate=LocalDateTime.parse(endDate).minusDays(1);
+    	return expirationDate;
+    }
     public CarPoolingService getCps() {
 	return (CarPoolingService) cps;
     }

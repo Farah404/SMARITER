@@ -235,5 +235,10 @@ public abstract class Service {
 		this.referenceNumber = referenceNumber;
 		return this;
 	}
+	
+	public Service withExpirationDate(final LocalDateTime expirationDate) {
+		this.expirationDate=expirationDate;
+		return this;
+	}
 
 }
