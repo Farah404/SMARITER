@@ -99,7 +99,7 @@
 							</div>
 							<br />
 							<span class="label-text-cusProfile"><i
-								class="fa fa-inbox fa-col-cus"> List of active Solutions:</i></span>
+								class="fa fa-inbox fa-col-cus" style="font-size: 3vh"> List of active Solutions:</i></span>
 							<br />
 							<br />
 
@@ -132,22 +132,22 @@
 										value="#{solution.personalAssistanceSolutionIncluded? 'Included' : 'Not Included'}" />
 								</h:column>
 								<h:column>
-									<f:facet name="header">Parcel Solution</f:facet>
+									<f:facet name="header">Parcel</f:facet>
 									<h:outputText value="#{solution.parcelSolutionIncluded? 'Included' : 'Not Included'}" />
 								</h:column>
 
 								<h:column>
-									<f:facet name="header">Messaging system</f:facet>
+									<f:facet name="header">Messaging</f:facet>
 									<h:outputText value="#{solution.messagingSystemChoice.label}" />
 								</h:column>
 								<h:column>
-									<f:facet name="header">Payment system</f:facet>
+									<f:facet name="header">Payment</f:facet>
 									<h:outputText value="#{solution.paymentSystemChoice.label}" />
 								</h:column>
 							</h:dataTable>
 							<br />
 							<span class="label-text-cusProfile"><i
-								class="fa fa-inbox fa-col-cus"> List of Customers:</i></span>
+								class="fa fa-inbox fa-col-cus" style="font-size: 3vh"> List of Customers:</i></span>
 							<br />
 							<br />
 							<h:dataTable class="table-customer" id="solutionListEntities"
