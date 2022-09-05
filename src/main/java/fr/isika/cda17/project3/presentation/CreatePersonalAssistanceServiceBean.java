@@ -90,7 +90,7 @@ public class CreatePersonalAssistanceServiceBean {
     
     public String createReferenceNumber() {
     	int ref = personalAssistanceServiceDao.findAll().size()+1;
-    	String referenceNumber="2022 - 00" + ref + " - PA";
+    	String referenceNumber="2022-00" + ref + "-PA";
     	return referenceNumber;
     }
 
