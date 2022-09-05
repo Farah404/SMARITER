@@ -2,7 +2,7 @@ package fr.isika.cda17.project3.model.serviceManagement;
 
 public enum PersonalAssistanceType {
 
-    MEDICAL("Médicale"), GROCERY("Courses");
+    MEDICAL("Médical"), GROCERY("Courses");
 
     private String label;
 
