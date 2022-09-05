@@ -52,7 +52,7 @@
 													class="glyphicon glyphicon-play  text-success"></span> Date
 													et heure de départ</td>
 												<td class="text-success">
-													<p>#{carRentalReservationBean.carRental.endDate}</p>
+													<p>#{carRentalReservationBean.carRental.startDate.format(userProfileBean.formatter)}</p>
 												</td>
 											</tr>
 
@@ -61,7 +61,7 @@
 													class="glyphicon glyphicon-stop  text-success"></span> Date
 													et heure de d'arrivée</td>
 												<td class="text-success">
-													<p>#{carRentalReservationBean.carRental.startDate}</p>
+													<p>#{carRentalReservationBean.carRental.endDate.format(userProfileBean.formatter)}</p>
 												</td>
 											</tr>
 											<tr>

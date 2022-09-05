@@ -54,7 +54,7 @@
 													class="glyphicon glyphicon-play  text-success"></span> Date
 													et heure de départ</td>
 												<td class="text-success">
-													<p>#{personnalAssistanceReservationBean.personalAssistanceService.startDate}</p>
+													<p>#{personnalAssistanceReservationBean.personalAssistanceService.startDate.format(userProfileBean.formatter)}</p>
 												</td>
 											</tr>
 
@@ -72,7 +72,7 @@
 													class="glyphicon glyphicon-stop  text-success"></span> Date
 													et heure de d'arrivée</td>
 												<td class="text-success">
-													<p>#{personnalAssistanceReservationBean.personalAssistanceService.endDate}</p>
+													<p>#{personnalAssistanceReservationBean.personalAssistanceService.endDate.format(userProfileBean.formatter)}</p>
 												</td>
 											</tr>
 											<tr>

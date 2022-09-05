@@ -55,7 +55,7 @@
 													class="glyphicon glyphicon-play  text-success"></span> Date
 													et heure de départ</td>
 												<td class="text-success">
-													<p>#{carPoolingReservationBean.carPooling.startDate}</p>
+													<p>#{carPoolingReservationBean.carPooling.startDate.format(userProfileBean.formatter)}</p>
 													<p></p>
 												</td>
 											</tr>
@@ -72,7 +72,7 @@
 													class="glyphicon glyphicon-stop  text-success"></span> Date
 													et heure de d'arrivée</td>
 												<td class="text-success">
-													<p>#{carPoolingReservationBean.carPooling.endDate}</p>
+													<p>#{carPoolingReservationBean.carPooling.endDate.format(userProfileBean.formatter)}</p>
 												</td>
 											</tr>
 											<tr>
