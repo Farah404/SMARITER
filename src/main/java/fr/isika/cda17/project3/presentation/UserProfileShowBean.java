@@ -18,7 +18,6 @@ import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
 import fr.isika.cda17.project3.model.serviceManagement.ParcelService;
 import fr.isika.cda17.project3.model.serviceManagement.PersonalAssistanceService;
 import fr.isika.cda17.project3.repository.messagingManagement.MessageDao;
-import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountDaoImpl;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserAccountsDao;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserDao;
 import fr.isika.cda17.project3.repository.serviceManagement.CarPoolingServiceDao;
@@ -113,7 +112,9 @@ public class UserProfileShowBean implements Serializable {
     			.withSender(userAccountSender)
     			.withMessage(messageContent)
     			.withRelatedService(serviceId)
-    			.withReceiver(userAccountProvider);
+    			.withReceiver(userAccountProvider)
+    			.withAppropriateReferenceNumber(referenceNumber);
+    	
     	messageDao.create(message);
     }
     

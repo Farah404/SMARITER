@@ -316,21 +316,45 @@
 
 
 													<div class="tab-pane" id="sms">
-														<div class="table-responsive">
-															<table class="table" id="userTable">
-																<thead>
+														<div class="table-responsive">					
+							<h:dataTable class="table"
+							value="#{userProfileBean.messageBetweenUsers}"
+							var="message">
+							<h:column>
+								<f:facet name="header">Expéditeur</f:facet>
+								<h:outputText value="#{message.userAccountSender.username}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Prestation</f:facet>
+								<h:outputText
+									value="#{message.referenceNumberConcerned}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Contenu du message</f:facet>
+								<h:outputText
+									value="#{message.messageContent}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Réponse</f:facet>
+								<h:inputText
+									value="#{userProfileBean.messageContentSending}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Répondre</f:facet>
+								<h:panelGrid>
+									<h:commandButton value="Répondre"
+										action="#{userProfileBean.sendMessage(message.userAccountSender, message.serviceId, message.referenceNumberConcerned)}">
+										<f:param name="userAccountSender"
+											value="#{message.userAccountSender}"></f:param>
+										<f:param name="serviceId"
+											value="#{message.serviceId}"></f:param>
+										<f:param name="referenceNumberConcerned"
+											value="#{message.referenceNumberConcerned}"></f:param>
 
-																	<tr class="header">
-																		<th>Expéditeur</th>
-																		<th>Prestation</th>
-																		<th>Contenu du message</th>
-																		<th>Répondre</th>
-																	</tr>
-																</thead>
-																<tbody>
-
-																</tbody>
-															</table>
+									</h:commandButton>
+								</h:panelGrid>
+							</h:column>
+						</h:dataTable>				
 														</div>
 													</div>
 												</div>

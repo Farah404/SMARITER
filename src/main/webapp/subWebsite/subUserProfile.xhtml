@@ -353,17 +353,17 @@
 								<img src="subMedia/Images/MessageUser.png" style="width: 50%;" />
 							</center>
 							<div class="form-outline mb-3">
-							<h:inputText value="#{userProfileShowBean.referenceNumber}" a:placeholder="Entrez le numéro de référence du service"/>
-<!-- 							<h:inputText value="#{userProfileShowBean.referenceNumber}" a:placeholder="Entrez le numéro de référence du service"/> -->
+							<h:inputText style="width:100%" value="#{userProfileShowBean.referenceNumber}" a:placeholder="Entrez le numéro de référence du service"/>
+								<br />
 								<br />
 							</div>
 							<div class="form-outline mb-3">
-							<h:inputTextarea value="#{userProfileShowBean.messageContent}" a:placeholder="Entrez votre message ici"/>
+							<h:inputTextarea style="width:100%" value="#{userProfileShowBean.messageContent}" a:placeholder="Entrez votre message ici"/>
 								<br />
 							</div>
 						</div>
 						<div class="modal-footer">
-							<h:commandButton class="btn btn-default pull-right" action="#{userProfileShowBean.sendMessage()}">Envoyer</h:commandButton>
+							<h:commandButton value="Envoyer" class="btn btn-default pull-right" action="#{userProfileShowBean.sendMessage()}" />
 						</div>
 					</div>
 

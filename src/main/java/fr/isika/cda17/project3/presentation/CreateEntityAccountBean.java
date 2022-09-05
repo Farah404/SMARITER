@@ -29,7 +29,6 @@ public class CreateEntityAccountBean {
 	if (map.containsKey("accountId")) {
 	    String accountIdParamValue = map.get("accountId");
 	    Long id = Long.valueOf(accountIdParamValue);
-
 	    // TODO : si pas de id => message d'erreur
 	    if (id != null) {
 		entityAccount = entityAccountDao.findById(id);

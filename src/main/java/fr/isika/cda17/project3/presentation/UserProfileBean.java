@@ -11,13 +11,17 @@ import javax.servlet.http.HttpSession;
 
 import fr.isika.cda17.project3.model.financialManagement.invoice.ServiceInvoice;
 import fr.isika.cda17.project3.model.financialManagement.invoice.StoreInvoice;
+import fr.isika.cda17.project3.model.messagingManagement.MessageBetweenUsers;
 import fr.isika.cda17.project3.model.personManagement.accounts.User;
+import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
 import fr.isika.cda17.project3.model.serviceManagement.ParcelService;
 import fr.isika.cda17.project3.model.serviceManagement.PersonalAssistanceService;
 import fr.isika.cda17.project3.repository.financialManagement.invoice.ServiceInvoiceDao;
 import fr.isika.cda17.project3.repository.financialManagement.invoice.StoreInvoiceDao;
+import fr.isika.cda17.project3.repository.messagingManagement.MessageBetweenUsersDaoImpl;
+import fr.isika.cda17.project3.repository.messagingManagement.MessageDao;
 import fr.isika.cda17.project3.repository.personManagement.accounts.UserDao;
 import fr.isika.cda17.project3.repository.serviceManagement.CarPoolingServiceDao;
 import fr.isika.cda17.project3.repository.serviceManagement.CarRentalServiceDao;
@@ -51,6 +55,9 @@ public class UserProfileBean implements Serializable {
     @Inject
     private ServiceInvoiceDao serviceInvoiceDao;
     
+    @Inject
+    private MessageDao messageDao;
+    
     private User user;
     private List<CarPoolingService> cpsListUserRelated;
     private List<CarRentalService> crsListUserRelated;
@@ -59,10 +66,15 @@ public class UserProfileBean implements Serializable {
     private List<StoreInvoice> userStoreInvoice;
     private List<ServiceInvoice> userServiceInvoiceWhenPurchaser;
     private List<ServiceInvoice> userServiceInvoiceWhenProvider;
+    private List<MessageBetweenUsers> messageBetweenUsers;
     
     private String LabelServiceInvoice ="Facture de service";
     
     private String LabelStoreInvoice = "Facture d'EcoStore";
+    
+    private MessageBetweenUsers message = new MessageBetweenUsers();
+    
+    private String messageContentSending;
     
     public void init() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
@@ -77,17 +89,22 @@ public class UserProfileBean implements Serializable {
 	    userStoreInvoice=storeInvoiceDao.findAllUserAccountStoreInvoice(user.getUserAccount().getId());
 	    userServiceInvoiceWhenPurchaser=serviceInvoiceDao.findAllUserAccountPurchaserServiceInvoice(user.getUserAccount().getId());
 	    userServiceInvoiceWhenProvider= serviceInvoiceDao.findAllUserAccountProviderServiceInvoice(user.getUserAccount().getId());
-//	    System.out.println(cpsListUserRelated.isEmpty());
-//	    System.out.println(crsListUserRelated.isEmpty());
-//	    System.out.println(psListUserRelated.isEmpty());
-//	    System.out.println(pasListUserRelated.isEmpty());
-//	    System.out.println(id);
+	    messageBetweenUsers=messageDao.findAllMessageReceivedByUser(id);
 	    if (user == null) {
 		System.out.println("not logical");
 	    }
 	} else {
 	    System.out.println("id null");
 	}
+    }
+    public void sendMessage(UserAccount userAccountReceiver, Long serviceId, String referenceNumberConcerned) {
+    	MessageBetweenUsers messageSending = new MessageBetweenUsers()
+    			.withSender(user.getUserAccount())
+    			.withAppropriateReferenceNumber(referenceNumberConcerned)
+    			.withMessage(messageContentSending)
+    			.withReceiver(userAccountReceiver)
+    			.withRelatedService(serviceId);
+    	messageDao.create(messageSending);
     }
 
     public String updateStepOne() {
@@ -195,5 +212,20 @@ public class UserProfileBean implements Serializable {
 	public void setUserServiceInvoiceWhenProvider(List<ServiceInvoice> userServiceInvoiceWhenProvider) {
 		this.userServiceInvoiceWhenProvider = userServiceInvoiceWhenProvider;
 	}
+
+	public List<MessageBetweenUsers> getMessageBetweenUsers() {
+		return messageBetweenUsers;
+	}
+
+	public void setMessageBetweenUsers(List<MessageBetweenUsers> messageBetweenUsers) {
+		this.messageBetweenUsers = messageBetweenUsers;
+	}
+	public String getMessageContentSending() {
+		return messageContentSending;
+	}
+	public void setMessageContentSending(String messageContentSending) {
+		this.messageContentSending = messageContentSending;
+	}
+	
     
 }

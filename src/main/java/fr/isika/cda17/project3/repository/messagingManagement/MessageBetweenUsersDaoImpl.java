@@ -47,4 +47,11 @@ public class MessageBetweenUsersDaoImpl implements MessageDao {
 				.getResultList();
 		return messageList;
 	}
+	@Override
+	public List<MessageBetweenUsers> findAllMessageReceivedByUser(Long id) {
+		List<MessageBetweenUsers> messageList = this.entityManager
+				.createNamedQuery("MessageBetweenUsers.findAllMessageReceivedByUser", MessageBetweenUsers.class).setParameter("useraccountid_param", id)
+				.getResultList();
+		return messageList;
+	}
 }
