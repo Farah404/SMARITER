@@ -2,6 +2,7 @@ package fr.isika.cda17.project3.presentation;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
@@ -48,6 +49,7 @@ public class UserProfileByCustomerBean implements Serializable {
     private List<ParcelService> psListUserRelated;
     private List<PersonalAssistanceService> pasListUserRelated;
     private User user;
+    private String formatDateCreation;
     
     public void init() throws IOException {
     	Map<String, String> map = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
@@ -60,6 +62,9 @@ public class UserProfileByCustomerBean implements Serializable {
     		if (id != null) {
 
     		    user = userDao.findById(id);
+    		    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+    		    formatDateCreation = user.getUserAccount().getCreationDate().format(formatter);
+    		    
     		    cpsListUserRelated = carPoolingServiceDao.findAllUserCarPoolingServices(user.getUserAccount().getId());
     		    crsListUserRelated = carRentalServiceDao.findAllUserCarRentalServices(user.getUserAccount().getId());
     		    psListUserRelated = parcelServiceDao.findAllUserParcelServices(user.getUserAccount().getId());
@@ -87,6 +92,15 @@ public class UserProfileByCustomerBean implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	
+	public String getFormatDateCreation() {
+		return formatDateCreation;
+	}
+
+	public void setFormatDateCreation(String formatDateCreation) {
+		this.formatDateCreation = formatDateCreation;
 	}
 
 	public List<CarPoolingService> getCpsListUserRelated() {

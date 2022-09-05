@@ -1,5 +1,8 @@
 package fr.isika.cda17.project3.utils;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
@@ -299,8 +302,9 @@ public class DataSet {
 	ua1.setVehicule(vUa1);
 	ua1.setWallet(wUa1);
 	ua1.setShoppingCart(scUa1);
+	ua1.setCreationDate(LocalDateTime.of(2022, 06, 25, 10, 30));
 	em.persist(ua1);
-	u1.setBirthDate(null);
+	u1.setBirthDate(Date.valueOf("1990-08-18"));
 	u1.setDrivingPermitNumber(5239458);
 	u1.setFirstName("Hermann");
 	u1.setLastName("Gauduin");
@@ -360,8 +364,9 @@ public class DataSet {
 	ua2.setVehicule(vUa2);
 	ua2.setWallet(wUa2);
 	ua2.setShoppingCart(scUa2);
+	ua2.setCreationDate(LocalDateTime.of(2022, 07, 25, 14, 30));
 	em.persist(ua2);
-	u2.setBirthDate(null);
+	u2.setBirthDate(Date.valueOf("1992-12-28"));
 	u2.setDrivingPermitNumber(951753456);
 	u2.setFirstName("Farah");
 	u2.setLastName("Gauduin");
@@ -421,8 +426,9 @@ public class DataSet {
 	ua3.setVehicule(vUa3);
 	ua3.setWallet(wUa3);
 	ua3.setShoppingCart(scUa3);
+	ua3.setCreationDate(LocalDateTime.of(2022, 07, 25, 14, 30));
 	em.persist(ua3);
-	u3.setBirthDate(null);
+	u3.setBirthDate(Date.valueOf("1956-10-13"));
 	u3.setDrivingPermitNumber(8619077);
 	u3.setFirstName("François-Noël");
 	u3.setLastName("Bernal");
@@ -482,8 +488,9 @@ public class DataSet {
 	ua4.setVehicule(vUa4);
 	ua4.setWallet(wUa4);
 	ua4.setShoppingCart(scUa4);
+	ua4.setCreationDate(LocalDateTime.of(2022, 07, 24, 14, 30));
 	em.persist(ua4);
-	u4.setBirthDate(null);
+	u4.setBirthDate(Date.valueOf("1990-08-14"));
 	u4.setDrivingPermitNumber(7395832);
 	u4.setFirstName("Houda");
 	u4.setLastName("Madi");
@@ -543,8 +550,9 @@ public class DataSet {
 	ua5.setVehicule(vUa5);
 	ua5.setWallet(wUa5);
 	ua5.setShoppingCart(scUa5);
+	ua5.setCreationDate(LocalDateTime.of(2022, 05, 25, 14, 30));
 	em.persist(ua5);
-	u5.setBirthDate(null);
+	u5.setBirthDate(Date.valueOf("1985-06-14"));
 	u5.setDrivingPermitNumber(4532553);
 	u5.setFirstName("Yannick");
 	u5.setLastName("Sourigues");
@@ -604,8 +612,9 @@ public class DataSet {
 	ua6.setVehicule(vUa6);
 	ua6.setWallet(wUa6);
 	ua6.setShoppingCart(scUa6);
+	ua6.setCreationDate(LocalDateTime.of(2022, 04, 25, 14, 30));
 	em.persist(ua6);
-	u6.setBirthDate(null);
+	u6.setBirthDate(Date.valueOf("1976-01-01"));
 	u6.setDrivingPermitNumber(4532553);
 	u6.setFirstName("Benjamin");
 	u6.setLastName("Dubois");
@@ -665,8 +674,9 @@ public class DataSet {
 	ua7.setVehicule(vUa7);
 	ua7.setWallet(wUa7);
 	ua7.setShoppingCart(scUa7);
+	ua7.setCreationDate(LocalDateTime.of(2022, 07, 21, 12, 30));
 	em.persist(ua7);
-	u7.setBirthDate(null);
+	u7.setBirthDate(Date.valueOf("2001-10-23"));
 	u7.setDrivingPermitNumber(5218536);
 	u7.setFirstName("Jules");
 	u7.setLastName("Bias");
@@ -726,8 +736,9 @@ public class DataSet {
 	ua8.setVehicule(vUa8);
 	ua8.setWallet(wUa8);
 	ua8.setShoppingCart(scUa8);
+	ua8.setCreationDate(LocalDateTime.of(2022, 07, 22, 23, 30));
 	em.persist(ua8);
-	u8.setBirthDate(null);
+	u8.setBirthDate(Date.valueOf("1990-01-14"));
 	u8.setDrivingPermitNumber(951753456);
 	u8.setFirstName("Hamid");
 	u8.setLastName("Gauduin");
@@ -787,8 +798,9 @@ public class DataSet {
 	ua9.setVehicule(vUa9);
 	ua9.setWallet(wUa9);
 	ua9.setShoppingCart(scUa9);
+	ua9.setCreationDate(LocalDateTime.of(2022, 04, 25, 14, 30));
 	em.persist(ua9);
-	u9.setBirthDate(null);
+	u9.setBirthDate(Date.valueOf("1985-11-28"));
 	u9.setDrivingPermitNumber(7762147);
 	u9.setFirstName("Romuald");
 	u9.setLastName("Nguenga");
@@ -848,8 +860,9 @@ public class DataSet {
 	ua10.setVehicule(vUa10);
 	ua10.setWallet(wUa10);
 	ua10.setShoppingCart(scUa10);
+	ua10.setCreationDate(LocalDateTime.of(2022, 07, 12, 19, 30));
 	em.persist(ua10);
-	u10.setBirthDate(null);
+	u10.setBirthDate(Date.valueOf("2014-01-23"));
 	u10.setDrivingPermitNumber(9340798);
 	u10.setFirstName("Gaïa");
 	u10.setLastName("Bissé");

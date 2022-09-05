@@ -75,7 +75,7 @@
 																<tr>
 																	<td><span
 																		class="glyphicon glyphicon-user  text-success"></span>
-																		Nom et Prenom</td>
+																		Nom et prénom</td>
 																	<td class="text-success">
 																		<p>#{userProfileBean.user.lastName}
 																			#{userProfileBean.user.firstName}</p>
@@ -133,7 +133,7 @@
 																		class="glyphicon glyphicon-calendar text-success"></span>
 																		Date de création du compte</td>
 																	<td class="text-success">
-																		<p>#{userProfileBean.user.userAccount.creationDate}</p>
+																		<p>#{userProfileBean.formatDateCreation}</p>
 																	</td>
 																</tr>
 															</tbody>
@@ -213,7 +213,7 @@
 																<tr>
 																	<td><span
 																		class="glyphicon glyphicon-send text-success"></span>
-																		Code Postale</td>
+																		Code Postal</td>
 																	<td class="text-success">
 																		<p>#{userProfileBean.user.userAccount.billingAddress.postalCode}</p>
 																	</td>
@@ -375,7 +375,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header"> Date et heure de départ</f:facet>
-								<h:outputText value="#{cpsUserRelated.startDate}" />
+								<h:outputText value="#{cpsUserRelated.startDate.format(userProfileBean.formatter)}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header"> Adresse d'arrivée </f:facet>
@@ -385,7 +385,7 @@
 
 							<h:column>
 								<f:facet name="header"> Date et heure d'arrivée</f:facet>
-								<h:outputText value="#{cpsUserRelated.endDate}" />
+								<h:outputText value="#{cpsUserRelated.endDate.format(userProfileBean.formatter)}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Durée (heures)</f:facet>
@@ -463,11 +463,11 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header">Date de début</f:facet>
-								<h:outputText value="#{crsUserRelated.startDate}" />
+								<h:outputText value="#{crsUserRelated.startDate.format(userProfileBean.formatter)}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Date de fin</f:facet>
-								<h:outputText value="#{crsUserRelated.endDate}" />
+								<h:outputText value="#{crsUserRelated.endDate.format(userProfileBean.formatter)}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Marque du véhicule</f:facet>
@@ -527,7 +527,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header">Date et heure de départ</f:facet>
-								<h:outputText value="#{parcelService.startDate}" />
+								<h:outputText value="#{parcelService.startDate.format(userProfileBean.formatter)}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Adresse d'arrivée </f:facet>
@@ -536,7 +536,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header">Date et heure d'arrivée</f:facet>
-								<h:outputText value="#{psUserRelated.endDate}" />
+								<h:outputText value="#{psUserRelated.endDate.format(userProfileBean.formatter)}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Code Barre</f:facet>
@@ -610,7 +610,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header">Date et heure de départ</f:facet>
-								<h:outputText value="#{pasUserRelated.startDate}" />
+								<h:outputText value="#{pasUserRelated.startDate.format(userProfileBean.formatter)}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Adresse d'arrivée </f:facet>
@@ -619,7 +619,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header">Date et heure d'arrivée</f:facet>
-								<h:outputText value="#{pasUserRelated.endDate}" />
+								<h:outputText value="#{pasUserRelated.endDate.format(userProfileBean.formatter)}" />
 							</h:column>
 
 							<h:column>

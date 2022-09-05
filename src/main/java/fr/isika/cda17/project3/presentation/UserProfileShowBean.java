@@ -1,6 +1,7 @@
 package fr.isika.cda17.project3.presentation;
 
 import java.io.Serializable;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
@@ -52,6 +53,8 @@ public class UserProfileShowBean implements Serializable {
 	@Inject
 	private MessageDao messageDao;
 	
+	
+	private String formatDateCreation;
 	private MessageBetweenUsers message;
 	private String messageContent = "";
 	private String referenceNumber = "";
@@ -69,6 +72,10 @@ public class UserProfileShowBean implements Serializable {
     	    if (userIdCartIdParamValue != null && !userIdCartIdParamValue.isBlank()) {
     		Long id = Long.valueOf(userIdCartIdParamValue);
     		user = userDao.findByUserAccountId(id);
+    		
+    		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+    		formatDateCreation = user.getUserAccount().getCreationDate().format(formatter);
+    		
     		cpsListUserRelated = carPoolingServiceDao.findAllUserCarPoolingServices(id);
     	    crsListUserRelated = carRentalServiceDao.findAllUserCarRentalServices(id);
     	    psListUserRelated = parcelServiceDao.findAllUserParcelServices(id);
@@ -144,8 +151,14 @@ public class UserProfileShowBean implements Serializable {
     public void setUser(User user) {
 	this.user = user;
     }
+    
+	public String getFormatDateCreation() {
+		return formatDateCreation;
+	}
 
-
+	public void setFormatDateCreation(String formatDateCreation) {
+		this.formatDateCreation = formatDateCreation;
+	}
 
 	public String getMessageContent() {
 		return messageContent;

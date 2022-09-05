@@ -59,7 +59,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header"> Date et heure de départ</f:facet>
-								<h:outputText value="#{carPoolingService.startDate}" />
+								<h:outputText value="#{carPoolingService.startDate.format(userProfileBean.formatter)}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header"> Adresse d'arrivée </f:facet>
@@ -69,7 +69,7 @@
 
 							<h:column>
 								<f:facet name="header"> Date et heure d'arrivée</f:facet>
-								<h:outputText value="#{carPoolingService.endDate}" />
+								<h:outputText value="#{carPoolingService.endDate.format(userProfileBean.formatter)}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Durée (heures)</f:facet>
@@ -141,11 +141,11 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header">Date de début</f:facet>
-								<h:outputText value="#{carRentalService.startDate}" />
+								<h:outputText value="#{carRentalService.startDate.format(userProfileBean.formatter)}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Date de fin</f:facet>
-								<h:outputText value="#{carRentalService.endDate}" />
+								<h:outputText value="#{carRentalService.endDate.format(userProfileBean.formatter)}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Marque du véhicule</f:facet>
@@ -202,7 +202,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header">Date et heure de départ</f:facet>
-								<h:outputText value="#{parcelService.startDate}" />
+								<h:outputText value="#{parcelService.startDate.format(userProfileBean.formatter)}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Adresse d'arrivée </f:facet>
@@ -211,7 +211,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header">Date et heure d'arrivée</f:facet>
-								<h:outputText value="#{parcelService.endDate}" />
+								<h:outputText value="#{parcelService.endDate.format(userProfileBean.formatter)}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Code Barre</f:facet>
@@ -281,7 +281,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header">Date et heure de départ</f:facet>
-								<h:outputText value="#{personalAssistance.startDate}" />
+								<h:outputText value="#{personalAssistance.startDate.format(userProfileBean.formatter)}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Adresse d'arrivée </f:facet>
@@ -290,7 +290,7 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header">Date et heure d'arrivée</f:facet>
-								<h:outputText value="#{personalAssistance.endDate}" />
+								<h:outputText value="#{personalAssistance.endDate.format(userProfileBean.formatter)}" />
 							</h:column>
 							<h:column>
 								<f:facet name="header">Membre EcoCar Prestataire</f:facet>
