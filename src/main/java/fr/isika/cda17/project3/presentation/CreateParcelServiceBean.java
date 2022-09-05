@@ -47,7 +47,7 @@ public class CreateParcelServiceBean {
 	return TrajectoryType.values();
     }
 
-    public void create() {
+    public String create() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
@@ -63,11 +63,11 @@ public class CreateParcelServiceBean {
 	
 	ps.withBarCode(createParcelNumber()).withTrajectory(trajectory);
 	
-	ParcelService created = parcelServiceDao.create((ParcelService) ps);
-	System.out.println(created);
+	parcelServiceDao.create((ParcelService) ps);
+	return "subServiceList.xhtml";
     }
 
-    public void createRequest() {
+    public String createRequest() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
@@ -86,6 +86,7 @@ public class CreateParcelServiceBean {
 
 
 	parcelServiceDao.create((ParcelService) ps);
+	return "subServiceList.xhtml";
 
     }
     

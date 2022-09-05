@@ -42,7 +42,7 @@ public class CreateCarRentalServiceBean {
 	userAccount = userAccountsDao.findById(id);
     }
 
-    public void create() {
+    public String create() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
@@ -57,9 +57,10 @@ public class CreateCarRentalServiceBean {
 
 	crs = ((CarRentalService) crs).withVehicule(vehicule);
 	carRentalServiceDao.create((CarRentalService) crs);
+	return "subServiceList.xhtml";
 	}
 
-    public void createRequest() {
+    public String createRequest() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
@@ -73,6 +74,7 @@ public class CreateCarRentalServiceBean {
 		.withReferenceNumber(createReferenceNumber());
 	
 	carRentalServiceDao.create((CarRentalService) crs);
+	return "subServiceList.xhtml";
     }
     
     public String createReferenceNumber() {
