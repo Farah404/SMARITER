@@ -31,7 +31,7 @@ public class CreateParcelServiceBean {
 
     private UserAccount userAccount;
 
-    private Service ps = new ParcelService();
+    private ParcelService ps = new ParcelService();
 
     private Vehicule vehicule = new Vehicule();
 
@@ -47,13 +47,12 @@ public class CreateParcelServiceBean {
 	return TrajectoryType.values();
     }
 
-    public void create() {
+    public String create() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
 	((ParcelService) ps).setVehicule(userAccount.getVehicule());
 	trajectory.setItinerary(itinerary);
-	((ParcelService) ps).setTrajectory(trajectory);
 	
 	ps.withStartDate(LocalDateTime.parse(startDate))
 		.withEndDate(LocalDateTime.parse(endDate))
@@ -62,11 +61,13 @@ public class CreateParcelServiceBean {
 		.withProvider(userAccount)
 		.withReferenceNumber(createReferenceNumber());
 	
-	ParcelService created = parcelServiceDao.create((ParcelService) ps);
-	System.out.println(created);
+	ps.withBarCode(createParcelNumber()).withTrajectory(trajectory);
+	
+	parcelServiceDao.create((ParcelService) ps);
+	return "subServiceList.xhtml";
     }
 
-    public void createRequest() {
+    public String createRequest() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
@@ -81,13 +82,18 @@ public class CreateParcelServiceBean {
 		.withPurchaser(userAccount)
 		.withReferenceNumber(createReferenceNumber());
 	
-	ps = ((ParcelService) ps).withTrajectory(trajectory);
+	ps.withBarCode(createParcelNumber()).withTrajectory(trajectory);
 
 
-	ParcelService created = parcelServiceDao.create((ParcelService) ps);
-	System.out.println(created);
+	parcelServiceDao.create((ParcelService) ps);
+	return "subServiceList.xhtml";
+
     }
     
+    public int createParcelNumber() {
+    	int ref = parcelServiceDao.findAll().size()+151;
+    	return ref;
+    }
     public String createReferenceNumber() {
     	int ref = parcelServiceDao.findAll().size()+1;
     	String referenceNumber="2022-00" + ref + "-PS";

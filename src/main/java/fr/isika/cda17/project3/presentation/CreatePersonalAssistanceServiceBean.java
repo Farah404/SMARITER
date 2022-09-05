@@ -48,7 +48,7 @@ public class CreatePersonalAssistanceServiceBean {
 	return TrajectoryType.values();
     }
 
-    public void create() {
+    public String create() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
@@ -62,11 +62,12 @@ public class CreatePersonalAssistanceServiceBean {
 		.withProvider(userAccount)
 		.withReferenceNumber(createReferenceNumber());
 	
-	PersonalAssistanceService created = personalAssistanceServiceDao.create((PersonalAssistanceService) pas);
-	System.out.println(created);
+	personalAssistanceServiceDao.create((PersonalAssistanceService) pas);
+	return "subServiceList.xhtml";
+	
     }
 
-    public void createRequest() {
+    public String createRequest() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
@@ -82,10 +83,9 @@ public class CreatePersonalAssistanceServiceBean {
 		.withReferenceNumber(createReferenceNumber());
 	
 	pas = ((PersonalAssistanceService) pas).withTrajectory(trajectory);
-
-
-	PersonalAssistanceService created = personalAssistanceServiceDao.create((PersonalAssistanceService) pas);
-	System.out.println(created);
+	personalAssistanceServiceDao.create((PersonalAssistanceService) pas);
+	
+	return "subServiceList.xhtml";
     }
     
     public String createReferenceNumber() {

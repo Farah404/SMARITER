@@ -52,7 +52,7 @@ public class CreateCarPoolingServiceBean {
 	return TrajectoryType.values();
     }
 
-    public void create() {
+    public String create() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
@@ -69,10 +69,10 @@ public class CreateCarPoolingServiceBean {
 	((CarPoolingService) cps).setTrajectory(trajectory);
 	
 	CarPoolingService created = carPoolingServiceDao.create((CarPoolingService) cps);
-	System.out.println(created);
+	return "subServiceList.xhtml";
     }
 
-    public void createRequest() {
+    public String createRequest() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
 	userAccount = userAccountsDao.findById(id);
@@ -90,13 +90,17 @@ public class CreateCarPoolingServiceBean {
 	cps = ((CarPoolingService) cps).withTrajectory(trajectory);
 
 	CarPoolingService created = carPoolingServiceDao.create((CarPoolingService) cps);
-	System.out.println(created);
+	return "subServiceList.xhtml";
     }
 
     public String createReferenceNumber() {
     	int ref = carPoolingServiceDao.findAll().size()+1;
     	String referenceNumber="2022-00" + ref + "-CP";
     	return referenceNumber;
+    }
+    public LocalDateTime expirationDate() {
+    	LocalDateTime expirationDate=LocalDateTime.parse(endDate).minusDays(1);
+    	return expirationDate;
     }
     public CarPoolingService getCps() {
 	return (CarPoolingService) cps;

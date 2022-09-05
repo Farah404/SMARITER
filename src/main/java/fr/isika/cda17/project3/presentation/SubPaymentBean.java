@@ -130,9 +130,7 @@ public class SubPaymentBean {
 	return braintreeGateway;
     }
 
-    // Make payment
     public String doSolutionPaymentTransaction() {
-//    	receivePaymentMethodNonce();
 
 	TransactionRequest request = new TransactionRequest().amount(amount)
 			.paymentMethodNonce(nonce).creditCard().number(cardNumber).expirationDate("01/2024").cvv(cardCvv).done();
@@ -141,18 +139,12 @@ public class SubPaymentBean {
 	customerRequest.email(user.getUserAccount().getEmail());
 	customerRequest.firstName(user.getFirstName());
 	customerRequest.lastName(user.getLastName());
-
-	
-//	TransactionCreditCardRequest tccr = request.creditCard()
-//		.number("1234567891234567").cardholderName("Patel Chirag").cvv("200").expirationDate("11/23");
 	
 	TransactionOptionsRequest options = request.options();
 	options.submitForSettlement(true);
 	
-	// Done the transaction request
 	options.done();
 
-	// Create transaction ...
 	Result<Transaction> result = gateway.transaction().sale(request);
 	boolean isSuccess = result.isSuccess();
 
@@ -181,9 +173,6 @@ public class SubPaymentBean {
 	} else {
 	    ValidationErrors errors = result.getErrors();
 	    validationError(errors);
-//	    TODO : delete solution created without payment
-//	    solutionDao.delete(solution.getId());
-//	    ARUJUNAO errors = > Solution - Customer - EntityAccount Bermuda Triangle
 	    return "paymentError.xhtml";
 	}
 	
@@ -204,14 +193,6 @@ public class SubPaymentBean {
     public String getClientToken() {
 	return clientToken;
     }
-
-    // Make an endpoint which receive payment method nonce from client and do
-    // payment.
-//    public void receivePaymentMethodNonce() {
-//	String nonceFromTheClient = "fake-valid-mastercard-nonce";
-//    	nonce = "fake-valid-mastercard-nonce";
-//	return nonceFromTheClient;
-//    }
 
     private void displayTransactionInfo(Transaction transaction) {
 	System.out.println(" ------ Transaction Info ------ ");

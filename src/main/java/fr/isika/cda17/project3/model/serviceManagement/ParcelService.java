@@ -94,8 +94,12 @@ public class ParcelService extends Service {
 	this.trajectory = trajectory;
     }
 
-    public Service withTrajectory(Trajectory trajectory) {
+    public ParcelService withTrajectory(Trajectory trajectory) {
 	this.trajectory = trajectory;
 	return this;
+    }
+    public ParcelService withBarCode(final int barCode) {
+    	this.barCode=barCode;
+    	return this;
     }
 }

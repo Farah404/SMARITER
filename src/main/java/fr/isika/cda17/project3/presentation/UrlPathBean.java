@@ -69,7 +69,7 @@ public class UrlPathBean implements Serializable {
 	return "siteMap.xhtml";
     }
     public String goToTemplateOne() {
-    return "TemplateOne.xhtml";
+    return "templateOne.xhtml";
     }
     public String goToTemplateTwo() {
     return "templateTwo.xhtml";

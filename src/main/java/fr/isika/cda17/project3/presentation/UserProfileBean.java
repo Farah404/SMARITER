@@ -1,6 +1,7 @@
 package fr.isika.cda17.project3.presentation;
 
 import java.io.Serializable;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -71,10 +72,12 @@ public class UserProfileBean implements Serializable {
     private String LabelServiceInvoice ="Facture de service";
     
     private String LabelStoreInvoice = "Facture d'EcoStore";
-    
-    private MessageBetweenUsers message = new MessageBetweenUsers();
-    
+   
     private String messageContentSending;
+    
+    private String formatDateCreation;
+    
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     
     public void init() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
@@ -82,6 +85,9 @@ public class UserProfileBean implements Serializable {
 	System.out.println(id);
 	if (id != null) {
 	    user = userDao.findByUserAccountId(id);
+	    
+	    formatDateCreation = user.getUserAccount().getCreationDate().format(formatter);
+	    
 	    cpsListUserRelated = carPoolingServiceDao.findAllUserCarPoolingServices(id);
 	    crsListUserRelated = carRentalServiceDao.findAllUserCarRentalServices(id);
 	    psListUserRelated = parcelServiceDao.findAllUserParcelServices(id);
@@ -149,6 +155,12 @@ public class UserProfileBean implements Serializable {
 		LabelStoreInvoice = labelStoreInvoice;
 	}
 
+	public String getFormatDateCreation() {
+		return formatDateCreation;
+	}
+	public void setFormatDateCreation(String formatDateCreation) {
+		this.formatDateCreation = formatDateCreation;
+	}
 	public User getUser() {
 	return user;
     }
@@ -225,6 +237,12 @@ public class UserProfileBean implements Serializable {
 	}
 	public void setMessageContentSending(String messageContentSending) {
 		this.messageContentSending = messageContentSending;
+	}
+	public DateTimeFormatter getFormatter() {
+		return formatter;
+	}
+	public void setFormatter(DateTimeFormatter formatter) {
+		this.formatter = formatter;
 	}
 	
     

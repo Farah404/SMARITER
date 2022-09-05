@@ -32,7 +32,6 @@ public class CreateCustomerBean implements Serializable {
 
     public void create() {
 	Customer created = customerDao.create(customer);
-	System.out.println(created);
     }
 
     public String createStepOne() {
@@ -53,7 +52,7 @@ public class CreateCustomerBean implements Serializable {
     public String update() {
 	customerDao.update(customer);
 	System.out.println(customer);
-	return "index.xhtml?faces-redirect=true";
+	return "logInSignUp.xhtml";
     }
 
     public void init() {

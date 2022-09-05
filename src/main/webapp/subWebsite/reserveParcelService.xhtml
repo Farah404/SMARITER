@@ -72,7 +72,7 @@
 													class="glyphicon glyphicon-play  text-success"></span> Date
 													et heure de départ</td>
 												<td class="text-success">
-													<p>#{parcelServiceReservationBean.parcelService.startDate}</p>
+													<p>#{parcelServiceReservationBean.parcelService.startDate.format(userProfileBean.formatter)}</p>
 												</td>
 											</tr>
 											<tr>
@@ -81,7 +81,7 @@
 													class="glyphicon glyphicon-stop  text-success"></span> Date
 													et heure d'arrivée</td>
 												<td class="text-success">
-													<p>#{parcelServiceReservationBean.parcelService.endDate}</p>
+													<p>#{parcelServiceReservationBean.parcelService.endDate.format(userProfileBean.formatter)}</p>
 												</td>
 											</tr>
 											<tr>
