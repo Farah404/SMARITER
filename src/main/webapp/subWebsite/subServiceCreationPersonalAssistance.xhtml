@@ -19,7 +19,7 @@
 						<div class="row">
 							<div class="col-md-4">
 								<div class="form-outline mb-3">
-									Date de Début
+									Date de début
 									<h:inputText class="form-control" id="startDateString"
 										a:placeholder="2018-05-05T11:50:55"
 										value="#{createPersonalAssistanceServiceBean.startDate}" />
@@ -76,13 +76,7 @@
 							</div>
 
 							<div class="col-md-4">
-
-								<div class="form-floating mb-3">
-									<h:selectBooleanCheckbox
-										value="#{createPersonalAssistanceServiceBean.pas.urgent}" />
-									Urgent <br />
-								</div>
-
+							
 								<div class="form-floating mb-3">
 									Type du trajet<br />
 									<h:selectOneMenu id="trajectoryType" class="form-control"
@@ -95,7 +89,7 @@
 								</div>
 
 								<div class="form-floating mb-3">
-									PAS type<br />
+									Type de la prestation<br />
 									<h:selectOneMenu id="pastype" class="form-control"
 										value="#{createPersonalAssistanceServiceBean.pas.personalAssistanceType}">
 										<f:selectItems
@@ -106,7 +100,7 @@
 								</div>
 
 								<div class="form-floating mb-3">
-									Arret 1
+									Arrêt 1
 									<h:inputText class="form-control" id="firstStop"
 										a:placeholder=""
 										value="#{createPersonalAssistanceServiceBean.itinerary.firstStopAddress}" />
@@ -114,7 +108,7 @@
 								</div>
 
 								<div class="form-floating mb-3">
-									Arret 2
+									Arrêt 2
 									<h:inputText class="form-control" id="secondStop"
 										a:placeholder=""
 										value="#{createPersonalAssistanceServiceBean.itinerary.secondStopAddress}" />
@@ -122,11 +116,17 @@
 								</div>
 
 								<div class="form-floating mb-3">
-									Arret 3
+									Arrêt 3
 									<h:inputText class="form-control" id="thirdStop"
 										a:placeholder=""
 										value="#{createPersonalAssistanceServiceBean.itinerary.thirdStopAddress}" />
 									<br />
+								</div>
+								
+								<div class="form-floating mb-3">
+									<h:selectBooleanCheckbox
+										value="#{createPersonalAssistanceServiceBean.pas.urgent}" />
+									C'est urgent <br />
 								</div>
 
 							</div>

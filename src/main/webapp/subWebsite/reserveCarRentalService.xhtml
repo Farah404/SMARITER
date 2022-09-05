@@ -43,7 +43,7 @@
 							<div class="col-md-6">
 								<div class="table-responsive">
 
-									<span class="text-success"><strong>Information</strong><br /></span>
+									<span class="text-success"><strong>Information: Location de véhicule</strong><br /></span>
 
 									<table class="table table-user-information">
 										<tbody>
@@ -92,9 +92,18 @@
 
 											<tr>
 												<td><span class="glyphicon glyphicon-cog text-success"></span>
-													Type</td>
+													Boîte de vitesse</td>
 												<td class="text-success">
-													<p>#{carRentalReservationBean.carRental.userAccountProvider.vehicule.vehiculeType.name()}</p>
+													<p><h:outputText value="#{carRentalServiceManagementBean.vehiculeType()}"></h:outputText></p>
+												
+												</td>
+											</tr>
+											
+											<tr>
+												<td><span class="glyphicon glyphicon-cog text-success"></span>
+													Transmission</td>
+												<td class="text-success">
+													<p><h:outputText value="#{carRentalServiceManagementBean.VehiculePowerType()}"></h:outputText></p>
 												</td>
 											</tr>
 
