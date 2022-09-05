@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
+import fr.isika.cda17.project3.model.serviceManagement.ParcelService;
 import fr.isika.cda17.project3.model.serviceManagement.PersonalAssistanceService;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 
@@ -103,6 +104,12 @@ public class PersonalAssistanceServiceDaoImpl implements PersonalAssistanceServi
 	}catch (Exception e) {
 		return referenceNumber;
 	}
+	}
+	
+	@Override
+	public Long findByReferenceNumber(String referenceNumber) {
+		PersonalAssistanceService ps = this.entityManager.createNamedQuery("PersonalAssistanceService.findByReferenceNumber", PersonalAssistanceService.class).setParameter("referencenumber_param", referenceNumber).getSingleResult();
+		return ps.getId();
 	}
 
 }

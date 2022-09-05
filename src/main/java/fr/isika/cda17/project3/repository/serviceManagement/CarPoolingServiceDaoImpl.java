@@ -103,4 +103,10 @@ public class CarPoolingServiceDaoImpl implements CarPoolingServiceDao {
 		return referenceNumber;
 	}
 	}
+
+	@Override
+	public Long findByReferenceNumber(String referenceNumber) {
+		CarPoolingService cps = this.entityManager.createNamedQuery("CarPoolingService.findByReferenceNumber", CarPoolingService.class).setParameter("referencenumber_param", referenceNumber).getSingleResult();
+		return cps.getId();
+	}
 }

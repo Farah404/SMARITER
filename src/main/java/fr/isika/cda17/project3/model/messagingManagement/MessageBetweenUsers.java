@@ -16,11 +16,13 @@ public class MessageBetweenUsers {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne
-    private UserAccount userAccount;
-
     @OneToOne
-    private Service service;
+    private UserAccount userAccountSender;
+    
+    @OneToOne
+    private UserAccount userAccountReceiver;
+
+    private Long serviceId;
 
     private String messageContent;
 
@@ -28,40 +30,69 @@ public class MessageBetweenUsers {
 	super();
     }
 
-    public MessageBetweenUsers(Long id, UserAccount userAccount, Service service, String messageContent) {
-	super();
-	this.id = id;
-	this.userAccount = userAccount;
-	this.service = service;
-	this.messageContent = messageContent;
-    }
+	public MessageBetweenUsers(Long id, UserAccount userAccountSender, UserAccount userAccountReceiver,
+			Long serviceId, String messageContent) {
+		super();
+		this.id = id;
+		this.userAccountSender = userAccountSender;
+		this.userAccountReceiver = userAccountReceiver;
+		this.serviceId = serviceId;
+		this.messageContent = messageContent;
+	}
 
-    public UserAccount getUserAccount() {
-	return userAccount;
-    }
+	public UserAccount getUserAccountProvider() {
+		return userAccountSender;
+	}
 
-    public void setUserAccount(UserAccount userAccount) {
-	this.userAccount = userAccount;
-    }
+	public void setUserAccountProvider(UserAccount userAccountSender) {
+		this.userAccountSender = userAccountSender;
+	}
 
-    public Service getService() {
-	return service;
-    }
+	public UserAccount getUserAccountReceiver() {
+		return userAccountReceiver;
+	}
 
-    public void setService(Service service) {
-	this.service = service;
-    }
+	public void setUserAccountReceiver(UserAccount userAccountReceiver) {
+		this.userAccountReceiver = userAccountReceiver;
+	}
 
-    public String getMessageContent() {
-	return messageContent;
-    }
+	public Long getServiceId() {
+		return serviceId;
+	}
 
-    public void setMessageContent(String messageContent) {
-	this.messageContent = messageContent;
-    }
+	public void setService(Long service) {
+		this.serviceId = service;
+	}
 
-    public Long getId() {
-	return id;
-    }
+	public String getMessageContent() {
+		return messageContent;
+	}
 
+	public void setMessageContent(String messageContent) {
+		this.messageContent = messageContent;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+    public MessageBetweenUsers withMessage(final String message) {
+    	this.messageContent=message;
+    	return this;
+    }
+    
+    public MessageBetweenUsers withSender(final UserAccount userAccountSending) {
+    	this.userAccountSender= userAccountSending;
+    	return this;
+    }
+    
+    public MessageBetweenUsers withReceiver(final UserAccount userAccountReceiving) {
+    	this.userAccountReceiver= userAccountReceiving;
+    	return this;
+    }
+    
+    public MessageBetweenUsers withRelatedService(final Long relatedServiceId) {
+    	this.serviceId= relatedServiceId;
+    	return this;
+    }
 }

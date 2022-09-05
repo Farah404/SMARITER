@@ -78,7 +78,7 @@ public class CreateCarRentalServiceBean {
     
     public String createReferenceNumber() {
     	int ref = carRentalServiceDao.findAll().size()+1;
-    	String referenceNumber="2022 - 00" + ref + " - CR";
+    	String referenceNumber="2022-00" + ref + "-CR";
     	return referenceNumber;
     }
 

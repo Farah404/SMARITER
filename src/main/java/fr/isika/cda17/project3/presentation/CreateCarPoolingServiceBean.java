@@ -95,7 +95,7 @@ public class CreateCarPoolingServiceBean {
 
     public String createReferenceNumber() {
     	int ref = carPoolingServiceDao.findAll().size()+1;
-    	String referenceNumber="2022 - 00" + ref + " - CP";
+    	String referenceNumber="2022-00" + ref + "-CP";
     	return referenceNumber;
     }
     public CarPoolingService getCps() {

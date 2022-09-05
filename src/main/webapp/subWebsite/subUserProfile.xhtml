@@ -4,7 +4,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:svg="http://www.w3.org/2000/svg" lang="en"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <f:metadata>
 	<f:event listener="#{userProfileShowBean.init()}" type="preRenderView">
@@ -352,16 +353,17 @@
 								<img src="subMedia/Images/MessageUser.png" style="width: 50%;" />
 							</center>
 							<div class="form-outline mb-3">
+							<h:inputText value="#{userProfileShowBean.referenceNumber}" a:placeholder="Entrez le numéro de référence du service"/>
+<!-- 							<h:inputText value="#{userProfileShowBean.referenceNumber}" a:placeholder="Entrez le numéro de référence du service"/> -->
 								<br />
 							</div>
 							<div class="form-outline mb-3">
-
+							<h:inputTextarea value="#{userProfileShowBean.messageContent}" a:placeholder="Entrez votre message ici"/>
 								<br />
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button class="btn btn-default pull-right" type="submit"
-								formaction="UserProfile">Envoyer</button>
+							<h:commandButton class="btn btn-default pull-right" action="#{userProfileShowBean.sendMessage()}">Envoyer</h:commandButton>
 						</div>
 					</div>
 

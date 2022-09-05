@@ -11,5 +11,5 @@ public interface CarPoolingServiceDao extends Dao<CarPoolingService> {
 	ServiceType findServiceType(Long id);
 	double findServicePrice(Long id);
 	String findReferenceNumber(Long id);
-	
+	Long findByReferenceNumber(String referenceNumber);
 }
