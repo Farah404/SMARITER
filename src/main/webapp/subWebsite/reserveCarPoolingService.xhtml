@@ -88,7 +88,7 @@
 													class="glyphicon glyphicon-road  text-success"></span> Type
 													de covoiturage</td>
 												<td class="text-success">
-												<p>#{carPoolingServiceManagementBean.carPoolingType()}</p> 
+												<p>#{carPoolingReservationBean.carPooling.carPoolingType}</p> 
 												</td>
 											</tr>
 
@@ -131,7 +131,7 @@
 													class="glyphicon glyphicon-resize-small text-success"></span>
 													Type du trajet</td>
 												<td class="text-success">
-													<p><h:outputText value="#{carPoolingServiceManagementBean.trajectoryType()}"></h:outputText></p>
+													<p>#{carPoolingReservationBean.carPooling.trajectory.trajectoryType}</p>
 												
 												</td>
 											</tr>

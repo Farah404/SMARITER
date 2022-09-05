@@ -92,18 +92,18 @@
 
 											<tr>
 												<td><span class="glyphicon glyphicon-cog text-success"></span>
-													Boîte de vitesse</td>
+													Transmission</td>
 												<td class="text-success">
-													<p><h:outputText value="#{carRentalServiceManagementBean.vehiculeType()}"></h:outputText></p>
+													<p>#{carRentalReservationBean.carRental.userAccountProvider.vehicule.vehiculeType}</p>
 												
 												</td>
 											</tr>
 											
 											<tr>
 												<td><span class="glyphicon glyphicon-cog text-success"></span>
-													Transmission</td>
+													Motorisation</td>
 												<td class="text-success">
-													<p><h:outputText value="#{carRentalServiceManagementBean.VehiculePowerType()}"></h:outputText></p>
+													<p>#{carRentalReservationBean.carRental.userAccountProvider.vehicule.vehiculePowerType}</p>
 												</td>
 											</tr>
 
