@@ -28,11 +28,11 @@
 					<div class="panel-body inf-content">
 						<div class="row">
 							<div class="col-md-4">
-								<img alt="" style="width: 600px;" title=""
-									class="img-circle img-thumbnail isTooltip" />
-								<h:commandButton action="#{userProfileBean.update()}"
+								<h:graphicImage style="width:600px" class="img-circle img-thumbnail isTooltip" url="/subWebsite/subMedia/ProfilePictures/#{userProfileBean.user.userAccount.profilePicturePath}"/>
+						<br />
+								<center><h:commandButton action="#{userProfileBean.update()}"
 									class="btn btn-success btn-xl"
-									value="Soumettre les modifications" />
+									value="Soumettre les modifications" /></center>
 							</div>
 
 							<div class="col-md-6">
