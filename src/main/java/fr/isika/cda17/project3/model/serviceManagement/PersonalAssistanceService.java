@@ -4,13 +4,17 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
-@NamedQuery(name = "PersonalAssistanceService.findAllUserPAS", query = "SELECT pas FROM PersonalAssistanceService pas WHERE pas.userAccountProvider.id = :userid_param")
+@NamedQueries({
+	@NamedQuery(name = "PersonalAssistanceService.findAllUserPAS", query = "SELECT pas FROM PersonalAssistanceService pas WHERE pas.userAccountProvider.id = :userid_param"),
+	@NamedQuery(name = "PersonalAssistanceService.findByReferenceNumber", query = "SELECT pas FROM PersonalAssistanceService pas WHERE pas.referenceNumber = :referencenumber_param")
+})
 public class PersonalAssistanceService extends Service {
 
     @Enumerated(EnumType.STRING)

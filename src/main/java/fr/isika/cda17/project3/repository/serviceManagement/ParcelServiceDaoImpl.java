@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
+import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
 import fr.isika.cda17.project3.model.serviceManagement.ParcelService;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
 
@@ -100,6 +101,12 @@ public class ParcelServiceDaoImpl implements ParcelServiceDao {
 	}catch (Exception e) {
 		return referenceNumber;
 	}
+	}
+	
+	@Override
+	public Long findByReferenceNumber(String referenceNumber) {
+		ParcelService ps = this.entityManager.createNamedQuery("ParcelService.findByReferenceNumber", ParcelService.class).setParameter("referencenumber_param", referenceNumber).getSingleResult();
+		return ps.getId();
 	}
 
 }

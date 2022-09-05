@@ -105,4 +105,9 @@ public class CarRentalServiceDaoImpl implements CarRentalServiceDao {
 		return referenceNumber;
 	}
 	}
+	@Override
+	public Long findByReferenceNumber(String referenceNumber) {
+		CarRentalService crs = this.entityManager.createNamedQuery("CarRentalService.findByReferenceNumber", CarRentalService.class).setParameter("referencenumber_param", referenceNumber).getSingleResult();
+		return crs.getId();
+	}
 }

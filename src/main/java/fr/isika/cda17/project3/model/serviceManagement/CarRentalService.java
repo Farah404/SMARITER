@@ -2,6 +2,7 @@ package fr.isika.cda17.project3.model.serviceManagement;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -10,7 +11,10 @@ import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
-@NamedQuery(name = "CarRentalService.findAllUserCRS", query = "SELECT crs FROM CarRentalService crs WHERE crs.userAccountProvider.id = :userid_param")
+@NamedQueries({
+	@NamedQuery(name = "CarRentalService.findAllUserCRS", query = "SELECT crs FROM CarRentalService crs WHERE crs.userAccountProvider.id = :userid_param"),
+	@NamedQuery(name = "CarRentalService.findByReferenceNumber", query = "SELECT crs FROM CarRentalService crs WHERE crs.referenceNumber = :referencenumber_param")
+})
 public class CarRentalService extends Service {
 
     private String keyPickUpAddress;

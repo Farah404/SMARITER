@@ -11,4 +11,5 @@ public interface CarRentalServiceDao extends Dao<CarRentalService> {
 	ServiceType findServiceType(Long id);
 	double findServicePrice(Long id);
 	String findReferenceNumber(Long id);
+	Long findByReferenceNumber(String referenceNumber);
 }

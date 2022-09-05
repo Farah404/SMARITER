@@ -90,7 +90,7 @@ public class CreateParcelServiceBean {
     
     public String createReferenceNumber() {
     	int ref = parcelServiceDao.findAll().size()+1;
-    	String referenceNumber="2022 - 00" + ref + " - P";
+    	String referenceNumber="2022-00" + ref + "-PS";
     	return referenceNumber;
     }
 

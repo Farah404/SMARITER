@@ -11,4 +11,5 @@ public interface PersonalAssistanceServiceDao extends Dao<PersonalAssistanceServ
 	ServiceType findServiceType(Long id);
 	double findServicePrice(Long id);
 	String findReferenceNumber(Long id);
+	Long findByReferenceNumber(String referenceNumber);
 }

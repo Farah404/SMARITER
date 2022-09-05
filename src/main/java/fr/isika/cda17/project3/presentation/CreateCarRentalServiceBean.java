@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.UserAccount;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
-import fr.isika.cda17.project3.model.serviceManagement.CarPoolingService;
 import fr.isika.cda17.project3.model.serviceManagement.CarRentalService;
 import fr.isika.cda17.project3.model.serviceManagement.Service;
 import fr.isika.cda17.project3.model.serviceManagement.ServiceType;
@@ -78,7 +77,7 @@ public class CreateCarRentalServiceBean {
     
     public String createReferenceNumber() {
     	int ref = carRentalServiceDao.findAll().size()+1;
-    	String referenceNumber="2022 - 00" + ref + " - CR";
+    	String referenceNumber="2022-00" + ref + "-CR";
     	return referenceNumber;
     }
 
