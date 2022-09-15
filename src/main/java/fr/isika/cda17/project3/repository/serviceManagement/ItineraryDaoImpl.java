@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.serviceManagement.Itinerary;
+import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
 
 @Stateless
 public class ItineraryDaoImpl implements ItineraryDao {
@@ -54,8 +55,7 @@ public class ItineraryDaoImpl implements ItineraryDao {
 
     @Override
     public List<Itinerary> findAll() {
-	// TODO Auto-generated method stub
-	return null;
+	return this.entityManager.createQuery("SELECT i FROM Itinerary i", Itinerary.class).getResultList();
     }
 
 }

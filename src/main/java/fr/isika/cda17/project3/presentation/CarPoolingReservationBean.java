@@ -70,7 +70,6 @@ public class CarPoolingReservationBean implements Serializable {
 					if (carPooling == null) {
 						redirectError();
 					}
-					System.out.println(carPooling);
 
 				} else {
 					redirectError();

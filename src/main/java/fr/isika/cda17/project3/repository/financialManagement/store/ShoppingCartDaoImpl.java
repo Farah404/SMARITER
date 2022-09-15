@@ -49,7 +49,7 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao{
 
     @Override
     public List<ShoppingCart> findAll() {
-	return null;
+    return this.entityManager.createQuery("SELECT sc FROM ShoppingCart sc", ShoppingCart.class).getResultList();
     }
 
 }

@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.personManagement.assets.Insurance;
+import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
 
 @Stateless
 public class InsuranceDaoImpl implements InsuranceDao {
@@ -57,8 +58,7 @@ public class InsuranceDaoImpl implements InsuranceDao {
 
     @Override
     public List<Insurance> findAll() {
-	// TODO Auto-generated method stub
-	return null;
+	return this.entityManager.createQuery("SELECT i FROM Insurance i", Insurance.class).getResultList();
     }
 
 }

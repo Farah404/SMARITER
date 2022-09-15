@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.solutionManagement.ParcelSolution;
+import fr.isika.cda17.project3.model.solutionManagement.Solution;
 
 @Stateless
 public class ParcelSolutionDaoImpl implements ParcelSolutionDao {
@@ -58,7 +59,7 @@ public class ParcelSolutionDaoImpl implements ParcelSolutionDao {
 
     @Override
     public List<ParcelSolution> findAll() {
-	return null;
+	return this.entityManager.createQuery("SELECT ps FROM ParcelSolution ps", ParcelSolution.class).getResultList();
     }
 
 }

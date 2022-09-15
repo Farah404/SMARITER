@@ -123,53 +123,9 @@ public String reservation() throws IOException {
 		return "subStore.xhtml";
 	}
 	
-//		System.out.println("DEBUT CREATION");
-//
-//		reservation.setService(carRental);
-//		serviceInvoice.setService(carRental);
-//		
-//		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-//		String email = (String) session.getAttribute("email");
-//		
-//		System.out.println(carRental);
-//		if(email != null && !email.isBlank()) {
-//			
-//			Optional<UserAccount> optional = userAccountDao.findByEmail(email);
-//			if(optional.isPresent()) {
-//				serviceInvoice.setUserAccountProvider(user);
-//				
-//				reservation.setServiceinvoice(serviceInvoice);
-//				
-//				carRental.withReservation(reservation).withUnavailable(true);
-//				
-//				reservationDao.create(reservation);
-//				carRentalServiceDao.update(carRental);
-//				
-//					
-//				System.out.println("reservation : "+reservation.getId());
-//	
-//			} else {
-//				System.out.println("reservation failed, no user with email : " + email);
-//			}
-//		
-//		} else {
-//			System.out.println("reservation failed, email unknown : " + email);
-//		}
-//		System.out.println("FIN CREATION");
 	}
 	
 	
-	
-	
-	
-  /**
-   * 
-    getters et setters
-   */
-
-
-
-
 	public Reservation getReservation() {
 		return reservation;
 	}

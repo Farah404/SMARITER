@@ -54,8 +54,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public List<Customer> findAll() {
-	// TODO Auto-generated method stub
-	return null;
+    return this.entityManager.createQuery("SELECT c FROM Customer c", Customer.class).getResultList();
     }
 
     @Override

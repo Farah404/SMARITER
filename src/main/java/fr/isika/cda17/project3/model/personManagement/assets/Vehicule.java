@@ -77,36 +77,12 @@ public class Vehicule {
 	this.vehiculeType = vehiculeType;
     }
 
-    public Boolean isAutomatic() {
-	return VehiculeType.AUTOMATIC.equals(vehiculeType);
-    }
-
-    public Boolean isManual() {
-	return VehiculeType.MANUAL.equals(vehiculeType);
-    }
-
     public VehiculePowerType getVehiculePowerType() {
 	return vehiculePowerType;
     }
 
     public void setVehiculePowerType(VehiculePowerType vehiculePowerType) {
 	this.vehiculePowerType = vehiculePowerType;
-    }
-
-    public Boolean isPetrol() {
-	return vehiculePowerType.equals(vehiculePowerType);
-    }
-
-    public Boolean isElectric() {
-	return vehiculePowerType.equals(vehiculePowerType);
-    }
-
-    public Boolean isHybrid() {
-	return vehiculePowerType.equals(vehiculePowerType);
-    }
-
-    public Boolean isDiesel() {
-	return vehiculePowerType.equals(vehiculePowerType);
     }
 
     public String getTechnicalTestExpiration() {

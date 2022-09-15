@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.isika.cda17.project3.model.financialManagement.store.ShoppingCart;
 import fr.isika.cda17.project3.model.financialManagement.store.Wallet;
 
 @Stateless
@@ -50,7 +51,7 @@ public class WalletDaoImpl implements WalletDao{
 
     @Override
     public List<Wallet> findAll() {
-	return null;
+    return this.entityManager.createQuery("SELECT w FROM Wallet w", Wallet.class).getResultList();
     }
 
 }

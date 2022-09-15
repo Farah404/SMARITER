@@ -48,13 +48,11 @@ public class ReservationDaoImpl implements ReservationDao {
 
     @Override
     public Reservation findById(Long id) {
-	// TODO Auto-generated method stub
 	return entityManager.find(Reservation.class, id);
     }
 
     @Override
     public List<Reservation> findAll() {
-	// TODO Auto-generated method stub
 	return this.entityManager.createQuery("select ea from Reservation ea", Reservation.class).getResultList();
     }
 

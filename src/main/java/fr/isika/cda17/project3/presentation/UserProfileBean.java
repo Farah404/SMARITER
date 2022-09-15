@@ -96,11 +96,6 @@ public class UserProfileBean implements Serializable {
 	    userServiceInvoiceWhenPurchaser=serviceInvoiceDao.findAllUserAccountPurchaserServiceInvoice(user.getUserAccount().getId());
 	    userServiceInvoiceWhenProvider= serviceInvoiceDao.findAllUserAccountProviderServiceInvoice(user.getUserAccount().getId());
 	    messageBetweenUsers=messageDao.findAllMessageReceivedByUser(id);
-	    if (user == null) {
-		System.out.println("not logical");
-	    }
-	} else {
-	    System.out.println("id null");
 	}
     }
     public void sendMessage(UserAccount userAccountReceiver, Long serviceId, String referenceNumberConcerned) {

@@ -31,7 +31,7 @@ public class CreateCustomerBean implements Serializable {
     private BillingAddress billingAddress = new BillingAddress();
 
     public void create() {
-	Customer created = customerDao.create(customer);
+    customerDao.create(customer);
     }
 
     public String createStepOne() {
@@ -45,7 +45,6 @@ public class CreateCustomerBean implements Serializable {
 	entityAccount.setProfilePicturePath("media/gif/profilePictures/ProfileGif8.gif");
 	customer.setEntityAccount(entityAccount);
 	customerDao.create(customer);
-	System.err.println(customer.getId());
 	return "signUp.xhtml?faces-redirect=true&customerId=" + customer.getId();
     }
 

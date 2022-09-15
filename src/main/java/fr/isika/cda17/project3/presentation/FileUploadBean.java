@@ -58,12 +58,12 @@ public class FileUploadBean implements Serializable{
 		 */
 		savedFile = new File("C:\\Users\\farah\\Desktop\\FormationIsika\\ProjetsEclipse\\ISIKA_Projet3\\src\\main\\webapp\\media\\uploads", fileName);
 
-		 System.out.println("savedFile.toPath(): " + savedFile.toPath());
+//		 System.out.println("savedFile.toPath(): " + savedFile.toPath());
 
 		try (InputStream input = newProfilePic.getInputStream()) {
 		    Files.copy(input, savedFile.toPath());
-		} catch (IOException e) {
-		    e.printStackTrace();
+		} catch (Exception e) {
+//			 Logger.log("context", e);
 		}
 
 		newProfilePicSuccess = true;

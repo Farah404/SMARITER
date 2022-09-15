@@ -52,7 +52,6 @@ public class SolutionImpl implements SolutionDao {
 
     @Override
     public List<Solution> findAll() {
-	// TODO Auto-generated method stub
 	return this.entityManager.createQuery("select ea from Solution ea", Solution.class).getResultList();
     }
 

@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.solutionManagement.CarPoolingSolution;
+import fr.isika.cda17.project3.model.solutionManagement.Solution;
 
 @Stateless
 public class CarPoolingSolutionDaoImpl implements CarPoolingsolutionDao {
@@ -54,7 +55,7 @@ public class CarPoolingSolutionDaoImpl implements CarPoolingsolutionDao {
 
     @Override
     public List<CarPoolingSolution> findAll() {
-	return null;
+	return this.entityManager.createQuery("SELECT cps FROM CarPoolingSolution cps", CarPoolingSolution.class).getResultList();
     }
 
 }

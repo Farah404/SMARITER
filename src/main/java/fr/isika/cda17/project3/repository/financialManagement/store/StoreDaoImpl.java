@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.isika.cda17.project3.model.financialManagement.store.ShoppingCart;
 import fr.isika.cda17.project3.model.financialManagement.store.Store;
 
 @Stateless
@@ -49,7 +50,7 @@ public class StoreDaoImpl implements StoreDao {
 
     @Override
     public List<Store> findAll() {
-	return null;
+    return this.entityManager.createQuery("SELECT s FROM Store s", Store.class).getResultList();
     }
 
 }

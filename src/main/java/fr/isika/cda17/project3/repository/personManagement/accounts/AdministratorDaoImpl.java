@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 
 import fr.isika.cda17.project3.model.personManagement.accounts.Administrator;
 import fr.isika.cda17.project3.model.personManagement.accounts.AdministratorAccount;
+import fr.isika.cda17.project3.model.personManagement.assets.Insurance;
 
 @Stateless
 public class AdministratorDaoImpl implements AdministratorDao {
@@ -60,13 +61,11 @@ public class AdministratorDaoImpl implements AdministratorDao {
 
     @Override
     public List<Administrator> findAll() {
-	// TODO Auto-generated method stub
-	return null;
+	return this.entityManager.createQuery("SELECT a FROM Administrator a", Administrator.class).getResultList();
     }
 
     @Override
     public Optional<AdministratorAccount> findByEmail(String email) {
-	// TODO Auto-generated method stub
 	try {
 	    AdministratorAccount adminAccount = this.entityManager
 		    .createNamedQuery("AdministratorAccount.findByEmail", AdministratorAccount.class)

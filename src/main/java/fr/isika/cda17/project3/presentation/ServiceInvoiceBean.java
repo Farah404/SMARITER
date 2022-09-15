@@ -93,15 +93,15 @@ public class ServiceInvoiceBean {
 							}
 					}
 					
-					if (carPoolingServiceDao.findReferenceNumber(serviceInvoice.getService().getId()) != "") {
+					if (!carPoolingServiceDao.findReferenceNumber(serviceInvoice.getService().getId()).equals("")) {
 						referenceNumber=carPoolingServiceDao.findReferenceNumber(serviceInvoice.getService().getId());
 					}
 						else {
-							if(carRentalServiceDao.findReferenceNumber(serviceInvoice.getService().getId()) != "") {
+							if(!carRentalServiceDao.findReferenceNumber(serviceInvoice.getService().getId()).equals("")) {
 								referenceNumber=carRentalServiceDao.findReferenceNumber(serviceInvoice.getService().getId());
 						}
 							else {
-								if(parcelServiceDao.findReferenceNumber(serviceInvoice.getService().getId()) != "") {
+								if(!parcelServiceDao.findReferenceNumber(serviceInvoice.getService().getId()).equals("")) {
 									referenceNumber=parcelServiceDao.findReferenceNumber(serviceInvoice.getService().getId());
 								}
 								else {

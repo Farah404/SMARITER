@@ -25,7 +25,6 @@ public class CustomerProfileBean implements Serializable {
     public void init() {
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	Long id = Long.valueOf(session.getAttribute("id").toString());
-	System.out.println(id);
 	if (id != null) {
 	    customer = customerDao.findByEntityAccountId(id);
 	}

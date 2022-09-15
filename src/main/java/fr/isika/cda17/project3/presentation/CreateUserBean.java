@@ -47,15 +47,12 @@ public class CreateUserBean implements Serializable {
 	userAccount.setWallet(wallet);
 	userAccount.setIsActive(true);
 
-	// TODO parse String into LTD
-	// set.(LTD)
-
+	
 	vehicule.setInsurance(insurance);
 	userAccount.setVehicule(vehicule);
 	user.setUserAccount(userAccount);
 	User created = userDao.create(user);
 
-	// There is no list&&reservations set on userAccount
 
 	System.out.println(created);
 	return "subIndex.xhtml";

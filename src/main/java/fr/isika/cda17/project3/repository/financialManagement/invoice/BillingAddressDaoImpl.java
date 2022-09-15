@@ -61,8 +61,7 @@ public class BillingAddressDaoImpl implements BillingAddressDao {
 
     @Override
     public List<BillingAddress> findAll() {
-	// TODO Auto-generated method stub
-	return null;
+    return this.entityManager.createQuery("SELECT ba FROM BillingAddress ba", BillingAddress.class).getResultList();
     }
 
 }

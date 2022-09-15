@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.isika.cda17.project3.model.personManagement.assets.Insurance;
 import fr.isika.cda17.project3.model.personManagement.assets.Vehicule;
 
 @Stateless
@@ -53,8 +54,7 @@ public class VehiculeDaoImpl implements VehiculeDao {
 
     @Override
     public List<Vehicule> findAll() {
-	// TODO Auto-generated method stub
-	return null;
+    	return this.entityManager.createQuery("SELECT v FROM Vehicule v", Vehicule.class).getResultList();
     }
 
 }

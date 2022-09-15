@@ -58,8 +58,7 @@ public class BankDetailsDaoImpl implements BankDetailsDao {
 
     @Override
     public List<BankDetails> findAll() {
-	// TODO Auto-generated method stub
-	return null;
+	return this.entityManager.createQuery("SELECT bd FROM BankDetails bd", BankDetails.class).getResultList();
     }
 
 }

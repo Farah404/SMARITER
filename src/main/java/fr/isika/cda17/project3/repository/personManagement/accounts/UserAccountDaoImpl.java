@@ -56,8 +56,7 @@ public class UserAccountDaoImpl implements UserAccountsDao {
 
     @Override
     public List<UserAccount> findAll() {
-	// TODO Auto-generated method stub
-	return null;
+	return this.entityManager.createQuery("SELECT ua FROM UserAccount ua", UserAccount.class).getResultList();
     }
 
     @Override

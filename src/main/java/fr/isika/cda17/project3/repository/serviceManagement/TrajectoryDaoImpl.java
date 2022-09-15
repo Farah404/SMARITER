@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.isika.cda17.project3.model.serviceManagement.Reservation;
 import fr.isika.cda17.project3.model.serviceManagement.Trajectory;
 
 @Stateless
@@ -61,8 +62,7 @@ public class TrajectoryDaoImpl implements TrajectoryDao {
 
     @Override
     public List<Trajectory> findAll() {
-	// TODO Auto-generated method stub
-	return null;
+	return this.entityManager.createQuery("SELECT t FROM Trajectory t", Trajectory.class).getResultList();
     }
 
 }
